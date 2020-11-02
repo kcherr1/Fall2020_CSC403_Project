@@ -1,2 +1,2 @@
-Link to Join Trello Board: https://tinyurl.com/y4n3dwdg
-GitHub repo: https://github.com/kcherr1/Fall2020_CSC403_Project
+Link to Join Trello Board: https://trello.com/b/kY41I5U7/yellow-team-team-scrum-project
+GitHub repo: https://github.com/cfoste2/Fall2020_CSC403_Project
