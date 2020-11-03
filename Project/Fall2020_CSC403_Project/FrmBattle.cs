@@ -116,7 +116,8 @@ namespace Fall2020_CSC403_Project {
     //text used upon damage beign dealt after attack is used
     private string DamageTakenText(bool playerDamaged, int damageAmount)
     {
-      return (playerDamaged ? player.CharacterName : enemy.CharacterName) + " lost " + damageAmount + " health points.";
+      //damage amount will always be a negative amount, but should be worded as a positive
+      return (playerDamaged ? player.CharacterName : enemy.CharacterName) + " lost " + (-1 * damageAmount) + " health points.";
     }
 
     //while processing the damage for the enemy/player to take, display text for the attack being used and then the damage dealt
