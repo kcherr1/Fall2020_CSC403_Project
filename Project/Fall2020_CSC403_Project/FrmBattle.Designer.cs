@@ -4,16 +4,16 @@
     /// Required designer variable.
     /// </summary>
     private System.ComponentModel.IContainer components = null;
+    private System.EventHandler buttonClickEventHandler;
 
     /// <summary>
     /// Clean up any resources being used.
     /// </summary>
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-      if(disposing)
-      {
-        FrmBattle.BattleTextChanged -= SetBattleInfoTextBox;
-      }
+    protected override void Dispose(bool disposing)
+    {
+      //ensure old button on click events are not carried over between battles 
+      this.btnAttack.Click -= buttonClickEventHandler;
       
       if (disposing && (components != null)) {
         components.Dispose();
@@ -22,10 +22,10 @@
     }
 
     /// <summary>
-    /// Replace text in battleInfoTextBox. Indended to be triggered through 
+    /// Replace text in battleInfoTextBox
     /// </summary>
-    /// <param name="newText">string to override the currrent text displayed in battleInfoTextBox (can be empty too).</param>
-    private void SetBattleInfoTextBox(string newText)
+    /// <param name="newText">string to override the currrent text displayed in battleInfoTextBox (can be empty string too).</param>
+    protected void SetBattleInfoTextBox(string newText)
     {
       this.battleInfoTextBox.Text = newText;
     }
@@ -37,9 +37,6 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-      //during initilaization, register to the text changing event in FrmBattle
-      FrmBattle.BattleTextChanged += SetBattleInfoTextBox;
-
       this.components = new System.ComponentModel.Container();
       this.btnAttack = new System.Windows.Forms.Button();
       this.lblPlayerHealthFull = new System.Windows.Forms.Label();
@@ -65,7 +62,8 @@
       this.btnAttack.TabIndex = 2;
       this.btnAttack.Text = "Attack";
       this.btnAttack.UseVisualStyleBackColor = true;
-      this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
+      buttonClickEventHandler = new System.EventHandler(this.btnAttack_Click);
+      this.btnAttack.Click += buttonClickEventHandler;
       // 
       // lblPlayerHealthFull
       // 
