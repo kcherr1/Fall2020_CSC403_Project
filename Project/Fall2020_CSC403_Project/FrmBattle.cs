@@ -11,6 +11,9 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemy;
     private Player player;
 
+    public delegate void TriggerBattleTextChange(string newText);
+    public static event TriggerBattleTextChange BattleTextChanged;
+
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -64,6 +67,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
+      BattleTextChanged?.Invoke("testing");
       player.OnAttack(-4);
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);

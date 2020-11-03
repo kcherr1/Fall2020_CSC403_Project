@@ -20,7 +20,9 @@ namespace Fall2020_CSC403_Project.code {
     /// </summary>
     /// <param name="initPos">this is the initial position of the enemy</param>
     /// <param name="collider">this is the collider for the enemy</param>
-    public Enemy(Vector2 initPos, Collider collider) : base(initPos, collider) {
+    /// <param name="charName">the name of this character</param>
+    /// <param name="charAttackName">each char has one move, this is its name</param>
+    public Enemy(Vector2 initPos, Collider collider, string charName, string charAttackName) : base(initPos, collider, charName, charAttackName) {
     }
   }
 }
