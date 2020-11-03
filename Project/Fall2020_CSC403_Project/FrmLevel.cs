@@ -10,6 +10,34 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
+    //because enemies are hardcoded into the game, this variable is also hard coded. Once enemies are setup in a different way,
+    //this vairble can be initialized when the game starts and recognizes the number of enemies present in the level
+    private int numEnemiesRemaining = 3;
+
+
+    private void UpdateLevelAfterEnemyLostInBattle(Enemy defeatedEnemy)
+    {
+      //since the game is hard coded with three enemies, this code will manually check each one to figure out which picturebox is correct.
+      //Will need to be updated once multiple enemy support is working to allow for the Enemy to be correlated to the variable correct image
+      if (defeatedEnemy == enemyPoisonPacket)
+      {
+        picEnemyPoisonPacket.Dispose();
+      }
+      else if(defeatedEnemy == bossKoolaid)
+      {
+        picBossKoolAid.Dispose();
+      }
+      else
+      {
+        picEnemyCheeto.Dispose();
+      }
+
+      if(--numEnemiesRemaining <= 0)
+      {
+        GameWonSequence();
+      }
+    }
+
     private Character[] walls;
 
     private DateTime timeBegin;
@@ -44,6 +72,8 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       timeBegin = DateTime.Now;
+
+      Enemy.EnemyLostInBattle += UpdateLevelAfterEnemyLostInBattle;
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -141,6 +171,12 @@ namespace Fall2020_CSC403_Project {
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
+    }
+
+    private void GameWonSequence()
+    {
+      MessageBox.Show("Congratulations! You Win!");
+      Application.Exit();
     }
   }
 }

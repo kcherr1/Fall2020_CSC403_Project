@@ -18,7 +18,13 @@ namespace Fall2020_CSC403_Project.code {
       rect.Y = y;
     }
 
-    public bool Intersects(Collider c) {
+    public bool Intersects(Collider c) 
+    {
+      //enemy colliders are removed when they are defeated
+      if(c == null)
+      { 
+        return false; 
+      }
       return rect.IntersectsWith(c.rect);
     }
   }
