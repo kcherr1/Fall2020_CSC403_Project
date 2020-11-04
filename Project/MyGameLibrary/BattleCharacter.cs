@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project.code {
     public int Health { get; private set; }
     public int MaxHealth { get; private set; }
     private float strength;
+    public bool Alive { get => Health >= 1; }
 
     public event Action<int> AttackEvent;
 
