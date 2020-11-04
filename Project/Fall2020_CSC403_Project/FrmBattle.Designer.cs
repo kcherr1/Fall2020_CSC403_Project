@@ -31,6 +31,10 @@
             this.lblEnemyHealthFull = new System.Windows.Forms.Label();
             this.PlayerExperience = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblHealth = new System.Windows.Forms.Label();
+            this.lblExperience = new System.Windows.Forms.Label();
+            this.lblLevel = new System.Windows.Forms.Label();
+            this.lblPlayerLevel = new System.Windows.Forms.Label();
             this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
@@ -43,7 +47,7 @@
             // btnAttack
             // 
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttack.Location = new System.Drawing.Point(190, 649);
+            this.btnAttack.Location = new System.Drawing.Point(185, 654);
             this.btnAttack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(192, 66);
@@ -99,7 +103,7 @@
             this.PlayerExperience.BackColor = System.Drawing.Color.LimeGreen;
             this.PlayerExperience.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayerExperience.ForeColor = System.Drawing.Color.White;
-            this.PlayerExperience.Location = new System.Drawing.Point(106, 573);
+            this.PlayerExperience.Location = new System.Drawing.Point(106, 604);
             this.PlayerExperience.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PlayerExperience.Name = "PlayerExperience";
             this.PlayerExperience.Size = new System.Drawing.Size(339, 31);
@@ -109,11 +113,59 @@
             // 
             this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Location = new System.Drawing.Point(104, 571);
+            this.label3.Location = new System.Drawing.Point(104, 601);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(344, 35);
             this.label3.TabIndex = 8;
+            // 
+            // lblHealth
+            // 
+            this.lblHealth.BackColor = System.Drawing.Color.Transparent;
+            this.lblHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHealth.ForeColor = System.Drawing.Color.White;
+            this.lblHealth.Location = new System.Drawing.Point(99, 56);
+            this.lblHealth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHealth.Name = "lblHealth";
+            this.lblHealth.Size = new System.Drawing.Size(100, 32);
+            this.lblHealth.TabIndex = 9;
+            this.lblHealth.Text = "Health";
+            // 
+            // lblExperience
+            // 
+            this.lblExperience.BackColor = System.Drawing.Color.Transparent;
+            this.lblExperience.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExperience.ForeColor = System.Drawing.Color.White;
+            this.lblExperience.Location = new System.Drawing.Point(98, 566);
+            this.lblExperience.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblExperience.Name = "lblExperience";
+            this.lblExperience.Size = new System.Drawing.Size(170, 32);
+            this.lblExperience.TabIndex = 10;
+            this.lblExperience.Text = "Experience";
+            // 
+            // lblLevel
+            // 
+            this.lblLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblLevel.ForeColor = System.Drawing.Color.White;
+            this.lblLevel.Location = new System.Drawing.Point(381, 18);
+            this.lblLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLevel.Name = "lblLevel";
+            this.lblLevel.Size = new System.Drawing.Size(51, 19);
+            this.lblLevel.TabIndex = 11;
+            this.lblLevel.Text = "Level";
+            this.lblLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPlayerLevel
+            // 
+            this.lblPlayerLevel.BackColor = System.Drawing.Color.Black;
+            this.lblPlayerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerLevel.ForeColor = System.Drawing.Color.White;
+            this.lblPlayerLevel.Location = new System.Drawing.Point(365, 40);
+            this.lblPlayerLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPlayerLevel.Name = "lblPlayerLevel";
+            this.lblPlayerLevel.Size = new System.Drawing.Size(84, 48);
+            this.lblPlayerLevel.TabIndex = 11;
+            this.lblPlayerLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // picBossBattle
             // 
@@ -172,6 +224,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PlayerExperience);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblHealth);
+            this.Controls.Add(this.lblExperience);
+            this.Controls.Add(this.lblLevel);
+            this.Controls.Add(this.lblPlayerLevel);
             this.Controls.Add(this.btnAttack);
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
@@ -198,6 +254,10 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.Label PlayerExperience;
     private System.Windows.Forms.Label label3;
+    private System.Windows.Forms.Label lblHealth;
+    private System.Windows.Forms.Label lblExperience;
+    private System.Windows.Forms.Label lblLevel;
+    private System.Windows.Forms.Label lblPlayerLevel;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
   }

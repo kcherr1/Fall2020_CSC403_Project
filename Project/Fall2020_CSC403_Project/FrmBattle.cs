@@ -32,6 +32,9 @@ namespace Fall2020_CSC403_Project {
       
       // show experience
       UpdateExpBars();
+      
+      // show player level
+      UpdatePlayerLevel();
     }
 
     public void SetupForBossBattle() {
@@ -74,6 +77,10 @@ namespace Fall2020_CSC403_Project {
       PlayerExperience.Width = (int)(MAX_EXPBAR_WIDTH * playerExp);
 
       PlayerExperience.Text = player.Experience.ToString();
+    }
+    
+    private void UpdatePlayerLevel() {
+      lblPlayerLevel.Text = player.Level.ToString();
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
