@@ -132,6 +132,16 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+        protected override void OnDeactivate(EventArgs e)
+        {
+            // when form loses focus, stop movement
+            holdLeft = false;
+            holdRight = false;
+            holdUp = false;
+            holdDown = false;
+            player.ResetMoveSpeed();
+        }
+
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -188,12 +198,12 @@ namespace Fall2020_CSC403_Project
                     break;
 
                 case Keys.Up:
-                    player.UpdateMoveSpeed(-Vector2.Down);
+                    player.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
                     holdUp = false;
                     break;
 
                 case Keys.Down:
-                    player.UpdateMoveSpeed(-Vector2.Up);
+                    player.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
                     holdDown = false;
                     break;
             }
