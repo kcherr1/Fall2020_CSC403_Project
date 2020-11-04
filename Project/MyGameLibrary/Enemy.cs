@@ -16,6 +16,11 @@ namespace Fall2020_CSC403_Project.code {
     public Color Color { get; set; }
 
     /// <summary>
+    /// this boolean sets whether the enemy is meant to be a boss enemy or not
+    /// </summary>
+    public bool IsBoss { get; set; }
+
+    /// <summary>
     /// 
     /// </summary>
     /// <param name="initPos">this is the initial position of the enemy</param>
