@@ -121,5 +121,8 @@
       <Name>MyGameLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\fog_of_war.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

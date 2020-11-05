@@ -87,7 +87,13 @@ namespace Fall2020_CSC403_Project {
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-    }
+
+            // Update the pictureboxes that make up the "fog of war" based on the new player location
+      fog_upper.Location = new Point((int)player.Position.x-1148, (int)player.Position.y-588);
+            fog_lower.Location = new Point((int)player.Position.x - 1148, (int)player.Position.y + 168);
+            fog_left.Location = new Point((int)player.Position.x - 1056, (int)player.Position.y - 97);
+            fog_right.Location = new Point((int)player.Position.x + 159, (int)player.Position.y - 97);
+        }
 
     private bool HitAWall(Character c) {
       bool hitAWall = false;
@@ -142,5 +148,10 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+        private void fog_lower_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
