@@ -1,4 +1,4 @@
-﻿namespace Fall2020_CSC403_Project {
+namespace Fall2020_CSC403_Project {
   partial class FrmBattle {
     /// <summary>
     /// Required designer variable.
@@ -202,7 +202,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(822, 533);
+            this.ClientSize = new System.Drawing.Size(830, 534);
             this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
