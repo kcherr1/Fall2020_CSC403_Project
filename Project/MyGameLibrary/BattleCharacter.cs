@@ -11,13 +11,19 @@ namespace Fall2020_CSC403_Project.code {
     public int Health { get; private set; }
     public int MaxHealth { get; private set; }
     private float strength;
+    private string characterName;
+    public string CharacterName { get => characterName; }
+    private string attackName;
+    public string AttackName{get => attackName; }
 
     public event Action<int> AttackEvent;
 
-    public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
+    public BattleCharacter(Vector2 initPos, Collider collider, string charName, string charAttackName) : base(initPos, collider) {
       MaxHealth = 20;
       strength = 2;
       Health = MaxHealth;
+      characterName = charName;
+      attackName = charAttackName;
     }
 
     public void OnAttack(int amount) {
