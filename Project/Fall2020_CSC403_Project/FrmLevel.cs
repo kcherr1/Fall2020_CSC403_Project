@@ -29,9 +29,12 @@ namespace Fall2020_CSC403_Project
             const int PADDING = 7;
             const int NUM_WALLS = 13;
 
-            // initialize enemies on this form
+            // initialize player
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            Enemy bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING))
+            Game.player = player;
+            
+            // initialize enemies on this form
+            Enemy bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 100)
             {
                 Img = picBossKoolAid.BackgroundImage,
                 Color = Color.Red,
@@ -39,7 +42,7 @@ namespace Fall2020_CSC403_Project
             };
             enemies.Add(bossKoolaid);
 
-            Enemy enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING))
+            Enemy enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), 50)
             {
                 Img = picEnemyPoisonPacket.BackgroundImage,
                 Color = Color.Green,
@@ -47,7 +50,7 @@ namespace Fall2020_CSC403_Project
             };
             enemies.Add(enemyPoisonPacket);
 
-            Enemy enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING))
+            Enemy enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), 50)
             {
                 Img = picEnemyCheeto.BackgroundImage,
                 Color = Color.FromArgb(255, 245, 161),
@@ -63,7 +66,6 @@ namespace Fall2020_CSC403_Project
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
-            Game.player = player;
             timeBegin = DateTime.Now;
         }
 

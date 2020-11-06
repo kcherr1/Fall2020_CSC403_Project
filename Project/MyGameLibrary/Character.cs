@@ -15,10 +15,12 @@ namespace Fall2020_CSC403_Project.code
         public Vector2 Position { get; private set; }
         public Collider Collider { get; private set; }
 
+
         public Character(Vector2 initPos, Collider collider)
         {
             Position = initPos;
             Collider = collider;
+
         }
 
         public void Move()
@@ -42,23 +44,5 @@ namespace Fall2020_CSC403_Project.code
         {
             MoveSpeed = new Vector2(0, 0);
         }
-
-        //public void GoLeft()
-        //{
-        //    MoveSpeed = new Vector2(-GO_INC, 0);
-        //}
-        //public void GoRight()
-        //{
-        //    MoveSpeed = new Vector2(+GO_INC, 0);
-        //}
-        //public void GoUp()
-        //{
-        //    MoveSpeed = new Vector2(0, -GO_INC);
-        //}
-        //public void GoDown()
-        //{
-        //    MoveSpeed = new Vector2(0, +GO_INC);
-        //}
-
     }
 }

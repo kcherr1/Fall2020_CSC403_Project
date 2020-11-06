@@ -80,8 +80,14 @@ namespace Fall2020_CSC403_Project
             }
 
             UpdateHealthBars();
-            if (player.Health <= 0 || enemy.Health <= 0)
+            if (player.Health <= 0)
             {
+                instance = null;
+                Close();
+            }
+            else if (enemy.Health <= 0)
+            {
+                player.AwardEXP(enemy.ExpReward);
                 instance = null;
                 Close();
             }
