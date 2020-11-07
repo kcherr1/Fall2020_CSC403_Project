@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 #pragma warning disable 1591 // use this to disable comment warnings
 
 namespace Fall2020_CSC403_Project.code {
-  public class BattleCharacter : Character {
+  public abstract class BattleCharacter : Character {
     public int Health { get; private set; }
     public int MaxHealth { get; private set; }
     private float strength;
@@ -25,6 +25,9 @@ namespace Fall2020_CSC403_Project.code {
       characterName = charName;
       attackName = charAttackName;
     }
+
+    //character processing when a character loses in battle depends on the character type (player or enemy)
+    public abstract void HandleLostInBattle();
 
     public void OnAttack(int amount) {
       AttackEvent((int)(amount * strength));

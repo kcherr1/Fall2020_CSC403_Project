@@ -148,6 +148,15 @@ namespace Fall2020_CSC403_Project {
       enemy.AttackEvent -= PlayerDamage;
       player.AttackEvent -= EnemyDamage;
 
+      if (playerWon)
+      {
+        enemy.HandleLostInBattle();
+      }
+      else
+      {
+        player.HandleLostInBattle();
+      }
+
       TriggerTimedTextBoxUpdate((playerWon ? player.CharacterName : enemy.CharacterName) + " won the battle.", baseMillisecondDelay);
       instance = null;
       Close();
