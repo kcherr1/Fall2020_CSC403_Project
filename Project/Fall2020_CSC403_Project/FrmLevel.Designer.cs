@@ -1,30 +1,35 @@
 ﻿using System.Drawing;
 
-namespace Fall2020_CSC403_Project {
-  partial class FrmLevel {
-    /// <summary>
-    /// Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
+namespace Fall2020_CSC403_Project
+{
+    partial class FrmLevel
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-      if (disposing && (components != null)) {
-        components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-    #region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent() {
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
@@ -302,7 +307,6 @@ namespace Fall2020_CSC403_Project {
             this.fog_lower.Size = new System.Drawing.Size(2346, 500);
             this.fog_lower.TabIndex = 19;
             this.fog_lower.TabStop = false;
-            this.fog_lower.Click += new System.EventHandler(this.fog_lower_Click);
             // 
             // fog_left
             // 
@@ -383,30 +387,30 @@ namespace Fall2020_CSC403_Project {
             this.ResumeLayout(false);
             this.PerformLayout();
 
-    }
+        }
 
-    #endregion
+        #endregion
 
-    private System.Windows.Forms.PictureBox picPlayer;
-    private System.Windows.Forms.PictureBox picBossKoolAid;
-    private System.Windows.Forms.Label lblInGameTime;
-    private System.Windows.Forms.Timer tmrUpdateInGameTime;
-    private System.Windows.Forms.Timer tmrPlayerMove;
-    private System.Windows.Forms.PictureBox picWall3;
-    private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
-    private System.Windows.Forms.PictureBox picEnemyCheeto;
-    private System.Windows.Forms.PictureBox picWall5;
-    private System.Windows.Forms.PictureBox picWall4;
-    private System.Windows.Forms.PictureBox picWall12;
-    private System.Windows.Forms.PictureBox picWall6;
-    private System.Windows.Forms.PictureBox picWall9;
-    private System.Windows.Forms.PictureBox picWall10;
-    private System.Windows.Forms.PictureBox picWall0;
-    private System.Windows.Forms.PictureBox picWall7;
-    private System.Windows.Forms.PictureBox picWall8;
-    private System.Windows.Forms.PictureBox picWall1;
-    private System.Windows.Forms.PictureBox picWall2;
-    private System.Windows.Forms.PictureBox picWall11;
+        private System.Windows.Forms.PictureBox picPlayer;
+        private System.Windows.Forms.PictureBox picBossKoolAid;
+        private System.Windows.Forms.Label lblInGameTime;
+        private System.Windows.Forms.Timer tmrUpdateInGameTime;
+        private System.Windows.Forms.Timer tmrPlayerMove;
+        private System.Windows.Forms.PictureBox picWall3;
+        private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
+        private System.Windows.Forms.PictureBox picEnemyCheeto;
+        private System.Windows.Forms.PictureBox picWall5;
+        private System.Windows.Forms.PictureBox picWall4;
+        private System.Windows.Forms.PictureBox picWall12;
+        private System.Windows.Forms.PictureBox picWall6;
+        private System.Windows.Forms.PictureBox picWall9;
+        private System.Windows.Forms.PictureBox picWall10;
+        private System.Windows.Forms.PictureBox picWall0;
+        private System.Windows.Forms.PictureBox picWall7;
+        private System.Windows.Forms.PictureBox picWall8;
+        private System.Windows.Forms.PictureBox picWall1;
+        private System.Windows.Forms.PictureBox picWall2;
+        private System.Windows.Forms.PictureBox picWall11;
         private System.Windows.Forms.PictureBox fog_upper;
         private System.Windows.Forms.PictureBox fog_lower;
         private System.Windows.Forms.PictureBox fog_left;

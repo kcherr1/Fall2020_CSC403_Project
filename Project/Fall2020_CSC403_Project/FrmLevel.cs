@@ -1,153 +1,188 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.Dynamic;
 using System.Windows.Forms;
 
-namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
-    private Player player;
+namespace Fall2020_CSC403_Project
+{
+    public partial class FrmLevel : Form
+    {
+        private Player player;
 
-    private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
-    private Enemy enemyCheeto;
-    private Character[] walls;
+        private Enemy enemyPoisonPacket;
+        private Enemy bossKoolaid;
+        private Enemy enemyCheeto;
+        private Character[] walls;
 
-    private DateTime timeBegin;
-    private FrmBattle frmBattle;
+        private DateTime timeBegin;
+        private FrmBattle frmBattle;
 
-    public FrmLevel() {
-      InitializeComponent();
-    }
+        private static (int, int) fog_upper_offset = (-1148, -588);
+        private static (int, int) fog_lower_offset = (-1148, 168);
+        private static (int, int) fog_left_offset = (-1056, -97);
+        private static (int, int) fog_right_offset = (159, -97);
 
-    private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
-      const int NUM_WALLS = 13;
+        public FrmLevel()
+        {
+            InitializeComponent();
+            SetupLevel();
+        }
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+        private void SetupLevel()
+        {
+            picPlayer.Location = new Point(picPlayer.Location.X - 514, picPlayer.Location.Y + 227);
+        }
 
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+        private void FrmLevel_Load(object sender, EventArgs e)
+        {         
+            const int PADDING = 7;
+            const int NUM_WALLS = 13;
 
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-      walls = new Character[NUM_WALLS];
-      for (int w = 0; w < NUM_WALLS; w++) {
-        PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
-      }
+            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+            enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+            enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
-      Game.player = player;
-      timeBegin = DateTime.Now;
-    }
+            bossKoolaid.Color = Color.Red;
+            enemyPoisonPacket.Color = Color.Green;
+            enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
-    private Vector2 CreatePosition(PictureBox pic) {
-      return new Vector2(pic.Location.X, pic.Location.Y);
-    }
+            walls = new Character[NUM_WALLS];
+            for (int w = 0; w < NUM_WALLS; w++)
+            {
+                PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+            }
 
-    private Collider CreateCollider(PictureBox pic, int padding) {
-      Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-      return new Collider(rect);
-    }
+            Game.player = player;
+            timeBegin = DateTime.Now;
+        }
 
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      player.ResetMoveSpeed();
-    }
+        private Vector2 CreatePosition(PictureBox pic)
+        {
+            return new Vector2(pic.Location.X, pic.Location.Y);
+        }
 
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
-    }
+        private Collider CreateCollider(PictureBox pic, int padding)
+        {
+            Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+            return new Collider(rect);
+        }
 
-    private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      // move player
-      player.Move();
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        {
+            player.ResetMoveSpeed();
+        }
 
-      // check collision with walls
-      if (HitAWall(player)) {
-        player.MoveBack();
-      }
+        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
+        {
+            TimeSpan span = DateTime.Now - timeBegin;
+            string time = span.ToString(@"hh\:mm\:ss");
+            lblInGameTime.Text = "Time: " + time.ToString();
+        }
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
-      }
+        private void tmrPlayerMove_Tick(object sender, EventArgs e)
+        {
+            // move player
+            player.Move();
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            // check collision with walls
+            if (HitAWall(player))
+            {
+                player.MoveBack();
+            }
+
+            // check collision with enemies
+            if (HitAChar(player, enemyPoisonPacket))
+            {
+                Fight(enemyPoisonPacket);
+            }
+            else if (HitAChar(player, enemyCheeto))
+            {
+                Fight(enemyCheeto);
+            }
+            if (HitAChar(player, bossKoolaid))
+            {
+                Fight(bossKoolaid);
+            }
+
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
             // Update the pictureboxes that make up the "fog of war" based on the new player location
-      fog_upper.Location = new Point((int)player.Position.x-1148, (int)player.Position.y-588);
-            fog_lower.Location = new Point((int)player.Position.x - 1148, (int)player.Position.y + 168);
-            fog_left.Location = new Point((int)player.Position.x - 1056, (int)player.Position.y - 97);
-            fog_right.Location = new Point((int)player.Position.x + 159, (int)player.Position.y - 97);
+            fog_upper.Location = new Point((int)player.Position.x + fog_upper_offset.Item1, (int)player.Position.y + fog_upper_offset.Item2);
+            fog_lower.Location = new Point((int)player.Position.x + fog_lower_offset.Item1, (int)player.Position.y + fog_lower_offset.Item2);
+            fog_left.Location = new Point((int)player.Position.x + fog_left_offset.Item1, (int)player.Position.y + fog_left_offset.Item2);
+            fog_right.Location = new Point((int)player.Position.x + fog_right_offset.Item1, (int)player.Position.y + fog_right_offset.Item2);
         }
 
-    private bool HitAWall(Character c) {
-      bool hitAWall = false;
-      for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
-          hitAWall = true;
-          break;
+        private bool HitAWall(Character c)
+        {
+            bool hitAWall = false;
+            for (int w = 0; w < walls.Length; w++)
+            {
+                if (c.Collider.Intersects(walls[w].Collider))
+                {
+                    hitAWall = true;
+                    break;
+                }
+            }
+            return hitAWall;
         }
-      }
-      return hitAWall;
-    }
 
-    private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
-    }
+        private bool HitAChar(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
 
-    private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
+        private void Fight(Enemy enemy)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.Show();
 
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
+            if (enemy == bossKoolaid)
+            {
+                frmBattle.SetupForBossBattle();
+            }
+        }
 
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    player.GoLeft();
+                    break;
 
-        case Keys.Right:
-          player.GoRight();
-          break;
+                case Keys.Right:
+                    player.GoRight();
+                    break;
 
-        case Keys.Up:
-          player.GoUp();
-          break;
+                case Keys.Up:
+                    player.GoUp();
+                    break;
 
-        case Keys.Down:
-          player.GoDown();
-          break;
+                case Keys.Down:
+                    player.GoDown();
+                    break;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
-    }
+                default:
+                    player.ResetMoveSpeed();
+                    break;
+            }
+        }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+        private void lblInGameTime_Click(object sender, EventArgs e)
+        {
 
-    }
+        }
 
         private void fog_lower_Click(object sender, EventArgs e)
         {
