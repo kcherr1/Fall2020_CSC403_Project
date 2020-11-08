@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+    private Results link;
 
     private FrmBattle() {
       InitializeComponent();
@@ -42,10 +43,11 @@ namespace Fall2020_CSC403_Project {
       tmrFinalBattle.Enabled = true;
     }
 
-    public static FrmBattle GetInstance(Enemy enemy) {
+    public static FrmBattle GetInstance(Enemy enemy, ref Results link) {
       if (instance == null) {
         instance = new FrmBattle();
         instance.enemy = enemy;
+        instance.link = link;
         instance.Setup();
       }
       return instance;
@@ -61,6 +63,11 @@ namespace Fall2020_CSC403_Project {
 
       lblPlayerHealthFull.Text = player.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
+      if (playerHealthPer <= .25)
+       {
+        picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_lohp;
+        link.lowHP = true;
+       }
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
@@ -71,6 +78,11 @@ namespace Fall2020_CSC403_Project {
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
+        if (enemy.Health <= 0)
+         {
+          link.enemyKO = true;
+         }
+        link.running = false;
         instance = null;
         Close();
       }

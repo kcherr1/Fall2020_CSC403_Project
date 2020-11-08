@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -105,16 +106,26 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void Fight(Enemy enemy) {
+      Results link = new Results();
+      link.HealthWarn += LowHealthChange;
+      link.Setup();
       player.ResetMoveSpeed();
       player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle = FrmBattle.GetInstance(enemy, ref link);
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
     }
-
+    private void LowHealthChange(bool low)
+     {
+      if (low)
+        {
+          picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_lohp;
+        }
+            
+     }
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
@@ -132,7 +143,21 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
+        case Keys.A:
+          player.GoLeft();
+          break;
 
+        case Keys.D:
+          player.GoRight();
+          break;
+
+        case Keys.W:
+          player.GoUp();
+          break;
+
+        case Keys.S:
+          player.GoDown();
+          break;
         default:
           player.ResetMoveSpeed();
           break;
@@ -142,5 +167,10 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+        private void picPlayer_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
