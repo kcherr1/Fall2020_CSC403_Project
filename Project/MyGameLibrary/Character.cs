@@ -44,5 +44,11 @@ namespace Fall2020_CSC403_Project.code {
     public void ResetMoveSpeed() {
       MoveSpeed = new Vector2(0, 0);
     }
+    
+    // hide the character by moving it off screen by 1000 pixels
+    public void Hide() {
+      this.MoveSpeed = new Vector2(-1000, -1000);
+      this.Move();
+    }
   }
 }
