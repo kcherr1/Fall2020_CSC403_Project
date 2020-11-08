@@ -73,6 +73,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap colonel {
+            get {
+                object obj = ResourceManager.GetObject("colonel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enemy_cheetos {
             get {
                 object obj = ResourceManager.GetObject("enemy_cheetos", resourceCulture);
@@ -101,6 +111,16 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enemy_tony {
+            get {
+                object obj = ResourceManager.GetObject("enemy_tony", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream final_battle {
@@ -112,9 +132,41 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kisspng_ronald_mcdonald_fast_food_hamburger_mcdonald_s_res_5aef4be5530783_2117885115256319733401 {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-ronald-mcdonald-fast-food-hamburger-mcdonald-s-res-5aef4be5530783.2117885" +
+                        "115256319733401", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kisspng_vertebrate_character_mascot_clip_art_tony_the_tiger_5b08e780ce6ed6_9843005815273102088456 {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-vertebrate-character-mascot-clip-art-tony-the-tiger-5b08e780ce6ed6.984300" +
+                        "5815273102088456", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap player {
             get {
                 object obj = ResourceManager.GetObject("player", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tony {
+            get {
+                object obj = ResourceManager.GetObject("Tony", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
