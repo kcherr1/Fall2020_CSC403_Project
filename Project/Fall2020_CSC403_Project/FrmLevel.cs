@@ -116,12 +116,13 @@ namespace Fall2020_CSC403_Project {
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
-      // remove picture of enemy
-      this.Controls.Remove(this.enemyPictureBoxMap[enemy]);
       
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
+      
+      // remove picture of enemy
+      this.Controls.Remove(this.enemyPictureBoxMap[enemy]);
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
