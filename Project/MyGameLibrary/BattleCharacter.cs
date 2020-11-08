@@ -16,7 +16,7 @@ namespace Fall2020_CSC403_Project.code {
     public event Action<int> AttackEvent;
 
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
-      MaxHealth = 20;
+      MaxHealth = 40;
       strength = 2;
       experience = 0;
       level = 1;  
@@ -35,7 +35,7 @@ namespace Fall2020_CSC403_Project.code {
       experience += amount;
       if (experience > 10) {
         level += 1;
-        strength += 2;
+        strength += 4;
         experience = 0;
       }
     }

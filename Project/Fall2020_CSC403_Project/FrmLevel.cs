@@ -76,13 +76,19 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+        if (enemyPoisonPacket.Health > 0 && player.Health > 0) {
+         Fight(enemyPoisonPacket);
+        }
       }
       else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
+        if (enemyCheeto.Health > 0 && player.Health > 0) {
+         Fight(enemyCheeto);
+        }
       }
       if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+        if (bossKoolaid.Health > 0 && player.Health > 0) {
+         Fight(bossKoolaid);
+        }
       }
 
       // update player's picture box
