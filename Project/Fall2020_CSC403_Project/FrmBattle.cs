@@ -94,8 +94,19 @@ namespace Fall2020_CSC403_Project
             else if (enemy.Health <= 0)
             {
                 if (enemy.IsAlive)
-                    player.AwardEXP(enemy.ExpReward);
-                enemy.IsAlive = false;
+                {
+                    lblInfoPanel.Text = $"Enemy was defeated. Mr. Peanut gained {enemy.ExpReward} experience points!";
+                    Application.DoEvents();
+                    System.Threading.Thread.Sleep(2000);
+
+                    if (player.AwardEXP(enemy.ExpReward))
+                    {
+                        lblInfoPanel.Text = $"Mr. Peanut leveled up! Level is now {player.Level}!";
+                        Application.DoEvents();
+                        System.Threading.Thread.Sleep(2000);
+                    }
+                    enemy.IsAlive = false;
+                }
                 instance = null;
                 Close();
             }

@@ -17,7 +17,12 @@ namespace Fall2020_CSC403_Project.code
             EXP = 0;
         }
 
-        public void AwardEXP(int xp)
+        /// <summary>
+        /// increments exp by given amount, returns true on a level up, false otherwise
+        /// </summary>
+        /// <param name="xp">amount to increase exp, must be a positive number</param>
+        /// <returns></returns>
+        public bool AwardEXP(int xp)
         {
             // award experience points if the given xp value isn't negative
             if (xp > 0)
@@ -25,8 +30,9 @@ namespace Fall2020_CSC403_Project.code
 
             // adjust player level based on accrued experience
             // TODO: If player level goes up then a message should be displayed
-            // TODO: Player shouldn't be able to grind XP off dead enemies, because that makes no sense
+            int prevLevel = Level;
             Level = (EXP / 100) + 1;
+            return Level > prevLevel;
         }
     }
 }
