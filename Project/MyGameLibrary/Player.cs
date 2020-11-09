@@ -32,7 +32,16 @@ namespace Fall2020_CSC403_Project.code
             // TODO: If player level goes up then a message should be displayed
             int prevLevel = Level;
             Level = (EXP / 100) + 1;
-            return Level > prevLevel;
+
+            // if player levels up, increase and refill health
+            if (Level > prevLevel)
+            {
+                MaxHealth += 5;
+                Health = MaxHealth;
+                return true;
+            }
+            else
+                return false;
         }
     }
 }
