@@ -29,16 +29,18 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
+      // show level
+      UpdateLevel();
     }
 
     public void SetupForBossBattle() {
+      p1level.Visible = false;
       picBossBattle.Location = Point.Empty;
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
 
       SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
       simpleSound.Play();
-
       tmrFinalBattle.Enabled = true;
     }
 
@@ -63,6 +65,10 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
+    private void UpdateLevel() {
+      p1level.Text = "Level " + player.level.ToString();
+    } 
+
     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
@@ -75,6 +81,7 @@ namespace Fall2020_CSC403_Project {
         instance = null;
         Close();
       }
+      UpdateLevel();
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
         Close();
@@ -90,6 +97,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
+      p1level.Visible = true;
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }

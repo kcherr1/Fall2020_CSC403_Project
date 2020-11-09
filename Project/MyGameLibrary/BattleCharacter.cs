@@ -12,7 +12,7 @@ namespace Fall2020_CSC403_Project.code {
     public int MaxHealth { get; private set; }
     private float strength;
     private float experience;
-    private int level;
+    public int level;
     public event Action<int> AttackEvent;
 
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
@@ -33,7 +33,7 @@ namespace Fall2020_CSC403_Project.code {
 
     public void GainExperience(int amount) {
       experience += amount;
-      if (experience > 10) {
+      if (experience >= 10) {
         level += 1;
         strength += 4;
         experience = 0;
