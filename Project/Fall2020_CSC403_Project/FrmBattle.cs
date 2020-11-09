@@ -6,10 +6,13 @@ using System.Media;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
+
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+
+    public static int healthMultEnemy; // this variable will be multiplied to health losses (changed upon conversion of player to knight avatar)
 
     private FrmBattle() {
       InitializeComponent();
@@ -47,6 +50,7 @@ namespace Fall2020_CSC403_Project {
         instance = new FrmBattle();
         instance.enemy = enemy;
         instance.Setup();
+
       }
       return instance;
     }
@@ -77,7 +81,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void EnemyDamage(int amount) {
-      enemy.AlterHealth(amount);
+      enemy.AlterHealth(amount * healthMultEnemy);
     }
 
     private void PlayerDamage(int amount) {

@@ -1,4 +1,6 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace Fall2020_CSC403_Project {
   partial class FrmBattle {
     /// <summary>
     /// Required designer variable.
@@ -31,11 +33,11 @@
       this.lblEnemyHealthFull = new System.Windows.Forms.Label();
       this.picBossBattle = new System.Windows.Forms.PictureBox();
       this.picEnemy = new System.Windows.Forms.PictureBox();
-      this.picPlayer = new System.Windows.Forms.PictureBox();
+      picPlayer2 = new System.Windows.Forms.PictureBox();
       this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(picPlayer2)).BeginInit();
       this.SuspendLayout();
       // 
       // btnAttack
@@ -112,15 +114,15 @@
       // 
       // picPlayer
       // 
-      this.picPlayer.BackColor = System.Drawing.Color.WhiteSmoke;
-      this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
-      this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picPlayer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.picPlayer.Location = new System.Drawing.Point(70, 98);
-      this.picPlayer.Name = "picPlayer";
-      this.picPlayer.Size = new System.Drawing.Size(229, 267);
-      this.picPlayer.TabIndex = 0;
-      this.picPlayer.TabStop = false;
+      picPlayer2.BackColor = System.Drawing.Color.WhiteSmoke;
+      picPlayer2.BackgroundImage = FrmLevel.picPlayer.BackgroundImage; //global::Fall2020_CSC403_Project.Properties.Resources.player;
+      picPlayer2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      picPlayer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      picPlayer2.Location = new System.Drawing.Point(70, 98);
+      picPlayer2.Name = "picPlayer2";
+      picPlayer2.Size = new System.Drawing.Size(229, 267);
+      picPlayer2.TabIndex = 0;
+      picPlayer2.TabStop = false;
       // 
       // tmrFinalBattle
       // 
@@ -141,21 +143,21 @@
       this.Controls.Add(this.label1);
       this.Controls.Add(this.btnAttack);
       this.Controls.Add(this.picEnemy);
-      this.Controls.Add(this.picPlayer);
+      this.Controls.Add(picPlayer2);
       this.DoubleBuffered = true;
       this.Name = "FrmBattle";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "Fight!";
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(picPlayer2)).EndInit();
       this.ResumeLayout(false);
 
     }
 
     #endregion
 
-    private System.Windows.Forms.PictureBox picPlayer;
+    public static System.Windows.Forms.PictureBox picPlayer2;
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Label lblPlayerHealthFull;

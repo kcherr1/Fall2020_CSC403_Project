@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   static class Program {
+
     /// <summary>
     /// The main entry point for the application.
     /// </summary>
@@ -13,7 +14,12 @@ namespace Fall2020_CSC403_Project {
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new FrmLevel());
+      FrmLevel f = new FrmLevel();
+      Menu m = new Menu();
+      m.Show();
+      Application.Run(f);
+      
+
+        }
     }
-  }
 }
