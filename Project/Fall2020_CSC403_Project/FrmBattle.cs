@@ -101,5 +101,13 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
+
+    private void btnRun_Click(object sender, EventArgs e)
+    {
+      enemy.AttackEvent -= PlayerDamage;
+      player.AttackEvent -= EnemyDamage;
+      instance = null;
+      Close();
+    }
   }
 }
