@@ -21,6 +21,12 @@ namespace Fall2020_CSC403_Project
 
         public void Setup()
         {
+            if (!enemy.IsAlive)
+            {
+                lblInfoPanel.Text = "Enemy is already defeated.";
+                btnAttack.Text = "Leave";
+            }
+
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
@@ -87,7 +93,9 @@ namespace Fall2020_CSC403_Project
             }
             else if (enemy.Health <= 0)
             {
-                player.AwardEXP(enemy.ExpReward);
+                if (enemy.IsAlive)
+                    player.AwardEXP(enemy.ExpReward);
+                enemy.IsAlive = false;
                 instance = null;
                 Close();
             }
@@ -107,6 +115,11 @@ namespace Fall2020_CSC403_Project
         {
             picBossBattle.Visible = false;
             tmrFinalBattle.Enabled = false;
+        }
+
+        private void infoPanel_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

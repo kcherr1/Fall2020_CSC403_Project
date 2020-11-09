@@ -22,6 +22,14 @@ namespace Fall2020_CSC403_Project.code
         /// </summary>
         public bool IsBoss { get; set; }
 
+        /// <summary>
+        /// boolean tracks whether enemy is still alive, prevents player from farming xp off dead enemies
+        /// </summary>
+        public bool IsAlive { get; set; }
+
+        /// <summary>
+        /// int stores how many experience points will be awarded to the player upon defeating enemy
+        /// </summary>
         public int ExpReward { get; set; }
 
         /// <summary>
@@ -32,6 +40,7 @@ namespace Fall2020_CSC403_Project.code
         public Enemy(Vector2 initPos, Collider collider, int ExpReward) : base(initPos, collider)
         {
             this.ExpReward = ExpReward;
+            IsAlive = true;
         }
     }
 }
