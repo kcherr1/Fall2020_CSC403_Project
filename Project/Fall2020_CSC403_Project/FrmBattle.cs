@@ -110,10 +110,11 @@ namespace Fall2020_CSC403_Project {
             
             // Restore the player back to max health each time they level up
             player.AlterHealth((player.MaxHealth - player.Health));
-            
+         
           }
         }
         instance = null;
+        enemy.Hide();
         Close();
       }
     }
