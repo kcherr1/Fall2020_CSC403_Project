@@ -11,10 +11,10 @@ namespace MyGameLibrary
     public abstract class InventoryObject
     {
         
-        private bool stackable;  // Should multiples of this type stack in a single inventory slot?
-        private bool exhaustible;  // Can this object be used more than once?
+        protected bool stackable;  // Should multiples of this type stack in a single inventory slot?
+        protected bool exhaustible;  // Can this object be used more than once?
         private int count;  // How many of this object are in this stack (always 1 if not stackable).
-        public Image Img { get; set; } // This will be the inventory icon for this inventory item.
+        public Image img; // This will be the inventory icon for this inventory item.
 
         // Returns how many of this object are in the stack
         public int GetCount()

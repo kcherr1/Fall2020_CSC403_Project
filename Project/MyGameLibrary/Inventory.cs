@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyGameLibrary
 {
-    class Inventory
+    public class Inventory
     {
         private int maxInventorySize = 8; // Max number of inventory slots, defaults to 8.
         private List<InventoryObject> inventory; // List storing the inventory.
@@ -37,6 +37,11 @@ namespace MyGameLibrary
             {
                 inventory[i] = invObjs[i];
             }
+        }
+
+        public int GetMaxInventorySize()
+        {
+            return maxInventorySize;
         }
 
         // Returns the inventory as a List
@@ -126,7 +131,16 @@ namespace MyGameLibrary
         // Returns object in inventory at index without removing it.
         public InventoryObject GetInventoryObject(int index)
         {
-            return (inventory[index]);
+            //Console.WriteLine("\t" + index.ToString());
+            if (index < inventory.Count())
+            {
+                //Console.WriteLine("\t" + inventory[index].GetType());
+                return (inventory[index]);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         // Removes an object at index from the inventory
