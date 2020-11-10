@@ -413,8 +413,8 @@
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
     private System.Windows.Forms.Button button2;
-    private System.Windows.Forms.PictureBox pictureBox1;
-    private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     public static System.Windows.Forms.PictureBox picPlayer;
     }
 }

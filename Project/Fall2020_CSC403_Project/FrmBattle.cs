@@ -15,7 +15,7 @@ namespace Fall2020_CSC403_Project {
     
     // this variable will be multiplied to health losses (changed upon conversion of player to knight avatar)
     public static int healthMultEnemy = 1;
-    
+
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -57,8 +57,8 @@ namespace Fall2020_CSC403_Project {
       if (instance == null) {
         instance = new FrmBattle();
         instance.enemy = enemy;
-        instance.link = link;
-        instance.Setup();
+                instance.link = link;
+                instance.Setup();
 
       }
       return instance;
@@ -124,6 +124,7 @@ namespace Fall2020_CSC403_Project {
         }
         link.running = false;
         instance = null;
+        enemy.Hide();
         Close();
       }
     }

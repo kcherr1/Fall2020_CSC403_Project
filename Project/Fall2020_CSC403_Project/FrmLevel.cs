@@ -4,6 +4,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -16,9 +17,11 @@ namespace Fall2020_CSC403_Project {
     
     // Adds a sword to the map the player can pick up and equip
     private Character sword;
-    
+
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    
+    private Dictionary<Enemy, PictureBox> enemyPictureBoxMap = new Dictionary<Enemy, PictureBox>();
 
     public FrmLevel() {
       this.KeyPreview = true;
@@ -34,6 +37,10 @@ namespace Fall2020_CSC403_Project {
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
+      enemyPictureBoxMap.Add(bossKoolaid, picBossKoolAid);
+      enemyPictureBoxMap.Add(enemyPoisonPacket, picEnemyPoisonPacket);
+      enemyPictureBoxMap.Add(enemyCheeto, picEnemyCheeto);
+      
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -87,13 +94,14 @@ namespace Fall2020_CSC403_Project {
          {
              picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.armorSword;
              FrmBattle.picPlayer2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.armorSword;
-             
+
          }
          catch (NullReferenceException ex)
                 {
 
                 }
          FrmBattle.healthMultEnemy = 2;
+         this.Controls.Remove(this.pictureBox2);
       }
 
       // check collision with enemies
@@ -106,6 +114,13 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
+      /*
+      // check collision with sword (upgrade)
+      if (HitASword(player))
+       {
+          picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.armorSword;
+            }
+      */
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -143,16 +158,19 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
+      
+      // remove picture of enemy
+      this.Controls.Remove(this.enemyPictureBoxMap[enemy]);
     }
-    
+
     private void LowHealthChange(bool low)
-     {
+    {
       if (low)
-        {
-          picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_lohp;
+            {
+                picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_lohp;
+            }
+
         }
-            
-     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
@@ -171,7 +189,7 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
-        
+
         case Keys.A:
           player.GoLeft();
           break;
