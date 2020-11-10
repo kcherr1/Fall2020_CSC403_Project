@@ -98,6 +98,7 @@ namespace Fall2020_CSC403_Project {
 
                 }
          FrmBattle.healthMultEnemy = 2;
+         this.Controls.Remove(this.pictureBox2);
       }
 
       // check collision with enemies
