@@ -29,6 +29,8 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
+      // check if Mr.Peanut is baby
+      isBaby();
       // show level
       UpdateLevel();
     }
@@ -76,6 +78,7 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
+      isBaby();
       if (player.Health > 0 && enemy.Health <= 0) {
         player.GainExperience(5);
         instance = null;
@@ -100,6 +103,19 @@ namespace Fall2020_CSC403_Project {
       p1level.Visible = true;
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
+    }
+
+    // isBaby checks the player's health to determine whether Mr.Peanut should be baby
+    // should be called right after the health bar is updated
+    private void isBaby() {
+       if (player.Health <= 0.3 * player.MaxHealth) {
+                picPlayer.BackgroundImage = Resources.playersmall;
+                picPlayer.Refresh();
+       }
+       else {
+                picPlayer.BackgroundImage = Resources.player;
+                picPlayer.Refresh();
+       }
     }
   }
 }

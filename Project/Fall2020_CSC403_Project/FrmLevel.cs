@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -93,7 +94,17 @@ namespace Fall2020_CSC403_Project {
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-    }
+
+      // Change picture of Mr.Peanut to Baby Peanut if health is low
+      if (player.Health <= 0.3 * player.MaxHealth) {
+          picPlayer.BackgroundImage = Resources.playersmall;
+          picPlayer.Refresh();
+      }
+      else {
+          picPlayer.BackgroundImage = Resources.player;
+          picPlayer.Refresh();
+      }
+        }
 
     private bool HitAWall(Character c) {
       bool hitAWall = false;
