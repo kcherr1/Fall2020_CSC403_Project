@@ -289,7 +289,7 @@
             // picPlayer
             // 
             picPlayer.BackColor = System.Drawing.Color.Transparent;
-            picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.armorSword;
+            picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             picPlayer.Location = new System.Drawing.Point(159, 628);
             picPlayer.Margin = new System.Windows.Forms.Padding(4);

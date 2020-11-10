@@ -12,7 +12,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemy;
     private Player player;
 
-    public static int healthMultEnemy; // this variable will be multiplied to health losses (changed upon conversion of player to knight avatar)
+    public static int healthMultEnemy = 1; // this variable will be multiplied to health losses (changed upon conversion of player to knight avatar)
 
     private FrmBattle() {
       InitializeComponent();
