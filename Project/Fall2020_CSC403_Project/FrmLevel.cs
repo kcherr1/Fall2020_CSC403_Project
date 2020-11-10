@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -16,6 +17,8 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    
+    private Dictionary<Enemy, PictureBox> enemyPictureBoxMap = new Dictionary<Enemy, PictureBox>();
 
     public FrmLevel() {
       this.KeyPreview = true;
@@ -31,6 +34,10 @@ namespace Fall2020_CSC403_Project {
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
+      enemyPictureBoxMap.Add(bossKoolaid, picBossKoolAid);
+      enemyPictureBoxMap.Add(enemyPoisonPacket, picEnemyPoisonPacket);
+      enemyPictureBoxMap.Add(enemyCheeto, picEnemyCheeto);
+      
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -149,6 +156,9 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
+      
+      // remove picture of enemy
+      this.Controls.Remove(this.enemyPictureBoxMap[enemy]);
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
