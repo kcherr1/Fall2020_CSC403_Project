@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
+using System.Threading;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
@@ -82,7 +83,27 @@ namespace Fall2020_CSC403_Project
             player.OnAttack(-4 + (-1 * (player.Level - 1)));
             if (enemy.Health > 0)
             {
+                // Will - Enemy "animation effect"
+                picEnemy.BackgroundImage = Resources.wall;
+                picEnemy.Refresh();
+
+                Thread.Sleep(100);
+
+                picEnemy.BackgroundImage = enemy.Img;
+                picEnemy.Refresh();
+
+
                 enemy.OnAttack(-2);
+
+
+                // Will - Player "animation effect"
+                picPlayer.BackgroundImage = Resources.wall;
+                picPlayer.Refresh();
+
+                Thread.Sleep(100);
+
+                picPlayer.BackgroundImage = Resources.player;
+                picPlayer.Refresh();
             }
 
             UpdateHealthBars();
