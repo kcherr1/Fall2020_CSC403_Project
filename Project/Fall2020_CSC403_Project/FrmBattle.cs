@@ -6,12 +6,16 @@ using System.Media;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
+
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
     private Results link;
-
+    
+    // this variable will be multiplied to health losses (changed upon conversion of player to knight avatar)
+    public static int healthMultEnemy = 1;
+    
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -30,6 +34,12 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
+      
+      // show experience
+      UpdateExpBars();
+      
+      // show player level
+      UpdatePlayerLevel();
     }
 
     public void SetupForBossBattle() {
@@ -49,6 +59,7 @@ namespace Fall2020_CSC403_Project {
         instance.enemy = enemy;
         instance.link = link;
         instance.Setup();
+
       }
       return instance;
     }
@@ -63,11 +74,25 @@ namespace Fall2020_CSC403_Project {
 
       lblPlayerHealthFull.Text = player.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
-      if (playerHealthPer <= .25)
-       {
-        picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_lohp;
+      
+      if (playerHealthPer <= .25) {
+        picPlayer2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_lohp;
         link.lowHP = true;
-       }
+      }
+    }
+
+    private void UpdateExpBars() {
+      //float playerExp = (player.Experience + enemy.ExperienceDrop) / (float)player.RequiredLevelExperience;
+      float playerExp = (player.Experience) / (float)player.RequiredLevelExperience;
+      
+      const int MAX_EXPBAR_WIDTH = 226;
+      PlayerExperience.Width = (int)(MAX_EXPBAR_WIDTH * playerExp);
+
+      PlayerExperience.Text = player.Experience.ToString();
+    }
+    
+    private void UpdatePlayerLevel() {
+      lblPlayerLevel.Text = player.Level.ToString();
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
@@ -78,10 +103,25 @@ namespace Fall2020_CSC403_Project {
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
-        if (enemy.Health <= 0)
-         {
+        if (enemy.Health <= 0) {
           link.enemyKO = true;
-         }
+          player.AlterExperience(enemy.ExperienceDrop);
+          UpdateExpBars();
+          
+          // If the player levels up, increase their level by 1, and increase the amount of exp needed to lvl up
+          if (player.Experience >= player.RequiredLevelExperience)
+          {
+            player.LevelUp();
+
+            // Each level requires more exp than the previous; reset user's exp to 0 for the next level
+            player.AlterExperience(-(player.Experience));
+            player.ScaleLevelExperience(50);
+            
+            // Restore the player back to max health each time they level up
+            player.AlterHealth((player.MaxHealth - player.Health));
+            
+          }
+        }
         link.running = false;
         instance = null;
         Close();
@@ -89,7 +129,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void EnemyDamage(int amount) {
-      enemy.AlterHealth(amount);
+      enemy.AlterHealth((amount * healthMultEnemy));
     }
 
     private void PlayerDamage(int amount) {

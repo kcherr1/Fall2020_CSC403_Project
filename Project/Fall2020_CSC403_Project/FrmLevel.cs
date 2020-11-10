@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,11 +13,15 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
-
+    
+    // Adds a sword to the map the player can pick up and equip
+    private Character sword;
+    
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
     public FrmLevel() {
+      this.KeyPreview = true;
       InitializeComponent();
     }
 
@@ -42,6 +47,7 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
+      sword = new Character(CreatePosition(this.pictureBox2), CreateCollider(this.pictureBox2, PADDING));///////////////////////////
 
       Game.player = player;
       timeBegin = DateTime.Now;
@@ -75,6 +81,21 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
+      if (HitSword(player, sword))
+      {
+         try
+         {
+             picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.armorSword;
+             FrmBattle.picPlayer2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.armorSword;
+             
+         }
+         catch (NullReferenceException ex)
+                {
+
+                }
+         FrmBattle.healthMultEnemy = 2;
+      }
+
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
@@ -101,10 +122,15 @@ namespace Fall2020_CSC403_Project {
       return hitAWall;
     }
 
+    private bool HitSword(Character you, Character sword)
+    {
+        return you.Collider.Intersects(sword.Collider);
+    }
+
     private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
     }
-
+    
     private void Fight(Enemy enemy) {
       Results link = new Results();
       link.HealthWarn += LowHealthChange;
@@ -118,6 +144,7 @@ namespace Fall2020_CSC403_Project {
         frmBattle.SetupForBossBattle();
       }
     }
+    
     private void LowHealthChange(bool low)
      {
       if (low)
@@ -126,6 +153,7 @@ namespace Fall2020_CSC403_Project {
         }
             
      }
+
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
@@ -143,6 +171,7 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
+        
         case Keys.A:
           player.GoLeft();
           break;
@@ -158,6 +187,7 @@ namespace Fall2020_CSC403_Project {
         case Keys.S:
           player.GoDown();
           break;
+
         default:
           player.ResetMoveSpeed();
           break;
@@ -172,5 +202,24 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
+
+        private void button1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+            
+        }
+
+        private void FrmLevel_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            e.IsInputKey = true;
+        }
+
+        private void menu_click(object sender, EventArgs e)
+        {
+            Menu m = new Menu(); //this is the change, code for redirect  
+            m.ShowDialog();
+        }
+
+        
     }
 }
