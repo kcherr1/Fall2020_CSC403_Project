@@ -26,10 +26,10 @@ namespace Fall2020_CSC403_Project {
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 
-      Boss = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), picBossKoolAid, Color.Red);
+      Boss = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), picBossKoolAid, Color.Red, OnEnemyDeath);
       Enemies.Add(Boss);
-      Enemies.Add(new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), picEnemyPoisonPacket, Color.Green));
-      Enemies.Add(new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto, Color.FromArgb(255, 245, 161)));
+      Enemies.Add(new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), picEnemyPoisonPacket, Color.Green, OnEnemyDeath));
+      Enemies.Add(new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto, Color.FromArgb(255, 245, 161), OnEnemyDeath));
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -39,6 +39,27 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       timeBegin = DateTime.Now;
+    }
+
+    private void OnEnemyDeath(Enemy enemy)
+    {
+      // Render enemy off of the screen
+      enemy.Icon.Visible = false;
+
+      // Generate an instance of gold to put in place of the enemy
+      PictureBox goldInstance = new PictureBox();
+      goldInstance.BackgroundImage = picGold.BackgroundImage;
+      goldInstance.BackgroundImageLayout = picGold.BackgroundImageLayout;
+      goldInstance.Size = picGold.Size;
+
+      // Centers the image on the previous location of the enemy
+      int x = enemy.Icon.Location.X + enemy.Icon.Width / 2 - picGold.Width / 2;
+      int y = enemy.Icon.Location.Y + enemy.Icon.Height / 2 - picGold.Height / 2;
+      goldInstance.Location = new Point(x, y);
+
+      // Render the gold to the screen
+      goldInstance.Visible = true;
+      Controls.Add(goldInstance);
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -61,11 +82,6 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      // Render enemy icons
-      foreach (Enemy enemy in Enemies)
-        if (!enemy.Alive)
-          enemy.Icon.Visible = false;
-
       // move player
       player.Move();
 
