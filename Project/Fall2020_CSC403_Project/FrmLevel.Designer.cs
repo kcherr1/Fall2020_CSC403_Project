@@ -29,6 +29,7 @@
       this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
       this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
       this.picGold = new System.Windows.Forms.PictureBox();
+      this.picHealthPotion = new System.Windows.Forms.PictureBox();
       this.picWall11 = new System.Windows.Forms.PictureBox();
       this.picWall2 = new System.Windows.Forms.PictureBox();
       this.picWall8 = new System.Windows.Forms.PictureBox();
@@ -46,6 +47,7 @@
       this.picWall3 = new System.Windows.Forms.PictureBox();
       this.picBossKoolAid = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
+      ((System.ComponentModel.ISupportInitialize)(this.picHealthPotion)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picGold)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
@@ -89,6 +91,17 @@
       this.tmrPlayerMove.Enabled = true;
       this.tmrPlayerMove.Interval = 10;
       this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+      // 	
+      // picHealthPotion	
+      // 	
+      this.picHealthPotion.BackColor = System.Drawing.Color.Transparent;	
+      this.picHealthPotion.Image = global::Fall2020_CSC403_Project.Properties.Resources.HealthPotion;	
+      this.picHealthPotion.Location = new System.Drawing.Point(2, 74);	
+      this.picHealthPotion.Name = "picHealthPotion";	
+      this.picHealthPotion.Size = new System.Drawing.Size(80, 80);	
+      this.picHealthPotion.TabIndex = 18;	
+      this.picHealthPotion.TabStop = false;	
+      this.picHealthPotion.Visible = false;
       // 
       // picGold
       // 
@@ -296,6 +309,7 @@
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1176, 726);
+      this.Controls.Add(this.picHealthPotion);
       this.Controls.Add(this.picGold);
       this.Controls.Add(this.picWall11);
       this.Controls.Add(this.picWall2);
@@ -322,6 +336,7 @@
       this.Load += new System.EventHandler(this.FrmLevel_Load);
       this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
       this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+      ((System.ComponentModel.ISupportInitialize)(this.picHealthPotion)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picGold)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
@@ -367,7 +382,8 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
+    public System.Windows.Forms.PictureBox picHealthPotion;
     private System.Windows.Forms.PictureBox picGold;
-  }
+    }
 }
 
