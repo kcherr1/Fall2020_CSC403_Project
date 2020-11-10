@@ -113,6 +113,9 @@
     <None Include="data\enemy_koolaid.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\gold.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="code\" />
   </ItemGroup>
   <ItemGroup>

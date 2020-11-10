@@ -65,12 +65,27 @@ namespace Fall2020_CSC403_Project {
 
     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
-      if (enemy.Health > 0) {
+      EnemyTurn();
+    }
+
+    private void btnHeal_Click(object sender, EventArgs e)
+    {
+      player.AlterHealth(5);
+      EnemyTurn();
+    }
+
+    private void EnemyTurn()
+    {
+      if (enemy.Health > 0)
+      {
         enemy.OnAttack(-2);
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (player.Health <= 0 || enemy.Health <= 0)
+      {
+        if (enemy.Health <= 0)
+          enemy.OnDeath();
         instance = null;
         Close();
       }
@@ -87,6 +102,14 @@ namespace Fall2020_CSC403_Project {
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
+    }
+
+    private void btnRun_Click(object sender, EventArgs e)
+    {
+      enemy.AttackEvent -= PlayerDamage;
+      player.AttackEvent -= EnemyDamage;
+      instance = null;
+      Close();
     }
   }
 }

@@ -115,6 +115,13 @@ namespace Fall2020_CSC403_Project.Properties {
         public static System.Drawing.Bitmap HealthPotion {
             get {
                 object obj = ResourceManager.GetObject("HealthPotion", resourceCulture);
+            }
+        }
+
+        internal static System.Drawing.Bitmap gold {
+            get {
+                object obj = ResourceManager.GetObject("gold", resourceCulture);
+
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

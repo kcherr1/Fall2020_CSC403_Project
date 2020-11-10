@@ -33,6 +33,8 @@
       this.picEnemy = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
       this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+      this.btnRun = new System.Windows.Forms.Button();
+      this.btnHeal = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -127,6 +129,27 @@
       this.tmrFinalBattle.Interval = 5600;
       this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
       // 
+      // btnRun
+      // 
+      this.btnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnRun.Location = new System.Drawing.Point(351, 422);
+      this.btnRun.Name = "btnRun";
+      this.btnRun.Size = new System.Drawing.Size(128, 43);
+      this.btnRun.TabIndex = 8;
+      this.btnRun.Text = "Run Away";
+      this.btnRun.UseVisualStyleBackColor = true;
+      this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
+      // btnHeal
+      // 
+      this.btnHeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnHeal.Location = new System.Drawing.Point(127, 489);
+      this.btnHeal.Name = "btnHeal";
+      this.btnHeal.Size = new System.Drawing.Size(128, 43);
+      this.btnHeal.TabIndex = 8;
+      this.btnHeal.Text = "Heal";
+      this.btnHeal.UseVisualStyleBackColor = true;
+      this.btnHeal.Click += new System.EventHandler(this.btnHeal_Click);
+      // 
       // FrmBattle
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,6 +165,8 @@
       this.Controls.Add(this.btnAttack);
       this.Controls.Add(this.picEnemy);
       this.Controls.Add(this.picPlayer);
+      this.Controls.Add(this.btnRun);
+      this.Controls.Add(this.btnHeal);
       this.DoubleBuffered = true;
       this.Name = "FrmBattle";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -164,5 +189,7 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
+    private System.Windows.Forms.Button btnRun;
+    private System.Windows.Forms.Button btnHeal;
   }
 }

@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -7,16 +8,16 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
 
-    private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
-    private Enemy enemyCheeto;
     private Character[] walls;
+    private Enemy Boss;
+    private List<Enemy> Enemies;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
     public FrmLevel() {
       InitializeComponent();
+      Enemies = new List<Enemy>();
     }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
@@ -24,17 +25,11 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      Boss = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), picBossKoolAid, Color.Red, OnEnemyDeath);
+      Enemies.Add(Boss);
+      Enemies.Add(new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), picEnemyPoisonPacket, Color.Green, OnEnemyDeath));
+      Enemies.Add(new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto, Color.FromArgb(255, 245, 161), OnEnemyDeath));
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -44,6 +39,27 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       timeBegin = DateTime.Now;
+    }
+
+    private void OnEnemyDeath(Enemy enemy)
+    {
+      // Render enemy off of the screen
+      enemy.Icon.Visible = false;
+
+      // Generate an instance of gold to put in place of the enemy
+      PictureBox goldInstance = new PictureBox();
+      goldInstance.BackgroundImage = picGold.BackgroundImage;
+      goldInstance.BackgroundImageLayout = picGold.BackgroundImageLayout;
+      goldInstance.Size = picGold.Size;
+
+      // Centers the image on the previous location of the enemy
+      int x = enemy.Icon.Location.X + enemy.Icon.Width / 2 - picGold.Width / 2;
+      int y = enemy.Icon.Location.Y + enemy.Icon.Height / 2 - picGold.Height / 2;
+      goldInstance.Location = new Point(x, y);
+
+      // Render the gold to the screen
+      goldInstance.Visible = true;
+      Controls.Add(goldInstance);
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -75,14 +91,13 @@ namespace Fall2020_CSC403_Project {
       }
 
       // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+      foreach (Enemy enemy in Enemies)
+      {
+        if (enemy.Alive && HitAChar(player, enemy))
+        {
+          Fight(enemy);
+          break;
+        }
       }
 
       // update player's picture box
@@ -110,7 +125,7 @@ namespace Fall2020_CSC403_Project {
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
 
-      if (enemy == bossKoolaid) {
+      if (enemy == Boss) {
         frmBattle.SetupForBossBattle();
       }
     }
