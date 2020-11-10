@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
@@ -13,7 +14,9 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
-    private Character sword;  // sword////////////////////////////////////////////////////////////////////////////////
+    
+    // Adds a sword to the map the player can pick up and equip
+    private Character sword;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -142,16 +145,14 @@ namespace Fall2020_CSC403_Project {
     private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
     }
-        /*
-    private bool HitASword(Character you, Character other)
-     {
-      return you.Collider.Intersects(other.Collider);
-     }
-        */
+    
     private void Fight(Enemy enemy) {
+      Results link = new Results();
+      link.HealthWarn += LowHealthChange;
+      link.Setup();
       player.ResetMoveSpeed();
       player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle = FrmBattle.GetInstance(enemy, ref link);
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
@@ -161,6 +162,15 @@ namespace Fall2020_CSC403_Project {
       // remove picture of enemy
       this.Controls.Remove(this.enemyPictureBoxMap[enemy]);
     }
+
+    private void LowHealthChange(bool low)
+    {
+      if (low)
+            {
+                picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_lohp;
+            }
+
+        }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
@@ -180,6 +190,22 @@ namespace Fall2020_CSC403_Project {
           player.GoDown();
           break;
 
+        case Keys.A:
+          player.GoLeft();
+          break;
+
+        case Keys.D:
+          player.GoRight();
+          break;
+
+        case Keys.W:
+          player.GoUp();
+          break;
+
+        case Keys.S:
+          player.GoDown();
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;
@@ -190,10 +216,10 @@ namespace Fall2020_CSC403_Project {
 
     }
 
-        //private void button1_(object sender, KeyPressEventArgs e)
-        //{
+        private void picPlayer_Click(object sender, EventArgs e)
+        {
 
-        //}
+        }
 
         private void button1_KeyPress(object sender, KeyPressEventArgs e)
         {

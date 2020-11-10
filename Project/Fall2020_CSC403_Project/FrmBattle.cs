@@ -11,8 +11,10 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
-
-    public static int healthMultEnemy = 1; // this variable will be multiplied to health losses (changed upon conversion of player to knight avatar)
+    private Results link;
+    
+    // this variable will be multiplied to health losses (changed upon conversion of player to knight avatar)
+    public static int healthMultEnemy = 1;
 
     private FrmBattle() {
       InitializeComponent();
@@ -51,11 +53,12 @@ namespace Fall2020_CSC403_Project {
       tmrFinalBattle.Enabled = true;
     }
 
-    public static FrmBattle GetInstance(Enemy enemy) {
+    public static FrmBattle GetInstance(Enemy enemy, ref Results link) {
       if (instance == null) {
         instance = new FrmBattle();
         instance.enemy = enemy;
-        instance.Setup();
+                instance.link = link;
+                instance.Setup();
 
       }
       return instance;
@@ -71,6 +74,11 @@ namespace Fall2020_CSC403_Project {
 
       lblPlayerHealthFull.Text = player.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
+      
+      if (playerHealthPer <= .25) {
+        picPlayer2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_lohp;
+        link.lowHP = true;
+      }
     }
 
     private void UpdateExpBars() {
@@ -96,6 +104,7 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
         if (enemy.Health <= 0) {
+          link.enemyKO = true;
           player.AlterExperience(enemy.ExperienceDrop);
           UpdateExpBars();
           
@@ -113,6 +122,7 @@ namespace Fall2020_CSC403_Project {
             
           }
         }
+        link.running = false;
         instance = null;
         enemy.Hide();
         Close();
@@ -120,7 +130,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void EnemyDamage(int amount) {
-      enemy.AlterHealth(amount * healthMultEnemy);
+      enemy.AlterHealth((amount * healthMultEnemy));
     }
 
     private void PlayerDamage(int amount) {
