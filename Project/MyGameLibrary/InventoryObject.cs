@@ -13,7 +13,7 @@ namespace MyGameLibrary
         
         protected bool stackable;  // Should multiples of this type stack in a single inventory slot?
         protected bool exhaustible;  // Can this object be used more than once?
-        private int count;  // How many of this object are in this stack (always 1 if not stackable).
+        protected int count;  // How many of this object are in this stack (always 1 if not stackable).
         public Image img; // This will be the inventory icon for this inventory item.
 
         // Returns how many of this object are in the stack
@@ -36,7 +36,7 @@ namespace MyGameLibrary
             {
                 return false;
             }
-            count -= Math.Max(count,removeCount);
+            count -= removeCount;
             return true;
             
         }

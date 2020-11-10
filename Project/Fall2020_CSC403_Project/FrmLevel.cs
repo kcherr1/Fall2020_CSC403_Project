@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -130,6 +131,12 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
+    private void ShowInventory()
+    {
+        FrmInventory frmInventory = new FrmInventory(player.GetInventory(),player);
+        frmInventory.Show();
+    }
+
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
@@ -148,6 +155,18 @@ namespace Fall2020_CSC403_Project {
           player.GoDown();
           break;
 
+        case Keys.I:
+          ShowInventory();
+          break;
+
+        case Keys.C:
+          player.GetInventory().AddToInventory(new MyGameLibrary.InventoryObjects.HealthPotion(picHealthPotion.Image));
+          break;
+
+        case Keys.X:
+            player.GetInventory().AddToInventory(new MyGameLibrary.InventoryObjects.Experience(picExperience.Image,5));
+            break;
+
         default:
           player.ResetMoveSpeed();
           break;
@@ -157,6 +176,5 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-      
     }
 }

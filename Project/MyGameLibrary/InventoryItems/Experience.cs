@@ -8,27 +8,27 @@ using Fall2020_CSC403_Project.code;
 
 namespace MyGameLibrary.InventoryObjects
 {
-    public class HealthPotion : InventoryObject
+    public class Experience : InventoryObject
     {
-        private readonly int healAmount = 6;
+        private readonly int experienceAmount = 1;
         
-        public HealthPotion(Image img)
+        public Experience(Image img, int count)
         {
-            this.stackable = false;
+            this.stackable = true;
             this.exhaustible = true;
             this.img = img;
+            this.count = count;
             
         }
 
         public override void Effect(BattleCharacter character)
         {
             throw new NotImplementedException();
-
         }
 
         public override void Effect(Player player)
         {
-            player.AlterHealth(healAmount);
+            Remove(1);
         }
     }
 }

@@ -101,6 +101,16 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap experience {
+            get {
+                object obj = ResourceManager.GetObject("experience", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         public static System.IO.UnmanagedMemoryStream final_battle {
@@ -112,16 +122,19 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap HealthPotion {
-            get {
-                object obj = ResourceManager.GetObject("HealthPotion", resourceCulture);
-            }
-        }
-
-        internal static System.Drawing.Bitmap gold {
+        public static System.Drawing.Bitmap gold {
             get {
                 object obj = ResourceManager.GetObject("gold", resourceCulture);
-
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap health_potion {
+            get {
+                object obj = ResourceManager.GetObject("health_potion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
