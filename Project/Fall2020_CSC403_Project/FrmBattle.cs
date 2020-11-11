@@ -78,11 +78,26 @@ namespace Fall2020_CSC403_Project
             if (enemy.Health > 0)
             {
                 // Will - Enemy "animation effect"
-                picEnemy.BackgroundImage = Resources.wall;
+                if (enemy.Img == Resources.enemy_koolaid)
+                {
+                    picEnemy.BackgroundImage = Resources.enemy_koolaid_hit;
+                }
+
+
+                else if (enemy.Img == Resources.enemy_cheetos)
+                {
+                    picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_hit;
+                }
+
+                else // (enemy.Img == Resources.enemy_poisonpacket)
+                {
+                    picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_hit;
+                }
+
                 picEnemy.Refresh();
 
                 Thread.Sleep(100);
-
+                
                 picEnemy.BackgroundImage = enemy.Img;
                 picEnemy.Refresh();
 
@@ -91,7 +106,7 @@ namespace Fall2020_CSC403_Project
 
 
                 // Will - Player "animation effect"
-                picPlayer.BackgroundImage = Resources.wall;
+                picPlayer.BackgroundImage = Resources.player_hit;
                 picPlayer.Refresh();
 
                 Thread.Sleep(100);
@@ -103,6 +118,12 @@ namespace Fall2020_CSC403_Project
             UpdateHealthBars();
             if (player.Health <= 0)
             {
+                picPlayer.BackgroundImage = Resources.player_dead;
+                picPlayer.Refresh();
+
+                // lblInfoPanel.Text = $"You have died, Mr. Peanut is very disappointed in you :(";
+                Thread.Sleep(2000);
+
                 instance = null;
                 Close();
             }
@@ -114,7 +135,30 @@ namespace Fall2020_CSC403_Project
 
                 if (player.AwardEXP(enemy.ExpReward))
                 {
+<<<<<<< HEAD
                     lblInfoPanel.Text = $"Mr. Peanut leveled up! Level is now {player.Level}!";
+=======
+                //    // Death Enemy Image 
+                //    if (picEnemy.BackgroundImage == Resources.enemy_koolaid | picEnemy.BackgroundImage == Resources.enemy_koolaid_hit)
+                //    {
+                //        picEnemy.BackgroundImage = Resources.enemy_koolaid_dead;
+                //    }
+
+
+                //    else if (picEnemy.BackgroundImage == Resources.enemy_cheetos | picEnemy.BackgroundImage == Resources.enemy_cheetos_fw_hit)
+                //    {
+                //        picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_dead;
+                //    }
+
+                //    else // (picEnemy.BackgroundImage == Resources.enemy_poisonpacket)
+                //    {
+                //        picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_dead;
+                //    }
+
+                //    picEnemy.Refresh();
+
+                    lblInfoPanel.Text = $"Enemy was defeated. Mr. Peanut gained {enemy.ExpReward} experience points!";
+>>>>>>> eb43d0cabba26f662073951e967dac2861d83cd9
                     Application.DoEvents();
                     Thread.Sleep(2000);
                 }
