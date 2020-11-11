@@ -35,6 +35,7 @@ namespace Fall2020_CSC403_Project {
 			enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING)) {
 				Img = picEnemyPoisonPacket.BackgroundImage,
 				Color = Color.Green
+				
 			};
 
 			enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING)) {
