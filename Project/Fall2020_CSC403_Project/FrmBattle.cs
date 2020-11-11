@@ -135,30 +135,7 @@ namespace Fall2020_CSC403_Project
 
                 if (player.AwardEXP(enemy.ExpReward))
                 {
-<<<<<<< HEAD
                     lblInfoPanel.Text = $"Mr. Peanut leveled up! Level is now {player.Level}!";
-=======
-                //    // Death Enemy Image 
-                //    if (picEnemy.BackgroundImage == Resources.enemy_koolaid | picEnemy.BackgroundImage == Resources.enemy_koolaid_hit)
-                //    {
-                //        picEnemy.BackgroundImage = Resources.enemy_koolaid_dead;
-                //    }
-
-
-                //    else if (picEnemy.BackgroundImage == Resources.enemy_cheetos | picEnemy.BackgroundImage == Resources.enemy_cheetos_fw_hit)
-                //    {
-                //        picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_dead;
-                //    }
-
-                //    else // (picEnemy.BackgroundImage == Resources.enemy_poisonpacket)
-                //    {
-                //        picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_dead;
-                //    }
-
-                //    picEnemy.Refresh();
-
-                    lblInfoPanel.Text = $"Enemy was defeated. Mr. Peanut gained {enemy.ExpReward} experience points!";
->>>>>>> eb43d0cabba26f662073951e967dac2861d83cd9
                     Application.DoEvents();
                     Thread.Sleep(2000);
                 }
