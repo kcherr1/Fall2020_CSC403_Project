@@ -15,35 +15,66 @@ namespace Fall2020_CSC403_Project
     public partial class FrmInventory : Form
     {
         private Inventory inventory;
+        private FrmInventory instance;
         private Button[] inventorySlots;
         private Player player;
+        private Thread invUpdater;
+        private bool active;
+
 
         public FrmInventory(Inventory inventory, Player player)
         {
-            InitializeComponent();
             this.inventory = inventory;
             this.player = player;
+        }
+
+        // Creates an instance of this class with a visible 
+        // interface for the inventory
+        private void Instance()
+        {
+            InitializeComponent();
             inventorySlots = new Button[inventory.GetMaxInventorySize()];
             InitInvSlots();
-            //UpdateInventory();
-            Thread invUpdater = new Thread(ContinuousUpdate);
+            this.FormClosing += new FormClosingEventHandler(FrmIventory_FormClosing);
+            invUpdater = new Thread(ContinuousUpdater);
             invUpdater.Start();
+            active = true;
         }
 
-        private void ContinuousUpdate()
+        // Manages another instance of this class with a visible 
+        // interface for the inventory
+        public void ShowInventory()
         {
-            while (true)
+            if(instance == null)
             {
-                UpdateInventory();
-                Thread.Sleep(250);
+                instance = new FrmInventory(inventory,player);
+                instance.Instance();
+                
             }
+            else if (!instance.IsActive())
+            {
+                instance = new FrmInventory(inventory, player);
+                instance.Instance();
+            }
+            instance.Show();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        // Returns if the inventory updater thread is active.
+        public bool IsActive()
         {
-
+            return active;
         }
 
+        // Forces the thread updating the inventory to abort when the
+        // inventory window is closed.
+        private void FrmIventory_FormClosing(object sender, EventArgs e)
+        {
+            active = false;
+            invUpdater.Abort();
+            
+        }
+
+        // Initializes the inventory UI.
         private void InitInvSlots()
         {
             inventorySlots = new Button[inventory.GetMaxInventorySize()];
@@ -52,18 +83,30 @@ namespace Fall2020_CSC403_Project
                 inventorySlots[i - 1] = Controls.Find("InvSlot" + i.ToString(), true)[0] as Button;
                 inventorySlots[i - 1].Tag = i-1;
             }
-            UpdateInventory();
         }
         
-
+        // Handles clicks on the inventory's buttons.
         private void InvSlot_Click(object sender, EventArgs e)
         {
             Button invSlot = sender as Button;
             int index = (int)invSlot.Tag;
             inventory.UseInventoryObject(index, player);
-            UpdateInventory();
         }
 
+        // The UI is updated every 250ms, meant to be used in a separate thread
+        // from the main game.
+        private void ContinuousUpdater()
+        {
+            while (active)
+            {
+                UpdateInventory();
+                Thread.Sleep(50);
+            }
+            
+        }
+
+        // Updates the inventory ui to match what is stored in the inventory.
+        // This method is meant to be called from a secondary thread.
         private void UpdateInventory()
         {
             for (int i = 0; i < inventory.GetMaxInventorySize(); i++)
@@ -74,23 +117,50 @@ namespace Fall2020_CSC403_Project
                     inventorySlots[i].Image = iObj.img;
                     if (iObj.IsStackable())
                     {
-                        //inventorySlots[i].Text = inventory.GetInventoryObject(i).GetCount().ToString();
-                        this.Invoke(new MethodInvoker(delegate()
+
+                        // Allows the inventory updater thread to update the UI elements
+                        // in the inventory from outside of the main thread.
+                        try
                         {
-                            inventorySlots[i].Text = inventory.GetInventoryObject(i).GetCount().ToString();
-                        }));
+                            this.Invoke(new MethodInvoker(delegate ()
+                            {
+                                inventorySlots[i].Text = inventory.GetInventoryObject(i).GetCount().ToString();
+                            }));
+                        }
+                        catch(Exception e)
+                        {
+                        }
                     }
                     else
                     {
-                        inventorySlots[i].Text = "";
+                        try
+                        {
+                            this.Invoke(new MethodInvoker(delegate ()
+                            {
+                                inventorySlots[i].Text = "";
+                            }));
+                        }
+                        catch (Exception e)
+                        {
+                        }
+                        
                     }
                 }
                 else
                 {
-                    inventorySlots[i].Image = null;
-                    inventorySlots[i].Text = "";
+                    try
+                    {
+                        this.Invoke(new MethodInvoker(delegate ()
+                        {
+                            inventorySlots[i].Image = null;
+                            inventorySlots[i].Text = "";
+                        }));
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                    
                 }
-
             }
         }
     }

@@ -98,7 +98,7 @@
             // 
             this.picExperience.BackColor = System.Drawing.Color.Transparent;
             this.picExperience.Image = global::Fall2020_CSC403_Project.Properties.Resources.experience;
-            this.picExperience.Location = new System.Drawing.Point(2, 154);
+            this.picExperience.Location = new System.Drawing.Point(2, 74);
             this.picExperience.Name = "picExperience";
             this.picExperience.Size = new System.Drawing.Size(80, 80);
             this.picExperience.TabIndex = 19;

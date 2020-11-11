@@ -15,6 +15,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmInventory frmInventory;
 
     public FrmLevel() {
       InitializeComponent();
@@ -39,6 +40,7 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
+      frmInventory = new FrmInventory(player.GetInventory(), player);
       timeBegin = DateTime.Now;
     }
 
@@ -131,10 +133,10 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
+    // Creates an instance of FrmInventory to display the player's inventory.
     private void ShowInventory()
     {
-        FrmInventory frmInventory = new FrmInventory(player.GetInventory(),player);
-        frmInventory.Show();
+      frmInventory.ShowInventory();
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
@@ -154,10 +156,9 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
-
         case Keys.I:
-          ShowInventory();
-          break;
+            ShowInventory();
+            break;
 
         case Keys.C:
           player.GetInventory().AddToInventory(new MyGameLibrary.InventoryObjects.HealthPotion(picHealthPotion.Image));
