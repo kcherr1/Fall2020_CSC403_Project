@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,10 +11,13 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
+		private Enemy enemyTony;
+		private Enemy enemyRonald;
     private Character[] walls;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+
 
     public FrmLevel() {
       InitializeComponent();
@@ -25,17 +29,32 @@ namespace Fall2020_CSC403_Project {
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+			SpawnEnemies();
 
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+			enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING)) {
+				Img = picEnemyPoisonPacket.BackgroundImage,
+				Color = Color.Green
+			};
 
+			enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING)) {
+				Img = picEnemyCheeto.BackgroundImage,
+				Color = Color.FromArgb(255, 245, 161)
+			};
+
+			enemyTony = new Enemy(CreatePosition(picEnemyTony), CreateCollider(picEnemyTony, PADDING)) {
+				Img = picEnemyTony.BackgroundImage,
+				Color = Color.Orange
+			};
+
+			enemyRonald = new Enemy(CreatePosition(picEnemyRonald), CreateCollider(picEnemyRonald, PADDING)) {
+				Img = picEnemyRonald.BackgroundImage,
+				Color = Color.Yellow
+			};
+
+			bossKoolaid.Img = picBossKoolAid.BackgroundImage;      
+			bossKoolaid.Color = Color.Red;
+      
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
@@ -74,14 +93,20 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossKoolaid)) {
+			// check collision with enemies
+			if (HitAChar(player, enemyPoisonPacket) && picEnemyPoisonPacket.Visible) {
+				Fight(enemyPoisonPacket);
+			}
+			else if (HitAChar(player, enemyTony) && picEnemyTony.Visible) {
+				Fight(enemyTony);
+			}
+			else if (HitAChar(player, enemyCheeto) && picEnemyCheeto.Visible) {
+				Fight(enemyCheeto);
+			}
+			else if (HitAChar(player, enemyRonald) && picEnemyRonald.Visible) {
+				Fight(enemyRonald);
+			}
+			if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
 
@@ -139,8 +164,43 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+		private int[] RandomIntegers() {
+			Random ran = new Random();
+			int getRanNum1 = ran.Next(4);
+			int getRanNum2 = ran.Next(4);
+			int getRanNum3 = ran.Next(4);
+			// loop until you get two unique numbers
+			while (getRanNum1 == getRanNum2)
+				getRanNum2 = ran.Next(4);
+			// loop until you get a third number unique from the first two
+			while ((getRanNum3 == getRanNum2) || (getRanNum3 == getRanNum1))
+					getRanNum3 = ran.Next(4);
+			int[] randomIntArray = { getRanNum1, getRanNum2, getRanNum3 };
+			return randomIntArray;
+		}
 
-    }
-  }
+		private void SpawnEnemies() {
+			// Get which random integers will spawn enemies
+			int[] enemyInitilizerArray = RandomIntegers();
+
+			// Hide all pictureboxes
+			picEnemyPoisonPacket.Visible = false;
+			picEnemyCheeto.Visible = false;
+			picEnemyTony.Visible = false;
+			picEnemyRonald.Visible = false;
+
+			// Randomize Which Enemies are "spawned" on the map
+			foreach (int i in enemyInitilizerArray) {
+				if (i == 0)
+					picEnemyPoisonPacket.Visible = true;
+				else if (i == 1)
+					picEnemyCheeto.Visible = true;
+				else if (i == 2)
+					picEnemyTony.Visible = true;
+				else if (i == 3)
+					picEnemyRonald.Visible = true;
+			}
+		}
+
+	}
 }

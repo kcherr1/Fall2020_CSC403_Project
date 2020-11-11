@@ -113,13 +113,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colonel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tony.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\colonel.png" />
+    <Content Include="data\enemy_tony.png" />
+    <None Include="Resources\kisspng-ronald-mcdonald-fast-food-hamburger-mcdonald-s-res-5aef4be5530783.2117885115256319733401.png" />
+    <None Include="Resources\kisspng-vertebrate-character-mascot-clip-art-tony-the-tiger-5b08e780ce6ed6.9843005815273102088456.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
