@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project
         private Player player;
 
         private List<Enemy> enemies = new List<Enemy>();
+        public static Dictionary<Enemy, PictureBox> EnemyPictureDict = new Dictionary<Enemy, PictureBox>();
 
         private Character[] walls;
 
@@ -34,13 +35,14 @@ namespace Fall2020_CSC403_Project
             Game.player = player;
             
             // initialize enemies on this form
-            Enemy bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 100)
+            Enemy bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 100, 60)
             {
                 Img = picBossKoolAid.BackgroundImage,
                 Color = Color.Red,
                 IsBoss = true
             };
             enemies.Add(bossKoolaid);
+            EnemyPictureDict.Add(bossKoolaid, picBossKoolAid);
 
             Enemy enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), 50)
             {
@@ -49,6 +51,7 @@ namespace Fall2020_CSC403_Project
                 IsBoss = false
             };
             enemies.Add(enemyPoisonPacket);
+            EnemyPictureDict.Add(enemyPoisonPacket, picEnemyPoisonPacket);
 
             Enemy enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), 50)
             {
@@ -57,6 +60,7 @@ namespace Fall2020_CSC403_Project
                 IsBoss = false
             };
             enemies.Add(enemyCheeto);
+            EnemyPictureDict.Add(enemyCheeto, picEnemyCheeto);
 
 
             walls = new Character[NUM_WALLS];
@@ -101,7 +105,7 @@ namespace Fall2020_CSC403_Project
             // check collision with enemies
             enemies.ForEach((enemy) =>
             {
-                if (HitAChar(player, enemy))
+                if (enemy.IsAlive && HitAChar(player, enemy))
                     Fight(enemy);
             });
 

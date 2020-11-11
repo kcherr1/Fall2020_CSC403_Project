@@ -29,7 +29,6 @@ namespace Fall2020_CSC403_Project.code
                 EXP += xp;
 
             // adjust player level based on accrued experience
-            // TODO: If player level goes up then a message should be displayed
             int prevLevel = Level;
             Level = (EXP / 100) + 1;
 

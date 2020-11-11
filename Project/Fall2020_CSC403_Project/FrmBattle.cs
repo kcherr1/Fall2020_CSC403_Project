@@ -22,12 +22,6 @@ namespace Fall2020_CSC403_Project
 
         public void Setup()
         {
-            if (!enemy.IsAlive)
-            {
-                lblInfoPanel.Text = "Enemy is already defeated.";
-                btnAttack.Text = "Leave";
-            }
-
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
@@ -114,20 +108,20 @@ namespace Fall2020_CSC403_Project
             }
             else if (enemy.Health <= 0)
             {
-                if (enemy.IsAlive)
-                {
-                    lblInfoPanel.Text = $"Enemy was defeated. Mr. Peanut gained {enemy.ExpReward} experience points!";
-                    Application.DoEvents();
-                    System.Threading.Thread.Sleep(2000);
+                lblInfoPanel.Text = $"Enemy was defeated. Mr. Peanut gained {enemy.ExpReward} experience points!";
+                Application.DoEvents();
+                Thread.Sleep(2000);
 
-                    if (player.AwardEXP(enemy.ExpReward))
-                    {
-                        lblInfoPanel.Text = $"Mr. Peanut leveled up! Level is now {player.Level}!";
-                        Application.DoEvents();
-                        System.Threading.Thread.Sleep(2000);
-                    }
-                    enemy.IsAlive = false;
+                if (player.AwardEXP(enemy.ExpReward))
+                {
+                    lblInfoPanel.Text = $"Mr. Peanut leveled up! Level is now {player.Level}!";
+                    Application.DoEvents();
+                    Thread.Sleep(2000);
                 }
+                enemy.IsAlive = false;
+                FrmLevel.EnemyPictureDict[enemy].BackgroundImage = null;
+                FrmLevel.EnemyPictureDict[enemy].SendToBack();
+
                 instance = null;
                 Close();
             }
