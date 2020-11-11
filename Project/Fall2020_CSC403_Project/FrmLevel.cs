@@ -133,9 +133,11 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
-                    //adding move frames here
-                    //picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.playermoving;
-                    player.GoLeft();
+          //adding move frames here\
+          picPlayer.LoadAsync("C:\\Users\\jbt01\\Desktop\\LaTech fall 2020\\csc403project\\Fall2020_CSC403_Project\\Project\\Fall2020_CSC403_Project\\data\\peanutwalking.gif");
+          picPlayer.SizeMode = PictureBoxSizeMode.StretchImage;
+          picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.playermoving;
+          player.GoLeft();
           break;
 
         case Keys.Right:
