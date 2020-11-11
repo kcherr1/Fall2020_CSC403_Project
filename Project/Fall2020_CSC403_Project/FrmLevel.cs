@@ -206,6 +206,12 @@ namespace Fall2020_CSC403_Project {
           player.GoDown();
           break;
 
+        case Keys.E:
+          FrmInventory frm = new FrmInventory();
+          frm.FrmInventory_Load();
+          frm.Show();
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;

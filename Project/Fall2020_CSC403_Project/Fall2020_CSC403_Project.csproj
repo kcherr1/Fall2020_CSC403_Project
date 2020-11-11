@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInventory.Designer.cs">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Results.cs" />
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInventory.resx">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
