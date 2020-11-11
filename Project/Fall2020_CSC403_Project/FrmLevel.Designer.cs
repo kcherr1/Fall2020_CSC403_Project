@@ -46,7 +46,7 @@
 			this.picWall3 = new System.Windows.Forms.PictureBox();
 			this.picBossKoolAid = new System.Windows.Forms.PictureBox();
 			this.picPlayer = new System.Windows.Forms.PictureBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.lblInGameTime = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.picEnemyRonald)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picEnemyTony)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
@@ -66,7 +66,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tmrUpdateInGameTime
@@ -307,14 +306,18 @@
 			this.picPlayer.TabIndex = 0;
 			this.picPlayer.TabStop = false;
 			// 
-			// pictureBox1
+			// lblInGameTime
 			// 
-			this.pictureBox1.BackColor = System.Drawing.Color.Black;
-			this.pictureBox1.Location = new System.Drawing.Point(110, 12);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(843, 60);
-			this.pictureBox1.TabIndex = 20;
-			this.pictureBox1.TabStop = false;
+			this.lblInGameTime.AutoSize = true;
+			this.lblInGameTime.BackColor = System.Drawing.Color.Black;
+			this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblInGameTime.ForeColor = System.Drawing.Color.White;
+			this.lblInGameTime.Location = new System.Drawing.Point(13, 22);
+			this.lblInGameTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblInGameTime.Name = "lblInGameTime";
+			this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
+			this.lblInGameTime.TabIndex = 21;
+			this.lblInGameTime.Text = "label1";
 			// 
 			// FrmLevel
 			// 
@@ -323,7 +326,7 @@
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1568, 894);
-			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.lblInGameTime);
 			this.Controls.Add(this.picEnemyRonald);
 			this.Controls.Add(this.picEnemyTony);
 			this.Controls.Add(this.picWall11);
@@ -370,8 +373,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
     }
 
@@ -398,7 +401,7 @@
     private System.Windows.Forms.PictureBox picWall11;
 		private System.Windows.Forms.PictureBox picEnemyTony;
 		private System.Windows.Forms.PictureBox picEnemyRonald;
-		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Label lblInGameTime;
 	}
 }
 

@@ -22,6 +22,8 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
+			// Show enemies experience given on kill
+			lblEnemyXP.Text = enemy.ExperienceOnDeath.ToString() + " xp";
 
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
@@ -29,6 +31,8 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
+			// Show Current XP Status. 0 Is passed because no enemy defeated.
+			UpdateExperienceBar(0);
     }
 
     public void SetupForBossBattle() {
@@ -44,9 +48,10 @@ namespace Fall2020_CSC403_Project {
 
     public static FrmBattle GetInstance(Enemy enemy) {
       if (instance == null) {
-        instance = new FrmBattle();
-        instance.enemy = enemy;
-        instance.Setup();
+				instance = new FrmBattle {
+					enemy = enemy
+				};
+				instance.Setup();
       }
       return instance;
     }
@@ -63,11 +68,40 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
+		private void UpdateExperienceBar(int xpGain) {
+			const int MAX_EXPERIENCEBAR_WIDTH = 675;
+			int totalXP = player.ExperienceToLevel - xpGain;
+
+			// Check for level up
+			if (totalXP <= 0) {
+				player.ExperienceToLevel = 100 + totalXP;
+				player.CurrentLevel += 1;
+			}
+			// Otherwise adjust Experience to level
+			else {
+				player.ExperienceToLevel = totalXP;
+			}
+			int currentXP = 100 - player.ExperienceToLevel;
+
+			// Ensure the Background Bar is the same width as the ExperienceBar
+			lblExperienceBarBackground.Width = MAX_EXPERIENCEBAR_WIDTH;
+			// Width of experience is adjusted by the % to next level
+			lblExperienceBar.Width = (int)(MAX_EXPERIENCEBAR_WIDTH * ((float)currentXP / 100));
+			// Display Stats
+			lblExperienceBar.Text = (currentXP).ToString() + " / 100 xp";
+			lblCurrentLevel.Text = "Level: " + player.CurrentLevel.ToString();
+		}
+
     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
       }
+
+			if (player.Health > 0 && enemy.Health <= 0) {
+				// Update the ExperienceBar sending the enemies Experience at death.
+				UpdateExperienceBar(enemy.ExperienceOnDeath);
+			}
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
@@ -88,5 +122,9 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+		private void FrmBattle_Load(object sender, EventArgs e) {
+
+		}
+	}
 }
