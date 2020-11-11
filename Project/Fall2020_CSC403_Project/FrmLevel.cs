@@ -155,6 +155,12 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
+        //going into the backpack
+        case Keys.B:
+          var backpack = new Backpack();
+          backpack.UpdateBackpack();
+          backpack.Show();
+          break;
 
         default:
           player.ResetMoveSpeed();
