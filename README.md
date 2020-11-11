@@ -2,16 +2,25 @@
 ## Description
 A simple Game written in C# using Windows Forms on a .NET framework
 
-## Instillation
-Can be run in Visual Studio 19. No executable available.
+------------------------------------------------------------------------------
+
+## Running Program
+Can only be run in Visual Studio 19 with source code by executing the solution.
+No executable available.
+
+------------------------------------------------------------------------------
+
+## Features
 
 ### FEATURE - Random Enemies
--Date: 11/08/2020
+- Date: 11/08/2020
 Spawns 3 random and unique enemies from the total pool of enemies
 
+----------------------------------------------------------------------------
+
 ### FEATURE - Experience
--Date: 11/11/2020
-Adds Experience Tracking. Including Random experience from enemies, an XP bar in the battle form as well as an indicator on enemy picture for how much experience they will give on death.
+- Date: 11/11/2020
+- Adds Experience Tracking. Including Random experience from enemies, an XP bar in the battle form as well as an indicator on enemy picture for how much experience they will give on death.
 
 ##### **UpdateExperienceBar(int xpGain)**
 This functions paramater is xpGain which is a random integer designated at enemy instantiation.
@@ -27,3 +36,5 @@ Battle Character class has added three member variables:
    - ExperienceOnDeath which sets it's value based on GenerateExperience().
    - ExperienceToLevel which is the amount needed until the next level is achieved.
    - CurrentLevel which is the players current level.
+   
+-------------------------------------------------------------------------------------
