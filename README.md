@@ -5,7 +5,7 @@ A simple Game written in C# using Windows Forms on a .NET framework
 ------------------------------------------------------------------------------
 
 ## Running Program
-Can only be run in Visual Studio 19 with source code by executing the solution.
+Can only be run in Visual Studio 19 with source code by running the solution.
 No executable available.
 
 ------------------------------------------------------------------------------
