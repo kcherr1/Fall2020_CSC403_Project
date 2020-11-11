@@ -132,9 +132,10 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
-        case Keys.Left: 
-          //adding move frames here
-          player.GoLeft();
+        case Keys.Left:
+                    //adding move frames here
+                    //picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.playermoving;
+                    player.GoLeft();
           break;
 
         case Keys.Right:
