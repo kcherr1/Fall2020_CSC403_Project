@@ -121,5 +121,29 @@
       <Name>MyGameLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_cheetos.fw_hit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_koolaid_hit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_poisonpacket.fw_hit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\player_hit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_cheetos.fw_dead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_koolaid_dead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_poisonpacket.fw_dead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\player_dead.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
