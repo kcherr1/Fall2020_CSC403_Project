@@ -15,6 +15,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmGameOver gameover;
 
     public FrmLevel() {
       InitializeComponent();
@@ -91,6 +92,11 @@ namespace Fall2020_CSC403_Project {
          Fight(bossKoolaid);
         }
       }
+
+      if (player.Health <= 0)
+            {
+                FrmGameOver.GetInstance(this);  
+            }
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
