@@ -14,7 +14,18 @@ No executable available.
 
 ### FEATURE - Random Enemies
 - Date: 11/08/2020
-Spawns 3 random and unique enemies from the total pool of enemies
+- This feature created 2 new enemies and allows for spawning 3 random and unique enemies from the total pool of enemies
+
+##### **RandomIntegers()**
+This function returns an integer array with three unique integers. The integers are random and determine which enemies are spawned. Enemies visibility is determined through this array.
+
+##### **SpawnEnemies()**
+This function does not return a value. This function initially sets all enemy models to invisible and then loops through the return of RandomIntegers() to determine which enemy models to make visible (spawn).
+
+##### **Other Changes**
+- Created 2 new enemies : Tony the tiger and Ronald McDonald.
+- Change in exising function tmrPlayerMove_Tick() to only fight enemies that are also visible to the exisiting condition checks.
+
 
 ----------------------------------------------------------------------------
 
