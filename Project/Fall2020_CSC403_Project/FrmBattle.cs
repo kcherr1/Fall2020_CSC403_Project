@@ -110,7 +110,13 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void EnemyDamage(int amount) {
+        private void btnRun_Click(object sender, EventArgs e)
+        {
+            instance = null;
+            Close();
+        }
+
+     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
 
