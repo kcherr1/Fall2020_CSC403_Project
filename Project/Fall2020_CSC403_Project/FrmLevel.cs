@@ -98,6 +98,11 @@ namespace Fall2020_CSC403_Project {
                 FrmGameOver.GetInstance(this);  
             }
 
+      if (bossKoolaid.Health <= 0)
+            {
+                FrmVictory.GetInstance(this);
+            }
+
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 

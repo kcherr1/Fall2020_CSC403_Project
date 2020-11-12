@@ -52,6 +52,12 @@
     <Compile Include="Backpack.Designer.cs">
       <DependentUpon>Backpack.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVictory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVictory.Designer.cs">
+      <DependentUpon>FrmVictory.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Backpack.resx">
       <DependentUpon>Backpack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVictory.resx">
+      <DependentUpon>FrmVictory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
@@ -144,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\You Died.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\victory_screen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
