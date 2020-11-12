@@ -10,25 +10,23 @@ namespace MyGameLibrary.InventoryObjects
 {
     public class HealthPotion : InventoryObject
     {
-        private readonly int healAmount = 6;
+        private readonly int HEAL_AMOUNT = 6;
         
         public HealthPotion(Image img)
         {
-            this.stackable = false;
-            this.exhaustible = true;
+            this._stackable = false;
+            this._exhaustible = true;
             this.img = img;
-            
         }
 
         public override void Effect(BattleCharacter character)
         {
             throw new NotImplementedException();
-
         }
 
         public override void Effect(Player player)
         {
-            player.AlterHealth(healAmount);
+            player.AlterHealth(HEAL_AMOUNT);
         }
     }
 }

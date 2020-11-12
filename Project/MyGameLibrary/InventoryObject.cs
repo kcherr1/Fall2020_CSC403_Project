@@ -1,18 +1,15 @@
 ﻿using Fall2020_CSC403_Project.code;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyGameLibrary
 {
     public abstract class InventoryObject
     {
         
-        protected bool stackable;  // Should multiples of this type stack in a single inventory slot?
-        protected bool exhaustible;  // Can this object be used more than once?
+        protected bool _stackable;  // Should multiples of this type stack in a single inventory slot?
+        public bool IsStackable { get => _stackable; }
+        protected bool _exhaustible;  // Can this object be used more than once?
+        public bool IsExhaustible { get => _exhaustible; }
         protected int count;  // How many of this object are in this stack (always 1 if not stackable).
         public Image img; // This will be the inventory icon for this inventory item.
 
@@ -39,20 +36,6 @@ namespace MyGameLibrary
             count -= removeCount;
             return true;
             
-        }
-
-        // Returns if this object is stackable
-        public bool IsStackable()
-        {
-            return stackable;
-        }
-
-        // Returns if this object is exhaustible.
-        // This determines if this object should be
-        // destroyed after being used.
-        public bool IsExhaustible()
-        {
-            return exhaustible;
         }
 
         // Stacks another stackable object with this one.

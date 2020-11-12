@@ -97,7 +97,8 @@
             // picExperience
             // 
             this.picExperience.BackColor = System.Drawing.Color.Transparent;
-            this.picExperience.Image = global::Fall2020_CSC403_Project.Properties.Resources.experience;
+            this.picExperience.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.experience;
+            this.picExperience.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picExperience.Location = new System.Drawing.Point(2, 74);
             this.picExperience.Name = "picExperience";
             this.picExperience.Size = new System.Drawing.Size(80, 80);
@@ -108,7 +109,8 @@
             // picHealthPotion
             // 
             this.picHealthPotion.BackColor = System.Drawing.Color.Transparent;
-            this.picHealthPotion.Image = global::Fall2020_CSC403_Project.Properties.Resources.health_potion;
+            this.picHealthPotion.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.health_potion;
+            this.picHealthPotion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picHealthPotion.Location = new System.Drawing.Point(2, 74);
             this.picHealthPotion.Name = "picHealthPotion";
             this.picHealthPotion.Size = new System.Drawing.Size(80, 80);

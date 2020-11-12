@@ -40,7 +40,6 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
-      frmInventory = new FrmInventory(player.GetInventory(), player);
       timeBegin = DateTime.Now;
     }
 
@@ -136,7 +135,15 @@ namespace Fall2020_CSC403_Project {
     // Creates an instance of FrmInventory to display the player's inventory.
     private void ShowInventory()
     {
-      frmInventory.ShowInventory();
+      if(frmInventory != null)
+      {
+         if (frmInventory.IsActive)
+         {
+             return;
+         }
+      }
+      frmInventory = new FrmInventory(player.GetInventory(), player);
+      frmInventory.Show();
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
@@ -160,12 +167,20 @@ namespace Fall2020_CSC403_Project {
             ShowInventory();
             break;
 
-        case Keys.C:
-          player.GetInventory().AddToInventory(new MyGameLibrary.InventoryObjects.HealthPotion(picHealthPotion.Image));
+        case Keys.C: // Adds a health potion to the player's inventory. (Alt + C)
+            if (e.Modifiers == Keys.Alt)
+            {
+                player.GetInventory().AddToInventory(new MyGameLibrary.InventoryObjects.HealthPotion(picHealthPotion.BackgroundImage));
+                frmInventory.UpdateInventory(); // Updates the changes to the UI
+            }
           break;
 
-        case Keys.X:
-            player.GetInventory().AddToInventory(new MyGameLibrary.InventoryObjects.Experience(picExperience.Image,5));
+        case Keys.X:// Adds an experience token to the player's inventory. (Alt + X)
+            if (e.Modifiers == Keys.Alt)
+            {
+                player.GetInventory().AddToInventory(new MyGameLibrary.InventoryObjects.Experience(picExperience.BackgroundImage, 5));
+                frmInventory.UpdateInventory(); // Updates the changes to the UI
+            }
             break;
 
         default:

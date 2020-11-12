@@ -122,6 +122,7 @@
     <None Include="data\enemy_koolaid.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\health_potion.png" />
     <Content Include="data\experience.png" />
     <Content Include="data\gold.png" />
   </ItemGroup>
@@ -134,9 +135,6 @@
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\health_potion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

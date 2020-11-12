@@ -2,39 +2,36 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyGameLibrary
 {
     public class Inventory
     {
-        private int maxInventorySize = 8; // Max number of inventory slots, defaults to 8.
+        private int _maxSize = 8; // Max number of inventory slots, defaults to 8.
+        public int MaxInventorySize { get => _maxSize; }
         private InventoryObject[] inventory; // List storing the inventory.
 
         // Constructor with no arguements.
         public Inventory()
         {
-            inventory = new InventoryObject[maxInventorySize];
+            inventory = new InventoryObject[MaxInventorySize];
         }
 
         // Inventory constructor with passed List of InventoryObjects
-        public Inventory(int maxInventorySize,List<InventoryObject> invObjs)
+        public Inventory(List<InventoryObject> invObjs)
         {
-            inventory = new InventoryObject[maxInventorySize];
-            this.maxInventorySize = maxInventorySize;
-            for (int i = 0; i < invObjs.Count && i < maxInventorySize; i++)
+            inventory = new InventoryObject[_maxSize];
+            for (int i = 0; i < invObjs.Count && i < _maxSize; i++)
             {
                 inventory[i] = invObjs[i];
             }
         }
 
         // Inventory constructor with passed array of InventoryObjects
-        public Inventory(int maxInventorySize, InventoryObject[] invObjs)
+        public Inventory(InventoryObject[] invObjs)
         {
-            inventory = new InventoryObject[maxInventorySize];
-            this.maxInventorySize = maxInventorySize;
-            for (int i = 0; i < invObjs.Length && i < maxInventorySize; i++)
+            inventory = new InventoryObject[_maxSize];
+            for (int i = 0; i < invObjs.Length && i < _maxSize; i++)
             {
                 inventory[i] = invObjs[i];
             }
@@ -42,7 +39,7 @@ namespace MyGameLibrary
 
         public int GetMaxInventorySize()
         {
-            return maxInventorySize;
+            return _maxSize;
         }
 
         // Returns the inventory as a List
@@ -56,10 +53,10 @@ namespace MyGameLibrary
         public Boolean AddToInventory(InventoryObject iObj)
         {
             // Checks if the object is stackable
-            if (iObj.IsStackable())
+            if (iObj.IsStackable)
             {
-                int index = ObjectTypeExistsInInventory(iObj);
-                if(index != -1)
+                int index = Array.FindIndex<InventoryObject>(inventory, x => x != null && x.TypeOf(iObj));
+                if (index != -1)
                 {
                     // If the object is stackable and exists in the inventory,
                     // add it to the existing stack.
@@ -68,7 +65,7 @@ namespace MyGameLibrary
                 }
             }
             // Checks if inventory is full, if not, the object is added.
-            for(int i = 0; i < maxInventorySize; i++)
+            for(int i = 0; i < _maxSize; i++)
             {
                 if(inventory[i] == null)
                 {
@@ -98,9 +95,9 @@ namespace MyGameLibrary
                 return false;
             }
             // Checks if the object is stackable
-            if (iObj.IsStackable())
+            if (iObj.IsStackable)
             {
-                int index = ObjectTypeExistsInInventory(iObj);
+                int index = Array.FindIndex<InventoryObject>(inventory, x => x != null && x.TypeOf(iObj));
                 if (index != -1)
                 {
                     // If the object is stackable and exists in the inventory,
@@ -110,7 +107,7 @@ namespace MyGameLibrary
                 }
             }
             // Checks if inventory is full, if not, the object is added.
-            for (int i = 0; i < maxInventorySize; i++)
+            for (int i = 0; i < _maxSize; i++)
             {
                 if (inventory[i] == null)
                 {
@@ -125,9 +122,9 @@ namespace MyGameLibrary
 
         // Returns the index of the given object type (matches the passed
         // object's class) in the inventory.
-        private int ObjectTypeExistsInInventory(InventoryObject iObj)
+        private int IndexOfObjectType(InventoryObject iObj)
         {
-            for(int i = 0; i< maxInventorySize;i++)
+            for(int i = 0; i< _maxSize; i++)
             {
                 if (inventory[i] != null)
                 {
@@ -143,10 +140,8 @@ namespace MyGameLibrary
         // Returns object in inventory at index without removing it.
         public InventoryObject GetInventoryObject(int index)
         {
-            //Console.WriteLine("\t" + index.ToString());
-            if (index < inventory.Count())
+            if (-1 < index && index < inventory.Count())
             {
-                //Console.WriteLine("\t" + inventory[index].GetType());
                 return (inventory[index]);
             }
             else
@@ -158,7 +153,7 @@ namespace MyGameLibrary
         // Removes an object at index from the inventory
         public void RemoveInventoryObject(int index)
         {
-            if(index < maxInventorySize)
+            if(-1 < index && index < _maxSize)
             {
                 inventory[index] = null;
             }
@@ -167,7 +162,7 @@ namespace MyGameLibrary
         // Removes the given object from the inventory
         public void RemoveInventoryObject(InventoryObject iObj)
         {
-            for(int i = 0; i < maxInventorySize; i++)
+            for(int i = 0; i < _maxSize; i++)
             {
                 if(iObj == inventory[i])
                 {
@@ -184,11 +179,11 @@ namespace MyGameLibrary
                 return;
             }
             iObj.Effect(player);
-            if (iObj.IsExhaustible())
+            if (iObj.IsExhaustible)
             {
-                if (iObj.IsStackable())
+                if (iObj.IsStackable)
                 {
-                    if(iObj.GetCount() <= 0)
+                    if (iObj.GetCount() <= 0)
                     {
                         RemoveInventoryObject(index);
                     }
@@ -198,7 +193,6 @@ namespace MyGameLibrary
                     RemoveInventoryObject(index);
                 }
             }
-
         }
 
         // Finds all items in inventory that implement IWeapon

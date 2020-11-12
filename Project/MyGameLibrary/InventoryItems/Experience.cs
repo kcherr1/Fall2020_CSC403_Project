@@ -14,11 +14,10 @@ namespace MyGameLibrary.InventoryObjects
         
         public Experience(Image img, int count)
         {
-            this.stackable = true;
-            this.exhaustible = true;
+            this._stackable = true;
+            this._exhaustible = true;
             this.img = img;
             this.count = count;
-            
         }
 
         public override void Effect(BattleCharacter character)

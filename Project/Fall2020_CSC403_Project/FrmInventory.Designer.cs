@@ -40,6 +40,7 @@
             // 
             // invSlot1
             // 
+            this.invSlot1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.invSlot1.Location = new System.Drawing.Point(12, 12);
             this.invSlot1.Name = "invSlot1";
             this.invSlot1.Size = new System.Drawing.Size(100, 100);
@@ -53,6 +54,7 @@
             // 
             // invSlot2
             // 
+            this.invSlot2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.invSlot2.Location = new System.Drawing.Point(118, 12);
             this.invSlot2.Name = "invSlot2";
             this.invSlot2.Size = new System.Drawing.Size(100, 100);
@@ -66,6 +68,7 @@
             // 
             // invSlot3
             // 
+            this.invSlot3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.invSlot3.Location = new System.Drawing.Point(224, 12);
             this.invSlot3.Name = "invSlot3";
             this.invSlot3.Size = new System.Drawing.Size(100, 100);
@@ -79,6 +82,7 @@
             // 
             // invSlot4
             // 
+            this.invSlot4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.invSlot4.Location = new System.Drawing.Point(330, 12);
             this.invSlot4.Name = "invSlot4";
             this.invSlot4.Size = new System.Drawing.Size(100, 100);
@@ -92,6 +96,7 @@
             // 
             // invSlot5
             // 
+            this.invSlot5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.invSlot5.Location = new System.Drawing.Point(12, 118);
             this.invSlot5.Name = "invSlot5";
             this.invSlot5.Size = new System.Drawing.Size(100, 100);
@@ -105,6 +110,7 @@
             // 
             // invSlot6
             // 
+            this.invSlot6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.invSlot6.Location = new System.Drawing.Point(118, 118);
             this.invSlot6.Name = "invSlot6";
             this.invSlot6.Size = new System.Drawing.Size(100, 100);
@@ -118,6 +124,7 @@
             // 
             // invSlot7
             // 
+            this.invSlot7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.invSlot7.Location = new System.Drawing.Point(224, 118);
             this.invSlot7.Name = "invSlot7";
             this.invSlot7.Size = new System.Drawing.Size(100, 100);
@@ -131,6 +138,7 @@
             // 
             // invSlot8
             // 
+            this.invSlot8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.invSlot8.Location = new System.Drawing.Point(330, 118);
             this.invSlot8.Name = "invSlot8";
             this.invSlot8.Size = new System.Drawing.Size(100, 100);
@@ -142,7 +150,7 @@
             this.invSlot8.UseVisualStyleBackColor = true;
             this.invSlot8.Click += new System.EventHandler(this.InvSlot_Click);
             // 
-            // Form1
+            // FrmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,8 +163,8 @@
             this.Controls.Add(this.invSlot3);
             this.Controls.Add(this.invSlot2);
             this.Controls.Add(this.invSlot1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FrmInventory";
+            this.Text = "Inventory";
             this.ResumeLayout(false);
 
         }
