@@ -22,9 +22,11 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
-
-      // Observer pattern
-      enemy.AttackEvent += PlayerDamage;
+            button1.Visible = true;
+            button2.Visible = true;
+            button3.Visible = true;
+            // Observer pattern
+            enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
 
       // show health
@@ -33,7 +35,18 @@ namespace Fall2020_CSC403_Project {
       isBaby();
       // show level
       UpdateLevel();
+
+      //show HP potion button text
+      UpdateHpPotionButtons();
     }
+
+    //Update the buttons to show the right amount of health potions in the battle form
+    public void UpdateHpPotionButtons() {
+            button1.Text = "Small HP potion (" + player.GetVal("Small HP potion") + ")";
+            button2.Text = "Medium HP potion (" + player.GetVal("Medium HP potion") + ")";
+            button3.Text = "Large HP potion (" + player.GetVal("Large HP potion") + ")";
+        }
+
 
     public void SetupForBossBattle() {
       p1level.Visible = false;
@@ -44,7 +57,8 @@ namespace Fall2020_CSC403_Project {
       SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
       simpleSound.Play();
       tmrFinalBattle.Enabled = true;
-    }
+
+        }
 
     public static FrmBattle GetInstance(Enemy enemy) {
       if (instance == null) {
@@ -119,6 +133,31 @@ namespace Fall2020_CSC403_Project {
        }
     }
 
+        //if the player presses the health potion bars, use the health potion and update 
+        //the buttons and health bars
+
+        //Use small health potions
+        private void button1_Click(object sender, EventArgs e) {
+            player.AddHealth("Small HP potion");
+            UpdateHpPotionButtons();
+            UpdateHealthBars();
+        }
+
+        //Use medium health potion
+        private void button2_Click(object sender, EventArgs e) {
+            player.AddHealth("Medium HP potion");
+            UpdateHpPotionButtons();
+            UpdateHealthBars();
+        }
+
+        //Use large health potion
+        private void button3_Click(object sender, EventArgs e) {
+            player.AddHealth("Large HP potion");
+            UpdateHpPotionButtons();
+            UpdateHealthBars();
+        }
+    }
+
     private void addInventory()
         {
             Random numGen = new Random();
@@ -140,4 +179,5 @@ namespace Fall2020_CSC403_Project {
             }
         }
   }
+
 }
