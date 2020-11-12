@@ -1,6 +1,6 @@
 ﻿namespace Fall2020_CSC403_Project
 {
-    partial class Frm2Level
+    partial class FrmFinal
     {
         /// <summary>
         /// Required designer variable.
@@ -522,7 +522,7 @@
             this.picPortal0.Tag = "portal";
             this.picPortal0.Click += new System.EventHandler(this.portal_Click);
             // 
-            // Frm2Level
+            // FrmFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -564,7 +564,7 @@
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picPortal0);
             this.DoubleBuffered = true;
-            this.Name = "Frm2Level";
+            this.Name = "FrmFinal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mr. Peanut\'s Nutty Adventure";
             this.Load += new System.EventHandler(this.Frm2Level_Load);

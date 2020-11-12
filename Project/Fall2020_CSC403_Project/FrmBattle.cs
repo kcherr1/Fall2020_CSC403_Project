@@ -87,14 +87,7 @@ namespace Fall2020_CSC403_Project
 
         private void btnAttack_Click(object sender, EventArgs e)
         {
-            if (Globals.LevelNumber == 2)
-            {
-                if (Globals.LevelsGiven == false)
-                {
-                    player.Level = 3;
-                    Globals.LevelsGiven = true;
-                }
-            }
+
             player.OnAttack(-4 + (-1 * (player.Level - 1)));
             if (enemy.Health > 0)
             {
@@ -182,10 +175,6 @@ namespace Fall2020_CSC403_Project
             {
                 picPlayer.BackgroundImage = Resources.player_dead;
                 picPlayer.Refresh();
-
-                Thread.Sleep(2000);
-
-                instance = null;
                 Globals.PlayerIsAlive = false;
                 Close();
             }

@@ -54,16 +54,53 @@ namespace Fall2020_CSC403_Project
             enemies.Add(bossKoolaid2);
             EnemyPictureDict.Add(bossKoolaid2, picBossKoolAid2);
 
-            Enemy enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), 50)
+            Enemy enemyPoisonPacket = new Enemy(CreatePosition(picEnemyMario2), CreateCollider(picEnemyMario2, PADDING), 50)
             {
-                Img = picEnemyPoisonPacket.BackgroundImage,
+                Img = picEnemyMario2.BackgroundImage,
                 Color = Color.Green,
                 IsBoss = false
             };
 
-
             enemies.Add(enemyPoisonPacket);
-            EnemyPictureDict.Add(enemyPoisonPacket, picEnemyPoisonPacket);
+            EnemyPictureDict.Add(enemyPoisonPacket, picEnemyMario2);
+
+            Enemy enemyMario = new Enemy(CreatePosition(picEnemyMario), CreateCollider(picEnemyMario, PADDING), 50)
+            {
+                Img = picEnemyMario.BackgroundImage,
+                Color = Color.FromArgb(255, 245, 161),
+                IsBoss = false
+            };
+
+            enemies.Add(enemyMario);
+            EnemyPictureDict.Add(enemyMario, picEnemyMario);
+
+            Enemy enemyMario1 = new Enemy(CreatePosition(picEnemyMario1), CreateCollider(picEnemyMario1, PADDING), 50)
+            {
+                Img = picEnemyMario1.BackgroundImage,
+                Color = Color.FromArgb(255, 245, 161),
+                IsBoss = false
+            };
+            enemies.Add(enemyMario1);
+            EnemyPictureDict.Add(enemyMario1, picEnemyMario1);
+
+            Enemy enemyMario3 = new Enemy(CreatePosition(picEnemyMario3), CreateCollider(picEnemyMario3, PADDING), 50)
+            {
+                Img = picEnemyMario3.BackgroundImage,
+                Color = Color.FromArgb(255, 245, 161),
+                IsBoss = false
+            };
+            enemies.Add(enemyMario3);
+            EnemyPictureDict.Add(enemyMario3, picEnemyMario3);
+
+            Enemy enemyMario4 = new Enemy(CreatePosition(picEnemyMario4), CreateCollider(picEnemyMario4, PADDING), 50)
+            {
+                Img = picEnemyMario4.BackgroundImage,
+                Color = Color.FromArgb(255, 245, 161),
+                IsBoss = false
+            };
+            enemies.Add(enemyMario4);
+            EnemyPictureDict.Add(enemyMario4, picEnemyMario4);
+
 
             Enemy enemyCheeto = new Enemy(CreatePosition(picEnemyMario), CreateCollider(picEnemyMario, PADDING), 50)
             {

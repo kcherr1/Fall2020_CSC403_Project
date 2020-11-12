@@ -60,7 +60,7 @@
             this.picWall4 = new System.Windows.Forms.PictureBox();
             this.picWall5 = new System.Windows.Forms.PictureBox();
             this.picEnemyMario = new System.Windows.Forms.PictureBox();
-            this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
+            this.picEnemyMario2 = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid2 = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
@@ -93,7 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyMario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyMario2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -462,17 +462,17 @@
             this.picEnemyMario.TabStop = false;
             this.picEnemyMario.Tag = "enemyPic";
             // 
-            // picEnemyPoisonPacket
+            // picEnemyMario2
             // 
-            this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.mariocherry;
-            this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(108, 413);
-            this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
-            this.picEnemyPoisonPacket.Size = new System.Drawing.Size(112, 123);
-            this.picEnemyPoisonPacket.TabIndex = 4;
-            this.picEnemyPoisonPacket.TabStop = false;
-            this.picEnemyPoisonPacket.Tag = "enemyPic";
+            this.picEnemyMario2.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyMario2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.mariocherry;
+            this.picEnemyMario2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemyMario2.Location = new System.Drawing.Point(108, 413);
+            this.picEnemyMario2.Name = "picEnemyMario2";
+            this.picEnemyMario2.Size = new System.Drawing.Size(112, 123);
+            this.picEnemyMario2.TabIndex = 4;
+            this.picEnemyMario2.TabStop = false;
+            this.picEnemyMario2.Tag = "enemyPic";
             // 
             // picWall3
             // 
@@ -558,7 +558,7 @@
             this.Controls.Add(this.picWall4);
             this.Controls.Add(this.picWall5);
             this.Controls.Add(this.picEnemyMario);
-            this.Controls.Add(this.picEnemyPoisonPacket);
+            this.Controls.Add(this.picEnemyMario2);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid2);
             this.Controls.Add(this.picPlayer);
@@ -598,7 +598,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyMario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyMario2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
@@ -616,7 +616,7 @@
         private System.Windows.Forms.Timer tmrUpdateInGameTime;
         private System.Windows.Forms.Timer tmrPlayerMove;
         private System.Windows.Forms.PictureBox picWall3;
-        private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
+        private System.Windows.Forms.PictureBox picEnemyMario2;
         private System.Windows.Forms.PictureBox picEnemyMario;
         private System.Windows.Forms.PictureBox picWall5;
         private System.Windows.Forms.PictureBox picWall4;

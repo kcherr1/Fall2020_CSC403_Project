@@ -32,8 +32,8 @@ namespace Fall2020_CSC403_Project
             {
                 Globals.LevelNumber = 2;
                 Application.Run(new Frm2Level());
-                
             }
+
             if (Form.ActiveForm == null && Globals.LevelNumber == 3)
             {
                 Application.Run(new FrmFinal());
