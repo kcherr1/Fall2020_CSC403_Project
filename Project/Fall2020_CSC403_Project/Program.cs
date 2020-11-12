@@ -38,10 +38,10 @@ namespace Fall2020_CSC403_Project
             {
                 Application.Run(new FrmFinal());
             }
-                if (Globals.PlayerIsAlive == false)
-            {
+                //if (Globals.PlayerIsAlive == false)
+            //{
                 
-            }
+           // }
 
         }
     }

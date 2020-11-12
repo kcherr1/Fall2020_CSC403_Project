@@ -173,10 +173,7 @@ namespace Fall2020_CSC403_Project
             {
 
                 player.MoveBack();
-                Thread.Sleep(200);
-                player.ResetMoveSpeed();
-                Thread.Sleep(1000);
-                
+                Thread.Sleep(400);
                 Globals.Level1Beat = true;
                 Close();
 

@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class Frm2Level : Form
     {
-        private Player player;
+        private Player player1;
 
         private List<Enemy> enemies = new List<Enemy>();
         public static Dictionary<Enemy, PictureBox> EnemyPictureDict = new Dictionary<Enemy, PictureBox>();
@@ -40,9 +40,9 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 24;
             const int NUM_portals = 1;
 
-            // initialize player
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            Game.player = player;
+            // initialize player1
+            player1 = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            Game.player = player1;
 
             // initialize enemies on this form
             Enemy bossKoolaid2 = new Enemy(CreatePosition(picBossKoolAid2), CreateCollider(picBossKoolAid2, PADDING), 100, 60)
@@ -155,39 +155,38 @@ namespace Fall2020_CSC403_Project
         {
             if (Globals.PlayerIsAlive == false)
             {
-                //player.ResetMoveSpeed();
+                //player1.ResetMoveSpeed();
                 Thread.Sleep(100);
                 Close();
             }
 
-            // move player
-            player.Move();
+            // move player1
+            player1.Move();
 
             // check collision with walls
-            if (HitAWall(player))
+            if (HitAWall(player1))
             {
-                player.MoveBack();
+                player1.MoveBack();
             }
 
 
             // check collision with enemies
             enemies.ForEach((enemy) =>
             {
-                if (enemy.IsAlive && HitAChar(player, enemy))
+                if (enemy.IsAlive && HitAChar(player1, enemy))
                     Fight(enemy);
 
             });
 
-            // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            // update player1's picture box
+            picPlayer.Location = new Point((int)player1.Position.x, (int)player1.Position.y);
 
-            if (HitAPortal(player))
+            if (HitAPortal(player1))
             {
                 
-                player.MoveBack();
-                Thread.Sleep(200);
-                player.ResetMoveSpeed();
-                Thread.Sleep(1000);
+                player1.MoveBack();
+                Thread.Sleep(400);
+
                 Globals.LevelNumber = 3;
                 Close();
 
@@ -231,8 +230,8 @@ namespace Fall2020_CSC403_Project
 
         private void Fight(Enemy enemy)
         {
-            player.ResetMoveSpeed();
-            player.MoveBack();
+            player1.ResetMoveSpeed();
+            player1.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
 
@@ -249,7 +248,7 @@ namespace Fall2020_CSC403_Project
             holdRight = false;
             holdUp = false;
             holdDown = false;
-            player.ResetMoveSpeed();
+            player1.ResetMoveSpeed();
         }
 
         private void background_Click(object sender, EventArgs e)
@@ -284,7 +283,7 @@ namespace Fall2020_CSC403_Project
                 case Keys.Left:
                     if (!holdLeft)
                     {
-                        player.UpdateMoveSpeed(Vector2.Left);
+                        player1.UpdateMoveSpeed(Vector2.Left);
                         //MovePictureBoxes("Left");
                         holdLeft = true;
                     }
@@ -293,7 +292,7 @@ namespace Fall2020_CSC403_Project
                 case Keys.Right:
                     if (!holdRight)
                     {
-                        player.UpdateMoveSpeed(Vector2.Right);
+                        player1.UpdateMoveSpeed(Vector2.Right);
                         //MovePictureBoxes("Right");
                         holdRight = true;
                     }
@@ -302,7 +301,7 @@ namespace Fall2020_CSC403_Project
                 case Keys.Up:
                     if (!holdUp)
                     {
-                        player.UpdateMoveSpeed(Vector2.Down);
+                        player1.UpdateMoveSpeed(Vector2.Down);
                         //MovePictureBoxes("Down");
                         holdUp = true;
                     }
@@ -311,7 +310,7 @@ namespace Fall2020_CSC403_Project
                 case Keys.Down:
                     if (!holdDown)
                     {
-                        player.UpdateMoveSpeed(Vector2.Up);
+                        player1.UpdateMoveSpeed(Vector2.Up);
                         //MovePictureBoxes("Up");
                         holdDown = true;
                     }
@@ -327,22 +326,22 @@ namespace Fall2020_CSC403_Project
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    player.UpdateMoveSpeed(-Vector2.Left);
+                    player1.UpdateMoveSpeed(-Vector2.Left);
                     holdLeft = false;
                     break;
 
                 case Keys.Right:
-                    player.UpdateMoveSpeed(-Vector2.Right);
+                    player1.UpdateMoveSpeed(-Vector2.Right);
                     holdRight = false;
                     break;
 
                 case Keys.Up:
-                    player.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
+                    player1.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
                     holdUp = false;
                     break;
 
                 case Keys.Down:
-                    player.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
+                    player1.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
                     holdDown = false;
                     break;
             }
