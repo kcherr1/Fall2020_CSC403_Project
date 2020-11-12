@@ -177,6 +177,7 @@ namespace Fall2020_CSC403_Project
                 picPlayer.Refresh();
                 Globals.PlayerIsAlive = false;
                 Close();
+             
             }
             else if (enemy.Health <= 0)
             {

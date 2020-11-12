@@ -29,14 +29,12 @@
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.picWall15 = new System.Windows.Forms.PictureBox();
-            this.picWall23 = new System.Windows.Forms.PictureBox();
             this.picWall22 = new System.Windows.Forms.PictureBox();
             this.picWall21 = new System.Windows.Forms.PictureBox();
             this.picWall20 = new System.Windows.Forms.PictureBox();
             this.picWall19 = new System.Windows.Forms.PictureBox();
             this.picWall18 = new System.Windows.Forms.PictureBox();
             this.picWall17 = new System.Windows.Forms.PictureBox();
-            this.picWall16 = new System.Windows.Forms.PictureBox();
             this.picWall14 = new System.Windows.Forms.PictureBox();
             this.picWall13 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
@@ -57,15 +55,14 @@
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picPortal0 = new System.Windows.Forms.PictureBox();
+            this.labelPlayerStats = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
@@ -209,19 +206,6 @@
             this.picWall17.TabStop = false;
             this.picWall17.Tag = "wallPic";
             // 
-            // picWall16
-            // 
-            this.picWall16.BackColor = System.Drawing.Color.Transparent;
-            this.picWall16.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall16.Location = new System.Drawing.Point(1186, 1);
-            this.picWall16.Name = "picWall16";
-            this.picWall16.Size = new System.Drawing.Size(645, 67);
-            this.picWall16.TabIndex = 22;
-            this.picWall16.TabStop = false;
-            this.picWall16.Tag = "wallPic";
-            this.picWall16.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // picWall14
             // 
             this.picWall14.BackColor = System.Drawing.Color.Transparent;
@@ -265,7 +249,7 @@
             this.picWall2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picWall2.Location = new System.Drawing.Point(551, 1);
             this.picWall2.Name = "picWall2";
-            this.picWall2.Size = new System.Drawing.Size(637, 67);
+            this.picWall2.Size = new System.Drawing.Size(497, 67);
             this.picWall2.TabIndex = 16;
             this.picWall2.TabStop = false;
             this.picWall2.Tag = "wallPic";
@@ -462,22 +446,33 @@
             this.picPortal0.Tag = "portal";
             this.picPortal0.Click += new System.EventHandler(this.portal_Click);
             // 
+            // labelPlayerStats
+            // 
+            this.labelPlayerStats.AutoSize = true;
+            this.labelPlayerStats.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.labelPlayerStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayerStats.ForeColor = System.Drawing.Color.Black;
+            this.labelPlayerStats.Location = new System.Drawing.Point(900, 9);
+            this.labelPlayerStats.Name = "labelPlayerStats";
+            this.labelPlayerStats.Size = new System.Drawing.Size(83, 18);
+            this.labelPlayerStats.TabIndex = 31;
+            this.labelPlayerStats.Text = "PlayerStats";
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1049, 725);
+            this.Controls.Add(this.labelPlayerStats);
             this.Controls.Add(this.picWall15);
-            this.Controls.Add(this.picWall23);
             this.Controls.Add(this.picWall22);
             this.Controls.Add(this.picWall21);
             this.Controls.Add(this.picWall20);
             this.Controls.Add(this.picWall19);
             this.Controls.Add(this.picWall18);
             this.Controls.Add(this.picWall17);
-            this.Controls.Add(this.picWall16);
             this.Controls.Add(this.picWall14);
             this.Controls.Add(this.picWall13);
             this.Controls.Add(this.picWall11);
@@ -507,14 +502,12 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
@@ -565,15 +558,14 @@
         private System.Windows.Forms.PictureBox picPortal0;
         private System.Windows.Forms.PictureBox picWall13;
         private System.Windows.Forms.PictureBox picWall14;
-        private System.Windows.Forms.PictureBox picWall16;
         private System.Windows.Forms.PictureBox picWall17;
         private System.Windows.Forms.PictureBox picWall18;
         private System.Windows.Forms.PictureBox picWall19;
         private System.Windows.Forms.PictureBox picWall20;
         private System.Windows.Forms.PictureBox picWall21;
         private System.Windows.Forms.PictureBox picWall22;
-        private System.Windows.Forms.PictureBox picWall23;
         private System.Windows.Forms.PictureBox picWall15;
+        private System.Windows.Forms.Label labelPlayerStats;
     }
 }
 
