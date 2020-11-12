@@ -172,4 +172,19 @@
   <data name="wallFuture" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\wallFuture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BuffCherry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\BuffCherry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enemy_koolaid_cherry_hit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\enemy_koolaid_cherry_hit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FINALVS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\FINALVS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heaven" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\heaven.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsPeanut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\MsPeanut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

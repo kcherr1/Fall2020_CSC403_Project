@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
 {
-    public partial class FrmLevel : Form
+    public partial class Frm2Level : Form
     {
         private Player player;
 
@@ -25,47 +25,15 @@ namespace Fall2020_CSC403_Project
         private bool holdLeft, holdRight, holdUp, holdDown;
 
 
-        public FrmLevel()
+        public Frm2Level()
         {
             InitializeComponent();
 
         }
 
 
-        //public void MovePictureBoxes(string direction)
-        //{
-        //    foreach (Control x in this.Controls)
-        //    {
-
-        //        if (x is PictureBox && (string)x.Tag == "background1" || x is PictureBox && (string)x.Tag == "enemyPic" || x is PictureBox && (string)x.Tag == "wallPic")
-        //        {
-
-        //            if (direction == "Left")
-        //            {
-        //                x.Left -= 3;
-        //            }
-
-        //            if (direction == "Right")
-        //            {
-        //                x.Left += 3;
-        //            }
-
-        //            if (direction == "Down")
-        //            {
-        //                x.Top -= 3;
-        //            }
-
-        //            if (direction == "Up")
-        //            {
-        //                x.Top += 3;
-        //            }
-
-        //        }
-        //    }
-        //}
-
-
-        private void FrmLevel_Load(object sender, EventArgs e)
+        
+        private void Frm2Level_Load(object sender, EventArgs e)
         {
 
             const int PADDING = 7;
@@ -77,15 +45,14 @@ namespace Fall2020_CSC403_Project
             Game.player = player;
 
             // initialize enemies on this form
-            Enemy bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 100, 60)
+            Enemy bossKoolaid2 = new Enemy(CreatePosition(picBossKoolAid2), CreateCollider(picBossKoolAid2, PADDING), 100, 60)
             {
-                Img = picBossKoolAid.BackgroundImage,
+                Img = picBossKoolAid2.BackgroundImage,
                 Color = Color.Red,
                 IsBoss = true
             };
-
-            enemies.Add(bossKoolaid);
-            EnemyPictureDict.Add(bossKoolaid, picBossKoolAid);
+            enemies.Add(bossKoolaid2);
+            EnemyPictureDict.Add(bossKoolaid2, picBossKoolAid2);
 
             Enemy enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), 50)
             {
@@ -93,6 +60,8 @@ namespace Fall2020_CSC403_Project
                 Color = Color.Green,
                 IsBoss = false
             };
+
+
             enemies.Add(enemyPoisonPacket);
             EnemyPictureDict.Add(enemyPoisonPacket, picEnemyPoisonPacket);
 
@@ -147,6 +116,13 @@ namespace Fall2020_CSC403_Project
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
+            if (Globals.PlayerIsAlive == false)
+            {
+                player.ResetMoveSpeed();
+                Thread.Sleep(100);
+                Close();
+            }
+
             // move player
             player.Move();
 
@@ -156,7 +132,6 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
-            
 
             // check collision with enemies
             enemies.ForEach((enemy) =>
@@ -171,12 +146,10 @@ namespace Fall2020_CSC403_Project
 
             if (HitAPortal(player))
             {
-
+                
                 player.MoveBack();
-                Thread.Sleep(100);
                 player.ResetMoveSpeed();
                 Thread.Sleep(100);
-                Globals.Level1Beat = true;
                 Close();
 
             }
@@ -265,7 +238,7 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        private void Frm2Level_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -310,7 +283,7 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        private void Frm2Level_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {

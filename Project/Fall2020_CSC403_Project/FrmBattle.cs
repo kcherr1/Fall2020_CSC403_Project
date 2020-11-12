@@ -41,12 +41,22 @@ namespace Fall2020_CSC403_Project
 
         public void SetupForBossBattle()
         {
+
+            if (Globals.LevelNumber == 1)
+            {
+                SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+                simpleSound.Play();
+            }
+            else
+            {
+                picBossBattle.BackgroundImage = Resources.FINALVS;
+                SoundPlayer simpleSound1 = new SoundPlayer(Resources.final_battle);
+                simpleSound1.Play();
+            }
+
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
             picBossBattle.Visible = true;
-
-            SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-            simpleSound.Play();
 
             tmrFinalBattle.Enabled = true;
         }
@@ -77,22 +87,45 @@ namespace Fall2020_CSC403_Project
 
         private void btnAttack_Click(object sender, EventArgs e)
         {
+            if (Globals.LevelNumber == 2)
+            {
+                if (Globals.LevelsGiven == false)
+                {
+                    player.Level = 3;
+                    Globals.LevelsGiven = true;
+                }
+            }
             player.OnAttack(-4 + (-1 * (player.Level - 1)));
             if (enemy.Health > 0)
             {
                 // Will - Enemy "animation effect"
                 if (enemy.Img == Resources.enemy_koolaid)
                 {
-
                     if (enemy.IsAlive == true)
                     {
-                        picEnemy.BackgroundImage = Resources.enemy_koolaid_hit;
+                        picEnemy.BackgroundImage = Resources.enemy_koolaid;
                     }
                     else
                     {
                         picEnemy.BackgroundImage = Resources.enemy_koolaid_dead;
                     }
                 }
+
+
+
+                else if (enemy.Img == Resources.BuffCherry)
+                {
+                    if (enemy.IsAlive == true)
+                    {
+                        picEnemy.BackgroundImage = Resources.BuffCherry;
+                    }
+                    else
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_koolaid_cherry_hit;
+                    }
+                }
+
+                    
 
 
                 else if (enemy.Img == Resources.enemy_cheetos)
@@ -107,7 +140,7 @@ namespace Fall2020_CSC403_Project
                     }
                 }
 
-                else // (enemy.Img == Resources.enemy_poisonpacket)
+                else //(enemy.Img == Resources.enemy_poisonpacket)
                 {
 
                     if (enemy.IsAlive == true)
@@ -150,10 +183,10 @@ namespace Fall2020_CSC403_Project
                 picPlayer.BackgroundImage = Resources.player_dead;
                 picPlayer.Refresh();
 
-                // lblInfoPanel.Text = $"You have died, Mr. Peanut is very disappointed in you :(";
                 Thread.Sleep(2000);
 
                 instance = null;
+                Globals.PlayerIsAlive = false;
                 Close();
             }
             else if (enemy.Health <= 0)
@@ -169,9 +202,16 @@ namespace Fall2020_CSC403_Project
                     Thread.Sleep(2000);
                 }
                 enemy.IsAlive = false;
-                FrmLevel.EnemyPictureDict[enemy].BackgroundImage = null;
-                FrmLevel.EnemyPictureDict[enemy].SendToBack();
-
+                if (Globals.LevelNumber == 1)
+                {
+                    FrmLevel.EnemyPictureDict[enemy].BackgroundImage = null;
+                    FrmLevel.EnemyPictureDict[enemy].SendToBack();
+                }
+                else
+                {
+                    Frm2Level.EnemyPictureDict[enemy].BackgroundImage = null;
+                    Frm2Level.EnemyPictureDict[enemy].SendToBack();
+                }
                 instance = null;
                 Close();
             }
