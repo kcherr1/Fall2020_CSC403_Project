@@ -68,7 +68,7 @@ namespace Fall2020_CSC403_Project
         {
 
             const int PADDING = 7;
-            const int NUM_WALLS = 22;
+            const int NUM_WALLS = 16;
             const int NUM_portals = 1;
 
             // initialize player
