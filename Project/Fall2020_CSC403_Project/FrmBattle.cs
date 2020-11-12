@@ -95,6 +95,7 @@ namespace Fall2020_CSC403_Project {
       isBaby();
       if (player.Health > 0 && enemy.Health <= 0) {
         player.GainExperience(5);
+        addInventory();
         instance = null;
         Close();
       }
@@ -132,7 +133,6 @@ namespace Fall2020_CSC403_Project {
        }
     }
 
-
         //if the player presses the health potion bars, use the health potion and update 
         //the buttons and health bars
 
@@ -157,4 +157,27 @@ namespace Fall2020_CSC403_Project {
             UpdateHealthBars();
         }
     }
+
+    private void addInventory()
+        {
+            Random numGen = new Random();
+            int number = numGen.Next(1, 20);
+
+            if (number > 5 && number < 10)
+            {
+                player.Player_inventory["Small HP potion"] += 1;
+            }
+
+            else if(number > 10 && number <15)
+            {
+                player.Player_inventory["Medium HP potion"] += 1;
+            }
+
+            else if (number > 15)
+            {
+                player.Player_inventory["Large HP potion"] += 1;
+            }
+        }
+  }
+
 }
