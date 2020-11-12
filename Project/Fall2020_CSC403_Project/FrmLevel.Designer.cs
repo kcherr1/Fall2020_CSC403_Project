@@ -123,15 +123,15 @@
             // 
             // picWall23
             // 
-            this.picWall23.BackColor = System.Drawing.Color.Transparent;
-            this.picWall23.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall23.Location = new System.Drawing.Point(2, 717);
-            this.picWall23.Name = "picWall23";
-            this.picWall23.Size = new System.Drawing.Size(76, 267);
-            this.picWall23.TabIndex = 29;
-            this.picWall23.TabStop = false;
-            this.picWall23.Tag = "wallPic";
+            //this.picWall23.BackColor = System.Drawing.Color.Transparent;
+            //this.picWall23.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            //this.picWall23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            //this.picWall23.Location = new System.Drawing.Point(2, 717);
+            //this.picWall23.Name = "picWall23";
+            //this.picWall23.Size = new System.Drawing.Size(76, 267);
+            //this.picWall23.TabIndex = 29;
+            //this.picWall23.TabStop = false;
+            //this.picWall23.Tag = "wallPic";
             // 
             // picWall22
             // 
