@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
+using System.Threading;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
@@ -19,14 +20,11 @@ namespace Fall2020_CSC403_Project
             player = Game.player;
         }
 
+
+        
+
         public void Setup()
         {
-            if (!enemy.IsAlive)
-            {
-                lblInfoPanel.Text = "Enemy is already defeated.";
-                btnAttack.Text = "Leave";
-            }
-
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
@@ -82,31 +80,98 @@ namespace Fall2020_CSC403_Project
             player.OnAttack(-4 + (-1 * (player.Level - 1)));
             if (enemy.Health > 0)
             {
+                // Will - Enemy "animation effect"
+                if (enemy.Img == Resources.enemy_koolaid)
+                {
+
+                    if (enemy.IsAlive == true)
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_koolaid_hit;
+                    }
+                    else
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_koolaid_dead;
+                    }
+                }
+
+
+                else if (enemy.Img == Resources.enemy_cheetos)
+                {
+                    if (enemy.IsAlive == true)
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_hit;
+                    }
+                    else
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_dead;
+                    }
+                }
+
+                else // (enemy.Img == Resources.enemy_poisonpacket)
+                {
+
+                    if (enemy.IsAlive == true)
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_hit;
+                    }
+                    else
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_dead;
+                    }
+                }
+
+                if (enemy.IsAlive == true)
+                {
+                    picEnemy.Refresh();
+                }
+
+                Thread.Sleep(100);
+                
+                picEnemy.BackgroundImage = enemy.Img;
+                picEnemy.Refresh();
+
+
                 enemy.OnAttack(-2);
+
+
+                // Will - Player "animation effect"
+                picPlayer.BackgroundImage = Resources.player_hit;
+                picPlayer.Refresh();
+
+                Thread.Sleep(100);
+
+                picPlayer.BackgroundImage = Resources.player;
+                picPlayer.Refresh();
             }
 
             UpdateHealthBars();
             if (player.Health <= 0)
             {
+                picPlayer.BackgroundImage = Resources.player_dead;
+                picPlayer.Refresh();
+
+                // lblInfoPanel.Text = $"You have died, Mr. Peanut is very disappointed in you :(";
+                Thread.Sleep(2000);
+
                 instance = null;
                 Close();
             }
             else if (enemy.Health <= 0)
             {
-                if (enemy.IsAlive)
-                {
-                    lblInfoPanel.Text = $"Enemy was defeated. Mr. Peanut gained {enemy.ExpReward} experience points!";
-                    Application.DoEvents();
-                    System.Threading.Thread.Sleep(2000);
+                lblInfoPanel.Text = $"Enemy was defeated. Mr. Peanut gained {enemy.ExpReward} experience points!";
+                Application.DoEvents();
+                Thread.Sleep(2000);
 
-                    if (player.AwardEXP(enemy.ExpReward))
-                    {
-                        lblInfoPanel.Text = $"Mr. Peanut leveled up! Level is now {player.Level}!";
-                        Application.DoEvents();
-                        System.Threading.Thread.Sleep(2000);
-                    }
-                    enemy.IsAlive = false;
+                if (player.AwardEXP(enemy.ExpReward))
+                {
+                    lblInfoPanel.Text = $"Mr. Peanut leveled up! Level is now {player.Level}!";
+                    Application.DoEvents();
+                    Thread.Sleep(2000);
                 }
+                enemy.IsAlive = false;
+                FrmLevel.EnemyPictureDict[enemy].BackgroundImage = null;
+                FrmLevel.EnemyPictureDict[enemy].SendToBack();
+
                 instance = null;
                 Close();
             }
@@ -131,6 +196,11 @@ namespace Fall2020_CSC403_Project
         private void infoPanel_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
