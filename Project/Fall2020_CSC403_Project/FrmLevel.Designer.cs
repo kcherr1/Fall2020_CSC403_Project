@@ -62,6 +62,7 @@
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picPortal0 = new System.Windows.Forms.PictureBox();
+            this.labelPlayerStats = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall22)).BeginInit();
@@ -467,6 +468,19 @@
             this.picPortal0.Tag = "portal";
             this.picPortal0.Click += new System.EventHandler(this.portal_Click);
             // 
+            // labelPlayerStats
+            // 
+            this.labelPlayerStats.AutoSize = true;
+            this.labelPlayerStats.BackColor = System.Drawing.Color.Black;
+            this.labelPlayerStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayerStats.ForeColor = System.Drawing.Color.White;
+            this.labelPlayerStats.Location = new System.Drawing.Point(151, 9);
+            this.labelPlayerStats.Name = "labelPlayerStats";
+            this.labelPlayerStats.Size = new System.Drawing.Size(87, 18);
+            this.labelPlayerStats.TabIndex = 2;
+            this.labelPlayerStats.Text = "Player Stats";
+            this.labelPlayerStats.Click += new System.EventHandler(this.lblInGameTime_Click);
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,6 +503,7 @@
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
             this.Controls.Add(this.picWall7);
+            this.Controls.Add(this.labelPlayerStats);
             this.Controls.Add(this.lblInGameTime);
             this.Controls.Add(this.picWall1);
             this.Controls.Add(this.picWall0);
@@ -579,6 +594,7 @@
         private System.Windows.Forms.PictureBox picWall22;
         private System.Windows.Forms.PictureBox picWall23;
         private System.Windows.Forms.PictureBox picWall15;
+        private System.Windows.Forms.Label labelPlayerStats;
     }
 }
 
