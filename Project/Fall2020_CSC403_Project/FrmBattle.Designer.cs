@@ -156,7 +156,7 @@
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
             this.Name = "FrmBattle";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fight!";
             this.Load += new System.EventHandler(this.FrmBattle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();

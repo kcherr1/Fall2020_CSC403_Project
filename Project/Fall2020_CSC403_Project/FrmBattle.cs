@@ -83,21 +83,47 @@ namespace Fall2020_CSC403_Project
                 // Will - Enemy "animation effect"
                 if (enemy.Img == Resources.enemy_koolaid)
                 {
-                    picEnemy.BackgroundImage = Resources.enemy_koolaid_hit;
+
+                    if (enemy.IsAlive == true)
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_koolaid_hit;
+                    }
+                    else
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_koolaid_dead;
+                    }
                 }
 
 
                 else if (enemy.Img == Resources.enemy_cheetos)
                 {
-                    picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_hit;
+                    if (enemy.IsAlive == true)
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_hit;
+                    }
+                    else
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_dead;
+                    }
                 }
 
                 else // (enemy.Img == Resources.enemy_poisonpacket)
                 {
-                    picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_hit;
+
+                    if (enemy.IsAlive == true)
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_hit;
+                    }
+                    else
+                    {
+                        picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_dead;
+                    }
                 }
 
-                picEnemy.Refresh();
+                if (enemy.IsAlive == true)
+                {
+                    picEnemy.Refresh();
+                }
 
                 Thread.Sleep(100);
                 
@@ -125,7 +151,7 @@ namespace Fall2020_CSC403_Project
                 picPlayer.Refresh();
 
                 // lblInfoPanel.Text = $"You have died, Mr. Peanut is very disappointed in you :(";
-                //Thread.Sleep(2000);
+                Thread.Sleep(2000);
 
                 instance = null;
                 Close();

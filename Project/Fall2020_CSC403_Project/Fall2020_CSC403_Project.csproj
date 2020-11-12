@@ -163,5 +163,8 @@
   <ItemGroup>
     <None Include="data\portal.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\wallFuture.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

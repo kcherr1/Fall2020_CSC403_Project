@@ -15,11 +15,10 @@ namespace Fall2020_CSC403_Project
         public static Dictionary<Enemy, PictureBox> EnemyPictureDict = new Dictionary<Enemy, PictureBox>();
 
         private Character[] walls;
-
+        private Character[] portals;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
-        private FrmSecondLevel frmSecondLevel;
 
 
         private bool holdLeft, holdRight, holdUp, holdDown;
@@ -69,7 +68,8 @@ namespace Fall2020_CSC403_Project
         {
 
             const int PADDING = 7;
-            const int NUM_WALLS = 16;
+            const int NUM_WALLS = 22;
+            const int NUM_portals = 1;
 
             // initialize player
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
@@ -112,7 +112,12 @@ namespace Fall2020_CSC403_Project
             }
 
 
-
+            portals = new Character[NUM_portals];
+            for (int p = 0; p < NUM_portals; p++)
+            {
+                PictureBox port = Controls.Find("picPortal" + p.ToString(), true)[0] as PictureBox;
+                portals[p] = new Character(CreatePosition(port), CreateCollider(port, PADDING));
+            }
 
             timeBegin = DateTime.Now;
         }
@@ -149,26 +154,42 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
+            
 
             // check collision with enemies
             enemies.ForEach((enemy) =>
             {
                 if (enemy.IsAlive && HitAChar(player, enemy))
                     Fight(enemy);
+
             });
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+
+            if (HitAPortal(player))
+            {
+                player.MoveBack();
+                player.ResetMoveSpeed();
+                Close();
+
+            }
         }
 
-        private void HitAPortal(Player player)
+        private bool HitAPortal(Character c)
         {
-            player.ResetMoveSpeed();
-            player.MoveBack();
-            frmSecondLevel = FrmSecondLevel.GetInstance(player);
-            frmSecondLevel.Show();
-            Close();
-        } 
+            bool hitAPortal = false;
+            for (int p = 0; p < portals.Length; p++)
+            {
+                if (c.Collider.Intersects(portals[p].Collider))
+                {
+                    hitAPortal = true;
+                    break;
+                }
+            }
+            return hitAPortal;
+        }
+    
 
         private bool HitAWall(Character c)
         {
@@ -189,14 +210,6 @@ namespace Fall2020_CSC403_Project
             return you.Collider.Intersects(other.Collider);
         }
 
-        private void NextLevel(Player player)
-        {
-            player.ResetMoveSpeed();
-            player.MoveBack();
-            frmSecondLevel.Show();
-            Close();
-
-        }
 
         private void Fight(Enemy enemy)
         {
@@ -227,6 +240,21 @@ namespace Fall2020_CSC403_Project
         }
 
         private void portal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picBossKoolAid_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
 
         }
