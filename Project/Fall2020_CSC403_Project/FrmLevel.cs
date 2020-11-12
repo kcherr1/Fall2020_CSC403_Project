@@ -234,30 +234,12 @@ namespace Fall2020_CSC403_Project
             player.ResetMoveSpeed();
         }
 
-        private void background_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void portal_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picBossKoolAid_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void background_Click(object sender, EventArgs e) { }
+        private void portal_Click(object sender, EventArgs e) { }
+        private void picBossKoolAid_Click(object sender, EventArgs e) { }
+        private void pictureBox1_Click(object sender, EventArgs e) { }
+        private void pictureBox3_Click(object sender, EventArgs e) { }
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
