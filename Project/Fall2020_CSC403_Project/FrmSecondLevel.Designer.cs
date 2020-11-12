@@ -42,9 +42,16 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
@@ -58,9 +65,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.SuspendLayout();
             // 
             // picBossKoolAid
@@ -68,7 +82,7 @@
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
             this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(1223, 426);
+            this.picBossKoolAid.Location = new System.Drawing.Point(534, 309);
             this.picBossKoolAid.Name = "picBossKoolAid";
             this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
             this.picBossKoolAid.TabIndex = 8;
@@ -80,7 +94,7 @@
             this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
             this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(867, 622);
+            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(434, 436);
             this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(41, 67);
             this.picEnemyPoisonPacket.TabIndex = 7;
@@ -92,7 +106,7 @@
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyCheeto.Location = new System.Drawing.Point(865, 347);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(463, 179);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(43, 84);
             this.picEnemyCheeto.TabIndex = 6;
@@ -115,9 +129,9 @@
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(0, -2);
+            this.pictureBox4.Location = new System.Drawing.Point(75, -2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(610, 67);
+            this.pictureBox4.Size = new System.Drawing.Size(232, 67);
             this.pictureBox4.TabIndex = 21;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Tag = "wallPic";
@@ -127,9 +141,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(603, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(303, -2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(610, 67);
+            this.pictureBox1.Size = new System.Drawing.Size(227, 67);
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "wallPic";
@@ -218,26 +232,14 @@
             this.pictureBox9.TabStop = false;
             this.pictureBox9.Tag = "wallPic";
             // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox10.Location = new System.Drawing.Point(0, 546);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(83, 424);
-            this.pictureBox10.TabIndex = 30;
-            this.pictureBox10.TabStop = false;
-            this.pictureBox10.Tag = "wallPic";
-            // 
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox11.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
             this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox11.Location = new System.Drawing.Point(0, 130);
+            this.pictureBox11.Location = new System.Drawing.Point(0, 304);
             this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(83, 424);
+            this.pictureBox11.Size = new System.Drawing.Size(83, 421);
             this.pictureBox11.TabIndex = 31;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Tag = "wallPic";
@@ -247,21 +249,124 @@
             this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
             this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox12.Location = new System.Drawing.Point(0, -282);
+            this.pictureBox12.Location = new System.Drawing.Point(0, -2);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(83, 424);
+            this.pictureBox12.Size = new System.Drawing.Size(83, 309);
             this.pictureBox12.TabIndex = 32;
             this.pictureBox12.TabStop = false;
             this.pictureBox12.Tag = "wallPic";
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox13.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
+            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox13.Location = new System.Drawing.Point(740, -2);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(232, 67);
+            this.pictureBox13.TabIndex = 33;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.Tag = "wallPic";
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox14.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
+            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox14.Location = new System.Drawing.Point(524, -2);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(223, 67);
+            this.pictureBox14.TabIndex = 34;
+            this.pictureBox14.TabStop = false;
+            this.pictureBox14.Tag = "wallPic";
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox10.Location = new System.Drawing.Point(967, -2);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(83, 207);
+            this.pictureBox10.TabIndex = 40;
+            this.pictureBox10.TabStop = false;
+            this.pictureBox10.Tag = "wallPic";
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox19.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
+            this.pictureBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox19.Location = new System.Drawing.Point(967, 372);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(83, 353);
+            this.pictureBox19.TabIndex = 39;
+            this.pictureBox19.TabStop = false;
+            this.pictureBox19.Tag = "wallPic";
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox15.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
+            this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox15.Location = new System.Drawing.Point(524, 658);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(223, 67);
+            this.pictureBox15.TabIndex = 44;
+            this.pictureBox15.TabStop = false;
+            this.pictureBox15.Tag = "wallPic";
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox16.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
+            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox16.Location = new System.Drawing.Point(740, 658);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(232, 67);
+            this.pictureBox16.TabIndex = 43;
+            this.pictureBox16.TabStop = false;
+            this.pictureBox16.Tag = "wallPic";
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox17.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox17.Location = new System.Drawing.Point(303, 658);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(227, 67);
+            this.pictureBox17.TabIndex = 42;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.Tag = "wallPic";
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox18.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wallFuture;
+            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox18.Location = new System.Drawing.Point(75, 658);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(232, 67);
+            this.pictureBox18.TabIndex = 41;
+            this.pictureBox18.TabStop = false;
+            this.pictureBox18.Tag = "wallPic";
             // 
             // FrmSecondLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1049, 725);
+            this.Controls.Add(this.pictureBox15);
+            this.Controls.Add(this.pictureBox16);
+            this.Controls.Add(this.pictureBox17);
+            this.Controls.Add(this.pictureBox18);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.pictureBox19);
+            this.Controls.Add(this.pictureBox14);
+            this.Controls.Add(this.pictureBox13);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox11);
-            this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
@@ -275,11 +380,10 @@
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.picPlayer);
-            this.Name = "FrmSecondLevel";
-            this.Text = "FrmSecondLevel";
             this.DoubleBuffered = true;
+            this.Name = "FrmSecondLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mr. Peanut's Nutty Adventure";
+            this.Text = "Mr. Peanut\'s Nutty Adventure";
             this.Load += new System.EventHandler(this.FrmSecondLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSecondLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmSecondLevel_KeyUp);
@@ -296,11 +400,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
+
         }
 
         #endregion
@@ -318,8 +429,15 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox19;
+        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.PictureBox pictureBox18;
     }
 }
