@@ -34,8 +34,11 @@ namespace Fall2020_CSC403_Project
                 Application.Run(new Frm2Level());
                 
             }
-            
-            if (Globals.PlayerIsAlive == false)
+            if (Form.ActiveForm == null && Globals.LevelNumber == 3)
+            {
+                Application.Run(new FrmFinal());
+            }
+                if (Globals.PlayerIsAlive == false)
             {
                 
             }

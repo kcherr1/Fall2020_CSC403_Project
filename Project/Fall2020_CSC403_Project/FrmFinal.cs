@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
 {
-    public partial class Frm2Level : Form
+    public partial class FrmFinal : Form
     {
         private Player player;
 
@@ -25,7 +25,7 @@ namespace Fall2020_CSC403_Project
         private bool holdLeft, holdRight, holdUp, holdDown;
 
 
-        public Frm2Level()
+        public FrmFinal()
         {
             InitializeComponent();
 
