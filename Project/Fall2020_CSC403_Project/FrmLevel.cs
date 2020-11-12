@@ -11,6 +11,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
+    private Enemy enemyPringlesMan;
+    private Enemy enemySlayer;
     private Enemy[] movingEnemies;
     private Character[] walls;
 
@@ -30,17 +32,26 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      enemyPringlesMan = new Enemy(CreatePosition(picPringlesMan), CreateCollider(picPringlesMan, PADDING));
+      enemySlayer = new Enemy(CreatePosition(picPillsbury), CreateCollider(picPillsbury, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      enemyPringlesMan.Img = picPringlesMan.BackgroundImage;
+      enemySlayer.Img = picPillsbury.BackgroundImage;
+
 
       enemyCheeto.PicNumber = 1;
       enemyPoisonPacket.PicNumber = 2;
+      enemyPringlesMan.PicNumber = 3;
+      enemySlayer.PicNumber =4;
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      enemyPringlesMan.Color = Color.Silver;
+      enemySlayer.Color = Color.DarkGreen;
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -48,7 +59,7 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
-            movingEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket };
+      movingEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket, enemyPringlesMan, enemySlayer};
 
       Game.player = player;
       timeBegin = DateTime.Now;
@@ -83,16 +94,17 @@ namespace Fall2020_CSC403_Project {
       }
 
       // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        if (enemyPoisonPacket.Health > 0 && player.Health > 0) {
-         Fight(enemyPoisonPacket);
-        }
+      foreach (Enemy enemy in movingEnemies)
+            {
+                if (HitAChar(player, enemy))
+                {
+                    if (enemy.Health > 0 && player.Health > 0)
+                    {
+                        Fight(enemy);
+                    }
+                }
       }
-      else if (HitAChar(player, enemyCheeto)) {
-        if (enemyCheeto.Health > 0 && player.Health > 0) {
-         Fight(enemyCheeto);
-        }
-      }
+      
       if (HitAChar(player, bossKoolaid)) {
         if (bossKoolaid.Health > 0 && player.Health > 0) {
          Fight(bossKoolaid);
@@ -103,15 +115,28 @@ namespace Fall2020_CSC403_Project {
             {
                 FrmGameOver.GetInstance(this);  
             }
-
-      if (enemyPoisonPacket.Health <= 0) 
+      foreach (Enemy enemy in movingEnemies)
             {
-                picEnemyPoisonPacket.Visible = false;
-            }
-
-      if (enemyCheeto.Health <= 0)
-            {
-                picEnemyCheeto.Visible = false;
+                if (enemy.Health <= 0)
+                {
+                    switch (enemy.PicNumber)
+                    {
+                        case 1:
+                            picEnemyCheeto.Visible = false;
+                            break;
+                        case 2:
+                            picEnemyPoisonPacket.Visible = false;
+                            break;
+                        case 3:
+                            picPringlesMan.Visible = false;
+                            break;
+                        case 4:
+                            picPillsbury.Visible = false;
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
 
       if (bossKoolaid.Health <= 0)
@@ -132,10 +157,6 @@ namespace Fall2020_CSC403_Project {
           picPlayer.BackgroundImage = Resources.player;
           picPlayer.Refresh();
       }
-            foreach (Enemy enemy in movingEnemies)
-            {
-                MoveEnemy(enemy);
-            }
 
 
         }
@@ -194,8 +215,12 @@ namespace Fall2020_CSC403_Project {
           player.ResetMoveSpeed();
           break;
       }
-            
+        foreach (Enemy enemy in movingEnemies)
+        {
+            MoveEnemy(enemy);
         }
+
+    }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
@@ -203,7 +228,7 @@ namespace Fall2020_CSC403_Project {
         private void MoveEnemy(Enemy enemy)
         {
             Random r = new Random();
-            int move = r.Next(1, 4);
+            int move = r.Next(1, 5);
             switch (move)
             {
                 case 1:
@@ -211,19 +236,11 @@ namespace Fall2020_CSC403_Project {
                     {
                         enemy.GoLeft();
                     }
-                    else
-                    {
-                        enemy.GoRight();
-                    }
                     break;
                 case 2:
                     if (enemy.LastMove != 1)
                     {
                         enemy.GoRight();
-                    }
-                    else
-                    {
-                        enemy.GoLeft();
                     }
                     break;
                 case 3:
@@ -231,23 +248,15 @@ namespace Fall2020_CSC403_Project {
                     {
                         enemy.GoUp();
                     }
-                    else
-                    {
-                        enemy.GoDown();
-                    }
                     break;
                 case 4:
                     if (enemy.LastMove != 3)
                     {
                         enemy.GoDown();
                     }
-                    else
-                    {
-                        enemy.GoUp();
-                    }
                     break;
                 default:
-                    enemy.GoLeft();
+                    enemy.ResetMoveSpeed();
                     break;
             }
             enemy.Move();
@@ -262,6 +271,12 @@ namespace Fall2020_CSC403_Project {
                     break;
                 case 2:
                     picEnemyPoisonPacket.Location = new Point((int)enemy.Position.x, (int)enemy.Position.y);
+                    break;
+                case 3:
+                    picPringlesMan.Location = new Point((int)enemy.Position.x, (int)enemy.Position.y);
+                    break;
+                case 4:
+                    picPillsbury.Location = new Point((int)enemy.Position.x, (int)enemy.Position.y);
                     break;
                 default:
                     break;
