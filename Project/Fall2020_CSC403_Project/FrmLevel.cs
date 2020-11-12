@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
@@ -15,25 +16,65 @@ namespace Fall2020_CSC403_Project
 
         private Character[] walls;
 
+
         private DateTime timeBegin;
         private FrmBattle frmBattle;
+        private FrmSecondLevel frmSecondLevel;
+
 
         private bool holdLeft, holdRight, holdUp, holdDown;
+
 
         public FrmLevel()
         {
             InitializeComponent();
+
         }
+
+
+        //public void MovePictureBoxes(string direction)
+        //{
+        //    foreach (Control x in this.Controls)
+        //    {
+
+        //        if (x is PictureBox && (string)x.Tag == "background1" || x is PictureBox && (string)x.Tag == "enemyPic" || x is PictureBox && (string)x.Tag == "wallPic")
+        //        {
+
+        //            if (direction == "Left")
+        //            {
+        //                x.Left -= 3;
+        //            }
+
+        //            if (direction == "Right")
+        //            {
+        //                x.Left += 3;
+        //            }
+
+        //            if (direction == "Down")
+        //            {
+        //                x.Top -= 3;
+        //            }
+
+        //            if (direction == "Up")
+        //            {
+        //                x.Top += 3;
+        //            }
+
+        //        }
+        //    }
+        //}
+
 
         private void FrmLevel_Load(object sender, EventArgs e)
         {
+
             const int PADDING = 7;
-            const int NUM_WALLS = 13;
+            const int NUM_WALLS = 16;
 
             // initialize player
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             Game.player = player;
-            
+
             // initialize enemies on this form
             Enemy bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 100, 60)
             {
@@ -70,8 +111,14 @@ namespace Fall2020_CSC403_Project
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
+
+
+
             timeBegin = DateTime.Now;
         }
+
+
+
 
         private Vector2 CreatePosition(PictureBox pic)
         {
@@ -102,6 +149,7 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
+
             // check collision with enemies
             enemies.ForEach((enemy) =>
             {
@@ -112,6 +160,15 @@ namespace Fall2020_CSC403_Project
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
+
+        private void HitAPortal(Player player)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmSecondLevel = FrmSecondLevel.GetInstance(player);
+            frmSecondLevel.Show();
+            Close();
+        } 
 
         private bool HitAWall(Character c)
         {
@@ -130,6 +187,15 @@ namespace Fall2020_CSC403_Project
         private bool HitAChar(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
+        }
+
+        private void NextLevel(Player player)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmSecondLevel.Show();
+            Close();
+
         }
 
         private void Fight(Enemy enemy)
@@ -155,6 +221,16 @@ namespace Fall2020_CSC403_Project
             player.ResetMoveSpeed();
         }
 
+        private void background_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void portal_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -163,6 +239,7 @@ namespace Fall2020_CSC403_Project
                     if (!holdLeft)
                     {
                         player.UpdateMoveSpeed(Vector2.Left);
+                        //MovePictureBoxes("Left");
                         holdLeft = true;
                     }
                     break;
@@ -171,6 +248,7 @@ namespace Fall2020_CSC403_Project
                     if (!holdRight)
                     {
                         player.UpdateMoveSpeed(Vector2.Right);
+                        //MovePictureBoxes("Right");
                         holdRight = true;
                     }
                     break;
@@ -179,6 +257,7 @@ namespace Fall2020_CSC403_Project
                     if (!holdUp)
                     {
                         player.UpdateMoveSpeed(Vector2.Down);
+                        //MovePictureBoxes("Down");
                         holdUp = true;
                     }
                     break;
@@ -187,6 +266,7 @@ namespace Fall2020_CSC403_Project
                     if (!holdDown)
                     {
                         player.UpdateMoveSpeed(Vector2.Up);
+                        //MovePictureBoxes("Up");
                         holdDown = true;
                     }
                     break;

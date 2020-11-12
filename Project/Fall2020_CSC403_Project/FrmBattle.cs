@@ -20,6 +20,9 @@ namespace Fall2020_CSC403_Project
             player = Game.player;
         }
 
+
+        
+
         public void Setup()
         {
             // update for this enemy
@@ -122,7 +125,7 @@ namespace Fall2020_CSC403_Project
                 picPlayer.Refresh();
 
                 // lblInfoPanel.Text = $"You have died, Mr. Peanut is very disappointed in you :(";
-                Thread.Sleep(2000);
+                //Thread.Sleep(2000);
 
                 instance = null;
                 Close();
@@ -167,6 +170,11 @@ namespace Fall2020_CSC403_Project
         private void infoPanel_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
