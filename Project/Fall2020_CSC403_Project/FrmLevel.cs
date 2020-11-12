@@ -98,9 +98,20 @@ namespace Fall2020_CSC403_Project {
                 FrmGameOver.GetInstance(this);  
             }
 
+      if (enemyPoisonPacket.Health <= 0) 
+            {
+                picEnemyPoisonPacket.Visible = false;
+            }
+
+      if (enemyCheeto.Health <= 0)
+            {
+                picEnemyCheeto.Visible = false;
+            }
+
       if (bossKoolaid.Health <= 0)
             {
                 FrmVictory.GetInstance(this);
+                picBossKoolAid.Visible = false;
             }
 
       // update player's picture box
