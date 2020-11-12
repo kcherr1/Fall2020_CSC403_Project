@@ -14,7 +14,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
-    private int playeriswalking = 0;
+    private bool PlayerWalking = false;
 
     public FrmLevel() {
       InitializeComponent();
@@ -75,11 +75,11 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       player.ResetMoveSpeed();
       //reset picture box with static image if already walking
-      if (playeriswalking == 1)
-            {
-                playeriswalking = 0;
-                picPlayer.LoadAsync("C:\\Users\\jbt01\\Desktop\\LaTech fall 2020\\csc403project\\Fall2020_CSC403_Project\\Project\\Fall2020_CSC403_Project\\data\\player.png");
-            }
+      if (PlayerWalking)
+      {
+        PlayerWalking = false;
+        picPlayer.LoadAsync(@".\data\player.png");
+      }
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
@@ -139,12 +139,12 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       //update picture box with walking gif if not already walking
-      if (playeriswalking == 0)
+      if (!PlayerWalking)
             {
-                picPlayer.LoadAsync("C:\\Users\\jbt01\\Desktop\\LaTech fall 2020\\csc403project\\Fall2020_CSC403_Project\\Project\\Fall2020_CSC403_Project\\data\\peanutwalking.gif");
+                picPlayer.LoadAsync(@".\data\peanutwalking.gif");
                 picPlayer.SizeMode = PictureBoxSizeMode.StretchImage;
                 picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.playermoving;
-                playeriswalking = 1;
+                PlayerWalking = true;
             }
       switch (e.KeyCode) {
         case Keys.Left:

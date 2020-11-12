@@ -94,7 +94,9 @@
     <None Include="data\final_battle.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\player.png" />
+    <None Include="data\player.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\battle_screen.fw.png" />
@@ -113,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\gold.png" />
+    <Content Include="data\peanutwalking.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
