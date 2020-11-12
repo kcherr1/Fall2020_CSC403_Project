@@ -171,9 +171,10 @@ namespace Fall2020_CSC403_Project
 
             if (HitAPortal(player))
             {
-
+                Thread.Sleep(1000);
                 player.MoveBack();
                 Thread.Sleep(400);
+                player.ResetMoveSpeed();
                 Globals.Level1Beat = true;
                 Close();
 

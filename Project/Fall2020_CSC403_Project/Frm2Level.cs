@@ -149,16 +149,17 @@ namespace Fall2020_CSC403_Project
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
-        }
-
-        private void tmrPlayerMove_Tick(object sender, EventArgs e)
-        {
             if (Globals.PlayerIsAlive == false)
             {
                 //player1.ResetMoveSpeed();
                 Thread.Sleep(100);
                 Close();
             }
+        }
+
+        private void tmrPlayerMove_Tick(object sender, EventArgs e)
+        {
+
 
             // move player1
             player1.Move();
@@ -183,10 +184,9 @@ namespace Fall2020_CSC403_Project
 
             if (HitAPortal(player1))
             {
-                
+                Thread.Sleep(1000);
                 player1.MoveBack();
-                Thread.Sleep(400);
-
+                player1.ResetMoveSpeed();
                 Globals.LevelNumber = 3;
                 Close();
 

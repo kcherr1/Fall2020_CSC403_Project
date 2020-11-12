@@ -37,7 +37,7 @@ namespace Fall2020_CSC403_Project
         {
 
             const int PADDING = 7;
-            const int NUM_WALLS = 24;
+            const int NUM_WALLS = 18;
             const int NUM_portals = 1;
 
             // initialize player
@@ -45,34 +45,6 @@ namespace Fall2020_CSC403_Project
             Game.player = player;
 
             // initialize enemies on this form
-            Enemy bossKoolaid2 = new Enemy(CreatePosition(picBossKoolAid2), CreateCollider(picBossKoolAid2, PADDING), 100, 60)
-            {
-                Img = picBossKoolAid2.BackgroundImage,
-                Color = Color.Red,
-                IsBoss = true
-            };
-            enemies.Add(bossKoolaid2);
-            EnemyPictureDict.Add(bossKoolaid2, picBossKoolAid2);
-
-            Enemy enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), 50)
-            {
-                Img = picEnemyPoisonPacket.BackgroundImage,
-                Color = Color.Green,
-                IsBoss = false
-            };
-
-
-            enemies.Add(enemyPoisonPacket);
-            EnemyPictureDict.Add(enemyPoisonPacket, picEnemyPoisonPacket);
-
-            Enemy enemyCheeto = new Enemy(CreatePosition(picEnemyMario), CreateCollider(picEnemyMario, PADDING), 50)
-            {
-                Img = picEnemyMario.BackgroundImage,
-                Color = Color.FromArgb(255, 245, 161),
-                IsBoss = false
-            };
-            enemies.Add(enemyCheeto);
-            EnemyPictureDict.Add(enemyCheeto, picEnemyMario);
 
 
             walls = new Character[NUM_WALLS];
@@ -112,16 +84,17 @@ namespace Fall2020_CSC403_Project
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
-        }
-
-        private void tmrPlayerMove_Tick(object sender, EventArgs e)
-        {
             if (Globals.PlayerIsAlive == false)
             {
                 //player.ResetMoveSpeed();
                 Thread.Sleep(100);
                 Close();
             }
+        }
+
+        private void tmrPlayerMove_Tick(object sender, EventArgs e)
+        {
+
 
             // move player
             player.Move();

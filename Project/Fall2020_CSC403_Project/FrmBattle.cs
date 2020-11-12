@@ -175,11 +175,18 @@ namespace Fall2020_CSC403_Project
             {
                 picPlayer.BackgroundImage = Resources.player_dead;
                 picPlayer.Refresh();
+                Thread.Sleep(3000);
                 Globals.PlayerIsAlive = false;
                 Close();
             }
             else if (enemy.Health <= 0)
             {
+                if (Globals.LevelsGiven == false && Globals.LevelNumber == 2)
+                {
+                    player.Level = 3;
+                    Globals.LevelsGiven = true;
+                }
+
                 lblInfoPanel.Text = $"Enemy was defeated. Mr. Peanut gained {enemy.ExpReward} experience points!";
                 Application.DoEvents();
                 Thread.Sleep(2000);
