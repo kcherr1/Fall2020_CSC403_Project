@@ -141,6 +141,7 @@ namespace Fall2020_CSC403_Project
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
+            labelPlayerStats.Text = "Level: " + player.Level + "\nHealth: " + player.Health + "/" + player.MaxHealth + "\nEXP: " + player.EXP;
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
@@ -239,7 +240,7 @@ namespace Fall2020_CSC403_Project
         private void picBossKoolAid_Click(object sender, EventArgs e) { }
         private void pictureBox1_Click(object sender, EventArgs e) { }
         private void pictureBox3_Click(object sender, EventArgs e) { }
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) { }
+
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
