@@ -149,6 +149,7 @@ namespace Fall2020_CSC403_Project
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
+            labelPlayerStats.Text = "Level: " + player1.Level + "\nHealth: " + player1.Health + "/" + player1.MaxHealth + "\nEXP: " + player1.EXP;
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
