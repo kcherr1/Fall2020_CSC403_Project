@@ -41,8 +41,8 @@ namespace Fall2020_CSC403_Project
             const int NUM_portals = 1;
 
             // initialize player1
-            player1 = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            Game.player = player1;
+            player1 = Game.player; //new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            //Game.player = player1;
 
             // initialize enemies on this form
             Enemy bossKoolaid2 = new Enemy(CreatePosition(picBossKoolAid2), CreateCollider(picBossKoolAid2, PADDING), 100, 60)
