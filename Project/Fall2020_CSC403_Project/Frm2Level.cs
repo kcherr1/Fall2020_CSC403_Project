@@ -101,19 +101,6 @@ namespace Fall2020_CSC403_Project
             enemies.Add(enemyMario4);
             EnemyPictureDict.Add(enemyMario4, picEnemyMario4);
 
-
-
-            Enemy enemyTextPop = new Enemy(CreatePosition(textPop), CreateCollider(textPop, PADDING), 50)
-            {
-                Img = textPop.BackgroundImage,
-                Color = Color.FromArgb(255, 245, 161),
-                IsBoss = false
-            };
-            enemies.Add(enemyTextPop);
-            EnemyPictureDict.Add(enemyTextPop, textPop);
-
-
-
             Enemy enemyCheeto = new Enemy(CreatePosition(picEnemyMario), CreateCollider(picEnemyMario, PADDING), 50)
             {
                 Img = picEnemyMario.BackgroundImage,
