@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,8 +49,8 @@ namespace Fall2020_CSC403_Project
         {
             lblInteract.Text = "You dishonor your father, BEGONE!";
             npc.IsBanished = true;
-            //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-            //simpleSound.Play();
+            SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+            simpleSound.Play();
         }
     }
 }
