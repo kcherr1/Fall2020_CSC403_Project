@@ -170,7 +170,7 @@ namespace Fall2020_CSC403_Project
                 picPlayer.Refresh();
             }
             // Once Mr.Peanut's HP gets to 15 he turns into baby peanut
-            if (player.Health <= 15)
+            if (player.Health <= 10)
             {
                 picPlayer.BackgroundImage = Resources.babypeanut;
                 picPlayer.Refresh();
