@@ -111,6 +111,7 @@ namespace Fall2020_CSC403_Project
                     {
                         picEnemy.BackgroundImage = Resources.BuffCherry;
                     }
+                    
                     else
                     {
                         picEnemy.BackgroundImage = Resources.enemy_koolaid_cherry_hit;
@@ -182,9 +183,43 @@ namespace Fall2020_CSC403_Project
             // Tone - was attempting to edit hit animation once Mr.Peanut turned into baby peanut
             //else if (player.Health <= 10)
             //{
-             //   picPlayer.BackgroundImage = Resources.player;
-              //  picPlayer.Refresh();
+            //   picPlayer.BackgroundImage = Resources.player;
+            //  picPlayer.Refresh();
             //}
+            
+            // Boss trash talk - Sound disabled because the sound gets annoying while testing, but it works. 
+            if ((enemy.Health <= 30) && (enemy.Health > 20) && enemy.IsBoss == true)
+            {
+
+                lblInfoPanel.Text = $"You never stood a chance!";
+                //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+                //simpleSound.Play();
+                Application.DoEvents();
+                Thread.Sleep(200);
+
+            }
+
+            if ((enemy.Health <= 15) && (enemy.Health > 10) && enemy.IsBoss == true)
+            {
+
+                lblInfoPanel.Text = $"    They called me the NUTCRACKER in highschool!";
+                //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+                //simpleSound.Play();
+                Application.DoEvents();
+                Thread.Sleep(200);
+
+            }
+
+            if ((enemy.Health <= 5) && enemy.IsBoss == true)
+            {
+
+                lblInfoPanel.Text = $"    WAIT please spare me Nut-sama!";
+                //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+                //simpleSound.Play();
+                Application.DoEvents();
+                Thread.Sleep(200);
+
+            }
             UpdateHealthBars();
             if (player.Health <= 0)
             {
