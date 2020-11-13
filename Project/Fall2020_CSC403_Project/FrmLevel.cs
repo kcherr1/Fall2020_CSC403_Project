@@ -315,22 +315,26 @@ namespace Fall2020_CSC403_Project
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    player.UpdateMoveSpeed(-Vector2.Left);
+                    if (holdLeft)
+                        player.UpdateMoveSpeed(-Vector2.Left);
                     holdLeft = false;
                     break;
 
                 case Keys.Right:
-                    player.UpdateMoveSpeed(-Vector2.Right);
+                    if (holdRight)
+                        player.UpdateMoveSpeed(-Vector2.Right);
                     holdRight = false;
                     break;
 
                 case Keys.Up:
-                    player.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
+                    if (holdUp)
+                        player.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
                     holdUp = false;
                     break;
 
                 case Keys.Down:
-                    player.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
+                    if (holdDown)
+                        player.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
                     holdDown = false;
                     break;
             }
