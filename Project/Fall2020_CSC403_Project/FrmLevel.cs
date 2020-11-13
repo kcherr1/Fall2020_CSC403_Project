@@ -130,6 +130,13 @@ namespace Fall2020_CSC403_Project
             healthwisps.Add(healthwisp1);
             HealthwispPictureDict.Add(healthwisp1, picHealthwisppeanut);
 
+            Healthwisp healthwisp2 = new Healthwisp(CreatePosition(picHealthwisppeanut2), CreateCollider(picHealthwisppeanut2, PADDING))
+            {
+
+            };
+            healthwisps.Add(healthwisp2);
+            HealthwispPictureDict.Add(healthwisp2, picHealthwisppeanut2);
+
 
             walls = new Character[NUM_WALLS];
             for (int w = 0; w < NUM_WALLS; w++)
@@ -278,12 +285,15 @@ namespace Fall2020_CSC403_Project
             frmInteract.Show();
 
         }
-
+        // Give health upon collision with health wisp 
         private void Takewisp(Healthwisp healthwisp)
         {
-            player.AlterHealth(35);
+            // Currently returning full health instead of only a little
+            player.AlterHealth(5);
             player.MoveBack();
-           
+            FrmLevel.HealthwispPictureDict[healthwisp].BackgroundImage = null;
+            FrmLevel.HealthwispPictureDict[healthwisp].SendToBack();
+
         }
 
 
