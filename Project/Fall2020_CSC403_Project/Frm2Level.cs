@@ -281,6 +281,7 @@ namespace Fall2020_CSC403_Project
         {
             switch (e.KeyCode)
             {
+                case Keys.A:
                 case Keys.Left:
                     if (!holdLeft)
                     {
@@ -290,6 +291,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
 
+                case Keys.D:
                 case Keys.Right:
                     if (!holdRight)
                     {
@@ -299,6 +301,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
 
+                case Keys.W:
                 case Keys.Up:
                     if (!holdUp)
                     {
@@ -308,6 +311,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
 
+                case Keys.S:
                 case Keys.Down:
                     if (!holdDown)
                     {
