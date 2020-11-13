@@ -214,5 +214,8 @@
   <ItemGroup>
     <None Include="data\babypeanut.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\healthwisp_peanut.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

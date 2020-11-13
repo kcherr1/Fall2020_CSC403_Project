@@ -34,6 +34,7 @@
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.labelPlayerStats = new System.Windows.Forms.Label();
+            this.picHealthwisppeanut = new System.Windows.Forms.PictureBox();
             this.picBabyPeanut = new System.Windows.Forms.PictureBox();
             this.picWall15 = new System.Windows.Forms.PictureBox();
             this.picWall23 = new System.Windows.Forms.PictureBox();
@@ -64,6 +65,7 @@
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picPortal0 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBabyPeanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall23)).BeginInit();
@@ -132,6 +134,16 @@
             this.labelPlayerStats.TabIndex = 2;
             this.labelPlayerStats.Text = "Player Stats";
             this.labelPlayerStats.Click += new System.EventHandler(this.lblInGameTime_Click);
+            // 
+            // picHealthwisppeanut
+            // 
+            this.picHealthwisppeanut.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.healthwisp_peanut;
+            this.picHealthwisppeanut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHealthwisppeanut.Location = new System.Drawing.Point(576, 133);
+            this.picHealthwisppeanut.Name = "picHealthwisppeanut";
+            this.picHealthwisppeanut.Size = new System.Drawing.Size(52, 50);
+            this.picHealthwisppeanut.TabIndex = 32;
+            this.picHealthwisppeanut.TabStop = false;
             // 
             // picBabyPeanut
             // 
@@ -500,6 +512,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.picHealthwisppeanut);
             this.Controls.Add(this.picBabyPeanut);
             this.Controls.Add(this.picWall15);
             this.Controls.Add(this.picWall23);
@@ -539,6 +552,7 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBabyPeanut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall23)).EndInit();
@@ -610,6 +624,7 @@
         private System.Windows.Forms.PictureBox picWall15;
         private System.Windows.Forms.Label labelPlayerStats;
         private System.Windows.Forms.PictureBox picBabyPeanut;
+        private System.Windows.Forms.PictureBox picHealthwisppeanut;
     }
 }
 
