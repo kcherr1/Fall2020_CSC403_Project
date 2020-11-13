@@ -160,11 +160,6 @@ namespace Fall2020_CSC403_Project
                 Thread.Sleep(100);
                 Close();
             }
-        }
-
-        private void tmrPlayerMove_Tick(object sender, EventArgs e)
-        {
-
 
             // move player1
             player1.Move();
