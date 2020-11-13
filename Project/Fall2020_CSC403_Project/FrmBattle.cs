@@ -168,7 +168,23 @@ namespace Fall2020_CSC403_Project
                 picPlayer.BackgroundImage = Resources.player;
                 picPlayer.Refresh();
             }
+            // Once Mr.Peanut's HP gets to 15 he turns into baby peanut
+            if (player.Health <= 15)
+            {
+                picPlayer.BackgroundImage = Resources.babypeanut;
+                picPlayer.Refresh();
 
+                lblInfoPanel.Text = $"Mr.Peanut's health is low!";
+                Application.DoEvents();
+                Thread.Sleep(200);
+
+            }
+            // Tone - was attempting to edit hit animation once Mr.Peanut turned into baby peanut
+            //else if (player.Health <= 10)
+            //{
+             //   picPlayer.BackgroundImage = Resources.player;
+              //  picPlayer.Refresh();
+            //}
             UpdateHealthBars();
             if (player.Health <= 0)
             {
@@ -177,9 +193,10 @@ namespace Fall2020_CSC403_Project
                 Thread.Sleep(3000);
                 Globals.PlayerIsAlive = false;
                 Close();
-             
+
             }
-            else if (enemy.Health <= 0)
+            
+            else if(enemy.Health <= 0)
             {
                 if (Globals.LevelsGiven == false && Globals.LevelNumber == 2)
                 {
