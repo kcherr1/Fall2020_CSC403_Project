@@ -18,6 +18,9 @@ namespace Fall2020_CSC403_Project
         private List<NPC> NPCs = new List<NPC>();
         public static Dictionary<NPC, PictureBox> NPCPictureDict = new Dictionary<NPC, PictureBox>();
 
+        private List<Healthwisp> healthwisps = new List<Healthwisp>();
+        public static Dictionary<Healthwisp, PictureBox> HealthwispPictureDict = new Dictionary<Healthwisp, PictureBox>();
+
 
 
         private Character[] walls;
@@ -111,12 +114,21 @@ namespace Fall2020_CSC403_Project
             enemies.Add(enemyCheeto);
             EnemyPictureDict.Add(enemyCheeto, picEnemyCheeto);
 
+            // initialize babypeanut NPC on this form 
             NPC npcBabypeaunt = new NPC(CreatePosition(picBabyPeanut), CreateCollider(picBabyPeanut, PADDING))
             {
                 // Tone - May need to add fields 
             };
             NPCs.Add(npcBabypeaunt);
             NPCPictureDict.Add(npcBabypeaunt, picBabyPeanut);
+
+            // initialize healthwisps on this form 
+            Healthwisp healthwisp1 = new Healthwisp(CreatePosition(picHealthwisppeanut), CreateCollider(picHealthwisppeanut, PADDING))
+            {
+                 
+            };
+            healthwisps.Add(healthwisp1);
+            HealthwispPictureDict.Add(healthwisp1, picHealthwisppeanut);
 
 
             walls = new Character[NUM_WALLS];
@@ -170,11 +182,19 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
-            // Tone - testing npc interaction/collision
+            // testing npc interaction/collision
             NPCs.ForEach((npc) =>
             {
                 if (npc.IsBanished == false && HitAChar(player, npc))
                     Interact(npc);
+
+            });
+
+            // healthwisp collision/check if wisp was taken or not
+            healthwisps.ForEach((healthwisp) =>
+            {
+                if (healthwisp.IsTaken == false && HitAChar(player, healthwisp))
+                    Takewisp(healthwisp);
 
             });
 
@@ -249,7 +269,7 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        // Tone - Interact function
+        // Interact function
         private void Interact(NPC npc)
         {
             player.ResetMoveSpeed();
@@ -258,6 +278,14 @@ namespace Fall2020_CSC403_Project
             frmInteract.Show();
 
         }
+
+        private void Takewisp(Healthwisp healthwisp)
+        {
+            player.AlterHealth(35);
+            player.MoveBack();
+           
+        }
+
 
         protected override void OnDeactivate(EventArgs e)
         {
