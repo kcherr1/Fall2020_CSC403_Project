@@ -333,7 +333,7 @@ namespace Fall2020_CSC403_Project
         {
             if (player.DecrementMP(5))
             {
-                player.AlterHealth(10);
+                player.AlterHealth(15);
 
                 if (enemy.Health > 0)
                 {
