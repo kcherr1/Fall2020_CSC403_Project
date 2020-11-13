@@ -207,8 +207,10 @@ namespace Fall2020_CSC403_Project {
         //going into the backpack
         case Keys.B:
           var backpack = new Backpack();
+          backpack.Setup();
           backpack.UpdateBackpack();
           backpack.Show();
+           
           break;
 
         default:
