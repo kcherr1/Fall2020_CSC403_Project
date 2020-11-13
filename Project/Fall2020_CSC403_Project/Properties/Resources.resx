@@ -132,7 +132,8 @@
   </data>
   <data name="Mr Pringle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\Mr Pringle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  </data>
+	  <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="enemy_koolaid" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -153,9 +154,9 @@
   <data name="enemy_poisonpacket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_poisonpacket.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pillbury DoughSlayer- Laser Eyes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\Pillbury DoughSlayer- Laser Eyes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
+	<data name="Pillbury DoughSlayer- Laser Eyes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\data\Pillbury DoughSlayer- Laser Eyes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
   <data name="victory_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\victory_screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
