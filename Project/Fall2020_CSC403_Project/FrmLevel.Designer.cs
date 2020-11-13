@@ -33,6 +33,8 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.labelPlayerStats = new System.Windows.Forms.Label();
+            this.picBabyPeanut = new System.Windows.Forms.PictureBox();
             this.picWall15 = new System.Windows.Forms.PictureBox();
             this.picWall23 = new System.Windows.Forms.PictureBox();
             this.picWall22 = new System.Windows.Forms.PictureBox();
@@ -62,7 +64,7 @@
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picPortal0 = new System.Windows.Forms.PictureBox();
-            this.labelPlayerStats = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.picBabyPeanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall22)).BeginInit();
@@ -117,6 +119,29 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            // 
+            // labelPlayerStats
+            // 
+            this.labelPlayerStats.AutoSize = true;
+            this.labelPlayerStats.BackColor = System.Drawing.Color.Black;
+            this.labelPlayerStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayerStats.ForeColor = System.Drawing.Color.White;
+            this.labelPlayerStats.Location = new System.Drawing.Point(151, 9);
+            this.labelPlayerStats.Name = "labelPlayerStats";
+            this.labelPlayerStats.Size = new System.Drawing.Size(87, 18);
+            this.labelPlayerStats.TabIndex = 2;
+            this.labelPlayerStats.Text = "Player Stats";
+            this.labelPlayerStats.Click += new System.EventHandler(this.lblInGameTime_Click);
+            // 
+            // picBabyPeanut
+            // 
+            this.picBabyPeanut.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babypeanut;
+            this.picBabyPeanut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBabyPeanut.Location = new System.Drawing.Point(914, 145);
+            this.picBabyPeanut.Name = "picBabyPeanut";
+            this.picBabyPeanut.Size = new System.Drawing.Size(28, 48);
+            this.picBabyPeanut.TabIndex = 31;
+            this.picBabyPeanut.TabStop = false;
             // 
             // picWall15
             // 
@@ -468,19 +493,6 @@
             this.picPortal0.Tag = "portal";
             this.picPortal0.Click += new System.EventHandler(this.portal_Click);
             // 
-            // labelPlayerStats
-            // 
-            this.labelPlayerStats.AutoSize = true;
-            this.labelPlayerStats.BackColor = System.Drawing.Color.Black;
-            this.labelPlayerStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerStats.ForeColor = System.Drawing.Color.White;
-            this.labelPlayerStats.Location = new System.Drawing.Point(151, 9);
-            this.labelPlayerStats.Name = "labelPlayerStats";
-            this.labelPlayerStats.Size = new System.Drawing.Size(87, 18);
-            this.labelPlayerStats.TabIndex = 2;
-            this.labelPlayerStats.Text = "Player Stats";
-            this.labelPlayerStats.Click += new System.EventHandler(this.lblInGameTime_Click);
-            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,6 +500,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.picBabyPeanut);
             this.Controls.Add(this.picWall15);
             this.Controls.Add(this.picWall23);
             this.Controls.Add(this.picWall22);
@@ -526,6 +539,7 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picBabyPeanut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall22)).EndInit();
@@ -595,6 +609,7 @@
         private System.Windows.Forms.PictureBox picWall23;
         private System.Windows.Forms.PictureBox picWall15;
         private System.Windows.Forms.Label labelPlayerStats;
+        private System.Windows.Forms.PictureBox picBabyPeanut;
     }
 }
 

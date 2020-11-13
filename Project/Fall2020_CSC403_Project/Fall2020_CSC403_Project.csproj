@@ -64,6 +64,12 @@
     <Compile Include="Frm2Level.Designer.cs">
       <DependentUpon>Frm2Level.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmInteract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInteract.Designer.cs">
+      <DependentUpon>FrmInteract.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLevel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm2Level.resx">
       <DependentUpon>Frm2Level.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInteract.resx">
+      <DependentUpon>FrmInteract.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
@@ -201,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\win.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\babypeanut.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

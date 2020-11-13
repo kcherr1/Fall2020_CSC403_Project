@@ -15,11 +15,17 @@ namespace Fall2020_CSC403_Project
         private List<Enemy> enemies = new List<Enemy>();
         public static Dictionary<Enemy, PictureBox> EnemyPictureDict = new Dictionary<Enemy, PictureBox>();
 
+        private List<NPC> NPCs = new List<NPC>();
+        public static Dictionary<NPC, PictureBox> NPCPictureDict = new Dictionary<NPC, PictureBox>();
+
+
+
         private Character[] walls;
         private Character[] portals;
 
         private DateTime timeBegin;
         public FrmBattle frmBattle;
+        public FrmInteract frmInteract; 
 
 
         private bool holdLeft, holdRight, holdUp, holdDown;
@@ -105,6 +111,13 @@ namespace Fall2020_CSC403_Project
             enemies.Add(enemyCheeto);
             EnemyPictureDict.Add(enemyCheeto, picEnemyCheeto);
 
+            NPC npcBabypeaunt = new NPC(CreatePosition(picBabyPeanut), CreateCollider(picBabyPeanut, PADDING))
+            {
+                // Tone - May need to add fields 
+            };
+            NPCs.Add(npcBabypeaunt);
+            NPCPictureDict.Add(npcBabypeaunt, picBabyPeanut);
+
 
             walls = new Character[NUM_WALLS];
             for (int w = 0; w < NUM_WALLS; w++)
@@ -157,7 +170,13 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
+            // Tone - testing npc interaction/collision
+            NPCs.ForEach((npc) =>
+            {
+                if (npc.IsBanished == false && HitAChar(player, npc))
+                    Interact(npc);
 
+            });
 
             // check collision with enemies
             enemies.ForEach((enemy) =>
@@ -228,6 +247,16 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForBossBattle();
             }
+        }
+
+        // Tone - Interact function
+        private void Interact(NPC npc)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmInteract = FrmInteract.GetInstance(npc);
+            frmInteract.Show();
+
         }
 
         protected override void OnDeactivate(EventArgs e)
