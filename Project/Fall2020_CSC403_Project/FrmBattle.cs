@@ -20,9 +20,6 @@ namespace Fall2020_CSC403_Project
             player = Game.player;
         }
 
-
-        
-
         public void Setup()
         {
             // update for this enemy
@@ -75,13 +72,16 @@ namespace Fall2020_CSC403_Project
         private void UpdateHealthBars()
         {
             float playerHealthPer = player.Health / (float)player.MaxHealth;
+            float playerMpPer = player.MP / (float)player.MaxMP;
             float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
             const int MAX_HEALTHBAR_WIDTH = 226;
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+            lblPlayerMPFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerMpPer);
             lblEnemyHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
 
             lblPlayerHealthFull.Text = player.Health.ToString();
+            lblPlayerMPFull.Text = player.MP.ToString();
             lblEnemyHealthFull.Text = enemy.Health.ToString();
         }
 
@@ -215,122 +215,156 @@ namespace Fall2020_CSC403_Project
 
         private void btnMagicAttack_Click(object sender, EventArgs e)
         {
-            player.OnAttack(-4 + (-1 * (player.Level - 1)));
-            if (enemy.Health > 0)
+            if (player.DecrementMP(10))
             {
-                // Will - Enemy "animation effect"
-                if (enemy.Img == Resources.enemy_koolaid)
+                player.OnAttack(-4 + (-1 * (player.Level + 1)));
+                if (enemy.Health > 0)
                 {
+                    // Will - Enemy "animation effect"
+                    if (enemy.Img == Resources.enemy_koolaid)
+                    {
+                        if (enemy.IsAlive == true)
+                        {
+                            picEnemy.BackgroundImage = Resources.enemy_koolaid;
+                        }
+                        else
+                        {
+                            picEnemy.BackgroundImage = Resources.enemy_koolaid_dead;
+                        }
+                    }
+
+
+
+                    else if (enemy.Img == Resources.BuffCherry)
+                    {
+                        if (enemy.IsAlive == true)
+                        {
+                            picEnemy.BackgroundImage = Resources.BuffCherry;
+                        }
+                        else
+                        {
+                            picEnemy.BackgroundImage = Resources.enemy_koolaid_cherry_hit;
+                        }
+                    }
+
+
+
+
+                    else if (enemy.Img == Resources.enemy_cheetos)
+                    {
+                        if (enemy.IsAlive == true)
+                        {
+                            picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_hit;
+                        }
+                        else
+                        {
+                            picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_dead;
+                        }
+                    }
+
+                    else //(enemy.Img == Resources.enemy_poisonpacket)
+                    {
+
+                        if (enemy.IsAlive == true)
+                        {
+                            picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_hit;
+                        }
+                        else
+                        {
+                            picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_dead;
+                        }
+                    }
+
                     if (enemy.IsAlive == true)
                     {
-                        picEnemy.BackgroundImage = Resources.enemy_koolaid;
+                        picEnemy.Refresh();
                     }
-                    else
-                    {
-                        picEnemy.BackgroundImage = Resources.enemy_koolaid_dead;
-                    }
-                }
 
+                    Thread.Sleep(100);
 
-
-                else if (enemy.Img == Resources.BuffCherry)
-                {
-                    if (enemy.IsAlive == true)
-                    {
-                        picEnemy.BackgroundImage = Resources.BuffCherry;
-                    }
-                    else
-                    {
-                        picEnemy.BackgroundImage = Resources.enemy_koolaid_cherry_hit;
-                    }
-                }
-
-
-
-
-                else if (enemy.Img == Resources.enemy_cheetos)
-                {
-                    if (enemy.IsAlive == true)
-                    {
-                        picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_hit;
-                    }
-                    else
-                    {
-                        picEnemy.BackgroundImage = Resources.enemy_cheetos_fw_dead;
-                    }
-                }
-
-                else //(enemy.Img == Resources.enemy_poisonpacket)
-                {
-
-                    if (enemy.IsAlive == true)
-                    {
-                        picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_hit;
-                    }
-                    else
-                    {
-                        picEnemy.BackgroundImage = Resources.enemy_poisonpacket_fw_dead;
-                    }
-                }
-
-                if (enemy.IsAlive == true)
-                {
+                    picEnemy.BackgroundImage = enemy.Img;
                     picEnemy.Refresh();
+
+
+                    enemy.OnAttack(-2);
+
+
+                    // Will - Player "animation effect"
+                    picPlayer.BackgroundImage = Resources.player_hit;
+                    picPlayer.Refresh();
+
+                    Thread.Sleep(100);
+
+                    picPlayer.BackgroundImage = Resources.player;
+                    picPlayer.Refresh();
                 }
 
-                Thread.Sleep(100);
-
-                picEnemy.BackgroundImage = enemy.Img;
-                picEnemy.Refresh();
-
-
-                enemy.OnAttack(-2);
-
-
-                // Will - Player "animation effect"
-                picPlayer.BackgroundImage = Resources.player_hit;
-                picPlayer.Refresh();
-
-                Thread.Sleep(100);
-
-                picPlayer.BackgroundImage = Resources.player;
-                picPlayer.Refresh();
-            }
-
-            UpdateHealthBars();
-            if (player.Health <= 0)
-            {
-                picPlayer.BackgroundImage = Resources.player_dead;
-                picPlayer.Refresh();
-                Globals.PlayerIsAlive = false;
-                Close();
-
-            }
-            else if (enemy.Health <= 0)
-            {
-                lblInfoPanel.Text = $"Enemy was defeated. Mr. Peanut gained {enemy.ExpReward} experience points!";
-                Application.DoEvents();
-                Thread.Sleep(2000);
-
-                if (player.AwardEXP(enemy.ExpReward))
+                UpdateHealthBars();
+                if (player.Health <= 0)
                 {
-                    lblInfoPanel.Text = $"Mr. Peanut leveled up! Level is now {player.Level}!";
+                    picPlayer.BackgroundImage = Resources.player_dead;
+                    picPlayer.Refresh();
+                    Globals.PlayerIsAlive = false;
+                    Close();
+
+                }
+                else if (enemy.Health <= 0)
+                {
+                    lblInfoPanel.Text = $"Enemy was defeated. Mr. Peanut gained {enemy.ExpReward} experience points!";
                     Application.DoEvents();
                     Thread.Sleep(2000);
+
+                    if (player.AwardEXP(enemy.ExpReward))
+                    {
+                        lblInfoPanel.Text = $"Mr. Peanut leveled up! Level is now {player.Level}!";
+                        Application.DoEvents();
+                        Thread.Sleep(2000);
+                    }
+                    enemy.IsAlive = false;
+                    if (Globals.LevelNumber == 1)
+                    {
+                        FrmLevel.EnemyPictureDict[enemy].BackgroundImage = null;
+                        FrmLevel.EnemyPictureDict[enemy].SendToBack();
+                    }
+                    else
+                    {
+                        Frm2Level.EnemyPictureDict[enemy].BackgroundImage = null;
+                        Frm2Level.EnemyPictureDict[enemy].SendToBack();
+                    }
+                    instance = null;
+                    Close();
                 }
-                enemy.IsAlive = false;
-                if (Globals.LevelNumber == 1)
+            }
+        }
+        private void btnHeal_Click(object sender, EventArgs e)
+        {
+            if (player.DecrementMP(5))
+            {
+                player.AlterHealth(10);
+
+                if (enemy.Health > 0)
                 {
-                    FrmLevel.EnemyPictureDict[enemy].BackgroundImage = null;
-                    FrmLevel.EnemyPictureDict[enemy].SendToBack();
+                    enemy.OnAttack(-2);
+
+                    // Will - Player "animation effect"
+                    picPlayer.BackgroundImage = Resources.player_hit;
+                    picPlayer.Refresh();
+
+                    Thread.Sleep(100);
+
+                    picPlayer.BackgroundImage = Resources.player;
+                    picPlayer.Refresh();
                 }
-                else
+
+                UpdateHealthBars();
+                if (player.Health <= 0)
                 {
-                    Frm2Level.EnemyPictureDict[enemy].BackgroundImage = null;
-                    Frm2Level.EnemyPictureDict[enemy].SendToBack();
+                    picPlayer.BackgroundImage = Resources.player_dead;
+                    picPlayer.Refresh();
+                    Globals.PlayerIsAlive = false;
+                    Close();
+
                 }
-                instance = null;
-                Close();
             }
         }
 
