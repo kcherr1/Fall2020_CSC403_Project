@@ -29,8 +29,6 @@
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.picPillsbury = new System.Windows.Forms.PictureBox();
-            this.picPringlesMan = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
@@ -48,8 +46,8 @@
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picPillsbury)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picPringlesMan)).BeginInit();
+            this.picPillsbury = new System.Windows.Forms.PictureBox();
+            this.picPringlesMan = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -67,6 +65,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPillsbury)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPringlesMan)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -105,34 +105,6 @@
             this.label1.Size = new System.Drawing.Size(249, 29);
             this.label1.TabIndex = 18;
             this.label1.Text = "Press \'B\' for Backpack";
-            // 
-            // picPillsbury
-            // 
-            this.picPillsbury.BackColor = System.Drawing.Color.Transparent;
-            this.picPillsbury.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Pillbury_DoughSlayer__Laser_Eyes;
-            this.picPillsbury.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picPillsbury.Image = global::Fall2020_CSC403_Project.Properties.Resources.Pillbury_DoughSlayer__Laser_Eyes;
-            this.picPillsbury.Location = new System.Drawing.Point(971, 373);
-            this.picPillsbury.Margin = new System.Windows.Forms.Padding(4);
-            this.picPillsbury.Name = "picPillsbury";
-            this.picPillsbury.Size = new System.Drawing.Size(72, 106);
-            this.picPillsbury.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picPillsbury.TabIndex = 20;
-            this.picPillsbury.TabStop = false;
-            // 
-            // picPringlesMan
-            // 
-            this.picPringlesMan.BackColor = System.Drawing.Color.Transparent;
-            this.picPringlesMan.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Mr_Pringle;
-            this.picPringlesMan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picPringlesMan.Image = global::Fall2020_CSC403_Project.Properties.Resources.Mr_Pringle;
-            this.picPringlesMan.Location = new System.Drawing.Point(683, 259);
-            this.picPringlesMan.Margin = new System.Windows.Forms.Padding(4);
-            this.picPringlesMan.Name = "picPringlesMan";
-            this.picPringlesMan.Size = new System.Drawing.Size(96, 100);
-            this.picPringlesMan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picPringlesMan.TabIndex = 19;
-            this.picPringlesMan.TabStop = false;
             // 
             // picWall11
             // 
@@ -338,6 +310,30 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
+            // picPillsbury
+            // 
+            this.picPillsbury.BackColor = System.Drawing.Color.Transparent;
+            this.picPillsbury.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Pillbury_DoughSlayer__Laser_Eyes;
+            this.picPillsbury.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picPillsbury.Location = new System.Drawing.Point(760, 361);
+            this.picPillsbury.Margin = new System.Windows.Forms.Padding(4);
+            this.picPillsbury.Name = "picPillsbury";
+            this.picPillsbury.Size = new System.Drawing.Size(84, 118);
+            this.picPillsbury.TabIndex = 19;
+            this.picPillsbury.TabStop = false;
+            // 
+            // picPringlesMan
+            // 
+            this.picPringlesMan.BackColor = System.Drawing.Color.Transparent;
+            this.picPringlesMan.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Mr_Pringle;
+            this.picPringlesMan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picPringlesMan.Location = new System.Drawing.Point(1075, 337);
+            this.picPringlesMan.Margin = new System.Windows.Forms.Padding(4);
+            this.picPringlesMan.Name = "picPringlesMan";
+            this.picPringlesMan.Size = new System.Drawing.Size(84, 118);
+            this.picPringlesMan.TabIndex = 20;
+            this.picPringlesMan.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -345,8 +341,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
-            this.Controls.Add(this.picPillsbury);
             this.Controls.Add(this.picPringlesMan);
+            this.Controls.Add(this.picPillsbury);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
@@ -374,8 +370,6 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.picPillsbury)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picPringlesMan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
@@ -393,6 +387,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPillsbury)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPringlesMan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,8 +417,8 @@
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox picPringlesMan;
         private System.Windows.Forms.PictureBox picPillsbury;
+        private System.Windows.Forms.PictureBox picPringlesMan;
     }
 }
 
