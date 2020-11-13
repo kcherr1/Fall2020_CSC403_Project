@@ -326,30 +326,34 @@ namespace Fall2020_CSC403_Project
         {
             switch (e.KeyCode)
             {
+                case Keys.A:
                 case Keys.Left:
                     if (holdLeft)
-                        player1.UpdateMoveSpeed(-Vector2.Left);
-                    holdLeft = false;
-                    break;
+                player1.UpdateMoveSpeed(-Vector2.Left);
+            holdLeft = false;
+            break;
 
+                case Keys.D:
                 case Keys.Right:
                     if (holdRight)
-                        player1.UpdateMoveSpeed(-Vector2.Right);
-                    holdRight = false;
-                    break;
+                player1.UpdateMoveSpeed(-Vector2.Right);
+            holdRight = false;
+            break;
 
+                case Keys.W:
                 case Keys.Up:
                     if (holdUp)
-                        player1.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
-                    holdUp = false;
-                    break;
+                player1.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
+            holdUp = false;
+            break;
 
+                case Keys.S:
                 case Keys.Down:
                     if (holdDown)
-                        player1.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
-                    holdDown = false;
-                    break;
-            }
+                player1.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
+            holdDown = false;
+            break;
+        }
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
