@@ -210,7 +210,7 @@ namespace Fall2020_CSC403_Project
         {
             if (player.DecrementMP(10))
             {
-                player.OnAttack(-4 + (-1 * (player.Level + 1)));
+                player.OnAttack(-4 + (-1 * (player.Level + 3)));
                 if (enemy.Health > 0)
                 {
                     // Will - Enemy "animation effect"

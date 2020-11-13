@@ -190,7 +190,6 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(809, 621);
-            this.Controls.Add(this.btnHeal);
             this.Controls.Add(this.lblInfoPanel);
             this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
@@ -203,6 +202,7 @@
             this.Controls.Add(this.btnMagicAttack);
             this.Controls.Add(this.lblPlayerMPFull);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnHeal);
             this.DoubleBuffered = true;
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
