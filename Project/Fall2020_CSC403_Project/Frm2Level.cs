@@ -45,7 +45,7 @@ namespace Fall2020_CSC403_Project
             //Game.player = player1;
 
             // initialize enemies on this form
-            Enemy bossKoolaid2 = new Enemy(CreatePosition(picBossKoolAid2), CreateCollider(picBossKoolAid2, PADDING), 100, 60)
+            Enemy bossKoolaid2 = new Enemy(CreatePosition(picBossKoolAid2), CreateCollider(picBossKoolAid2, PADDING), 100, 400)
             {
                 Img = picBossKoolAid2.BackgroundImage,
                 Color = Color.Red,
