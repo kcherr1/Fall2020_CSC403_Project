@@ -217,6 +217,7 @@ namespace Fall2020_CSC403_Project
         {
             switch (e.KeyCode)
             {
+                case Keys.A:
                 case Keys.Left:
                     if (!holdLeft)
                     {
@@ -226,6 +227,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
 
+                case Keys.D:
                 case Keys.Right:
                     if (!holdRight)
                     {
@@ -235,6 +237,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
 
+                case Keys.W:
                 case Keys.Up:
                     if (!holdUp)
                     {
@@ -244,6 +247,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
 
+                case Keys.S:
                 case Keys.Down:
                     if (!holdDown)
                     {
@@ -262,24 +266,28 @@ namespace Fall2020_CSC403_Project
         {
             switch (e.KeyCode)
             {
+                case Keys.A:
                 case Keys.Left:
                     if (holdLeft)
                         player.UpdateMoveSpeed(-Vector2.Left);
                     holdLeft = false;
                     break;
 
+                case Keys.D:
                 case Keys.Right:
                     if (holdRight)
                         player.UpdateMoveSpeed(-Vector2.Right);
                     holdRight = false;
                     break;
 
+                case Keys.W:
                 case Keys.Up:
                     if (holdUp)
                         player.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
                     holdUp = false;
                     break;
 
+                case Keys.S:
                 case Keys.Down:
                     if (holdDown)
                         player.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
