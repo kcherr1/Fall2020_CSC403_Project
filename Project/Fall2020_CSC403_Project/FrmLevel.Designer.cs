@@ -66,7 +66,6 @@
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picPortal0 = new System.Windows.Forms.PictureBox();
             this.picHealthwisppeanut2 = new System.Windows.Forms.PictureBox();
-            this.picHealthwisppeanut3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBabyPeanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).BeginInit();
@@ -99,7 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPortal0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut3)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -519,16 +517,6 @@
             this.picHealthwisppeanut2.TabIndex = 33;
             this.picHealthwisppeanut2.TabStop = false;
             // 
-            // picHealthwisppeanut3
-            // 
-            this.picHealthwisppeanut3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.healthwisp_peanut;
-            this.picHealthwisppeanut3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHealthwisppeanut3.Location = new System.Drawing.Point(83, 347);
-            this.picHealthwisppeanut3.Name = "picHealthwisppeanut3";
-            this.picHealthwisppeanut3.Size = new System.Drawing.Size(52, 50);
-            this.picHealthwisppeanut3.TabIndex = 34;
-            this.picHealthwisppeanut3.TabStop = false;
-            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -536,7 +524,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.picHealthwisppeanut3);
             this.Controls.Add(this.picHealthwisppeanut2);
             this.Controls.Add(this.picHealthwisppeanut);
             this.Controls.Add(this.picBabyPeanut);
@@ -610,7 +597,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPortal0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -654,7 +640,6 @@
         private System.Windows.Forms.PictureBox picBabyPeanut;
         private System.Windows.Forms.PictureBox picHealthwisppeanut;
         private System.Windows.Forms.PictureBox picHealthwisppeanut2;
-        private System.Windows.Forms.PictureBox picHealthwisppeanut3;
     }
 }
 

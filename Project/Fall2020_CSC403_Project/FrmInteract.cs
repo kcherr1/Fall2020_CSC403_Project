@@ -51,7 +51,7 @@ namespace Fall2020_CSC403_Project
             lblInteract.Text = "Mr.Peanut has reunited with his son and has thus gained some HP.";
             // Alters hp kinda of like health wisps in mmorpgs - could use to implement a wisp like powerup?
             //player.AlterHealth(35);
-            player.MaxHealth += 100;
+            player.MaxHealth += 50;
             Thread.Sleep(2000);
         }
 
@@ -62,8 +62,8 @@ namespace Fall2020_CSC403_Project
             npc.IsBanished = true;
             // Sound works, however that isn't the sound file i want to use
             // Sound files not showing in data folder even though they've been added
-            SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-            simpleSound.Play();
+            //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+            //simpleSound.Play();
         }
     }
 }
