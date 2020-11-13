@@ -193,5 +193,14 @@
   <ItemGroup>
     <None Include="data\mariocherry.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\wallPillar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\exit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\win.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
