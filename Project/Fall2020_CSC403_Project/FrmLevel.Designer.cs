@@ -33,6 +33,9 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.labelPlayerStats = new System.Windows.Forms.Label();
+            this.picHealthwisppeanut = new System.Windows.Forms.PictureBox();
+            this.picBabyPeanut = new System.Windows.Forms.PictureBox();
             this.picWall15 = new System.Windows.Forms.PictureBox();
             this.picWall23 = new System.Windows.Forms.PictureBox();
             this.picWall22 = new System.Windows.Forms.PictureBox();
@@ -62,7 +65,10 @@
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picPortal0 = new System.Windows.Forms.PictureBox();
-            this.labelPlayerStats = new System.Windows.Forms.Label();
+            this.picHealthwisppeanut2 = new System.Windows.Forms.PictureBox();
+            this.picHealthwisppeanut3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBabyPeanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall22)).BeginInit();
@@ -92,6 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPortal0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut3)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -117,6 +125,39 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            // 
+            // labelPlayerStats
+            // 
+            this.labelPlayerStats.AutoSize = true;
+            this.labelPlayerStats.BackColor = System.Drawing.Color.Black;
+            this.labelPlayerStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayerStats.ForeColor = System.Drawing.Color.White;
+            this.labelPlayerStats.Location = new System.Drawing.Point(151, 9);
+            this.labelPlayerStats.Name = "labelPlayerStats";
+            this.labelPlayerStats.Size = new System.Drawing.Size(87, 18);
+            this.labelPlayerStats.TabIndex = 2;
+            this.labelPlayerStats.Text = "Player Stats";
+            this.labelPlayerStats.Click += new System.EventHandler(this.lblInGameTime_Click);
+            // 
+            // picHealthwisppeanut
+            // 
+            this.picHealthwisppeanut.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.healthwisp_peanut;
+            this.picHealthwisppeanut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHealthwisppeanut.Location = new System.Drawing.Point(385, 74);
+            this.picHealthwisppeanut.Name = "picHealthwisppeanut";
+            this.picHealthwisppeanut.Size = new System.Drawing.Size(52, 50);
+            this.picHealthwisppeanut.TabIndex = 32;
+            this.picHealthwisppeanut.TabStop = false;
+            // 
+            // picBabyPeanut
+            // 
+            this.picBabyPeanut.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babypeanut;
+            this.picBabyPeanut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBabyPeanut.Location = new System.Drawing.Point(914, 145);
+            this.picBabyPeanut.Name = "picBabyPeanut";
+            this.picBabyPeanut.Size = new System.Drawing.Size(28, 48);
+            this.picBabyPeanut.TabIndex = 31;
+            this.picBabyPeanut.TabStop = false;
             // 
             // picWall15
             // 
@@ -468,18 +509,25 @@
             this.picPortal0.Tag = "portal";
             this.picPortal0.Click += new System.EventHandler(this.portal_Click);
             // 
-            // labelPlayerStats
+            // picHealthwisppeanut2
             // 
-            this.labelPlayerStats.AutoSize = true;
-            this.labelPlayerStats.BackColor = System.Drawing.Color.Black;
-            this.labelPlayerStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerStats.ForeColor = System.Drawing.Color.White;
-            this.labelPlayerStats.Location = new System.Drawing.Point(151, 9);
-            this.labelPlayerStats.Name = "labelPlayerStats";
-            this.labelPlayerStats.Size = new System.Drawing.Size(87, 18);
-            this.labelPlayerStats.TabIndex = 2;
-            this.labelPlayerStats.Text = "Player Stats";
-            this.labelPlayerStats.Click += new System.EventHandler(this.lblInGameTime_Click);
+            this.picHealthwisppeanut2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.healthwisp_peanut;
+            this.picHealthwisppeanut2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHealthwisppeanut2.Location = new System.Drawing.Point(937, 920);
+            this.picHealthwisppeanut2.Name = "picHealthwisppeanut2";
+            this.picHealthwisppeanut2.Size = new System.Drawing.Size(52, 50);
+            this.picHealthwisppeanut2.TabIndex = 33;
+            this.picHealthwisppeanut2.TabStop = false;
+            // 
+            // picHealthwisppeanut3
+            // 
+            this.picHealthwisppeanut3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.healthwisp_peanut;
+            this.picHealthwisppeanut3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHealthwisppeanut3.Location = new System.Drawing.Point(83, 347);
+            this.picHealthwisppeanut3.Name = "picHealthwisppeanut3";
+            this.picHealthwisppeanut3.Size = new System.Drawing.Size(52, 50);
+            this.picHealthwisppeanut3.TabIndex = 34;
+            this.picHealthwisppeanut3.TabStop = false;
             // 
             // FrmLevel
             // 
@@ -488,6 +536,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.picHealthwisppeanut3);
+            this.Controls.Add(this.picHealthwisppeanut2);
+            this.Controls.Add(this.picHealthwisppeanut);
+            this.Controls.Add(this.picBabyPeanut);
             this.Controls.Add(this.picWall15);
             this.Controls.Add(this.picWall23);
             this.Controls.Add(this.picWall22);
@@ -526,6 +578,8 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBabyPeanut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall22)).EndInit();
@@ -555,6 +609,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPortal0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHealthwisppeanut3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,6 +651,10 @@
         private System.Windows.Forms.PictureBox picWall23;
         private System.Windows.Forms.PictureBox picWall15;
         private System.Windows.Forms.Label labelPlayerStats;
+        private System.Windows.Forms.PictureBox picBabyPeanut;
+        private System.Windows.Forms.PictureBox picHealthwisppeanut;
+        private System.Windows.Forms.PictureBox picHealthwisppeanut2;
+        private System.Windows.Forms.PictureBox picHealthwisppeanut3;
     }
 }
 

@@ -111,6 +111,7 @@ namespace Fall2020_CSC403_Project
                     {
                         picEnemy.BackgroundImage = Resources.BuffCherry;
                     }
+                    
                     else
                     {
                         picEnemy.BackgroundImage = Resources.enemy_koolaid_cherry_hit;
@@ -168,7 +169,57 @@ namespace Fall2020_CSC403_Project
                 picPlayer.BackgroundImage = Resources.player;
                 picPlayer.Refresh();
             }
+            // Once Mr.Peanut's HP gets to 15 he turns into baby peanut
+            if (player.Health <= 15)
+            {
+                picPlayer.BackgroundImage = Resources.babypeanut;
+                picPlayer.Refresh();
 
+                lblInfoPanel.Text = $"Mr.Peanut's health is low!";
+                Application.DoEvents();
+                Thread.Sleep(200);
+
+            }
+            // Tone - was attempting to edit hit animation once Mr.Peanut turned into baby peanut
+            //else if (player.Health <= 10)
+            //{
+            //   picPlayer.BackgroundImage = Resources.player;
+            //  picPlayer.Refresh();
+            //}
+            
+            // Boss trash talk - Sound disabled because the sound gets annoying while testing, but it works. 
+            if ((enemy.Health <= 30) && (enemy.Health > 20) && enemy.IsBoss == true)
+            {
+
+                lblInfoPanel.Text = $"You never stood a chance!";
+                //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+                //simpleSound.Play();
+                Application.DoEvents();
+                Thread.Sleep(200);
+
+            }
+
+            if ((enemy.Health <= 15) && (enemy.Health > 10) && enemy.IsBoss == true)
+            {
+
+                lblInfoPanel.Text = $"    They called me the NUTCRACKER in highschool!";
+                //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+                //simpleSound.Play();
+                Application.DoEvents();
+                Thread.Sleep(200);
+
+            }
+
+            if ((enemy.Health <= 5) && enemy.IsBoss == true)
+            {
+
+                lblInfoPanel.Text = $"    WAIT please spare me Nut-sama!";
+                //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+                //simpleSound.Play();
+                Application.DoEvents();
+                Thread.Sleep(200);
+
+            }
             UpdateHealthBars();
             if (player.Health <= 0)
             {
@@ -177,9 +228,10 @@ namespace Fall2020_CSC403_Project
                 Thread.Sleep(3000);
                 Globals.PlayerIsAlive = false;
                 Close();
-             
+
             }
-            else if (enemy.Health <= 0)
+            
+            else if(enemy.Health <= 0)
             {
                 if (Globals.LevelsGiven == false && Globals.LevelNumber == 2)
                 {

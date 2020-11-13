@@ -15,11 +15,20 @@ namespace Fall2020_CSC403_Project
         private List<Enemy> enemies = new List<Enemy>();
         public static Dictionary<Enemy, PictureBox> EnemyPictureDict = new Dictionary<Enemy, PictureBox>();
 
+        private List<NPC> NPCs = new List<NPC>();
+        public static Dictionary<NPC, PictureBox> NPCPictureDict = new Dictionary<NPC, PictureBox>();
+
+        private List<Healthwisp> healthwisps = new List<Healthwisp>();
+        public static Dictionary<Healthwisp, PictureBox> HealthwispPictureDict = new Dictionary<Healthwisp, PictureBox>();
+
+
+
         private Character[] walls;
         private Character[] portals;
 
         private DateTime timeBegin;
         public FrmBattle frmBattle;
+        public FrmInteract frmInteract; 
 
 
         private bool holdLeft, holdRight, holdUp, holdDown;
@@ -105,6 +114,29 @@ namespace Fall2020_CSC403_Project
             enemies.Add(enemyCheeto);
             EnemyPictureDict.Add(enemyCheeto, picEnemyCheeto);
 
+            // initialize babypeanut NPC on this form 
+            NPC npcBabypeaunt = new NPC(CreatePosition(picBabyPeanut), CreateCollider(picBabyPeanut, PADDING))
+            {
+                // Tone - May need to add fields 
+            };
+            NPCs.Add(npcBabypeaunt);
+            NPCPictureDict.Add(npcBabypeaunt, picBabyPeanut);
+
+            // initialize healthwisps on this form 
+            Healthwisp healthwisp1 = new Healthwisp(CreatePosition(picHealthwisppeanut), CreateCollider(picHealthwisppeanut, PADDING))
+            {
+                 
+            };
+            healthwisps.Add(healthwisp1);
+            HealthwispPictureDict.Add(healthwisp1, picHealthwisppeanut);
+
+            Healthwisp healthwisp2 = new Healthwisp(CreatePosition(picHealthwisppeanut2), CreateCollider(picHealthwisppeanut2, PADDING))
+            {
+
+            };
+            healthwisps.Add(healthwisp2);
+            HealthwispPictureDict.Add(healthwisp2, picHealthwisppeanut2);
+
 
             walls = new Character[NUM_WALLS];
             for (int w = 0; w < NUM_WALLS; w++)
@@ -157,7 +189,21 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
+            // testing npc interaction/collision
+            NPCs.ForEach((npc) =>
+            {
+                if (npc.IsBanished == false && HitAChar(player, npc))
+                    Interact(npc);
 
+            });
+
+            // healthwisp collision/check if wisp was taken or not
+            healthwisps.ForEach((healthwisp) =>
+            {
+                if (healthwisp.IsTaken == false && HitAChar(player, healthwisp))
+                    Takewisp(healthwisp);
+
+            });
 
             // check collision with enemies
             enemies.ForEach((enemy) =>
@@ -230,6 +276,27 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+        // Interact function
+        private void Interact(NPC npc)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmInteract = FrmInteract.GetInstance(npc);
+            frmInteract.Show();
+
+        }
+        // Give health upon collision with health wisp 
+        private void Takewisp(Healthwisp healthwisp)
+        {
+            // Currently returning full health instead of only a little
+            player.AlterHealth(5);
+            player.MoveBack();
+            FrmLevel.HealthwispPictureDict[healthwisp].BackgroundImage = null;
+            FrmLevel.HealthwispPictureDict[healthwisp].SendToBack();
+
+        }
+
+
         protected override void OnDeactivate(EventArgs e)
         {
             // when form loses focus, stop movement
@@ -269,6 +336,7 @@ namespace Fall2020_CSC403_Project
         {
             switch (e.KeyCode)
             {
+                case Keys.A:
                 case Keys.Left:
                     if (!holdLeft)
                     {
@@ -278,6 +346,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
 
+                case Keys.D:
                 case Keys.Right:
                     if (!holdRight)
                     {
@@ -287,6 +356,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
 
+                case Keys.W:
                 case Keys.Up:
                     if (!holdUp)
                     {
@@ -296,6 +366,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
 
+                case Keys.S:
                 case Keys.Down:
                     if (!holdDown)
                     {
@@ -314,24 +385,28 @@ namespace Fall2020_CSC403_Project
         {
             switch (e.KeyCode)
             {
+                case Keys.A:
                 case Keys.Left:
                     if (holdLeft)
                         player.UpdateMoveSpeed(-Vector2.Left);
                     holdLeft = false;
                     break;
 
+                case Keys.D:
                 case Keys.Right:
                     if (holdRight)
                         player.UpdateMoveSpeed(-Vector2.Right);
                     holdRight = false;
                     break;
 
+                case Keys.W:
                 case Keys.Up:
                     if (holdUp)
                         player.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
                     holdUp = false;
                     break;
 
+                case Keys.S:
                 case Keys.Down:
                     if (holdDown)
                         player.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
