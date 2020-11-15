@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private FrmInventory frmInventory;
+    private bool PlayerWalking = false;
 
     public FrmLevel() {
       InitializeComponent();
@@ -75,6 +76,12 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       player.ResetMoveSpeed();
+      //reset picture box with static image if already walking
+      if (PlayerWalking)
+      {
+        PlayerWalking = false;
+        picPlayer.LoadAsync(@".\data\player.png");
+      }
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
@@ -147,6 +154,14 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      //update picture box with walking gif if not already walking
+      if (!PlayerWalking)
+            {
+                picPlayer.LoadAsync(@".\data\peanutwalking.gif");
+                picPlayer.SizeMode = PictureBoxSizeMode.StretchImage;
+                picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.playermoving;
+                PlayerWalking = true;
+            }
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
