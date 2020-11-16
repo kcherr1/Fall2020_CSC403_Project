@@ -54,6 +54,9 @@
     <Compile Include="Game.cs" />
     <Compile Include="InventoryItems\Experience.cs" />
     <Compile Include="InventoryItems\HealthPotion.cs" />
+	<Compile Include="InventoryItems\Sword.cs" />
+	<Compile Include="InventoryItems\Axe.cs" />
+	<Compile Include="InventoryItems\BaseballBat.cs" />
     <Compile Include="InventoryObject.cs" />
     <Compile Include="IWeapon.cs" />
     <Compile Include="NPC.cs" />

@@ -138,7 +138,37 @@ namespace Fall2020_CSC403_Project.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+		
+		/// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sword {
+            get {
+                object obj = ResourceManager.GetObject("sword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+		
+ 		/// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap axe {
+            get {
+                object obj = ResourceManager.GetObject("axe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }       
         
+		/// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bat {
+            get {
+                object obj = ResourceManager.GetObject("bat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }		
+		
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>

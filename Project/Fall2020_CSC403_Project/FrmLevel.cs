@@ -166,6 +166,43 @@ namespace Fall2020_CSC403_Project {
         case Keys.I:
             ShowInventory();
             break;
+				
+		case Keys.S: //Adds a sword to the player's inventory. (Alt + S)
+			if (e.Modifiers == Keys.Alt) 
+			{
+				player.GetInventory().AddWeaponToInventory(new MyGameLibrary.InventoryObjects.Sword(picSword.BackgroundImage));
+				if (frmInventory != null)
+				{	
+					frmInventory.UpdateInventory();
+				}
+			}
+			else
+			{
+				MessageBox.Show("Shop Menu\nPress Alt + S to get Sword\nPress Alt + A to get Axe\nPress Alt + B to get Bat\nPress Alt + C to get Health Potion\nPress Alt + X to get Experience Token");
+			}
+			break;
+			
+		case Keys.A: //Adds an axe to the player's inventory. (Alt + A)
+			if (e.Modifiers == Keys.Alt) 
+			{
+				player.GetInventory().AddWeaponToInventory(new MyGameLibrary.InventoryObjects.Axe(picAxe.BackgroundImage));
+				if (frmInventory != null)
+				{	
+					frmInventory.UpdateInventory();
+				}
+			}
+			break;
+			
+		case Keys.B: //Adds a baseball bat to the player's inventory. (Alt + B)
+			if (e.Modifiers == Keys.Alt)
+			{
+				player.GetInventory().AddWeaponToInventory(new MyGameLibrary.InventoryObjects.BaseballBat(picBaseballBat.BackgroundImage));
+				if (frmInventory != null)
+				{	
+					frmInventory.UpdateInventory();
+				}
+			}
+			break;			
 
         case Keys.C: // Adds a health potion to the player's inventory. (Alt + C)
             if (e.Modifiers == Keys.Alt)
