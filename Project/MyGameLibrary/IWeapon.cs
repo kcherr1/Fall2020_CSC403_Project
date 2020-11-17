@@ -10,4 +10,5 @@ namespace MyGameLibrary
     {
         int GetDamage();
     }
+	
 }

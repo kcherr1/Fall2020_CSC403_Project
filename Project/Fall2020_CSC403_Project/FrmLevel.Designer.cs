@@ -31,6 +31,9 @@
             this.picExperience = new System.Windows.Forms.PictureBox();
             this.picHealthPotion = new System.Windows.Forms.PictureBox();
             this.picGold = new System.Windows.Forms.PictureBox();
+			this.picSword = new System.Windows.Forms.PictureBox();
+			this.picAxe = new System.Windows.Forms.PictureBox();
+			this.picBaseballBat = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
@@ -105,6 +108,42 @@
             this.picExperience.TabIndex = 19;
             this.picExperience.TabStop = false;
             this.picExperience.Visible = false;
+			// 
+            // picSword
+            // 
+            this.picSword.BackColor = System.Drawing.Color.Transparent;
+            this.picSword.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.sword;
+            this.picSword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picSword.Location = new System.Drawing.Point(2, 74);
+            this.picSword.Name = "picSword";
+            this.picSword.Size = new System.Drawing.Size(80, 80);
+            this.picSword.TabIndex = 18;
+            this.picSword.TabStop = false;
+            this.picSword.Visible = false;
+			// 
+            // picAxe
+            // 
+            this.picAxe.BackColor = System.Drawing.Color.Transparent;
+            this.picAxe.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.axe;
+            this.picAxe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picAxe.Location = new System.Drawing.Point(2, 74);
+            this.picAxe.Name = "picAxe";
+            this.picAxe.Size = new System.Drawing.Size(80, 80);
+            this.picAxe.TabIndex = 18;
+            this.picAxe.TabStop = false;
+            this.picAxe.Visible = false;
+			// 
+            // picBaseballBat
+            // 
+            this.picBaseballBat.BackColor = System.Drawing.Color.Transparent;
+            this.picBaseballBat.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bat;
+            this.picBaseballBat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBaseballBat.Location = new System.Drawing.Point(2, 74);
+            this.picBaseballBat.Name = "picBaseballBat";
+            this.picBaseballBat.Size = new System.Drawing.Size(80, 80);
+            this.picBaseballBat.TabIndex = 18;
+            this.picBaseballBat.TabStop = false;
+            this.picBaseballBat.Visible = false;
             // 
             // picHealthPotion
             // 
@@ -401,6 +440,9 @@
     private System.Windows.Forms.PictureBox picWall11;
     public System.Windows.Forms.PictureBox picHealthPotion;
     private System.Windows.Forms.PictureBox picGold;
+	private System.Windows.Forms.PictureBox picSword;
+	private System.Windows.Forms.PictureBox picAxe;
+	private System.Windows.Forms.PictureBox picBaseballBat;
         public System.Windows.Forms.PictureBox picExperience;
     }
 }

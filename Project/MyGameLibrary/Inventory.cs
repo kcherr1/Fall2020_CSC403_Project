@@ -74,7 +74,7 @@ namespace MyGameLibrary
 
         // Adds an InventoryObject implementing the IWeapon interface to the inventory.
         // Returns if the addition was successful or not.
-        public Boolean AddToInventory(IWeapon iWep)
+        public Boolean AddWeaponToInventory(IWeapon iWep)
         {
             // Checks if the passed IWeapon object
             // is an instance of InventoryObject.
