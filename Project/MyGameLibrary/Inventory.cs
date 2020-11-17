@@ -37,11 +37,6 @@ namespace MyGameLibrary
             }
         }
 
-        public int GetMaxInventorySize()
-        {
-            return _maxSize;
-        }
-
         // Returns the inventory as a List
         public InventoryObject[] GetInventory()
         {
@@ -73,7 +68,6 @@ namespace MyGameLibrary
                     return true;
                 }
             }
-
             // There are no empty spaces in the inventory.
             return false;
         }
@@ -183,7 +177,7 @@ namespace MyGameLibrary
             {
                 if (iObj.IsStackable)
                 {
-                    if (iObj.GetCount() <= 0)
+                    if (iObj.Count <= 0)
                     {
                         RemoveInventoryObject(index);
                     }

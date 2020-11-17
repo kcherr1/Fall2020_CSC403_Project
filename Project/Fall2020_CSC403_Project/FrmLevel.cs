@@ -40,6 +40,7 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
+      frmInventory = new FrmInventory(player.GetInventory(), player);
       timeBegin = DateTime.Now;
     }
 
@@ -132,18 +133,18 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    // Creates an instance of FrmInventory to display the player's inventory.
+    // Shows an instance of FrmInventory to display the player's inventory.
     private void ShowInventory()
     {
-      if(frmInventory != null)
-      {
-         if (frmInventory.IsActive)
-         {
-             return;
-         }
-      }
-      frmInventory = new FrmInventory(player.GetInventory(), player);
-      frmInventory.Show();
+        if (frmInventory.IsActive)
+        {
+            return;
+        }
+        else
+        {
+            frmInventory = new FrmInventory(player.GetInventory(), player);
+        }
+        frmInventory.Show();
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
@@ -192,5 +193,5 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-    }
+  }
 }

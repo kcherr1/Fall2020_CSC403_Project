@@ -17,7 +17,7 @@ namespace MyGameLibrary.InventoryObjects
             this._stackable = true;
             this._exhaustible = true;
             this.img = img;
-            this.count = count;
+            this._count = count;
         }
 
         public override void Effect(BattleCharacter character)
