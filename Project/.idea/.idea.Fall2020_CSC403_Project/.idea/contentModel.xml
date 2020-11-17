@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\User\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\User\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Fall2020_CSC403_Project.568723882.00" t="ExcludeRecursive" />
+    <e p="C:\Users\User\Documents\GitHub\Fall2020_CSC403_Project\Project" t="IncludeFlat">
+      <e p="Fall2020_CSC403_Project" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ClassDiagram1.cd" t="Include" />
+        <e p="code" t="Include" />
+        <e p="data" t="Include">
+          <e p="battle_screen.fw.png" t="Include" />
+          <e p="colonel.png" t="Include" />
+          <e p="enemy_cheetos.fw.png" t="Include" />
+          <e p="enemy_koolaid.png" t="Include" />
+          <e p="enemy_poisonpacket.fw.png" t="Include" />
+          <e p="enemy_tony.png" t="Include" />
+          <e p="final_battle.wav" t="Include" />
+          <e p="player.png" t="Include" />
+          <e p="wall.jpg" t="Include" />
+        </e>
+        <e p="Fall2020_CSC403_Project.csproj" t="IncludeRecursive" />
+        <e p="FrmBattle.cs" t="Include" />
+        <e p="FrmBattle.Designer.cs" t="Include" />
+        <e p="FrmBattle.resx" t="Include" />
+        <e p="FrmLevel.cs" t="Include" />
+        <e p="FrmLevel.Designer.cs" t="Include" />
+        <e p="FrmLevel.resx" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="colonel.png" t="Include" />
+          <e p="kisspng-ronald-mcdonald-fast-food-hamburger-mcdonald-s-res-5aef4be5530783.2117885115256319733401.png" t="Include" />
+          <e p="kisspng-vertebrate-character-mascot-clip-art-tony-the-tiger-5b08e780ce6ed6.9843005815273102088456.png" t="Include" />
+          <e p="Tony.png" t="Include" />
+        </e>
+      </e>
+      <e p="Fall2020_CSC403_Project.sln" t="IncludeFlat" />
+      <e p="MyGameLibrary" t="IncludeRecursive">
+        <e p="BattleCharacter.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Character.cs" t="Include" />
+        <e p="Collider.cs" t="Include" />
+        <e p="Enemy.cs" t="Include" />
+        <e p="Game.cs" t="Include" />
+        <e p="MyGameLibrary.csproj" t="IncludeRecursive" />
+        <e p="NPC.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Player.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Vector2.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

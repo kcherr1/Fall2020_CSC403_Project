@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Diagnostics;
+using System.Drawing;
 
 namespace Fall2020_CSC403_Project.code {
   /// <summary>
@@ -14,7 +15,8 @@ namespace Fall2020_CSC403_Project.code {
     /// this is the background color for the fight form for this enemy
     /// </summary>
     public Color Color { get; set; }
-
+    public string Name { get; set; }
+    
     /// <summary>
     /// 
     /// </summary>
