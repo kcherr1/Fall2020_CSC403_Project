@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,6 +15,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmInventory frmInventory;
     private bool PlayerWalking = false;
 
     public FrmLevel() {
@@ -39,6 +41,7 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
+      frmInventory = new FrmInventory(player.GetInventory(), player);
       timeBegin = DateTime.Now;
     }
 
@@ -137,6 +140,20 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
+    // Shows an instance of FrmInventory to display the player's inventory.
+    private void ShowInventory()
+    {
+        if (frmInventory.IsActive)
+        {
+            return;
+        }
+        else
+        {
+            frmInventory = new FrmInventory(player.GetInventory(), player);
+        }
+        frmInventory.Show();
+    }
+
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       //update picture box with walking gif if not already walking
       if (!PlayerWalking)
@@ -162,6 +179,25 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
+        case Keys.I:
+            ShowInventory();
+            break;
+
+        case Keys.C: // Adds a health potion to the player's inventory. (Alt + C)
+            if (e.Modifiers == Keys.Alt)
+            {
+                player.GetInventory().AddToInventory(new MyGameLibrary.InventoryObjects.HealthPotion(picHealthPotion.BackgroundImage));
+                frmInventory.UpdateInventory(); // Updates the changes to the UI
+            }
+          break;
+
+        case Keys.X:// Adds an experience token to the player's inventory. (Alt + X)
+            if (e.Modifiers == Keys.Alt)
+            {
+                player.GetInventory().AddToInventory(new MyGameLibrary.InventoryObjects.Experience(picExperience.BackgroundImage, 5));
+                frmInventory.UpdateInventory(); // Updates the changes to the UI
+            }
+            break;
 
         default:
           player.ResetMoveSpeed();
