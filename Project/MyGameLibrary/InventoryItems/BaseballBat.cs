@@ -24,12 +24,11 @@ namespace MyGameLibrary.InventoryObjects
         public override void Effect(BattleCharacter character)
         {
             throw new NotImplementedException();
-
         }
 
         public override void Effect(Player player)
         {
-            player.GetInventory().SetEquippedWeapon(new MyGameLibrary.InventoryObjects.BaseballBat(global::Fall2020_CSC403_Project.Properties.Resources.bat));
+          player.EquippedWeapon = this;
         }
     }
 }

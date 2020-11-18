@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fall2020_CSC403_Project.code;
-using Fall2020_CSC403_Project.Properties;
+//using Fall2020_CSC403_Project.Properties;
 
 namespace MyGameLibrary.InventoryObjects
 {
@@ -25,12 +25,11 @@ namespace MyGameLibrary.InventoryObjects
         public override void Effect(BattleCharacter character)
         {
             throw new NotImplementedException();
-
         }
 
         public override void Effect(Player player)
         {
-            player.GetInventory().SetEquippedWeapon(new MyGameLibrary.InventoryObjects.Sword(global::Fall2020_CSC403_Project.Properties.Resources.sword));
+          player.EquippedWeapon = this;
         }
     }
 }

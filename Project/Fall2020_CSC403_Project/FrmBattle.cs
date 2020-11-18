@@ -4,7 +4,6 @@ using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
-using MyGameLibrary;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
@@ -65,14 +64,14 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-	  if (player.GetInventory().GetEquippedWeapon() != null)
-	  {
-		player.OnAttack(player.GetInventory().GetEquippedWeapon().GetDamage()); 
-	  }
-	  else
-	  {
-		player.OnAttack(-1);
-	  }
+      if (player.EquippedWeapon != null)
+      {
+        player.OnAttack(-player.EquippedWeapon.GetDamage());
+      }
+      else
+      {
+        player.OnAttack(-1);
+      }
       EnemyTurn();
     }
 
