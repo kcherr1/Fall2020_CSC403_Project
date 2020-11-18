@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -17,6 +18,7 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private FrmInventory frmInventory;
     private bool PlayerWalking = false;
+    private System.Timers.Timer deathtimer;
 
     public FrmLevel() {
       InitializeComponent();
@@ -47,9 +49,17 @@ namespace Fall2020_CSC403_Project {
 
     private void OnEnemyDeath(Enemy enemy)
     {
-      // Render enemy off of the screen
-      enemy.Icon.Visible = false;
+      // Render enemy off of the screen after death animation
+      enemy.Icon.LoadAsync("C:\\Users\\jbt01\\Desktop\\LaTech fall 2020\\csc403project\\Fall2020_CSC403_Project\\Project\\Fall2020_CSC403_Project\\data\\chardeath.gif");
+      enemy.Icon.SizeMode = PictureBoxSizeMode.StretchImage;
+      // Using undrawable image to hide background image
+      enemy.Icon.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.playermoving;
 
+      // Play death animation then hide image    
+      deathtimer = new System.Timers.Timer(2000);
+      deathtimer.Elapsed += (sender, e) => Invoke((MethodInvoker)(() => stopanimate(sender, e, enemy)));
+      deathtimer.Start();
+      
       // Generate an instance of gold to put in place of the enemy
       PictureBox goldInstance = new PictureBox();
       goldInstance.BackgroundImage = picGold.BackgroundImage;
@@ -65,6 +75,13 @@ namespace Fall2020_CSC403_Project {
       goldInstance.Visible = true;
       Controls.Add(goldInstance);
     }
+
+    private static void stopanimate(Object source, System.Timers.ElapsedEventArgs e, Enemy enemy)
+    {
+            enemy.Icon.Refresh();
+            enemy.Icon.Visible = false;
+    }
+
 
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
