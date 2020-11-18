@@ -24,12 +24,11 @@ namespace MyGameLibrary.InventoryObjects
         public override void Effect(BattleCharacter character)
         {
             throw new NotImplementedException();
-
         }
 
         public override void Effect(Player player)
         {
-            throw new NotImplementedException();
+          player.EquippedWeapon = this;
         }
     }
 }

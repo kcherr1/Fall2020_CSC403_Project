@@ -64,7 +64,14 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      if (player.EquippedWeapon != null)
+      {
+        player.OnAttack(-player.EquippedWeapon.GetDamage());
+      }
+      else
+      {
+        player.OnAttack(-1);
+      }
       EnemyTurn();
     }
 

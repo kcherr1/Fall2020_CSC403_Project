@@ -9,6 +9,7 @@ namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter {
 
     private Inventory inventory;
+    public IWeapon EquippedWeapon;
 
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
             inventory = new Inventory();
