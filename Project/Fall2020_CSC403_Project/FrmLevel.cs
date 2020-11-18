@@ -50,7 +50,7 @@ namespace Fall2020_CSC403_Project {
     private void OnEnemyDeath(Enemy enemy)
     {
       // Render enemy off of the screen after death animation
-      enemy.Icon.LoadAsync("C:\\Users\\jbt01\\Desktop\\LaTech fall 2020\\csc403project\\Fall2020_CSC403_Project\\Project\\Fall2020_CSC403_Project\\data\\chardeath.gif");
+      enemy.Icon.LoadAsync(@".\\data\\chardeath.gif");
       enemy.Icon.SizeMode = PictureBoxSizeMode.StretchImage;
       // Using undrawable image to hide background image
       enemy.Icon.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.playermoving;
