@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fall2020_CSC403_Project;
 using Fall2020_CSC403_Project.code;
 
 namespace MyGameLibrary.InventoryObjects
@@ -27,7 +28,9 @@ namespace MyGameLibrary.InventoryObjects
 
         public override void Effect(Player player)
         {
-            Remove(1);
+            FrmExperience frmExperience = new FrmExperience(this,player);
+            frmExperience.ShowDialog(); // Shows the experience dialogue; pauses the
+                                        // game until the player has allocated the experience.
         }
     }
 }

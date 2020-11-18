@@ -138,6 +138,9 @@ namespace Fall2020_CSC403_Project {
       if (enemy == Boss) {
         frmBattle.SetupForBossBattle();
       }
+      // Add 10 experience to the player's inventory for entering into battle.
+      player.GetInventory().AddToInventory(new MyGameLibrary.InventoryObjects.Experience(picExperience.BackgroundImage, 10));
+      frmInventory.UpdateInventory(); // Updates the changes to the UI
     }
 
     // Shows an instance of FrmInventory to display the player's inventory.
@@ -227,6 +230,11 @@ namespace Fall2020_CSC403_Project {
                 frmInventory.UpdateInventory(); // Updates the changes to the UI
             }
           break;
+
+        case Keys.Q: // Shows the player's skills
+                System.Windows.Forms.MessageBox.Show("Attack: " + player.Stats.Levels.attack.ToString() +
+                    "\nDefence: " + player.Stats.Levels.defence.ToString());
+            break;
 
         case Keys.X:// Adds an experience token to the player's inventory. (Alt + X)
             if (e.Modifiers == Keys.Alt)

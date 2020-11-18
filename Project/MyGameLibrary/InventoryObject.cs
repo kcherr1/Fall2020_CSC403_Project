@@ -11,7 +11,7 @@ namespace MyGameLibrary
         protected bool _exhaustible;  // Can this object be used more than once?
         public bool IsExhaustible { get => _exhaustible; }
         protected int _count;  // How many of this object are in this stack (always 1 if not stackable).
-        public int Count { get => _count; }
+        public int Count { get => _count; set => _count = value; }
         public Image img; // This will be the inventory icon for this inventory item.
         
 
