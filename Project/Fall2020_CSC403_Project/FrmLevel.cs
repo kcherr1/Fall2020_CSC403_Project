@@ -57,7 +57,15 @@ namespace Fall2020_CSC403_Project {
 
       // Play death animation then hide image    
       deathtimer = new System.Timers.Timer(2000);
-      deathtimer.Elapsed += (sender, e) => Invoke((MethodInvoker)(() => stopanimate(sender, e, enemy)));
+      try
+      {
+        deathtimer.Elapsed += (sender, e) => Invoke((MethodInvoker)(() => stopanimate(sender, e, enemy)));
+      }
+      catch(Exception e)
+      {
+        Console.WriteLine("Exception at death timer invocation.");
+      }
+
       deathtimer.Start();
       
       // Generate an instance of gold to put in place of the enemy
