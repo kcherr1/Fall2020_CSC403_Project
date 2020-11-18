@@ -110,7 +110,7 @@
             this.Controls.Add(this.AllocatedExperience);
             this.Controls.Add(this.ExperienceLabel);
             this.Name = "FrmExperience";
-            this.Text = "FrmExperience";
+            this.Text = "Use Experience";
             ((System.ComponentModel.ISupportInitialize)(this.AllocatedExperience)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
