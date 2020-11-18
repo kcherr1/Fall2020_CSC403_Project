@@ -10,12 +10,15 @@ namespace MyGameLibrary
         private int _maxSize = 8; // Max number of inventory slots, defaults to 8.
         public int MaxInventorySize { get => _maxSize; }
         private InventoryObject[] inventory; // List storing the inventory.
+		private IWeapon equippedWeapon; //Equipped Weapon in players inventory
 
         // Constructor with no arguements.
         public Inventory()
         {
             inventory = new InventoryObject[MaxInventorySize];
+			equippedWeapon = null;
         }
+		
 
         // Inventory constructor with passed List of InventoryObjects
         public Inventory(List<InventoryObject> invObjs)
@@ -202,5 +205,17 @@ namespace MyGameLibrary
             }
             return (weapons);
         }
+		
+		//Sets the player's equipped weapon 
+		public void SetEquippedWeapon(IWeapon weapon) 
+		{
+			equippedWeapon = weapon;
+		}
+		
+		//Gets the player's equipped weapon
+		public IWeapon GetEquippedWeapon() 
+		{
+			return equippedWeapon;
+		}					
     }
 }
