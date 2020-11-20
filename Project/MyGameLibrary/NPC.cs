@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class NPC : Character {
-    public NPC(Vector2 initPos, Collider collider) : base(initPos, collider) {
-
-    }
+        public bool IsBanished { get; set; }
+        public bool IsDonator { get; set; }
+        public NPC(Vector2 initPos, Collider collider) : base(initPos, collider) 
+        {
+            IsBanished = false;
+            IsDonator = false; 
+        }
   }
 }

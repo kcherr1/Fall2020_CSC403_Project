@@ -8,134 +8,107 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
 {
-    public partial class FrmLevel : Form
+    public partial class Frm2Level : Form
     {
-        private Player player;
+        private Player player1;
 
         private List<Enemy> enemies = new List<Enemy>();
         public static Dictionary<Enemy, PictureBox> EnemyPictureDict = new Dictionary<Enemy, PictureBox>();
-
-        private List<NPC> NPCs = new List<NPC>();
-        public static Dictionary<NPC, PictureBox> NPCPictureDict = new Dictionary<NPC, PictureBox>();
-
-        private List<Healthwisp> healthwisps = new List<Healthwisp>();
-        public static Dictionary<Healthwisp, PictureBox> HealthwispPictureDict = new Dictionary<Healthwisp, PictureBox>();
-
-
 
         private Character[] walls;
         private Character[] portals;
 
         private DateTime timeBegin;
         public FrmBattle frmBattle;
-        public FrmInteract frmInteract; 
 
 
         private bool holdLeft, holdRight, holdUp, holdDown;
 
 
-        public FrmLevel()
+        public Frm2Level()
         {
             InitializeComponent();
 
         }
 
 
-        //public void MovePictureBoxes(string direction)
-        //{
-        //    foreach (Control x in this.Controls)
-        //    {
-
-        //        if (x is PictureBox && (string)x.Tag == "background1" || x is PictureBox && (string)x.Tag == "enemyPic" || x is PictureBox && (string)x.Tag == "wallPic")
-        //        {
-
-        //            if (direction == "Left")
-        //            {
-        //                x.Left -= 3;
-        //            }
-
-        //            if (direction == "Right")
-        //            {
-        //                x.Left += 3;
-        //            }
-
-        //            if (direction == "Down")
-        //            {
-        //                x.Top -= 3;
-        //            }
-
-        //            if (direction == "Up")
-        //            {
-        //                x.Top += 3;
-        //            }
-
-        //        }
-        //    }
-        //}
-
-
-        private void FrmLevel_Load(object sender, EventArgs e)
+        
+        private void Frm2Level_Load(object sender, EventArgs e)
         {
 
             const int PADDING = 7;
             const int NUM_WALLS = 24;
             const int NUM_portals = 1;
 
-            // initialize player
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            Game.player = player;
+            // initialize player1
+            player1 = Game.player; //new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            //Game.player = player1;
 
             // initialize enemies on this form
-            Enemy bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 100, 60)
+            Enemy bossKoolaid2 = new Enemy(CreatePosition(picBossKoolAid2), CreateCollider(picBossKoolAid2, PADDING), 100, 400)
             {
-                Img = picBossKoolAid.BackgroundImage,
+                Img = picBossKoolAid2.BackgroundImage,
                 Color = Color.Red,
                 IsBoss = true
             };
+            enemies.Add(bossKoolaid2);
+            EnemyPictureDict.Add(bossKoolaid2, picBossKoolAid2);
 
-            enemies.Add(bossKoolaid);
-            EnemyPictureDict.Add(bossKoolaid, picBossKoolAid);
-
-            Enemy enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), 50)
+            Enemy enemyPoisonPacket = new Enemy(CreatePosition(picEnemyMario2), CreateCollider(picEnemyMario2, PADDING), 50)
             {
-                Img = picEnemyPoisonPacket.BackgroundImage,
+                Img = picEnemyMario2.BackgroundImage,
                 Color = Color.Green,
                 IsBoss = false
             };
-            enemies.Add(enemyPoisonPacket);
-            EnemyPictureDict.Add(enemyPoisonPacket, picEnemyPoisonPacket);
 
-            Enemy enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), 50)
+            enemies.Add(enemyPoisonPacket);
+            EnemyPictureDict.Add(enemyPoisonPacket, picEnemyMario2);
+
+            Enemy enemyMario = new Enemy(CreatePosition(picEnemyMario), CreateCollider(picEnemyMario, PADDING), 50)
             {
-                Img = picEnemyCheeto.BackgroundImage,
+                Img = picEnemyMario.BackgroundImage,
+                Color = Color.FromArgb(255, 245, 161),
+                IsBoss = false
+            };
+
+            enemies.Add(enemyMario);
+            EnemyPictureDict.Add(enemyMario, picEnemyMario);
+
+            Enemy enemyMario1 = new Enemy(CreatePosition(picEnemyMario1), CreateCollider(picEnemyMario1, PADDING), 50)
+            {
+                Img = picEnemyMario1.BackgroundImage,
+                Color = Color.FromArgb(255, 245, 161),
+                IsBoss = false
+            };
+            enemies.Add(enemyMario1);
+            EnemyPictureDict.Add(enemyMario1, picEnemyMario1);
+
+            Enemy enemyMario3 = new Enemy(CreatePosition(picEnemyMario3), CreateCollider(picEnemyMario3, PADDING), 50)
+            {
+                Img = picEnemyMario3.BackgroundImage,
+                Color = Color.FromArgb(255, 245, 161),
+                IsBoss = false
+            };
+            enemies.Add(enemyMario3);
+            EnemyPictureDict.Add(enemyMario3, picEnemyMario3);
+
+            Enemy enemyMario4 = new Enemy(CreatePosition(picEnemyMario4), CreateCollider(picEnemyMario4, PADDING), 50)
+            {
+                Img = picEnemyMario4.BackgroundImage,
+                Color = Color.FromArgb(255, 245, 161),
+                IsBoss = false
+            };
+            enemies.Add(enemyMario4);
+            EnemyPictureDict.Add(enemyMario4, picEnemyMario4);
+
+            Enemy enemyCheeto = new Enemy(CreatePosition(picEnemyMario), CreateCollider(picEnemyMario, PADDING), 50)
+            {
+                Img = picEnemyMario.BackgroundImage,
                 Color = Color.FromArgb(255, 245, 161),
                 IsBoss = false
             };
             enemies.Add(enemyCheeto);
-            EnemyPictureDict.Add(enemyCheeto, picEnemyCheeto);
-
-            // initialize babypeanut NPC on this form 
-            NPC npcBabypeaunt = new NPC(CreatePosition(picBabyPeanut), CreateCollider(picBabyPeanut, PADDING))
-            {
-                // Tone - May need to add fields 
-            };
-            NPCs.Add(npcBabypeaunt);
-            NPCPictureDict.Add(npcBabypeaunt, picBabyPeanut);
-
-            // initialize healthwisps on this form 
-            Healthwisp healthwisp1 = new Healthwisp(CreatePosition(picHealthwisppeanut), CreateCollider(picHealthwisppeanut, PADDING))
-            {
-                 
-            };
-            healthwisps.Add(healthwisp1);
-            HealthwispPictureDict.Add(healthwisp1, picHealthwisppeanut);
-
-            Healthwisp healthwisp2 = new Healthwisp(CreatePosition(picHealthwisppeanut2), CreateCollider(picHealthwisppeanut2, PADDING))
-            {
-
-            };
-            healthwisps.Add(healthwisp2);
-            HealthwispPictureDict.Add(healthwisp2, picHealthwisppeanut2);
+            EnemyPictureDict.Add(enemyCheeto, picEnemyMario);
 
 
             walls = new Character[NUM_WALLS];
@@ -175,54 +148,45 @@ namespace Fall2020_CSC403_Project
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
-            labelPlayerStats.Text = "Level: " + player.Level + "\nHealth: " + player.Health + "/" + player.MaxHealth + "\nEXP: " + player.EXP;
+            labelPlayerStats.Text = "Level: " + player1.Level + "\nHealth: " + player1.Health + "/" + player1.MaxHealth + "\nEXP: " + player1.EXP;
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
-            // move player
-            player.Move();
-
-            // check collision with walls
-            if (HitAWall(player))
+            if (Globals.PlayerIsAlive == false)
             {
-                player.MoveBack();
+                //player1.ResetMoveSpeed();
+                Thread.Sleep(100);
+                Close();
             }
 
-            // testing npc interaction/collision
-            NPCs.ForEach((npc) =>
+            // move player1
+            player1.Move();
+
+            // check collision with walls
+            if (HitAWall(player1))
             {
-                if (npc.IsBanished == false && HitAChar(player, npc))
-                    Interact(npc);
+                player1.MoveBack();
+            }
 
-            });
-
-            // healthwisp collision/check if wisp was taken or not
-            healthwisps.ForEach((healthwisp) =>
-            {
-                if (healthwisp.IsTaken == false && HitAChar(player, healthwisp))
-                    Takewisp(healthwisp);
-
-            });
 
             // check collision with enemies
             enemies.ForEach((enemy) =>
             {
-                if (enemy.IsAlive && HitAChar(player, enemy))
+                if (enemy.IsAlive && HitAChar(player1, enemy))
                     Fight(enemy);
 
             });
 
-            // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            // update player1's picture box
+            picPlayer.Location = new Point((int)player1.Position.x, (int)player1.Position.y);
 
-            if (HitAPortal(player))
+            if (HitAPortal(player1))
             {
                 Thread.Sleep(1000);
-                player.MoveBack();
-                Thread.Sleep(400);
-                player.ResetMoveSpeed();
-                Globals.Level1Beat = true;
+                player1.MoveBack();
+                player1.ResetMoveSpeed();
+                Globals.LevelNumber = 3;
                 Close();
 
             }
@@ -241,7 +205,7 @@ namespace Fall2020_CSC403_Project
             }
             return hitAPortal;
         }
-
+    
 
         private bool HitAWall(Character c)
         {
@@ -265,8 +229,8 @@ namespace Fall2020_CSC403_Project
 
         private void Fight(Enemy enemy)
         {
-            player.ResetMoveSpeed();
-            player.MoveBack();
+            player1.ResetMoveSpeed();
+            player1.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
 
@@ -274,28 +238,9 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForBossBattle();
             }
-        }
 
-        // Interact function
-        private void Interact(NPC npc)
-        {
-            player.ResetMoveSpeed();
-            player.MoveBack();
-            frmInteract = FrmInteract.GetInstance(npc);
-            frmInteract.Show();
 
         }
-        // Give health upon collision with health wisp 
-        private void Takewisp(Healthwisp healthwisp)
-        {
-            // Currently returning full health instead of only a little
-            player.AlterHealth(5);
-            player.MoveBack();
-            FrmLevel.HealthwispPictureDict[healthwisp].BackgroundImage = null;
-            FrmLevel.HealthwispPictureDict[healthwisp].SendToBack();
-
-        }
-
 
         protected override void OnDeactivate(EventArgs e)
         {
@@ -304,7 +249,7 @@ namespace Fall2020_CSC403_Project
             holdRight = false;
             holdUp = false;
             holdDown = false;
-            player.ResetMoveSpeed();
+            player1.ResetMoveSpeed();
         }
 
         private void background_Click(object sender, EventArgs e)
@@ -332,7 +277,7 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        private void Frm2Level_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -340,7 +285,7 @@ namespace Fall2020_CSC403_Project
                 case Keys.Left:
                     if (!holdLeft)
                     {
-                        player.UpdateMoveSpeed(Vector2.Left);
+                        player1.UpdateMoveSpeed(Vector2.Left);
                         //MovePictureBoxes("Left");
                         holdLeft = true;
                     }
@@ -350,7 +295,7 @@ namespace Fall2020_CSC403_Project
                 case Keys.Right:
                     if (!holdRight)
                     {
-                        player.UpdateMoveSpeed(Vector2.Right);
+                        player1.UpdateMoveSpeed(Vector2.Right);
                         //MovePictureBoxes("Right");
                         holdRight = true;
                     }
@@ -360,7 +305,7 @@ namespace Fall2020_CSC403_Project
                 case Keys.Up:
                     if (!holdUp)
                     {
-                        player.UpdateMoveSpeed(Vector2.Down);
+                        player1.UpdateMoveSpeed(Vector2.Down);
                         //MovePictureBoxes("Down");
                         holdUp = true;
                     }
@@ -370,7 +315,7 @@ namespace Fall2020_CSC403_Project
                 case Keys.Down:
                     if (!holdDown)
                     {
-                        player.UpdateMoveSpeed(Vector2.Up);
+                        player1.UpdateMoveSpeed(Vector2.Up);
                         //MovePictureBoxes("Up");
                         holdDown = true;
                     }
@@ -381,38 +326,38 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        private void Frm2Level_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.A:
                 case Keys.Left:
                     if (holdLeft)
-                        player.UpdateMoveSpeed(-Vector2.Left);
-                    holdLeft = false;
-                    break;
+                player1.UpdateMoveSpeed(-Vector2.Left);
+            holdLeft = false;
+            break;
 
                 case Keys.D:
                 case Keys.Right:
                     if (holdRight)
-                        player.UpdateMoveSpeed(-Vector2.Right);
-                    holdRight = false;
-                    break;
+                player1.UpdateMoveSpeed(-Vector2.Right);
+            holdRight = false;
+            break;
 
                 case Keys.W:
                 case Keys.Up:
                     if (holdUp)
-                        player.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
-                    holdUp = false;
-                    break;
+                player1.UpdateMoveSpeed(-Vector2.Down); // down is up because form is top-left origin coordinate system
+            holdUp = false;
+            break;
 
                 case Keys.S:
                 case Keys.Down:
                     if (holdDown)
-                        player.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
-                    holdDown = false;
-                    break;
-            }
+                player1.UpdateMoveSpeed(-Vector2.Up); // up is down because form is top-left origin coordinate system
+            holdDown = false;
+            break;
+        }
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
