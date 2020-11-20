@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -10,10 +11,12 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
+    private Enemy[] movingEnemies;
     private Character[] walls;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmGameOver gameover;
 
     public FrmLevel() {
       InitializeComponent();
@@ -32,6 +35,9 @@ namespace Fall2020_CSC403_Project {
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
+      enemyCheeto.PicNumber = 1;
+      enemyPoisonPacket.PicNumber = 2;
+
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
@@ -41,6 +47,8 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
+
+            movingEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket };
 
       Game.player = player;
       timeBegin = DateTime.Now;
@@ -76,18 +84,61 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+        if (enemyPoisonPacket.Health > 0 && player.Health > 0) {
+         Fight(enemyPoisonPacket);
+        }
       }
       else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
+        if (enemyCheeto.Health > 0 && player.Health > 0) {
+         Fight(enemyCheeto);
+        }
       }
       if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+        if (bossKoolaid.Health > 0 && player.Health > 0) {
+         Fight(bossKoolaid);
+        }
       }
+
+      if (player.Health <= 0)
+            {
+                FrmGameOver.GetInstance(this);  
+            }
+
+      if (enemyPoisonPacket.Health <= 0) 
+            {
+                picEnemyPoisonPacket.Visible = false;
+            }
+
+      if (enemyCheeto.Health <= 0)
+            {
+                picEnemyCheeto.Visible = false;
+            }
+
+      if (bossKoolaid.Health <= 0)
+            {
+                FrmVictory.GetInstance(this);
+                picBossKoolAid.Visible = false;
+            }
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-    }
+
+      // Change picture of Mr.Peanut to Baby Peanut if health is low
+      if (player.Health <= 0.3 * player.MaxHealth) {
+          picPlayer.BackgroundImage = Resources.playersmall;
+          picPlayer.Refresh();
+      }
+      else {
+          picPlayer.BackgroundImage = Resources.player;
+          picPlayer.Refresh();
+      }
+            foreach (Enemy enemy in movingEnemies)
+            {
+                MoveEnemy(enemy);
+            }
+
+
+        }
 
     private bool HitAWall(Character c) {
       bool hitAWall = false;
@@ -132,15 +183,94 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
+        //going into the backpack
+        case Keys.B:
+          var backpack = new Backpack();
+          backpack.Setup();
+          backpack.UpdateBackpack();
+          backpack.Show();
+           
+          break;
 
         default:
           player.ResetMoveSpeed();
           break;
       }
-    }
+            
+        }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+        private void MoveEnemy(Enemy enemy)
+        {
+            Random r = new Random();
+            int move = r.Next(1, 4);
+            switch (move)
+            {
+                case 1:
+                    if (enemy.LastMove != 2)
+                    {
+                        enemy.GoLeft();
+                    }
+                    else
+                    {
+                        enemy.GoRight();
+                    }
+                    break;
+                case 2:
+                    if (enemy.LastMove != 1)
+                    {
+                        enemy.GoRight();
+                    }
+                    else
+                    {
+                        enemy.GoLeft();
+                    }
+                    break;
+                case 3:
+                    if (enemy.LastMove != 4)
+                    {
+                        enemy.GoUp();
+                    }
+                    else
+                    {
+                        enemy.GoDown();
+                    }
+                    break;
+                case 4:
+                    if (enemy.LastMove != 3)
+                    {
+                        enemy.GoDown();
+                    }
+                    else
+                    {
+                        enemy.GoUp();
+                    }
+                    break;
+                default:
+                    enemy.GoLeft();
+                    break;
+            }
+            enemy.Move();
+            if (HitAWall(enemy))
+            {
+                enemy.MoveBack();
+            }
+            switch(enemy.PicNumber)
+            {
+                case 1:
+                    picEnemyCheeto.Location = new Point((int)enemy.Position.x, (int)enemy.Position.y);
+                    break;
+                case 2:
+                    picEnemyPoisonPacket.Location = new Point((int)enemy.Position.x, (int)enemy.Position.y);
+                    break;
+                default:
+                    break;
+            }
+                
+        }
+    }
+
+    
 }
