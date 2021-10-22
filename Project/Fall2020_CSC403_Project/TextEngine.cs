@@ -15,6 +15,32 @@ namespace Fall2020_CSC403_Project
         public TextEngine()
         {
             InitializeComponent();
+            this.ForegroundImage.BackColor = Color.Transparent;
+        }
+
+        public void NewBackground(Image newBackground)
+        {
+            this.BackgroundImage = newBackground;
+        }
+
+        public void NewForeground(PictureBox newImage)
+        {
+            ForegroundImage = newImage;
+        }
+
+        public void ChangeText(string newText)
+        {
+            this.Textbox.Text = newText;
+        }
+
+        public void TextboxVisible(bool hide)
+        {
+            this.Textbox.Visible = hide;
+        }
+
+        private void Textbox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
