@@ -1,4 +1,6 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿// The GUI initalizer for the battleground
+
+namespace Fall2020_CSC403_Project {
   partial class FrmBattle {
     /// <summary>
     /// Required designer variable.
@@ -24,7 +26,7 @@
     /// </summary>
     private void InitializeComponent() {
       this.components = new System.ComponentModel.Container();
-      this.btnAttack = new System.Windows.Forms.Button();
+      this.btnAttack = new System.Windows.Forms.Button(); // This initializes a button
       this.lblPlayerHealthFull = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();

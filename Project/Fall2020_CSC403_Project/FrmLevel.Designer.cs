@@ -1,4 +1,6 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿// The GUI initializer for the game envrionment/level
+
+namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
@@ -305,6 +307,8 @@
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "Explore";
       this.Load += new System.EventHandler(this.FrmLevel_Load);
+
+      // A glance at what key event listener is like in c#
       this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
       this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
       ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();

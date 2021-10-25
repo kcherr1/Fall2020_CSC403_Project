@@ -1,4 +1,7 @@
-﻿using Fall2020_CSC403_Project.code;
+﻿// Game environment
+// First and only level 
+
+using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -23,6 +26,9 @@ namespace Fall2020_CSC403_Project {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
+      // For creating new UI elements, initialize a picturebox in designer 
+      // create padding for it using the createcollider function in this file
+      // make sure the position of the player is set to the picturebox
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
@@ -46,19 +52,23 @@ namespace Fall2020_CSC403_Project {
       timeBegin = DateTime.Now;
     }
 
+    // put the character *under* the picturebox
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
     }
 
+    // Create a padding for the picturebox/character
     private Collider CreateCollider(PictureBox pic, int padding) {
       Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
       return new Collider(rect);
     }
 
+    // Stops the player from moving
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       player.ResetMoveSpeed();
     }
 
+    // keeps track of the time spent in the game
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
       TimeSpan span = DateTime.Now - timeBegin;
       string time = span.ToString(@"hh\:mm\:ss");
@@ -75,6 +85,10 @@ namespace Fall2020_CSC403_Project {
       }
 
       // check collision with enemies
+      // If you hit a character, you got beef
+      // Because you have to initialize a new character for each enemy,
+      // , you have to pass each one separately to the functions
+      // Singleton design pattern
       if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
       }
@@ -89,10 +103,11 @@ namespace Fall2020_CSC403_Project {
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
-    private bool HitAWall(Character c) {
+    // Method for stopping you from hitting a wall
+    private bool HitAWall(Character character) {
       bool hitAWall = false;
       for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
+        if (character.Collider.Intersects(walls[w].Collider)) {
           hitAWall = true;
           break;
         }
@@ -107,6 +122,8 @@ namespace Fall2020_CSC403_Project {
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
+
+      // Initialize an instance of the battleground with the enemy you got close with
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
 
@@ -115,6 +132,8 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
+    // Registering the key you press
+    // This is where we can add additional keys to interact with
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
