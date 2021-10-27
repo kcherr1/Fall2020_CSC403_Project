@@ -74,6 +74,7 @@
             this.Controls.Add(this.ForegroundImage);
             this.Name = "TextEngine";
             this.Text = "Mr. Peanut Finds Love";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEnginge_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).EndInit();
             this.ResumeLayout(false);
 
