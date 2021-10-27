@@ -10,7 +10,7 @@ namespace MyGameLibrary.Shop
         public void purchase(Items ID)
         {
             Inventory.addItem(ID, Products[ID]);
-            Inventory.withdrawMoney(Products[ID].getPrice());
+            Inventory.withdrawMoney(Products[ID].ItemPrice);
             Products.Remove(ID);
         }
     }
