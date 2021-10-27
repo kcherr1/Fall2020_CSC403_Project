@@ -26,7 +26,7 @@ namespace MyGameLibrary.Story
             List<string> lines = new List<string>{ "This is a test.", " ", "Let's see if the text changes." };
             foreach (string line in lines)
             {
-                if(!string.IsNullOrEmpty(line))
+                if(!string.IsNullOrEmpty(line.Trim()))
                 {
                     this.CurrentStoryText.Enqueue(line.Trim());
                 }
