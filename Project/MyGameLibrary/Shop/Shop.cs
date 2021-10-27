@@ -11,9 +11,5 @@ namespace MyGameLibrary.Shop
     {
         public List<Item> Items = new List<Item>();
 
-        public void purchase(Items identifier)
-        {
-
-        }
     }
 }
