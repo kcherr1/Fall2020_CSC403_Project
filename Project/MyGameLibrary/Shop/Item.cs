@@ -1,13 +1,8 @@
 ﻿using MyGameLibrary.Shop;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project
 {
-    class Item
+    public class Item
     {
         string ItemName;
         string ItemDescription;
@@ -19,6 +14,26 @@ namespace Fall2020_CSC403_Project
             ItemName = name;
             ItemDescription = description;
             ItemPrice = price;
+        }
+
+        public int getPrice()
+        {
+            return ItemPrice;
+        }
+
+        public string getDescription()
+        {
+            return ItemDescription;
+        }
+
+        public string getName()
+        {
+            return ItemName;
+        }
+
+        public Items getID()
+        {
+            return ItemID;
         }
     }
 }
