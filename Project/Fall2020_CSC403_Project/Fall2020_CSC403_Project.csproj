@@ -103,7 +103,7 @@
     <None Include="data\final_battle.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\player.png" />
+    <None Include="data\foreground\player.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\battle_screen.fw.png" />
@@ -118,11 +118,10 @@
     <None Include="data\enemy_poisonpacket.fw.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\enemy_koolaid.png" />
+    <None Include="data\foreground\enemy_koolaid.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="data\foreground\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>

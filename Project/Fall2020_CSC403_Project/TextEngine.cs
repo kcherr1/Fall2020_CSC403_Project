@@ -13,7 +13,6 @@ namespace Fall2020_CSC403_Project
             this.story = new Story("\\Fall2021_CSC403_Project\\Project\\Fall2020_CSC403_Project\\data\\", "Story.txt");
             string line = story.GetNextLine();
             InitializeComponent();
-            this.ForegroundImage.BackColor = Color.Transparent;
             this.ChangeText(line);
         }
 

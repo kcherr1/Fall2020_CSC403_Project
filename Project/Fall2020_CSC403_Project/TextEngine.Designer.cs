@@ -36,11 +36,9 @@
             // 
             // ForegroundImage
             // 
-            this.ForegroundImage.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ForegroundImage.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid;
+            this.ForegroundImage.BackColor = System.Drawing.Color.Transparent;
+            this.ForegroundImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ForegroundImage.BackgroundImage")));
             this.ForegroundImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ForegroundImage.ErrorImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
-            this.ForegroundImage.InitialImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.ForegroundImage.Location = new System.Drawing.Point(463, -16);
             this.ForegroundImage.Name = "ForegroundImage";
             this.ForegroundImage.Size = new System.Drawing.Size(243, 404);
