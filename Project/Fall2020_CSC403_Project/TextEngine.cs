@@ -16,10 +16,6 @@ namespace Fall2020_CSC403_Project
             this.ChangeText(line);
         }
 
-        //Switch modes
-        //https://stackoverflow.com/questions/13584902/change-content-in-a-windows-form?lq=1
-        //Panels? Active panel -> options panel
-
         public void NewBackground(Image newBackground)
         {
             BackgroundImage = newBackground;
@@ -40,14 +36,9 @@ namespace Fall2020_CSC403_Project
             Textbox.Visible = hide;
         }
 
-        private void Textbox_Click(object sender, EventArgs e)
-        {
-            string line = story.GetNextLine();
-            this.ChangeText(line);
-        }
-
         private void TextEnginge_KeyPress(object sender, KeyPressEventArgs e)
         {
+            this.DisplayOptions();
             string line = story.GetNextLine();
             this.ChangeText(line);
         }

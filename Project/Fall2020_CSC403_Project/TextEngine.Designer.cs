@@ -1,4 +1,8 @@
-﻿namespace Fall2020_CSC403_Project
+﻿using System.Collections.Generic;
+using System.Drawing;
+using MyGameLibrary.Story;
+
+namespace Fall2020_CSC403_Project
 {
     partial class TextEngine
     {
@@ -29,25 +33,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextEngine));
-            this.NormalPanel = new System.Windows.Forms.Panel();
-            this.Textbox = new System.Windows.Forms.Label();
             this.ForegroundImage = new System.Windows.Forms.PictureBox();
-            this.NormalPanel.SuspendLayout();
+            this.Textbox = new System.Windows.Forms.Label();
+            this.NormalPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).BeginInit();
+            this.NormalPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // NormalPanel
+            // ForegroundImage
             // 
-            this.NormalPanel.AutoSize = true;
-            this.NormalPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NormalPanel.BackgroundImage")));
-            this.NormalPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.NormalPanel.Controls.Add(this.Textbox);
-            this.NormalPanel.Controls.Add(this.ForegroundImage);
-            this.NormalPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NormalPanel.Location = new System.Drawing.Point(0, 0);
-            this.NormalPanel.Name = "NormalPanel";
-            this.NormalPanel.Size = new System.Drawing.Size(800, 450);
-            this.NormalPanel.TabIndex = 6;
+            this.ForegroundImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ForegroundImage.BackColor = System.Drawing.Color.Transparent;
+            this.ForegroundImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ForegroundImage.BackgroundImage")));
+            this.ForegroundImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ForegroundImage.Location = new System.Drawing.Point(463, -8);
+            this.ForegroundImage.Name = "ForegroundImage";
+            this.ForegroundImage.Size = new System.Drawing.Size(243, 404);
+            this.ForegroundImage.TabIndex = 6;
+            this.ForegroundImage.TabStop = false;
             // 
             // Textbox
             // 
@@ -63,16 +68,18 @@
             this.Textbox.TabIndex = 7;
             this.Textbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ForegroundImage
+            // NormalPanel
             // 
-            this.ForegroundImage.BackColor = System.Drawing.Color.Transparent;
-            this.ForegroundImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ForegroundImage.BackgroundImage")));
-            this.ForegroundImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ForegroundImage.Location = new System.Drawing.Point(463, -8);
-            this.ForegroundImage.Name = "ForegroundImage";
-            this.ForegroundImage.Size = new System.Drawing.Size(243, 404);
-            this.ForegroundImage.TabIndex = 6;
-            this.ForegroundImage.TabStop = false;
+            this.NormalPanel.AutoSize = true;
+            this.NormalPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NormalPanel.BackgroundImage")));
+            this.NormalPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.NormalPanel.Controls.Add(this.Textbox);
+            this.NormalPanel.Controls.Add(this.ForegroundImage);
+            this.NormalPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NormalPanel.Location = new System.Drawing.Point(0, 0);
+            this.NormalPanel.Name = "NormalPanel";
+            this.NormalPanel.Size = new System.Drawing.Size(800, 450);
+            this.NormalPanel.TabIndex = 6;
             // 
             // TextEngine
             // 
@@ -86,17 +93,39 @@
             this.Name = "TextEngine";
             this.Text = "Mr. Peanut Finds Love";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEnginge_KeyPress);
-            this.NormalPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).EndInit();
+            this.NormalPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
         #endregion
 
-        private System.Windows.Forms.Panel NormalPanel;
-        private System.Windows.Forms.Label Textbox;
         private System.Windows.Forms.PictureBox ForegroundImage;
+        private System.Windows.Forms.Label Textbox;
+        private System.Windows.Forms.Panel NormalPanel;
+
+        private void DisplayOptions()
+        {
+            //Test this out
+            List<Option> options = new List<Option>() { new Option("Test", "[fgi]", true), new Option("This", "yada", false) };
+            System.Drawing.Point location = new System.Drawing.Point(50, 50);
+            this.NormalPanel.SuspendLayout();
+            foreach (Option option in options)
+            {
+                var optionLabel = new System.Windows.Forms.Label();
+                optionLabel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+                optionLabel.BackColor = Color.AliceBlue;
+                optionLabel.Size = new System.Drawing.Size(150, 25);
+                optionLabel.Text = option.OptionText;
+                optionLabel.Location = location;
+                this.NormalPanel.Controls.Add(optionLabel);
+                location.Offset(0, 40);
+            }
+            this.NormalPanel.ResumeLayout(false);
+            //Total number of options
+            //Option Text
+            //Option Backend
+        }
     }
 }
