@@ -30,7 +30,8 @@ namespace Fall2020_CSC403_Project.code
 
         public void OnAttack(int amount)
         {
-            AttackEvent((int)(amount * strength));
+            int deviation = Util.GetRandomInt();
+            AttackEvent((int) Math.Max(strength+deviation,1)*(-1));
         }
 
         public void AlterHealth(int amount)
