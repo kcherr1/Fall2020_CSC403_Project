@@ -38,7 +38,7 @@ namespace Fall2020_CSC403_Project
             Textbox.Visible = hide;
         }
 
-        private void TextEnginge_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextEngine_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.DisplayOptions(new List<Option>());
             //if current options is not null, down and up should iterate through options queue

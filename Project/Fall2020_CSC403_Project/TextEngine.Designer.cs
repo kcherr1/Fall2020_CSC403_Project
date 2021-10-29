@@ -70,7 +70,7 @@ namespace Fall2020_CSC403_Project
             // 
             // NormalPanel
             // 
-            this.NormalPanel.AutoSize = true;            
+            this.NormalPanel.AutoSize = true;
             this.NormalPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NormalPanel.BackgroundImage")));
             this.NormalPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NormalPanel.Controls.Add(this.Textbox);
@@ -91,7 +91,7 @@ namespace Fall2020_CSC403_Project
             this.DoubleBuffered = true;
             this.Name = "TextEngine";
             this.Text = "Mr. Peanut Finds Love";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEnginge_KeyPress);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEngine_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).EndInit();
             this.NormalPanel.ResumeLayout(false);
             this.ResumeLayout(false);
