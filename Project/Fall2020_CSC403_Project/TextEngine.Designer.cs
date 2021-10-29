@@ -33,6 +33,8 @@
             this.Textbox = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).BeginInit();
             this.SuspendLayout();
+
+            this.ClientSizeChanged += new System.EventHandler(this.ResizeHandler);
             // 
             // ForegroundImage
             // 
@@ -44,7 +46,6 @@
             this.ForegroundImage.Location = new System.Drawing.Point(463, -16);
             this.ForegroundImage.Name = "ForegroundImage";
             this.ForegroundImage.Size = new System.Drawing.Size(243, 404);
-            this.ClientSizeChanged += new System.EventHandler(this.ForegroundImage_Resize);
             this.ForegroundImage.TabIndex = 1;
             this.ForegroundImage.TabStop = false;
             // 
@@ -73,6 +74,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Textbox);
             this.Controls.Add(this.ForegroundImage);
+            this.DoubleBuffered = true;
             this.Name = "TextEngine";
             this.Text = "Mr. Peanut Finds Love";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEnginge_KeyPress);

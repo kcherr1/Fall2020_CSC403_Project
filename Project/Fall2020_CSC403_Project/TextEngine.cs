@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyGameLibrary.Story;
 
@@ -11,6 +10,7 @@ namespace Fall2020_CSC403_Project
         private Story story { get; set; }
         private double ForegroundImage_Xscale { get; set; }
         private double ForegroundImage_Yscale { get; set; }
+        private int originalHeight { get; set; }
         public TextEngine()
         {
             this.story = new Story("\\Fall2021_CSC403_Project\\Project\\Fall2020_CSC403_Project\\data\\", "Story.txt");
@@ -19,6 +19,7 @@ namespace Fall2020_CSC403_Project
 
             ForegroundImage_Xscale = (double)ForegroundImage.Location.X / Width;
             ForegroundImage_Yscale = (double)ForegroundImage.Location.Y / Height;
+            originalHeight = Height;
             this.ForegroundImage.BackColor = Color.Transparent;
 
             this.ChangeText(line);
@@ -60,13 +61,19 @@ namespace Fall2020_CSC403_Project
             this.ChangeText(line);
         }
 
-        private void ForegroundImage_Resize(object sender, EventArgs e)
+        private void ResizeHandler(object sender, EventArgs e)
         {
             double ratio = this.ForegroundImage.Size.Width / (this.ForegroundImage.Size.Height * 1.0);
             ForegroundImage.Size = new Size((int)(ClientRectangle.Height * ratio), (int)ClientRectangle.Height);
             if (ForegroundImage_Xscale != 0 && ForegroundImage_Yscale != 0)
             {
                 ForegroundImage.Location = new Point((int)Math.Floor(ForegroundImage_Xscale * Width), (int)Math.Floor(ForegroundImage_Yscale * Height));
+            }
+            if(originalHeight != 0)
+            {
+                double scaling = Height / (double)originalHeight;
+                Textbox.Height = (int)Math.Floor(scaling * 100);
+                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)Math.Floor(scaling * 12));
             }
         }
     }
