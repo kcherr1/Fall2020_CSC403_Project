@@ -6,7 +6,7 @@ namespace Fall2020_CSC403_Project.code
     {
         public string CharacterName;
         public int LoveScore;
-        public Dictionary<ItemID, LoveValue> ItemScores;
+        public Dictionary<Items, int> ItemScores; //Items is ID, int is current value
 
         public Character(string name, int LScore, Dictionary<ItemID, LoveValue> dict)
         {
