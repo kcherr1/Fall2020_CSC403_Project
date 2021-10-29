@@ -50,11 +50,15 @@
     <Compile Include="Collider.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="Shop\Item.cs" />
     <Compile Include="NPC.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Story\Option.cs" />
     <Compile Include="Story\Story.cs" />
+    <Compile Include="Shop\Items.cs" />
+    <Compile Include="Shop\Shop.cs" />
     <Compile Include="Vector2.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
