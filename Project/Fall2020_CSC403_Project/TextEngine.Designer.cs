@@ -70,7 +70,7 @@ namespace Fall2020_CSC403_Project
             // 
             // NormalPanel
             // 
-            this.NormalPanel.AutoSize = true;
+            this.NormalPanel.AutoSize = true;            
             this.NormalPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NormalPanel.BackgroundImage")));
             this.NormalPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NormalPanel.Controls.Add(this.Textbox);
@@ -86,10 +86,9 @@ namespace Fall2020_CSC403_Project
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.NormalPanel);
+            this.DoubleBuffered = true;
             this.Name = "TextEngine";
             this.Text = "Mr. Peanut Finds Love";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEnginge_KeyPress);
@@ -105,12 +104,13 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Label Textbox;
         private System.Windows.Forms.Panel NormalPanel;
 
-        private void DisplayOptions()
+        private void DisplayOptions(List<Option> options)
         {
             //Test this out
-            List<Option> options = new List<Option>() { new Option("Test", "[fgi]", true), new Option("This", "yada", false) };
+            options = new List<Option>() { new Option("Test", "[fgi]", true), new Option("This", "yada", false) };
             System.Drawing.Point location = new System.Drawing.Point(50, 50);
             this.NormalPanel.SuspendLayout();
+            this.SuspendLayout();
             foreach (Option option in options)
             {
                 var optionLabel = new System.Windows.Forms.Label();
@@ -123,9 +123,19 @@ namespace Fall2020_CSC403_Project
                 location.Offset(0, 40);
             }
             this.NormalPanel.ResumeLayout(false);
-            //Total number of options
-            //Option Text
-            //Option Backend
+            this.ResumeLayout(false);
+            this.PerformLayout();
+            //return added options?
+        }
+
+        private void RemoveOptions() //List of labels?
+        {
+            this.NormalPanel.SuspendLayout();
+            this.SuspendLayout();
+            //Remove list of labels
+            this.NormalPanel.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using MyGameLibrary.Story;
@@ -8,6 +9,7 @@ namespace Fall2020_CSC403_Project
     public partial class TextEngine : Form
     {
         private Story story { get; set; }
+        //current options queue
         public TextEngine()
         {
             this.story = new Story("\\Fall2021_CSC403_Project\\Project\\Fall2020_CSC403_Project\\data\\", "Story.txt");
@@ -21,9 +23,9 @@ namespace Fall2020_CSC403_Project
             BackgroundImage = newBackground;
         }
 
-        public void NewForeground(PictureBox newImage)
+        public void NewForeground(Image newImage)
         {
-            ForegroundImage = newImage;
+            ForegroundImage.Image = newImage;
         }
 
         public void ChangeText(string newText)
@@ -38,7 +40,9 @@ namespace Fall2020_CSC403_Project
 
         private void TextEnginge_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.DisplayOptions();
+            this.DisplayOptions(new List<Option>());
+            //if current options is not null, down and up should iterate through options queue
+            //if focused changed in options property, change associated label color to slightly darker
             string line = story.GetNextLine();
             this.ChangeText(line);
         }
