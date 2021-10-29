@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyGameLibrary.Story;
 
@@ -8,11 +9,16 @@ namespace Fall2020_CSC403_Project
     public partial class TextEngine : Form
     {
         private Story story { get; set; }
+        private double ForegroundImage_Xscale{get;set; }
+        private double ForegroundImage_Yscale { get; set; }
         public TextEngine()
         {
             this.story = new Story("\\Fall2021_CSC403_Project\\Project\\Fall2020_CSC403_Project\\data\\", "Story.txt");
             string line = story.GetNextLine();
             InitializeComponent();
+            ForegroundImage_Xscale = (double)ForegroundImage.Location.X / Width;
+            Console.WriteLine(ForegroundImage.Location);
+            ForegroundImage_Yscale = (double)ForegroundImage.Location.Y / Height;
             this.ForegroundImage.BackColor = Color.Transparent;
             this.ChangeText(line);
         }
@@ -47,10 +53,20 @@ namespace Fall2020_CSC403_Project
             this.ChangeText(line);
         }
 
-        private void TextEnginge_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextEngine_KeyPress(object sender, KeyPressEventArgs e)
         {
             string line = story.GetNextLine();
             this.ChangeText(line);
+        }
+
+        private void ForegroundImage_Resize(object sender, EventArgs e)
+        {
+            Control control = (Control)sender;
+            Console.WriteLine("foregroundimage resize event");
+            double ratio = this.ForegroundImage.Size.Width / (this.ForegroundImage.Size.Height * 1.0);
+            ForegroundImage.Size = new Size((int)(ClientRectangle.Height * ratio), (int)ClientRectangle.Height);
+            Console.WriteLine(ForegroundImage.Location);
+            ForegroundImage.Location = new Point((int)ForegroundImage_Xscale*Width, (int)ForegroundImage_Yscale*Height);
         }
     }
 }

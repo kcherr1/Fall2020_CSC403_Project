@@ -42,8 +42,11 @@
             this.ForegroundImage.ErrorImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.ForegroundImage.InitialImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.ForegroundImage.Location = new System.Drawing.Point(463, -16);
+            //this.ForegroundImage.Dock = System.Windows.Forms.DockStyle.Right;
             this.ForegroundImage.Name = "ForegroundImage";
             this.ForegroundImage.Size = new System.Drawing.Size(243, 404);
+            //this.ForegroundImage.Size = new System.Drawing.Size(ClientRectangle.Width, ClientRectangle.Height);
+            this.ClientSizeChanged += new System.EventHandler(this.ForegroundImage_Resize);
             this.ForegroundImage.TabIndex = 1;
             this.ForegroundImage.TabStop = false;
             // 
@@ -74,7 +77,7 @@
             this.Controls.Add(this.ForegroundImage);
             this.Name = "TextEngine";
             this.Text = "Mr. Peanut Finds Love";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEnginge_KeyPress);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEngine_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).EndInit();
             this.ResumeLayout(false);
 
