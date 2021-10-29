@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
+    public static bool win = false;
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -141,6 +142,14 @@ namespace Fall2020_CSC403_Project {
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
+    }
+
+    private void winChecker(object sender, EventArgs e)
+    {
+        if (win)
+        {
+            winImage.Visible = true;
+        }
     }
   }
 }

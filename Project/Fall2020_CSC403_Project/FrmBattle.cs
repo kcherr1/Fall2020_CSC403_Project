@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
+    private bool bossBattle = false;
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
@@ -40,6 +41,7 @@ namespace Fall2020_CSC403_Project {
       simpleSound.Play();
 
       tmrFinalBattle.Enabled = true;
+      bossBattle = true;
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
@@ -70,6 +72,11 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
+        
+      if (bossBattle & enemy.Health <= 0)
+      {
+        FrmLevel.win = true;
+      }
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
         Close();
