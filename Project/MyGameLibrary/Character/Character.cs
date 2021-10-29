@@ -4,20 +4,47 @@ namespace Fall2020_CSC403_Project.code
 {
     public class Character
     {
-        public string CharacterName;
-        public int LoveScore;
-        public Dictionary<Items, int> ItemScores; //Items is ID, int is current value
+        public string CharacterName { get; set; };
+        public bool isDead = false;
+        private int LoveScore;
+        public int GetLoveScore() {
+            return LoveScore;
+        }
+        public void SetLoveScore(int LScore) {
+            if (isDead == true)
+            {
+                LoveScore = -1;
+            }
+            else if (LoveScore > 100)
+            {
+                LoveScore = 100;
+            } else if (LoveScore < 0)
+            {
+                LoveScore = 0;
+            }
+            else {
+                LoveScore = LScore;
+            }
+        }
 
-        public Character(string name, int LScore, Dictionary<ItemID, LoveValue> dict)
+        //Items is ID of item, int is love point value of gift for this character
+        public Dictionary<Items, int> ItemScores; 
+
+        public Character(string name, int LScore, Dictionary<Items, int> dict)
         {
             CharacterName = name;
             LoveScore = LScore;
             ItemScores = dict;
         }
 
-        public void LoveUpdate(Character Person, int AdditionalScore)
+        public void LoveUpdate(Items item)
         {
-            Person.LoveScore = AdditionalScore + Person.LoveScore;
+            SetLoveScore(LoveScore+ItemScores[item]);
+        }
+
+        public void kill() {
+            isDead = true;
+            SetLoveScore(-1);
         }
     }
 }
