@@ -54,7 +54,7 @@ namespace Fall2020_CSC403_Project
             this.ChangeText(line);
         }
 
-        private void TextEngine_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextEnginge_KeyPress(object sender, KeyPressEventArgs e)
         {
             string line = story.GetNextLine();
             this.ChangeText(line);
