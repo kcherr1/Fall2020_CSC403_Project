@@ -15,10 +15,10 @@ namespace Fall2020_CSC403_Project.code
             {
                 LoveScore = -1;
             }
-            else if (LoveScore > 100)
+            else if (LScore > 100)
             {
                 LoveScore = 100;
-            } else if (LoveScore < 0)
+            } else if (LScore < 0)
             {
                 LoveScore = 0;
             }
