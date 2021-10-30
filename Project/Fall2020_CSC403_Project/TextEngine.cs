@@ -68,15 +68,19 @@ namespace Fall2020_CSC403_Project
                 {
                     //DO MARKUP OF OPTION
                     List<Option> options = new List<Option>();
-                    foreach(Option _ in TempOptions)
+                    foreach(Option option in TempOptions)
                     {                        
-                        options.Add(TempOptions.Pop());
+                        options.Add(option);
                     }
-                    foreach(Option _ in Options)
+                    foreach(Option option in Options)
                     {
-                        options.Add(Options.Pop());
+                        options.Add(option);
                     }
+                    TempOptions.Clear();
+                    Options.Clear();
                     this.RemoveOptions(options);
+                    string line = Story.GetNextLine();
+                    this.ChangeText(line);
                 }
             }
             else 
