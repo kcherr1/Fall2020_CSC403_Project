@@ -49,7 +49,7 @@ namespace Fall2020_CSC403_Project
                     TempOptions.Push(Options.Pop()); //Put it in the temp stack
                     Options.Peek().OptionFocused = true; //New top option focused
                 }
-                if(e.KeyCode == Keys.Up && tempOptions.Count > 0)
+                if(e.KeyCode == Keys.Up && TempOptions.Count > 0)
                 {
                     Options.Peek().OptionFocused = false; //Top option unfocused
                     Options.Push(TempOptions.Pop()); //Put it in the temp stack
@@ -59,13 +59,13 @@ namespace Fall2020_CSC403_Project
                 {
                     //DO MARKUP OF OPTION
                     List<Option> options = new List<Option>();
-                    foreach(Option option in TempOptions)
-                    {
-                        options.Add(option);
+                    foreach(Option _ in TempOptions)
+                    {                        
+                        options.Add(TempOptions.Pop());
                     }
-                    foreach(Option option in this.Options)
+                    foreach(Option _ in Options)
                     {
-                        options.Add(option);
+                        options.Add(Options.Pop());
                     }
                     this.RemoveOptions(options);
                 }
