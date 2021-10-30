@@ -1,24 +1,22 @@
 ﻿using MyGameLibrary.Shop;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project
 {
-    class Item
+    public class Item
     {
-        string ItemName;
-        string ItemDescription;
-        int ItemPrice;
-        Items ItemID;
+        public string ItemName { get; set; }
+        public string ItemDescription { get; set; }
+        public int ItemPrice { get; set; }
+        public Items ItemID { get; set; }
+        public Boolean used {get; set;}
         public Item(Items identifier, string name, string description, int price)
         {
             ItemID = identifier;
             ItemName = name;
             ItemDescription = description;
             ItemPrice = price;
+            used = false;
         }
     }
 }

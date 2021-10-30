@@ -39,6 +39,8 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).BeginInit();
             this.NormalPanel.SuspendLayout();
             this.SuspendLayout();
+
+            this.ClientSizeChanged += new System.EventHandler(this.ResizeHandler);
             // 
             // ForegroundImage
             // 
