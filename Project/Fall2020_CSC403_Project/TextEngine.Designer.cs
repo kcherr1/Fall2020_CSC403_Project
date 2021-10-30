@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 using MyGameLibrary.Story;
 
 namespace Fall2020_CSC403_Project
@@ -10,7 +11,8 @@ namespace Fall2020_CSC403_Project
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
+        private int originalExStyle = -1;
+        private bool enableFormLevelDoubleBuffering = true;
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -22,6 +24,25 @@ namespace Fall2020_CSC403_Project
                 components.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        /// This function override is taken from https://stackoverflow.com/questions/2612487/how-to-fix-the-flickering-in-user-controls/2613272
+        /// The goal is to stop the "black flickering" on adding controls as well as resizing
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                if (originalExStyle == -1)
+                    originalExStyle = base.CreateParams.ExStyle;
+
+                CreateParams cp = base.CreateParams;
+                if (enableFormLevelDoubleBuffering)
+                    cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
+                else
+                    cp.ExStyle = originalExStyle;
+
+                return cp;
+            }
         }
 
         #region Windows Form Designer generated code
@@ -39,8 +60,6 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).BeginInit();
             this.NormalPanel.SuspendLayout();
             this.SuspendLayout();
-
-            this.ClientSizeChanged += new System.EventHandler(this.ResizeHandler);
             // 
             // ForegroundImage
             // 
@@ -87,12 +106,13 @@ namespace Fall2020_CSC403_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.NormalPanel);
             this.DoubleBuffered = true;
             this.Name = "TextEngine";
             this.Text = "Mr. Peanut Finds Love";
+            this.ClientSizeChanged += new System.EventHandler(this.ResizeHandler);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextEngine_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).EndInit();
             this.NormalPanel.ResumeLayout(false);
@@ -106,6 +126,11 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Label Textbox;
         private System.Windows.Forms.Panel NormalPanel;
 
+        private void TurnOffFormLevelDoubleBuffering()
+        {
+            enableFormLevelDoubleBuffering = false;
+            this.MaximizeBox = true;
+        }
         private void DisplayOptions(List<Option> options)
         {
             System.Drawing.Point location = new System.Drawing.Point(50, 50);

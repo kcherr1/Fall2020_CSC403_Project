@@ -106,6 +106,7 @@ namespace Fall2020_CSC403_Project
 
         private void ResizeHandler(object sender, EventArgs e)
         {
+            SuspendLayout();
             double ratio = this.ForegroundImage.Size.Width / (this.ForegroundImage.Size.Height * 1.0);
             ForegroundImage.Size = new Size((int)(ClientRectangle.Height * ratio), (int)ClientRectangle.Height);
             if (ForegroundImage_Xscale != 0 && ForegroundImage_Yscale != 0)
@@ -118,6 +119,23 @@ namespace Fall2020_CSC403_Project
                 Textbox.Height = (int)Math.Floor(scaling * 100);
                 Textbox.Font = new Font(Textbox.Font.FontFamily, (int)Math.Floor(scaling * 12));
             }
+            ResumeLayout();
+        }
+        protected override void OnResizeBegin(EventArgs e)
+        {
+            SuspendLayout();
+            this.TurnOffFormLevelDoubleBuffering();
+            base.OnResizeBegin(e);
+        }
+        protected override void OnResizeEnd(EventArgs e)
+        {
+            ResumeLayout();
+            this.TurnOffFormLevelDoubleBuffering();
+            base.OnResizeEnd(e);
+        }
+        private void TextEngine_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
