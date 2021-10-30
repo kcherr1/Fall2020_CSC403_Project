@@ -91,7 +91,7 @@ namespace Fall2020_CSC403_Project
             this.DoubleBuffered = true;
             this.Name = "TextEngine";
             this.Text = "Mr. Peanut Finds Love";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEngine_KeyPress);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextEngine_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).EndInit();
             this.NormalPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -106,33 +106,39 @@ namespace Fall2020_CSC403_Project
 
         private void DisplayOptions(List<Option> options)
         {
-            //Test this out
-            options = new List<Option>() { new Option("Test", "[fgi]", true), new Option("This", "yada", false) };
             System.Drawing.Point location = new System.Drawing.Point(50, 50);
             this.NormalPanel.SuspendLayout();
             this.SuspendLayout();
             foreach (Option option in options)
             {
+                //
+                // Option Label
+                //
                 var optionLabel = new System.Windows.Forms.Label();
-                optionLabel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+                // Properties
                 optionLabel.BackColor = Color.AliceBlue;
+                optionLabel.Location = location;
+                optionLabel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
                 optionLabel.Size = new System.Drawing.Size(150, 25);
                 optionLabel.Text = option.OptionText;
-                optionLabel.Location = location;
-                this.NormalPanel.Controls.Add(optionLabel);
-                location.Offset(0, 40);
+                // 
+                option.OptionLabel = optionLabel; // Set the associated label control in the option object for ease of delete
+                this.NormalPanel.Controls.Add(optionLabel); // Add option to the panel
+                location.Offset(0, 40); // Next option will be slightly lower
             }
             this.NormalPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-            //return added options?
         }
 
-        private void RemoveOptions() //List of labels?
+        private void RemoveOptions(List<Option> options) 
         {
             this.NormalPanel.SuspendLayout();
             this.SuspendLayout();
-            //Remove list of labels
+            foreach(Option option in options)
+            {
+                this.NormalPanel.Controls.Remove(option.OptionLabel);
+            }
             this.NormalPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
