@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;https://github.com/CSC403-Murcs/Fall2020_CSC403_Project/pull/2/conflict?name=Project%252FMyGameLibrary%252FMyGameLibrary.csproj&ancestor_oid=73f9e6813048abe4b408d6722bc8bdbbac8ce132&base_oid=1a60c83ddce178cf5fe4353517db271f91aa8058&head_oid=1819e4bb5155bf3276c95e6d133f74421dcc8bae
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
