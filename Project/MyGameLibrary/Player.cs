@@ -7,7 +7,26 @@ using System.Threading.Tasks;
 namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter {
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
+      AttackEvent += GainExperience;
 
+      // Attach the player combat image
+      CombatImage = new System.Drawing.Bitmap(Defs.IMG_PLAYER);
+    }
+
+    public override int EquipmentBonus(Skill skill)
+    {
+      return 0;
+    }
+
+    private void GainExperience(string skillType, int damage)
+    {
+      // Gain experience depending on the type of skill used
+      int exp = damage * 4;
+      Skills[skillType].AddExperience(exp);
+
+      // Globally increment health exp
+      int hpexp = damage;
+      Skills[Defs.SKILL_HP].AddExperience(hpexp);
     }
   }
 }
