@@ -26,8 +26,11 @@ namespace Fall2020_CSC403_Project {
     /// </summary>
     private void InitializeComponent() {
       this.components = new System.ComponentModel.Container();
-      this.btnAttack = new System.Windows.Forms.Button(); // This initializes a button
-      this.lblPlayerHealthFull = new System.Windows.Forms.Label();
+			this.btnAttack_Melee = new System.Windows.Forms.Button(); // This initializes a button
+			this.btnAttack_Ranged = new System.Windows.Forms.Button();
+			this.btnAttack_Magic = new System.Windows.Forms.Button();
+      this.btnUseItem = new System.Windows.Forms.Button();
+			this.lblPlayerHealthFull = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.lblEnemyHealthFull = new System.Windows.Forms.Label();
@@ -40,20 +43,51 @@ namespace Fall2020_CSC403_Project {
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
       this.SuspendLayout();
       // 
-      // btnAttack
+      // btnAttack Melee
       // 
-      this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnAttack.Location = new System.Drawing.Point(127, 422);
-      this.btnAttack.Name = "btnAttack";
-      this.btnAttack.Size = new System.Drawing.Size(128, 43);
-      this.btnAttack.TabIndex = 2;
-      this.btnAttack.Text = "Attack";
-      this.btnAttack.UseVisualStyleBackColor = true;
-      this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
-      // 
-      // lblPlayerHealthFull
-      // 
-      this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
+      this.btnAttack_Melee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnAttack_Melee.Location = new System.Drawing.Point(70, 422);
+      this.btnAttack_Melee.Name = "btnAttack_Melee";
+      this.btnAttack_Melee.Size = new System.Drawing.Size(128, 43);
+      this.btnAttack_Melee.TabIndex = 2;
+      this.btnAttack_Melee.Text = "Melee";
+      this.btnAttack_Melee.UseVisualStyleBackColor = true;
+      this.btnAttack_Melee.Click += new System.EventHandler(this.btnAttack_ClickMelee);
+
+      // btnAttack Ranged
+			this.btnAttack_Ranged.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnAttack_Ranged.Location = new System.Drawing.Point(70, 465);
+			this.btnAttack_Ranged.Name = "btnAttack_Ranged";
+			this.btnAttack_Ranged.Size = new System.Drawing.Size(128, 43);
+			this.btnAttack_Ranged.TabIndex = 2;
+			this.btnAttack_Ranged.Text = "Ranged";
+			this.btnAttack_Ranged.UseVisualStyleBackColor = true;
+			this.btnAttack_Ranged.Click += new System.EventHandler(this.btnAttack_ClickRanged);
+
+      // btnAttack Magic
+			this.btnAttack_Magic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnAttack_Magic.Location = new System.Drawing.Point(70, 508);
+			this.btnAttack_Magic.Name = "btnAttack_Magic";
+			this.btnAttack_Magic.Size = new System.Drawing.Size(128, 43);
+			this.btnAttack_Magic.TabIndex = 2;
+			this.btnAttack_Magic.Text = "Magic";
+			this.btnAttack_Magic.UseVisualStyleBackColor = true;
+			this.btnAttack_Magic.Click += new System.EventHandler(this.btnAttack_ClickMagic);
+
+      // btnUseItem
+			this.btnUseItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnUseItem.Location = new System.Drawing.Point(198, 422);
+			this.btnUseItem.Name = "btnUseItem";
+			this.btnUseItem.Size = new System.Drawing.Size(128, 43);
+			this.btnUseItem.TabIndex = 2;
+			this.btnUseItem.Text = "Use Item";
+			this.btnUseItem.UseVisualStyleBackColor = true;
+			this.btnUseItem.Click += new System.EventHandler(this.btnUseItem_Click);
+
+			// 
+			// lblPlayerHealthFull
+			// 
+			this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
       this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
       this.lblPlayerHealthFull.Location = new System.Drawing.Point(71, 60);
@@ -141,8 +175,11 @@ namespace Fall2020_CSC403_Project {
       this.Controls.Add(this.label2);
       this.Controls.Add(this.lblPlayerHealthFull);
       this.Controls.Add(this.label1);
-      this.Controls.Add(this.btnAttack);
-      this.Controls.Add(this.picEnemy);
+			this.Controls.Add(this.btnAttack_Melee);
+			this.Controls.Add(this.btnAttack_Ranged);
+			this.Controls.Add(this.btnAttack_Magic);
+      this.Controls.Add(this.btnUseItem);
+			this.Controls.Add(this.picEnemy);
       this.Controls.Add(this.picPlayer);
       this.DoubleBuffered = true;
       this.Name = "FrmBattle";
@@ -159,8 +196,11 @@ namespace Fall2020_CSC403_Project {
 
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picEnemy;
-    private System.Windows.Forms.Button btnAttack;
-    private System.Windows.Forms.Label lblPlayerHealthFull;
+		private System.Windows.Forms.Button btnAttack_Melee;
+		private System.Windows.Forms.Button btnAttack_Ranged;
+		private System.Windows.Forms.Button btnAttack_Magic;
+    private System.Windows.Forms.Button btnUseItem;
+		private System.Windows.Forms.Label lblPlayerHealthFull;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label lblEnemyHealthFull;
