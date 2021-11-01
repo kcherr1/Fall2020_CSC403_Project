@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -14,8 +15,11 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private int frames = 0;
+    Bitmap L1 = new Bitmap(Properties.Resources.AM_L1), LI = new Bitmap(Properties.Resources.AM_LI), L2 = new Bitmap(Properties.Resources.AM_L2), R1 = new Bitmap(Properties.Resources.AM_R1), RI = new Bitmap(Properties.Resources.AM_RI), R2 = new Bitmap(Properties.Resources.AM_R2), U1 = new Bitmap(Properties.Resources.AM_U1), UI = new Bitmap(Properties.Resources.AM_UI), U2 = new Bitmap(Properties.Resources.AM_U2), D1 = new Bitmap(Properties.Resources.AM_D1), DI = new Bitmap(Properties.Resources.AM_DI), D2 = new Bitmap(Properties.Resources.AM_D2);
+    //private int directionfacing = 0;
 
-    public FrmLevel() {
+        public FrmLevel() {
       InitializeComponent();
     }
 
@@ -55,15 +59,14 @@ namespace Fall2020_CSC403_Project {
       return new Collider(rect);
     }
 
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      player.ResetMoveSpeed();
-    }
+
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
       TimeSpan span = DateTime.Now - timeBegin;
       string time = span.ToString(@"hh\:mm\:ss");
       lblInGameTime.Text = "Time: " + time.ToString();
-    }
+      frames++;
+        }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
@@ -116,31 +119,198 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
+        AnimTimer.Start();
+        switch (e.KeyCode) {
         case Keys.Left:
-          player.GoLeft();
-          break;
+                    player.GoLeft();
+                if (frames < 4)
+                {
+                    picPlayer.BackgroundImage = L1;
+                }
+                if (frames >= 4 && frames < 8)
+                {
+                    picPlayer.BackgroundImage = LI;
+
+                }
+                if (frames >= 8 && frames < 12)
+                {
+                    picPlayer.BackgroundImage = L2;
+
+                }
+                if (frames >= 12 && frames < 16)
+                {
+                    picPlayer.BackgroundImage = LI;
+
+                }
+                else if (frames >= 16)
+                {
+                        //AnimTimer.Stop();
+                        //AnimTimer.Start();
+                        frames = 0;
+                }
+                break;
 
         case Keys.Right:
           player.GoRight();
-          break;
+                    //AnimTimer.Start();
+                    if (frames < 4)
+                    {
+                        //AnimTimer.Start();
+                        picPlayer.BackgroundImage = R1; 
+                    }
+                    if (frames >= 4 && frames < 8)
+                    {
+                        picPlayer.BackgroundImage = RI;
+
+                    }
+                    if (frames >= 8 && frames < 12)
+                    {
+                        picPlayer.BackgroundImage = R2;
+
+                    }
+                    if (frames >= 12 && frames < 16)
+                    {
+                        picPlayer.BackgroundImage = RI;
+
+                    }
+                    else if (frames >= 16)
+                    {
+                        //AnimTimer.Stop();
+                        //AnimTimer.Start();
+                        frames = 0;
+                    }
+                    //picPlayer.BackgroundImage = Properties.Resources.AM_R1;
+                    break;
 
         case Keys.Up:
           player.GoUp();
-          break;
+                    //AnimTimer.Start();
+                    if (frames < 4)
+                    {
+                        //AnimTimer.Start();
+                        picPlayer.BackgroundImage = U1;
+                    }
+                    if (frames >= 4 && frames < 8)
+                    {
+                        picPlayer.BackgroundImage = UI;
+
+                    }
+                    if (frames >= 8 && frames < 12)
+                    {
+                        picPlayer.BackgroundImage = U2;
+
+                    }
+                    if (frames >= 12 && frames < 16)
+                    {
+                        picPlayer.BackgroundImage = UI;
+
+                    }
+                    else if (frames >= 16)
+                    {
+                        //AnimTimer.Stop();
+                        //AnimTimer.Start();
+                        frames = 0;
+                    }
+                    //picPlayer.BackgroundImage = Properties.Resources.AM_U1;
+                    break;
 
         case Keys.Down:
           player.GoDown();
-          break;
+                    //AnimTimer.Start();
+                    if (frames < 4)
+                    {
+                        //AnimTimer.Start();
+                        picPlayer.BackgroundImage = D1;
+                    }
+                    if (frames >= 4 && frames < 8)
+                    {
+                        picPlayer.BackgroundImage = DI;
+
+                    }
+                    if (frames >= 8 && frames < 12)
+                    {
+                        picPlayer.BackgroundImage = D2;
+
+                    }
+                    if (frames >= 12 && frames < 16)
+                    {
+                        picPlayer.BackgroundImage = DI;
+
+                    }
+                    else if (frames >= 16)
+                    {
+                        //AnimTimer.Stop();
+                        //AnimTimer.Start();
+                        frames = 0;
+                    }
+                    //picPlayer.BackgroundImage = Properties.Resources.AM_D1;
+                    break;
 
         default:
           player.ResetMoveSpeed();
+          frames = 0;
           break;
+      }
+    }private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
+      //player.ResetMoveSpeed();
+      switch (e.KeyCode) {
+        case Keys.Left:
+          //player.GoLeft();
+          picPlayer.BackgroundImage = Properties.Resources.AM_LI;
+          player.ResetMoveSpeed();
+          AnimTimer.Stop();
+          frames = 0;
+          break;
+
+        case Keys.Right:
+          //player.GoRight();
+          picPlayer.BackgroundImage = Properties.Resources.AM_RI;
+          player.ResetMoveSpeed();
+          AnimTimer.Stop();
+          frames = 0;
+
+                    break;
+
+        case Keys.Up:
+          //player.GoUp();
+          picPlayer.BackgroundImage = Properties.Resources.AM_UI;
+          player.ResetMoveSpeed();
+          AnimTimer.Stop();
+          frames = 0;
+
+                    break;
+
+        case Keys.Down:
+          //player.GoDown();
+          picPlayer.BackgroundImage = Properties.Resources.AM_DI;
+          player.ResetMoveSpeed();
+          AnimTimer.Stop();
+                    frames = 0;
+
+                    break;
+
+        default:
+          player.ResetMoveSpeed();
+          AnimTimer.Stop();
+          //frames = 0;
+
+                    break;
       }
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+        private void picPlayer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AnimTimer_Tick(object sender, EventArgs e)
+        {
+            frames++;
+            Debug.WriteLine(frames);
+        }
+    }
 }

@@ -139,4 +139,163 @@
   <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="AM_D1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_D1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_D2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_D2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_DI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_DI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_L1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_L1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_L2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_L2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_LI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_LI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_R1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_R1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_R2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_R2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_RI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_RI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_U1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_U1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_U2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_U2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AM_UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\AM_UI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_D1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_D1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_D2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_D2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_DI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_DI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_L1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_L1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_L2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_L2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_LI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_LI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_R1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_R1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_R2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_R2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_RI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_RI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_U1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_U1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_U2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_U2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MM_UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\MM_UI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_D1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_D1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_D2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_D2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_DI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_DI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_L1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_L1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_L2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_L2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_LI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_LI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_R1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_R1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_R2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_R2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_RI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_RI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_U1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_U1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_U2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_U2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OG_UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\OG_UI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_D1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_D1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_D2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_D2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_DI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_DI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_L1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_L1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_L2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_L2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_LI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_LI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_R1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_R1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_R2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_R2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_RI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_RI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_U1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_U1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_U2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_U2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TG_UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\Girl_Power_Hero - Copy\TG_UI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Worldss_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Worldss_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Worlds_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Worlds_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="World_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\World_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="World_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\World_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="World_1_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\World_1_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
