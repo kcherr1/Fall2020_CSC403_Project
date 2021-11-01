@@ -17,6 +17,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmInventory frmInventory;
 
     public FrmLevel() {
       InitializeComponent();
@@ -151,6 +152,10 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
+        
+        case Keys.I:
+          Open();
+          break;
 
         default:
           player.ResetMoveSpeed();
@@ -161,5 +166,15 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+    private void Open()
+    {
+        // Initialize an instance of the battleground with the enemy you got close with
+        frmInventory = FrmInventory.GetInstance();
+
+        // FIX: User should be able to open the inventory as many times as possible
+        frmInventory.Show();
+    }
+
+    }
 }
