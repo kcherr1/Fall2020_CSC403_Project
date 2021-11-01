@@ -23,7 +23,7 @@ namespace MyGameLibrary.Story
 
         private void ReadInStory()
         {
-            List<string> lines = new List<string>{ "This is a test.", " ", "Let's see if the text changes." };
+            List<string> lines = new List<string>{ "This is a test.", " ","OPTIONS", "This is an option page", "Let's see if the text changes." };
             foreach (string line in lines)
             {
                 if(!string.IsNullOrEmpty(line.Trim()))
