@@ -86,10 +86,22 @@ namespace Fall2020_CSC403_Project {
         Fight(bossKoolaid);
       }
 
+
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
       // update the player's health
       UpdateHealthBar();
+
+      //check for enemy death and updates map
+      if(enemyCheeto.Health <= 0){
+        Dispose(enemyCheeto);
+      }
+      if(enemyPoisonPacket.Health <= 0){
+        Dispose(enemyPoisonPacket);
+      }
+      if(bossKoolaid.Health <= 0){
+        Dispose(bossKoolaid);
+      }
     }
 
     private bool HitAWall(Character c) {
@@ -144,6 +156,25 @@ namespace Fall2020_CSC403_Project {
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
+    }
+
+    private void Dispose(Enemy enemy){
+
+      //not scalable, but a hilariously simple way of moving the collider sufficiently afar
+      //to make it impossible to reach by the player
+      enemy.Collider.MovePosition(1500,1500);
+
+      //sets the visibility of the picture depending on the enemy
+      //had to do this since the pic of the enemy is stored seperate from the rest of enemy attributes
+      if(enemy == enemyCheeto){
+        picEnemyCheeto.Visible = false;
+      }
+      if(enemy == bossKoolaid){
+        picBossKoolAid.Visible = false;
+      }
+      if(enemy == enemyPoisonPacket){
+        picEnemyPoisonPacket.Visible = false;
+      }
     }
 
     private void winChecker(object sender, EventArgs e)
