@@ -23,14 +23,14 @@ namespace MyGameLibrary.Story
 
             set
             {
+                int a = OptionLabel.BackColor.A;
+                float r = OptionLabel.BackColor.R;
+                float g = OptionLabel.BackColor.G;
+                float b = OptionLabel.BackColor.B;
                 if(!_OptionFocused && value) //If set value is true and was previously false
                 {
                     #region Darken BackColor
                     float correction  = 1 - _OptionDarkenBrightenPercent;
-                    int a = OptionLabel.BackColor.A;
-                    float r = OptionLabel.BackColor.R;
-                    float g = OptionLabel.BackColor.G;
-                    float b = OptionLabel.BackColor.B;
                     r = (float)(r * correction);
                     g = (float)(g * correction);
                     b = (float)(b * correction);
@@ -40,10 +40,6 @@ namespace MyGameLibrary.Story
                 if (_OptionFocused && !value) //If set value to false and was previously true
                 {
                     #region Brighten Backcolor
-                    int a = OptionLabel.BackColor.A;
-                    float r = OptionLabel.BackColor.R;
-                    float g = OptionLabel.BackColor.G;
-                    float b = OptionLabel.BackColor.B;
                     r = (float)((255 - r) * _OptionDarkenBrightenPercent + r);
                     g = (float)((255 - g) * _OptionDarkenBrightenPercent + g);
                     b = (float)((255 - b) * _OptionDarkenBrightenPercent + b);
