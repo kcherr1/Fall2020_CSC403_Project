@@ -1,29 +1,32 @@
 ﻿using System.Collections.Generic;
+using MyGameLibrary.Shop;
 
-namespace Fall2020_CSC403_Project.code
+namespace MyGameLibrary.Character
 {
     public class Character
     {
-        public string CharacterName { get; set; };
-        public bool isDead = false;
+        public string CharacterName { get; set; }
+        public bool IsDead { get; set; }
         private int LoveScore;
         public int GetLoveScore() {
             return LoveScore;
         }
         public void SetLoveScore(int LScore) {
-            if (isDead == true)
-            {
+            if (IsDead == true) {
                 LoveScore = -1;
+                return;
             }
-            else if (LScore > 100)
+            switch (LScore)
             {
-                LoveScore = 100;
-            } else if (LScore < 0)
-            {
-                LoveScore = 0;
-            }
-            else {
-                LoveScore = LScore;
+                case int x when x > 100:
+                    LoveScore = 100;
+                    break;
+                case int x when x < 0:
+                    LoveScore = 0;
+                    break;
+                default:
+                    LoveScore = LScore;
+                    break;
             }
         }
 
@@ -35,16 +38,17 @@ namespace Fall2020_CSC403_Project.code
             CharacterName = name;
             LoveScore = LScore;
             ItemScores = dict;
+            IsDead = false;
         }
 
         public void LoveUpdate(Items item)
         {
-            SetLoveScore(LoveScore+ItemScores[item]);
+            LoveScore += ItemScores[item];
         }
 
-        public void kill() {
-            isDead = true;
-            SetLoveScore(-1);
+        public void Kill() {
+            IsDead = true;
+            LoveScore = -1;
         }
     }
 }
