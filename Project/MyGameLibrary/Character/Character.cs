@@ -7,25 +7,26 @@ namespace MyGameLibrary.Character
     {
         public string CharacterName { get; set; }
         public bool IsDead { get; set; }
+        private int _lovescore { get; set; }
         public int LoveScore {
             get {
-                return LoveScore;
+                return _lovescore;
             }
             set {
                 if (IsDead == true) {
-                    LoveScore = -1;
+                    _lovescore = -1;
                     return;
                 }
                 switch (value)
                 {
                     case int x when x > 100:
-                        LoveScore = 100;
+                        _lovescore = 100;
                         break;
                     case int x when x < 0:
-                        LoveScore = 0;
+                        _lovescore = 0;
                         break;
                     default:
-                        LoveScore = value;
+                        _lovescore = value;
                         break;
                 }
             }
