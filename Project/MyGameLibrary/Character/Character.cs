@@ -9,7 +9,7 @@ namespace MyGameLibrary.Character
         public bool IsDead { get; set; }
         public int LoveScore {
             get {
-                return _LoveScore;
+                return LoveScore;
             }
             set {
                 if (IsDead == true) {
