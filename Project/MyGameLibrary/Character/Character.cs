@@ -7,26 +7,27 @@ namespace MyGameLibrary.Character
     {
         public string CharacterName { get; set; }
         public bool IsDead { get; set; }
-        private int LoveScore;
-        public int GetLoveScore() {
-            return LoveScore;
-        }
-        public void SetLoveScore(int LScore) {
-            if (IsDead == true) {
-                LoveScore = -1;
-                return;
+        public int LoveScore {
+            get {
+                return _LoveScore;
             }
-            switch (LScore)
-            {
-                case int x when x > 100:
-                    LoveScore = 100;
-                    break;
-                case int x when x < 0:
-                    LoveScore = 0;
-                    break;
-                default:
-                    LoveScore = LScore;
-                    break;
+            set {
+                if (IsDead == true) {
+                    LoveScore = -1;
+                    return;
+                }
+                switch (value)
+                {
+                    case int x when x > 100:
+                        LoveScore = 100;
+                        break;
+                    case int x when x < 0:
+                        LoveScore = 0;
+                        break;
+                    default:
+                        LoveScore = value;
+                        break;
+                }
             }
         }
 
