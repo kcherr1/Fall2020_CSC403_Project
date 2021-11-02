@@ -46,9 +46,13 @@ namespace MyGameLibrary.Story
 
         private void ParseLine()
         {
+            //Get currently read in line
             string line = this.CurrentStoryText.First();
+            //Split it by spaces
             List<string> splitLine = line.Split(' ').ToList();
             Markup markup = Markup.ChangeText;
+            //Check first chunk for what will be happening, set that to the current action
+            //Swtich case will not work in this scenario due to how strings need .equals and the current version of c# won't allow ==
             if (string.Equals(splitLine[0], "#CT"))
             {
                 markup = Markup.ChangeText;
@@ -77,15 +81,20 @@ namespace MyGameLibrary.Story
             {
                 markup = Markup.AddItemToInventory;
             }
+            //Set the current action to the markup enum
             this.Current_Action = markup;
+            //Remove the tagging chunk
             splitLine.RemoveAt(0);
+            //Fix the line to a single line as it previously was.
             line = string.Join(" ", splitLine);
+            //Replace line without the tag
             this.CurrentStoryText.RemoveFirst();
             this.CurrentStoryText.AddFirst(line);
         }
 
         public string GetNextLine()
         {
+            //This is a problem for later
             if (Empty())
             {
                 Application.Exit();

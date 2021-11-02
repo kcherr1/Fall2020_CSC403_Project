@@ -106,13 +106,12 @@ namespace Fall2020_CSC403_Project
             _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
             switch (Story.Current_Action)
             {
-                
                 case Markup.ChangeText:
-                    //line is plain text
+                    //line is plain text (ex: #CT Hello)
                     this.ChangeText(line);
                     break;
                 case Markup.ChangeBackgroundImage:
-                    //line is: image_location image_name text
+                    //line is: image_location image_name text (ex: #CB \\data\\background\\ hannah_store.jpg We've changed the background)
                     List<string> backgroundInfo = line.Split(' ').ToList();
                     Image backgroundImage = Image.FromFile(_filePath + backgroundInfo[0] + backgroundInfo[1]);
                     this.NewBackground(backgroundImage);
@@ -122,7 +121,7 @@ namespace Fall2020_CSC403_Project
                     this.ChangeText(newLineBG);
                     break;
                 case Markup.ChangeForegroundImage:
-                    //line is: image_location image_name text
+                    //line is: image_location image_name text (ex: #CF \\data\\foreground\\ player.png We've changed the foreground)
                     List<string> foregroundInfo = line.Split(' ').ToList();
                     Image foregroundImage = Image.FromFile(_filePath + foregroundInfo[0] + foregroundInfo[1]);
                     this.NewForeground(foregroundImage);
@@ -133,10 +132,13 @@ namespace Fall2020_CSC403_Project
                     break;
                 case Markup.Options:
                     //line is: Option 1, #A ID] Option 2, #A ID] Exit, #CT] text
+                    // (ex: #O Option 1,#CT Oh, you selected that] Option 2,#CT You've selected this] Oh look, it's the options page)
                     //Display options
                     List<string> optionsInfo = line.Split(']').ToList();
+
                     string newLineOptions = optionsInfo[optionsInfo.Count - 1];
                     optionsInfo.RemoveAt(optionsInfo.Count - 1);
+
                     List<Option> options = new List<Option>();
                     foreach (string info in optionsInfo)
                     {
