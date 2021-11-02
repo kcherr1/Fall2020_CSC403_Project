@@ -73,6 +73,10 @@ namespace MyGameLibrary.Story
             {
                 markup = Markup.CheckThresholdsForTree;
             }
+            else if (string.Equals(splitLine[0], "#A"))
+            {
+                markup = Markup.AddItemToInventory;
+            }
             this.Current_Action = markup;
             splitLine.RemoveAt(0);
             line = string.Join(" ", splitLine);

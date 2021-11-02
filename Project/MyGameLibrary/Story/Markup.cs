@@ -8,6 +8,7 @@ namespace MyGameLibrary.Story
         ChangeForegroundImage,
         Options,
         ReadInNewStory,
-        CheckThresholdsForTree
+        CheckThresholdsForTree,
+        AddItemToInventory
     }
 }

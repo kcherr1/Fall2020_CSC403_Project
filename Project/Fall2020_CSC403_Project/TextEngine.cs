@@ -70,17 +70,27 @@ namespace Fall2020_CSC403_Project
                 {
                     //DO MARKUP OF OPTION
                     List<Option> options = new List<Option>();
+                    Option focusedOption = new Option("uh oh", "#CT ERROR, OPTION NOT FOUND");
                     foreach(Option option in TempOptions)
-                    {                        
+                    {                       
+                        if (option.OptionFocused)
+                        {
+                            focusedOption = option;
+                        }
                         options.Add(option);
                     }
                     foreach(Option option in Options)
                     {
+                        if (option.OptionFocused)
+                        {
+                            focusedOption = option;
+                        }
                         options.Add(option);
                     }
                     TempOptions.Clear();
                     Options.Clear();
                     this.RemoveOptions(options);
+                    Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
                     HandleMarkup(Story.GetNextLine());
                 }
             }
@@ -122,9 +132,18 @@ namespace Fall2020_CSC403_Project
                     this.ChangeText(newLineFG);
                     break;
                 case Markup.Options:
-                    //line is: ["Option 1", #A ID] [Option 2, #A ID] [Exit, #CT] shop text
+                    //line is: Option 1, #A ID] Option 2, #A ID] Exit, #CT] text
                     //Display options
-                    List<Option> options = new List<Option>() { new Option("Test", "[fgi]"), new Option("This", "yada") };
+                    List<string> optionsInfo = line.Split(']').ToList();
+                    string newLineOptions = optionsInfo[optionsInfo.Count - 1];
+                    optionsInfo.RemoveAt(optionsInfo.Count - 1);
+                    List<Option> options = new List<Option>();
+                    foreach (string info in optionsInfo)
+                    {
+                        string newInfo = info.Replace(",#", "-");
+                        string[] newOption = newInfo.Split('-');
+                        options.Add(new Option(newOption[0], '#'+newOption[1]));
+                    }                     
                     this.DisplayOptions(options); //Display options
                     options.Reverse(); //Start at end
                     foreach (Option option in options)
@@ -133,6 +152,7 @@ namespace Fall2020_CSC403_Project
                         this.Options.Push(option);
                     }
                     this.Options.Peek().OptionFocused = true; //Focus the top option 
+                    this.ChangeText(newLineOptions);
                     break;
                 case Markup.ReadInNewStory:
                     // line is: story_location story_name
