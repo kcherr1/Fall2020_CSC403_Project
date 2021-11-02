@@ -47,6 +47,8 @@
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.winImage = new System.Windows.Forms.PictureBox();
             this.checkWin = new System.Windows.Forms.Timer(this.components);
+            this.lblPlayerHealthFull = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -292,6 +294,24 @@
             // 
             this.checkWin.Enabled = true;
             this.checkWin.Tick += new System.EventHandler(this.winChecker);
+            // lblPlayerHealthFull
+            // 
+            this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
+            this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
+            this.lblPlayerHealthFull.Location = new System.Drawing.Point(165, 9);
+            this.lblPlayerHealthFull.Name = "lblPlayerHealthFull";
+            this.lblPlayerHealthFull.Size = new System.Drawing.Size(226, 20);
+            this.lblPlayerHealthFull.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(164, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(229, 23);
+            this.label1.TabIndex = 19;
             // 
             // FrmLevel
             // 
@@ -301,6 +321,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
             this.Controls.Add(this.winImage);
+            this.Controls.Add(this.lblPlayerHealthFull);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -373,6 +395,8 @@
     private System.Windows.Forms.PictureBox picWall11;
         private System.Windows.Forms.PictureBox winImage;
         private System.Windows.Forms.Timer checkWin;
+        private System.Windows.Forms.Label lblPlayerHealthFull;
+        private System.Windows.Forms.Label label1;
     }
 }
 
