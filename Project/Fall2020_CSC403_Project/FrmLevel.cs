@@ -16,6 +16,11 @@ namespace Fall2020_CSC403_Project {
     private Character[] walls;
 
     private DateTime timeBegin;
+<<<<<<< HEAD
+=======
+    private FrmBattle frmBattle;
+    private FrmInventory frmInventory;
+>>>>>>> 76dc90f31f884141712d37acb195627f34b39c02
 
     public FrmLevel() {
       InitializeComponent();
@@ -29,9 +34,9 @@ namespace Fall2020_CSC403_Project {
       // create padding for it using the createcollider function in this file
       // make sure the position of the player is set to the picturebox
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), player);
+      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), player);
+      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), player);
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -157,6 +162,10 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
+        
+        case Keys.I:
+          Open();
+          break;
 
         default:
           player.ResetMoveSpeed();
@@ -167,5 +176,15 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+    private void Open()
+    {
+        // Initialize an instance of the battleground with the enemy you got close with
+        frmInventory = FrmInventory.GetInstance();
+
+        // FIX: User should be able to open the inventory as many times as possible
+        frmInventory.Show();
+    }
+
+    }
 }
