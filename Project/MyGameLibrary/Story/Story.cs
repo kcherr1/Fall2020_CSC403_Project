@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Windows.Forms;
 
 namespace MyGameLibrary.Story
 {
@@ -15,15 +16,22 @@ namespace MyGameLibrary.Story
             this.ChangeStory(storyTitle);
         }
 
-        public void ChangeStory(string newStoryTitle)
+        public void ChangeStory(string newStoryTitle, string newStoryLocation = "")
         {
+            if(!string.IsNullOrEmpty(newStoryLocation.Trim()))
+            {
+                this.StoryLocation = newStoryLocation;
+            }
             this.StoryTitle = newStoryTitle;
             this.ReadInStory();
         }
 
         private void ReadInStory()
         {
-            List<string> lines = new List<string>{ "This is a test.", " ","OPTIONS", "This is an option page", "Let's see if the text changes." };
+            string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
+            _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
+            _filePath += StoryLocation+StoryTitle;
+            string[] lines = File.ReadAllLines(_filePath);
             foreach (string line in lines)
             {
                 if(!string.IsNullOrEmpty(line.Trim()))
@@ -35,6 +43,10 @@ namespace MyGameLibrary.Story
 
         public string GetNextLine()
         {
+            if (Empty())
+            {
+                Application.Exit();
+            }
             return this.CurrentStoryText.Dequeue();
         }
 
