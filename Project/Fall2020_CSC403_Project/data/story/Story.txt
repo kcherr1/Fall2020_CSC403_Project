@@ -1,0 +1,7 @@
+﻿This is a test.
+We're going to change the background first.
+
+Let's see if the text changes.
+OPTIONS
+This is an options page
+Okay we've left the optiongs page.

@@ -19,7 +19,7 @@ namespace Fall2020_CSC403_Project
         private int originalHeight { get; set; }
         public TextEngine()
         {
-            this.Story = new Story("\\Fall2021_CSC403_Project\\Project\\Fall2020_CSC403_Project\\data\\", "Story.txt");
+            this.Story = new Story("\\data\\story\\", "Story.txt");
             string line = Story.GetNextLine();
             InitializeComponent();
             Console.WriteLine("aaaaaaa");
