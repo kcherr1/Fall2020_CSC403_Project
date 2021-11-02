@@ -79,21 +79,32 @@ namespace Fall2020_CSC403_Project
                     TempOptions.Clear();
                     Options.Clear();
                     this.RemoveOptions(options);
-                    string line = Story.GetNextLine();
-                    this.ChangeText(line);
+                    HandleMarkup(Story.GetNextLine());
                 }
             }
             else 
             {
-                string line = Story.GetNextLine();
-                //TODO: Needs further implementation for markup and particular "type" of markup to check with for cleaner checking
-                //This is a "for now" thing to demonstrate the ability to HAVE options
-                if (line.Equals("OPTIONS"))
-                {
-                    //We skip the "markup" text indicating the option to set line
-                    //Theoretically, this will have been parsed by now for our options list
-                    line = Story.GetNextLine();
-                    //This will need to be handled to take in parsed option markup
+                HandleMarkup(Story.GetNextLine());                
+            }            
+        }
+
+        private void HandleMarkup(string line)
+        {
+            switch (Story.Current_Action)
+            {
+                case Markup.ChangeText:
+                    //line is plain text
+                    this.ChangeText(line);
+                    break;
+                case Markup.ChangeBackgroundImage:
+                    //line is: image_location image_name
+                    break;
+                case Markup.ChangeForegroundImage:
+                    //line is: image_location image_name
+                    break;
+                case Markup.Options:
+                    //line is: ["Option 1", #A ID] [Option 2, #A ID] [Exit, #CT] shop text
+                    //Display options
                     List<Option> options = new List<Option>() { new Option("Test", "[fgi]"), new Option("This", "yada") };
                     this.DisplayOptions(options); //Display options
                     options.Reverse(); //Start at end
@@ -103,9 +114,14 @@ namespace Fall2020_CSC403_Project
                         this.Options.Push(option);
                     }
                     this.Options.Peek().OptionFocused = true; //Focus the top option 
-                }
-                this.ChangeText(line);
-            }            
+                    break;
+                case Markup.ReadInNewStory:
+                    // line is: story_location story_name
+                    break;
+                case Markup.CheckThresholdsForTree:
+                    // line is: empty, just check thresholds
+                    break;
+            }
         }
 
         private void ResizeHandler(object sender, EventArgs e)
