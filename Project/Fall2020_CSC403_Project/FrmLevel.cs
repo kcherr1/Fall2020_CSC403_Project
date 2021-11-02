@@ -87,6 +87,8 @@ namespace Fall2020_CSC403_Project {
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      // update the player's health
+      UpdateHealthBar();
     }
 
     private bool HitAWall(Character c) {
@@ -142,5 +144,16 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
+
+        
+    private void UpdateHealthBar() {
+      float playerHealthPer = player.Health / (float)player.MaxHealth;
+
+      const int MAX_HEALTHBAR_WIDTH = 226;
+      lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+
+      lblPlayerHealthFull.Text = player.Health.ToString();
+    }
+
   }
 }
