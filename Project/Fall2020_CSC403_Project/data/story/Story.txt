@@ -1,7 +1,9 @@
 ﻿#CT This is a test. 
 #CT Let's see if the text changes. 
 #CT We're going to change the background first. 
-#CB 
+#CB \\data\\background\\ hannah_store.jpg We've changed the background
+#CT Now we're going to change the foreground character
+#CF \\data\\foreground\\ player.png We've changed the foreground
 
 OPTIONS
 This is an options page

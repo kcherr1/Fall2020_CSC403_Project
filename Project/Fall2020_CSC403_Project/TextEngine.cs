@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using MyGameLibrary.Story;
 
@@ -30,12 +32,12 @@ namespace Fall2020_CSC403_Project
 
         public void NewBackground(Image newBackground)
         {
-            BackgroundImage = newBackground;
+            NormalPanel.BackgroundImage = newBackground;
         }
 
         public void NewForeground(Image newImage)
         {
-            ForegroundImage.Image = newImage;
+            ForegroundImage.BackgroundImage = newImage;
         }
 
         public void ChangeText(string newText)
@@ -90,17 +92,34 @@ namespace Fall2020_CSC403_Project
 
         private void HandleMarkup(string line)
         {
+            string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
+            _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
             switch (Story.Current_Action)
             {
+                
                 case Markup.ChangeText:
                     //line is plain text
                     this.ChangeText(line);
                     break;
                 case Markup.ChangeBackgroundImage:
-                    //line is: image_location image_name
+                    //line is: image_location image_name text
+                    List<string> backgroundInfo = line.Split(' ').ToList();
+                    Image backgroundImage = Image.FromFile(_filePath + backgroundInfo[0] + backgroundInfo[1]);
+                    this.NewBackground(backgroundImage);
+                    backgroundInfo.RemoveAt(0);
+                    backgroundInfo.RemoveAt(0);
+                    string newLineBG = string.Join(" ", backgroundInfo);
+                    this.ChangeText(newLineBG);
                     break;
                 case Markup.ChangeForegroundImage:
-                    //line is: image_location image_name
+                    //line is: image_location image_name text
+                    List<string> foregroundInfo = line.Split(' ').ToList();
+                    Image foregroundImage = Image.FromFile(_filePath + foregroundInfo[0] + foregroundInfo[1]);
+                    this.NewForeground(foregroundImage);
+                    foregroundInfo.RemoveAt(0);
+                    foregroundInfo.RemoveAt(0);
+                    string newLineFG = string.Join(" ", foregroundInfo);
+                    this.ChangeText(newLineFG);
                     break;
                 case Markup.Options:
                     //line is: ["Option 1", #A ID] [Option 2, #A ID] [Exit, #CT] shop text

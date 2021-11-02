@@ -85,7 +85,7 @@ namespace MyGameLibrary.Story
             if (Empty())
             {
                 Application.Exit();
-            }
+            }  
             this.ParseLine();
             string line = this.CurrentStoryText.First();
             this.CurrentStoryText.RemoveFirst();
