@@ -11,7 +11,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemy;
     private Player player;
 
-    private FrmBattle() {
+    public FrmBattle() {
       InitializeComponent();
       player = Game.player;
     }
@@ -46,11 +46,10 @@ namespace Fall2020_CSC403_Project {
 
     // instantiating the battle ground for the boss fights
     public static FrmBattle GetInstance(Enemy enemy) {
-      if (instance == null) {
-        instance = new FrmBattle();
-        instance.enemy = enemy;
-        instance.Setup();
-      }
+      //deleted the if statement here because it was causing the game to crash if you engaged more than one enemy --Redmann
+      instance = new FrmBattle();
+      instance.enemy = enemy;
+      instance.Setup();
       return instance;
     }
 
