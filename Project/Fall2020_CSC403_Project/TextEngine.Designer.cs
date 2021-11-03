@@ -11,8 +11,6 @@ namespace Fall2020_CSC403_Project
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private int originalExStyle = -1;
-        private bool enableFormLevelDoubleBuffering = true;
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -32,15 +30,8 @@ namespace Fall2020_CSC403_Project
         {
             get
             {
-                if (originalExStyle == -1)
-                    originalExStyle = base.CreateParams.ExStyle;
-
                 CreateParams cp = base.CreateParams;
-                if (enableFormLevelDoubleBuffering)
-                    cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
-                else
-                    cp.ExStyle = originalExStyle;
-
+                cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
                 return cp;
             }
         }
@@ -63,9 +54,10 @@ namespace Fall2020_CSC403_Project
             // 
             // ForegroundImage
             // 
-            this.ForegroundImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            //this.ForegroundImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            //| System.Windows.Forms.AnchorStyles.Left) 
+            //| System.Windows.Forms.AnchorStyles.Right)));
+            this.ForegroundImage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ForegroundImage.BackColor = System.Drawing.Color.Transparent;
             this.ForegroundImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ForegroundImage.BackgroundImage")));
             this.ForegroundImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -125,12 +117,6 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.PictureBox ForegroundImage;
         private System.Windows.Forms.Label Textbox;
         private System.Windows.Forms.Panel NormalPanel;
-
-        private void TurnOffFormLevelDoubleBuffering()
-        {
-            enableFormLevelDoubleBuffering = false;
-            this.MaximizeBox = true;
-        }
         private void DisplayOptions(List<Option> options)
         {
             System.Drawing.Point location = new System.Drawing.Point(50, 50);
