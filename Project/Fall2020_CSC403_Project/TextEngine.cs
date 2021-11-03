@@ -15,15 +15,22 @@ namespace Fall2020_CSC403_Project
         private Stack<Option> TempOptions = new Stack<Option>();          
         private double ForegroundImage_Xscale { get; set; }
         private double ForegroundImage_Yscale { get; set; }
+        private double ForegroundImage_AspectRatio { get; set; }
+
+        private Point location { get; set; }
         private int originalHeight { get; set; }
         public TextEngine()
         {
             this.Story = new Story("\\data\\story\\", "Story.txt");
             string line = Story.GetNextLine();
             InitializeComponent();
+            Console.WriteLine("aaaaaaa");
 
-            ForegroundImage_Xscale = (double)ForegroundImage.Location.X / Width;
-            ForegroundImage_Yscale = (double)ForegroundImage.Location.Y / Height;
+            ForegroundImage_Xscale = (double)ForegroundImage.Left / Width;
+            ForegroundImage_Yscale = (double)ForegroundImage.Top / Height;
+            location = ForegroundImage.Location;
+            Console.WriteLine(location);
+            ForegroundImage_AspectRatio = ForegroundImage.Size.Width / (ForegroundImage.Size.Height * 1.0);
             originalHeight = Height;
             this.ForegroundImage.BackColor = Color.Transparent;
 
@@ -168,32 +175,24 @@ namespace Fall2020_CSC403_Project
         private void ResizeHandler(object sender, EventArgs e)
         {
             SuspendLayout();
-            double ratio = this.ForegroundImage.Size.Width / (this.ForegroundImage.Size.Height * 1.0);
-            ForegroundImage.Size = new Size((int)(ClientRectangle.Height * ratio), (int)ClientRectangle.Height);
+            if (ForegroundImage_AspectRatio != 0)
+            {
+                ForegroundImage.Size = new Size((int)(ClientRectangle.Size.Height * ForegroundImage_AspectRatio), ClientRectangle.Size.Height);
+            }
             if (ForegroundImage_Xscale != 0 && ForegroundImage_Yscale != 0)
             {
-                ForegroundImage.Location = new Point((int)Math.Floor(ForegroundImage_Xscale * Width), (int)Math.Floor(ForegroundImage_Yscale * Height));
+                ForegroundImage.Location = new Point((int)(ForegroundImage_Xscale * ClientRectangle.Size.Width), (int)(ForegroundImage_Yscale*Height));
+                Console.WriteLine(ForegroundImage.Location);
             }
             if (originalHeight != 0)
             {
                 double scaling = Height / (double)originalHeight;
-                Textbox.Height = (int)Math.Floor(scaling * 100);
-                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)Math.Floor(scaling * 12));
+                Textbox.Height = (int)(scaling * 80);
+                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(scaling * 12));
             }
             ResumeLayout();
         }
-        protected override void OnResizeBegin(EventArgs e)
-        {
-            SuspendLayout();
-            this.TurnOffFormLevelDoubleBuffering();
-            base.OnResizeBegin(e);
-        }
-        protected override void OnResizeEnd(EventArgs e)
-        {
-            ResumeLayout();
-            this.TurnOffFormLevelDoubleBuffering();
-            base.OnResizeEnd(e);
-        }
+
         private void TextEngine_Load(object sender, EventArgs e)
         {
 
