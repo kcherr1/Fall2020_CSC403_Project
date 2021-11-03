@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
+  public partial class FrmLevel : ChildForm {
     public static bool win = false;
     private Player player;
 
@@ -16,11 +16,15 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
-    public FrmLevel() {
-      InitializeComponent();
-    }
 
-    private void FrmLevel_Load(object sender, EventArgs e) {
+        public FrmLevel()
+        {
+            PreviewKeyDown += FrmLevel_PreviewKeyDown;
+            InitializeComponent();
+        }
+
+        private void FrmLevel_Load(object sender, EventArgs e) {
+            Parent.KeyDown += FrmLevel_KeyDown;
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
@@ -42,7 +46,7 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
-
+            
       Game.player = player;
       timeBegin = DateTime.Now;
     }
@@ -110,16 +114,27 @@ namespace Fall2020_CSC403_Project {
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle = (FrmBattle)CreateChild(FrmBattle.GetInstance(enemy));
+      frmBattle.MdiParent = this.MdiParent;
+      RequestHide();
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
     }
+        public void keyListener(KeyEventArgs e)
+        {
+     
+            FrmLevel_KeyDown(this, e);
+        }
 
+    private void FrmLevel_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            e.IsInputKey = true;
+        }
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
+            switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
           break;
@@ -148,6 +163,7 @@ namespace Fall2020_CSC403_Project {
 
     private void winChecker(object sender, EventArgs e)
     {
+            Console.WriteLine("tack");
         if (win)
         {
             winImage.Visible = true;
