@@ -55,6 +55,7 @@ namespace Fall2020_CSC403_Project {
             
       Game.player = player;
       timeBegin = DateTime.Now;
+      
     }
 
     public void MapMusic()
@@ -175,6 +176,10 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
+        
+        case Keys.X:
+          cheatMenu.Visible = true;
+          break;
 
         default:
           player.ResetMoveSpeed();
@@ -223,5 +228,12 @@ namespace Fall2020_CSC403_Project {
       lblPlayerHealthFull.Text = player.Health.ToString();
     }
 
+    private void closeCheatMenu(object sender, EventArgs e)
+    {
+      cheatMenu.Visible = false;
+      this.Focus();
+    }
+
   }
+  
 }
