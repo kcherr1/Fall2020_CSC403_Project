@@ -177,23 +177,29 @@ namespace Fall2020_CSC403_Project
             if (originalHeight != 0)
             {
                 double scaling = Height / (double)originalHeight;
-                Textbox.Height = (int)Math.Floor(scaling * 100);
-                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)Math.Floor(scaling * 12));
+                Textbox.Height = (int)(scaling * 100);
+                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(scaling * 12));
+
+                foreach(Option option in Options) 
+                {
+                    option.OptionLabel.Height = (int)scaling * 20;
+                    option.OptionLabel.Width = (int)scaling * 150;
+                }
             }
             ResumeLayout();
         }
-        protected override void OnResizeBegin(EventArgs e)
-        {
-            SuspendLayout();
-            this.TurnOffFormLevelDoubleBuffering();
-            base.OnResizeBegin(e);
-        }
-        protected override void OnResizeEnd(EventArgs e)
-        {
-            ResumeLayout();
-            this.TurnOffFormLevelDoubleBuffering();
-            base.OnResizeEnd(e);
-        }
+        //protected override void OnResizeBegin(EventArgs e)
+        //{
+        //    SuspendLayout();
+        //    this.TurnOffFormLevelDoubleBuffering();
+        //    base.OnResizeBegin(e);
+        //}
+        //protected override void OnResizeEnd(EventArgs e)
+        //{
+        //    ResumeLayout();
+        //    this.TurnOffFormLevelDoubleBuffering();
+        //    base.OnResizeEnd(e);
+        //}
         private void TextEngine_Load(object sender, EventArgs e)
         {
 
