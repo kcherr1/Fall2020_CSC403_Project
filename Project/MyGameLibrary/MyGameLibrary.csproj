@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BattleCharacter.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="Character\Character.cs" />
     <Compile Include="Collider.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="NPC.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Story\Markup.cs" />
     <Compile Include="Story\Option.cs" />
     <Compile Include="Story\Story.cs" />
     <Compile Include="Shop\Items.cs" />
