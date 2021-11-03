@@ -16,11 +16,8 @@ namespace Fall2020_CSC403_Project {
     private Character[] walls;
 
     private DateTime timeBegin;
-<<<<<<< HEAD
-=======
     private FrmBattle frmBattle;
     private FrmInventory frmInventory;
->>>>>>> 76dc90f31f884141712d37acb195627f34b39c02
 
     public FrmLevel() {
       InitializeComponent();
