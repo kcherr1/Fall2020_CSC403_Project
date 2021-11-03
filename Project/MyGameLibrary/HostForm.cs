@@ -17,6 +17,11 @@ namespace Fall2020_CSC403_Project.code
         public HostForm()
         {
             IsMdiContainer = true;
+            AutoScroll = false;
+            VScroll = false;
+            HScroll = false;
+            AutoSizeMode = AutoSizeMode.GrowOnly;
+            AutoSize = true;
         }
 
         protected ChildForm CreateChild(ChildForm newChild)

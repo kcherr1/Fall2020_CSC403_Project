@@ -27,6 +27,9 @@ namespace Fall2020_CSC403_Project
             level = (FrmLevel) CreateChild(new FrmLevel());
             level.Show();
             level.Focus();
+
+            this.Size = new Size(1200, 800);
+            this.CenterToScreen();
         }
 
         private void FrmGame_Keydown(object sender, KeyEventArgs e)
