@@ -234,6 +234,10 @@ namespace Fall2020_CSC403_Project {
       this.Focus();
     }
 
-  }
+        private void cheatMenuEvasionLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
   
 }
