@@ -11,6 +11,8 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+    public SoundPlayer battleMusic = new SoundPlayer(Resources.battle_music);
+        public SoundPlayer mapMusic = new SoundPlayer(Resources.map_music);
 
     private FrmBattle() {
             
@@ -26,6 +28,7 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
+      BattleMusic();
 
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
@@ -34,6 +37,12 @@ namespace Fall2020_CSC403_Project {
       // show health
       UpdateHealthBars();
     }
+
+    public void BattleMusic()
+        {
+
+            battleMusic.PlayLooping();
+        }
 
     public void SetupForBossBattle() {
       picBossBattle.Location = Point.Empty;
@@ -82,6 +91,8 @@ namespace Fall2020_CSC403_Project {
       }
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
+        battleMusic.Stop();
+        mapMusic.PlayLooping();
         CloseCleanly();
       }
     }
