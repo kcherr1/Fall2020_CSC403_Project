@@ -63,19 +63,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap AM_D1 {
+        internal static System.Drawing.Bitmap AM_D {
             get {
-                object obj = ResourceManager.GetObject("AM_D1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AM_D2 {
-            get {
-                object obj = ResourceManager.GetObject("AM_D2", resourceCulture);
+                object obj = ResourceManager.GetObject("AM_D", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,19 +83,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap AM_L1 {
+        internal static System.Drawing.Bitmap AM_L {
             get {
-                object obj = ResourceManager.GetObject("AM_L1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AM_L2 {
-            get {
-                object obj = ResourceManager.GetObject("AM_L2", resourceCulture);
+                object obj = ResourceManager.GetObject("AM_L", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,19 +103,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap AM_R1 {
+        internal static System.Drawing.Bitmap AM_R {
             get {
-                object obj = ResourceManager.GetObject("AM_R1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AM_R2 {
-            get {
-                object obj = ResourceManager.GetObject("AM_R2", resourceCulture);
+                object obj = ResourceManager.GetObject("AM_R", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,19 +123,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap AM_U1 {
+        internal static System.Drawing.Bitmap AM_U {
             get {
-                object obj = ResourceManager.GetObject("AM_U1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AM_U2 {
-            get {
-                object obj = ResourceManager.GetObject("AM_U2", resourceCulture);
+                object obj = ResourceManager.GetObject("AM_U", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +146,76 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap battle_screen {
             get {
                 object obj = ResourceManager.GetObject("battle_screen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_0 {
+            get {
+                object obj = ResourceManager.GetObject("Button_0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_1 {
+            get {
+                object obj = ResourceManager.GetObject("Button_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_2 {
+            get {
+                object obj = ResourceManager.GetObject("Button_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_3 {
+            get {
+                object obj = ResourceManager.GetObject("Button_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_4 {
+            get {
+                object obj = ResourceManager.GetObject("Button_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_5 {
+            get {
+                object obj = ResourceManager.GetObject("Button_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_6 {
+            get {
+                object obj = ResourceManager.GetObject("Button_6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -232,9 +262,37 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MM_D1 {
+        internal static System.Drawing.Bitmap Girl_Power_Bat {
             get {
-                object obj = ResourceManager.GetObject("MM_D1", resourceCulture);
+                object obj = ResourceManager.GetObject("Girl_Power_Bat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Girl_power_Dungeon_theme {
+            get {
+                return ResourceManager.GetStream("Girl_power_Dungeon_theme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Girl_Power_Dungeon_Theme_2 {
+            get {
+                return ResourceManager.GetStream("Girl_Power_Dungeon_Theme_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Girl_Power_Snail {
+            get {
+                object obj = ResourceManager.GetObject("Girl_Power_Snail", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -242,9 +300,19 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MM_D2 {
+        internal static System.Drawing.Bitmap Girl_Power_Unfathomable {
             get {
-                object obj = ResourceManager.GetObject("MM_D2", resourceCulture);
+                object obj = ResourceManager.GetObject("Girl_Power_Unfathomable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MM_D {
+            get {
+                object obj = ResourceManager.GetObject("MM_D", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -262,19 +330,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MM_L1 {
+        internal static System.Drawing.Bitmap MM_L {
             get {
-                object obj = ResourceManager.GetObject("MM_L1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MM_L2 {
-            get {
-                object obj = ResourceManager.GetObject("MM_L2", resourceCulture);
+                object obj = ResourceManager.GetObject("MM_L", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -292,19 +350,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MM_R1 {
+        internal static System.Drawing.Bitmap MM_R {
             get {
-                object obj = ResourceManager.GetObject("MM_R1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MM_R2 {
-            get {
-                object obj = ResourceManager.GetObject("MM_R2", resourceCulture);
+                object obj = ResourceManager.GetObject("MM_R", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -322,19 +370,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MM_U1 {
+        internal static System.Drawing.Bitmap MM_U {
             get {
-                object obj = ResourceManager.GetObject("MM_U1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MM_U2 {
-            get {
-                object obj = ResourceManager.GetObject("MM_U2", resourceCulture);
+                object obj = ResourceManager.GetObject("MM_U", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -352,19 +390,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OG_D1 {
+        internal static System.Drawing.Bitmap OG_D {
             get {
-                object obj = ResourceManager.GetObject("OG_D1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OG_D2 {
-            get {
-                object obj = ResourceManager.GetObject("OG_D2", resourceCulture);
+                object obj = ResourceManager.GetObject("OG_D", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -382,19 +410,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OG_L1 {
+        internal static System.Drawing.Bitmap OG_L {
             get {
-                object obj = ResourceManager.GetObject("OG_L1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OG_L2 {
-            get {
-                object obj = ResourceManager.GetObject("OG_L2", resourceCulture);
+                object obj = ResourceManager.GetObject("OG_L", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -412,19 +430,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OG_R1 {
+        internal static System.Drawing.Bitmap OG_R {
             get {
-                object obj = ResourceManager.GetObject("OG_R1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OG_R2 {
-            get {
-                object obj = ResourceManager.GetObject("OG_R2", resourceCulture);
+                object obj = ResourceManager.GetObject("OG_R", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -442,19 +450,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OG_U1 {
+        internal static System.Drawing.Bitmap OG_U {
             get {
-                object obj = ResourceManager.GetObject("OG_U1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OG_U2 {
-            get {
-                object obj = ResourceManager.GetObject("OG_U2", resourceCulture);
+                object obj = ResourceManager.GetObject("OG_U", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -480,21 +478,29 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.Drawing.Bitmap TG_D1 {
+        internal static System.IO.UnmanagedMemoryStream Step {
             get {
-                object obj = ResourceManager.GetObject("TG_D1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetStream("Step", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Step1 {
+            get {
+                return ResourceManager.GetStream("Step1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap TG_D2 {
+        internal static System.Drawing.Bitmap TG_D {
             get {
-                object obj = ResourceManager.GetObject("TG_D2", resourceCulture);
+                object obj = ResourceManager.GetObject("TG_D", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -512,19 +518,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap TG_L1 {
+        internal static System.Drawing.Bitmap TG_L {
             get {
-                object obj = ResourceManager.GetObject("TG_L1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap TG_L2 {
-            get {
-                object obj = ResourceManager.GetObject("TG_L2", resourceCulture);
+                object obj = ResourceManager.GetObject("TG_L", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -542,19 +538,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap TG_R1 {
+        internal static System.Drawing.Bitmap TG_R {
             get {
-                object obj = ResourceManager.GetObject("TG_R1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap TG_R2 {
-            get {
-                object obj = ResourceManager.GetObject("TG_R2", resourceCulture);
+                object obj = ResourceManager.GetObject("TG_R", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -572,19 +558,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap TG_U1 {
+        internal static System.Drawing.Bitmap TG_U {
             get {
-                object obj = ResourceManager.GetObject("TG_U1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap TG_U2 {
-            get {
-                object obj = ResourceManager.GetObject("TG_U2", resourceCulture);
+                object obj = ResourceManager.GetObject("TG_U", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
