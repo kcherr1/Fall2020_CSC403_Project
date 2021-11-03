@@ -40,51 +40,52 @@ namespace Fall2020_CSC403_Project {
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
             BGM.Play();
 
             if (character_class == 0)
             {
-                L = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/OG_L.gif");
-                LI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/OG_LI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_LI);
-                RI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/OG_RI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_RI);
-                R = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/OG_R.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_R);
-                U = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/OG_U.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_U);
-                UI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/OG_UI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_UI);
-                D = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/OG_D.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_D);
-                DI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/OG_DI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_DI);
+                L = new Bitmap(resourcesPath + "\\OG_L.gif");
+                LI = new Bitmap(resourcesPath + "\\OG_LI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_LI);
+                RI = new Bitmap(resourcesPath + "\\OG_RI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_RI);
+                R = new Bitmap(resourcesPath + "\\OG_R.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_R);
+                U = new Bitmap(resourcesPath + "\\OG_U.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_U);
+                UI = new Bitmap(resourcesPath + "\\OG_UI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_UI);
+                D = new Bitmap(resourcesPath + "\\OG_D.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_D);
+                DI = new Bitmap(resourcesPath + "\\OG_DI.gif"); //new Bitmap(Properties.Resources.OG_L);.OG_DI);
             }
             if (character_class == 1)
             {
-                L = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/AM_L.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_L);
-                LI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/AM_LI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_LI);
-                R = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/AM_R.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_R);
-                RI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/AM_RI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_RI);
-                U = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/AM_U.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_U);
-                UI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/AM_UI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_UI);
-                D = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/AM_D.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_D);
-                DI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/AM_DI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_DI);
+                L = new Bitmap(resourcesPath + "\\AM_L.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_L);
+                LI = new Bitmap(resourcesPath + "\\AM_LI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_LI);
+                R = new Bitmap(resourcesPath + "\\AM_R.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_R);
+                RI = new Bitmap(resourcesPath + "\\AM_RI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_RI);
+                U = new Bitmap(resourcesPath + "\\AM_U.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_U);
+                UI = new Bitmap(resourcesPath + "\\AM_UI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_UI);
+                D = new Bitmap(resourcesPath + "\\AM_D.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_D);
+                DI = new Bitmap(resourcesPath + "\\AM_DI.gif"); //new Bitmap(Properties.Resources.AM_L);.AM_DI);
             }
             if (character_class == 2)
             {
-                L = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/MM_L.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_L);
-                LI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/MM_LI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_LI);
-                R = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/MM_R.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_R);
-                RI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/MM_RI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_RI);
-                U = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/MM_U.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_U);
-                UI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/MM_UI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_U);
-                D = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/MM_D.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_D);
-                DI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/MM_DI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_DI);
+                L = new Bitmap(resourcesPath + "\\MM_L.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_L);
+                LI = new Bitmap(resourcesPath + "\\MM_LI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_LI);
+                R = new Bitmap(resourcesPath + "\\MM_R.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_R);
+                RI = new Bitmap(resourcesPath + "\\MM_RI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_RI);
+                U = new Bitmap(resourcesPath + "\\MM_U.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_U);
+                UI = new Bitmap(resourcesPath + "\\MM_UI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_U);
+                D = new Bitmap(resourcesPath + "\\MM_D.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_D);
+                DI = new Bitmap(resourcesPath + "\\MM_DI.gif"); //new Bitmap(Properties.Resources.MM_L);.MM_DI);
             }
             if (character_class == 3)
             {
-                L = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/TG_L.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_L);
-                LI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/TG_LI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_LI);
-                R = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/TG_R.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_R);
-                RI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/TG_RI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_RI);
-                U = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/TG_U.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_U);
-                UI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/TG_UI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_UI);
-                D = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/TG_D.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_D);
-                DI = new Bitmap("C:/Users/Lionp/Source/Repos/Fall2020_CSC403_Project/Project/Fall2020_CSC403_Project/Resources/TG_DI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_DI);
+                L = new Bitmap(resourcesPath + "\\TG_L.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_L);
+                LI = new Bitmap(resourcesPath + "\\TG_LI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_LI);
+                R = new Bitmap(resourcesPath + "\\TG_R.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_R);
+                RI = new Bitmap(resourcesPath + "\\TG_RI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_RI);
+                U = new Bitmap(resourcesPath + "\\TG_U.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_U);
+                UI = new Bitmap(resourcesPath + "\\TG_UI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_UI);
+                D = new Bitmap(resourcesPath + "\\TG_D.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_D);
+                DI = new Bitmap(resourcesPath + "\\TG_DI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_DI);
             }
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
