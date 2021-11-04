@@ -81,6 +81,14 @@ namespace MyGameLibrary.Story
             {
                 markup = Markup.AddItemToInventory;
             }
+            else if (string.Equals(splitLine[0], "#G"))
+            {
+                markup = Markup.GiveItem;
+            }
+            else if (string.Equals(splitLine[0], "#VI"))
+            {
+                markup = Markup.ViewInventory;
+            }
             //Set the current action to the markup enum
             this.Current_Action = markup;
             //Remove the tagging chunk

@@ -11,7 +11,18 @@ namespace Fall2020_CSC403_Project
 
         public static void removeItem(Items ID)
         {
-            Contents.Remove(ID);
+            if (Contents.ContainsKey(ID))
+            {
+                Contents.Remove(ID);
+            }            
+        }
+
+        public static void useItem(Items ID)
+        {
+            if (Contents.ContainsKey(ID))
+            {
+                Contents[ID].used = true;
+            }
         }
 
         public static void addItem(Items ID, Item item)

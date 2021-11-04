@@ -133,6 +133,7 @@
   <ItemGroup>
     <Content Include="data\background\hannah_store.jpg" />
     <Content Include="data\background\opening.jpg" />
+    <Content Include="data\story\NewStoryTest.txt" />
     <Content Include="data\story\Story.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
