@@ -136,7 +136,7 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Panel OptionsPanel;
         private void DisplayOptions(List<Option> options)
         {
-            System.Drawing.Point location = new System.Drawing.Point(50, 50);
+            System.Drawing.Point location = new System.Drawing.Point(20, 50);
             this.NormalPanel.SuspendLayout();
             this.OptionsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -155,7 +155,14 @@ namespace Fall2020_CSC403_Project
                 optionLabel.Size = new System.Drawing.Size(150, 25);
                 optionLabel.Text = option.OptionText;
                 option.OptionLabel = optionLabel; // Set the associated label control in the option object for ease of delete
-                location.Offset(0, 40);
+                if (options.Count >= 6 && option.Equals(options[5]))
+                {
+                    location =  new Point(190, 50);
+                }
+                else
+                {
+                    location.Offset(0, 40);
+                }
                 this.NormalPanel.Controls.Add(optionLabel); // Add option to the panel
                 this.OptionsPanel.Controls.Add(optionLabel); // Add option to the panel
                //location.Offset(0, 20); // Next option will be slightly lower
