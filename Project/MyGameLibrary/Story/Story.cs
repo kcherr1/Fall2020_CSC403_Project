@@ -89,6 +89,22 @@ namespace MyGameLibrary.Story
             {
                 markup = Markup.ViewInventory;
             }
+            else if (string.Equals(splitLine[0], "#HF"))
+            {
+                markup = Markup.HideForeground;
+            }
+            else if (string.Equals(splitLine[0], "#SF"))
+            {
+                markup = Markup.ShowForeground;
+            }
+            else if (string.Equals(splitLine[0], "#HT"))
+            {
+                markup = Markup.HideTextBox;
+            }
+            else if (string.Equals(splitLine[0], "#ST"))
+            {
+                markup = Markup.ShowTextbox;
+            }
             //Set the current action to the markup enum
             this.Current_Action = markup;
             //Remove the tagging chunk

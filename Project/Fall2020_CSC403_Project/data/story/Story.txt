@@ -16,6 +16,13 @@
 #CT Okay, if you bought the real gun, I'm going to take that away from you real fast.
 #G 10
 
+#CT Now we're going to hide the foreground.
+#HF
+#CT Woah, the foreground image is gone.
+#CT Let's change that back.
+#SF 
+#CT Phew. Glad to see you back, good sir.
+
 #CT Now we're going to read in a new story.
 #NS \\data\\story\\ NewStoryTest.txt
 
