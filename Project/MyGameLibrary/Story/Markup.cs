@@ -10,6 +10,7 @@ namespace MyGameLibrary.Story
         ReadInNewStory,
         CheckThresholdsForTree,
         AddItemToInventory,
-        GiveItem
+        GiveItem, 
+        ViewInventory
     }
 }

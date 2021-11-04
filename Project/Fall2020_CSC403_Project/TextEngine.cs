@@ -90,7 +90,9 @@ namespace Fall2020_CSC403_Project
                     }
                     TempOptions.Clear();
                     Options.Clear();
+                    //Potentially a simple check to see if there is a store instance running and if so not remove options on select
                     this.RemoveOptions(options);
+                    //Then if there is a store instance running and the markup was #E then remove options and handle next thing
                     Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
                     HandleMarkup(Story.GetNextLine());
                 }
@@ -173,6 +175,7 @@ namespace Fall2020_CSC403_Project
                     string nameGive = Enum.GetName(typeof(Items), int.Parse(line));
                     Items identifierGive = (Items)Enum.Parse(typeof(Items), nameGive);
                     Inventory.useItem(identifierGive);
+                    //TO DO!!!!: 
                     //Change character love score
                     //Make a character enum as well?
                     //LoveUpdate(identifierGive)
@@ -183,6 +186,11 @@ namespace Fall2020_CSC403_Project
                     string[] newStoryInfo = line.Split(' ');
                     Story.ChangeStory(newStoryInfo[1], newStoryInfo[0]);
                     HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.ViewInventory:
+                    // line is: empty, just display inventory
+                    //for items in current inventory create options where markup is #CT item_description
+                    //to leave inventory handle pressing escape? press escape maybe to view inventory and then escape to exit?
                     break;
                 case Markup.CheckThresholdsForTree:
                     // line is: empty, just check thresholds
