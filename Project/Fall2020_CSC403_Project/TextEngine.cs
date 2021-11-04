@@ -25,12 +25,10 @@ namespace Fall2020_CSC403_Project
             this.Story = new Story("\\data\\story\\", "Story.txt");
             string line = Story.GetNextLine();
             InitializeComponent();
-            Console.WriteLine("aaaaaaa");
 
             ForegroundImage_Xscale = (double)ForegroundImage.Left / Width;
             ForegroundImage_Yscale = (double)ForegroundImage.Top / Height;
             location = ForegroundImage.Location;
-            Console.WriteLine(location);
             ForegroundImage_AspectRatio = ForegroundImage.Size.Width / (ForegroundImage.Size.Height * 1.0);
             originalHeight = Height;
             this.ForegroundImage.BackColor = Color.Transparent;
@@ -41,6 +39,7 @@ namespace Fall2020_CSC403_Project
         public void NewBackground(Image newBackground)
         {
             NormalPanel.BackgroundImage = newBackground;
+            OptionsPanel.BackgroundImage = newBackground;
         }
 
         public void NewForeground(Image newImage)
