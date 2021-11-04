@@ -176,9 +176,13 @@ namespace Fall2020_CSC403_Project
                     //Change character love score
                     //Make a character enum as well?
                     //LoveUpdate(identifierGive)
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.ReadInNewStory:
                     // line is: story_location story_name
+                    string[] newStoryInfo = line.Split(' ');
+                    Story.ChangeStory(newStoryInfo[1], newStoryInfo[0]);
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.CheckThresholdsForTree:
                     // line is: empty, just check thresholds
