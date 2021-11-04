@@ -48,8 +48,10 @@ namespace Fall2020_CSC403_Project
             this.ForegroundImage = new System.Windows.Forms.PictureBox();
             this.Textbox = new System.Windows.Forms.Label();
             this.NormalPanel = new System.Windows.Forms.Panel();
+            this.OptionsPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).BeginInit();
             this.NormalPanel.SuspendLayout();
+            this.OptionsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ForegroundImage
@@ -81,6 +83,18 @@ namespace Fall2020_CSC403_Project
             this.Textbox.TabIndex = 7;
             this.Textbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // OptionsPanel
+            // 
+            this.OptionsPanel.Visible = false;
+            this.OptionsPanel.AutoSize = true;
+            this.OptionsPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NormalPanel.BackgroundImage")));
+            this.OptionsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;            
+            this.OptionsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OptionsPanel.Location = new System.Drawing.Point(0, 0);
+            this.OptionsPanel.Name = "OptionsPanel";
+            this.OptionsPanel.Size = new System.Drawing.Size(800, 450);
+            this.OptionsPanel.TabIndex = 6;
+            // 
             // NormalPanel
             // 
             this.NormalPanel.AutoSize = true;
@@ -92,7 +106,7 @@ namespace Fall2020_CSC403_Project
             this.NormalPanel.Location = new System.Drawing.Point(0, 0);
             this.NormalPanel.Name = "NormalPanel";
             this.NormalPanel.Size = new System.Drawing.Size(800, 450);
-            this.NormalPanel.TabIndex = 6;
+            this.NormalPanel.TabIndex = 6;            
             // 
             // TextEngine
             // 
@@ -100,6 +114,7 @@ namespace Fall2020_CSC403_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OptionsPanel);
             this.Controls.Add(this.NormalPanel);
             this.DoubleBuffered = true;
             this.Name = "TextEngine";
@@ -108,6 +123,7 @@ namespace Fall2020_CSC403_Project
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextEngine_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).EndInit();
             this.NormalPanel.ResumeLayout(false);
+            this.OptionsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,11 +133,15 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.PictureBox ForegroundImage;
         private System.Windows.Forms.Label Textbox;
         private System.Windows.Forms.Panel NormalPanel;
+        private System.Windows.Forms.Panel OptionsPanel;
         private void DisplayOptions(List<Option> options)
         {
             System.Drawing.Point location = new System.Drawing.Point(50, 50);
             this.NormalPanel.SuspendLayout();
+            this.OptionsPanel.SuspendLayout();
             this.SuspendLayout();
+            this.OptionsPanel.Controls.Add(this.Textbox);
+            this.OptionsPanel.Controls.Add(this.ForegroundImage);
             foreach (Option option in options)
             {
                 //
@@ -136,10 +156,13 @@ namespace Fall2020_CSC403_Project
                 optionLabel.Text = option.OptionText;
                 // 
                 option.OptionLabel = optionLabel; // Set the associated label control in the option object for ease of delete
-                this.NormalPanel.Controls.Add(optionLabel); // Add option to the panel
+                this.OptionsPanel.Controls.Add(optionLabel); // Add option to the panel
                 location.Offset(0, 40); // Next option will be slightly lower
-            }
+            }            
+            this.OptionsPanel.Visible = true;
+            this.NormalPanel.Visible = false;
             this.NormalPanel.ResumeLayout(false);
+            this.OptionsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
@@ -147,12 +170,18 @@ namespace Fall2020_CSC403_Project
         private void RemoveOptions(List<Option> options) 
         {
             this.NormalPanel.SuspendLayout();
+            this.OptionsPanel.SuspendLayout();
             this.SuspendLayout();
-            foreach(Option option in options)
+            this.NormalPanel.Controls.Add(this.Textbox);
+            this.NormalPanel.Controls.Add(this.ForegroundImage);
+            this.NormalPanel.Visible = true;
+            this.OptionsPanel.Visible = false;
+            foreach (Option option in options)
             {
-                this.NormalPanel.Controls.Remove(option.OptionLabel);
+                this.OptionsPanel.Controls.Remove(option.OptionLabel);
             }
             this.NormalPanel.ResumeLayout(false);
+            this.OptionsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

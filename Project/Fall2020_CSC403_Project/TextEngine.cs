@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using MyGameLibrary.Shop;
 using MyGameLibrary.Story;
 
 namespace Fall2020_CSC403_Project
@@ -24,12 +25,10 @@ namespace Fall2020_CSC403_Project
             this.Story = new Story("\\data\\story\\", "Story.txt");
             string line = Story.GetNextLine();
             InitializeComponent();
-            Console.WriteLine("aaaaaaa");
 
             ForegroundImage_Xscale = (double)ForegroundImage.Left / Width;
             ForegroundImage_Yscale = (double)ForegroundImage.Top / Height;
             location = ForegroundImage.Location;
-            Console.WriteLine(location);
             ForegroundImage_AspectRatio = ForegroundImage.Size.Width / (ForegroundImage.Size.Height * 1.0);
             originalHeight = Height;
             this.ForegroundImage.BackColor = Color.Transparent;
@@ -40,6 +39,7 @@ namespace Fall2020_CSC403_Project
         public void NewBackground(Image newBackground)
         {
             NormalPanel.BackgroundImage = newBackground;
+            OptionsPanel.BackgroundImage = newBackground;
         }
 
         public void NewForeground(Image newImage)
@@ -96,7 +96,9 @@ namespace Fall2020_CSC403_Project
                     }
                     TempOptions.Clear();
                     Options.Clear();
+                    //Potentially a simple check to see if there is a store instance running and if so not remove options on select
                     this.RemoveOptions(options);
+                    //Then if there is a store instance running and the markup was #E then remove options and handle next thing
                     Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
                     HandleMarkup(Story.GetNextLine());
                 }
@@ -140,6 +142,7 @@ namespace Fall2020_CSC403_Project
                 case Markup.Options:
                     //line is: Option 1, #A ID] Option 2, #A ID] Exit, #CT] text
                     // (ex: #O Option 1,#CT Oh, you selected that] Option 2,#CT You've selected this] Oh look, it's the options page)
+                    //Note: make sure there is no space between ,#
                     //Display options
                     List<string> optionsInfo = line.Split(']').ToList();
 
@@ -163,8 +166,37 @@ namespace Fall2020_CSC403_Project
                     this.Options.Peek().OptionFocused = true; //Focus the top option 
                     this.ChangeText(newLineOptions);
                     break;
+                case Markup.AddItemToInventory:
+                    // line is: id           
+                    string nameAdd = Enum.GetName(typeof(Items), int.Parse(line));
+                    Items identifierAdd = (Items)Enum.Parse(typeof(Items), nameAdd);
+                    //For the store I recommend that we have something constant somewhere with the description and prices associated with ID
+                    Item itemAdd = new Item(identifierAdd, nameAdd, "Temp description", 5);
+                    Inventory.withdrawMoney(itemAdd.ItemPrice);
+                    Inventory.addItem(identifierAdd, itemAdd);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.GiveItem:
+                    // line is: id
+                    string nameGive = Enum.GetName(typeof(Items), int.Parse(line));
+                    Items identifierGive = (Items)Enum.Parse(typeof(Items), nameGive);
+                    Inventory.useItem(identifierGive);
+                    //TO DO!!!!: 
+                    //Change character love score
+                    //Make a character enum as well?
+                    //LoveUpdate(identifierGive)
+                    HandleMarkup(Story.GetNextLine());
+                    break;
                 case Markup.ReadInNewStory:
                     // line is: story_location story_name
+                    string[] newStoryInfo = line.Split(' ');
+                    Story.ChangeStory(newStoryInfo[1], newStoryInfo[0]);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.ViewInventory:
+                    // line is: empty, just display inventory
+                    //for items in current inventory create options where markup is #CT item_description
+                    //to leave inventory handle pressing escape? press escape maybe to view inventory and then escape to exit?
                     break;
                 case Markup.CheckThresholdsForTree:
                     // line is: empty, just check thresholds
