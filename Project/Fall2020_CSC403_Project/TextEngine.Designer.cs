@@ -136,7 +136,7 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Panel OptionsPanel;
         private void DisplayOptions(List<Option> options)
         {
-            System.Drawing.Point location = new System.Drawing.Point(50, 50);
+            System.Drawing.Point location = new System.Drawing.Point(50, 10);
             this.NormalPanel.SuspendLayout();
             this.OptionsPanel.SuspendLayout();
             this.SuspendLayout();

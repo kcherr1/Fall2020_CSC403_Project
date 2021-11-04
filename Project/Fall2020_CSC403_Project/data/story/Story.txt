@@ -24,6 +24,6 @@
 #CT Phew. Glad to see you back, good sir.
 
 #CT Now we're going to read in a new story.
-#NS \\data\\story\\ NewStoryTest.txt
+#NS \\data\\story\\ GoodShop3-5.txt
 
 
