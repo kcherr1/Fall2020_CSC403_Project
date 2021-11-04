@@ -1,0 +1,6 @@
+﻿#CB \\data\\background\\ hannah_store.jpg
+#CF \\data\\foreground\\ enemy_koolaid.png
+#CT Mr. Peanut: Hi again! I have money this time! 
+#CT Hayley: Awesome. Are you gonna buy something or what?
+#O  Brick: price,#A 9] Gun: price,#A 10] Guillotine: price,#A 11] Whoopie Cushion: price,#A 12] Human Soul: price,#A 13] Hayley's Crown: price,#A 14] Exit,#]
+#CT Hayley: It’s not like I’ll miss you or anything. 

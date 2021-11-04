@@ -24,6 +24,10 @@
 #CT Phew. Glad to see you back, good sir.
 
 #CT Now we're going to read in a new story.
-#NS \\data\\story\\ GoodShop3-5.txt
-
+#NS \\data\\story\\ HannahShopDay1.txt
+#NS \\data\\story\\ HannahShopDay2.txt
+#NS \\data\\story\\ HannahShopDays35.txt
+#NS \\data\\story\\ HayleyShopDay1.txt
+#NS \\data\\story\\ HayleyShopDay2.txt
+#NS \\data\\story\\ HayleyShopDays35.txt
 

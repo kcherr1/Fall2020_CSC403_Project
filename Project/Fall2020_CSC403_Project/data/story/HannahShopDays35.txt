@@ -2,5 +2,5 @@
 #CF \\data\\foreground\\ enemy_koolaid.png
 #CT Mr.Peanut: Hi again!
 #CT Hannah: Welcome back. Check out my items and let me know what you want! I have the perfect gifts in here. 
-#O Tool Kit: price,#A 1] Plush Cat: price,#A 2] Toy Gun: price,#A 3] Tiger Lily: price,#A 4] Frozen Steak: price,#A 5] Portable Oven: price,#A 6] Cooking With Chocolate: price,#A 7] Among The Skies: price,#A 8]
+#O Tool Kit: price,#A 1] Plush Cat: price,#A 2] Toy Gun: price,#A 3] Tiger Lily: price,#A 4] Frozen Steak: price,#A 5] Portable Oven: price,#A 6] Cooking With Chocolate: price,#A 7] Among The Skies: price,#A 8] Exit,#]
 #CT Hannah: Thanks for coming in! Come back soon. I am so lonely. 

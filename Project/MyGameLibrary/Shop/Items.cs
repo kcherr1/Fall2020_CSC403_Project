@@ -14,9 +14,8 @@
         realGun = 10, 
         guillotine = 11,
         whoopieCushion = 12, 
-        readyPlayerTwo = 13, 
-        humanSoul = 14, 
-        hayleysCrown = 15
+        humanSoul = 13, 
+        hayleysCrown = 14
 
     }
 }
