@@ -52,6 +52,10 @@ namespace Fall2020_CSC403_Project
             Textbox.Text = newText;
         }
 
+        public void ForegroundVisibile(bool hide)
+        {
+            ForegroundImage.Visible = hide;
+        }
         public void TextboxVisible(bool hide)
         {
             Textbox.Visible = hide;
@@ -138,6 +142,26 @@ namespace Fall2020_CSC403_Project
                     foregroundInfo.RemoveAt(0);
                     string newLineFG = string.Join(" ", foregroundInfo);
                     this.ChangeText(newLineFG);
+                    break;
+                case Markup.HideForeground:
+                    // line is: nothing, this is just a signal to hide the foreground
+                    this.ForegroundVisibile(false);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.ShowForeground:
+                    // line is: nothing, this is just a signal to show the foreground
+                    this.ForegroundVisibile(true);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.HideTextBox:
+                    // line is: nothing, this is just a signal to hide the textbox
+                    this.TextboxVisible(false);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.ShowTextbox:
+                    // line is: nothing, this is just a signal to show the textbox
+                    this.TextboxVisible(true);
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.Options:
                     //line is: Option 1, #A ID] Option 2, #A ID] Exit, #CT] text
