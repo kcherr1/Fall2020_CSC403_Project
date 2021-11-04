@@ -136,8 +136,15 @@ namespace Fall2020_CSC403_Project
                 optionLabel.Text = option.OptionText;
                 // 
                 option.OptionLabel = optionLabel; // Set the associated label control in the option object for ease of delete
-                this.NormalPanel.Controls.Add(optionLabel); // Add option to the panel
+                Label spacer = new Label();
+                spacer.Height = 10;
+                spacer.BackColor = Color.Transparent;
                 location.Offset(0, 40); // Next option will be slightly lower
+                spacer.Location = location;
+                this.NormalPanel.Controls.Add(spacer);
+                location.Offset(0, 40);
+                this.NormalPanel.Controls.Add(optionLabel); // Add option to the panel
+
             }
             this.NormalPanel.ResumeLayout(false);
             this.ResumeLayout(false);
