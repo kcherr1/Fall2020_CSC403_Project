@@ -231,7 +231,7 @@ namespace Fall2020_CSC403_Project {
     private void closeCheatMenu(object sender, EventArgs e)
     {
       cheatMenu.Visible = false;
-      this.Focus();
+      this.ActiveControl = null;
     }
 
         private void cheatMenuEvasionLabel_Click(object sender, EventArgs e)
