@@ -160,15 +160,22 @@ namespace Fall2020_CSC403_Project
                     break;
                 case Markup.AddItemToInventory:
                     // line is: id           
-                    string name = Enum.GetName(typeof(Items), int.Parse(line));
-                    Items identifier = (Items)Enum.Parse(typeof(Items), name);
+                    string nameAdd = Enum.GetName(typeof(Items), int.Parse(line));
+                    Items identifierAdd = (Items)Enum.Parse(typeof(Items), nameAdd);
                     //For the store I recommend that we have something constant somewhere with the description and prices associated with ID
-                    Item item = new Item(identifier, name, "Temp description", 5);
-                    Inventory.addItem(identifier, item);
+                    Item itemAdd = new Item(identifierAdd, nameAdd, "Temp description", 5);
+                    Inventory.withdrawMoney(itemAdd.ItemPrice);
+                    Inventory.addItem(identifierAdd, itemAdd);
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.GiveItem:
                     // line is: id
+                    string nameGive = Enum.GetName(typeof(Items), int.Parse(line));
+                    Items identifierGive = (Items)Enum.Parse(typeof(Items), nameGive);
+                    Inventory.useItem(identifierGive);
+                    //Change character love score
+                    //Make a character enum as well?
+                    //LoveUpdate(identifierGive)
                     break;
                 case Markup.ReadInNewStory:
                     // line is: story_location story_name
