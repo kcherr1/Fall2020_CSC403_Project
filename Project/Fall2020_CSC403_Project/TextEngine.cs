@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using MyGameLibrary.Shop;
 using MyGameLibrary.Story;
 
 namespace Fall2020_CSC403_Project
@@ -133,6 +134,7 @@ namespace Fall2020_CSC403_Project
                 case Markup.Options:
                     //line is: Option 1, #A ID] Option 2, #A ID] Exit, #CT] text
                     // (ex: #O Option 1,#CT Oh, you selected that] Option 2,#CT You've selected this] Oh look, it's the options page)
+                    //Note: make sure there is no space between ,#
                     //Display options
                     List<string> optionsInfo = line.Split(']').ToList();
 
@@ -155,6 +157,18 @@ namespace Fall2020_CSC403_Project
                     }
                     this.Options.Peek().OptionFocused = true; //Focus the top option 
                     this.ChangeText(newLineOptions);
+                    break;
+                case Markup.AddItemToInventory:
+                    // line is: id           
+                    string name = Enum.GetName(typeof(Items), int.Parse(line));
+                    Items identifier = (Items)Enum.Parse(typeof(Items), name);
+                    //For the store I recommend that we have something constant somewhere with the description and prices associated with ID
+                    Item item = new Item(identifier, name, "Temp description", 5);
+                    Inventory.addItem(identifier, item);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.GiveItem:
+                    // line is: id
                     break;
                 case Markup.ReadInNewStory:
                     // line is: story_location story_name
