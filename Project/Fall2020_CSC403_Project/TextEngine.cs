@@ -27,7 +27,6 @@ namespace Fall2020_CSC403_Project
 
             ForegroundImage_Xscale = (double)ForegroundImage.Left / Width;
             ForegroundImage_Yscale = (double)ForegroundImage.Top / Height;
-            location = ForegroundImage.Location;
             ForegroundImage_AspectRatio = ForegroundImage.Size.Width / (ForegroundImage.Size.Height * 1.0);
             originalHeight = Height;
             originalWidth = Width;
@@ -245,10 +244,13 @@ namespace Fall2020_CSC403_Project
                 double widthScaling = Width / (double)originalWidth;
                 Textbox.Height = (int)(heightScaling * 80);
                 Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
+                int location_Y = 50;
                 foreach(Option option in Options) 
                 {
                     option.OptionLabel.Size = new Size((int)(widthScaling * 150), (int)(heightScaling * 30));
                     option.OptionLabel.Font = new Font(option.OptionLabel.Font.FontFamily, (int)(heightScaling * 8));
+                    option.OptionLabel.Location = new Point(option.OptionLabel.Location.X, (int)(location_Y*heightScaling));
+                    location_Y += 40;
                 }
             }
             ResumeLayout();
