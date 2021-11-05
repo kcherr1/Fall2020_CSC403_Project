@@ -21,10 +21,12 @@ namespace Fall2020_CSC403_Project
         public int originalHeight { get; set; }
         public int originalWidth { get; set; }
         private bool isShop { get; set; } = false; 
+        private string line { get; set; }
+        private bool optionsDisplayed { get; set; } = false;
         public TextEngine()
         {
             this.Story = new Story("\\data\\story\\", "Story.txt");
-            string line = Story.GetNextLine();
+            line = Story.GetNextLine();
             InitializeComponent();
             this.ForegroundImage.BackColor = Color.Transparent;
             this.ChangeText(line);
@@ -98,19 +100,29 @@ namespace Fall2020_CSC403_Project
                     if(!isShop)
                     {
                         this.RemoveOptions(options);
+                        optionsDisplayed = false;
                     }
                     //Then if there is a store instance running and the markup was #E then remove options and handle next thing
-                    if(isShop && string.Equals(focusedOption.OptionBackendMarkup, "#E"))
+                    else if(isShop && string.Equals(focusedOption.OptionBackendMarkup, "#E"))
                     {
                         this.RemoveOptions(options);
+                        optionsDisplayed = false;
                         Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
                         HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        HandleMarkup(line);
                     }
                     //Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
                     //HandleMarkup(Story.GetNextLine());
                 }
             }
-            else 
+            else if (isShop)
+            {
+                HandleMarkup(line);
+            }
+            else  
             {
                 HandleMarkup(Story.GetNextLine());                
             }            
@@ -118,6 +130,7 @@ namespace Fall2020_CSC403_Project
 
         private void HandleMarkup(string line)
         {
+            this.line = line;
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
             _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
             switch (Story.Current_Action)
@@ -182,25 +195,30 @@ namespace Fall2020_CSC403_Project
                     string newLineOptions = optionsInfo[optionsInfo.Count - 1];
                     optionsInfo.RemoveAt(optionsInfo.Count - 1);
 
-                    options = new List<Option>();
-                    foreach (string info in optionsInfo)
+                    //if there are already displayed options, don't add more
+                    if (!(isShop && optionsDisplayed))
                     {
-                        string newInfo = info.Replace(",#", "-");
-                        string[] newOption = newInfo.Split('-');
-                        options.Add(new Option(newOption[0], '#'+newOption[1]));
-                    }                     
-                    this.DisplayOptions(options); //Display options
-                    // make sure that the foreground image is at the correct location in the options panel
-                    this.OptionsPanel.Controls[1].Location = new Point((int)(ForegroundImage_Xscale * ClientRectangle.Size.Width), (int)(ForegroundImage_Yscale * Height)); 
-                    options.Reverse(); //Start at end
-                    foreach (Option option in options)
-                    {
-                        option.OptionFocused = false; //Unfocus all options
-                        this.Options.Push(option);
+                        options = new List<Option>();
+                        foreach (string info in optionsInfo)
+                        {
+                            string newInfo = info.Replace(",#", "-");
+                            string[] newOption = newInfo.Split('-');
+                            options.Add(new Option(newOption[0], '#' + newOption[1]));
+                        }
+                        this.DisplayOptions(options); //Display options
+                        optionsDisplayed = true;
                     }
-                    this.Options.Peek().OptionFocused = true; //Focus the top option 
-                    this.ChangeText(newLineOptions);
-                    options.Reverse();
+                                                      // make sure that the foreground image is at the correct location in the options panel
+                        this.OptionsPanel.Controls[1].Location = new Point((int)(ForegroundImage_Xscale * ClientRectangle.Size.Width), (int)(ForegroundImage_Yscale * Height));
+                        options.Reverse(); //Start at end
+                        foreach (Option option in options)
+                        {
+                            option.OptionFocused = false; //Unfocus all options
+                            this.Options.Push(option);
+                        }
+                        this.Options.Peek().OptionFocused = true; //Focus the top option 
+                        this.ChangeText(newLineOptions);
+                        options.Reverse();
                     break;
                 case Markup.AddItemToInventory:
                     // line is: id           
