@@ -60,33 +60,33 @@ namespace Fall2020_CSC403_Project
         private void TextEngine_KeyPress(object sender, KeyEventArgs e)
         {
             if (this.Options.Count != 0)
-            {                
-                if(e.KeyCode == Keys.Down && Options.Count > 1)
+            {
+                if (e.KeyCode == Keys.Down && Options.Count > 1)
                 {
                     Options.Peek().OptionFocused = false; //Top option unfocused
                     TempOptions.Push(Options.Pop()); //Put it in the temp stack
                     Options.Peek().OptionFocused = true; //New top option focused
                 }
-                if(e.KeyCode == Keys.Up && TempOptions.Count > 0)
+                if (e.KeyCode == Keys.Up && TempOptions.Count > 0)
                 {
                     Options.Peek().OptionFocused = false; //Top option unfocused
                     Options.Push(TempOptions.Pop()); //Put it in the temp stack
                     Options.Peek().OptionFocused = true; //New top option focused
                 }
-                if(e.KeyCode == Keys.Enter)
+                if (e.KeyCode == Keys.Enter)
                 {
                     //DO MARKUP OF OPTION
                     List<Option> options = new List<Option>();
                     Option focusedOption = new Option("uh oh", "#CT ERROR, OPTION NOT FOUND");
-                    foreach(Option option in TempOptions)
-                    {                       
+                    foreach (Option option in TempOptions)
+                    {
                         if (option.OptionFocused)
                         {
                             focusedOption = option;
                         }
                         options.Add(option);
                     }
-                    foreach(Option option in Options)
+                    foreach (Option option in Options)
                     {
                         if (option.OptionFocused)
                         {
@@ -97,40 +97,40 @@ namespace Fall2020_CSC403_Project
                     TempOptions.Clear();
                     Options.Clear();
                     //see if there is a store instance running and if not remove options on select
-                    if(!isShop)
-                    {
-                        this.RemoveOptions(options);
-                        optionsDisplayed = false;
-                    }
+                    //if (!isShop)
+                    //{
+                    //    this.RemoveOptions(options);
+                    //    optionsDisplayed = false;
+                    //}
                     //Then if there is a store instance running and the markup was #E then remove options and handle next thing
-                    else if(isShop && string.Equals(focusedOption.OptionBackendMarkup, "#E"))
+                    if (isShop && string.Equals(focusedOption.OptionBackendMarkup, "#E"))
                     {
-                        this.RemoveOptions(options);
-                        optionsDisplayed = false;
-                        Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
+                        isShop = false;
+                    }
+                    this.RemoveOptions(options);
+                    optionsDisplayed = false;
+                    Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
+                    HandleMarkup(Story.GetNextLine());
+                    if(isShop)
+                    {
+                        Story.CurrentStoryText.AddFirst("#O " + line);
                         HandleMarkup(Story.GetNextLine());
                     }
-                    else
-                    {
-                        HandleMarkup(line);
-                    }
-                    //Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
-                    //HandleMarkup(Story.GetNextLine());
                 }
             }
             else if (isShop)
             {
-                HandleMarkup(line);
+                Story.CurrentStoryText.AddFirst("#O " + line);
+                HandleMarkup(Story.GetNextLine());
             }
-            else  
+            else
             {
-                HandleMarkup(Story.GetNextLine());                
-            }            
+                HandleMarkup(Story.GetNextLine());
+            }
         }
 
         private void HandleMarkup(string line)
-        {
-            this.line = line;
+        { 
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
             _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
             switch (Story.Current_Action)
@@ -180,6 +180,7 @@ namespace Fall2020_CSC403_Project
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.Options:
+                    this.line = line;
                     //line is: Option 1, #A ID] Option 2, #A ID] Exit, #CT] text
                     // (ex: #O Option 1,#CT Oh, you selected that] Option 2,#CT You've selected this] Oh look, it's the options page)
                     //Note: make sure there is no space between ,#
@@ -195,20 +196,20 @@ namespace Fall2020_CSC403_Project
                     string newLineOptions = optionsInfo[optionsInfo.Count - 1];
                     optionsInfo.RemoveAt(optionsInfo.Count - 1);
 
-                    //if there are already displayed options, don't add more
-                    if (!(isShop && optionsDisplayed))
+                    options = new List<Option>();
+                    foreach (string info in optionsInfo)
                     {
-                        options = new List<Option>();
-                        foreach (string info in optionsInfo)
-                        {
-                            string newInfo = info.Replace(",#", "-");
-                            string[] newOption = newInfo.Split('-');
-                            options.Add(new Option(newOption[0], '#' + newOption[1]));
-                        }
+                        string newInfo = info.Replace(",#", "-");
+                        string[] newOption = newInfo.Split('-');
+                        options.Add(new Option(newOption[0], '#' + newOption[1]));
+                    }
+                    //if there are already displayed options, don't add more
+                   // if (!(isShop && optionsDisplayed))
+                    //{
                         this.DisplayOptions(options); //Display options
                         optionsDisplayed = true;
-                    }
-                                                      // make sure that the foreground image is at the correct location in the options panel
+                    //}
+                        // make sure that the foreground image is at the correct location in the options panel
                         this.OptionsPanel.Controls[1].Location = new Point((int)(ForegroundImage_Xscale * ClientRectangle.Size.Width), (int)(ForegroundImage_Yscale * Height));
                         options.Reverse(); //Start at end
                         foreach (Option option in options)
@@ -255,8 +256,9 @@ namespace Fall2020_CSC403_Project
                 case Markup.CheckThresholdsForTree:
                     // line is: empty, just check thresholds
                     break;
-                case Markup.RepeatLine:
-                    HandleMarkup(line);
+                case Markup.ExitOptions:
+                    //  HandleMarkup(Story.GetNextLine());
+                    isShop = false;
                     break;
             }
         }

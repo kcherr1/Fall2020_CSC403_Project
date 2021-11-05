@@ -2,5 +2,5 @@
 #CF \\data\\foreground\\ enemy_koolaid.png
 #CT Mr. Peanut: Hi again! 
 #CT Hayley: Are you gonna buy something or what? 
-#O  Brick: price,#A 9] Gun: price,#A 10] Guillotine: price,#A 11] Whoopie Cushion: price,#A 12] Human Soul: price,#A 13] Hayley's Crown: price,#A 14] Exit,#]  
+#O  Brick: price,#A 9] Gun: price,#A 10] Guillotine: price,#A 11] Whoopie Cushion: price,#A 12] Human Soul: price,#A 13] Hayley's Crown: price,#A 14] Exit,#E]  
 #CT Hayley: It’s not like I’ll miss you or anything.

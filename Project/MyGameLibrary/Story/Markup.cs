@@ -16,6 +16,6 @@ namespace MyGameLibrary.Story
         ShowForeground,
         HideTextBox,
         ShowTextbox,
-        RepeatLine
+        ExitOptions
     }
 }

@@ -44,7 +44,7 @@ namespace MyGameLibrary.Story
             }
         }
 
-        private void ParseLine()
+        public void ParseLine()
         {
             //Get currently read in line
             string line = this.CurrentStoryText.First();
@@ -105,18 +105,14 @@ namespace MyGameLibrary.Story
             {
                 markup = Markup.ShowTextbox;
             }
-            else if(string.Equals(splitLine[0], "#R"))
+            else if (string.Equals(splitLine[0], "#E"))
             {
-                markup = Markup.RepeatLine;
+                markup = Markup.ExitOptions;
             }
-            
             //Set the current action to the markup enum
             this.Current_Action = markup;
-            if(markup != Markup.RepeatLine)
-            {
-                //Remove the tagging chunk
-                splitLine.RemoveAt(0);
-            }
+            //Remove the tagging chunk
+            splitLine.RemoveAt(0);
             //Fix the line to a single line as it previously was.
             line = string.Join(" ", splitLine);
             //Replace line without the tag
