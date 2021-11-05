@@ -49,7 +49,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="Character\Character.cs" />
     <Compile Include="Character\characterID.cs" />
-    <Compile Include="Character\StaticCharacter.cs" />
+    <Compile Include="Character\CharacterCollection.cs" />
     <Compile Include="Collider.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />

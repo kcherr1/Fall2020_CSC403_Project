@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyGameLibrary.Character
 {
-    public enum CharID
+    public enum characterID
     {
         Wendy = 1,
         Tony = 2,
