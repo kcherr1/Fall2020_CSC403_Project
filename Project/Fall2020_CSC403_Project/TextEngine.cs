@@ -13,7 +13,8 @@ namespace Fall2020_CSC403_Project
     {
         private Story Story { get; set; }
         private Stack<Option> Options = new Stack<Option>();
-        private Stack<Option> TempOptions = new Stack<Option>();          
+        private Stack<Option> TempOptions = new Stack<Option>();
+        private List<Option> options = new List<Option>();
         public double ForegroundImage_Xscale { get; set; }
         public double ForegroundImage_Yscale { get; set; }
         public double ForegroundImage_AspectRatio { get; set; }
@@ -165,7 +166,7 @@ namespace Fall2020_CSC403_Project
                     string newLineOptions = optionsInfo[optionsInfo.Count - 1];
                     optionsInfo.RemoveAt(optionsInfo.Count - 1);
 
-                    List<Option> options = new List<Option>();
+                    options = new List<Option>();
                     foreach (string info in optionsInfo)
                     {
                         string newInfo = info.Replace(",#", "-");
@@ -183,6 +184,7 @@ namespace Fall2020_CSC403_Project
                     }
                     this.Options.Peek().OptionFocused = true; //Focus the top option 
                     this.ChangeText(newLineOptions);
+                    options.Reverse();
                     break;
                 case Markup.AddItemToInventory:
                     // line is: id           
@@ -242,10 +244,10 @@ namespace Fall2020_CSC403_Project
                 Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
                 int location_Y = 50;
                 int optionNumber = 0;
-                foreach(Option option in Options) 
+                foreach(Option option in options) 
                 {
                     optionNumber++;
-                    option.OptionLabel.Size = new Size((int)(widthScaling * 150), (int)(heightScaling * 30));
+                    option.OptionLabel.Size = new Size((int)(widthScaling * 150), (int)(heightScaling * 25));
                     option.OptionLabel.Font = new Font(option.OptionLabel.Font.FontFamily, (int)(heightScaling * 8));
                     if(optionNumber == 6)
                     {
@@ -258,7 +260,7 @@ namespace Fall2020_CSC403_Project
                     }
                     else
                     {
-                        option.OptionLabel.Location = new Point(option.OptionLabel.Location.X, (int)(location_Y * heightScaling));
+                        option.OptionLabel.Location = new Point(20, (int)(location_Y * heightScaling));
                     }
                     location_Y += 40;
                 }

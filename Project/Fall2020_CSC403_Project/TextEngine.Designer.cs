@@ -194,6 +194,7 @@ namespace Fall2020_CSC403_Project
             this.SuspendLayout();
             this.NormalPanel.Controls.Add(this.Textbox);
             this.NormalPanel.Controls.Add(this.ForegroundImage);
+            this.NormalPanel.Controls[1].Location = new Point((int)(ForegroundImage_Xscale * ClientRectangle.Size.Width), (int)(ForegroundImage_Yscale * Height));
             this.NormalPanel.Visible = true;
             this.OptionsPanel.Visible = false;
             foreach (Option option in options)
