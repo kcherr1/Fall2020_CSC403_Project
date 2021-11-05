@@ -11,6 +11,13 @@ namespace MyGameLibrary.Story
         CheckThresholdsForTree,
         AddItemToInventory,
         GiveItem, 
-        ViewInventory
+        ViewInventory,
+        HideForeground,
+        ShowForeground,
+        HideTextBox,
+        ShowTextbox,
+        ExitOptions,
+        HannahShopOptions,
+        HayleyShopOptions
     }
 }

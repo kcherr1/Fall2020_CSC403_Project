@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyGameLibrary.Shop;
+using MyGameLibrary.Story;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -15,26 +17,25 @@ namespace Fall2020_CSC403_Project
         private Story Story { get; set; }
         private CharacterCollection Characters = new CharacterCollection();
         private Stack<Option> Options = new Stack<Option>();
-        private Stack<Option> TempOptions = new Stack<Option>();          
-        private double ForegroundImage_Xscale { get; set; }
-        private double ForegroundImage_Yscale { get; set; }
-        private double ForegroundImage_AspectRatio { get; set; }
-
-        private Point location { get; set; }
-        private int originalHeight { get; set; }
+        private Stack<Option> TempOptions = new Stack<Option>();
+        private List<Option> options = new List<Option>();
+        public double ForegroundImage_Xscale { get; set; }
+        public double ForegroundImage_Yscale { get; set; }
+        public double ForegroundImage_AspectRatio { get; set; }
+        public int originalHeight { get; set; }
+        public int originalWidth { get; set; }
+        private bool isShop { get; set; } = false; 
+        private string line { get; set; }
+        private bool optionsDisplayed { get; set; } = false;
         public TextEngine()
         {
             this.Story = new Story("\\data\\story\\", "Story.txt");
-            string line = Story.GetNextLine();
+            line = Story.GetNextLine();
+            Item.initializeAllItems();
+            Item.initializeHannahShop();
+            Item.initializeHayleyShop();
             InitializeComponent();
-
-            ForegroundImage_Xscale = (double)ForegroundImage.Left / Width;
-            ForegroundImage_Yscale = (double)ForegroundImage.Top / Height;
-            location = ForegroundImage.Location;
-            ForegroundImage_AspectRatio = ForegroundImage.Size.Width / (ForegroundImage.Size.Height * 1.0);
-            originalHeight = Height;
             this.ForegroundImage.BackColor = Color.Transparent;
-
             this.ChangeText(line);
         }
 
@@ -54,6 +55,10 @@ namespace Fall2020_CSC403_Project
             Textbox.Text = newText;
         }
 
+        public void ForegroundVisibile(bool hide)
+        {
+            ForegroundImage.Visible = hide;
+        }
         public void TextboxVisible(bool hide)
         {
             Textbox.Visible = hide;
@@ -62,33 +67,25 @@ namespace Fall2020_CSC403_Project
         private void TextEngine_KeyPress(object sender, KeyEventArgs e)
         {
             if (this.Options.Count != 0)
-            {                
-                if(e.KeyCode == Keys.Down && Options.Count > 1)
+            {
+                if (e.KeyCode == Keys.Down && Options.Count > 1)
                 {
                     Options.Peek().OptionFocused = false; //Top option unfocused
                     TempOptions.Push(Options.Pop()); //Put it in the temp stack
                     Options.Peek().OptionFocused = true; //New top option focused
                 }
-                if(e.KeyCode == Keys.Up && TempOptions.Count > 0)
+                if (e.KeyCode == Keys.Up && TempOptions.Count > 0)
                 {
                     Options.Peek().OptionFocused = false; //Top option unfocused
                     Options.Push(TempOptions.Pop()); //Put it in the temp stack
                     Options.Peek().OptionFocused = true; //New top option focused
                 }
-                if(e.KeyCode == Keys.Enter)
+                if (e.KeyCode == Keys.Enter)
                 {
-                    //DO MARKUP OF OPTION
+                    //DO MARKUP OF OPTION                    
                     List<Option> options = new List<Option>();
                     Option focusedOption = new Option("uh oh", "#CT ERROR, OPTION NOT FOUND");
-                    foreach(Option option in TempOptions)
-                    {                       
-                        if (option.OptionFocused)
-                        {
-                            focusedOption = option;
-                        }
-                        options.Add(option);
-                    }
-                    foreach(Option option in Options)
+                    foreach (Option option in TempOptions)
                     {
                         if (option.OptionFocused)
                         {
@@ -96,23 +93,44 @@ namespace Fall2020_CSC403_Project
                         }
                         options.Add(option);
                     }
-                    TempOptions.Clear();
-                    Options.Clear();
-                    //Potentially a simple check to see if there is a store instance running and if so not remove options on select
-                    this.RemoveOptions(options);
-                    //Then if there is a store instance running and the markup was #E then remove options and handle next thing
+                    foreach (Option option in Options)
+                    {
+                        if (option.OptionFocused)
+                        {
+                            focusedOption = option;
+                        }
+                        options.Add(option);
+                    }
+                    if (isShop)
+                    {
+                        if(string.Equals(focusedOption.OptionBackendMarkup, "#E"))
+                        {
+                            isShop = false;
+                        }
+                        TempOptions.Clear();
+                        Options.Clear();
+                        this.RemoveOptions(options);
+                        optionsDisplayed = false;
+                    }
+                    else
+                    {                        
+                        TempOptions.Clear();
+                        Options.Clear();
+                        this.RemoveOptions(options);
+                        optionsDisplayed = false;
+                    }
                     Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
                     HandleMarkup(Story.GetNextLine());
                 }
             }
-            else 
+            else
             {
-                HandleMarkup(Story.GetNextLine());                
-            }            
+                HandleMarkup(Story.GetNextLine());
+            }
         }
 
         private void HandleMarkup(string line)
-        {
+        { 
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
             _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
             switch (Story.Current_Action)
@@ -141,24 +159,54 @@ namespace Fall2020_CSC403_Project
                     string newLineFG = string.Join(" ", foregroundInfo);
                     this.ChangeText(newLineFG);
                     break;
+                case Markup.HideForeground:
+                    // line is: nothing, this is just a signal to hide the foreground
+                    this.ForegroundVisibile(false);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.ShowForeground:
+                    // line is: nothing, this is just a signal to show the foreground
+                    this.ForegroundVisibile(true);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.HideTextBox:
+                    // line is: nothing, this is just a signal to hide the textbox
+                    this.TextboxVisible(false);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.ShowTextbox:
+                    // line is: nothing, this is just a signal to show the textbox
+                    this.TextboxVisible(true);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
                 case Markup.Options:
+                    this.line = line;
                     //line is: Option 1, #A ID] Option 2, #A ID] Exit, #CT] text
                     // (ex: #O Option 1,#CT Oh, you selected that] Option 2,#CT You've selected this] Oh look, it's the options page)
                     //Note: make sure there is no space between ,#
                     //Display options
+                    isShop = false;
+                    if(Equals(line.Substring(0, 2), "S "))
+                    {
+                        isShop = true;
+                        line = line.Substring(2);
+                    }
                     List<string> optionsInfo = line.Split(']').ToList();
 
                     string newLineOptions = optionsInfo[optionsInfo.Count - 1];
                     optionsInfo.RemoveAt(optionsInfo.Count - 1);
 
-                    List<Option> options = new List<Option>();
+                    options = new List<Option>();
                     foreach (string info in optionsInfo)
                     {
                         string newInfo = info.Replace(",#", "-");
                         string[] newOption = newInfo.Split('-');
-                        options.Add(new Option(newOption[0], '#'+newOption[1]));
-                    }                     
+                        options.Add(new Option(newOption[0], '#' + newOption[1]));
+                    }
                     this.DisplayOptions(options); //Display options
+                    optionsDisplayed = true;
+                    // make sure that the foreground image is at the correct location in the options panel
+                    this.OptionsPanel.Controls[1].Location = new Point((int)(ForegroundImage_Xscale * ClientRectangle.Size.Width), (int)(ForegroundImage_Yscale * Height));
                     options.Reverse(); //Start at end
                     foreach (Option option in options)
                     {
@@ -167,16 +215,40 @@ namespace Fall2020_CSC403_Project
                     }
                     this.Options.Peek().OptionFocused = true; //Focus the top option 
                     this.ChangeText(newLineOptions);
+                    options.Reverse();
                     break;
                 case Markup.AddItemToInventory:
                     // line is: id           
                     string nameAdd = Enum.GetName(typeof(Items), int.Parse(line));
                     Items identifierAdd = (Items)Enum.Parse(typeof(Items), nameAdd);
                     //For the store I recommend that we have something constant somewhere with the description and prices associated with ID
-                    Item itemAdd = new Item(identifierAdd, nameAdd, "Temp description", 5);
-                    Inventory.withdrawMoney(itemAdd.ItemPrice);
-                    Inventory.addItem(identifierAdd, itemAdd);
-                    HandleMarkup(Story.GetNextLine());
+                    Item itemAdd = Item.allItems[(int)identifierAdd];
+                    if(itemAdd.ItemPrice <= Inventory.walletBalance)
+                    {
+                        Inventory.withdrawMoney(itemAdd.ItemPrice);
+                        Inventory.addItem(identifierAdd, itemAdd);
+                        // if the options are a shop, refresh the shop options after buying an item
+                        if (isShop)
+                        {
+                            if (Item.hannahShopItems.ContainsKey((int)identifierAdd))
+                            {
+                                Item.hannahShopItems.Remove((int)identifierAdd);
+                                Story.CurrentStoryText.AddFirst("#S1");
+                                HandleMarkup(Story.GetNextLine());
+                            }
+                            else
+                            {
+                                Item.hayleyShopItems.Remove((int)identifierAdd);
+                                Story.CurrentStoryText.AddFirst("#S2");
+                                HandleMarkup(Story.GetNextLine());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Story.CurrentStoryText.AddFirst("#CT Mr. Peanut: Oh no! I can't afford that!");
+                        HandleMarkup(Story.GetNextLine());
+                    }
                     break;
                 case Markup.GiveItem:
                     // line is: id
@@ -203,6 +275,40 @@ namespace Fall2020_CSC403_Project
                 case Markup.CheckThresholdsForTree:
                     // line is: empty, just check thresholds
                     break;
+                case Markup.ExitOptions:
+                    // line is: #E
+                    // allows the user to exit the shop options by changing isShop to false
+                    isShop = false;
+                    break;
+                case Markup.HannahShopOptions:
+                    // line is: #S1
+                    // creates a string containing the available items to be displayed as options
+                    string shop1OptionString = "#O S ";
+                    if(this.Options.Count == 0)
+                    {
+                        foreach (int itemID in Item.hannahShopItems.Keys)
+                        {
+                            shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": " + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
+                        }
+                    }
+
+                    shop1OptionString += " Exit,#E]";
+                    Console.WriteLine(shop1OptionString);
+                    Story.CurrentStoryText.AddFirst(shop1OptionString);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.HayleyShopOptions:
+                    // line is: #S2
+                    // creates a string containing the available items to be displayed as options
+                    string shop2OptionString = "#O S ";
+                    foreach (int itemID in Item.hayleyShopItems.Keys)
+                    {
+                        shop2OptionString += (Item.hayleyShopItems[itemID].ItemName + ": " + Item.hayleyShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
+                    }
+                    shop2OptionString += " Exit,#E]";
+                    Story.CurrentStoryText.AddFirst(shop2OptionString);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
             }
         }
 
@@ -216,13 +322,36 @@ namespace Fall2020_CSC403_Project
             if (ForegroundImage_Xscale != 0 && ForegroundImage_Yscale != 0)
             {
                 ForegroundImage.Location = new Point((int)(ForegroundImage_Xscale * ClientRectangle.Size.Width), (int)(ForegroundImage_Yscale*Height));
-                Console.WriteLine(ForegroundImage.Location);
             }
             if (originalHeight != 0)
             {
-                double scaling = Height / (double)originalHeight;
-                Textbox.Height = (int)(scaling * 80);
-                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(scaling * 12));
+                double heightScaling = Height / (double)originalHeight;
+                double widthScaling = Width / (double)originalWidth;
+                Textbox.Height = (int)(heightScaling * 80);
+                Textbox.Width = Width;
+                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
+                int location_Y = 50;
+                int optionNumber = 0;
+                foreach(Option option in options) 
+                {
+                    optionNumber++;
+                    option.OptionLabel.Size = new Size((int)(widthScaling * 150), (int)(heightScaling * 25));
+                    option.OptionLabel.Font = new Font(option.OptionLabel.Font.FontFamily, (int)(heightScaling * 8));
+                    if(optionNumber == 6)
+                    {
+                        location_Y = 50;
+                        option.OptionLabel.Location = new Point(40 + option.OptionLabel.Width, (int)(location_Y * heightScaling));
+                    }
+                    else if(optionNumber>6)
+                    { 
+                        option.OptionLabel.Location = new Point(40 + option.OptionLabel.Width, (int)(location_Y * heightScaling));
+                    }
+                    else
+                    {
+                        option.OptionLabel.Location = new Point(20, (int)(location_Y * heightScaling));
+                    }
+                    location_Y += 40;
+                }
             }
             ResumeLayout();
         }
