@@ -20,6 +20,7 @@ namespace Fall2020_CSC403_Project
         public double ForegroundImage_AspectRatio { get; set; }
         public int originalHeight { get; set; }
         public int originalWidth { get; set; }
+        private bool isShop { get; set; } = false; 
         public TextEngine()
         {
             this.Story = new Story("\\data\\story\\", "Story.txt");
@@ -93,11 +94,20 @@ namespace Fall2020_CSC403_Project
                     }
                     TempOptions.Clear();
                     Options.Clear();
-                    //Potentially a simple check to see if there is a store instance running and if so not remove options on select
-                    this.RemoveOptions(options);
+                    //see if there is a store instance running and if not remove options on select
+                    if(!isShop)
+                    {
+                        this.RemoveOptions(options);
+                    }
                     //Then if there is a store instance running and the markup was #E then remove options and handle next thing
-                    Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
-                    HandleMarkup(Story.GetNextLine());
+                    if(isShop && string.Equals(focusedOption.OptionBackendMarkup, "#E"))
+                    {
+                        this.RemoveOptions(options);
+                        Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    //Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
+                    //HandleMarkup(Story.GetNextLine());
                 }
             }
             else 
@@ -161,6 +171,12 @@ namespace Fall2020_CSC403_Project
                     // (ex: #O Option 1,#CT Oh, you selected that] Option 2,#CT You've selected this] Oh look, it's the options page)
                     //Note: make sure there is no space between ,#
                     //Display options
+                    isShop = false;
+                    if(Equals(line.Substring(0, 2), "S "))
+                    {
+                        isShop = true;
+                        line = line.Substring(1);
+                    }
                     List<string> optionsInfo = line.Split(']').ToList();
 
                     string newLineOptions = optionsInfo[optionsInfo.Count - 1];
@@ -220,6 +236,9 @@ namespace Fall2020_CSC403_Project
                     break;
                 case Markup.CheckThresholdsForTree:
                     // line is: empty, just check thresholds
+                    break;
+                case Markup.RepeatLine:
+                    HandleMarkup(line);
                     break;
             }
         }
