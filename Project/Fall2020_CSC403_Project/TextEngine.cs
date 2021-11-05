@@ -1,11 +1,11 @@
-﻿using System;
+﻿using MyGameLibrary.Shop;
+using MyGameLibrary.Story;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using MyGameLibrary.Shop;
-using MyGameLibrary.Story;
 
 namespace Fall2020_CSC403_Project
 {
@@ -78,7 +78,7 @@ namespace Fall2020_CSC403_Project
                 }
                 if (e.KeyCode == Keys.Enter)
                 {
-                    //DO MARKUP OF OPTION
+                    //DO MARKUP OF OPTION                    
                     List<Option> options = new List<Option>();
                     Option focusedOption = new Option("uh oh", "#CT ERROR, OPTION NOT FOUND");
                     foreach (Option option in TempOptions)
@@ -97,29 +97,27 @@ namespace Fall2020_CSC403_Project
                         }
                         options.Add(option);
                     }
-                    TempOptions.Clear();
-                    Options.Clear();
-                    //if there is a store instance running and the markup was #E then remove options and handle next thing
-                    if (isShop && string.Equals(focusedOption.OptionBackendMarkup, "#E"))
+                    if (isShop)
                     {
-                        isShop = false;
+                        if(string.Equals(focusedOption.OptionBackendMarkup, "#E"))
+                        {
+                            isShop = false;
+                        }
+                        TempOptions.Clear();
+                        Options.Clear();
+                        this.RemoveOptions(options);
+                        optionsDisplayed = false;
                     }
-                    this.RemoveOptions(options);
-                    optionsDisplayed = false;
+                    else
+                    {                        
+                        TempOptions.Clear();
+                        Options.Clear();
+                        this.RemoveOptions(options);
+                        optionsDisplayed = false;
+                    }
                     Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
                     HandleMarkup(Story.GetNextLine());
-                    // if the options are flagged as being a store, redo the option line of the txt
-                     if(isShop)
-                    {
-                        Story.CurrentStoryText.AddFirst("#O " + line);
-                        HandleMarkup(Story.GetNextLine());
-                    }
                 }
-            }
-            else if (isShop)
-            {
-                Story.CurrentStoryText.AddFirst("#O " + line);
-                HandleMarkup(Story.GetNextLine());
             }
             else
             {
@@ -225,15 +223,20 @@ namespace Fall2020_CSC403_Project
                     {
                         Inventory.withdrawMoney(itemAdd.ItemPrice);
                         Inventory.addItem(identifierAdd, itemAdd);
-                        if(Item.hannahShopItems.ContainsKey((int)identifierAdd))
+                        if (isShop)
                         {
-                            Item.hannahShopItems.Remove((int)identifierAdd);
-                            Console.WriteLine(Item.hannahShopItems);
-                        }
-                        else
-                        {
-                            Item.hayleyShopItems.Remove((int)identifierAdd);
-                            Console.WriteLine(Item.hayleyShopItems);
+                            if (Item.hannahShopItems.ContainsKey((int)identifierAdd))
+                            {
+                                Item.hannahShopItems.Remove((int)identifierAdd);
+                                Story.CurrentStoryText.AddFirst("#S1");
+                                HandleMarkup(Story.GetNextLine());
+                            }
+                            else
+                            {
+                                Item.hayleyShopItems.Remove((int)identifierAdd);
+                                Story.CurrentStoryText.AddFirst("#S2");
+                                HandleMarkup(Story.GetNextLine());
+                            }
                         }
                     }
                     else
@@ -241,7 +244,7 @@ namespace Fall2020_CSC403_Project
                         Story.CurrentStoryText.AddFirst("#CT Mr. Peanut: Oh no! I can't afford that!");
                         HandleMarkup(Story.GetNextLine());
                     }
-                    HandleMarkup(Story.GetNextLine());
+                   // HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.GiveItem:
                     // line is: id
@@ -274,11 +277,16 @@ namespace Fall2020_CSC403_Project
                     break;
                 case Markup.HannahShopOptions:
                     string shop1OptionString = "#O S ";
-                    foreach (int itemID in Item.hannahShopItems.Keys)
+                    if(this.Options.Count == 0)
                     {
-                        shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": " + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
+                        foreach (int itemID in Item.hannahShopItems.Keys)
+                        {
+                            shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": " + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
+                        }
                     }
+
                     shop1OptionString += " Exit,#E]";
+                    Console.WriteLine(shop1OptionString);
                     Story.CurrentStoryText.AddFirst(shop1OptionString);
                     HandleMarkup(Story.GetNextLine());
                     break;

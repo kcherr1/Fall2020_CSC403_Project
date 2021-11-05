@@ -10,12 +10,6 @@
 #CT Now we're going to try an options page.
 #O Option 1,#CT Oh, you selected that] Option 2,#CT You've selected this] Oh look, it's the options page
 
-#CT Now we're going to try an options page which adds items to your inventory.
-#O Gun,#A 3] Gun,#A 10] This is a gun roulette, which one is real.
-
-#CT Okay, if you bought the real gun, I'm going to take that away from you real fast.
-#G 10
-
 #CT Now we're going to hide the foreground.
 #HF
 #CT Woah, the foreground image is gone.
