@@ -13,8 +13,8 @@
         brick = 9, 
         realGun = 10, 
         guillotine = 11,
-        whoopieCushion = 12, 
-        readyPlayerTwo = 13, 
+        whoopieCushion = 12,
+        readyPlayerTwo = 13,
         humanSoul = 14, 
         hayleysCrown = 15
 

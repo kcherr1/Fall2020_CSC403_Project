@@ -1,0 +1,8 @@
+﻿#CB \\data\\background\\ hannah_store.jpg
+#CF \\data\\foreground\\ enemy_koolaid.png
+#CT Mr. Peanut: Excuse me, is this the cafeteria? 
+#CT Hayley: Excuse me, do you have eyes? 
+#CT Mr. Peanut: I think so? If this isn’t the cafeteria, then where am I? 
+#CT Hayley: The best place to lose money at. I’ve got all sorts of useless items to buy. I noticed you have a monocle. You seem to be a man of wealth. I know exactly how to fix that problem. 
+#CT Mr. Peanut: Oh, I’m sorry, I don’t have any money right now. 
+#CT Hayley: Don’t we all? Isn’t that just the way life works? Come back when you do. I’d like to fix the no money problem myself. 
