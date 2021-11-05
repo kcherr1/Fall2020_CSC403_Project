@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using MyGameLibrary.Story;
@@ -126,6 +127,12 @@ namespace Fall2020_CSC403_Project
             this.OptionsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
+            //set original values for resizing
+            this.originalHeight = Height;
+            this.originalWidth = Width;
+            this.ForegroundImage_Xscale = (double)ForegroundImage.Left / Width;
+            this.ForegroundImage_Yscale = (double)ForegroundImage.Top / Height;
+            this.ForegroundImage_AspectRatio = ForegroundImage.Size.Width / (ForegroundImage.Size.Height * 1.0);
 
         }
         #endregion
@@ -142,6 +149,10 @@ namespace Fall2020_CSC403_Project
             this.SuspendLayout();
             this.OptionsPanel.Controls.Add(this.Textbox);
             this.OptionsPanel.Controls.Add(this.ForegroundImage);
+
+            //maintain scaling - resize handler only resizes current options, new options must be resized on creation
+            double heightScaling = Height / (double)originalHeight;
+            double widthScaling = Width / (double)originalWidth;
             foreach (Option option in options)
             {
                 //
@@ -152,21 +163,22 @@ namespace Fall2020_CSC403_Project
                 optionLabel.BackColor = Color.AliceBlue;
                 optionLabel.Location = location;
                 optionLabel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-                optionLabel.Size = new System.Drawing.Size(150, 25);
+                optionLabel.Size = new System.Drawing.Size((int)(150*widthScaling), (int)(25*heightScaling));
+                optionLabel.Font = new Font(optionLabel.Font.FontFamily, (int)(heightScaling * 8));
                 optionLabel.Text = option.OptionText;
                 option.OptionLabel = optionLabel; // Set the associated label control in the option object for ease of delete
                 if (options.Count >= 6 && option.Equals(options[5]))
                 {
-                    location =  new Point(190, 50);
+                    location =  new Point(40 + optionLabel.Width, 50);
                 }
                 else
                 {
-                    location.Offset(0, 40);
+                    location.Offset(0, (int)(40*heightScaling));
                 }
                 this.NormalPanel.Controls.Add(optionLabel); // Add option to the panel
                 this.OptionsPanel.Controls.Add(optionLabel); // Add option to the panel
                //location.Offset(0, 20); // Next option will be slightly lower
-            }            
+            }
             this.OptionsPanel.Visible = true;
             this.NormalPanel.Visible = false;
             this.NormalPanel.ResumeLayout(false);

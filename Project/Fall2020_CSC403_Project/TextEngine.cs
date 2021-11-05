@@ -14,24 +14,17 @@ namespace Fall2020_CSC403_Project
         private Story Story { get; set; }
         private Stack<Option> Options = new Stack<Option>();
         private Stack<Option> TempOptions = new Stack<Option>();          
-        private double ForegroundImage_Xscale { get; set; }
-        private double ForegroundImage_Yscale { get; set; }
-        private double ForegroundImage_AspectRatio { get; set; }
-        private int originalHeight { get; set; }
-        private int originalWidth { get; set; }
+        public double ForegroundImage_Xscale { get; set; }
+        public double ForegroundImage_Yscale { get; set; }
+        public double ForegroundImage_AspectRatio { get; set; }
+        public int originalHeight { get; set; }
+        public int originalWidth { get; set; }
         public TextEngine()
         {
             this.Story = new Story("\\data\\story\\", "Story.txt");
             string line = Story.GetNextLine();
             InitializeComponent();
-
-            ForegroundImage_Xscale = (double)ForegroundImage.Left / Width;
-            ForegroundImage_Yscale = (double)ForegroundImage.Top / Height;
-            ForegroundImage_AspectRatio = ForegroundImage.Size.Width / (ForegroundImage.Size.Height * 1.0);
-            originalHeight = Height;
-            originalWidth = Width;
             this.ForegroundImage.BackColor = Color.Transparent;
-
             this.ChangeText(line);
         }
 
@@ -180,6 +173,8 @@ namespace Fall2020_CSC403_Project
                         options.Add(new Option(newOption[0], '#'+newOption[1]));
                     }                     
                     this.DisplayOptions(options); //Display options
+                    // make sure that the foreground image is at the correct location in the options panel
+                    this.OptionsPanel.Controls[1].Location = new Point((int)(ForegroundImage_Xscale * ClientRectangle.Size.Width), (int)(ForegroundImage_Yscale * Height)); 
                     options.Reverse(); //Start at end
                     foreach (Option option in options)
                     {
@@ -243,6 +238,7 @@ namespace Fall2020_CSC403_Project
                 double heightScaling = Height / (double)originalHeight;
                 double widthScaling = Width / (double)originalWidth;
                 Textbox.Height = (int)(heightScaling * 80);
+                Textbox.Width = Width;
                 Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
                 int location_Y = 50;
                 int optionNumber = 0;
