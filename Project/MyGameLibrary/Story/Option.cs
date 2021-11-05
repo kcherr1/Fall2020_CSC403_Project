@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace MyGameLibrary.Story
     {
         public string OptionText { get; set; }
         public string OptionBackendMarkup { get; set; }
-        private float _OptionDarkenBrightenPercent = (float).20; //Must be between 0-1
+        private int correction = 51; // correction value of 51 is a 19.921875% change, cloest value to 20% change
         private bool _OptionFocused;
         public bool OptionFocused
         {
@@ -24,25 +24,24 @@ namespace MyGameLibrary.Story
             set
             {
                 int a = OptionLabel.BackColor.A;
-                float r = OptionLabel.BackColor.R;
-                float g = OptionLabel.BackColor.G;
-                float b = OptionLabel.BackColor.B;
-                if(!_OptionFocused && value) //If set value is true and was previously false
+                int r = OptionLabel.BackColor.R;
+                int g = OptionLabel.BackColor.G;
+                int b = OptionLabel.BackColor.B;
+                if (!_OptionFocused && value) //If set value is true and was previously false
                 {
                     #region Darken BackColor
-                    float correction  = 1 - _OptionDarkenBrightenPercent;
-                    r = (float)(r * correction);
-                    g = (float)(g * correction);
-                    b = (float)(b * correction);
+                    r = (int)(r - correction);
+                    g = (int)(g - correction);
+                    b = (int)(b - correction);
                     #endregion
                     OptionLabel.BackColor = Color.FromArgb(a, (int)r, (int)g, (int)b);
                 }
                 if (_OptionFocused && !value) //If set value to false and was previously true
                 {
                     #region Brighten Backcolor
-                    r = (float)((255 - r) * _OptionDarkenBrightenPercent + r);
-                    g = (float)((255 - g) * _OptionDarkenBrightenPercent + g);
-                    b = (float)((255 - b) * _OptionDarkenBrightenPercent + b);
+                    r = (int)(r + correction);
+                    g = (int)(g + correction);
+                    b = (int)(b + correction);
                     #endregion
                     OptionLabel.BackColor = Color.FromArgb(a, (int)r, (int)g, (int)b);
                 }
@@ -50,7 +49,7 @@ namespace MyGameLibrary.Story
             }
         }
         public Label OptionLabel { get; set; }
-        public Option(string text, string markup, bool focused=false)
+        public Option(string text, string markup, bool focused = false)
         {
             this.OptionText = text;
             this.OptionBackendMarkup = markup;
