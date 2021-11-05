@@ -272,10 +272,13 @@ namespace Fall2020_CSC403_Project
                     // line is: empty, just check thresholds
                     break;
                 case Markup.ExitOptions:
-                    //  HandleMarkup(Story.GetNextLine());
+                    // line is: #E
+                    // allows the user to exit the shop options by changing isShop to false
                     isShop = false;
                     break;
                 case Markup.HannahShopOptions:
+                    // line is: #S1
+                    // creates a string containing the available items to be displayed as options
                     string shop1OptionString = "#O S ";
                     if(this.Options.Count == 0)
                     {
@@ -291,6 +294,8 @@ namespace Fall2020_CSC403_Project
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.HayleyShopOptions:
+                    // line is: #S2
+                    // creates a string containing the available items to be displayed as options
                     string shop2OptionString = "#O S ";
                     foreach (int itemID in Item.hayleyShopItems.Keys)
                     {
