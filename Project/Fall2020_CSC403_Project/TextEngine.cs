@@ -245,11 +245,25 @@ namespace Fall2020_CSC403_Project
                 Textbox.Height = (int)(heightScaling * 80);
                 Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
                 int location_Y = 50;
+                int optionNumber = 0;
                 foreach(Option option in Options) 
                 {
+                    optionNumber++;
                     option.OptionLabel.Size = new Size((int)(widthScaling * 150), (int)(heightScaling * 30));
                     option.OptionLabel.Font = new Font(option.OptionLabel.Font.FontFamily, (int)(heightScaling * 8));
-                    option.OptionLabel.Location = new Point(option.OptionLabel.Location.X, (int)(location_Y*heightScaling));
+                    if(optionNumber == 6)
+                    {
+                        location_Y = 50;
+                        option.OptionLabel.Location = new Point(40 + option.OptionLabel.Width, (int)(location_Y * heightScaling));
+                    }
+                    else if(optionNumber>6)
+                    { 
+                        option.OptionLabel.Location = new Point(40 + option.OptionLabel.Width, (int)(location_Y * heightScaling));
+                    }
+                    else
+                    {
+                        option.OptionLabel.Location = new Point(option.OptionLabel.Location.X, (int)(location_Y * heightScaling));
+                    }
                     location_Y += 40;
                 }
             }
