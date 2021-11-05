@@ -182,7 +182,7 @@ namespace Fall2020_CSC403_Project
                     //Note: make sure there is no space between ,#
                     //Display options
                     isShop = false;
-                    if(Equals(line.Substring(0, 2), "S ") || Equals(line.Substring(0, 2), "S "))
+                    if(Equals(line.Substring(0, 2), "S "))
                     {
                         isShop = true;
                         line = line.Substring(2);
@@ -223,6 +223,7 @@ namespace Fall2020_CSC403_Project
                     {
                         Inventory.withdrawMoney(itemAdd.ItemPrice);
                         Inventory.addItem(identifierAdd, itemAdd);
+                        // if the options are a shop, refresh the shop options after buying an item
                         if (isShop)
                         {
                             if (Item.hannahShopItems.ContainsKey((int)identifierAdd))
@@ -244,7 +245,6 @@ namespace Fall2020_CSC403_Project
                         Story.CurrentStoryText.AddFirst("#CT Mr. Peanut: Oh no! I can't afford that!");
                         HandleMarkup(Story.GetNextLine());
                     }
-                   // HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.GiveItem:
                     // line is: id
