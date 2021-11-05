@@ -44,7 +44,7 @@ namespace MyGameLibrary.Story
             }
         }
 
-        public void ParseLine()
+        private void ParseLine()
         {
             //Get currently read in line
             string line = this.CurrentStoryText.First();
@@ -108,6 +108,14 @@ namespace MyGameLibrary.Story
             else if (string.Equals(splitLine[0], "#E"))
             {
                 markup = Markup.ExitOptions;
+            }
+            else if (string.Equals(splitLine[0], "#S1"))
+            {
+                markup = Markup.HannahShopOptions;
+            }
+            else if (string.Equals(splitLine[0], "#S2"))
+            {
+                markup = Markup.HayleyShopOptions;
             }
             //Set the current action to the markup enum
             this.Current_Action = markup;

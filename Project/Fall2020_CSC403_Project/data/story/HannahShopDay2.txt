@@ -2,5 +2,5 @@
 #CF \\data\\foreground\\ enemy_koolaid.png
 #CT Mr. Peanut: Hi again! I have money this time! 
 #CT Hannah: Epic, welcome back. Check out my items and let me know what you want! Maybe if you give someone a gift, they might want to go to prom with you. I’ve heard lots of students have come in here stressed about that recently. 
-#O S Tool Kit: price,#A 1] Plush Cat: price,#A 2] Toy Gun: price,#A 3] Tiger Lily: price,#A 4] Frozen Steak: price,#A 5] Portable Oven: price,#A 6] Cooking With Chocolate: price,#A 7] Among The Skies: price,#A 8] Exit,#E]
+#S1
 #CT Hannah: Thanks for coming in! Come back soon. I am so lonely. 

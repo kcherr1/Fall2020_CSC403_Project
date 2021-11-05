@@ -16,6 +16,8 @@ namespace MyGameLibrary.Story
         ShowForeground,
         HideTextBox,
         ShowTextbox,
-        ExitOptions
+        ExitOptions,
+        HannahShopOptions,
+        HayleyShopOptions
     }
 }
