@@ -143,6 +143,26 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Apple_Man_Shimmer {
+            get {
+                object obj = ResourceManager.GetObject("Apple_Man_Shimmer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Batastrophe {
+            get {
+                object obj = ResourceManager.GetObject("Batastrophe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap battle_screen {
             get {
                 object obj = ResourceManager.GetObject("battle_screen", resourceCulture);
@@ -390,6 +410,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Monk_Man_Shimmer {
+            get {
+                object obj = ResourceManager.GetObject("Monk_Man_Shimmer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OG_D {
             get {
                 object obj = ResourceManager.GetObject("OG_D", resourceCulture);
@@ -470,9 +500,29 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Orange_Girl_Shimmer {
+            get {
+                object obj = ResourceManager.GetObject("Orange_Girl_Shimmer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap player {
             get {
                 object obj = ResourceManager.GetObject("player", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stalker {
+            get {
+                object obj = ResourceManager.GetObject("Stalker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -571,6 +621,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap TG_UI {
             get {
                 object obj = ResourceManager.GetObject("TG_UI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tomato_Girl_Shimmer {
+            get {
+                object obj = ResourceManager.GetObject("Tomato_Girl_Shimmer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

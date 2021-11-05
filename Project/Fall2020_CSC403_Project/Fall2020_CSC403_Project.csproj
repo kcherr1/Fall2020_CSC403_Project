@@ -280,5 +280,23 @@
   <ItemGroup>
     <None Include="Resources\Button_6.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Orange_Girl_Shimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apple_Man_Shimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monk_Man_Shimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tomato_Girl_Shimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Batastrophe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stalker.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

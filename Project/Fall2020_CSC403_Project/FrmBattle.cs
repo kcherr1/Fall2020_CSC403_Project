@@ -23,8 +23,14 @@ namespace Fall2020_CSC403_Project {
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
 
-      // Observer pattern
-      enemy.AttackEvent += PlayerDamage;
+      //string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
+
+      
+      //picPlayer.Image = new Bitmap(resourcesPath + "\\Stalker.png");
+      
+
+            // Observer pattern
+            enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
 
       // show health
@@ -88,5 +94,15 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picPlayer_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
