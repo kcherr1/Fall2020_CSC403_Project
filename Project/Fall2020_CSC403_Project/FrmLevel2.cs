@@ -7,7 +7,7 @@ using System.Media;
 using System.Windows.Media;
 
 namespace Fall2020_CSC403_Project {
-    public partial class FrmLevel : Form
+    public partial class FrmLevel2 : Form
     {
         private Player player;
         public int character_class = 1;
@@ -31,7 +31,7 @@ namespace Fall2020_CSC403_Project {
 
         //public SoundPlayer Footprints = new SoundPlayer(Properties.Resources.Step);
 
-        public FrmLevel()
+        public FrmLevel2()
         {
             InitializeComponent();
         }
