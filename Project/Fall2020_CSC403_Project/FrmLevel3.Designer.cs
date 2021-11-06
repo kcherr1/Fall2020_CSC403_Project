@@ -46,6 +46,7 @@
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.Music_restarter = new System.Windows.Forms.Timer(this.components);
             this.Enemy_Movement = new System.Windows.Forms.Timer(this.components);
+            this.picDoor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -62,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDoor)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -286,6 +288,17 @@
             this.Enemy_Movement.Enabled = true;
             this.Enemy_Movement.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // picDoor
+            // 
+            this.picDoor.BackColor = System.Drawing.Color.Transparent;
+            this.picDoor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picDoor.BackgroundImage")));
+            this.picDoor.Location = new System.Drawing.Point(1342, 115);
+            this.picDoor.Margin = new System.Windows.Forms.Padding(4);
+            this.picDoor.Name = "picDoor";
+            this.picDoor.Size = new System.Drawing.Size(188, 70);
+            this.picDoor.TabIndex = 18;
+            this.picDoor.TabStop = false;
+            // 
             // FrmLevel3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -293,6 +306,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1682, 894);
+            this.Controls.Add(this.picDoor);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -336,6 +350,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDoor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,6 +379,7 @@
     private System.Windows.Forms.PictureBox picWall11;
         private System.Windows.Forms.Timer Music_restarter;
         private System.Windows.Forms.Timer Enemy_Movement;
+        private System.Windows.Forms.PictureBox picDoor;
     }
 }
 

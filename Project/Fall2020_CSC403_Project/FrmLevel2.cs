@@ -17,6 +17,8 @@ namespace Fall2020_CSC403_Project {
         //private Enemy Snail_View;
         private Character[] walls;
         private Enemy[] LevelEnemies;
+
+        private Character door;
   
 
         private DateTime timeBegin;
@@ -46,7 +48,7 @@ namespace Fall2020_CSC403_Project {
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
-
+            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
             
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
@@ -164,13 +166,30 @@ namespace Fall2020_CSC403_Project {
             if (!combat)
             {
                 // check collision with enemies
-                if (HitAChar(player, enemyPoisonPacket))
+                if (picEnemyPoisonPacket.Visible)
                 {
-                    Fight(enemyPoisonPacket);
+                    if (HitAChar(player, enemyPoisonPacket))
+                    {
+                        picEnemyPoisonPacket.Visible = false;
+                        Fight(enemyPoisonPacket);
+                    }
                 }
-                else if (HitAChar(player, enemyCheeto))
+                if (picEnemyCheeto.Visible) {
+                    if (HitAChar(player, enemyCheeto))
+                    {
+                        picEnemyCheeto.Visible = false;
+                        Fight(enemyCheeto);
+                    }
+                }
+                if (picDoor.Visible)
                 {
-                    Fight(enemyCheeto);
+                    if(HitADoor(player, door))
+                    {
+                        picDoor.Visible = false;
+                        this.Hide();
+                        FrmLevel3 f3 = new FrmLevel3();
+                        f3.Show();
+                    }
                 }
             }
             // update player's picture box
@@ -257,6 +276,11 @@ namespace Fall2020_CSC403_Project {
         }
 
         private bool HitAChar(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
+        private bool HitADoor(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
         }
