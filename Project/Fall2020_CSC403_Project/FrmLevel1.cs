@@ -167,21 +167,34 @@ namespace Fall2020_CSC403_Project {
             if (!combat)
             {
                 // check collision with enemies
-                if (HitAChar(player, enemyPoisonPacket))
+                if (picEnemyPoisonPacket.Visible)
                 {
-                    Fight(enemyPoisonPacket);
+                    if (HitAChar(player, enemyPoisonPacket))
+                    {
+                        picEnemyPoisonPacket.Visible = false;
+                        Fight(enemyPoisonPacket);
+                    }
                 }
-                else if (HitAChar(player, enemyCheeto))
+                if (picEnemyCheeto.Visible)
                 {
-                    Fight(enemyCheeto);
+                    if (HitAChar(player, enemyCheeto))
+                    {
+                        picEnemyCheeto.Visible = false;
+                        Fight(enemyCheeto);
+                    }
                 }
-                if (HitAChar(player, bossKoolaid))
+                if (picBossKoolAid.Visible)
                 {
-                    Fight(bossKoolaid);
+                    if (HitAChar(player, bossKoolaid))
+                    {
+                        picBossKoolAid.Visible = false;
+                        Fight(bossKoolaid);
+
+                    }
                 }
             }
-            // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                // update player's picture box
+                picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
 
         private void Snail_detection_Click(object sender, EventArgs e)
