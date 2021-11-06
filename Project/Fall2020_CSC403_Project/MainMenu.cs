@@ -24,7 +24,7 @@ namespace Fall2020_CSC403_Project
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            new FrmLevel().Show();
+            new FrmLevel1().Show();
 
         }
 
