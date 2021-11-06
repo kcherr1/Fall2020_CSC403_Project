@@ -113,7 +113,7 @@
             this.picWall2.Location = new System.Drawing.Point(735, 1);
             this.picWall2.Margin = new System.Windows.Forms.Padding(4);
             this.picWall2.Name = "picWall2";
-            this.picWall2.Size = new System.Drawing.Size(625, 82);
+            this.picWall2.Size = new System.Drawing.Size(846, 82);
             this.picWall2.TabIndex = 16;
             this.picWall2.TabStop = false;
             // 
@@ -121,10 +121,10 @@
             // 
             this.picWall8.BackColor = System.Drawing.Color.Transparent;
             this.picWall8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picWall8.BackgroundImage")));
-            this.picWall8.Location = new System.Drawing.Point(1457, 337);
+            this.picWall8.Location = new System.Drawing.Point(1579, 1);
             this.picWall8.Margin = new System.Windows.Forms.Padding(4);
             this.picWall8.Name = "picWall8";
-            this.picWall8.Size = new System.Drawing.Size(109, 553);
+            this.picWall8.Size = new System.Drawing.Size(109, 898);
             this.picWall8.TabIndex = 15;
             this.picWall8.TabStop = false;
             // 
@@ -135,7 +135,7 @@
             this.picWall7.Location = new System.Drawing.Point(952, 807);
             this.picWall7.Margin = new System.Windows.Forms.Padding(4);
             this.picWall7.Name = "picWall7";
-            this.picWall7.Size = new System.Drawing.Size(507, 82);
+            this.picWall7.Size = new System.Drawing.Size(638, 82);
             this.picWall7.TabIndex = 14;
             this.picWall7.TabStop = false;
             // 
@@ -356,8 +356,9 @@
             this.MaximumSize = new System.Drawing.Size(1700, 941);
             this.MinimumSize = new System.Drawing.Size(1700, 941);
             this.Name = "FrmLevel1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Fruits O\' The Round";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
