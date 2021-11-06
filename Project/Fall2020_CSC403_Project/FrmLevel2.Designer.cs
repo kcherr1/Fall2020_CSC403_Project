@@ -149,10 +149,10 @@
             // 
             this.picWall10.BackColor = System.Drawing.Color.Transparent;
             this.picWall10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picWall10.BackgroundImage")));
-            this.picWall10.Location = new System.Drawing.Point(715, 220);
+            this.picWall10.Location = new System.Drawing.Point(715, 243);
             this.picWall10.Margin = new System.Windows.Forms.Padding(4);
             this.picWall10.Name = "picWall10";
-            this.picWall10.Size = new System.Drawing.Size(623, 97);
+            this.picWall10.Size = new System.Drawing.Size(623, 74);
             this.picWall10.TabIndex = 11;
             this.picWall10.TabStop = false;
             // 
