@@ -187,8 +187,8 @@ namespace Fall2020_CSC403_Project {
                     {
                         picDoor.Visible = false;
                         this.Hide();
-                        FrmLevel4 f4 = new FrmLevel4();
-                        f4.Show();
+                        FrmLevel4 f1 = new FrmLevel4();
+                        f1.Show();
                     }
                 }
             }
@@ -286,7 +286,6 @@ namespace Fall2020_CSC403_Project {
         {
             return you.Collider.Intersects(other.Collider);
         }
-
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();

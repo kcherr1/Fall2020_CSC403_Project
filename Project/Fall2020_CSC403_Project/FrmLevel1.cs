@@ -13,11 +13,12 @@ namespace Fall2020_CSC403_Project {
         public int character_class = 1;
 
         private Enemy enemyPoisonPacket;
-        private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         //private Enemy Snail_View;
         private Character[] walls;
         private Enemy[] LevelEnemies;
+
+        private Character door;
   
 
         private DateTime timeBegin;
@@ -39,16 +40,15 @@ namespace Fall2020_CSC403_Project {
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
-            const int NUM_WALLS = 13;
+            const int NUM_WALLS = 11;
             
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket, bossKoolaid};
-
+            LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
+            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
             
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
@@ -100,7 +100,6 @@ namespace Fall2020_CSC403_Project {
                 DI = new Bitmap(resourcesPath + "\\TG_DI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_DI);
             }
 
-            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = new Bitmap(resourcesPath + "\\Stalker.png");
             enemyCheeto.Img = new Bitmap(resourcesPath + "\\Batastrophe.png");
             //Snail_View.Img = Snail_detection.Image;
@@ -167,17 +166,30 @@ namespace Fall2020_CSC403_Project {
             if (!combat)
             {
                 // check collision with enemies
-                if (HitAChar(player, enemyPoisonPacket))
+                if (picEnemyPoisonPacket.Visible)
                 {
-                    Fight(enemyPoisonPacket);
+                    if (HitAChar(player, enemyPoisonPacket))
+                    {
+                        picEnemyPoisonPacket.Visible = false;
+                        Fight(enemyPoisonPacket);
+                    }
                 }
-                else if (HitAChar(player, enemyCheeto))
-                {
-                    Fight(enemyCheeto);
+                if (picEnemyCheeto.Visible) {
+                    if (HitAChar(player, enemyCheeto))
+                    {
+                        picEnemyCheeto.Visible = false;
+                        Fight(enemyCheeto);
+                    }
                 }
-                if (HitAChar(player, bossKoolaid))
+                if (picDoor.Visible)
                 {
-                    Fight(bossKoolaid);
+                    if(HitADoor(player, door))
+                    {
+                        picDoor.Visible = false;
+                        this.Hide();
+                        FrmLevel2 f3 = new FrmLevel2();
+                        f3.Show();
+                    }
                 }
             }
             // update player's picture box
@@ -210,12 +222,6 @@ namespace Fall2020_CSC403_Project {
                         LevelEnemies[i].EnemyMoveBack();
                     }
 
-
-                    if (LevelEnemies[i] == bossKoolaid)
-                    {
-                        picBossKoolAid.Location = new Point((int)bossKoolaid.EnemyPosition.x, (int)bossKoolaid.EnemyPosition.y);
-
-                    }
                     if (LevelEnemies[i] == enemyPoisonPacket)
                     {
                         picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.EnemyPosition.x, (int)enemyPoisonPacket.EnemyPosition.y);
@@ -250,6 +256,11 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
+        private void picEnemyPoisonPacket_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private bool HitAWall(Character c)
         {
             bool hitAWall = false;
@@ -269,6 +280,11 @@ namespace Fall2020_CSC403_Project {
             return you.Collider.Intersects(other.Collider);
         }
 
+        private bool HitADoor(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
@@ -280,10 +296,6 @@ namespace Fall2020_CSC403_Project {
             combat = true;
             frmBattle.Show();
 
-            if (enemy == bossKoolaid)
-            {
-                frmBattle.SetupForBossBattle();
-            }
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)

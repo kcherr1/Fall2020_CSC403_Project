@@ -53,12 +53,6 @@
     <Compile Include="FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLevel4.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLevel4.Designer.cs">
-      <DependentUpon>FrmLevel4.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmLevel3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,13 +71,16 @@
     <Compile Include="FrmLevel1.Designer.cs">
       <DependentUpon>FrmLevel1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLevel4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevel4.Designer.cs">
+      <DependentUpon>FrmLevel4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLevel4.resx">
-      <DependentUpon>FrmLevel4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel3.resx">
       <DependentUpon>FrmLevel3.cs</DependentUpon>
@@ -93,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel1.resx">
       <DependentUpon>FrmLevel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLevel4.resx">
+      <DependentUpon>FrmLevel4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

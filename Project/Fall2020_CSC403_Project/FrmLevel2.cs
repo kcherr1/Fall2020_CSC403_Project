@@ -17,9 +17,7 @@ namespace Fall2020_CSC403_Project {
         //private Enemy Snail_View;
         private Character[] walls;
         private Enemy[] LevelEnemies;
-
         private Character door;
-  
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -40,7 +38,7 @@ namespace Fall2020_CSC403_Project {
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
-            const int NUM_WALLS = 11;
+            const int NUM_WALLS = 13;
             
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
@@ -49,7 +47,7 @@ namespace Fall2020_CSC403_Project {
             //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
-            
+
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
             BGM.Play();
@@ -99,6 +97,7 @@ namespace Fall2020_CSC403_Project {
                 D = new Bitmap(resourcesPath + "\\TG_D.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_D);
                 DI = new Bitmap(resourcesPath + "\\TG_DI.gif"); //new Bitmap(Properties.Resources.TG_L);.TG_DI);
             }
+
 
             enemyPoisonPacket.Img = new Bitmap(resourcesPath + "\\Stalker.png");
             enemyCheeto.Img = new Bitmap(resourcesPath + "\\Batastrophe.png");
@@ -174,7 +173,8 @@ namespace Fall2020_CSC403_Project {
                         Fight(enemyPoisonPacket);
                     }
                 }
-                if (picEnemyCheeto.Visible) {
+                if (picEnemyCheeto.Visible)
+                {
                     if (HitAChar(player, enemyCheeto))
                     {
                         picEnemyCheeto.Visible = false;
@@ -183,12 +183,12 @@ namespace Fall2020_CSC403_Project {
                 }
                 if (picDoor.Visible)
                 {
-                    if(HitADoor(player, door))
+                    if (HitADoor(player, door))
                     {
                         picDoor.Visible = false;
                         this.Hide();
-                        FrmLevel3 f3 = new FrmLevel3();
-                        f3.Show();
+                        FrmLevel3 f4 = new FrmLevel3();
+                        f4.Show();
                     }
                 }
             }
@@ -221,6 +221,8 @@ namespace Fall2020_CSC403_Project {
                     {
                         LevelEnemies[i].EnemyMoveBack();
                     }
+
+
 
                     if (LevelEnemies[i] == enemyPoisonPacket)
                     {
@@ -256,7 +258,7 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-        private void picEnemyPoisonPacket_Click(object sender, EventArgs e)
+        private void picWall3_Click(object sender, EventArgs e)
         {
 
         }
@@ -295,6 +297,7 @@ namespace Fall2020_CSC403_Project {
             moving = false;
             combat = true;
             frmBattle.Show();
+
 
         }
 
