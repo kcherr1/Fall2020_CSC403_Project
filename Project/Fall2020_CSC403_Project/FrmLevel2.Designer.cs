@@ -270,7 +270,7 @@
             // picDoor
             // 
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
-            this.picDoor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picDoor.BackgroundImage")));
+            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.World_1;
             this.picDoor.Location = new System.Drawing.Point(1430, 672);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
@@ -306,8 +306,9 @@
             this.MaximumSize = new System.Drawing.Size(1700, 941);
             this.MinimumSize = new System.Drawing.Size(1700, 941);
             this.Name = "FrmLevel2";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Fruits O\' The Round";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);

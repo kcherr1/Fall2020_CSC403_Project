@@ -17,7 +17,7 @@ namespace Fall2020_CSC403_Project {
         //private Enemy Snail_View;
         private Character[] walls;
         private Enemy[] LevelEnemies;
-  
+        private Character door;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -46,8 +46,8 @@ namespace Fall2020_CSC403_Project {
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
+            door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
 
-            
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
             BGM.Play();
@@ -165,15 +165,32 @@ namespace Fall2020_CSC403_Project {
             if (!combat)
             {
                 // check collision with enemies
-                if (HitAChar(player, enemyPoisonPacket))
+                if (picEnemyPoisonPacket.Visible)
                 {
-                    Fight(enemyPoisonPacket);
+                    if (HitAChar(player, enemyPoisonPacket))
+                    {
+                        picEnemyPoisonPacket.Visible = false;
+                        Fight(enemyPoisonPacket);
+                    }
                 }
-                else if (HitAChar(player, enemyCheeto))
+                if (picEnemyCheeto.Visible)
                 {
-                    Fight(enemyCheeto);
+                    if (HitAChar(player, enemyCheeto))
+                    {
+                        picEnemyCheeto.Visible = false;
+                        Fight(enemyCheeto);
+                    }
                 }
-
+                if (picDoor.Visible)
+                {
+                    if (HitADoor(player, door))
+                    {
+                        picDoor.Visible = false;
+                        this.Hide();
+                        FrmLevel4 f4 = new FrmLevel4();
+                        f4.Show();
+                    }
+                }
             }
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -261,6 +278,11 @@ namespace Fall2020_CSC403_Project {
         }
 
         private bool HitAChar(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
+        private bool HitADoor(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
         }
