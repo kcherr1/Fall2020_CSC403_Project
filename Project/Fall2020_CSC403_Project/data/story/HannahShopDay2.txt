@@ -1,0 +1,6 @@
+﻿#CB \\data\\background\\ hannah_store.jpg
+#CF \\data\\foreground\\ enemy_koolaid.png
+#CT Mr. Peanut: Hi again! I have money this time! 
+#CT Hannah: Epic, welcome back. Check out my items and let me know what you want! Maybe if you give someone a gift, they might want to go to prom with you. I’ve heard lots of students have come in here stressed about that recently. 
+#S1
+#CT Hannah: Thanks for coming in! Come back soon. I am so lonely. 

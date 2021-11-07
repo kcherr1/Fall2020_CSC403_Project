@@ -133,6 +133,12 @@
   <ItemGroup>
     <Content Include="data\background\hannah_store.jpg" />
     <Content Include="data\background\opening.jpg" />
+    <Content Include="data\story\HannahShopDays35.txt" />
+    <Content Include="data\story\HannahShopDay1.txt" />
+    <Content Include="data\story\HannahShopDay2.txt" />
+    <Content Include="data\story\HayleyShopDay1.txt" />
+    <Content Include="data\story\HayleyShopDay2.txt" />
+    <Content Include="data\story\HayleyShopDays35.txt" />
     <Content Include="data\story\NewStoryTest.txt" />
     <Content Include="data\story\Story.txt" />
   </ItemGroup>
