@@ -1,10 +1,8 @@
-﻿#CB \\data\\background\\ hannah_store.jpg
-#CF \\data\\foreground\\ enemy_koolaid.png
-#CT Mr. Peanut: Excuse me, ma’am, is this the cafeteria? 
+﻿#CBF \\data\\background\\ hannah_store.jpg \\data\\foreground\\ enemy_koolaid.png Mr. Peanut: Excuse me, ma’am, is this the cafeteria? 
 #CT Hannah: Umm…. Not that I know of. 
 #CT Mr. Peanut: Then what is this place?
 #CT Hannah: This is the shop. If you’ve got some money with you, you can buy whatever you want. Feel free to browse around. 
 #CT Mr. Peanut. Oh. I actually don’t have any money…
 #CT Hannah: Well, if I give away my products, I’d never make any profit and unfortunately I’ve gotta pay rent. This is an expensive place to live. But here, I’ll give you a granola bar for free. 
 #CT Mr. Peanut: Thanks! I’ll come back when I have money. 
-#CT Hannah: Please do. I’m going bankrupt. No one wants to buy my weird assortment of objects for some reason. 
+#CT Hannah: Please do. I’m going bankrupt. No one wants to buy my weird assortment of objects for some reason.

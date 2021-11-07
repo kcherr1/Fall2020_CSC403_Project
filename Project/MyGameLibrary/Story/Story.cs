@@ -117,6 +117,14 @@ namespace MyGameLibrary.Story
             {
                 markup = Markup.HayleyShopOptions;
             }
+            else if (string.Equals(splitLine[0], "#CBF"))
+            {
+                markup = Markup.ChangeBackgroundAndForegroundImage;
+            }
+            else if (string.Equals(splitLine[0], "#AW"))
+            {
+                markup = Markup.AddToWallet;
+            }
             //Set the current action to the markup enum
             this.Current_Action = markup;
             //Remove the tagging chunk

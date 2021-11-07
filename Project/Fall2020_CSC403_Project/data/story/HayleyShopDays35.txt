@@ -1,6 +1,4 @@
-﻿#CB \\data\\background\\ hannah_store.jpg
-#CF \\data\\foreground\\ enemy_koolaid.png
-#CT Mr. Peanut: Hi again! 
+﻿#CBF \\data\\background\\ hannah_store.jpg \\data\\foreground\\ enemy_koolaid.png Mr. Peanut: Hi again!
 #CT Hayley: Are you gonna buy something or what? 
 #S2
 #CT Hayley: It’s not like I’ll miss you or anything.
