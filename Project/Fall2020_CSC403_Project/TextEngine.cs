@@ -15,24 +15,24 @@ namespace Fall2020_CSC403_Project
         private Stack<Option> Options = new Stack<Option>();
         private Stack<Option> TempOptions = new Stack<Option>();
         private List<Option> options = new List<Option>();
+
         public double ForegroundImage_Xscale { get; set; }
         public double ForegroundImage_Yscale { get; set; }
         public double ForegroundImage_AspectRatio { get; set; }
         public int originalHeight { get; set; }
         public int originalWidth { get; set; }
         private bool isShop { get; set; } = false; 
-        private string line { get; set; }
-        private bool optionsDisplayed { get; set; } = false;
         public TextEngine()
         {
-            this.Story = new Story("\\data\\story\\", "Story.txt");
-            line = Story.GetNextLine();
+            this.Story = new Story("\\data\\story\\", "Story.txt"); //Read in main story
+            #region Initalize shops and items
             Item.initializeAllItems();
             Item.initializeHannahShop();
             Item.initializeHayleyShop();
+            #endregion
             InitializeComponent();
-            this.ForegroundImage.BackColor = Color.Transparent;
-            this.ChangeText(line);
+            //Start parsing things
+            HandleMarkup(Story.GetNextLine());
         }
 
         public void NewBackground(Image newBackground)
@@ -97,25 +97,16 @@ namespace Fall2020_CSC403_Project
                         }
                         options.Add(option);
                     }
-                    if (isShop)
+                    if (isShop && string.Equals(focusedOption.OptionBackendMarkup, "#E"))
                     {
-                        if(string.Equals(focusedOption.OptionBackendMarkup, "#E"))
-                        {
-                            isShop = false;
-                        }
-                        TempOptions.Clear();
-                        Options.Clear();
-                        this.RemoveOptions(options);
-                        optionsDisplayed = false;
+                        isShop = false;
                     }
-                    else
-                    {                        
-                        TempOptions.Clear();
-                        Options.Clear();
-                        this.RemoveOptions(options);
-                        optionsDisplayed = false;
-                    }
-                    Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup);
+                    #region Clear all the visible options
+                    TempOptions.Clear();
+                    Options.Clear();
+                    this.RemoveOptions(options);
+                    #endregion
+                    Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup); //Add whatever the option markup was to story to handle next
                     HandleMarkup(Story.GetNextLine());
                 }
             }
@@ -176,16 +167,15 @@ namespace Fall2020_CSC403_Project
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.Options:
-                    this.line = line;
                     //line is: Option 1, #A ID] Option 2, #A ID] Exit, #CT] text
                     // (ex: #O Option 1,#CT Oh, you selected that] Option 2,#CT You've selected this] Oh look, it's the options page)
                     //Note: make sure there is no space between ,#
-                    //Display options
-                    isShop = false;
-                    if(Equals(line.Substring(0, 2), "S "))
+                    
+                    isShop = false; // Default to believe no shop is running
+                    if(Equals(line.Substring(0, 2), "S ")) // If options have a shop flag, then there is a shop
                     {
                         isShop = true;
-                        line = line.Substring(2);
+                        line = line.Substring(2); // Split of the shop flag from the rest of the options
                     }
                     List<string> optionsInfo = line.Split(']').ToList();
 
@@ -200,8 +190,7 @@ namespace Fall2020_CSC403_Project
                         options.Add(new Option(newOption[0], '#' + newOption[1]));
                     }
                     this.DisplayOptions(options); //Display options
-                    optionsDisplayed = true;
-                    // make sure that the foreground image is at the correct location in the options panel
+                    // Make sure that the foreground image is at the correct location in the options panel
                     this.OptionsPanel.Controls[1].Location = new Point((int)(ForegroundImage_Xscale * ClientRectangle.Size.Width), (int)(ForegroundImage_Yscale * Height));
                     options.Reverse(); //Start at end
                     foreach (Option option in options)
@@ -211,13 +200,12 @@ namespace Fall2020_CSC403_Project
                     }
                     this.Options.Peek().OptionFocused = true; //Focus the top option 
                     this.ChangeText(newLineOptions);
-                    options.Reverse();
+                    options.Reverse(); //This is needs to be set back to the way it was because of accessing ambiguity
                     break;
                 case Markup.AddItemToInventory:
                     // line is: id           
                     string nameAdd = Enum.GetName(typeof(Items), int.Parse(line));
                     Items identifierAdd = (Items)Enum.Parse(typeof(Items), nameAdd);
-                    //For the store I recommend that we have something constant somewhere with the description and prices associated with ID
                     Item itemAdd = Item.allItems[(int)identifierAdd];
                     if(itemAdd.ItemPrice <= Inventory.walletBalance)
                     {
@@ -230,21 +218,19 @@ namespace Fall2020_CSC403_Project
                             {
                                 Item.hannahShopItems.Remove((int)identifierAdd);
                                 Story.CurrentStoryText.AddFirst("#S1");
-                                HandleMarkup(Story.GetNextLine());
                             }
                             else
                             {
                                 Item.hayleyShopItems.Remove((int)identifierAdd);
                                 Story.CurrentStoryText.AddFirst("#S2");
-                                HandleMarkup(Story.GetNextLine());
                             }
                         }
                     }
                     else
                     {
-                        Story.CurrentStoryText.AddFirst("#CT Mr. Peanut: Oh no! I can't afford that!");
-                        HandleMarkup(Story.GetNextLine());
+                        Story.CurrentStoryText.AddFirst("#CT Mr. Peanut: Oh no! I can't afford that!");                       
                     }
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.GiveItem:
                     // line is: id
@@ -275,6 +261,7 @@ namespace Fall2020_CSC403_Project
                     // line is: #E
                     // allows the user to exit the shop options by changing isShop to false
                     isShop = false;
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.HannahShopOptions:
                     // line is: #S1
