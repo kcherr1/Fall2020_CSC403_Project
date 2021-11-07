@@ -8,43 +8,43 @@ using MyGameLibrary.Shop;
 
 namespace MyGameLibrary.Character
 {
-    public class CharacterCollection
+    public static class CharacterCollection
     {
-        public Dictionary<characterID, Character> CharacterDictionary;
+        public static Dictionary<CharacterID, Character> CharacterDictionary;
 
-        private Dictionary<Items, int> dict1;
-        private Dictionary<Items, int> dict2;
-        private Dictionary<Items, int> dict3;
-        private Dictionary<Items, int> dict4;
-        private Dictionary<Items, int> dict5;
+        private static Dictionary<Items, int> dictWendy;
+        private static Dictionary<Items, int> dictTony;
+        private static Dictionary<Items, int> dictRonald;
+        private static Dictionary<Items, int> dictGreen;
+        private static Dictionary<Items, int> dictBK;
 
-        private Character Wendy;
-        private Character Tony;
-        private Character Ronald;
-        private Character Green;
-        private Character BurgerKing;
+        public static Character Wendy;
+        public static Character Tony;
+        public static Character Ronald;
+        public static Character Green;
+        public static Character BurgerKing;
 
-        public CharacterCollection() {
+        static CharacterCollection() {
             DeclareDict();
-            Wendy = new Character("Wendy", 40, dict1);
-            Tony = new Character("Tony the Tiger", 40, dict2);
-            Ronald = new Character("Ronald McDonald", 40, dict3);
-            Green = new Character("Green M&M", 40, dict4);
-            BurgerKing = new Character("Burger King", 40, dict5);
+            Wendy = new Character("Wendy", 40, dictWendy);
+            Tony = new Character("Tony the Tiger", 40, dictTony);
+            Ronald = new Character("Ronald McDonald", 40, dictRonald);
+            Green = new Character("Green M&M", 40, dictGreen);
+            BurgerKing = new Character("Burger King", 40, dictBK);
 
-            CharacterDictionary = new Dictionary<characterID, Character> {
-                {(characterID) 1, Wendy},
-                {(characterID) 2, Tony},
-                {(characterID) 3, Ronald},
-                {(characterID) 4, Green},
-                {(characterID) 5, BurgerKing}
+            CharacterDictionary = new Dictionary<CharacterID, Character> {
+                {(CharacterID) 1, Wendy},
+                {(CharacterID) 2, Tony},
+                {(CharacterID) 3, Ronald},
+                {(CharacterID) 4, Green},
+                {(CharacterID) 5, BurgerKing}
             };
 
         }
 
         //Declare love values for each gift item, dict1-dict5 corresponds to character ID 1-5
-        private void DeclareDict() {
-            dict1 = new Dictionary<Items, int> {
+        private static void DeclareDict() {
+            dictWendy = new Dictionary<Items, int> {
                 {(Items) 1, -10},
                 {(Items) 2, -10},
                 {(Items) 3, -10},
@@ -62,7 +62,7 @@ namespace MyGameLibrary.Character
                 {(Items) 15, -10},
                 {(Items) 16, -10}
             };
-            dict2 = new Dictionary<Items, int> {
+            dictTony = new Dictionary<Items, int> {
                 {(Items) 1, 5},
                 {(Items) 2, 15},
                 {(Items) 3, -5},
@@ -80,7 +80,7 @@ namespace MyGameLibrary.Character
                 {(Items) 15, 5},
                 {(Items) 16, 50}
             };
-            dict3 = new Dictionary<Items, int> {
+            dictRonald = new Dictionary<Items, int> {
                 {(Items) 1, 10},
                 {(Items) 2, 5},
                 {(Items) 3, 10},
@@ -98,7 +98,7 @@ namespace MyGameLibrary.Character
                 {(Items) 15, 30},
                 {(Items) 16, -10}
             };
-            dict4 = new Dictionary<Items, int> {
+            dictGreen = new Dictionary<Items, int> {
                 {(Items) 1, 5},
                 {(Items) 2, 5},
                 {(Items) 3, -10},
@@ -116,7 +116,7 @@ namespace MyGameLibrary.Character
                 {(Items) 15, 5},
                 {(Items) 16, 10}
             };
-            dict5 = new Dictionary<Items, int> {
+            dictBK = new Dictionary<Items, int> {
                 {(Items) 1, -10},
                 {(Items) 2, -5},
                 {(Items) 3, -10},

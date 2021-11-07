@@ -13,7 +13,6 @@ namespace Fall2020_CSC403_Project
     public partial class TextEngine : Form
     {
         private Story Story { get; set; }
-        private CharacterCollection Characters = new CharacterCollection();
         private Stack<Option> Options = new Stack<Option>();
         private Stack<Option> TempOptions = new Stack<Option>();          
         private double ForegroundImage_Xscale { get; set; }
