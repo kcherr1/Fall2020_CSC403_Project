@@ -6,6 +6,7 @@ namespace MyGameLibrary.Story
         ChangeText,
         ChangeBackgroundImage,
         ChangeForegroundImage,
+        ChangeBackgroundAndForegroundImage,
         Options,
         ReadInNewStory,
         CheckThresholdsForTree,
@@ -18,6 +19,7 @@ namespace MyGameLibrary.Story
         ShowTextbox,
         ExitOptions,
         HannahShopOptions,
-        HayleyShopOptions
+        HayleyShopOptions,
+        AddToWallet
     }
 }

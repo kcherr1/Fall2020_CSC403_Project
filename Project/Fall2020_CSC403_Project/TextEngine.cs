@@ -146,6 +146,20 @@ namespace Fall2020_CSC403_Project
                     string newLineFG = string.Join(" ", foregroundInfo);
                     this.ChangeText(newLineFG);
                     break;
+                case Markup.ChangeBackgroundAndForegroundImage:
+                    //line is: background_location background_name foreground_location foreground_name text
+                    List<string> backForeInfo = line.Split(' ').ToList();
+                    Image backForeBackgroundImage = Image.FromFile(_filePath + backForeInfo[0] + backForeInfo[1]);
+                    this.NewBackground(backForeBackgroundImage);
+                    Image backForeForegroundImage = Image.FromFile(_filePath + backForeInfo[2] + backForeInfo[3]);
+                    this.NewForeground(backForeForegroundImage);
+                    backForeInfo.RemoveAt(0);
+                    backForeInfo.RemoveAt(0);
+                    backForeInfo.RemoveAt(0);
+                    backForeInfo.RemoveAt(0);
+                    string newLineBGFG = string.Join(" ", backForeInfo);
+                    this.ChangeText(newLineBGFG);
+                    break;
                 case Markup.HideForeground:
                     // line is: nothing, this is just a signal to hide the foreground
                     this.ForegroundVisibile(false);

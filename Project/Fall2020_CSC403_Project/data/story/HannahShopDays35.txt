@@ -1,6 +1,4 @@
-﻿#CB \\data\\background\\ hannah_store.jpg
-#CF \\data\\foreground\\ enemy_koolaid.png
-#CT Mr.Peanut: Hi again!
+﻿#CBF \\data\\background\\ hannah_store.jpg \\data\\foreground\\ enemy_koolaid.png Mr.Peanut: Hi again!
 #CT Hannah: Welcome back. Check out my items and let me know what you want! I have the perfect gifts in here. 
 #S1
 #CT Hannah: Thanks for coming in! Come back soon. I am so lonely. 
