@@ -149,6 +149,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bitmap1.bmp" />
     <Content Include="data\battle_music.wav" />
     <Content Include="data\boxart.png" />
     <Content Include="data\creamy.png" />

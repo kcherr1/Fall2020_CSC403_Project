@@ -24,6 +24,7 @@
     /// </summary>
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBattle));
             this.btnAttack = new System.Windows.Forms.Button();
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -33,9 +34,21 @@
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+            this.message1 = new System.Windows.Forms.PictureBox();
+            this.message2 = new System.Windows.Forms.PictureBox();
+            this.message3 = new System.Windows.Forms.PictureBox();
+            this.message4 = new System.Windows.Forms.PictureBox();
+            this.message5 = new System.Windows.Forms.PictureBox();
+            this.message6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message6)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAttack
@@ -127,6 +140,78 @@
             this.tmrFinalBattle.Interval = 5600;
             this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
             // 
+            // message1
+            // 
+            this.message1.BackColor = System.Drawing.Color.Transparent;
+            this.message1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("message1.BackgroundImage")));
+            this.message1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.message1.Location = new System.Drawing.Point(666, 85);
+            this.message1.Name = "message1";
+            this.message1.Size = new System.Drawing.Size(105, 98);
+            this.message1.TabIndex = 8;
+            this.message1.TabStop = false;
+            this.message1.Visible = false;
+            // 
+            // message2
+            // 
+            this.message2.BackColor = System.Drawing.Color.Transparent;
+            this.message2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("message2.BackgroundImage")));
+            this.message2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.message2.Location = new System.Drawing.Point(666, 85);
+            this.message2.Name = "message2";
+            this.message2.Size = new System.Drawing.Size(105, 98);
+            this.message2.TabIndex = 9;
+            this.message2.TabStop = false;
+            this.message2.Visible = false;
+            // 
+            // message3
+            // 
+            this.message3.BackColor = System.Drawing.Color.Transparent;
+            this.message3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("message3.BackgroundImage")));
+            this.message3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.message3.Location = new System.Drawing.Point(666, 85);
+            this.message3.Name = "message3";
+            this.message3.Size = new System.Drawing.Size(105, 98);
+            this.message3.TabIndex = 10;
+            this.message3.TabStop = false;
+            this.message3.Visible = false;
+            // 
+            // message4
+            // 
+            this.message4.BackColor = System.Drawing.Color.Transparent;
+            this.message4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("message4.BackgroundImage")));
+            this.message4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.message4.Location = new System.Drawing.Point(666, 85);
+            this.message4.Name = "message4";
+            this.message4.Size = new System.Drawing.Size(105, 98);
+            this.message4.TabIndex = 11;
+            this.message4.TabStop = false;
+            this.message4.Visible = false;
+            // 
+            // message5
+            // 
+            this.message5.BackColor = System.Drawing.Color.Transparent;
+            this.message5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("message5.BackgroundImage")));
+            this.message5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.message5.Location = new System.Drawing.Point(666, 85);
+            this.message5.Name = "message5";
+            this.message5.Size = new System.Drawing.Size(105, 98);
+            this.message5.TabIndex = 12;
+            this.message5.TabStop = false;
+            this.message5.Visible = false;
+            // 
+            // message6
+            // 
+            this.message6.BackColor = System.Drawing.Color.Transparent;
+            this.message6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("message6.BackgroundImage")));
+            this.message6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.message6.Location = new System.Drawing.Point(666, 85);
+            this.message6.Name = "message6";
+            this.message6.Size = new System.Drawing.Size(105, 98);
+            this.message6.TabIndex = 13;
+            this.message6.TabStop = false;
+            this.message6.Visible = false;
+            // 
             // FrmBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,6 +219,12 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
+            this.Controls.Add(this.message6);
+            this.Controls.Add(this.message5);
+            this.Controls.Add(this.message4);
+            this.Controls.Add(this.message3);
+            this.Controls.Add(this.message2);
+            this.Controls.Add(this.message1);
             this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
@@ -149,6 +240,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.message6)).EndInit();
             this.ResumeLayout(false);
 
     }
@@ -164,5 +261,11 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
-  }
+        private System.Windows.Forms.PictureBox message1;
+        private System.Windows.Forms.PictureBox message2;
+        private System.Windows.Forms.PictureBox message3;
+        private System.Windows.Forms.PictureBox message4;
+        private System.Windows.Forms.PictureBox message5;
+        private System.Windows.Forms.PictureBox message6;
+    }
 }

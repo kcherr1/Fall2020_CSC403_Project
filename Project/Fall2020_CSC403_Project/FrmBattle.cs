@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
+using System.Threading;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
@@ -8,11 +9,12 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : ChildForm {
     private bool bossBattle = false;
+    private int message = 0;
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
     public SoundPlayer battleMusic = new SoundPlayer(Resources.battle_music);
-        public SoundPlayer mapMusic = new SoundPlayer(Resources.map_music);
+    public SoundPlayer mapMusic = new SoundPlayer(Resources.map_music);
 
     private FrmBattle() {
             
@@ -36,6 +38,10 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
+
+      //update visibility of enemy messages to zero
+      message = 0;
+      displayMessage(message);
     }
 
     public void BattleMusic()
@@ -77,6 +83,37 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
+    private void displayMessage(int message){
+      if(message == 1){
+         message1.Visible = true;
+      }
+      if(message == 2){
+         message2.Visible = true;
+      }
+      if(message == 3){
+         message3.Visible = true;
+      }
+      if(message == 4){
+         message4.Visible = true;
+      }
+      if(message == 5){
+         message5.Visible = true;
+      }
+      if (message == 6){
+        message6.Visible = true;
+      }
+
+      if (message == 0){
+        //default all set to invisible
+        message1.Visible = false;
+        message2.Visible = false;
+        message3.Visible = false;
+        message4.Visible = false;
+        message5.Visible = false;
+        message6.Visible = false;
+      }
+    }
+
     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
@@ -99,6 +136,10 @@ namespace Fall2020_CSC403_Project {
 
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
+      //randomize message # which corresponds to a specific enemy message to be displayed when damaged
+      Random random = new Random();
+      message = random.Next(1, 6);
+      displayMessage(message);
     }
 
     private void PlayerDamage(int amount) {
