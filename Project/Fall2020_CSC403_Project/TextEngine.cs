@@ -216,6 +216,11 @@ namespace Fall2020_CSC403_Project
                     this.ChangeText(newLineOptions);
                     options.Reverse(); //This is needs to be set back to the way it was because of accessing ambiguity
                     break;
+                case Markup.AddToWallet:
+                    //line is: amount as int
+                    Inventory.depositMoney(int.Parse(line));
+                    HandleMarkup(Story.GetNextLine());
+                    break;
                 case Markup.AddItemToInventory:
                     // line is: id           
                     string nameAdd = Enum.GetName(typeof(Items), int.Parse(line));
