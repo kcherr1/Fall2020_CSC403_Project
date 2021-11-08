@@ -24,7 +24,8 @@ namespace Fall2020_CSC403_Project
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            new FrmLevel1().Show();
+            FrmLevel1 f1 = new FrmLevel1();
+            f1.Show(this);
 
         }
 
@@ -36,6 +37,11 @@ namespace Fall2020_CSC403_Project
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void Game_Over()
+        {
+            Application.Exit();
         }
     }
 }

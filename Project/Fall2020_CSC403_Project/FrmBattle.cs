@@ -72,15 +72,26 @@ namespace Fall2020_CSC403_Project {
     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        enemy.OnAttack(-9);
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
-        instance = null;
-        Close();
-      }
-    }
+            if (enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+            if (player.Health <= 0)
+            {
+                //show game over screen
+                this.Hide();
+                instance = null;
+                GameOver GO = new GameOver();
+                GO.Show();
+
+
+            }
+        }
 
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);

@@ -19,7 +19,6 @@ namespace Fall2020_CSC403_Project {
         private Enemy[] LevelEnemies;
 
         private Character door;
-  
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -49,7 +48,6 @@ namespace Fall2020_CSC403_Project {
             //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
-            
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
             BGM.Play();
@@ -130,6 +128,7 @@ namespace Fall2020_CSC403_Project {
         {
             BGM.Play();
         }
+
 
         private Collider CreateCollider(PictureBox pic, int padding)
         {
@@ -276,6 +275,8 @@ namespace Fall2020_CSC403_Project {
             return hitAWall;
         }
 
+
+
         private bool HitAChar(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
@@ -410,6 +411,9 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
+
+
+
 
 
     }

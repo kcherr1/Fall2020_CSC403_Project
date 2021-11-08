@@ -207,7 +207,7 @@
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyCheeto.Image = ((System.Drawing.Image)(resources.GetObject("picEnemyCheeto.Image")));
-            this.picEnemyCheeto.Location = new System.Drawing.Point(1306, 656);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(1255, 664);
             this.picEnemyCheeto.Margin = new System.Windows.Forms.Padding(4);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(116, 126);
@@ -221,7 +221,7 @@
             this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyPoisonPacket.Image = global::Fall2020_CSC403_Project.Properties.Resources.Girl_Power_Snail;
-            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(715, 352);
+            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(688, 356);
             this.picEnemyPoisonPacket.Margin = new System.Windows.Forms.Padding(4);
             this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(110, 123);
@@ -271,14 +271,14 @@
             // 
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
             this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.World_1;
-            this.picDoor.Location = new System.Drawing.Point(1430, 672);
+            this.picDoor.Location = new System.Drawing.Point(1421, 689);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
             this.picDoor.Size = new System.Drawing.Size(128, 110);
             this.picDoor.TabIndex = 17;
             this.picDoor.TabStop = false;
             // 
-            // FrmLevel2
+            // FrmLevel1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -305,7 +305,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1700, 941);
             this.MinimumSize = new System.Drawing.Size(1700, 941);
-            this.Name = "FrmLevel2";
+            this.Name = "FrmLevel1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Fruits O\' The Round";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
