@@ -311,6 +311,17 @@ namespace Fall2020_CSC403_Project
                     Story.CurrentStoryText.AddFirst(shop2OptionString);
                     HandleMarkup(Story.GetNextLine());
                     break;
+                case Markup.GiftOptions:
+                    string giftOptions = "#O ";
+                    foreach(Items itemID in Inventory.Contents.Keys)
+                    {
+                        giftOptions += (Inventory.Contents[itemID].ItemName + ",#G " + (int)itemID + "]");
+                    }
+                    giftOptions += " Exit,#E] Select your gift!";
+                    Console.WriteLine(giftOptions);
+                    Story.CurrentStoryText.AddFirst(giftOptions);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
             }
         }
 

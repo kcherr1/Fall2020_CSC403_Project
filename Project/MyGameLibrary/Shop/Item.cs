@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project
         public int ItemPrice { get; set; }
         public Items ItemID { get; set; }
         public Boolean used {get; set;}
+        public int intID { get; set; }
         public static Dictionary<int, Item> allItems { get; set; } = new Dictionary<int, Item>();
         public static Dictionary<int, Item> hannahShopItems { get; set; } = new Dictionary<int, Item>();
         public static Dictionary<int, Item> hayleyShopItems { get; set; } = new Dictionary<int, Item>();

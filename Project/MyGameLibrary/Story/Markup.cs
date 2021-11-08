@@ -20,6 +20,7 @@ namespace MyGameLibrary.Story
         ExitOptions,
         HannahShopOptions,
         HayleyShopOptions,
-        AddToWallet
+        AddToWallet, 
+        GiftOptions
     }
 }
