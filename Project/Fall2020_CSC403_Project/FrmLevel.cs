@@ -17,6 +17,8 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    public StatsMenu statsMenu;
+    public bool isMenuOpen = false;
 
     public SoundPlayer mapMusic = new SoundPlayer(Resources.map_music);
 
@@ -159,33 +161,56 @@ namespace Fall2020_CSC403_Project {
         {
             e.IsInputKey = true;
         }
+
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-            switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
+          switch (e.KeyCode) {
+          case Keys.Left:
+            player.GoLeft();
+            break;
 
-        case Keys.Right:
-          player.GoRight();
-          break;
+          case Keys.Right:
+            player.GoRight();
+            break;
 
-        case Keys.Up:
-          player.GoUp();
-          break;
+          case Keys.Up:
+            player.GoUp();
+            break;
 
-        case Keys.Down:
-          player.GoDown();
-          break;
+          case Keys.Down:
+            player.GoDown();
+            break;
         
-        case Keys.X:
-          cheatMenu.Visible = true;
-          break;
+          case Keys.X:
+            cheatMenu.Visible = true;
+            break;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
+          case Keys.P:
+            CallStatsMenu();
+            break;
+
+          default:
+            player.ResetMoveSpeed();
+            break;
       }
     }
+
+        private void CallStatsMenu()
+        {
+            if (statsMenu == null)
+            {
+            statsMenu = (StatsMenu) CreateChild(new StatsMenu());
+            statsMenu.player = this.player;
+            statsMenu.RequestShow();
+            statsMenu.Activate();
+            tmrPlayerMove.Stop();
+            RequestHide();
+            }
+        }
+
+        public void StartPlayerMoveTimer()
+        {
+            tmrPlayerMove.Start();
+        }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
@@ -226,7 +251,6 @@ namespace Fall2020_CSC403_Project {
 
     private void winChecker(object sender, EventArgs e)
     {
-            Console.WriteLine("tack");
         if (win)
         {
             winImage.Visible = true;

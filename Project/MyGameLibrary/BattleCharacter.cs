@@ -10,11 +10,11 @@ namespace Fall2020_CSC403_Project.code
 {
     public class BattleCharacter : Character
     {
-        public int Health { get; private set; }
-        public int MaxHealth { get; private set; }
-        public float strength { get; private set; }
-        public float evasion { get; private set; }
-        public float defense { get; private set; }
+        public int Health { get; protected set; }
+        public int MaxHealth { get; protected set; }
+        public float strength { get; protected set; }
+        public float evasion { get; protected set; }
+        public float defense { get; protected set; }
 
 
         public event Action<int> AttackEvent;

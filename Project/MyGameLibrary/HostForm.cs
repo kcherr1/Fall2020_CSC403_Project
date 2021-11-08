@@ -47,8 +47,12 @@ namespace Fall2020_CSC403_Project.code
 
         protected void OnChildCreateChild(object sender, ChildCreateChildArgs e)
         {
+            Console.WriteLine("Child Created: " + e.created.ToString());
             e.created.MdiParent = this;
             e.created.Creator = e.creator;
+            e.created.ShowRequest += OnShowRequest;
+            e.created.HideRequest += OnHideRequest;
+            e.created.ChildCreateChild += OnChildCreateChild;
 
         }
     }
