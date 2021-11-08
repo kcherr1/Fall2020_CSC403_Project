@@ -181,11 +181,24 @@ namespace Fall2020_CSC403_Project {
           cheatMenu.Visible = true;
           break;
 
+        case Keys.P:
+          OpenStatsMenu();
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;
       }
     }
+
+        private void OpenStatsMenu()
+        {
+           StatsMenu newChild = (StatsMenu) CreateChild(new StatsMenu());
+            newChild.player = this.player;
+            tmrPlayerMove.Stop();
+            newChild.RequestShow();
+
+        }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
