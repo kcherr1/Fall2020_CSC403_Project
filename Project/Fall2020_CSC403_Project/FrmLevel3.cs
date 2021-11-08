@@ -187,8 +187,8 @@ namespace Fall2020_CSC403_Project {
                     {
                         picDoor.Visible = false;
                         this.Hide();
-                        FrmLevel4 f1 = new FrmLevel4();
-                        f1.Show();
+                        FrmLevel4 f4 = new FrmLevel4();
+                        f4.Show();
                     }
                 }
             }

@@ -182,13 +182,14 @@ namespace Fall2020_CSC403_Project {
                         Fight(enemyCheeto);
                     }
                 }
-                if (picBossKoolAid.Visible)
+                if (picDoor.Visible)
                 {
-                    if (HitAChar(player, bossKoolaid))
+                    if (HitADoor(player, door))
                     {
-                        picBossKoolAid.Visible = false;
-                        Fight(bossKoolaid);
-
+                        picDoor.Visible = false;
+                        this.Hide();
+                        FrmLevel2 f2 = new FrmLevel2();
+                        f2.Show();
                     }
                 }
             }
