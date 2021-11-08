@@ -328,7 +328,7 @@ namespace Fall2020_CSC403_Project
             {
                 ForegroundImage.Location = new Point((int)(ForegroundImage_Xscale * ClientRectangle.Size.Width), (int)(ForegroundImage_Yscale*Height));
             }
-            if (originalHeight != 0)
+            if (originalHeight != 0 && Height != 0)
             {
                 double heightScaling = Height / (double)originalHeight;
                 double widthScaling = Width / (double)originalWidth;
