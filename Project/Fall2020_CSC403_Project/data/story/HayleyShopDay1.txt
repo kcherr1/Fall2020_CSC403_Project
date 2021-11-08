@@ -1,6 +1,9 @@
-﻿#CBF \\data\\background\\ hannah_store.jpg \\data\\foreground\\ enemy_koolaid.png Mr. Peanut: Excuse me, is this the cafeteria? 
+﻿#CBF \\data\\background\\ hayley_store.png \\data\\foreground\\ player.png Mr. Peanut: Excuse me, is this the cafeteria? 
 #CT Hayley: Excuse me, do you have eyes? 
 #CT Mr. Peanut: I think so? If this isn’t the cafeteria, then where am I? 
 #CT Hayley: The best place to lose money at. I’ve got all sorts of useless items to buy. I noticed you have a monocle. You seem to be a man of wealth. I know exactly how to fix that problem. 
 #CT Mr. Peanut: Oh, I’m sorry, I don’t have any money right now. 
 #CT Hayley: Don’t we all? Isn’t that just the way life works? Come back when you do. I’d like to fix the no money problem myself. 
+#HF
+#CB \\data\\background\\ endofschoolday.png Mr. Peanut: Man, I’ve been walking around for a while. The sun has set and the gate’s locked. I think I missed all my afternoon classes… I feel like a plastic bag, drifting through the wind… I guess I’ll go back to the dorm. 
+#CB \\data\\background\\ black.jpg What an eventful first day of brand school. 

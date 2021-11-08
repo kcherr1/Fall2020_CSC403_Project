@@ -75,14 +75,15 @@ namespace Fall2020_CSC403_Project
             this.Textbox.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Textbox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Textbox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Textbox.Font = new Font(this.Textbox.Font.FontFamily, 12f);
             this.Textbox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Textbox.Location = new System.Drawing.Point(0, 350);
-            this.Textbox.Margin = new System.Windows.Forms.Padding(3, 500, 3, 0);
+            this.Textbox.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.Textbox.Name = "Textbox";
-            this.Textbox.Padding = new System.Windows.Forms.Padding(0, 100, 0, 0);
+            this.Textbox.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Textbox.Size = new System.Drawing.Size(800, 100);
             this.Textbox.TabIndex = 7;
-            this.Textbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            //this.Textbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // OptionsPanel
             // 

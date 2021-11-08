@@ -24,7 +24,7 @@ namespace Fall2020_CSC403_Project
         private bool isShop { get; set; } = false; 
         public TextEngine()
         {
-            this.Story = new Story("\\data\\story\\", "Story.txt"); //Read in main story
+            this.Story = new Story("\\data\\story\\", "Day1.txt"); //Read in main story
             #region Initalize shops and items
             Item.initializeAllItems();
             Item.initializeHannahShop();
@@ -134,7 +134,14 @@ namespace Fall2020_CSC403_Project
                     backgroundInfo.RemoveAt(0);
                     backgroundInfo.RemoveAt(0);
                     string newLineBG = string.Join(" ", backgroundInfo);
-                    this.ChangeText(newLineBG);
+                    if (string.IsNullOrWhiteSpace(newLineBG))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(newLineBG);
+                    }
                     break;
                 case Markup.ChangeForegroundImage:
                     //line is: image_location image_name text (ex: #CF \\data\\foreground\\ player.png We've changed the foreground)
@@ -144,7 +151,14 @@ namespace Fall2020_CSC403_Project
                     foregroundInfo.RemoveAt(0);
                     foregroundInfo.RemoveAt(0);
                     string newLineFG = string.Join(" ", foregroundInfo);
-                    this.ChangeText(newLineFG);
+                    if (string.IsNullOrWhiteSpace(newLineFG))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(newLineFG);
+                    }
                     break;
                 case Markup.ChangeBackgroundAndForegroundImage:
                     //line is: background_location background_name foreground_location foreground_name text
@@ -158,17 +172,38 @@ namespace Fall2020_CSC403_Project
                     backForeInfo.RemoveAt(0);
                     backForeInfo.RemoveAt(0);
                     string newLineBGFG = string.Join(" ", backForeInfo);
-                    this.ChangeText(newLineBGFG);
+                    if (string.IsNullOrWhiteSpace(newLineBGFG))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(newLineBGFG);
+                    }                    
                     break;
                 case Markup.HideForeground:
-                    // line is: nothing, this is just a signal to hide the foreground
+                    // line is: optional text
                     this.ForegroundVisibile(false);
-                    HandleMarkup(Story.GetNextLine());
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(line);
+                    }
                     break;
                 case Markup.ShowForeground:
-                    // line is: nothing, this is just a signal to show the foreground
+                    // line is: optional text
                     this.ForegroundVisibile(true);
-                    HandleMarkup(Story.GetNextLine());
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(line);
+                    }
                     break;
                 case Markup.HideTextBox:
                     // line is: nothing, this is just a signal to hide the textbox
