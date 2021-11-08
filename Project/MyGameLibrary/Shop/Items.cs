@@ -16,7 +16,8 @@
         whoopieCushion = 12,
         readyPlayerTwo = 13,
         humanSoul = 14, 
-        hayleysCrown = 15
+        hayleysCrown = 15,
+        mathTextbook = 16
 
     }
 }
