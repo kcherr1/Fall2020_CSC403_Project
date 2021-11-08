@@ -199,14 +199,28 @@ namespace Fall2020_CSC403_Project {
 
       //sets the visibility of the picture depending on the enemy
       //had to do this since the pic of the enemy is stored seperate from the rest of enemy attributes
-      if(enemy == enemyCheeto){
-        picEnemyCheeto.Visible = false;
+      if(enemy == enemyCheeto)
+      {
+                if (picEnemyCheeto.Visible)
+                {
+                    player.AlterHealth(4);
+                }
+                picEnemyCheeto.Visible = false;
       }
       if(enemy == bossKoolaid){
+                if (picBossKoolAid.Visible)
+                {
+                    player.AlterHealth(4);
+                }
         picBossKoolAid.Visible = false;
       }
-      if(enemy == enemyPoisonPacket){
-        picEnemyPoisonPacket.Visible = false;
+      if(enemy == enemyPoisonPacket)
+            {
+                if (picEnemyPoisonPacket.Visible)
+                {
+                    player.AlterHealth(4);
+                }
+                picEnemyPoisonPacket.Visible = false;
       }
     }
 
