@@ -174,26 +174,26 @@ namespace Fall2020_CSC403_Project {
                         Fight(enemyPoisonPacket);
                     }
                 }
-                if (picEnemyCheeto.Visible) {
+                if (picEnemyCheeto.Visible)
+                {
                     if (HitAChar(player, enemyCheeto))
                     {
                         picEnemyCheeto.Visible = false;
                         Fight(enemyCheeto);
                     }
                 }
-                if (picDoor.Visible)
+                if (picBossKoolAid.Visible)
                 {
-                    if(HitADoor(player, door))
+                    if (HitAChar(player, bossKoolaid))
                     {
-                        picDoor.Visible = false;
-                        this.Hide();
-                        FrmLevel2 f3 = new FrmLevel2();
-                        f3.Show();
+                        picBossKoolAid.Visible = false;
+                        Fight(bossKoolaid);
+
                     }
                 }
             }
-            // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                // update player's picture box
+                picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
 
         private void Snail_detection_Click(object sender, EventArgs e)
