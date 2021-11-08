@@ -141,7 +141,7 @@ namespace MyGameLibrary.Story
             //This is a problem for later
             if (Empty())
             {
-                Application.Exit();
+                Environment.Exit(1);
             }  
             this.ParseLine();
             string line = this.CurrentStoryText.First();
