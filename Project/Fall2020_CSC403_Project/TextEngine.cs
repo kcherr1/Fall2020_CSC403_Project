@@ -1,14 +1,12 @@
 ﻿using MyGameLibrary.Shop;
 using MyGameLibrary.Story;
+using MyGameLibrary.Character;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using MyGameLibrary.Shop;
-using MyGameLibrary.Story;
-using MyGameLibrary.Character;
 
 namespace Fall2020_CSC403_Project
 {
