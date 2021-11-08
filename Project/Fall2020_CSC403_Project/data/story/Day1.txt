@@ -6,15 +6,15 @@
 #CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: Tony, we’ve talked about this before, you HAVE to focus on your grades this year.
 #CF \\data\\foreground\\ tony.png Tony: I’m so sorry Coach. I know I’m failing, but math is just so hard. 
 #CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: Well, you’ll have to figure it out. Any less than B’s and you’re off the football team. 
-#CF \\data\\foreground\\ tony.png Tony: There’s no way I’m making a B, Coach! Numbers are so hard…
-#CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man:  You know, a tutor might be what you need to pass that math class. Don't be afraid to ask for help from others.
+#CF \\data\\foreground\\ tony.png Tony: There’s no way I’m making a B, Coach! Numbers are so hard, and then they go and add letters to them…
+#CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: You know, don't be afraid to ask for help from others. You might end up needing a tutor.
 #CF \\data\\foreground\\ tony.png Tony: Well, Coach, I’ll try my hardest. Thanks so much for the advice.
-#CT Coach kool-aid leaves, only for an angry red-headed girl to stomp in behind him.
-#CF \\data\\foreground\\ wendy.png Wendy: I hate cheerleading. It’s so annoying to pretend to be happy all the time. I wish I could get cut from the team. So jealous. But also I hate you, so. 
+#CT Coach kool-aid leaves, only for an hot-headed girl to stomp in behind him.
+#CF \\data\\foreground\\ wendy.png Wendy: I hate cheerleading. I wish I could get cut from the team. Maybe I should just be stupid like you so they kick me off. 
 #CF \\data\\foreground\\ tony.png Tony: But Wendy, this is serious! You don’t understand the highs and lows of high school football!! 
 #CT The two continue to bicker to one another as they head to their seats.
 #HF
-#CT Mr. Peanut: Man. Tony and Wendy sure are popular. 
+#CT Mr. Peanut: Man. Tony and Wendy sure are popular. I've heard so much about them before I even transferred here.
 #CT Suddenly, a ruckus enters the room.
 #CF \\data\\foreground\\ burgerking.png 
 #SF Burger King: Prom is this Saturday, and you’re NEVER gonna get a date, clown boy. 
@@ -25,8 +25,8 @@
 #CT Ronald: That’s it! Suck it. Haha!!!
 #CF \\data\\foreground\\ burgerking.png Burger King: You are a fool. An absolute buffoon. 
 #CF \\data\\foreground\\ msgreen.png Green: Knock it off you guys. I’m READING!
-#CF \\data\\foreground\\ ronald.png Ronald: Silence NERD!!!!
-#CF \\data\\foreground\\ burgerking.png Burger King: At least I actually have a life.
+#CF \\data\\foreground\\ ronald.png Ronald: No need to brag, NERD!!!!... so what if you know how to read, that's not all there is to life.
+#CF \\data\\foreground\\ burgerking.png Burger King: I know how to read just fine, perhaps better than everyone in the whole wide world. But, unlike you I actually have a life.
 #CF \\data\\foreground\\ msgreen.png Green: I… (sniff) I’m so sorry… 
 #CT Mr. Peanut: She looks like she’s about to cry. I can’t just let this happen! 
 #CF \\data\\foreground\\ player.png Mr. Peanut: Hey, knock it off, both of you! Can’t you see she’s upset?

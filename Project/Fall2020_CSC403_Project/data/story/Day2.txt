@@ -1,0 +1,44 @@
+﻿#CT Mr. Peanut: Good morning, sun! Seems I got a letter this morning. I wonder what’s inside… 
+#CT Mr. Peanut: Oh!
+#CT Mr. Peanut: Mom and Dad sent my daily allowance! That’s awesome. Now I can actually buy something at the shops during lunch. I’m excited!
+#AW 20
+#CT Your parents sent you twenty dollars! It sure feels good to be a trust fund kid!
+#CB \\data\\background\\ dorms.jpg Mr. Peanut: Oh, look, there’s Tony! He doesn’t look like he’s doing well… 
+#CF \\data\\foreground\\ tony.png
+#SF Tony: Hey dude. Man have I got a splitting headache after last night’s party.
+#CF \\data\\foreground\\ player.png Mr. Peanut: Oh no! 
+#CF \\data\\foreground\\ tony.png Tony: Bro… I was really hoping I’d find a date to prom there. I’m the captain of the football team, and I’ve always had a date to prom. But being a fifth-year senior… bro. Kinda sucks.
+#CF \\data\\foreground\\ player.png Mr. Peanut: Sure does. 
+#CF \\data\\foreground\\ tony.png Tony: Hey, would you... would you mind walking with me to class? 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Not at all, beats walking there by myself.
+#CBF \\data\\background\\ beginningofschoolday.jpg \\data\\foreground\\ tony.png Tony: It’s been cool talkin’ to you, bro. 
+#CF \\data\\foreground\\ wendy.png Wendy: Ew, Tony. Disgusting. Begone.
+#CF \\data\\foreground\\ tony.png Tony: Bruh. Sunny as always I see, hate to leave ya to the beast, but... see you later P!
+#CF \\data\\foreground\\ wendy.png Wendy: Now that the circus animal is gone, I’ll show you to your first class or whatever.
+#CT Wendy: Don't flatter yourself, by the way. I'm forced to do this to make up for... certain incidents.
+#CT Wendy: I would never do this of my own accord. 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Well, what’s my first class?
+#HF Wendy begrudgingly shows you where you need to be.
+#SF
+#CB \\data\\background\\ gym.jpg Mr. Peanut: Thanks for showing me to class!
+#CF \\data\\foreground\\ wendy.png Wendy: You’re welcome or whatever. If coach asks tell him I did great job, or you're dead. 
+#HF She stomps off, but you notice as she ducks under the bleachers. 
+#CT Mr. Peanut: She's an... odd one. 
+#CT In her place two chaotic figures storm through.
+#CF \\data\\foreground\\ burgerking.png 
+#SF Burger King: Hurry up, I heard Coach Kool-Aid is running late, but we only have a few moments at best to set up this prank. Which I came up with, of course. 
+#CF \\data\\foreground\\ ronald.png Ronald: Man, I wish I had a whoopie cushion right now :((((((
+#CF \\data\\foreground\\ burgerking.png Burger King: WHY WOULD YOU USE A WHOOPIE CUSHION YOU ABSOLUTE CLOWN
+#CF \\data\\foreground\\ msgreen.png Green: You two are always so loud! No wonder nobody wants to go to prom with you guys! I’m in the very last chapter of my book!
+#CF \\data\\foreground\\ burgerking.png Burger King: Oh, I'm sorry...
+#CT Burger King: Sorry that nobody cares.
+#CF \\data\\foreground\\ ronald.png Ronald: Why are you READING so often anyway???
+#CF \\data\\foreground\\ msgreen.png Green: Well… I’m sorry. I guess I don’t have anything to read after this. I need another book… 
+#CT Green: I’m sorry for interrupting. This is just a really good part…
+#CF \\data\\foreground\\ ronald.png Ronald: ALSO, I see you making fun of US for not having prom dates when YOU don’t have one yourself!!!!!! Maybe you READ because that's YOUR DATE, hahahahaha.
+#CT Ronald looks over to Burger King for acknowledgment, but Burger King simply does not care about Ronald at all.
+#CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: Hey kids! Sorry I’m late! Time to get FIT!
+#HF
+#CB \\data\\background\\ forest.jpg Mr. Peanut: I can’t wait to go to the shops with my allowance! Maybe I can even get someone a gift!
+#NS \\data\\story\\ HannahShopDay2.txt
+

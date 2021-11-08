@@ -131,9 +131,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\background\alley.jpg" />
+    <Content Include="data\background\beginningofschoolday.jpg" />
     <Content Include="data\background\black.jpg" />
+    <Content Include="data\background\dorms.jpg" />
     <Content Include="data\background\endofschoolday.png" />
     <Content Include="data\background\forest.jpg" />
+    <Content Include="data\background\gym.jpg" />
     <Content Include="data\background\hannah_store.jpg" />
     <Content Include="data\background\hayley_store.png" />
     <Content Include="data\background\opening.jpg" />
@@ -143,6 +147,7 @@
     <Content Include="data\foreground\tony.png" />
     <Content Include="data\foreground\wendy.png" />
     <Content Include="data\story\Day1.txt" />
+    <Content Include="data\story\Day2.txt" />
     <Content Include="data\story\HannahShopDays35.txt" />
     <Content Include="data\story\HannahShopDay1.txt" />
     <Content Include="data\story\HannahShopDay2.txt" />
