@@ -48,6 +48,8 @@
     <Compile Include="BattleCharacter.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Character\Character.cs" />
+    <Compile Include="Character\CharacterID.cs" />
+    <Compile Include="Character\CharacterCollection.cs" />
     <Compile Include="Collider.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
