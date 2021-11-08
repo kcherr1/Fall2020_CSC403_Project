@@ -12,11 +12,11 @@ namespace MyGameLibrary.Character
     {
         public static Dictionary<CharacterID, Character> CharacterDictionary;
 
-        private static Dictionary<Items, int> dictWendy;
-        private static Dictionary<Items, int> dictTony;
-        private static Dictionary<Items, int> dictRonald;
-        private static Dictionary<Items, int> dictGreen;
-        private static Dictionary<Items, int> dictBK;
+        private static Dictionary<Items, int> s_dictWendyItemResponse;
+        private static Dictionary<Items, int> s_dictTonyItemResponse;
+        private static Dictionary<Items, int> s_dictRonaldItemResponse;
+        private static Dictionary<Items, int> s_dictGreenItemResponse;
+        private static Dictionary<Items, int> s_dictBKItemResponse;
 
         public static Character Wendy;
         public static Character Tony;
@@ -26,11 +26,11 @@ namespace MyGameLibrary.Character
 
         static CharacterCollection() {
             DeclareDict();
-            Wendy = new Character("Wendy", 40, dictWendy);
-            Tony = new Character("Tony the Tiger", 40, dictTony);
-            Ronald = new Character("Ronald McDonald", 40, dictRonald);
-            Green = new Character("Green M&M", 40, dictGreen);
-            BurgerKing = new Character("Burger King", 40, dictBK);
+            Wendy = new Character("Wendy", LScore: 40, s_dictWendyItemResponse);
+            Tony = new Character("Tony the Tiger", LScore: 50, s_dictTonyItemResponse);
+            Ronald = new Character("Ronald McDonald", LScore: 50, s_dictRonaldItemResponse);
+            Green = new Character("Green M&M", LScore: 50, s_dictGreenItemResponse);
+            BurgerKing = new Character("Burger King", LScore: 50, s_dictBKItemResponse);
 
             CharacterDictionary = new Dictionary<CharacterID, Character> {
                 {(CharacterID) 1, Wendy},
@@ -44,7 +44,7 @@ namespace MyGameLibrary.Character
 
         //Declare love values for each gift item, dict1-dict5 corresponds to character ID 1-5
         private static void DeclareDict() {
-            dictWendy = new Dictionary<Items, int> {
+            s_dictWendyItemResponse = new Dictionary<Items, int> {
                 {(Items) 1, -10},
                 {(Items) 2, -10},
                 {(Items) 3, -10},
@@ -62,7 +62,7 @@ namespace MyGameLibrary.Character
                 {(Items) 15, -10},
                 {(Items) 16, -10}
             };
-            dictTony = new Dictionary<Items, int> {
+            s_dictTonyItemResponse = new Dictionary<Items, int> {
                 {(Items) 1, 5},
                 {(Items) 2, 15},
                 {(Items) 3, -5},
@@ -80,7 +80,7 @@ namespace MyGameLibrary.Character
                 {(Items) 15, 5},
                 {(Items) 16, 50}
             };
-            dictRonald = new Dictionary<Items, int> {
+            s_dictRonaldItemResponse = new Dictionary<Items, int> {
                 {(Items) 1, 10},
                 {(Items) 2, 5},
                 {(Items) 3, 10},
@@ -98,7 +98,7 @@ namespace MyGameLibrary.Character
                 {(Items) 15, 30},
                 {(Items) 16, -10}
             };
-            dictGreen = new Dictionary<Items, int> {
+            s_dictGreenItemResponse = new Dictionary<Items, int> {
                 {(Items) 1, 5},
                 {(Items) 2, 5},
                 {(Items) 3, -10},
@@ -116,7 +116,7 @@ namespace MyGameLibrary.Character
                 {(Items) 15, 5},
                 {(Items) 16, 10}
             };
-            dictBK = new Dictionary<Items, int> {
+            s_dictBKItemResponse = new Dictionary<Items, int> {
                 {(Items) 1, -10},
                 {(Items) 2, -5},
                 {(Items) 3, -10},
