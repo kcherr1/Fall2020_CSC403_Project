@@ -31,13 +31,15 @@
             this.defenseValueLabel = new System.Windows.Forms.Label();
             this.evasionValueLabel = new System.Windows.Forms.Label();
             this.strengthValueLabel = new System.Windows.Forms.Label();
-            this.addStrengthButton = new System.Windows.Forms.Button();
-            this.addEvasionButton = new System.Windows.Forms.Button();
-            this.addDefenseButton = new System.Windows.Forms.Button();
             this.strengthLabel = new System.Windows.Forms.Label();
             this.evasionLabel = new System.Windows.Forms.Label();
             this.defenseLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.addDefenseLabel = new System.Windows.Forms.Label();
+            this.addEvasionLabel = new System.Windows.Forms.Label();
+            this.addStrengthLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.availablePointsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // defenseValueLabel
@@ -69,39 +71,6 @@
             this.strengthValueLabel.Size = new System.Drawing.Size(51, 20);
             this.strengthValueLabel.TabIndex = 2;
             this.strengthValueLabel.Text = "label3";
-            // 
-            // addStrengthButton
-            // 
-            this.addStrengthButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addStrengthButton.Location = new System.Drawing.Point(238, 109);
-            this.addStrengthButton.Name = "addStrengthButton";
-            this.addStrengthButton.Size = new System.Drawing.Size(23, 23);
-            this.addStrengthButton.TabIndex = 3;
-            this.addStrengthButton.Text = "+";
-            this.addStrengthButton.UseVisualStyleBackColor = true;
-            this.addStrengthButton.Click += new System.EventHandler(this.AddStrengthButton_Click);
-            // 
-            // addEvasionButton
-            // 
-            this.addEvasionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEvasionButton.Location = new System.Drawing.Point(238, 189);
-            this.addEvasionButton.Name = "addEvasionButton";
-            this.addEvasionButton.Size = new System.Drawing.Size(23, 23);
-            this.addEvasionButton.TabIndex = 4;
-            this.addEvasionButton.Text = "+";
-            this.addEvasionButton.UseVisualStyleBackColor = true;
-            this.addEvasionButton.Click += new System.EventHandler(this.AddEvasionButton_Click);
-            // 
-            // addDefenseButton
-            // 
-            this.addDefenseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addDefenseButton.Location = new System.Drawing.Point(238, 279);
-            this.addDefenseButton.Name = "addDefenseButton";
-            this.addDefenseButton.Size = new System.Drawing.Size(23, 23);
-            this.addDefenseButton.TabIndex = 5;
-            this.addDefenseButton.Text = "+";
-            this.addDefenseButton.UseVisualStyleBackColor = true;
-            this.addDefenseButton.Click += new System.EventHandler(this.AddDefenseButton_Click);
             // 
             // strengthLabel
             // 
@@ -143,19 +112,74 @@
             this.titleLabel.TabIndex = 9;
             this.titleLabel.Text = "Stats";
             // 
+            // addDefenseLabel
+            // 
+            this.addDefenseLabel.AutoSize = true;
+            this.addDefenseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addDefenseLabel.Location = new System.Drawing.Point(230, 280);
+            this.addDefenseLabel.Name = "addDefenseLabel";
+            this.addDefenseLabel.Size = new System.Drawing.Size(25, 26);
+            this.addDefenseLabel.TabIndex = 10;
+            this.addDefenseLabel.Text = "+";
+            this.addDefenseLabel.Click += new System.EventHandler(this.AddDefenseLabel_Click);
+            // 
+            // addEvasionLabel
+            // 
+            this.addEvasionLabel.AutoSize = true;
+            this.addEvasionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addEvasionLabel.Location = new System.Drawing.Point(230, 190);
+            this.addEvasionLabel.Name = "addEvasionLabel";
+            this.addEvasionLabel.Size = new System.Drawing.Size(25, 26);
+            this.addEvasionLabel.TabIndex = 11;
+            this.addEvasionLabel.Text = "+";
+            this.addEvasionLabel.Click += new System.EventHandler(this.AddEvasionLabel_Click);
+            // 
+            // addStrengthLabel
+            // 
+            this.addStrengthLabel.AutoSize = true;
+            this.addStrengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addStrengthLabel.Location = new System.Drawing.Point(230, 106);
+            this.addStrengthLabel.Name = "addStrengthLabel";
+            this.addStrengthLabel.Size = new System.Drawing.Size(25, 26);
+            this.addStrengthLabel.TabIndex = 12;
+            this.addStrengthLabel.Text = "+";
+            this.addStrengthLabel.Click += new System.EventHandler(this.AddStrengthLabel_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(152, 24);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Available Points: ";
+            // 
+            // availablePointsLabel
+            // 
+            this.availablePointsLabel.AutoSize = true;
+            this.availablePointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availablePointsLabel.Location = new System.Drawing.Point(172, 62);
+            this.availablePointsLabel.Name = "availablePointsLabel";
+            this.availablePointsLabel.Size = new System.Drawing.Size(20, 24);
+            this.availablePointsLabel.TabIndex = 15;
+            this.availablePointsLabel.Text = "0";
+            // 
             // StatsMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(350, 400);
+            this.Controls.Add(this.availablePointsLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.addStrengthLabel);
+            this.Controls.Add(this.addEvasionLabel);
+            this.Controls.Add(this.addDefenseLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.defenseLabel);
             this.Controls.Add(this.evasionLabel);
             this.Controls.Add(this.strengthLabel);
-            this.Controls.Add(this.addDefenseButton);
-            this.Controls.Add(this.addEvasionButton);
-            this.Controls.Add(this.addStrengthButton);
             this.Controls.Add(this.strengthValueLabel);
             this.Controls.Add(this.evasionValueLabel);
             this.Controls.Add(this.defenseValueLabel);
@@ -171,12 +195,14 @@
         private System.Windows.Forms.Label defenseValueLabel;
         private System.Windows.Forms.Label evasionValueLabel;
         private System.Windows.Forms.Label strengthValueLabel;
-        private System.Windows.Forms.Button addStrengthButton;
-        private System.Windows.Forms.Button addEvasionButton;
-        private System.Windows.Forms.Button addDefenseButton;
         private System.Windows.Forms.Label strengthLabel;
         private System.Windows.Forms.Label evasionLabel;
         private System.Windows.Forms.Label defenseLabel;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label addDefenseLabel;
+        private System.Windows.Forms.Label addEvasionLabel;
+        private System.Windows.Forms.Label addStrengthLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label availablePointsLabel;
     }
 }

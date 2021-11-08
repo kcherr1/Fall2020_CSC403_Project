@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project
         public Player player;
         public StatsMenu()
         {
+            KeyDown += new System.Windows.Forms.KeyEventHandler(StatsMenu_KeyDown);
             Load += new System.EventHandler(StatsMenu_Load);
             InitializeComponent();
             player = Game.player;
@@ -29,39 +30,57 @@ namespace Fall2020_CSC403_Project
             defenseValueLabel.Text = player.defense.ToString();
         }
 
-        private void AddDefenseButton_Click(object sender, EventArgs e)
+        private void AddDefenseLabel_Click(object sender, EventArgs e)
         {
-            player.AlterDefense(1);
-            defenseValueLabel.Text = player.defense.ToString();
+            Game.player.AlterDefense(1);
+            defenseValueLabel.Text = Game.player.defense.ToString();
+            Game.player.alterAvailableStatPoints(-1);
             CheckPointsAvailble();
         }
 
-        private void AddEvasionButton_Click(object sender, EventArgs e)
+        private void AddEvasionLabel_Click(object sender, EventArgs e)
         {
-            player.AlterEvasion(1);
-            evasionValueLabel.Text = player.evasion.ToString();
+            Game.player.AlterEvasion(1);
+            evasionValueLabel.Text = Game.player.evasion.ToString();
+            Game.player.alterAvailableStatPoints(-1);
             CheckPointsAvailble();
         }
 
-        private void AddStrengthButton_Click(object sender, EventArgs e)
+        private void AddStrengthLabel_Click(object sender, EventArgs e)
         {
-            player.AlterStrength(1);
-            strengthValueLabel.Text = player.strength.ToString();
+            Game.player.AlterStrength(1);
+            strengthValueLabel.Text = Game.player.strength.ToString();
+            Game.player.alterAvailableStatPoints(-1);
             CheckPointsAvailble();
         }
 
         private void CheckPointsAvailble()
         {
-            if (player.availableStatPoints > 0)
+            availablePointsLabel.Text = Game.player.availableStatPoints.ToString();
+
+            if (Game.player.availableStatPoints > 0)
             {
-                addStrengthButton.Enabled = true;
-                addEvasionButton.Enabled = true;
-                addDefenseButton.Enabled = true;
+                addStrengthLabel.Enabled = true;
+                addEvasionLabel.Enabled = true;
+                addDefenseLabel.Enabled = true;
             } else
             {
-                addStrengthButton.Enabled = false;
-                addEvasionButton.Enabled = false;
-                addDefenseButton.Enabled = false;
+                addStrengthLabel.Enabled = false;
+                addEvasionLabel.Enabled = false;
+                addDefenseLabel.Enabled = false;
+            }
+        }
+
+
+       private void StatsMenu_KeyDown(object caller, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.P)
+            {
+                FrmLevel f = (FrmLevel)Creator;
+                f.statsMenu = null;
+                f.RequestShow();
+                f.StartPlayerMoveTimer();
+                Close();
             }
         }
     }
