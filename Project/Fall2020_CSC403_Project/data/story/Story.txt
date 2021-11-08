@@ -22,7 +22,7 @@
 #A 12
 #A 14
 #CT Let's test giving a gift.
-#GO 1
+#O Give Gift,#GO 1] Exit,#]
 
 #CT Now we're going to read in a new story.
 #NS \\data\\story\\ HannahShopDay1.txt

@@ -329,7 +329,7 @@ namespace Fall2020_CSC403_Project
                             giftOptions += (Inventory.Contents[itemID].ItemName + ",#G " + charID + " " + (int)itemID + "]");
                         }
                     }
-                    giftOptions += " Exit,#E] Select your gift!";
+                    giftOptions += " Exit,#] Select your gift!";
                     Story.CurrentStoryText.AddFirst(giftOptions);
                     HandleMarkup(Story.GetNextLine());
                     break;
