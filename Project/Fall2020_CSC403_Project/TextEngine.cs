@@ -254,14 +254,18 @@ namespace Fall2020_CSC403_Project
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.GiveItem:
-                    // line is: id
-                    string nameGive = Enum.GetName(typeof(Items), int.Parse(line));
+                    // line is: characterID itemID
+                    // uses the item and changes the character's love score depending on the item
+
+                    // get character and item IDs
+                    string[] IDs = line.Split(' '); 
+                    string character = Enum.GetName(typeof(CharacterID), int.Parse(IDs[0]));
+                    CharacterID ID = (CharacterID)Enum.Parse(typeof(CharacterID), character);
+                    string nameGive = Enum.GetName(typeof(Items), int.Parse(IDs[1]));
                     Items identifierGive = (Items)Enum.Parse(typeof(Items), nameGive);
-                    Inventory.useItem(identifierGive);
-                    //TO DO!!!!: 
-                    //Change character love score
-                    //Make a character enum as well?
-                    //LoveUpdate(identifierGive)
+
+                    Inventory.useItem(identifierGive); //mark the item as used
+                    CharacterCollection.CharacterDictionary[ID].LoveUpdate(identifierGive); 
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.ReadInNewStory:
@@ -295,7 +299,6 @@ namespace Fall2020_CSC403_Project
                             shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": $" + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
                         }
                     }
-
                     shop1OptionString += " Exit,#E]";
                     Story.CurrentStoryText.AddFirst(shop1OptionString);
                     HandleMarkup(Story.GetNextLine());
@@ -310,6 +313,22 @@ namespace Fall2020_CSC403_Project
                     }
                     shop2OptionString += " Exit,#E]";
                     Story.CurrentStoryText.AddFirst(shop2OptionString);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.GiftOptions:
+                    // line is: #GO [character ID]
+                    // creates a string containing the available items in the users inventory to be displayed as gift options
+                    int charID = int.Parse(line[0].ToString());
+                    string giftOptions = "#O ";
+                    foreach(Items itemID in Inventory.Contents.Keys)
+                    {
+                        if (!Inventory.Contents[itemID].used)
+                        {
+                            giftOptions += (Inventory.Contents[itemID].ItemName + ",#G " + charID + " " + (int)itemID + "]");
+                        }
+                    }
+                    giftOptions += " Exit,#] Select your gift!";
+                    Story.CurrentStoryText.AddFirst(giftOptions);
                     HandleMarkup(Story.GetNextLine());
                     break;
             }

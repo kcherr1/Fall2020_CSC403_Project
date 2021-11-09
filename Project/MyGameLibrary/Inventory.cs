@@ -7,7 +7,7 @@ namespace Fall2020_CSC403_Project
     public static class Inventory
     {
         public static int walletBalance = 100;
-        static Dictionary<Items, Item> Contents = new Dictionary<Items, Item>();
+        public static Dictionary<Items, Item> Contents = new Dictionary<Items, Item>();
 
         public static void removeItem(Items ID)
         {
