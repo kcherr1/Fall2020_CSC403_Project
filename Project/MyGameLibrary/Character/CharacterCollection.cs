@@ -26,11 +26,12 @@ namespace MyGameLibrary.Character
 
         static CharacterCollection() {
             DeclareDict();
-            Wendy = new Character("Wendy", LScore: 40, s_dictWendyItemResponse);
-            Tony = new Character("Tony the Tiger", LScore: 50, s_dictTonyItemResponse);
-            Ronald = new Character("Ronald McDonald", LScore: 50, s_dictRonaldItemResponse);
-            Green = new Character("Green M&M", LScore: 50, s_dictGreenItemResponse);
-            BurgerKing = new Character("Burger King", LScore: 50, s_dictBKItemResponse);
+            string dateLocations = "\\data\\story\\";
+            Wendy = new Character("Wendy", LScore: 40, HappyResponse: "...", UnhappyResponse: "...", DateLocation: dateLocations, DateName: "Wendy_Date.txt", s_dictWendyItemResponse);
+            Tony = new Character("Tony", LScore: 50, HappyResponse: "Whoa dude! Thanks so much! This is really cool!", UnhappyResponse: "Oh, uh, thanks? ", DateLocation: dateLocations, DateName: "Tony_Date.txt", s_dictTonyItemResponse);
+            Ronald = new Character("Ronald", LScore: 50, HappyResponse: "I could use this later!! Thanks!!!", UnhappyResponse: "This is SO LAME AND BORING!!!!", DateLocation: dateLocations, DateName: "Ronald_Date.txt", s_dictRonaldItemResponse);
+            Green = new Character("Green", LScore: 50, HappyResponse: "Oh! Thank you! You didn’t have to do this for me!! That’s so sweet…", UnhappyResponse: " Oh. Well, thanks for the thought!", DateLocation: dateLocations, DateName: "Green_Date.txt", s_dictGreenItemResponse);
+            BurgerKing = new Character("Burger King", LScore: 50, HappyResponse: "Why thank you!", UnhappyResponse: "You think THIS is a gift befitting a king? Who do you think you are?", DateLocation: dateLocations, DateName: "Burger_Date.txt", s_dictBKItemResponse);
 
             CharacterDictionary = new Dictionary<CharacterID, Character> {
                 {(CharacterID) 1, Wendy},

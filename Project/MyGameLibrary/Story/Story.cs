@@ -19,27 +19,38 @@ namespace MyGameLibrary.Story
             this.ChangeStory(storyTitle);
         }
 
-        public void ChangeStory(string newStoryTitle, string newStoryLocation = "")
+        public void ChangeStory(string newStoryTitle, string newStoryLocation = "", bool insert = false)
         {
             if(!string.IsNullOrEmpty(newStoryLocation.Trim()))
             {
                 this.StoryLocation = newStoryLocation;
             }
             this.StoryTitle = newStoryTitle;
-            this.ReadInStory();
+            this.ReadInStory(insert);
         }
 
-        private void ReadInStory()
+        private void ReadInStory(bool insert)
         {
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
             _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
             _filePath += StoryLocation+StoryTitle;
             string[] lines = File.ReadAllLines(_filePath);
+            if (insert)
+            {
+                lines.Reverse();
+            }
             foreach (string line in lines)
             {
                 if(!string.IsNullOrEmpty(line.Trim()))
                 {
-                    this.CurrentStoryText.AddLast(line.Trim());
+                    if(insert)
+                    {
+                        this.CurrentStoryText.AddFirst(line.Trim());
+                    }
+                    else
+                    {
+                        this.CurrentStoryText.AddLast(line.Trim());
+                    }                    
                 }
             }
         }

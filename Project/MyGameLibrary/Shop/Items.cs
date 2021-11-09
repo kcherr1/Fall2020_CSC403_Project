@@ -18,6 +18,5 @@
         humanSoul = 14, 
         hayleysCrown = 15,
         mathTextbook = 16
-
     }
 }

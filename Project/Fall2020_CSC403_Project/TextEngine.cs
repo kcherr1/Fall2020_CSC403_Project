@@ -113,6 +113,7 @@ namespace Fall2020_CSC403_Project
                     Options.Clear();
                     this.RemoveOptions(options);
                     #endregion
+                    Console.WriteLine(focusedOption.OptionBackendMarkup);
                     Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup); //Add whatever the option markup was to story to handle next
                     HandleMarkup(Story.GetNextLine());
                 }
@@ -131,7 +132,14 @@ namespace Fall2020_CSC403_Project
             {
                 case Markup.ChangeText:
                     //line is plain text (ex: #CT Hello)
-                    this.ChangeText(line);
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(line);
+                    }                    
                     break;
                 case Markup.ChangeBackgroundImage:
                     //line is: image_location image_name text (ex: #CB \\data\\background\\ hannah_store.jpg We've changed the background)
@@ -305,8 +313,16 @@ namespace Fall2020_CSC403_Project
                     Items identifierGive = (Items)Enum.Parse(typeof(Items), nameGive);
 
                     Inventory.useItem(identifierGive); //mark the item as used
-                    CharacterCollection.CharacterDictionary[ID].LoveUpdate(identifierGive); 
-                    HandleMarkup(Story.GetNextLine());
+                    string response = CharacterCollection.CharacterDictionary[ID].LoveUpdate(identifierGive);
+                    if (string.IsNullOrWhiteSpace(response))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        response = CharacterCollection.CharacterDictionary[ID].CharacterName + ": " + response;
+                        this.ChangeText(response);
+                    }
                     break;
                 case Markup.ReadInNewStory:
                     // line is: story_location story_name
@@ -320,7 +336,31 @@ namespace Fall2020_CSC403_Project
                     //to leave inventory handle pressing escape? press escape maybe to view inventory and then escape to exit?
                     break;
                 case Markup.CheckThresholdsForTree:
-                    // line is: empty, just check thresholds
+                    // line is: characterID you're checking
+                    //If greater than or equal to max of items and not already dated
+                    string characterName = Enum.GetName(typeof(CharacterID), int.Parse(line));
+                    CharacterID characterID = (CharacterID)Enum.Parse(typeof(CharacterID), characterName);
+                    Character characterTree = CharacterCollection.CharacterDictionary[characterID];
+                    int max = characterTree.ItemScores.Values.Max();
+                    if(!characterTree.Dated && characterTree.LoveScore >= max)
+                    {
+                        string[] duplicateStory = new string[this.Story.CurrentStoryText.Count];
+                        this.Story.CurrentStoryText.CopyTo(duplicateStory, 0);
+                        foreach (string storyLine in duplicateStory)
+                        {
+                            //Until you reach the "SKIP TO" (aka [ST] change text marker) clear out the rest of the dialogue
+                            Console.WriteLine(storyLine);
+                            this.Story.CurrentStoryText.RemoveFirst();
+                            if (string.Equals(storyLine.Trim(), "[ST]"))
+                            {
+                                break;
+                            }                            
+                        }
+                        //Read in the date
+                        this.Story.ChangeStory(characterTree.DateName, characterTree.DateLocation, insert: true);
+                        characterTree.Dated = true;
+                    }
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.ExitOptions:
                     // line is: #E
@@ -340,7 +380,6 @@ namespace Fall2020_CSC403_Project
                         }
                     }
                     shop1OptionString += " Exit,#E]";
-                    Console.WriteLine(shop1OptionString);
                     Story.CurrentStoryText.AddFirst(shop1OptionString);
                     HandleMarkup(Story.GetNextLine());
                     break;
@@ -368,7 +407,7 @@ namespace Fall2020_CSC403_Project
                             giftOptions += (Inventory.Contents[itemID].ItemName + ",#G " + charID + " " + (int)itemID + "]");
                         }
                     }
-                    giftOptions += " Exit,#] Select your gift!";
+                    giftOptions += " Exit,#CT ] Select your gift!";
                     Story.CurrentStoryText.AddFirst(giftOptions);
                     HandleMarkup(Story.GetNextLine());
                     break;

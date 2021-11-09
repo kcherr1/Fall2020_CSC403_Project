@@ -140,14 +140,21 @@
     <Content Include="data\background\gym.jpg" />
     <Content Include="data\background\hannah_store.jpg" />
     <Content Include="data\background\hayley_store.png" />
+    <Content Include="data\background\lunch.jpg" />
     <Content Include="data\background\opening.jpg" />
     <Content Include="data\foreground\burgerking.png" />
     <Content Include="data\foreground\msgreen.png" />
     <Content Include="data\foreground\ronald.png" />
     <Content Include="data\foreground\tony.png" />
     <Content Include="data\foreground\wendy.png" />
+    <Content Include="data\story\Tony_Date.txt" />
+    <Content Include="data\story\3Date.txt" />
+    <Content Include="data\story\4Date.txt" />
+    <Content Include="data\story\5Date.txt" />
     <Content Include="data\story\Day1.txt" />
     <Content Include="data\story\Day2.txt" />
+    <Content Include="data\story\Day4.txt" />
+    <Content Include="data\story\Day5.txt" />
     <Content Include="data\story\Day3.txt" />
     <Content Include="data\story\GiftGiving.txt" />
     <Content Include="data\story\HannahShopDays35.txt" />
@@ -158,6 +165,7 @@
     <Content Include="data\story\HayleyShopDays35.txt" />
     <Content Include="data\story\NewStoryTest.txt" />
     <Content Include="data\story\Story.txt" />
+    <Content Include="data\story\1Date.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
