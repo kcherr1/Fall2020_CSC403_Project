@@ -37,13 +37,19 @@ namespace Fall2020_CSC403_Project
 
         public void NewBackground(Image newBackground)
         {
+            Image oldBGImageNormalPanel = NormalPanel.BackgroundImage;
+            Image oldBGImageOptionsPanel = OptionsPanel.BackgroundImage;
             NormalPanel.BackgroundImage = newBackground;
             OptionsPanel.BackgroundImage = newBackground;
+            oldBGImageNormalPanel.Dispose();
+            oldBGImageOptionsPanel.Dispose();
         }
 
         public void NewForeground(Image newImage)
         {
+            Image oldFGImage = ForegroundImage.BackgroundImage;
             ForegroundImage.BackgroundImage = newImage;
+            oldFGImage.Dispose();
         }
 
         public void ChangeText(string newText)

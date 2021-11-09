@@ -104,7 +104,7 @@ namespace Fall2020_CSC403_Project
             this.NormalPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NormalPanel.Controls.Add(this.Textbox);
             this.NormalPanel.Controls.Add(this.ForegroundImage);
-            this.NormalPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NormalPanel.Dock = System.Windows.Forms.DockStyle.Fill;            
             this.NormalPanel.Location = new System.Drawing.Point(0, 0);
             this.NormalPanel.Name = "NormalPanel";
             this.NormalPanel.Size = new System.Drawing.Size(800, 450);

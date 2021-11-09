@@ -13,4 +13,5 @@
 #CF \\data\\foreground\\ wendy.png Wendy: DO NOT DISTURB THE RITUAL.
 #CF \\data\\foreground\\ player.png Mr. Peanut: Oh, sorry! See you tomorrow. 
 #HF
-#CB \\data\\background\\ black.jpg 
+#CB \\data\\background\\ black.jpg There goes day two!
+#NS \\data\\story\\ Day3.txt

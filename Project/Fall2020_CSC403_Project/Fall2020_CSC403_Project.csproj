@@ -148,6 +148,8 @@
     <Content Include="data\foreground\wendy.png" />
     <Content Include="data\story\Day1.txt" />
     <Content Include="data\story\Day2.txt" />
+    <Content Include="data\story\Day3.txt" />
+    <Content Include="data\story\GiftGiving.txt" />
     <Content Include="data\story\HannahShopDays35.txt" />
     <Content Include="data\story\HannahShopDay1.txt" />
     <Content Include="data\story\HannahShopDay2.txt" />
