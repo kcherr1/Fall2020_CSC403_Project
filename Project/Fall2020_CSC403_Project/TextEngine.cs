@@ -220,9 +220,10 @@ namespace Fall2020_CSC403_Project
                     break;
                 case Markup.AddToWallet:
                     //line is: amount as int
-                    UpdateBalance(true);
                     Inventory.depositMoney(int.Parse(line));
+                    UpdateBalance(true);
                     HandleMarkup(Story.GetNextLine());
+                    UpdateBalance(false);
                     break;
                 case Markup.AddItemToInventory:
                     // line is: id           
@@ -352,6 +353,10 @@ namespace Fall2020_CSC403_Project
                 double widthScaling = Width / (double)originalWidth;
                 Textbox.Height = (int)(heightScaling * 80);
                 Textbox.Width = Width;
+                BalanceLabel.Height = 30 * (int) heightScaling;
+                BalanceLabel.Width = 70 * (int) widthScaling;
+                BalanceLabel.Location = new Point(ClientRectangle.Width-BalanceLabel.Width, 0);
+                BalanceLabel.Font = new Font("Georgia",(int) heightScaling*16);
                 Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
                 int location_Y = 50;
                 int optionNumber = 0;
