@@ -25,7 +25,6 @@ namespace MyGameLibrary.UI
             LinearGradientBrush brush = new LinearGradientBrush(rectangle, whiteTransparent, pinkTransparent, LinearGradientMode.Vertical);
             e.Graphics.FillRectangle(brush, rectangle);
             brush.Dispose();
-            
         }
         protected override void OnPaint(PaintEventArgs e)
         {
