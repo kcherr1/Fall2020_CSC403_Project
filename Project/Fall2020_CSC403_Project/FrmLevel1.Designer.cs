@@ -271,7 +271,7 @@
             // 
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
             this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.World_1;
-            this.picDoor.Location = new System.Drawing.Point(1421, 689);
+            this.picDoor.Location = new System.Drawing.Point(1395, 664);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
             this.picDoor.Size = new System.Drawing.Size(128, 110);
