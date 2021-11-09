@@ -50,6 +50,7 @@
             this.Music_restarter = new System.Windows.Forms.Timer(this.components);
             this.Enemy_Movement = new System.Windows.Forms.Timer(this.components);
             this.picDoor = new System.Windows.Forms.PictureBox();
+            this.picHealth = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall7)).BeginInit();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDoor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHealth)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -271,12 +273,24 @@
             // 
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
             this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.World_1;
-            this.picDoor.Location = new System.Drawing.Point(1395, 664);
+            this.picDoor.Location = new System.Drawing.Point(1390, 664);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
             this.picDoor.Size = new System.Drawing.Size(128, 110);
             this.picDoor.TabIndex = 17;
             this.picDoor.TabStop = false;
+            // 
+            // picHealth
+            // 
+            this.picHealth.BackColor = System.Drawing.Color.Transparent;
+            this.picHealth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picHealth.BackgroundImage")));
+            this.picHealth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHealth.Location = new System.Drawing.Point(1390, 207);
+            this.picHealth.Margin = new System.Windows.Forms.Padding(4);
+            this.picHealth.Name = "picHealth";
+            this.picHealth.Size = new System.Drawing.Size(128, 110);
+            this.picHealth.TabIndex = 18;
+            this.picHealth.TabStop = false;
             // 
             // FrmLevel1
             // 
@@ -285,6 +299,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1682, 894);
+            this.Controls.Add(this.picHealth);
             this.Controls.Add(this.picDoor);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -327,6 +342,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDoor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHealth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,6 +370,7 @@
         private System.Windows.Forms.Timer Music_restarter;
         private System.Windows.Forms.Timer Enemy_Movement;
         private System.Windows.Forms.PictureBox picDoor;
+        private System.Windows.Forms.PictureBox picHealth;
     }
 }
 

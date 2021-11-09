@@ -19,6 +19,7 @@ namespace Fall2020_CSC403_Project {
         private Enemy[] LevelEnemies;
 
         private Character door;
+        private Character heart;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -34,6 +35,7 @@ namespace Fall2020_CSC403_Project {
         public FrmLevel1()
         {
             InitializeComponent();
+            player = Game.player;
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -49,6 +51,7 @@ namespace Fall2020_CSC403_Project {
             LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
+            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
             BGM.Play();
 
@@ -187,6 +190,14 @@ namespace Fall2020_CSC403_Project {
                         f2.Show();
                     }
                 }
+                if (picHealth.Visible)
+                {
+                    if (HitAHeart(player, heart))
+                    {
+                        picHealth.Visible = false;
+                        player.AlterHealth(5);
+                    }
+                }
             }
                 // update player's picture box
                 picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -291,10 +302,13 @@ namespace Fall2020_CSC403_Project {
         {
             return you.Collider.Intersects(other.Collider);
         }
+        private bool HitAHeart(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
 
 
-
-    private void Fight(Enemy enemy)
+        private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
             player.MoveBack();
@@ -307,6 +321,7 @@ namespace Fall2020_CSC403_Project {
 
 
         }
+
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {

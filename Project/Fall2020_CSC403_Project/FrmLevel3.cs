@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project {
         private Character[] walls;
         private Enemy[] LevelEnemies;
         private Character door;
-
+        private Character heart;
         private DateTime timeBegin;
         private FrmBattle frmBattle;
         private int frames = 0;
@@ -47,7 +47,7 @@ namespace Fall2020_CSC403_Project {
             //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
-
+            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
             BGM.Play();
@@ -186,6 +186,14 @@ namespace Fall2020_CSC403_Project {
                         f4.Show();
                     }
                 }
+                if (picHealth.Visible)
+                {
+                    if (HitAHeart(player, heart))
+                    {
+                        picHealth.Visible = false;
+                        player.AlterHealth(5);
+                    }
+                }
             }
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -287,6 +295,11 @@ namespace Fall2020_CSC403_Project {
         }
 
         private bool HitADoor(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
+        private bool HitAHeart(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
         }

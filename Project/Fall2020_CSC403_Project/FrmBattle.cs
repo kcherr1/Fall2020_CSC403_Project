@@ -29,8 +29,8 @@ namespace Fall2020_CSC403_Project {
       //picPlayer.Image = new Bitmap(resourcesPath + "\\Stalker.png");
       
 
-            // Observer pattern
-            enemy.AttackEvent += PlayerDamage;
+      // Observer pattern
+      enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
 
       // show health
@@ -119,7 +119,7 @@ namespace Fall2020_CSC403_Project {
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
         }
     }
 }
