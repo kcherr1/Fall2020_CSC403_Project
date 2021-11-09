@@ -147,10 +147,11 @@
     <Content Include="data\foreground\ronald.png" />
     <Content Include="data\foreground\tony.png" />
     <Content Include="data\foreground\wendy.png" />
+    <Content Include="data\story\Ronald_Date.txt" />
+    <Content Include="data\story\Green_Date.txt" />
+    <Content Include="data\story\Burger_Date - Copy.txt" />
+    <Content Include="data\story\Wendy_Date.txt" />
     <Content Include="data\story\Tony_Date.txt" />
-    <Content Include="data\story\3Date.txt" />
-    <Content Include="data\story\4Date.txt" />
-    <Content Include="data\story\5Date.txt" />
     <Content Include="data\story\Day1.txt" />
     <Content Include="data\story\Day2.txt" />
     <Content Include="data\story\Day4.txt" />
@@ -165,7 +166,6 @@
     <Content Include="data\story\HayleyShopDays35.txt" />
     <Content Include="data\story\NewStoryTest.txt" />
     <Content Include="data\story\Story.txt" />
-    <Content Include="data\story\1Date.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

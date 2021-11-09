@@ -9,7 +9,7 @@
 #CF \\data\\foreground\\ tony.png Tony: There’s no way I’m making a B, Coach! Numbers are so hard, and then they go and add letters to them…
 #CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: You know, don't be afraid to ask for help from others. You might end up needing a tutor.
 #CF \\data\\foreground\\ tony.png Tony: Well, Coach, I’ll try my hardest. Thanks so much for the advice.
-#CT Coach kool-aid leaves, only for an hot-headed girl to stomp in behind him.
+#CT Coach kool-aid leaves, only for a hot-headed looking girl to stomp in behind him.
 #CF \\data\\foreground\\ wendy.png Wendy: I hate cheerleading. I wish I could get cut from the team. Maybe I should just be stupid like you so they kick me off. 
 #CF \\data\\foreground\\ tony.png Tony: But Wendy, this is serious! You don’t understand the highs and lows of high school football!! 
 #CT The two continue to bicker to one another as they head to their seats.
