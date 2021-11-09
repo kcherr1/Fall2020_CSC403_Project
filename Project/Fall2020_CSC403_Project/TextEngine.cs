@@ -298,7 +298,14 @@ namespace Fall2020_CSC403_Project
                     }
                     else
                     {
-                        Story.CurrentStoryText.AddFirst("#CT Mr. Peanut: Oh no! I can't afford that!");                       
+                        if (Item.hannahShopItems.ContainsKey((int)identifierAdd))
+                        {
+                            Story.CurrentStoryText.AddFirst("#S1");
+                        }
+                        else
+                        {
+                            Story.CurrentStoryText.AddFirst("#S2");
+                        }
                     }
                     HandleMarkup(Story.GetNextLine());
                     break;
