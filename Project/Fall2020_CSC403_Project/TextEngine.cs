@@ -49,7 +49,8 @@ namespace Fall2020_CSC403_Project
 
         public void ChangeText(string newText)
         {
-            Textbox.Text = newText;
+            Textbox.contents = newText;
+            Textbox.Refresh();
         }
 
         public void ForegroundVisibile(bool hide)
@@ -296,11 +297,10 @@ namespace Fall2020_CSC403_Project
                     {
                         foreach (int itemID in Item.hannahShopItems.Keys)
                         {
-                            shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": " + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
+                            shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": $" + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
                         }
                     }
                     shop1OptionString += " Exit,#E]";
-                    Console.WriteLine(shop1OptionString);
                     Story.CurrentStoryText.AddFirst(shop1OptionString);
                     HandleMarkup(Story.GetNextLine());
                     break;
@@ -310,7 +310,7 @@ namespace Fall2020_CSC403_Project
                     string shop2OptionString = "#O S ";
                     foreach (int itemID in Item.hayleyShopItems.Keys)
                     {
-                        shop2OptionString += (Item.hayleyShopItems[itemID].ItemName + ": " + Item.hayleyShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
+                        shop2OptionString += (Item.hayleyShopItems[itemID].ItemName + ": $" + Item.hayleyShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
                     }
                     shop2OptionString += " Exit,#E]";
                     Story.CurrentStoryText.AddFirst(shop2OptionString);
@@ -380,6 +380,11 @@ namespace Fall2020_CSC403_Project
         }
 
         private void TextEngine_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextEngine_Load_1(object sender, EventArgs e)
         {
 
         }
