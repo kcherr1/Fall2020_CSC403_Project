@@ -165,22 +165,18 @@ namespace Fall2020_CSC403_Project {
             if (!combat)
             {
                 // check collision with enemies
-                if (picEnemyPoisonPacket.Visible)
-                {
-                    if (HitAChar(player, enemyPoisonPacket))
+                if (enemyPoisonPacket.IsAlive && HitAChar(player, enemyPoisonPacket))
                     {
-                        picEnemyPoisonPacket.Visible = false;
+                        //picEnemyPoisonPacket.Visible = false;
                         Fight(enemyPoisonPacket);
-                    }
                 }
-                if (picEnemyCheeto.Visible)
-                {
-                    if (HitAChar(player, enemyCheeto))
+
+                if (enemyCheeto.IsAlive && HitAChar(player, enemyCheeto))
                     {
-                        picEnemyCheeto.Visible = false;
+                        //picEnemyCheeto.Visible = false;
                         Fight(enemyCheeto);
                     }
-                }
+                
                 if (picDoor.Visible)
                 {
                     if (HitADoor(player, door))
@@ -203,6 +199,15 @@ namespace Fall2020_CSC403_Project {
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            if (!enemyPoisonPacket.IsAlive)
+            {
+                picEnemyPoisonPacket.Visible = false;
+            }
+            if (!enemyCheeto.IsAlive)
+            {
+                picEnemyCheeto.Visible = false;
+            }
             if (!combat)
             {
                 for (int i = 0; i < LevelEnemies.Length; i++)
@@ -287,7 +292,9 @@ namespace Fall2020_CSC403_Project {
             return you.Collider.Intersects(other.Collider);
         }
 
-        private void Fight(Enemy enemy)
+
+
+    private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
             player.MoveBack();
@@ -297,6 +304,7 @@ namespace Fall2020_CSC403_Project {
             moving = false;
             combat = true;
             frmBattle.Show();
+
 
         }
 

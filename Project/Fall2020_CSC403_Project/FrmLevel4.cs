@@ -167,30 +167,20 @@ namespace Fall2020_CSC403_Project {
             if (!combat)
             {
                 // check collision with enemies
-                if (picEnemyPoisonPacket.Visible)
+                if (enemyPoisonPacket.IsAlive && HitAChar(player, enemyPoisonPacket))
                 {
-                    if (HitAChar(player, enemyPoisonPacket))
-                    {
-                        picEnemyPoisonPacket.Visible = false;
-                        Fight(enemyPoisonPacket);
-                    }
+                    //picEnemyPoisonPacket.Visible = false;
+                    Fight(enemyPoisonPacket);
                 }
-                if (picEnemyCheeto.Visible)
-                {
-                    if (HitAChar(player, enemyCheeto))
-                    {
-                        picEnemyCheeto.Visible = false;
-                        Fight(enemyCheeto);
-                    }
-                }
-                if (picBossKoolAid.Visible)
-                {
-                    if (HitAChar(player, bossKoolaid))
-                    {
-                        picBossKoolAid.Visible = false;
-                        Fight(bossKoolaid);
 
-                    }
+                if (enemyCheeto.IsAlive && HitAChar(player, enemyCheeto))
+                {
+                    //picEnemyCheeto.Visible = false;
+                    Fight(enemyCheeto);
+                }
+                if (bossKoolaid.IsAlive && HitAChar(player, bossKoolaid))
+                {
+                    Fight(bossKoolaid);
                 }
             }
             // update player's picture box
@@ -204,6 +194,20 @@ namespace Fall2020_CSC403_Project {
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            if (!enemyPoisonPacket.IsAlive)
+            {
+                picEnemyPoisonPacket.Visible = false;
+            }
+            if (!enemyCheeto.IsAlive)
+            {
+                picEnemyCheeto.Visible = false;
+            }
+            if (!bossKoolaid.IsAlive)
+            {
+                picBossKoolAid.Visible = false;
+            }
+
             if (!combat)
             {
                 for (int i = 0; i < LevelEnemies.Length; i++)

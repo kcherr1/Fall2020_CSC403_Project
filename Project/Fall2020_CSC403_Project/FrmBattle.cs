@@ -72,12 +72,13 @@ namespace Fall2020_CSC403_Project {
     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-9);
+        enemy.OnAttack(-2);
       }
 
       UpdateHealthBars();
             if (enemy.Health <= 0)
             {
+                enemy.IsAlive = false;
                 instance = null;
                 Close();
             }
