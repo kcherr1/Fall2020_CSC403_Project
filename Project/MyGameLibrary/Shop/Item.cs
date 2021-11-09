@@ -23,9 +23,9 @@ namespace Fall2020_CSC403_Project
 
         public static void initializeAllItems()
         {
-            allItems.Add((int)Items.amongTheSkies, new Item(Items.amongTheSkies, "Among The Skies", 10));
+            allItems.Add((int)Items.amongTheSkies, new Item(Items.amongTheSkies, "Fantasy Novel", 10));
             allItems.Add((int)Items.brick, new Item(Items.brick, "Brick", 10));
-            allItems.Add((int)Items.cookingWithChocolate, new Item(Items.cookingWithChocolate, "Cooking With Chocolate", 10));
+            allItems.Add((int)Items.cookingWithChocolate, new Item(Items.cookingWithChocolate, "Chocolate Cookbook", 10));
             allItems.Add((int)Items.frozenSteak, new Item(Items.frozenSteak, "Frozen Steak", 10));
             allItems.Add((int)Items.guillotine, new Item(Items.guillotine, "Guillotine", 10));
             allItems.Add((int)Items.hayleysCrown, new Item(Items.hayleysCrown, "Hayley's Crown", 40));

@@ -291,12 +291,11 @@ namespace Fall2020_CSC403_Project
                     {
                         foreach (int itemID in Item.hannahShopItems.Keys)
                         {
-                            shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": " + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
+                            shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": $" + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
                         }
                     }
 
                     shop1OptionString += " Exit,#E]";
-                    Console.WriteLine(shop1OptionString);
                     Story.CurrentStoryText.AddFirst(shop1OptionString);
                     HandleMarkup(Story.GetNextLine());
                     break;
@@ -306,7 +305,7 @@ namespace Fall2020_CSC403_Project
                     string shop2OptionString = "#O S ";
                     foreach (int itemID in Item.hayleyShopItems.Keys)
                     {
-                        shop2OptionString += (Item.hayleyShopItems[itemID].ItemName + ": " + Item.hayleyShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
+                        shop2OptionString += (Item.hayleyShopItems[itemID].ItemName + ": $" + Item.hayleyShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
                     }
                     shop2OptionString += " Exit,#E]";
                     Story.CurrentStoryText.AddFirst(shop2OptionString);
@@ -332,7 +331,7 @@ namespace Fall2020_CSC403_Project
                 double widthScaling = Width / (double)originalWidth;
                 Textbox.Height = (int)(heightScaling * 80);
                 Textbox.Width = Width;
-                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
+                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 10));
                 int location_Y = 50;
                 int optionNumber = 0;
                 foreach(Option option in options) 

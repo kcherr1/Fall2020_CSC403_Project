@@ -72,10 +72,11 @@ namespace Fall2020_CSC403_Project
             // 
             // Textbox
             // 
-            this.Textbox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.Textbox.BackColor = System.Drawing.Color.LightPink;
+            this.Textbox.BorderStyle = BorderStyle.FixedSingle;
             this.Textbox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Textbox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Textbox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Textbox.ForeColor = System.Drawing.Color.DarkMagenta;
             this.Textbox.Location = new System.Drawing.Point(0, 350);
             this.Textbox.Margin = new System.Windows.Forms.Padding(3, 500, 3, 0);
             this.Textbox.Name = "Textbox";
@@ -83,6 +84,7 @@ namespace Fall2020_CSC403_Project
             this.Textbox.Size = new System.Drawing.Size(800, 100);
             this.Textbox.TabIndex = 7;
             this.Textbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Textbox.Font = new Font("Segoe Print", 10);
             // 
             // OptionsPanel
             // 
@@ -160,11 +162,12 @@ namespace Fall2020_CSC403_Project
                 //
                 var optionLabel = new System.Windows.Forms.Label();
                 // Properties
-                optionLabel.BackColor = Color.AliceBlue;
+                optionLabel.BackColor = Color.AntiqueWhite;
+                optionLabel.BorderStyle = BorderStyle.FixedSingle;
                 optionLabel.Location = location;
                 optionLabel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
                 optionLabel.Size = new System.Drawing.Size((int)(150*widthScaling), (int)(25*heightScaling));
-                optionLabel.Font = new Font(optionLabel.Font.FontFamily, (int)(heightScaling * 8));
+                optionLabel.Font = new Font("Calibri", (int)(heightScaling * 8));
                 optionLabel.Text = option.OptionText;
                 option.OptionLabel = optionLabel; // Set the associated label control in the option object for ease of delete
                 if (options.Count >= 6 && option.Equals(options[5]))
