@@ -23,7 +23,7 @@ namespace Fall2020_CSC403_Project
 
         public static void initializeAllItems()
         {
-            allItems.Add((int)Items.amongTheSkies, new Item(Items.amongTheSkies, "Fantasy Novel", 10));
+            allItems.Add((int)Items.fantasyNovel, new Item(Items.fantasyNovel, "Fantasy Novel", 10));
             allItems.Add((int)Items.brick, new Item(Items.brick, "Brick", 10));
             allItems.Add((int)Items.cookingWithChocolate, new Item(Items.cookingWithChocolate, "Chocolate Cookbook", 10));
             allItems.Add((int)Items.frozenSteak, new Item(Items.frozenSteak, "Frozen Steak", 10));
@@ -42,7 +42,7 @@ namespace Fall2020_CSC403_Project
 
         public static void initializeHannahShop()
         {
-            hannahShopItems.Add((int)Items.amongTheSkies, allItems[(int)Items.amongTheSkies]);
+            hannahShopItems.Add((int)Items.fantasyNovel, allItems[(int)Items.fantasyNovel]);
             hannahShopItems.Add((int)Items.cookingWithChocolate, allItems[(int)Items.cookingWithChocolate]);
             hannahShopItems.Add((int)Items.frozenSteak, allItems[(int)Items.frozenSteak]);
             hannahShopItems.Add((int)Items.plushCat, allItems[(int)Items.plushCat]);

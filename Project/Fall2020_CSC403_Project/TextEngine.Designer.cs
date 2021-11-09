@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using MyGameLibrary.Story;
+using MyGameLibrary.UI;
 
 namespace Fall2020_CSC403_Project
 {
@@ -47,7 +48,7 @@ namespace Fall2020_CSC403_Project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextEngine));
             this.ForegroundImage = new System.Windows.Forms.PictureBox();
-            this.Textbox = new System.Windows.Forms.Label();
+            this.Textbox = new GradientTextbox();
             this.NormalPanel = new System.Windows.Forms.Panel();
             this.OptionsPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).BeginInit();
@@ -57,9 +58,6 @@ namespace Fall2020_CSC403_Project
             // 
             // ForegroundImage
             // 
-            //this.ForegroundImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            //| System.Windows.Forms.AnchorStyles.Left) 
-            //| System.Windows.Forms.AnchorStyles.Right)));
             this.ForegroundImage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ForegroundImage.BackColor = System.Drawing.Color.Transparent;
             this.ForegroundImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ForegroundImage.BackgroundImage")));
@@ -72,11 +70,10 @@ namespace Fall2020_CSC403_Project
             // 
             // Textbox
             // 
-            this.Textbox.BackColor = System.Drawing.Color.LightPink;
+            //this.Textbox.BackColor = System.Drawing.Color.LightPink;
             this.Textbox.BorderStyle = BorderStyle.FixedSingle;
             this.Textbox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Textbox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Textbox.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.Textbox.ForeColor = System.Drawing.Color.Black;
             this.Textbox.Location = new System.Drawing.Point(0, 350);
             this.Textbox.Margin = new System.Windows.Forms.Padding(3, 500, 3, 0);
             this.Textbox.Name = "Textbox";
