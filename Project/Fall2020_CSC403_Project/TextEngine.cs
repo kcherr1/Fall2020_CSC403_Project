@@ -219,6 +219,7 @@ namespace Fall2020_CSC403_Project
                     break;
                 case Markup.AddToWallet:
                     //line is: amount as int
+                    UpdateBalance(true);
                     Inventory.depositMoney(int.Parse(line));
                     HandleMarkup(Story.GetNextLine());
                     break;

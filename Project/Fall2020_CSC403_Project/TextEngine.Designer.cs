@@ -141,6 +141,27 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Label Textbox;
         private System.Windows.Forms.Panel NormalPanel;
         private System.Windows.Forms.Panel OptionsPanel;
+
+        private System.Windows.Forms.Label BalanceLabel = new System.Windows.Forms.Label() {
+            AutoSize = false,
+            TextAlign = ContentAlignment.TopLeft,
+            Dock = DockStyle.Fill,
+            Text = Inventory.walletBalance.ToString(),
+            Font = new Font("Georgia", 16),
+            ForeColor = Color.Crimson
+        };
+
+        
+        private void UpdateBalance(bool BalDisplayed) {
+            if (BalDisplayed == false) {
+                this.Controls.Remove(BalanceLabel);
+            }
+            else {
+                this.Controls.Add(BalanceLabel);
+                BalanceLabel.BringToFront();
+                BalanceLabel.Visible = true;
+            }
+        }
         private void DisplayOptions(List<Option> options)
         {
             System.Drawing.Point location = new System.Drawing.Point(20, 50);

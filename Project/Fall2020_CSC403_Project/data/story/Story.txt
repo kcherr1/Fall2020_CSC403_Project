@@ -17,6 +17,10 @@
 #SF 
 #CT Phew. Glad to see you back, good sir.
 
+#CT Now you're getting money! Wonder how much.
+#AW 100
+#CT There's your money in the top right now, look closely...
+
 #A 3
 #A 4
 #A 12
