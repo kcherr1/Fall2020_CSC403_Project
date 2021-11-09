@@ -196,6 +196,7 @@ namespace Fall2020_CSC403_Project {
                     {
                         picHealth.Visible = false;
                         player.AlterHealth(5);
+                        player.AlterMaxHealth(5);
                     }
                 }
             }

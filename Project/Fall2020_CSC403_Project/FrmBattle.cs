@@ -58,8 +58,16 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void UpdateHealthBars() {
-      float playerHealthPer = player.Health / (float)player.MaxHealth;
-      float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+            float playerHealthPer;
+            float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+            if (player.Health > player.MaxHealth)
+            {
+                playerHealthPer = player.Health / (float)player.Health;
+            }
+            else
+            {
+                playerHealthPer = player.Health / (float)player.MaxHealth;
+            }
 
       const int MAX_HEALTHBAR_WIDTH = 226;
       lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
