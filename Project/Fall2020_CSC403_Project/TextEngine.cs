@@ -223,7 +223,11 @@ namespace Fall2020_CSC403_Project
                     Inventory.depositMoney(int.Parse(line));
                     UpdateBalance(true);
                     HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.HideWallet:
+                    //line is: nothing, just used to hide the wallet when not needed
                     UpdateBalance(false);
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.AddItemToInventory:
                     // line is: id           
@@ -291,6 +295,7 @@ namespace Fall2020_CSC403_Project
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.HannahShopOptions:
+                    UpdateBalance(true);
                     // line is: #S1
                     // creates a string containing the available items to be displayed as options
                     string shop1OptionString = "#O S ";
@@ -306,6 +311,7 @@ namespace Fall2020_CSC403_Project
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.HayleyShopOptions:
+                    UpdateBalance(true);
                     // line is: #S2
                     // creates a string containing the available items to be displayed as options
                     string shop2OptionString = "#O S ";
