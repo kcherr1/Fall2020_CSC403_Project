@@ -49,8 +49,8 @@ namespace Fall2020_CSC403_Project
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextEngine));
             this.ForegroundImage = new System.Windows.Forms.PictureBox();
             this.Textbox = new MyGameLibrary.UI.GradientTextbox();
-            this.NormalPanel = new System.Windows.Forms.Panel();
-            this.OptionsPanel = new System.Windows.Forms.Panel();
+            this.NormalPanel = new DoubleBufferedPanel();
+            this.OptionsPanel = new DoubleBufferedPanel();
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).BeginInit();
             this.NormalPanel.SuspendLayout();
             this.SuspendLayout();
