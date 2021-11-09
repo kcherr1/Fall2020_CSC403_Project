@@ -14,7 +14,8 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmGame : HostForm
     {
-        private FrmLevel level;
+        public FrmLevel level;
+        private FrmMainMenu mainmenu;
         public FrmGame()
         {
             Load += new EventHandler(this.FrmGame_Load);
@@ -24,9 +25,13 @@ namespace Fall2020_CSC403_Project
 
         public void FrmGame_Load(object sender, EventArgs e)
         {
-            level = (FrmLevel) CreateChild(new FrmLevel());
-            level.Show();
-            level.Focus();
+            //level = (FrmLevel) CreateChild(new FrmLevel());
+            //level.Show();
+            //level.Focus();
+
+            mainmenu = (FrmMainMenu)CreateChild(new FrmMainMenu());
+            mainmenu.Show();
+            mainmenu.Focus();
 
             this.Size = new Size(1200, 800);
             this.CenterToScreen();
