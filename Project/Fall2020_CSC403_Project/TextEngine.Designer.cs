@@ -71,11 +71,11 @@ namespace Fall2020_CSC403_Project
             // 
             this.Textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Textbox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Textbox.Font = new System.Drawing.Font("Segoe Print", 10F);
-            this.Textbox.ForeColor = System.Drawing.Color.Black;
+            this.Textbox.Font = new System.Drawing.Font("Verdana Pro", 12F);
             this.Textbox.Location = new System.Drawing.Point(0, 350);
             this.Textbox.Margin = new System.Windows.Forms.Padding(3, 500, 3, 0);
             this.Textbox.Name = "Textbox";
+            this.Textbox.Text = "";
             this.Textbox.Padding = new System.Windows.Forms.Padding(0, 100, 0, 0);
             this.Textbox.Size = new System.Drawing.Size(800, 100);
             this.Textbox.TabIndex = 7;

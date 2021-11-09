@@ -1,14 +1,14 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 namespace MyGameLibrary.UI
 {
     // a custom control to make changes to the textbox
-    // referenced https://social.msdn.microsoft.com/Forums/en-US/fbdd1e74-4ad9-40ae-9458-3339640948c3/how-to-give-gradient-color-for-text-background?forum=csharplanguage
-    // also referenced https://www.codeproject.com/Articles/3107/Simple-Label-Gradient and http://www.java2s.com/Code/CSharp/2D-Graphics/GradientLabel.htm
+    // referenced https://www.codeproject.com/Articles/3107/Simple-Label-Gradient and http://www.java2s.com/Code/CSharp/2D-Graphics/GradientLabel.htm
+    // also referenced https://stackoverflow.com/questions/25012368/c-sharp-labels-textalign-doesnt-work-after-onpaint-override
     public partial class GradientTextbox : Label
     {
+        public string contents { get; set; }
         public GradientTextbox()
         {
             SetStyle(ControlStyles.UserPaint, true);
@@ -17,20 +17,22 @@ namespace MyGameLibrary.UI
         {
             base.OnPaintBackground(e);
 
-            Rectangle rectangle = new Rectangle(0, 0, this.Width, this.Height);
-            LinearGradientBrush brush = new LinearGradientBrush(rectangle, Color.White, Color.HotPink, LinearGradientMode.Vertical);
-            Brush textbrush = new SolidBrush(ForeColor);
+            // create gradient and apply to background
+            Rectangle rectangle = new Rectangle(0, 0, Width, Height);
+            Color whiteTransparent = Color.FromArgb(175, Color.White);
+            Color pinkTransparent = Color.FromArgb(175, Color.HotPink);
+            this.BackColor = Color.Transparent;
+            LinearGradientBrush brush = new LinearGradientBrush(rectangle, whiteTransparent, pinkTransparent, LinearGradientMode.Vertical);
             e.Graphics.FillRectangle(brush, rectangle);
-            e.Graphics.DrawString(Text, Font, textbrush, Location);
             brush.Dispose();
             
         }
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+            // render text
             TextFormatFlags format = TextFormatFlags.Left | TextFormatFlags.WordBreak;
-            TextRenderer.DrawText(e.Graphics, Text, Font, ClientRectangle, ForeColor, format);
+            TextRenderer.DrawText(e.Graphics, contents, Font, ClientRectangle, Color.Black, format);
         }
-
     }
 }

@@ -49,7 +49,8 @@ namespace Fall2020_CSC403_Project
 
         public void ChangeText(string newText)
         {
-            Textbox.Text = newText;
+            Textbox.contents = newText;
+            Textbox.Refresh();
         }
 
         public void ForegroundVisibile(bool hide)
@@ -121,7 +122,6 @@ namespace Fall2020_CSC403_Project
         { 
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
             _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
-            this.Icon = new Icon("heart.png");
             switch (Story.Current_Action)
             {
                 case Markup.ChangeText:
@@ -351,7 +351,7 @@ namespace Fall2020_CSC403_Project
                 double widthScaling = Width / (double)originalWidth;
                 Textbox.Height = (int)(heightScaling * 80);
                 Textbox.Width = Width;
-                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 10));
+                Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
                 int location_Y = 50;
                 int optionNumber = 0;
                 foreach(Option option in options) 

@@ -141,7 +141,6 @@
     <Content Include="data\story\HayleyShopDays35.txt" />
     <Content Include="data\story\NewStoryTest.txt" />
     <Content Include="data\story\Story.txt" />
-    <Content Include="heart.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
