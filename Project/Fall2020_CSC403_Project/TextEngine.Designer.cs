@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using MyGameLibrary.Story;
+using MyGameLibrary.UI;
 
 namespace Fall2020_CSC403_Project
 {
@@ -47,19 +48,15 @@ namespace Fall2020_CSC403_Project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextEngine));
             this.ForegroundImage = new System.Windows.Forms.PictureBox();
-            this.Textbox = new System.Windows.Forms.Label();
+            this.Textbox = new MyGameLibrary.UI.GradientTextbox();
             this.NormalPanel = new System.Windows.Forms.Panel();
             this.OptionsPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).BeginInit();
             this.NormalPanel.SuspendLayout();
-            this.OptionsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ForegroundImage
             // 
-            //this.ForegroundImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            //| System.Windows.Forms.AnchorStyles.Left) 
-            //| System.Windows.Forms.AnchorStyles.Right)));
             this.ForegroundImage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ForegroundImage.BackColor = System.Drawing.Color.Transparent;
             this.ForegroundImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ForegroundImage.BackgroundImage")));
@@ -72,29 +69,17 @@ namespace Fall2020_CSC403_Project
             // 
             // Textbox
             // 
-            this.Textbox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.Textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Textbox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Textbox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Textbox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Textbox.Font = new System.Drawing.Font("Verdana Pro", 12F);
             this.Textbox.Location = new System.Drawing.Point(0, 350);
             this.Textbox.Margin = new System.Windows.Forms.Padding(3, 500, 3, 0);
             this.Textbox.Name = "Textbox";
+            this.Textbox.Text = "";
             this.Textbox.Padding = new System.Windows.Forms.Padding(0, 100, 0, 0);
             this.Textbox.Size = new System.Drawing.Size(800, 100);
             this.Textbox.TabIndex = 7;
             this.Textbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // OptionsPanel
-            // 
-            this.OptionsPanel.Visible = false;
-            this.OptionsPanel.AutoSize = true;
-            this.OptionsPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NormalPanel.BackgroundImage")));
-            this.OptionsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;            
-            this.OptionsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OptionsPanel.Location = new System.Drawing.Point(0, 0);
-            this.OptionsPanel.Name = "OptionsPanel";
-            this.OptionsPanel.Size = new System.Drawing.Size(800, 450);
-            this.OptionsPanel.TabIndex = 6;
             // 
             // NormalPanel
             // 
@@ -107,7 +92,19 @@ namespace Fall2020_CSC403_Project
             this.NormalPanel.Location = new System.Drawing.Point(0, 0);
             this.NormalPanel.Name = "NormalPanel";
             this.NormalPanel.Size = new System.Drawing.Size(800, 450);
-            this.NormalPanel.TabIndex = 6;            
+            this.NormalPanel.TabIndex = 6;
+            // 
+            // OptionsPanel
+            // 
+            this.OptionsPanel.AutoSize = true;
+            this.OptionsPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OptionsPanel.BackgroundImage")));
+            this.OptionsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OptionsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OptionsPanel.Location = new System.Drawing.Point(0, 0);
+            this.OptionsPanel.Name = "OptionsPanel";
+            this.OptionsPanel.Size = new System.Drawing.Size(800, 450);
+            this.OptionsPanel.TabIndex = 6;
+            this.OptionsPanel.Visible = false;
             // 
             // TextEngine
             // 
@@ -120,25 +117,24 @@ namespace Fall2020_CSC403_Project
             this.DoubleBuffered = true;
             this.Name = "TextEngine";
             this.Text = "Mr. Peanut Finds Love";
+            this.Load += new System.EventHandler(this.TextEngine_Load_1);
             this.ClientSizeChanged += new System.EventHandler(this.ResizeHandler);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextEngine_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.ForegroundImage)).EndInit();
             this.NormalPanel.ResumeLayout(false);
-            this.OptionsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-            //set original values for resizing
+
+            // set original values for resizing
             this.originalHeight = Height;
             this.originalWidth = Width;
             this.ForegroundImage_Xscale = (double)ForegroundImage.Left / Width;
             this.ForegroundImage_Yscale = (double)ForegroundImage.Top / Height;
             this.ForegroundImage_AspectRatio = ForegroundImage.Size.Width / (ForegroundImage.Size.Height * 1.0);
-
         }
         #endregion
 
         private System.Windows.Forms.PictureBox ForegroundImage;
-        private System.Windows.Forms.Label Textbox;
         private System.Windows.Forms.Panel NormalPanel;
         private System.Windows.Forms.Panel OptionsPanel;
         private void DisplayOptions(List<Option> options)
@@ -160,11 +156,12 @@ namespace Fall2020_CSC403_Project
                 //
                 var optionLabel = new System.Windows.Forms.Label();
                 // Properties
-                optionLabel.BackColor = Color.AliceBlue;
+                optionLabel.BackColor = Color.AntiqueWhite;
+                optionLabel.BorderStyle = BorderStyle.FixedSingle;
                 optionLabel.Location = location;
                 optionLabel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
                 optionLabel.Size = new System.Drawing.Size((int)(150*widthScaling), (int)(25*heightScaling));
-                optionLabel.Font = new Font(optionLabel.Font.FontFamily, (int)(heightScaling * 8));
+                optionLabel.Font = new Font("Calibri", (int)(heightScaling * 8));
                 optionLabel.Text = option.OptionText;
                 option.OptionLabel = optionLabel; // Set the associated label control in the option object for ease of delete
                 if (options.Count >= 6 && option.Equals(options[5]))
@@ -208,5 +205,7 @@ namespace Fall2020_CSC403_Project
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private GradientTextbox Textbox;
     }
 }
