@@ -28,7 +28,8 @@ namespace MyGameLibrary.UI
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            TextRenderer.DrawText(e.Graphics, this.Text.ToString(), this.Font, ClientRectangle, ForeColor);
+            TextFormatFlags format = TextFormatFlags.Left | TextFormatFlags.WordBreak;
+            TextRenderer.DrawText(e.Graphics, Text, Font, ClientRectangle, ForeColor, format);
         }
 
     }

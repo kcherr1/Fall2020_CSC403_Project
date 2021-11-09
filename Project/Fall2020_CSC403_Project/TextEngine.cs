@@ -121,6 +121,7 @@ namespace Fall2020_CSC403_Project
         { 
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
             _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
+            this.Icon = new Icon("heart.png");
             switch (Story.Current_Action)
             {
                 case Markup.ChangeText:
@@ -359,6 +360,11 @@ namespace Fall2020_CSC403_Project
         }
 
         private void TextEngine_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextEngine_Load_1(object sender, EventArgs e)
         {
 
         }
