@@ -63,6 +63,12 @@
     <Compile Include="Story\Story.cs" />
     <Compile Include="Shop\Items.cs" />
     <Compile Include="Shop\Shop.cs" />
+    <Compile Include="UI\DoubleBufferedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\GradientTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Vector2.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

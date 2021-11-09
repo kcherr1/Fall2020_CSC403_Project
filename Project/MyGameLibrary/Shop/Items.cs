@@ -9,7 +9,7 @@
         frozenSteak = 5, 
         portableOven = 6,
         cookingWithChocolate = 7, 
-        amongTheSkies = 8, 
+        fantasyNovel = 8, 
         brick = 9, 
         realGun = 10, 
         guillotine = 11,
