@@ -209,7 +209,7 @@
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyCheeto.Image = ((System.Drawing.Image)(resources.GetObject("picEnemyCheeto.Image")));
-            this.picEnemyCheeto.Location = new System.Drawing.Point(1255, 664);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(886, 673);
             this.picEnemyCheeto.Margin = new System.Windows.Forms.Padding(4);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(116, 126);
