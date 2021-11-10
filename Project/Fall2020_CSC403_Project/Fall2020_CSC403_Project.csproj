@@ -143,6 +143,8 @@
     <Content Include="data\background\lunch.jpg" />
     <Content Include="data\background\opening.jpg" />
     <Content Include="data\foreground\burgerking.png" />
+    <Content Include="data\foreground\hannah.png" />
+    <Content Include="data\foreground\hayley.png" />
     <Content Include="data\foreground\msgreen.png" />
     <Content Include="data\foreground\ronald.png" />
     <Content Include="data\foreground\tony.png" />
