@@ -400,12 +400,17 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
+        //add this to every level
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Escape)
             {
                 //this.Close();
                 //this.Hide();
+                //stops the figures from moving since its true
+               
+                combat = true;
                 VerifyExit e1 = new VerifyExit();
                 e1.Show();
                 return true;
