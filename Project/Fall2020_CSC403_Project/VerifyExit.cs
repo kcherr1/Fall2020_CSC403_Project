@@ -21,7 +21,8 @@ namespace Fall2020_CSC403_Project
 
         private void YesButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
+            Application.Exit();
         }
 
         private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
