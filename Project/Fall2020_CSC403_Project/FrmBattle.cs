@@ -17,8 +17,9 @@ namespace Fall2020_CSC403_Project {
     }
 
     public void Setup() {
-      // update for this enemy
-      picEnemy.BackgroundImage = enemy.Img;
+            // update for this enemy
+            UpdateHealthBars();
+            picEnemy.BackgroundImage = enemy.Img;
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
@@ -34,7 +35,6 @@ namespace Fall2020_CSC403_Project {
       //player.AttackEvent += EnemyDamage;
 
       // show health
-      UpdateHealthBars();
     }
 
     public void SetupForBossBattle() {
