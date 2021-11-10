@@ -18,7 +18,8 @@ namespace Fall2020_CSC403_Project
         public MainMenu()
         {
             InitializeComponent();
-             
+
+
 
         }
 
@@ -42,6 +43,13 @@ namespace Fall2020_CSC403_Project
         public void Game_Over()
         {
             Application.Exit();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
+            pictureBox2.Image = new Bitmap(resourcesPath + "\\Fruits_Of_The Round_Title_Animation.gif");
+            timer1.Enabled = false;
         }
     }
 }
