@@ -273,7 +273,7 @@
             // 
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
             this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.World_1;
-            this.picDoor.Location = new System.Drawing.Point(1390, 664);
+            this.picDoor.Location = new System.Drawing.Point(164, 524);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
             this.picDoor.Size = new System.Drawing.Size(128, 110);
@@ -285,7 +285,7 @@
             this.picHealth.BackColor = System.Drawing.Color.Transparent;
             this.picHealth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picHealth.BackgroundImage")));
             this.picHealth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHealth.Location = new System.Drawing.Point(1390, 207);
+            this.picHealth.Location = new System.Drawing.Point(164, 310);
             this.picHealth.Margin = new System.Windows.Forms.Padding(4);
             this.picHealth.Name = "picHealth";
             this.picHealth.Size = new System.Drawing.Size(128, 110);

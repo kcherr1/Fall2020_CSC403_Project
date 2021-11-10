@@ -196,7 +196,7 @@ namespace Fall2020_CSC403_Project {
                     {
                         picHealth.Visible = false;
                         player.AlterHealth(5);
-                        player.AlterMaxHealth(5);
+                        //player.AlterMaxHealth(5);
                     }
                 }
             }
@@ -318,7 +318,7 @@ namespace Fall2020_CSC403_Project {
             frmBattle = FrmBattle.GetInstance(enemy);
             moving = false;
             combat = true;
-            frmBattle.Show();
+            frmBattle.ShowDialog();
 
 
         }
