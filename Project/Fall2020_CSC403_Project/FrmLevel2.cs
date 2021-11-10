@@ -277,6 +277,11 @@ namespace Fall2020_CSC403_Project {
             return hitAWall;
         }
 
+        private void picDoor_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private bool HitAChar(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);

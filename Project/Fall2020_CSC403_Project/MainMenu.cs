@@ -24,7 +24,10 @@ namespace Fall2020_CSC403_Project
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
+            
+            this.Hide();
             new FrmLevel1().Show();
+            
 
         }
 
@@ -36,6 +39,27 @@ namespace Fall2020_CSC403_Project
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new VerifyExit().Show();
+            
+        }
+
+        private void AboutData_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
