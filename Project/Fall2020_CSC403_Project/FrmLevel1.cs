@@ -185,6 +185,7 @@ namespace Fall2020_CSC403_Project {
                     if (HitADoor(player, door))
                     {
                         picDoor.Visible = false;
+                        combat = true;
                         this.Hide();
                         FrmLevel2 f2 = new FrmLevel2();
                         f2.Show();
@@ -429,19 +430,6 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.Escape)
-            {
-                //this.Close();
-                //this.Hide();
-                combat = true;
-                VerifyExit e1 = new VerifyExit();
-                e1.Show();
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
         {

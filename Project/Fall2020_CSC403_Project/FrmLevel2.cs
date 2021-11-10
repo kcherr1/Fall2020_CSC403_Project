@@ -181,6 +181,7 @@ namespace Fall2020_CSC403_Project {
                     if (HitADoor(player, door))
                     {
                         picDoor.Visible = false;
+                        combat = true;
                         this.Hide();
                         FrmLevel3 f3 = new FrmLevel3();
                         f3.Show();
