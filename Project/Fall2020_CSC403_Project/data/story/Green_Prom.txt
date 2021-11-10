@@ -1,4 +1,5 @@
-﻿#CBF \\data\\background\\ lunch.jpg \\data\\foreground\\ player.png Mr. Peanut: Hey! Have you finished that book?
+﻿#CBF \\data\\background\\ lunch.jpg \\data\\foreground\\ player.png 
+#SF Mr. Peanut: Hey! Have you finished that book?
 #CF \\data\\foreground\\ msgreen.png Green: Yeah, I got through it so fast! Such a great ending. I can’t wait for the next book in the series!
 #CT I’m so glad to see you, actually. There’s something I want to ask you… but I--I just can’t get up the nerve! I’m sorry. I don’t mean to bother you. 
 #CF \\data\\foreground\\ player.png Mr. Peanut: Well, I was actually wondering… did you want to go to brand prom with me?
