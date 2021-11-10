@@ -230,7 +230,7 @@
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyCheeto.Image = ((System.Drawing.Image)(resources.GetObject("picEnemyCheeto.Image")));
-            this.picEnemyCheeto.Location = new System.Drawing.Point(1362, 205);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(1391, 266);
             this.picEnemyCheeto.Margin = new System.Windows.Forms.Padding(4);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(131, 132);
@@ -293,11 +293,12 @@
             // picDoor
             // 
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
-            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.World_1;
-            this.picDoor.Location = new System.Drawing.Point(1342, 115);
+            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Door;
+            this.picDoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picDoor.Location = new System.Drawing.Point(1369, 80);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
-            this.picDoor.Size = new System.Drawing.Size(188, 70);
+            this.picDoor.Size = new System.Drawing.Size(124, 162);
             this.picDoor.TabIndex = 18;
             this.picDoor.TabStop = false;
             // 
@@ -339,6 +340,7 @@
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.picDoor);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1700, 941);

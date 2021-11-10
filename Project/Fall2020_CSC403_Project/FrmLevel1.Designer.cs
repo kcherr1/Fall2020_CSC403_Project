@@ -159,6 +159,7 @@
             this.picWall10.Size = new System.Drawing.Size(623, 74);
             this.picWall10.TabIndex = 11;
             this.picWall10.TabStop = false;
+            this.picWall10.Click += new System.EventHandler(this.picWall10_Click);
             // 
             // picWall9
             // 
@@ -272,11 +273,12 @@
             // picDoor
             // 
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
-            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.World_1;
-            this.picDoor.Location = new System.Drawing.Point(1421, 673);
+            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Door;
+            this.picDoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picDoor.Location = new System.Drawing.Point(1447, 642);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
-            this.picDoor.Size = new System.Drawing.Size(128, 110);
+            this.picDoor.Size = new System.Drawing.Size(128, 166);
             this.picDoor.TabIndex = 17;
             this.picDoor.TabStop = false;
             // 

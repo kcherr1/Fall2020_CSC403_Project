@@ -153,6 +153,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Backdrop {
+            get {
+                object obj = ResourceManager.GetObject("Backdrop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Batastrophe {
             get {
                 object obj = ResourceManager.GetObject("Batastrophe", resourceCulture);
@@ -243,6 +253,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Door {
+            get {
+                object obj = ResourceManager.GetObject("Door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enemy_cheetos {
             get {
                 object obj = ResourceManager.GetObject("enemy_cheetos", resourceCulture);
@@ -276,6 +296,26 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.IO.UnmanagedMemoryStream final_battle {
             get {
                 return ResourceManager.GetStream("final_battle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fruits_Of_The_Round_Title_Animation {
+            get {
+                object obj = ResourceManager.GetObject("Fruits_Of_The_Round_Title_Animation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fruits_Of_The_Round_Title_Opening_Animation {
+            get {
+                object obj = ResourceManager.GetObject("Fruits_Of_The_Round_Title_Opening_Animation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -631,6 +671,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap Tomato_Girl_Shimmer {
             get {
                 object obj = ResourceManager.GetObject("Tomato_Girl_Shimmer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Unfathomable {
+            get {
+                object obj = ResourceManager.GetObject("Unfathomable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
