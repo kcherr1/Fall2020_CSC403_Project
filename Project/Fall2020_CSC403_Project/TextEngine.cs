@@ -348,6 +348,7 @@ namespace Fall2020_CSC403_Project
                     // Get the character you like the most
                     Character maxLoveCharacter = CharacterCollection.CharacterDictionary.Values.Aggregate((char1, char2) => char1.LoveScore > char2.LoveScore ? char1 : char2);
                     Story.ChangeStory(maxLoveCharacter.PromName, maxLoveCharacter.PromLocation);
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.CheckThresholdsForTree:
                     // line is: characterID you're checking

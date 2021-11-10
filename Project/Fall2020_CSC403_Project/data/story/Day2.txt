@@ -12,8 +12,9 @@
 #CF \\data\\foreground\\ tony.png Tony: Hey, would you... would you mind walking with me to class? 
 #CF \\data\\foreground\\ player.png Mr. Peanut: Not at all, beats walking there by myself.
 #CBF \\data\\background\\ beginningofschoolday.jpg \\data\\foreground\\ tony.png Tony: It’s been cool talkin’ to you, bro. 
-#CF \\data\\foreground\\ wendy.png Wendy: Ew, Tony. Disgusting. Begone.
-#CF \\data\\foreground\\ tony.png Tony: Bruh. Sunny as always I see, hate to leave ya to the beast, but... see you later P!
+#CF \\data\\foreground\\ wendy.png Wendy: Ew, Tony. I knew something smelled like litter box. Disgusting. Begone.
+#CF \\data\\foreground\\ tony.png Tony: Bruh. Sunny as always I see, Wendy. 
+#CT Tony: I hate to leave ya to the beast, but... see you later P!
 #CF \\data\\foreground\\ wendy.png Wendy: Now that the circus animal is gone, I’ll show you to your first class or whatever.
 #CT Wendy: Don't flatter yourself, by the way. I'm forced to do this to make up for... certain incidents.
 #CT Wendy: I would never do this of my own accord. 
