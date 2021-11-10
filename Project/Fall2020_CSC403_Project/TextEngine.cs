@@ -346,8 +346,29 @@ namespace Fall2020_CSC403_Project
                 case Markup.CheckPromPosal:
                     // line is: empty, just checking existing characters
                     // Get the character you like the most
-                    Character maxLoveCharacter = CharacterCollection.CharacterDictionary.Values.Aggregate((char1, char2) => char1.LoveScore > char2.LoveScore ? char1 : char2);
-                    Story.ChangeStory(maxLoveCharacter.PromName, maxLoveCharacter.PromLocation);
+                    bool foundCharacter = false;
+                    Character maxLoveCharacter = null;
+                    while (!foundCharacter)
+                    {
+                        maxLoveCharacter = CharacterCollection.CharacterDictionary.Values.Aggregate((char1, char2) => (char1.LoveScore > char2.LoveScore) ? char1 : char2);
+                        if(maxLoveCharacter.IsDead == true)
+                        {
+                            CharacterCollection.CharacterDictionary.Remove((CharacterID)maxLoveCharacter.ID);
+                            maxLoveCharacter = null;
+                        }
+                        else
+                        {
+                            foundCharacter = true;
+                        }
+                    }
+                    if(maxLoveCharacter != null)
+                    {
+                        Story.ChangeStory(maxLoveCharacter.PromName, maxLoveCharacter.PromLocation);
+                    }
+                    else
+                    {
+                        Story.ChangeStory("Bad_End.txt", "\\data\\story\\");
+                    }
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.CheckThresholdsForTree:

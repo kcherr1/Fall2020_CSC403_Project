@@ -150,6 +150,7 @@
     <Content Include="data\foreground\ronald.png" />
     <Content Include="data\foreground\tony.png" />
     <Content Include="data\foreground\wendy.png" />
+    <Content Include="data\story\Bad_End.txt" />
     <Content Include="data\story\Burger_Prom.txt" />
     <Content Include="data\story\Day6.txt" />
     <Content Include="data\story\Green_Prom.txt" />

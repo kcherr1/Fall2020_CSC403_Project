@@ -8,7 +8,8 @@
 
 #HF
 #CB \\data\\background\\ black.jpg You get a good night's rest for the big day tomorrow. 
-#CBF \\data\\background\\ prom.jpg \\data\\foreground\\ ronald.png Ronald:  Hey, did you hit your head falling from HEAVEN????
+#CBF \\data\\background\\ prom.jpg \\data\\foreground\\ ronald.png 
+#SF Ronald:  Hey, did you hit your head falling from HEAVEN????
 #CF \\data\\foreground\\ player.png Mr. Peanut:  I don’t think so?
 #CF \\data\\foreground\\ ronald.png Ronald: ‘Cause you look like an ANGEL!!!
 #CF \\data\\foreground\\ player.png Mr. Peanut: Awww, thanks!

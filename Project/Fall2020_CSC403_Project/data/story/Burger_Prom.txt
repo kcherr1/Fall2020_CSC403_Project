@@ -1,1 +1,17 @@
-﻿#CT Burger King Prom
+﻿#CBF \\data\\background\\ dorms.jpg \\data\\foreground\\ burgerking.png There's a knocking at your door who could that be?
+#SF Burger King: Will you do me the honor of going to the brand prom with me? 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Why, of course.
+#CF \\data\\foreground\\ burgerking.png Burger King: May this ship sail rather than crashing into an iceberg! 
+
+#HF
+#CB \\data\\background\\ black.jpg You get a good night's rest for the big day tomorrow. 
+#CBF \\data\\background\\ prom.jpg \\data\\foreground\\ player.png 
+#SF Mr. Peanut:  Wow, the food at that restaurant was even better than the last one!
+#CF \\data\\foreground\\ burgerking.png Burger King: Of course it was! I only know the finest of food establishments! I am, after all, the Burger King, Master of the Art of Burgers and Finest Pallette in the Citadel, and indeed the entire globe. 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Wow! I had no idea!
+#CF \\data\\foreground\\ burgerking.png Burger King: Yes, that is my full title. It’s embossed on my yacht and crown, as you can see. Now, shall we make like Jack and Rose and dance the night away? 
+#CF \\data\\foreground\\ player.png Mr. Peanut: I would be honored!
+#CF \\data\\foreground\\ burgerking.png Burger King: As would I.
+
+#HF
+#CB \\data\\background\\ black.jpg THE END! [END 3 - Burger King]

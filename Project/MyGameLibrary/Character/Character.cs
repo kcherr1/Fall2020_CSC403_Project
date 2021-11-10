@@ -6,6 +6,7 @@ namespace MyGameLibrary.Character
     public class Character
     {
         public string CharacterName { get; set; }
+        public int ID { get; set; }
         public string GiftHappyResponse { get; set; }
         public string GiftUnhappyResponse { get; set; }
 
@@ -43,9 +44,10 @@ namespace MyGameLibrary.Character
         //Items is ID of item, int is love point value of gift for this character
         public Dictionary<Items, int> ItemScores; 
 
-        public Character(string name, int LScore, string HappyResponse, string UnhappyResponse, string DateLocation, string DateName, string PromLocation, string PromName, Dictionary<Items, int> dict)
+        public Character(string name, int ID, int LScore, string HappyResponse, string UnhappyResponse, string DateLocation, string DateName, string PromLocation, string PromName, Dictionary<Items, int> dict)
         {
             CharacterName = name;
+            this.ID = ID;
             LoveScore = LScore;
             GiftHappyResponse = HappyResponse;
             GiftUnhappyResponse = UnhappyResponse;
