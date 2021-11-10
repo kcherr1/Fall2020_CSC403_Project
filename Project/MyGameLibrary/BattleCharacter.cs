@@ -14,8 +14,8 @@ namespace Fall2020_CSC403_Project.code {
 
     public event Action<int> AttackEvent;
 
-    public BattleCharacter(Vector2 initPos, Collider collider, int maxHealth = 20) : base(initPos, collider) {
-      MaxHealth = maxHealth;
+    public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
+      MaxHealth = 20;
       strength = 2;
       Health = MaxHealth;
     }
@@ -25,9 +25,7 @@ namespace Fall2020_CSC403_Project.code {
     }
 
     public void AlterHealth(int amount) {
-            if (Health + amount > MaxHealth)
-                Health = MaxHealth;
-            else
+
                 Health += amount;
         }
         public void AlterMaxHealth(int amount)
