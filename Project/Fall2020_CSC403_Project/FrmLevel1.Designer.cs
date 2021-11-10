@@ -287,7 +287,7 @@
             this.picHealth.BackColor = System.Drawing.Color.Transparent;
             this.picHealth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picHealth.BackgroundImage")));
             this.picHealth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHealth.Location = new System.Drawing.Point(164, 310);
+            this.picHealth.Location = new System.Drawing.Point(163, 322);
             this.picHealth.Margin = new System.Windows.Forms.Padding(4);
             this.picHealth.Name = "picHealth";
             this.picHealth.Size = new System.Drawing.Size(128, 110);
