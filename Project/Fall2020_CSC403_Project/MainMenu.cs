@@ -18,7 +18,8 @@ namespace Fall2020_CSC403_Project
         public MainMenu()
         {
             InitializeComponent();
-             
+
+
 
         }
 
@@ -36,6 +37,23 @@ namespace Fall2020_CSC403_Project
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
+            pictureBox2.Image = new Bitmap(resourcesPath + "\\Fruits_Of_The Round_Title_Animation.gif");
+            timer1.Enabled = false;
         }
     }
 }

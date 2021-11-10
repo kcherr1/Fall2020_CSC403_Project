@@ -161,9 +161,6 @@
     <None Include="Resources\Background.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Backdrop.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\World_0.png" />
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +330,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Stalker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unfathomable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fruits_Of_The Round_Title_Opening_Animation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fruits_Of_The Round_Title_Animation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backdrop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

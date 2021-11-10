@@ -157,6 +157,7 @@
             this.picWall10.Size = new System.Drawing.Size(623, 74);
             this.picWall10.TabIndex = 11;
             this.picWall10.TabStop = false;
+            this.picWall10.Click += new System.EventHandler(this.picWall10_Click);
             // 
             // picWall9
             // 
@@ -270,15 +271,16 @@
             // picDoor
             // 
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
-            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.World_1;
-            this.picDoor.Location = new System.Drawing.Point(1430, 672);
+            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Door;
+            this.picDoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picDoor.Location = new System.Drawing.Point(1447, 642);
             this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
-            this.picDoor.Size = new System.Drawing.Size(128, 110);
+            this.picDoor.Size = new System.Drawing.Size(128, 166);
             this.picDoor.TabIndex = 17;
             this.picDoor.TabStop = false;
             // 
-            // FrmLevel2
+            // FrmLevel1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -305,7 +307,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1700, 941);
             this.MinimumSize = new System.Drawing.Size(1700, 941);
-            this.Name = "FrmLevel2";
+            this.Name = "FrmLevel1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Fruits O\' The Round";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
