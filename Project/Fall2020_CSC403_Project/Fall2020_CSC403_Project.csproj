@@ -137,6 +137,7 @@
     <Content Include="data\background\dorms.jpg" />
     <Content Include="data\background\endofschoolday.png" />
     <Content Include="data\background\forest.jpg" />
+    <Content Include="data\background\forestnight.jpg" />
     <Content Include="data\background\gym.jpg" />
     <Content Include="data\background\hannah_store.jpg" />
     <Content Include="data\background\hayley_store.png" />

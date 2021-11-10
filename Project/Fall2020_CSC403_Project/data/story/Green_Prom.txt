@@ -1,1 +1,23 @@
-﻿#CT Green Prom
+﻿#CBF \\data\\background\\ lunch.jpg \\data\\foreground\\ player.png Mr. Peanut: Hey! Have you finished that book?
+#CF \\data\\foreground\\ msgreen.png Green: Yeah, I got through it so fast! Such a great ending. I can’t wait for the next book in the series!
+#CT I’m so glad to see you, actually. There’s something I want to ask you… but I--I just can’t get up the nerve! I’m sorry. I don’t mean to bother you. 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Well, I was actually wondering… did you want to go to brand prom with me?
+#CF \\data\\foreground\\ msgreen.png Green: Oh!! I can’t believe it! You really mean that? Nobody’s ever asked me to prom before. 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Of course I mean it! I'd love to go with you!
+#CF \\data\\foreground\\ msgreen.png Green: Oh! Well thank you so much!! I--I’d absolutely love to go. Thank you for asking!!
+
+
+#HF
+#CB \\data\\background\\ black.jpg You get a good night's rest for the big day tomorrow. 
+#CBF \\data\\background\\ prom.jpg \\data\\foreground\\ msgreen.png 
+#SF Green: It’s such a lovely night... But so loud…
+#CF \\data\\foreground\\ player.png Mr. Peanut: Maybe we should go outside?
+#CF \\data\\foreground\\ msgreen.png Green: Oh!! That would be… amazing. Thank you!
+#CF \\data\\foreground\\ player.png Mr. Peanut: Of course!
+#CBF \\data\\background\\ forestnight.jpg \\data\\foreground\\ msgreen.png Green: I love all the sounds at night. The owls, the crickets, the rustling of the breeze in the leaves… and the stars…!
+#CF \\data\\foreground\\ player.png Mr. Peanut:  It’s all so beautiful. 
+#CF \\data\\foreground\\ msgreen.png Green: Yes…! I’m… I’m so happy. Thanks for bringing me out here. This is lovely. 
+#CF \\data\\foreground\\ player.png Mr. Peanut: I wouldn’t have spent the night any other way. 
+
+#HF
+#CB \\data\\background\\ black.jpg THE END! [END 4 - Green MM]
