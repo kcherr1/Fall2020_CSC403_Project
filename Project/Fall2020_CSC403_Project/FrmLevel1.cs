@@ -186,7 +186,7 @@ namespace Fall2020_CSC403_Project {
                     {
                         picDoor.Visible = false;
                         combat = true;
-                        this.Hide();
+                        this.Close();
                         FrmLevel2 f2 = new FrmLevel2();
                         f2.Show();
                     }
