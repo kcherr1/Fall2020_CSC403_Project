@@ -1,1 +1,5 @@
-﻿
+﻿#CT Oh no! Nobody asked you to prom!
+#CT Guess you shouldn't have been such a jerk!
+
+#HF
+#CB \\data\\background\\ black.jpg THE END! [Bad End]
