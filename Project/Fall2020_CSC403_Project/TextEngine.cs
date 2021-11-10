@@ -377,8 +377,7 @@ namespace Fall2020_CSC403_Project
                     string characterName = Enum.GetName(typeof(CharacterID), int.Parse(line));
                     CharacterID characterID = (CharacterID)Enum.Parse(typeof(CharacterID), characterName);
                     Character characterTree = CharacterCollection.CharacterDictionary[characterID];
-                    int max = characterTree.ItemScores.Values.Max();
-                    if(!characterTree.Dated && characterTree.LoveScore >= max)
+                    if(!characterTree.Dated && characterTree.LoveScore >= 100)
                     {
                         string[] duplicateStory = new string[this.Story.CurrentStoryText.Count];
                         this.Story.CurrentStoryText.CopyTo(duplicateStory, 0);

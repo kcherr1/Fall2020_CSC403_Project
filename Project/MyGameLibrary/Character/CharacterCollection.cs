@@ -65,7 +65,7 @@ namespace MyGameLibrary.Character
                 {(Items) 11, -10},
                 {(Items) 12, -10},
                 {(Items) 13, -10},
-                {(Items) 14, 60},
+                {(Items) 14, 100},
                 {(Items) 15, -10},
                 {(Items) 16, -10}
             };

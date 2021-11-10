@@ -5,7 +5,8 @@
 
 #HF
 #CB \\data\\background\\ black.jpg You get a good night's rest for the big day tomorrow. 
-#CBF \\data\\background\\ prom.jpg \\data\\foreground\\ tony.png Tony: Hey dude!! Guess what?
+#CBF \\data\\background\\ prom.jpg \\data\\foreground\\ tony.png 
+#SF Tony: Hey dude!! Guess what?
 #CF \\data\\foreground\\ player.png Mr. Peanut: What?
 #CF \\data\\foreground\\ tony.png Tony: I made an A on my math test!
 #CF \\data\\foreground\\ player.png Mr. Peanut: That’s amazing!
