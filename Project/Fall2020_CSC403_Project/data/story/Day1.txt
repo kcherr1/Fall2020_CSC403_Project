@@ -19,14 +19,14 @@
 #CF \\data\\foreground\\ burgerking.png 
 #SF Burger King: Prom is this Saturday, and you’re NEVER gonna get a date, clown boy. 
 #CF \\data\\foreground\\ ronald.png Ronald: Nuh-uh!!!!!!! YOU aren’t gonna get a date this Saturday. In fact, I’ll get a date BEFORE YOU. 
-#CF \\data\\foreground\\ burgerking.png Burger King: That is simply incorrect. I’ll get a date to prom this Saturday first, AND I won’t even have to use my royal status as the Burger King. 
+#CF \\data\\foreground\\ burgerking.png Burger King: That is simply incorrect. Why dine with a clown when you can feast with a king? I’ll get a date to prom this Saturday first.
 #CF \\data\\foreground\\ ronald.png Ronald: Well, you know what? 
 #CT Ronald: Your MOM!
 #CT Ronald: That’s it! Suck it. Haha!!!
 #CF \\data\\foreground\\ burgerking.png Burger King: You are a fool. An absolute buffoon. 
 #CF \\data\\foreground\\ msgreen.png Green: Knock it off you guys. I’m READING!
 #CF \\data\\foreground\\ ronald.png Ronald: No need to brag, NERD!!!!... so what if you know how to read, that's not all there is to life.
-#CF \\data\\foreground\\ burgerking.png Burger King: I know how to read just fine, perhaps better than everyone in the whole wide world. But, unlike you I actually have a life.
+#CF \\data\\foreground\\ burgerking.png Burger King: I know how to read just fine, perhaps better than everyone in the whole wide world. But, unlike you, I actually have a life.
 #CF \\data\\foreground\\ msgreen.png Green: I… (sniff) I’m so sorry… 
 #CT Mr. Peanut: She looks like she’s about to cry. I can’t just let this happen! 
 #CF \\data\\foreground\\ player.png Mr. Peanut: Hey, knock it off, both of you! Can’t you see she’s upset?

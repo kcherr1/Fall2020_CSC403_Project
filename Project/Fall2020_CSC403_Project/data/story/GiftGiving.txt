@@ -27,4 +27,4 @@
 #CT Mr. Peanut: Geez, okay...
 [ST]
 #HF
-#CB \\data\\background\\ black.jpg There goes another day!
+#CB \\data\\background\\ black.jpg

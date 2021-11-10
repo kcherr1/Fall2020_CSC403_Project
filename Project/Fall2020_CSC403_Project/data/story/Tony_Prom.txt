@@ -1,1 +1,18 @@
-﻿#CT Tony prom
+﻿#CBF \\data\\background\\ dorms.jpg \\data\\foreground\\ tony.png 
+#SF Tony: Hey dude! You wanna go to brand prom with me? 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Of course!
+#CF \\data\\foreground\\ tony.png Tony: Man, we're going to have such a great time! I can't wait.
+
+#HF
+#CB \\data\\background\\ black.jpg You get a good night's rest for the big day tomorrow. 
+#CBF \\data\\background\\ prom.jpg \\data\\foreground\\ tony.png Tony: Hey dude!! Guess what?
+#CF \\data\\foreground\\ player.png Mr. Peanut: What?
+#CF \\data\\foreground\\ tony.png Tony: I made an A on my math test!
+#CF \\data\\foreground\\ player.png Mr. Peanut: That’s amazing!
+#CF \\data\\foreground\\ tony.png Tony: Yeah!! AND because of that, I just got into the college of my dreams, Coach’s alma mater! 
+#CT Tony: And I can stay on the football team too!! Thanks so much, P! 
+#CF \\data\\foreground\\ player.png Mr. Peanut: It was nothing. 
+#CF \\data\\foreground\\ tony.png Tony: It sure was something. It was everything. C’mon, dude, let’s go party! 
+#HF
+#CB \\data\\background\\ black.jpg THE END! [END 1 - Tony]
+

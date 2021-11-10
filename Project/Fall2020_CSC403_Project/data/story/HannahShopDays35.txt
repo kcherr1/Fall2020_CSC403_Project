@@ -1,5 +1,5 @@
 ﻿#CBF \\data\\background\\ hannah_store.jpg \\data\\foreground\\ player.png 
 #SF Mr.Peanut: Hi again!
-#CT Hannah: Welcome back. Check out my items and let me know what you want! I have the perfect gifts in here. 
+#CF \\data\\foreground\\ hannah.png Hannah: Welcome back. Check out my items and let me know what you want! I have the perfect gifts in here. 
 #S1
 #CT Hannah: Thanks for coming in! Come back soon. I am so lonely. 

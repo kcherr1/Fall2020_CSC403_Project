@@ -393,7 +393,7 @@ namespace Fall2020_CSC403_Project
                             shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": $" + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
                         }
                     }
-                    shop1OptionString += " Exit,#E]";
+                    shop1OptionString += " Exit,#E]  Hannah: Hello, please buy something.";
                     Story.CurrentStoryText.AddFirst(shop1OptionString);
                     HandleMarkup(Story.GetNextLine());
                     break;
@@ -405,7 +405,7 @@ namespace Fall2020_CSC403_Project
                     {
                         shop2OptionString += (Item.hayleyShopItems[itemID].ItemName + ": $" + Item.hayleyShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
                     }
-                    shop2OptionString += " Exit,#E]";
+                    shop2OptionString += " Exit,#E] Hayley: Check it.";
                     Story.CurrentStoryText.AddFirst(shop2OptionString);
                     HandleMarkup(Story.GetNextLine());
                     break;
