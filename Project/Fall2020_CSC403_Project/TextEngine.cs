@@ -343,6 +343,12 @@ namespace Fall2020_CSC403_Project
                     //for items in current inventory create options where markup is #CT item_description
                     //to leave inventory handle pressing escape? press escape maybe to view inventory and then escape to exit?
                     break;
+                case Markup.CheckPromPosal:
+                    // line is: empty, just checking existing characters
+                    // Get the character you like the most
+                    Character maxLoveCharacter = CharacterCollection.CharacterDictionary.Values.Aggregate((char1, char2) => char1.LoveScore > char2.LoveScore ? char1 : char2);
+                    
+                    break;
                 case Markup.CheckThresholdsForTree:
                     // line is: characterID you're checking
                     //If greater than or equal to max of items and not already dated
