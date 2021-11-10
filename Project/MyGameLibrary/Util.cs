@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project.code
 
         public static  int GetRandomInt()
         {
-            return rand.Next(-2, 4);
+            return rand.Next(-1, 2);
         }
 
         public static float GetRandomFloat()
