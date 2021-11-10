@@ -1,4 +1,5 @@
 ﻿#CBF \\data\\background\\ hannah_store.jpg \\data\\foreground\\ enemy_koolaid.png Mr. Peanut: Hi again! I have money this time! 
 #CT Hayley: Awesome. Are you gonna buy something or what?
 #S2
+#HW
 #CT Hayley: It’s not like I’ll miss you or anything. 

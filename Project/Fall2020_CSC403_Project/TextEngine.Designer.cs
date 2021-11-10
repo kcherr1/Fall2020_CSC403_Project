@@ -131,12 +131,34 @@ namespace Fall2020_CSC403_Project
             this.ForegroundImage_Xscale = (double)ForegroundImage.Left / Width;
             this.ForegroundImage_Yscale = (double)ForegroundImage.Top / Height;
             this.ForegroundImage_AspectRatio = ForegroundImage.Size.Width / (ForegroundImage.Size.Height * 1.0);
+
+            BalanceLabel.Location = new Point(ClientRectangle.Width-70, 0);
         }
         #endregion
 
         private System.Windows.Forms.PictureBox ForegroundImage;
         private System.Windows.Forms.Panel NormalPanel;
         private System.Windows.Forms.Panel OptionsPanel;
+
+        private GradientTextbox BalanceLabel = new GradientTextbox {
+            AutoSize = false,
+            Size = new Size(70, 30),
+            TextAlign = ContentAlignment.TopRight,
+            Text = Inventory.walletBalance.ToString(),
+            Font = new Font("Georgia", 16),
+        };
+        
+        
+        private void UpdateBalance(bool BalDisplayed) {
+            if (BalDisplayed == false) {
+                this.Controls.Remove(BalanceLabel);
+            }
+            else {
+                BalanceLabel.Text = Inventory.walletBalance.ToString();
+                this.Controls.Add(BalanceLabel);
+                BalanceLabel.BringToFront();
+            }
+        }
         private void DisplayOptions(List<Option> options)
         {
             System.Drawing.Point location = new System.Drawing.Point(20, 50);
