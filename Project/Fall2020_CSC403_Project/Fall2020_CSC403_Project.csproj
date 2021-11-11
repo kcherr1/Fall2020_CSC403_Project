@@ -159,6 +159,8 @@
     <Content Include="data\foreground\tony.png" />
     <Content Include="data\foreground\wendy.png" />
     <Content Include="data\sounds\background.wav" />
+    <Content Include="data\sounds\happyday.wav" />
+    <Content Include="data\sounds\select.wav" />
     <Content Include="data\story\Bad_End.txt" />
     <Content Include="data\story\Burger_Prom.txt" />
     <Content Include="data\story\Day6.txt" />

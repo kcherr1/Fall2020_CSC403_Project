@@ -25,6 +25,8 @@ namespace MyGameLibrary.Story
         GiftOptions,
         CheckPromPosal,
         CheckIfDead,
-        PlayAudio
+        PlayBackgroundAudio,
+        PlaySound,
+        Pause
     }
 }

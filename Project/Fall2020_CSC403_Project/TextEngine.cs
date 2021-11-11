@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Media;
+using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project
 {
@@ -126,7 +127,7 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private void HandleMarkup(string line)
+        private async void HandleMarkup(string line)
         { 
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
             _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
@@ -143,7 +144,19 @@ namespace Fall2020_CSC403_Project
                         this.ChangeText(line);
                     }                    
                     break;
-                case Markup.PlayAudio:
+                case Markup.Pause:
+                    //line is: how many seconds to pause
+                    await Task.Delay(int.Parse(line)*1000);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.PlaySound:
+                    //line is: audio_location audio_name.wav
+                    List<string> audioSoundInfo = line.Split(' ').ToList();
+                    SoundPlayer soundVFX = new SoundPlayer(_filePath + audioSoundInfo[0] + audioSoundInfo[1]);
+                    soundVFX.Play();
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.PlayBackgroundAudio:
                     //line is: audio_location audio_name.wav
                     List<string> audioInfo = line.Split(' ').ToList();
                     SoundPlayer sound = new SoundPlayer(_filePath + audioInfo[0] + audioInfo[1]);

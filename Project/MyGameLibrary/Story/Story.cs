@@ -152,9 +152,17 @@ namespace MyGameLibrary.Story
             {
                 markup = Markup.CheckIfDead;
             }
-            else if (string.Equals(splitLine[0], "#PA"))
+            else if (string.Equals(splitLine[0], "#PBA"))
             {
-                markup = Markup.PlayAudio;
+                markup = Markup.PlayBackgroundAudio;
+            }
+            else if (string.Equals(splitLine[0], "#P"))
+            {
+                markup = Markup.Pause;
+            }
+            else if (string.Equals(splitLine[0], "#PS"))
+            {
+                markup = Markup.PlaySound;
             }
             //Set the current action to the markup enum
             this.Current_Action = markup;
