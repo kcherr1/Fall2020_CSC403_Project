@@ -34,7 +34,7 @@ namespace MyGameLibrary.Character
                 DateLocation: dateLocations, DateName: "Tony_Date.txt", PromLocation: promLocations, PromName: "Tony_Prom.txt", s_dictTonyItemResponse);
             Ronald = new Character("Ronald", ID: 3, LScore: 50, HappyResponse: "Thanks!!!", UnhappyResponse: "This is SO LAME AND BORING!!!!", DeathResponse: "Hah! What a fun gun. Plow plow... a-ah it's not a toy I... I don't feel well.",
                 DateLocation: dateLocations, DateName: "Ronald_Date.txt", PromLocation: promLocations, PromName: "Ronald_Prom.txt", s_dictRonaldItemResponse);
-            Green = new Character("Green", ID: 4, LScore: 50, HappyResponse: "Oh! Thank you! You didn’t have to do this for me!! That’s so sweet…", UnhappyResponse: " Oh. Well, thanks for the thought!", DeathResponse: "N-no! I'm made out of choclate... I'm, I'm melting...",
+            Green = new Character("Green", ID: 4, LScore: 50, HappyResponse: "Oh! Thank you! You didn’t have to do this for me!! That’s so sweet…", UnhappyResponse: " Oh. Well, thanks for the thought!", DeathResponse: "N-no! I'm made out of chocolate... I'm, I'm melting...",
                 DateLocation: dateLocations, DateName: "Green_Date.txt", PromLocation: promLocations, PromName: "Green_Prom.txt", s_dictGreenItemResponse);
             BurgerKing = new Character("Burger King", ID: 5, LScore: 50, HappyResponse: "Why thank you!", UnhappyResponse: "You think THIS is a gift befitting a king? Who do you think you are?", DeathResponse: "L-let them eat cake.",
                 DateLocation: dateLocations, DateName: "Burger_Date.txt", PromLocation: promLocations, PromName: "Burger_Prom.txt", s_dictBKItemResponse);

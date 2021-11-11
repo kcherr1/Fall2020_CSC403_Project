@@ -1,7 +1,7 @@
 ﻿#CF \\data\\foreground\\ ronald.png Ronald: Oh my gosh! It's just what I've always wanted! Now watch this, it’s gonna be the funniest thing you’ve ever seen!
 #CF \\data\\foreground\\ enemy_koolaid.png Coach Kool-Aid Man sits down, falling for Ronald's prank and making a fart sound.
 #CF \\data\\foreground\\ ronald.png Ronald: AHAHHAHAHAHAHAHAHHAHAHAHAHAHHAAHAH I DID IT! THAT WAS SO GREAT! 
-#CT Hey, you know what? You’re pretty cool, Peanut! How’s about going to the carnival tonight? Would you be interested?
+#CT Ronald: Hey, you know what? You’re pretty cool, Peanut! How’s about going to the carnival tonight? Would you be interested?
 #CF \\data\\foreground\\ player.png Mr. Peanut: Of course! 
 #CBF \\data\\background\\ carnival.jpg \\data\\foreground\\ ronald.png Ronald: OH. MY. GOSH. Look at the clown making the balloon animals! My entire heart is melting! IT’S SO FUNNY!!!!! 
 #CT Ronald: LOOK HOW BIG HIS SHOES ARE! Do you really think his feet are that big? THAT’S CRAZY!
