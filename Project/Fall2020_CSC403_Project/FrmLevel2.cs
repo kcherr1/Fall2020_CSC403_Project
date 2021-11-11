@@ -28,6 +28,9 @@ namespace Fall2020_CSC403_Project {
         public Random rd = new Random();
         public bool combat = false;
 
+        public int Health;
+        public int MaxHealth;
+
         //public SoundPlayer Footprints = new SoundPlayer(Properties.Resources.Step);
 
         public FrmLevel2()
@@ -118,6 +121,9 @@ namespace Fall2020_CSC403_Project {
 
             Game.player = player;
             timeBegin = DateTime.Now;
+
+            player.Health = Health;
+            player.MaxHealth = MaxHealth;
         }
 
         private Vector2 CreatePosition(PictureBox pic)
@@ -184,6 +190,8 @@ namespace Fall2020_CSC403_Project {
                         combat = true;
                         this.Close();
                         FrmLevel3 f3 = new FrmLevel3();
+                        f3.Health = player.Health;
+                        f3.MaxHealth = player.MaxHealth;
                         f3.Show();
                     }
                 }
@@ -192,8 +200,8 @@ namespace Fall2020_CSC403_Project {
                     if (HitAHeart(player, heart))
                     {
                         picHealth.Visible = false;
-                        player.AlterHealth(5);
-                        //player.AlterMaxHealth(5);
+                        player.AlterHealth(10);
+                        player.AlterMaxHealth(10);
                     }
                 }
             }
