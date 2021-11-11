@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project
 {
@@ -25,7 +26,7 @@ namespace Fall2020_CSC403_Project
         private bool isShop { get; set; } = false; 
         public TextEngine()
         {
-            this.Story = new Story("\\data\\story\\", "Day1.txt"); //Read in main story
+            this.Story = new Story("\\data\\story\\", "Menu.txt"); //Read in main story
             #region Initalize shops and items
             Item.initializeAllItems();
             Item.initializeHannahShop();
@@ -141,6 +142,13 @@ namespace Fall2020_CSC403_Project
                     {
                         this.ChangeText(line);
                     }                    
+                    break;
+                case Markup.PlayAudio:
+                    //line is: audio_location audio_name.wav
+                    List<string> audioInfo = line.Split(' ').ToList();
+                    SoundPlayer sound = new SoundPlayer(_filePath + audioInfo[0] + audioInfo[1]);
+                    sound.PlayLooping();
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.ChangeBackgroundImage:
                     //line is: image_location image_name text (ex: #CB \\data\\background\\ hannah_store.jpg We've changed the background)
