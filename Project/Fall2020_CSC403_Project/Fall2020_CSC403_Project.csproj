@@ -151,7 +151,6 @@
     <Content Include="data\background\hayley_store.png" />
     <Content Include="data\background\lunch.jpg" />
     <Content Include="data\background\museum.JPG" />
-    <Content Include="data\background\mrpeanutmenu.jpg" />
     <Content Include="data\background\opening.jpg" />
     <Content Include="data\background\prom.jpg" />
     <Content Include="data\background\resturaunt.PNG" />
@@ -168,7 +167,6 @@
     <Content Include="data\story\Burger_Prom.txt" />
     <Content Include="data\story\Day6.txt" />
     <Content Include="data\story\Green_Prom.txt" />
-    <Content Include="data\story\Menu.txt" />
     <Content Include="data\story\Ronald_Date.txt" />
     <Content Include="data\story\Green_Date.txt" />
     <Content Include="data\story\Burger_Date.txt" />
