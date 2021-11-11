@@ -1,1 +1,11 @@
-﻿#CT THIS IS A DATE!
+﻿#CF \\data\\foreground\\ msgreen.png Green: Oh my gosh!! This is the book I’ve been looking for!! The author, Ashley Palmer? She’s a genius! 
+#CF \\data\\foreground\\ player.png Mr. Peanut: I thought you’d like it!
+#CF \\data\\foreground\\ msgreen.png Green: How can I say thank you for such a wonderful gift? Well… I know! I have two tickets to a museum exhibit! How would you like to come?
+#CF \\data\\foreground\\ player.png Mr. Peanut: Of course!
+#CBF \\data\\background\\ museum.jpg \\data\\foreground\\ player.png Mr. Peanut: Man, this is a pretty painting. I don’t have any idea what it means though. 
+#CF \\data\\foreground\\ msgreen.png Green: Well! It’s kind of a metaphor. The sun represents life. The flowers represent beauty. And the boat? That’s the Titanic. It represents death. 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Wow, I thought it was weird that the boat was in the meadow. 
+#CF \\data\\foreground\\ msgreen.png Green: It shows how beautiful things can still fade and die.
+#CF \\data\\foreground\\ player.png Mr. Peanut: Really gets you thinking about the meaning of life…
+#CF \\data\\foreground\\ msgreen.png Green: It really does… I’m glad we’ve met. This was really fun. 
+#CF \\data\\foreground\\ player.png Mr. Peanut: It really was! 
