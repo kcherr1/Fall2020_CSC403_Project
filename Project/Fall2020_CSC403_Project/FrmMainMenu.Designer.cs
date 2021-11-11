@@ -48,7 +48,7 @@ namespace Fall2020_CSC403_Project
             this.textBox1.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(549, 34);
+            this.textBox1.Size = new System.Drawing.Size(615, 34);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "NullPointerException Games Presents...";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -57,16 +57,16 @@ namespace Fall2020_CSC403_Project
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.ControlDark;
             this.textBox2.Font = new System.Drawing.Font("Comic Sans MS", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(155, 130);
+            this.textBox2.Location = new System.Drawing.Point(119, 126);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(680, 175);
+            this.textBox2.Size = new System.Drawing.Size(740, 175);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "Game Title!";
             // 
             // buttonStartGame
             // 
             this.buttonStartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStartGame.Location = new System.Drawing.Point(216, 408);
+            this.buttonStartGame.Location = new System.Drawing.Point(192, 407);
             this.buttonStartGame.Name = "buttonStartGame";
             this.buttonStartGame.Size = new System.Drawing.Size(560, 85);
             this.buttonStartGame.TabIndex = 3;
@@ -77,7 +77,7 @@ namespace Fall2020_CSC403_Project
             // buttonChangeDifficulty
             // 
             this.buttonChangeDifficulty.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChangeDifficulty.Location = new System.Drawing.Point(216, 584);
+            this.buttonChangeDifficulty.Location = new System.Drawing.Point(192, 561);
             this.buttonChangeDifficulty.Name = "buttonChangeDifficulty";
             this.buttonChangeDifficulty.Size = new System.Drawing.Size(560, 85);
             this.buttonChangeDifficulty.TabIndex = 4;
@@ -88,9 +88,10 @@ namespace Fall2020_CSC403_Project
             // pictureBoxArt
             // 
             this.pictureBoxArt.Image = global::Fall2020_CSC403_Project.Properties.Resources.boxart;
-            this.pictureBoxArt.Location = new System.Drawing.Point(1001, 12);
+            this.pictureBoxArt.Location = new System.Drawing.Point(983, 12);
             this.pictureBoxArt.Name = "pictureBoxArt";
-            this.pictureBoxArt.Size = new System.Drawing.Size(537, 823);
+            this.pictureBoxArt.Size = new System.Drawing.Size(558, 860);
+            this.pictureBoxArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxArt.TabIndex = 1;
             this.pictureBoxArt.TabStop = false;
             // 
@@ -105,9 +106,10 @@ namespace Fall2020_CSC403_Project
             // pictureBoxDifficulties
             // 
             this.pictureBoxDifficulties.Image = global::Fall2020_CSC403_Project.Properties.Resources.creamy;
-            this.pictureBoxDifficulties.Location = new System.Drawing.Point(216, 686);
+            this.pictureBoxDifficulties.Location = new System.Drawing.Point(192, 701);
             this.pictureBoxDifficulties.Name = "pictureBoxDifficulties";
-            this.pictureBoxDifficulties.Size = new System.Drawing.Size(560, 149);
+            this.pictureBoxDifficulties.Size = new System.Drawing.Size(561, 150);
+            this.pictureBoxDifficulties.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxDifficulties.TabIndex = 5;
             this.pictureBoxDifficulties.TabStop = false;
             // 
@@ -116,7 +118,7 @@ namespace Fall2020_CSC403_Project
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1550, 847);
+            this.ClientSize = new System.Drawing.Size(1586, 924);
             this.Controls.Add(this.pictureBoxDifficulties);
             this.Controls.Add(this.buttonChangeDifficulty);
             this.Controls.Add(this.buttonStartGame);
