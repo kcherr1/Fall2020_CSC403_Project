@@ -1,0 +1,11 @@
+﻿#CB \\data\\background\\ mrpeanutmenu.jpg
+#HF
+#HT
+#PBA \\data\\sounds\\ background.wav
+#P 3
+#ST
+#CT Press any button to start
+#PS \\data\\sounds\\ select.wav
+#P 2
+#NS \\data\\story\\ Day1.txt
+
