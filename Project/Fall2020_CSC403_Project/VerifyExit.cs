@@ -21,30 +21,13 @@ namespace Fall2020_CSC403_Project
 
         private void YesButton_Click(object sender, EventArgs e)
         {
-            //this.Close();
             Application.Exit();
         }
 
-        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void NoButton_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            //System.Windows.Forms.Application.Exit();
-            //System.Environment.Exit(0);
-           
-
-           
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            //i.e. If your label ID is lblOutput and variable is an integer name v, code will be following
-            //lblOutput.Text = v.ToString();
-            //label1_Click.Text = .ToString();
+            
+            this.Hide();
         }
     }
 }

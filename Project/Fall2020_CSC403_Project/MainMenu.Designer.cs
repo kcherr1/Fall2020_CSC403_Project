@@ -34,16 +34,9 @@ namespace Fall2020_CSC403_Project
             this.ExitButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            //this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            //this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            //this.AboutData = new System.Windows.Forms.ToolStripTextBox();
-            //this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            //this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +75,7 @@ namespace Fall2020_CSC403_Project
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(137, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 2;
             // 
             // menuStrip1
@@ -94,40 +87,6 @@ namespace Fall2020_CSC403_Project
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
-            // 
-            //this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            //this.aboutToolStripMenuItem,
-            //this.exitToolStripMenuItem});
-            //this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            //this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
-            //this.fileToolStripMenuItem.Text = "File";
-            //this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            //this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            //this.AboutData});
-            //this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            //this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
-            //this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // AboutData
-            // 
-            //this.AboutData.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.AboutData.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            //this.AboutData.Name = "AboutData";
-            //this.AboutData.Size = new System.Drawing.Size(100, 27);
-            //this.AboutData.Text = "Fruits of the Round is a game....In order to play you must use the arrow keys. If" +
-    //" you choose to exit at any time click the Exit Tab";
-            // 
-            // exitToolStripMenuItem
-            // 
-            //this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            //this.exitToolStripMenuItem.ShowShortcutKeys = false;
-            //this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
-            //this.exitToolStripMenuItem.Text = "Exit";
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -138,15 +97,6 @@ namespace Fall2020_CSC403_Project
             // 
             this.timer2.Interval = 54050;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // pictureBox1
-            // 
-           // this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            //this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            //this.pictureBox1.Name = "pictureBox1";
-            //this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            //this.pictureBox1.TabIndex = 5;
-            //this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -176,9 +126,6 @@ namespace Fall2020_CSC403_Project
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Fruits of the Round";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
