@@ -37,7 +37,7 @@ namespace MyGameLibrary.Story
             string[] lines = File.ReadAllLines(_filePath);
             if (insert)
             {
-                lines.Reverse();
+                 lines = lines.Reverse().ToArray();
             }
             foreach (string line in lines)
             {
@@ -147,6 +147,10 @@ namespace MyGameLibrary.Story
             else if (string.Equals(splitLine[0], "#CPP"))
             {
                 markup = Markup.CheckPromPosal;
+            }
+            else if (string.Equals(splitLine[0], "#CID"))
+            {
+                markup = Markup.CheckIfDead;
             }
             else if (string.Equals(splitLine[0], "#PA"))
             {

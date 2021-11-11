@@ -1,1 +1,12 @@
-﻿#CT THIS IS A DATE!
+﻿#CF \\data\\foreground\\ wendy.png Wendy: A human soul…
+#CT Wendy: At long last.
+#CT Wendy: The last component of this ancient ritual. . . Lost to me for thousands of years. 
+#CT Wendy: Mr. Peanut, the magic is stronger if we have two participants. Would you be willing to perform the ritual with me? 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Of course!
+#HF [INSERT LATIN CHANTING]
+#SF Mr. Peanut: The soul is glowing…!
+#CF \\data\\foreground\\ wendy.png Wendy: Yes, yes, yes, at long last!
+#CF \\data\\foreground\\ player.png Mr. Peanut: Oh no! It’s gone! Where did it go? What happened to it?
+#CF \\data\\foreground\\ wendy.png Wendy: That’s for me to know and you to find out. Suffice to say… the ritual was a success. Its effects will finally begin to show themselves on Saturday at the prom. I look forward to it… 
+#CF \\data\\foreground\\ player.png Mr. Peanut: It was nice spending time with you Wendy! I’m glad I could help.
+#CF \\data\\foreground\\ wendy.png Wendy: Yes, you have helped so much. Thank you. I am forever in your debt. 

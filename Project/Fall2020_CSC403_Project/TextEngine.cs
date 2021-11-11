@@ -385,6 +385,27 @@ namespace Fall2020_CSC403_Project
                     }
                     HandleMarkup(Story.GetNextLine());
                     break;
+                case Markup.CheckIfDead:
+                    // line is: characterID you're checking
+                    string characterNameIfDead = Enum.GetName(typeof(CharacterID), int.Parse(line));
+                    CharacterID characterIDIfDead = (CharacterID)Enum.Parse(typeof(CharacterID), characterNameIfDead);
+                    Character characterIfDead = CharacterCollection.CharacterDictionary[characterIDIfDead];
+                    if(characterIfDead.IsDead)
+                    {
+                        string[] duplicateStoryIfDead = new string[this.Story.CurrentStoryText.Count];
+                        this.Story.CurrentStoryText.CopyTo(duplicateStoryIfDead, 0);
+                        foreach (string storyLine in duplicateStoryIfDead)
+                        {
+                            //Until you reach the "SKIP TO DEAD" (aka [STD] text marker) clear out the rest of the dialogue
+                            this.Story.CurrentStoryText.RemoveFirst();
+                            if (string.Equals(storyLine.Trim(), "[STD]"))
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    HandleMarkup(Story.GetNextLine());
+                    break;
                 case Markup.CheckThresholdsForTree:
                     // line is: characterID you're checking
                     //If greater than or equal to max of items and not already dated
@@ -397,8 +418,7 @@ namespace Fall2020_CSC403_Project
                         this.Story.CurrentStoryText.CopyTo(duplicateStory, 0);
                         foreach (string storyLine in duplicateStory)
                         {
-                            //Until you reach the "SKIP TO" (aka [ST] change text marker) clear out the rest of the dialogue
-                            Console.WriteLine(storyLine);
+                            //Until you reach the "SKIP TO" (aka [ST] text marker) clear out the rest of the dialogue
                             this.Story.CurrentStoryText.RemoveFirst();
                             if (string.Equals(storyLine.Trim(), "[ST]"))
                             {
@@ -485,7 +505,7 @@ namespace Fall2020_CSC403_Project
                 BalanceLabel.Height = 30 * (int) heightScaling;
                 BalanceLabel.Width = 70 * (int) widthScaling;
                 BalanceLabel.Location = new Point(ClientRectangle.Width-BalanceLabel.Width, 0);
-                BalanceLabel.Font = new Font("Georgia",(int) heightScaling*16);
+                BalanceLabel.Font = new Font("Georgia",(int)(heightScaling*16));
                 Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
                 int location_Y = 50;
                 int optionNumber = 0;

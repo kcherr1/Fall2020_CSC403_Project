@@ -1,30 +1,44 @@
-﻿#CBF \\data\\background\\ beginningofschoolday.jpg \\data\\foreground\\ player.png Mr. Peanut: Hey Tony!
-#CF \\data\\foreground\\ tony.png Tony: Hey dude! It’s cool to see you. Man, math really is the worst. I really do need a tutor.
+﻿#CBF \\data\\background\\ beginningofschoolday.jpg \\data\\foreground\\ player.png Mr. Peanut: A new day of school!
+#CID 2
+#CT Mr. Peanut: Hey, Tony!
+#CF \\data\\foreground\\ tony.png Tony: Hey dude! It’s cool to see you. Man, math really is the worst. 
 #O Give Gift,#GO 2] Exit,#] Maybe I should give them a gift.
 #T 2
+#CID 2
 #CT Tony: Well, see you tomorrow bro!
-#CBF \\data\\background\\ gym.jpg \\data\\foreground\\ ronald.png Ronald: I’m gonna get Teach today!!! I know just the prank!!
+[STD]
+#CID 3
+#CBF \\data\\background\\ gym.jpg \\data\\foreground\\ ronald.png Ronald: I’m gonna get Teach today! I know just the prank!
 #O Give Gift,#GO 3] Exit,#] Maybe I should give them a gift.
 #T 3
+#CID 3
 #CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: Hey kids! Let's get FIT!
 #CF \\data\\foreground\\ ronald.png Ronald: Darn it!
-#CBF \\data\\background\\ lunch.jpg \\data\\foreground\\ burgerking.png Burger King: This food is abysmal. I can’t believe people serve this. And even worse, I still have this ridiculous cardboard crown. I must have recognition for being king! Otherwise, I am as much of a clown as Ronald. 
+[STD]
+#CID 5
+#CBF \\data\\background\\ lunch.jpg \\data\\foreground\\ burgerking.png Burger King: This food is abysmal. I can’t believe people serve this. 
 #O Give Gift,#GO 5] Exit,#] Maybe I should give them a gift.
 #T 5
+[STD]
+#CID 4
 #HF
-#CT Mr. Peanut: Oh look, Green M&M is sitting alone again…
+#CT Mr. Peanut: Oh look, Green M+M is sitting alone again…
 #CF \\data\\foreground\\ msgreen.png
 #SF 
 #O Give Gift,#GO 4] Exit,#] Maybe I should give them a gift.
 #T 4
+[STD]
+#CID 1
 #HF 
 #CB \data\\background\\ alley.jpg Mr. Peanut: Boy, it's been a day. Wonder how Wendy's doing.
 #CF \data\\foreground\\ wendy.png 
 #SF Wendy: Shwabble dabble glibble glabble schribble shwap glab. Dibble dabble shribble shrabble glibbi-glap shwap.
 #O Give Gift,#GO 1] Exit,#] Maybe I should give them a gift.
-#T 2
+#T 1
+#CID 1
 #CT Wendy: BEGONE!
 #CT Mr. Peanut: Geez, okay...
+[STD]
 [ST]
 #HF
 #CB \\data\\background\\ black.jpg
