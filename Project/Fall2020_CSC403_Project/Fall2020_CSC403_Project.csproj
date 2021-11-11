@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
+    <Folder Include="data\sounds\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
