@@ -47,6 +47,7 @@
             this.Music_restarter = new System.Windows.Forms.Timer(this.components);
             this.Enemy_Movement = new System.Windows.Forms.Timer(this.components);
             this.picDoor = new System.Windows.Forms.PictureBox();
+            this.picHealth = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -64,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDoor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHealth)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -215,7 +217,8 @@
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyCheeto.Image = ((System.Drawing.Image)(resources.GetObject("picEnemyCheeto.Image")));
-            this.picEnemyCheeto.Location = new System.Drawing.Point(1022, 167);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(1391, 266);
+            this.picEnemyCheeto.Margin = new System.Windows.Forms.Padding(4);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(98, 107);
             this.picEnemyCheeto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -274,13 +277,28 @@
             // picDoor
             // 
             this.picDoor.BackColor = System.Drawing.Color.Transparent;
-            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.World_1;
-            this.picDoor.Location = new System.Drawing.Point(1006, 93);
+            this.picDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Door;
+            this.picDoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picDoor.Location = new System.Drawing.Point(1369, 80);
+            this.picDoor.Margin = new System.Windows.Forms.Padding(4);
             this.picDoor.Name = "picDoor";
-            this.picDoor.Size = new System.Drawing.Size(141, 57);
+            this.picDoor.Size = new System.Drawing.Size(124, 162);
             this.picDoor.TabIndex = 18;
             this.picDoor.TabStop = false;
             this.picDoor.Click += new System.EventHandler(this.picDoor_Click);
+            // 
+            // picHealth
+            // 
+            this.picHealth.BackColor = System.Drawing.Color.Transparent;
+            this.picHealth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHealth.Image = global::Fall2020_CSC403_Project.Properties.Resources.Heart_Pickup;
+            this.picHealth.Location = new System.Drawing.Point(167, 266);
+            this.picHealth.Margin = new System.Windows.Forms.Padding(4);
+            this.picHealth.Name = "picHealth";
+            this.picHealth.Size = new System.Drawing.Size(105, 109);
+            this.picHealth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHealth.TabIndex = 19;
+            this.picHealth.TabStop = false;
             // 
             // FrmLevel2
             // 
@@ -288,8 +306,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1028, 609);
-            this.Controls.Add(this.picDoor);
+            this.ClientSize = new System.Drawing.Size(1682, 894);
+            this.Controls.Add(this.picHealth);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -307,9 +325,11 @@
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.picDoor);
             this.DoubleBuffered = true;
-            this.MaximumSize = new System.Drawing.Size(1279, 772);
-            this.MinimumSize = new System.Drawing.Size(1027, 597);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1700, 941);
+            this.MinimumSize = new System.Drawing.Size(1700, 941);
             this.Name = "FrmLevel2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Fruits O\' The Round";
@@ -334,6 +354,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDoor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHealth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,6 +384,7 @@
         private System.Windows.Forms.Timer Music_restarter;
         private System.Windows.Forms.Timer Enemy_Movement;
         private System.Windows.Forms.PictureBox picDoor;
+        private System.Windows.Forms.PictureBox picHealth;
     }
 }
 

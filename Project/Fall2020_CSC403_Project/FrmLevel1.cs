@@ -19,7 +19,7 @@ namespace Fall2020_CSC403_Project {
         private Enemy[] LevelEnemies;
 
         private Character door;
-  
+        private Character heart;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -30,11 +30,15 @@ namespace Fall2020_CSC403_Project {
         public Random rd = new Random();
         public bool combat = false;
 
+        public int Health;
+        public int MaxHealth;
+
         //public SoundPlayer Footprints = new SoundPlayer(Properties.Resources.Step);
 
         public FrmLevel1()
         {
             InitializeComponent();
+            player = Game.player;
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -49,10 +53,10 @@ namespace Fall2020_CSC403_Project {
             //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
-            
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
+            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
-            BGM.Play();
+            //BGM.Play();
 
             if (character_class == 0)
             {
@@ -119,6 +123,9 @@ namespace Fall2020_CSC403_Project {
 
             Game.player = player;
             timeBegin = DateTime.Now;
+
+            player.Health = 20;
+            player.MaxHealth = 20;
         }
 
         private Vector2 CreatePosition(PictureBox pic)
@@ -128,8 +135,9 @@ namespace Fall2020_CSC403_Project {
 
         private void Music_restarter_Tick(object sender, EventArgs e)
         {
-            BGM.Play();
+            //BGM.Play();
         }
+
 
         private Collider CreateCollider(PictureBox pic, int padding)
         {
@@ -166,34 +174,43 @@ namespace Fall2020_CSC403_Project {
             if (!combat)
             {
                 // check collision with enemies
-                if (picEnemyPoisonPacket.Visible)
-                {
-                    if (HitAChar(player, enemyPoisonPacket))
+                if (enemyPoisonPacket.IsAlive && HitAChar(player, enemyPoisonPacket))
                     {
-                        picEnemyPoisonPacket.Visible = false;
+                        //picEnemyPoisonPacket.Visible = false;
                         Fight(enemyPoisonPacket);
-                    }
                 }
-                if (picEnemyCheeto.Visible) {
-                    if (HitAChar(player, enemyCheeto))
+
+                if (enemyCheeto.IsAlive && HitAChar(player, enemyCheeto))
                     {
-                        picEnemyCheeto.Visible = false;
+                        //picEnemyCheeto.Visible = false;
                         Fight(enemyCheeto);
                     }
-                }
+                
                 if (picDoor.Visible)
                 {
-                    if(HitADoor(player, door))
+                    if (HitADoor(player, door))
                     {
                         picDoor.Visible = false;
-                        this.Hide();
-                        FrmLevel2 f3 = new FrmLevel2();
-                        f3.Show();
+                        combat = true;
+                        this.Close();
+                        FrmLevel2 f2 = new FrmLevel2();
+                        f2.Health = player.Health;
+                        f2.MaxHealth = player.MaxHealth;
+                        f2.Show();
+                    }
+                }
+                if (picHealth.Visible)
+                {
+                    if (HitAHeart(player, heart))
+                    {
+                        picHealth.Visible = false;
+                        player.AlterHealth(10);
+                        player.AlterMaxHealth(10);
                     }
                 }
             }
-            // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                // update player's picture box
+                picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
 
         private void Snail_detection_Click(object sender, EventArgs e)
@@ -203,6 +220,15 @@ namespace Fall2020_CSC403_Project {
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            if (!enemyPoisonPacket.IsAlive)
+            {
+                picEnemyPoisonPacket.Visible = false;
+            }
+            if (!enemyCheeto.IsAlive)
+            {
+                picEnemyCheeto.Visible = false;
+            }
             if (!combat)
             {
                 for (int i = 0; i < LevelEnemies.Length; i++)
@@ -275,6 +301,11 @@ namespace Fall2020_CSC403_Project {
             return hitAWall;
         }
 
+        private void picWall10_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private bool HitAChar(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
@@ -284,6 +315,11 @@ namespace Fall2020_CSC403_Project {
         {
             return you.Collider.Intersects(other.Collider);
         }
+        private bool HitAHeart(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
 
         private void Fight(Enemy enemy)
         {
@@ -294,9 +330,11 @@ namespace Fall2020_CSC403_Project {
             frmBattle = FrmBattle.GetInstance(enemy);
             moving = false;
             combat = true;
-            frmBattle.Show();
+            frmBattle.ShowDialog();
+
 
         }
+
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
@@ -400,24 +438,6 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-        //add this to every level
-
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.Escape)
-            {
-                //this.Close();
-                //this.Hide();
-                //stops the figures from moving since its true
-               
-                combat = true;
-                VerifyExit e1 = new VerifyExit();
-                e1.Show();
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
         private void lblInGameTime_Click(object sender, EventArgs e)
         {
 
@@ -427,6 +447,9 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
+
+
+
 
 
     }

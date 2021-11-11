@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project {
         private Character[] walls;
         private Enemy[] LevelEnemies;
         private Character door;
-
+        private Character heart;
         private DateTime timeBegin;
         private FrmBattle frmBattle;
         private int frames = 0;
@@ -29,6 +29,8 @@ namespace Fall2020_CSC403_Project {
         public bool combat = false;
 
         //public SoundPlayer Footprints = new SoundPlayer(Properties.Resources.Step);
+        public int Health;
+        public int MaxHealth;
 
         public FrmLevel3()
         {
@@ -47,10 +49,10 @@ namespace Fall2020_CSC403_Project {
             //Snail_View = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             LevelEnemies = new Enemy[] { enemyCheeto, enemyPoisonPacket};
             door = new Character(CreatePosition(picDoor), CreateCollider(picDoor, PADDING));
-
+            heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
 
-            BGM.Play();
+            //BGM.Play();
 
             if (character_class == 0)
             {
@@ -118,6 +120,9 @@ namespace Fall2020_CSC403_Project {
 
             Game.player = player;
             timeBegin = DateTime.Now;
+
+            player.Health = Health;
+            player.MaxHealth = MaxHealth;
         }
 
         private Vector2 CreatePosition(PictureBox pic)
@@ -127,7 +132,7 @@ namespace Fall2020_CSC403_Project {
 
         private void Music_restarter_Tick(object sender, EventArgs e)
         {
-            BGM.Play();
+            //BGM.Play();
         }
 
         private Collider CreateCollider(PictureBox pic, int padding)
@@ -165,30 +170,37 @@ namespace Fall2020_CSC403_Project {
             if (!combat)
             {
                 // check collision with enemies
-                if (picEnemyPoisonPacket.Visible)
+                if (enemyPoisonPacket.IsAlive && HitAChar(player, enemyPoisonPacket))
                 {
-                    if (HitAChar(player, enemyPoisonPacket))
-                    {
-                        picEnemyPoisonPacket.Visible = false;
-                        Fight(enemyPoisonPacket);
-                    }
+                    //picEnemyPoisonPacket.Visible = false;
+                    Fight(enemyPoisonPacket);
                 }
-                if (picEnemyCheeto.Visible)
+
+                if (enemyCheeto.IsAlive && HitAChar(player, enemyCheeto))
                 {
-                    if (HitAChar(player, enemyCheeto))
-                    {
-                        picEnemyCheeto.Visible = false;
-                        Fight(enemyCheeto);
-                    }
+                    //picEnemyCheeto.Visible = false;
+                    Fight(enemyCheeto);
                 }
                 if (picDoor.Visible)
                 {
                     if (HitADoor(player, door))
                     {
                         picDoor.Visible = false;
-                        this.Hide();
-                        FrmLevel4 f1 = new FrmLevel4();
-                        f1.Show();
+                        combat = true;
+                        this.Close();
+                        FrmLevel4 f4 = new FrmLevel4();
+                        f4.Health = player.Health;
+                        f4.MaxHealth = player.MaxHealth;
+                        f4.Show();
+                    }
+                }
+                if (picHealth.Visible)
+                {
+                    if (HitAHeart(player, heart))
+                    {
+                        picHealth.Visible = false;
+                        player.AlterHealth(10);
+                        player.AlterMaxHealth(10);
                     }
                 }
             }
@@ -203,6 +215,15 @@ namespace Fall2020_CSC403_Project {
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            if (!enemyPoisonPacket.IsAlive)
+            {
+                picEnemyPoisonPacket.Visible = false;
+            }
+            if (!enemyCheeto.IsAlive)
+            {
+                picEnemyCheeto.Visible = false;
+            }
             if (!combat)
             {
                 for (int i = 0; i < LevelEnemies.Length; i++)
@@ -283,6 +304,11 @@ namespace Fall2020_CSC403_Project {
         }
 
         private bool HitADoor(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
+        private bool HitAHeart(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
         }
