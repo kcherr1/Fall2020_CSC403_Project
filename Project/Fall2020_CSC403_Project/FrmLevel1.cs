@@ -53,7 +53,7 @@ namespace Fall2020_CSC403_Project {
             string resourcesPath = Application.StartupPath + "\\..\\..\\Resources";
             heart = new Character(CreatePosition(picHealth), CreateCollider(picHealth, PADDING));
 
-            BGM.Play();
+            //BGM.Play();
 
             if (character_class == 0)
             {
@@ -129,7 +129,7 @@ namespace Fall2020_CSC403_Project {
 
         private void Music_restarter_Tick(object sender, EventArgs e)
         {
-            BGM.Play();
+            //BGM.Play();
         }
 
 

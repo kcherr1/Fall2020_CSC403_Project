@@ -161,6 +161,15 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Bassy {
+            get {
+                return ResourceManager.GetStream("Bassy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Batastrophe {
@@ -251,6 +260,15 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Dark_Depths {
+            get {
+                return ResourceManager.GetStream("Dark_Depths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Door {
@@ -293,6 +311,15 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Fall {
+            get {
+                return ResourceManager.GetStream("Fall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream final_battle {
             get {
                 return ResourceManager.GetStream("final_battle", resourceCulture);
@@ -315,6 +342,26 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap Fruits_Of_The_Round_Title_Opening_Animation {
             get {
                 object obj = ResourceManager.GetObject("Fruits_Of_The_Round_Title_Opening_Animation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Game_Over_Bounce {
+            get {
+                object obj = ResourceManager.GetObject("Game_Over_Bounce", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Game_Over_Drop_Blur {
+            get {
+                object obj = ResourceManager.GetObject("Game_Over_Drop_Blur", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,6 +410,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap Girl_Power_Unfathomable {
             get {
                 object obj = ResourceManager.GetObject("Girl_Power_Unfathomable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Heart_Pickup {
+            get {
+                object obj = ResourceManager.GetObject("Heart_Pickup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -538,6 +595,15 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Opening_Sound_FRuits_of_the_round {
+            get {
+                return ResourceManager.GetStream("Opening_Sound_FRuits_of_the_round", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Orange_Girl_Shimmer {
@@ -564,6 +630,15 @@ namespace Fall2020_CSC403_Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("Stalker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Starting_Something {
+            get {
+                return ResourceManager.GetStream("Starting_Something", resourceCulture);
             }
         }
         

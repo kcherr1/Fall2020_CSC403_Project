@@ -355,5 +355,29 @@
   <ItemGroup>
     <None Include="Resources\Backdrop.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Opening Sound_FRuits of the round.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Starting_Something.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heart_Pickup.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Game_Over_Bounce.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Game_Over_Drop_Blur.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fall.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bassy.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_Depths.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

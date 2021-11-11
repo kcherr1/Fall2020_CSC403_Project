@@ -285,12 +285,13 @@
             // picHealth
             // 
             this.picHealth.BackColor = System.Drawing.Color.Transparent;
-            this.picHealth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picHealth.BackgroundImage")));
             this.picHealth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHealth.Location = new System.Drawing.Point(163, 322);
+            this.picHealth.Image = global::Fall2020_CSC403_Project.Properties.Resources.Heart_Pickup;
+            this.picHealth.Location = new System.Drawing.Point(165, 317);
             this.picHealth.Margin = new System.Windows.Forms.Padding(4);
             this.picHealth.Name = "picHealth";
-            this.picHealth.Size = new System.Drawing.Size(128, 110);
+            this.picHealth.Size = new System.Drawing.Size(120, 120);
+            this.picHealth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHealth.TabIndex = 18;
             this.picHealth.TabStop = false;
             // 
