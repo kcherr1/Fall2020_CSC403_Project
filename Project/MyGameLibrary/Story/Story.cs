@@ -37,7 +37,7 @@ namespace MyGameLibrary.Story
             string[] lines = File.ReadAllLines(_filePath);
             if (insert)
             {
-                lines.Reverse();
+                 lines = lines.Reverse().ToArray();
             }
             foreach (string line in lines)
             {
