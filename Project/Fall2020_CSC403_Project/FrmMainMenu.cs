@@ -12,9 +12,10 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
 {
+    
     public partial class FrmMainMenu : ChildForm
     {
-        private int difficultyVar = 0;
+        public static int difficultyVar = 0;
 
         public FrmMainMenu()
         {
