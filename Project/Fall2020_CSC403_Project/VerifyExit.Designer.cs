@@ -40,7 +40,7 @@ namespace Fall2020_CSC403_Project
             // 
             this.YesButton.BackColor = System.Drawing.Color.GhostWhite;
             this.YesButton.Location = new System.Drawing.Point(279, 300);
-            this.YesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.YesButton.Margin = new System.Windows.Forms.Padding(4);
             this.YesButton.Name = "YesButton";
             this.YesButton.Size = new System.Drawing.Size(496, 89);
             this.YesButton.TabIndex = 0;
@@ -63,9 +63,10 @@ namespace Fall2020_CSC403_Project
             this.ClientSize = new System.Drawing.Size(1093, 554);
             this.Controls.Add(this.YesButton);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VerifyExit";
             this.Text = "EXIT";
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }
