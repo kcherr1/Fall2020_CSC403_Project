@@ -31,6 +31,9 @@ namespace Fall2020_CSC403_Project {
 
         //public SoundPlayer Footprints = new SoundPlayer(Properties.Resources.Step);
 
+        public int Health;
+        public int MaxHealth;
+
         public FrmLevel4()
         {
             InitializeComponent();
@@ -120,6 +123,9 @@ namespace Fall2020_CSC403_Project {
 
             Game.player = player;
             timeBegin = DateTime.Now;
+
+            player.Health = Health;
+            player.MaxHealth = MaxHealth;
         }
 
         private Vector2 CreatePosition(PictureBox pic)

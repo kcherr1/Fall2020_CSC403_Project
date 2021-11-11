@@ -18,6 +18,8 @@ namespace Fall2020_CSC403_Project {
 
     public void Setup() {
             // update for this enemy
+            enemy.Health = 20;
+            enemy.MaxHealth = 20;
             UpdateHealthBars();
             picEnemy.BackgroundImage = enemy.Img;
       picEnemy.Refresh();
@@ -84,12 +86,7 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-            if (enemy.Health <= 0)
-            {
-                enemy.IsAlive = false;
-                instance = null;
-                Close();
-            }
+
             if (player.Health <= 0)
             {
                 //show game over screen
@@ -100,6 +97,14 @@ namespace Fall2020_CSC403_Project {
 
 
             }
+            if (enemy.Health <= 0)
+            {
+                enemy.IsAlive = false;
+                instance = null;
+                Close();
+            }
+
+            UpdateHealthBars();
         }
 
     private void EnemyDamage(int amount) {
