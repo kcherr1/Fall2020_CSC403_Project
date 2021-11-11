@@ -23,6 +23,7 @@ namespace MyGameLibrary.Story
         AddToWallet, 
         HideWallet,
         GiftOptions,
-        CheckPromPosal
+        CheckPromPosal,
+        CheckIfDead
     }
 }
