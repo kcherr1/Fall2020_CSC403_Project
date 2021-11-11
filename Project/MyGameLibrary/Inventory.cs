@@ -15,7 +15,7 @@ namespace Fall2020_CSC403_Project
             {
                 Contents.Remove(ID);
             }            
-        }
+        } 
 
         public static void useItem(Items ID)
         {
