@@ -1,6 +1,7 @@
 ﻿#CBF \\data\\background\\ hayley_store.png \\data\\foreground\\ player.png Mr. Peanut: Hi again! I have money this time! 
 #CF \\data\\foreground\\ hayley.png Hayley: Awesome. Are you gonna buy something or what?
 #S2
+#HW
 #CT Hayley: It’s not like I’ll miss you or anything. 
 #HF
 #CB \\data\\background\\ forest.jpg Mr. Peanut: I think I remember how to get back to campus this time! Probably.

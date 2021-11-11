@@ -21,6 +21,7 @@ namespace MyGameLibrary.Story
         HannahShopOptions,
         HayleyShopOptions,
         AddToWallet, 
+        HideWallet,
         GiftOptions,
         CheckPromPosal
     }

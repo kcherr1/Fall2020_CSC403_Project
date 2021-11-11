@@ -136,7 +136,11 @@ namespace MyGameLibrary.Story
             {
                 markup = Markup.AddToWallet;
             }
-            else if(string.Equals(splitLine[0], "#GO"))
+            else if (string.Equals(splitLine[0], "#HW")) 
+            {
+                markup = Markup.HideWallet;
+            }
+            else if (string.Equals(splitLine[0], "#GO"))
             {
                 markup = Markup.GiftOptions;
             }

@@ -2,4 +2,5 @@
 #SF Mr.Peanut: Hi again!
 #CF \\data\\foreground\\ hannah.png Hannah: Welcome back. Check out my items and let me know what you want! I have the perfect gifts in here. 
 #S1
+#HW
 #CT Hannah: Thanks for coming in! Come back soon. I am so lonely. 

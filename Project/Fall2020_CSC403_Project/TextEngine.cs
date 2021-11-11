@@ -270,6 +270,12 @@ namespace Fall2020_CSC403_Project
                 case Markup.AddToWallet:
                     //line is: amount as int
                     Inventory.depositMoney(int.Parse(line));
+                    UpdateBalance(true);
+                    HandleMarkup(Story.GetNextLine());
+                    break;
+                case Markup.HideWallet:
+                    //line is: nothing, just used to hide the wallet when not needed
+                    UpdateBalance(false);
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.AddItemToInventory:
@@ -404,6 +410,7 @@ namespace Fall2020_CSC403_Project
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.HannahShopOptions:
+                    UpdateBalance(true);
                     // line is: #S1
                     // creates a string containing the available items to be displayed as options
                     string shop1OptionString = "#O S ";
@@ -419,6 +426,7 @@ namespace Fall2020_CSC403_Project
                     HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.HayleyShopOptions:
+                    UpdateBalance(true);
                     // line is: #S2
                     // creates a string containing the available items to be displayed as options
                     string shop2OptionString = "#O S ";
@@ -466,6 +474,10 @@ namespace Fall2020_CSC403_Project
                 double widthScaling = Width / (double)originalWidth;
                 Textbox.Height = (int)(heightScaling * 80);
                 Textbox.Width = Width;
+                BalanceLabel.Height = 30 * (int) heightScaling;
+                BalanceLabel.Width = 70 * (int) widthScaling;
+                BalanceLabel.Location = new Point(ClientRectangle.Width-BalanceLabel.Width, 0);
+                BalanceLabel.Font = new Font("Georgia",(int) heightScaling*16);
                 Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
                 int location_Y = 50;
                 int optionNumber = 0;
