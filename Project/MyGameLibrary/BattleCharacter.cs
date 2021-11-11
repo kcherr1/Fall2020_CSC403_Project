@@ -15,9 +15,9 @@ namespace Fall2020_CSC403_Project.code {
     //public event Action<int> AttackEvent;
 
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
-      //MaxHealth = 20;
+      MaxHealth = 20;
       //strength = 2;
-      //Health = MaxHealth;
+      Health = MaxHealth;
     }
 
     public void OnAttack(int amount) {

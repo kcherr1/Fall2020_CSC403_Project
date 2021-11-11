@@ -18,8 +18,8 @@ namespace Fall2020_CSC403_Project {
 
     public void Setup() {
             // update for this enemy
-            enemy.Health = 20;
-            enemy.MaxHealth = 20;
+            //enemy.Health = 20;
+            //enemy.MaxHealth = 20;
             UpdateHealthBars();
             picEnemy.BackgroundImage = enemy.Img;
       picEnemy.Refresh();
