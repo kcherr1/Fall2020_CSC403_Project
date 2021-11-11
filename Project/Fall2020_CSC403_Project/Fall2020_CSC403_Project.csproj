@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameOver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameOver.Designer.cs">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </Compile>
     <Compile Include="VerifyExit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <EmbeddedResource Include="FrmLevel4.resx">
       <DependentUpon>FrmLevel4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GameOver.resx">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,9 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Background.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Backdrop.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\World_0.png" />
@@ -342,6 +348,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Stalker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unfathomable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fruits_Of_The Round_Title_Opening_Animation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fruits_Of_The Round_Title_Animation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backdrop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Opening Sound_FRuits of the round.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Starting_Something.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heart_Pickup.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Game_Over_Bounce.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Game_Over_Drop_Blur.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fall.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bassy.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_Depths.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
