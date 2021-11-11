@@ -396,6 +396,7 @@ namespace Fall2020_CSC403_Project
                             }
                         }
                     }
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.CheckThresholdsForTree:
                     // line is: characterID you're checking

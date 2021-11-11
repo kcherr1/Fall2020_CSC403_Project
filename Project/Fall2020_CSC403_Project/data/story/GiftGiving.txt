@@ -4,12 +4,14 @@
 #CF \\data\\foreground\\ tony.png Tony: Hey dude! It’s cool to see you. Man, math really is the worst. 
 #O Give Gift,#GO 2] Exit,#] Maybe I should give them a gift.
 #T 2
+#CID 2
 #CT Tony: Well, see you tomorrow bro!
 [STD]
 #CID 3
 #CBF \\data\\background\\ gym.jpg \\data\\foreground\\ ronald.png Ronald: I’m gonna get Teach today!!! I know just the prank!!
 #O Give Gift,#GO 3] Exit,#] Maybe I should give them a gift.
 #T 3
+#CID 3
 #CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: Hey kids! Let's get FIT!
 #CF \\data\\foreground\\ ronald.png Ronald: Darn it!
 [STD]
@@ -33,6 +35,7 @@
 #SF Wendy: Shwabble dabble glibble glabble schribble shwap glab. Dibble dabble shribble shrabble glibbi-glap shwap.
 #O Give Gift,#GO 1] Exit,#] Maybe I should give them a gift.
 #T 1
+#CID 1
 #CT Wendy: BEGONE!
 #CT Mr. Peanut: Geez, okay...
 [STD]
