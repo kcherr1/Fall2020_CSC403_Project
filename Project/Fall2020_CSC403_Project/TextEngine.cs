@@ -497,7 +497,7 @@ namespace Fall2020_CSC403_Project
                 BalanceLabel.Height = 30 * (int) heightScaling;
                 BalanceLabel.Width = 70 * (int) widthScaling;
                 BalanceLabel.Location = new Point(ClientRectangle.Width-BalanceLabel.Width, 0);
-                BalanceLabel.Font = new Font("Georgia",(int) heightScaling*16);
+                BalanceLabel.Font = new Font("Georgia",(int)(heightScaling*16));
                 Textbox.Font = new Font(Textbox.Font.FontFamily, (int)(heightScaling * 12));
                 int location_Y = 50;
                 int optionNumber = 0;

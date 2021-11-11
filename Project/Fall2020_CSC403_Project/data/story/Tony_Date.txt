@@ -1,1 +1,16 @@
-﻿#CT THIS IS A DATE!
+﻿#CF \\data\\foreground\\ tony.png Tony: That’s just what I need! But I can’t read that. Is there any chance you’d be interested in tutoring bro? 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Of course! Always happy to help.
+#CBF \\data\\background\\ dorm.jpg \\data\\foreground\\ player.png Mr. Peanut: See, when you want to find this side of the triangle, you have to use the Pythagorean theorem. If you use these other sides of the triangle, you can find the third side like this.
+#CF \\data\\foreground\\ tony.png Tony: Dude, it all makes sense now! I can’t believe I was struggling for so long. You’re such a good teacher. 
+#CT Tony: Hey… how would you like to come to a cool party tonight? 
+#CF \\data\\foreground\\ player.png Mr. Peanut: I’d love to! 
+#CB \\data\\background\\ tony_party.jpg
+#CF \\data\\foreground\\ tony.png Tony: Dance with me, bro!
+#CF \\data\\foreground\\ player.png Mr. Peanut: But Tony, I don't think I'm a very good dancer...
+#CF \\data\\foreground\\ tony.png Tony: It's easy! Just follow my lead!
+#HF
+#CT Mr. Peanut and Tony dance the night away.
+#SF
+#CBF \\data\\background\\ dorm.jpg \\data\\foreground\\ player.png Mr. Peanut: Wow, that was the most fun party I’ve ever been to! I would have never had so much fun without you Tony.
+#CF \\data\\foreground\\ tony.png Tony: Me neither! You absolutely made the night bro. Look forward to doing it again sometime my man! 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Same here!

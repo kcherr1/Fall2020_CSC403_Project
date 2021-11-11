@@ -8,7 +8,7 @@
 #CT Tony: Well, see you tomorrow bro!
 [STD]
 #CID 3
-#CBF \\data\\background\\ gym.jpg \\data\\foreground\\ ronald.png Ronald: I’m gonna get Teach today!!! I know just the prank!!
+#CBF \\data\\background\\ gym.jpg \\data\\foreground\\ ronald.png Ronald: I’m gonna get Teach today! I know just the prank!
 #O Give Gift,#GO 3] Exit,#] Maybe I should give them a gift.
 #T 3
 #CID 3
@@ -22,7 +22,7 @@
 [STD]
 #CID 4
 #HF
-#CT Mr. Peanut: Oh look, Green M&M is sitting alone again…
+#CT Mr. Peanut: Oh look, Green M+M is sitting alone again…
 #CF \\data\\foreground\\ msgreen.png
 #SF 
 #O Give Gift,#GO 4] Exit,#] Maybe I should give them a gift.
