@@ -145,7 +145,7 @@ namespace Fall2020_CSC403_Project
             Size = new Size(70, 30),
             TextAlign = ContentAlignment.TopRight,
             Text = Inventory.walletBalance.ToString(),
-            Font = new Font("Georgia", 16),
+            Font = new Font("Verdana Pro", 16),
         };
         
         
