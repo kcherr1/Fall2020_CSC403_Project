@@ -43,7 +43,7 @@ namespace Fall2020_CSC403_Project
 
         }
 
-<<<<<<<<< Temporary merge branch 1
+//<<<<<<<<< Temporary merge branch 1
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new VerifyExit().Show();
