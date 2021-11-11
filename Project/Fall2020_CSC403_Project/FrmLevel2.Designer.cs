@@ -237,6 +237,7 @@
             this.picEnemyPoisonPacket.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picEnemyPoisonPacket.TabIndex = 4;
             this.picEnemyPoisonPacket.TabStop = false;
+            this.picEnemyPoisonPacket.Click += new System.EventHandler(this.picEnemyPoisonPacket_Click);
             // 
             // picWall3
             // 
@@ -306,7 +307,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1682, 894);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.picHealth);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
@@ -329,7 +330,7 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1700, 941);
-            this.MinimumSize = new System.Drawing.Size(1700, 941);
+            this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "FrmLevel2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Fruits O\' The Round";

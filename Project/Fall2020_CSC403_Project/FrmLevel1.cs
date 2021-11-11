@@ -311,6 +311,11 @@ namespace Fall2020_CSC403_Project {
             return you.Collider.Intersects(other.Collider);
         }
 
+        private void picWall0_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private bool HitADoor(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
@@ -341,6 +346,12 @@ namespace Fall2020_CSC403_Project {
             frames++;
             switch (e.KeyCode)
             {
+                case Keys.Escape:
+                    combat = true;
+                    VerifyExit e1 = new VerifyExit();
+                    e1.Show(this);
+                    break;
+
                 case Keys.Left:
                     //what_direction = L_frames;
                     if (!moving)
@@ -383,8 +394,10 @@ namespace Fall2020_CSC403_Project {
                         moving = true;
                     }
                     player.GoDown();
-
                     break;
+
+                
+
 
                 default:
                     player.ResetMoveSpeed();

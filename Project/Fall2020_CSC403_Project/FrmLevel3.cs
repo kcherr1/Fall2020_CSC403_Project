@@ -331,6 +331,12 @@ namespace Fall2020_CSC403_Project {
             frames++;
             switch (e.KeyCode)
             {
+                case Keys.Escape:
+                    combat = true;
+                    VerifyExit e3 = new VerifyExit();
+                    e3.Show(this);
+                    break;
+                        
                 case Keys.Left:
                     //what_direction = L_frames;
                     if (!moving)

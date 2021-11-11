@@ -30,6 +30,7 @@ namespace Fall2020_CSC403_Project
             f1.Show(this);
             timer2.Enabled = false;
             Gameplay_Music.PlayLooping();
+            this.Hide();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -40,6 +41,13 @@ namespace Fall2020_CSC403_Project
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+<<<<<<<<< Temporary merge branch 1
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new VerifyExit().Show();
+            
         }
 
         public void Game_Over()
@@ -59,27 +67,6 @@ namespace Fall2020_CSC403_Project
         private void timer2_Tick(object sender, EventArgs e)
         {
             Opening_Theme.Play();
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new VerifyExit().Show();
-            
-        }
-
-        private void AboutData_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }
