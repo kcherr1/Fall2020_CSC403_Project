@@ -135,11 +135,6 @@
     <Content Include="data\background\beginningofschoolday.jpg" />
     <Content Include="data\background\black.jpg" />
     <Content Include="data\background\carnival.JPG" />
-    <Content Include="data\background\day1title.jpg" />
-    <Content Include="data\background\day2title.jpg" />
-    <Content Include="data\background\day3title.jpg" />
-    <Content Include="data\background\day4title.jpg" />
-    <Content Include="data\background\day5title.jpg" />
     <Content Include="data\background\dorm.JPG" />
     <Content Include="data\background\dorms.jpg" />
     <Content Include="data\background\endofschoolday.png" />

@@ -1,7 +1,4 @@
 ﻿#HF
-#HT
-#CB \\data\\background\\ day1title.jpg ...
-#ST
 #CB \\data\\background\\ opening.jpg Mr. Peanut: It’s my first day at Brand School! I’m nervous but excited, I don’t know what might happen to me today. 
 #CF \\data\\foreground\\ tony.png 
 #SF Mr. Peanut: Oh man, there’s Tony the Tiger, I’ve heard so much about him, he’s the most popular brand in school! 

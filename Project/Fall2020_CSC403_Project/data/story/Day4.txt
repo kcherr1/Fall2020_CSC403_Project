@@ -1,7 +1,4 @@
-﻿#HT 
-#CB \\data\\background\\ day4title.jpg ...
-#ST 
-#CB \\data\\background\\ dorm.jpg Mr. Peanut: Good morning, sun! Another lovely day!
+﻿#CT Mr. Peanut: Good morning, sun! Another lovely day!
 #AW 20
 #CT Your parents sent you twenty dollars! It sure feels good to be a trust fund kid!
 #HW
