@@ -28,15 +28,15 @@ namespace MyGameLibrary.Character
             DeclareDict();
             string dateLocations = "\\data\\story\\";
             string promLocations = "\\data\\story\\";
-            Wendy = new Character("Wendy", ID: 1,LScore: 40, HappyResponse: "...", UnhappyResponse: "...", 
+            Wendy = new Character("Wendy", ID: 1,LScore: 40, HappyResponse: "...", UnhappyResponse: "...", DeathResponse: "You fool... a frozen steak, agh, never I... I... feel weak... this may be the end.",
                 DateLocation: dateLocations, DateName: "Wendy_Date.txt", PromLocation: promLocations, PromName: "Wendy_Prom.txt", s_dictWendyItemResponse);
-            Tony = new Character("Tony", ID: 2, LScore: 50, HappyResponse: "Whoa dude! Thanks so much! This is really cool!", UnhappyResponse: "Oh, uh, thanks? ", 
+            Tony = new Character("Tony", ID: 2, LScore: 50, HappyResponse: "Whoa dude! Thanks so much! This is really cool!", UnhappyResponse: "Oh, uh, thanks? ", DeathResponse: "What the heck man! Tigers can't have tiger lily! We die! AGh...",
                 DateLocation: dateLocations, DateName: "Tony_Date.txt", PromLocation: promLocations, PromName: "Tony_Prom.txt", s_dictTonyItemResponse);
-            Ronald = new Character("Ronald", ID: 3, LScore: 50, HappyResponse: "Thanks!!!", UnhappyResponse: "This is SO LAME AND BORING!!!!", 
+            Ronald = new Character("Ronald", ID: 3, LScore: 50, HappyResponse: "I could use this later!! Thanks!!!", UnhappyResponse: "This is SO LAME AND BORING!!!!", DeathResponse: "Hah! What a fun gun. Plow plow... a-ah it's not a toy I... I don't feel well.",
                 DateLocation: dateLocations, DateName: "Ronald_Date.txt", PromLocation: promLocations, PromName: "Ronald_Prom.txt", s_dictRonaldItemResponse);
-            Green = new Character("Green", ID: 4, LScore: 50, HappyResponse: "Oh! Thank you! You didn’t have to do this for me!! That’s so sweet…", UnhappyResponse: " Oh. Well, thanks for the thought!", 
+            Green = new Character("Green", ID: 4, LScore: 50, HappyResponse: "Oh! Thank you! You didn’t have to do this for me!! That’s so sweet…", UnhappyResponse: " Oh. Well, thanks for the thought!", DeathResponse: "N-no! I'm made out of choclate... I'm, I'm melting...",
                 DateLocation: dateLocations, DateName: "Green_Date.txt", PromLocation: promLocations, PromName: "Green_Prom.txt", s_dictGreenItemResponse);
-            BurgerKing = new Character("Burger King", ID: 5, LScore: 50, HappyResponse: "Why thank you!", UnhappyResponse: "You think THIS is a gift befitting a king? Who do you think you are?", 
+            BurgerKing = new Character("Burger King", ID: 5, LScore: 50, HappyResponse: "Why thank you!", UnhappyResponse: "You think THIS is a gift befitting a king? Who do you think you are?", DeathResponse: "L-let them eat cake.",
                 DateLocation: dateLocations, DateName: "Burger_Date.txt", PromLocation: promLocations, PromName: "Burger_Prom.txt", s_dictBKItemResponse);
 
             CharacterDictionary = new Dictionary<CharacterID, Character> {
