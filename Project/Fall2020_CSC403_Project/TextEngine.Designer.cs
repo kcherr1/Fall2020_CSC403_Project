@@ -49,7 +49,9 @@ namespace Fall2020_CSC403_Project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextEngine));
             this.ForegroundImage = new System.Windows.Forms.PictureBox();
-            this.Icon = new Icon("data/customicon.ico");
+            var DebugDirectory = Directory.GetCurrentDirectory();
+            string pathtoIcon = Directory.GetParent(DebugDirectory).Parent.FullName;
+            this.Icon = new Icon(pathtoIcon+"\\data/customicon.ico");
             this.Textbox = new MyGameLibrary.UI.GradientTextbox();
             this.NormalPanel = new DoubleBufferedPanel();
             this.OptionsPanel = new DoubleBufferedPanel();
