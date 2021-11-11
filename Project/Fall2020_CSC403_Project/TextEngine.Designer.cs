@@ -73,13 +73,13 @@ namespace Fall2020_CSC403_Project
             this.Textbox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Textbox.Font = new System.Drawing.Font("Verdana Pro", 12F);
             this.Textbox.Location = new System.Drawing.Point(0, 350);
-            this.Textbox.Margin = new System.Windows.Forms.Padding(3, 500, 3, 0);
+            this.Textbox.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.Textbox.Name = "Textbox";
             this.Textbox.Text = "";
             this.Textbox.Padding = new System.Windows.Forms.Padding(0, 100, 0, 0);
             this.Textbox.Size = new System.Drawing.Size(800, 100);
             this.Textbox.TabIndex = 7;
-            this.Textbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            //this.Textbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // NormalPanel
             // 
@@ -88,7 +88,7 @@ namespace Fall2020_CSC403_Project
             this.NormalPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NormalPanel.Controls.Add(this.Textbox);
             this.NormalPanel.Controls.Add(this.ForegroundImage);
-            this.NormalPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NormalPanel.Dock = System.Windows.Forms.DockStyle.Fill;            
             this.NormalPanel.Location = new System.Drawing.Point(0, 0);
             this.NormalPanel.Name = "NormalPanel";
             this.NormalPanel.Size = new System.Drawing.Size(800, 450);

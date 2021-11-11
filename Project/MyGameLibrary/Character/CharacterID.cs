@@ -10,8 +10,8 @@ namespace MyGameLibrary.Character
     {
         Wendy = 1,
         Tony = 2,
-        Green = 3,
-        Ronald = 4,
+        Ronald = 3,
+        Green = 4,
         BurgerKing = 5
     }
 }

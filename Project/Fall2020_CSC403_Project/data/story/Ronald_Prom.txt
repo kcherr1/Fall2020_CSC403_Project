@@ -1,0 +1,26 @@
+﻿#CBF \\data\\background\\ dorms.jpg \\data\\foreground\\ ronald.png 
+#SF Ronald: Knock knock!
+#CF \\data\\foreground\\ player.png Mr. Peanut: Who's there?
+#CF \\data\\foreground\\ ronald.png Ronald: Will you go to brand prom with me????
+#CF \\data\\foreground\\ player.png Mr. Peanut: Of course!
+#CF \\data\\foreground\\ ronald.png Ronald: OH YOU MAKE ME SO HAPPY!!! THANK YOU!!!! 
+
+
+#HF
+#CB \\data\\background\\ black.jpg You get a good night's rest for the big day tomorrow. 
+#CBF \\data\\background\\ prom.jpg \\data\\foreground\\ ronald.png 
+#SF Ronald:  Hey, did you hit your head falling from HEAVEN????
+#CF \\data\\foreground\\ player.png Mr. Peanut:  I don’t think so?
+#CF \\data\\foreground\\ ronald.png Ronald: ‘Cause you look like an ANGEL!!!
+#CF \\data\\foreground\\ player.png Mr. Peanut: Awww, thanks!
+#CF \\data\\foreground\\ ronald.png Ronald: You’re welcome!! I have an even better one!!! 
+#CT Ronald: You and I are like nachos with jalapeños!!!
+#CF \\data\\foreground\\ player.png Mr. Peanut: Why’s that?
+#CF \\data\\foreground\\ ronald.png Ronald: ‘Cause I'm super cheesy, you're super hot, and we belong together!!!
+#CF \\data\\foreground\\ player.png Mr. Peanut: Awww, you’re so right!
+#CF \\data\\foreground\\ ronald.png Ronald: I KNOW RIGHT!!!! Let’s go have some fun!!! I want to get twisty like one of them balloon animals!!! 
+#CF \\data\\foreground\\ player.png Mr. Peanut: You mean like on the dance floor?
+#CF \\data\\foreground\\ ronald.png Ronald: Of course!!! What else would I mean??
+
+#HF
+#CB \\data\\background\\ black.jpg THE END! [END 2 - Ronald]

@@ -6,6 +6,15 @@ namespace MyGameLibrary.Character
     public class Character
     {
         public string CharacterName { get; set; }
+        public int ID { get; set; }
+        public string GiftHappyResponse { get; set; }
+        public string GiftUnhappyResponse { get; set; }
+
+        public string DateLocation { get; set; }
+        public string DateName { get; set; }
+        public string PromLocation { get; set; }
+        public string PromName { get; set; }
+        public bool Dated { get; set; }
         public bool IsDead { get; set; }
         private int _lovescore { get; set; }
         public int LoveScore {
@@ -35,17 +44,33 @@ namespace MyGameLibrary.Character
         //Items is ID of item, int is love point value of gift for this character
         public Dictionary<Items, int> ItemScores; 
 
-        public Character(string name, int LScore, Dictionary<Items, int> dict)
+        public Character(string name, int ID, int LScore, string HappyResponse, string UnhappyResponse, string DateLocation, string DateName, string PromLocation, string PromName, Dictionary<Items, int> dict)
         {
             CharacterName = name;
+            this.ID = ID;
             LoveScore = LScore;
+            GiftHappyResponse = HappyResponse;
+            GiftUnhappyResponse = UnhappyResponse;
+            this.DateLocation = DateLocation;
+            this.DateName = DateName;
+            this.PromLocation = PromLocation;
+            this.PromName = PromName;
             ItemScores = dict;
             IsDead = false;
+            Dated = false;
         }
 
-        public void LoveUpdate(Items item)
+        public string LoveUpdate(Items item)
         {
             LoveScore += ItemScores[item];
+            if (ItemScores[item] <= 0)
+            {
+                return this.GiftUnhappyResponse;
+            }
+            else
+            {
+                return this.GiftHappyResponse;
+            }
         }
 
         public void Kill() {

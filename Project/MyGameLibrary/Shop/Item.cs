@@ -38,6 +38,7 @@ namespace Fall2020_CSC403_Project
             allItems.Add((int)Items.toolKit, new Item(Items.toolKit, "Tool Kit", 10));
             allItems.Add((int)Items.toyGun, new Item(Items.toyGun, "Toy Gun", 10));
             allItems.Add((int)Items.whoopieCushion, new Item(Items.whoopieCushion, "Whoopie Cushion", 10));
+            allItems.Add((int)Items.mathTextbook, new Item(Items.mathTextbook, "Math Textbook", 10));
         }
 
         public static void initializeHannahShop()
@@ -50,6 +51,7 @@ namespace Fall2020_CSC403_Project
             hannahShopItems.Add((int)Items.tigerLily, allItems[(int)Items.tigerLily]);
             hannahShopItems.Add((int)Items.toolKit, allItems[(int)Items.toolKit]);
             hannahShopItems.Add((int)Items.toyGun, allItems[(int)Items.toyGun]);
+            hannahShopItems.Add((int)Items.mathTextbook, allItems[(int)Items.mathTextbook]);
         }
 
         public static void initializeHayleyShop()

@@ -25,7 +25,7 @@ namespace Fall2020_CSC403_Project
         private bool isShop { get; set; } = false; 
         public TextEngine()
         {
-            this.Story = new Story("\\data\\story\\", "Story.txt"); //Read in main story
+            this.Story = new Story("\\data\\story\\", "Day1.txt"); //Read in main story
             #region Initalize shops and items
             Item.initializeAllItems();
             Item.initializeHannahShop();
@@ -38,13 +38,19 @@ namespace Fall2020_CSC403_Project
 
         public void NewBackground(Image newBackground)
         {
+            Image oldBGImageNormalPanel = NormalPanel.BackgroundImage;
+            Image oldBGImageOptionsPanel = OptionsPanel.BackgroundImage;
             NormalPanel.BackgroundImage = newBackground;
             OptionsPanel.BackgroundImage = newBackground;
+            oldBGImageNormalPanel.Dispose();
+            oldBGImageOptionsPanel.Dispose();
         }
 
         public void NewForeground(Image newImage)
         {
+            Image oldFGImage = ForegroundImage.BackgroundImage;
             ForegroundImage.BackgroundImage = newImage;
+            oldFGImage.Dispose();
         }
 
         public void ChangeText(string newText)
@@ -108,6 +114,7 @@ namespace Fall2020_CSC403_Project
                     Options.Clear();
                     this.RemoveOptions(options);
                     #endregion
+                    Console.WriteLine(focusedOption.OptionBackendMarkup);
                     Story.CurrentStoryText.AddFirst(focusedOption.OptionBackendMarkup); //Add whatever the option markup was to story to handle next
                     HandleMarkup(Story.GetNextLine());
                 }
@@ -126,7 +133,14 @@ namespace Fall2020_CSC403_Project
             {
                 case Markup.ChangeText:
                     //line is plain text (ex: #CT Hello)
-                    this.ChangeText(line);
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(line);
+                    }                    
                     break;
                 case Markup.ChangeBackgroundImage:
                     //line is: image_location image_name text (ex: #CB \\data\\background\\ hannah_store.jpg We've changed the background)
@@ -136,7 +150,14 @@ namespace Fall2020_CSC403_Project
                     backgroundInfo.RemoveAt(0);
                     backgroundInfo.RemoveAt(0);
                     string newLineBG = string.Join(" ", backgroundInfo);
-                    this.ChangeText(newLineBG);
+                    if (string.IsNullOrWhiteSpace(newLineBG))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(newLineBG);
+                    }
                     break;
                 case Markup.ChangeForegroundImage:
                     //line is: image_location image_name text (ex: #CF \\data\\foreground\\ player.png We've changed the foreground)
@@ -146,7 +167,14 @@ namespace Fall2020_CSC403_Project
                     foregroundInfo.RemoveAt(0);
                     foregroundInfo.RemoveAt(0);
                     string newLineFG = string.Join(" ", foregroundInfo);
-                    this.ChangeText(newLineFG);
+                    if (string.IsNullOrWhiteSpace(newLineFG))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(newLineFG);
+                    }
                     break;
                 case Markup.ChangeBackgroundAndForegroundImage:
                     //line is: background_location background_name foreground_location foreground_name text
@@ -160,17 +188,38 @@ namespace Fall2020_CSC403_Project
                     backForeInfo.RemoveAt(0);
                     backForeInfo.RemoveAt(0);
                     string newLineBGFG = string.Join(" ", backForeInfo);
-                    this.ChangeText(newLineBGFG);
+                    if (string.IsNullOrWhiteSpace(newLineBGFG))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(newLineBGFG);
+                    }                    
                     break;
                 case Markup.HideForeground:
-                    // line is: nothing, this is just a signal to hide the foreground
+                    // line is: optional text
                     this.ForegroundVisibile(false);
-                    HandleMarkup(Story.GetNextLine());
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(line);
+                    }
                     break;
                 case Markup.ShowForeground:
-                    // line is: nothing, this is just a signal to show the foreground
+                    // line is: optional text
                     this.ForegroundVisibile(true);
-                    HandleMarkup(Story.GetNextLine());
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        this.ChangeText(line);
+                    }
                     break;
                 case Markup.HideTextBox:
                     // line is: nothing, this is just a signal to hide the textbox
@@ -255,7 +304,14 @@ namespace Fall2020_CSC403_Project
                     }
                     else
                     {
-                        Story.CurrentStoryText.AddFirst("#CT Mr. Peanut: Oh no! I can't afford that!");                       
+                        if (Item.hannahShopItems.ContainsKey((int)identifierAdd))
+                        {
+                            Story.CurrentStoryText.AddFirst("#S1");
+                        }
+                        else
+                        {
+                            Story.CurrentStoryText.AddFirst("#S2");
+                        }
                     }
                     HandleMarkup(Story.GetNextLine());
                     break;
@@ -271,8 +327,16 @@ namespace Fall2020_CSC403_Project
                     Items identifierGive = (Items)Enum.Parse(typeof(Items), nameGive);
 
                     Inventory.useItem(identifierGive); //mark the item as used
-                    CharacterCollection.CharacterDictionary[ID].LoveUpdate(identifierGive); 
-                    HandleMarkup(Story.GetNextLine());
+                    string response = CharacterCollection.CharacterDictionary[ID].LoveUpdate(identifierGive);
+                    if (string.IsNullOrWhiteSpace(response))
+                    {
+                        HandleMarkup(Story.GetNextLine());
+                    }
+                    else
+                    {
+                        response = CharacterCollection.CharacterDictionary[ID].CharacterName + ": " + response;
+                        this.ChangeText(response);
+                    }
                     break;
                 case Markup.ReadInNewStory:
                     // line is: story_location story_name
@@ -285,8 +349,59 @@ namespace Fall2020_CSC403_Project
                     //for items in current inventory create options where markup is #CT item_description
                     //to leave inventory handle pressing escape? press escape maybe to view inventory and then escape to exit?
                     break;
+                case Markup.CheckPromPosal:
+                    // line is: empty, just checking existing characters
+                    // Get the character you like the most
+                    bool foundCharacter = false;
+                    Character maxLoveCharacter = null;
+                    while (!foundCharacter)
+                    {
+                        maxLoveCharacter = CharacterCollection.CharacterDictionary.Values.Aggregate((char1, char2) => (char1.LoveScore > char2.LoveScore) ? char1 : char2);
+                        if(maxLoveCharacter.IsDead == true)
+                        {
+                            CharacterCollection.CharacterDictionary.Remove((CharacterID)maxLoveCharacter.ID);
+                            maxLoveCharacter = null;
+                        }
+                        else
+                        {
+                            foundCharacter = true;
+                        }
+                    }
+                    if(maxLoveCharacter != null)
+                    {
+                        Story.ChangeStory(maxLoveCharacter.PromName, maxLoveCharacter.PromLocation);
+                    }
+                    else
+                    {
+                        Story.ChangeStory("Bad_End.txt", "\\data\\story\\");
+                    }
+                    HandleMarkup(Story.GetNextLine());
+                    break;
                 case Markup.CheckThresholdsForTree:
-                    // line is: empty, just check thresholds
+                    // line is: characterID you're checking
+                    //If greater than or equal to max of items and not already dated
+                    string characterName = Enum.GetName(typeof(CharacterID), int.Parse(line));
+                    CharacterID characterID = (CharacterID)Enum.Parse(typeof(CharacterID), characterName);
+                    Character characterTree = CharacterCollection.CharacterDictionary[characterID];
+                    if(!characterTree.Dated && characterTree.LoveScore >= 100)
+                    {
+                        string[] duplicateStory = new string[this.Story.CurrentStoryText.Count];
+                        this.Story.CurrentStoryText.CopyTo(duplicateStory, 0);
+                        foreach (string storyLine in duplicateStory)
+                        {
+                            //Until you reach the "SKIP TO" (aka [ST] change text marker) clear out the rest of the dialogue
+                            Console.WriteLine(storyLine);
+                            this.Story.CurrentStoryText.RemoveFirst();
+                            if (string.Equals(storyLine.Trim(), "[ST]"))
+                            {
+                                break;
+                            }                            
+                        }
+                        //Read in the date
+                        this.Story.ChangeStory(characterTree.DateName, characterTree.DateLocation, insert: true);
+                        characterTree.Dated = true;
+                    }
+                    HandleMarkup(Story.GetNextLine());
                     break;
                 case Markup.ExitOptions:
                     // line is: #E
@@ -306,7 +421,7 @@ namespace Fall2020_CSC403_Project
                             shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": $" + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
                         }
                     }
-                    shop1OptionString += " Exit,#E]";
+                    shop1OptionString += " Exit,#E]  Hannah: Hello, please buy something.";
                     Story.CurrentStoryText.AddFirst(shop1OptionString);
                     HandleMarkup(Story.GetNextLine());
                     break;
@@ -319,7 +434,7 @@ namespace Fall2020_CSC403_Project
                     {
                         shop2OptionString += (Item.hayleyShopItems[itemID].ItemName + ": $" + Item.hayleyShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
                     }
-                    shop2OptionString += " Exit,#E]";
+                    shop2OptionString += " Exit,#E] Hayley: Check it.";
                     Story.CurrentStoryText.AddFirst(shop2OptionString);
                     HandleMarkup(Story.GetNextLine());
                     break;
@@ -335,7 +450,7 @@ namespace Fall2020_CSC403_Project
                             giftOptions += (Inventory.Contents[itemID].ItemName + ",#G " + charID + " " + (int)itemID + "]");
                         }
                     }
-                    giftOptions += " Exit,#] Select your gift!";
+                    giftOptions += " Exit,#CT ] Select your gift!";
                     Story.CurrentStoryText.AddFirst(giftOptions);
                     HandleMarkup(Story.GetNextLine());
                     break;

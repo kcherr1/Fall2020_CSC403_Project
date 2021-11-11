@@ -1,0 +1,28 @@
+﻿#CBF \\data\\background\\ dorms.jpg \\data\\foreground\\ player.png 
+#SF Mr. Peanut: Oh, hi Wendy!
+#CF \\data\\foreground\\ wendy.png Wendy: If you would like to see the completion of my ritual, please join me in attending the brand prom. 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Of course!
+
+#HF
+#CB \\data\\background\\ black.jpg You get a good night's rest for the big day tomorrow. 
+#CBF \\data\\background\\ prom.jpg \\data\\foreground\\ wendy.png 
+#SF Wendy: The time has come. The fulfillment of the ritual is nigh...! 
+#CT Wendy: …
+#CT Wendy: …
+#CT Wendy: I don’t understand.
+#CT Wendy: I thought it would feel so different.
+#CT Wendy: But here…
+#CT Wendy: Now…
+#CT Wendy: I think I could be happy. 
+#CT Wendy: And that is different.
+#CF \\data\\foreground\\ player.png Mr. Peanut: I’m so glad that you’re happy.
+#CF \\data\\foreground\\ wendy.png Wendy: I planned to conduct a ritual tonight. To rule over ALL of Brand School.
+#CT Wendy: But here, with you…
+#CT Wendy: I think I would rather enjoy the night...
+#CT Wendy: Thank you. I can never repay you. 
+#CF \\data\\foreground\\ player.png Mr. Peanut: You don’t need to. I think that being happy together is all we need. 
+#CF \\data\\foreground\\ wendy.png Wendy: I’d like that very much.
+
+#HF
+#CB \\data\\background\\ black.jpg THE END! [END 5 - Wendy]
+

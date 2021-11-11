@@ -131,8 +131,43 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\background\alley.jpg" />
+    <Content Include="data\background\beginningofschoolday.jpg" />
+    <Content Include="data\background\black.jpg" />
+    <Content Include="data\background\dorms.jpg" />
+    <Content Include="data\background\endofschoolday.png" />
+    <Content Include="data\background\forest.jpg" />
+    <Content Include="data\background\forestnight.jpg" />
+    <Content Include="data\background\gym.jpg" />
     <Content Include="data\background\hannah_store.jpg" />
+    <Content Include="data\background\hayley_store.png" />
+    <Content Include="data\background\lunch.jpg" />
     <Content Include="data\background\opening.jpg" />
+    <Content Include="data\background\prom.jpg" />
+    <Content Include="data\foreground\burgerking.png" />
+    <Content Include="data\foreground\hannah.png" />
+    <Content Include="data\foreground\hayley.png" />
+    <Content Include="data\foreground\msgreen.png" />
+    <Content Include="data\foreground\ronald.png" />
+    <Content Include="data\foreground\tony.png" />
+    <Content Include="data\foreground\wendy.png" />
+    <Content Include="data\story\Bad_End.txt" />
+    <Content Include="data\story\Burger_Prom.txt" />
+    <Content Include="data\story\Day6.txt" />
+    <Content Include="data\story\Green_Prom.txt" />
+    <Content Include="data\story\Ronald_Date.txt" />
+    <Content Include="data\story\Green_Date.txt" />
+    <Content Include="data\story\Burger_Date.txt" />
+    <Content Include="data\story\Ronald_Prom.txt" />
+    <Content Include="data\story\Tony_Prom.txt" />
+    <Content Include="data\story\Wendy_Date.txt" />
+    <Content Include="data\story\Tony_Date.txt" />
+    <Content Include="data\story\Day1.txt" />
+    <Content Include="data\story\Day2.txt" />
+    <Content Include="data\story\Day4.txt" />
+    <Content Include="data\story\Day5.txt" />
+    <Content Include="data\story\Day3.txt" />
+    <Content Include="data\story\GiftGiving.txt" />
     <Content Include="data\story\HannahShopDays35.txt" />
     <Content Include="data\story\HannahShopDay1.txt" />
     <Content Include="data\story\HannahShopDay2.txt" />
@@ -141,6 +176,7 @@
     <Content Include="data\story\HayleyShopDays35.txt" />
     <Content Include="data\story\NewStoryTest.txt" />
     <Content Include="data\story\Story.txt" />
+    <Content Include="data\story\Wendy_Prom.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

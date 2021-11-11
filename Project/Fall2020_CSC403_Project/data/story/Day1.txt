@@ -1,0 +1,49 @@
+﻿#HF
+#CB \\data\\background\\ opening.jpg Mr. Peanut: It’s my first day at Brand School! I’m nervous but excited, I don’t know what might happen to me today. 
+#CF \\data\\foreground\\ tony.png 
+#SF Mr. Peanut: Oh man, there’s Tony the Tiger, I’ve heard so much about him, he’s the most popular brand in school! 
+#CT It looks like Tony is talking with the school's coach...
+#CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: Tony, we’ve talked about this before, you HAVE to focus on your grades this year.
+#CF \\data\\foreground\\ tony.png Tony: I’m so sorry Coach. I know I’m failing, but math is just so hard. 
+#CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: Well, you’ll have to figure it out. Any less than B’s and you’re off the football team. 
+#CF \\data\\foreground\\ tony.png Tony: There’s no way I’m making a B, Coach! Numbers are so hard, and then they go and add letters to them…
+#CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: You know, don't be afraid to ask for help from others. You might end up needing a tutor.
+#CF \\data\\foreground\\ tony.png Tony: Well, Coach, I’ll try my hardest. Thanks so much for the advice.
+#CT Coach kool-aid leaves, only for a hot-headed looking girl to stomp in behind him.
+#CF \\data\\foreground\\ wendy.png Wendy: I hate cheerleading. I wish I could get cut from the team. Maybe I should just be stupid like you so they kick me off. 
+#CF \\data\\foreground\\ tony.png Tony: But Wendy, this is serious! You don’t understand the highs and lows of high school football!! 
+#CT The two continue to bicker to one another as they head to their seats.
+#HF
+#CT Mr. Peanut: Man. Tony and Wendy sure are popular. I've heard so much about them before I even transferred here.
+#CT Suddenly, a ruckus enters the room.
+#CF \\data\\foreground\\ burgerking.png 
+#SF Burger King: Prom is this Saturday, and you’re NEVER gonna get a date, clown boy. 
+#CF \\data\\foreground\\ ronald.png Ronald: Nuh-uh!!!!!!! YOU aren’t gonna get a date this Saturday. In fact, I’ll get a date BEFORE YOU. 
+#CF \\data\\foreground\\ burgerking.png Burger King: That is simply incorrect. Why dine with a clown when you can feast with a king? I’ll get a date to prom this Saturday first.
+#CF \\data\\foreground\\ ronald.png Ronald: Well, you know what? 
+#CT Ronald: Your MOM!
+#CT Ronald: That’s it! Suck it. Haha!!!
+#CF \\data\\foreground\\ burgerking.png Burger King: You are a fool. An absolute buffoon. 
+#CF \\data\\foreground\\ msgreen.png Green: Knock it off you guys. I’m READING!
+#CF \\data\\foreground\\ ronald.png Ronald: No need to brag, NERD!!!!... so what if you know how to read, that's not all there is to life.
+#CF \\data\\foreground\\ burgerking.png Burger King: I know how to read just fine, perhaps better than everyone in the whole wide world. But, unlike you, I actually have a life.
+#CF \\data\\foreground\\ msgreen.png Green: I… (sniff) I’m so sorry… 
+#CT Mr. Peanut: She looks like she’s about to cry. I can’t just let this happen! 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Hey, knock it off, both of you! Can’t you see she’s upset?
+#CF \\data\\foreground\\ ronald.png Ronald: Oh, hey there NEW KID!!! What kinds of fun mischief do YOU do???
+#CF \\data\\foreground\\ burgerking.png Burger King: You appear to be a man of taste. Please ignore the court jester. We should have fired him millennia ago. 
+#CF \\data\\foreground\\ ronald.png Ronald: What do you mean, COURT JESTER???? Your crown is CARDBOARD!!!
+#CF \\data\\foreground\\ burgerking.png Burger King: Why you--!!
+#CT And so you have an eventful first morning at brand school...
+#HF
+#CB \\data\\background\\ forest.jpg Mr. Peanut: Man, everyone seems very nice here. It’s lunchtime now, but I can’t find the cafeteria. Surely it’s somewhere around here…
+#NS \\data\\story\\ HannahShopDay1.txt
+
+
+
+
+
+
+
+
+
