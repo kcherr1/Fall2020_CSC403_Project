@@ -17,8 +17,9 @@ namespace Fall2020_CSC403_Project {
     }
 
     public void Setup() {
-      // update for this enemy
-      picEnemy.BackgroundImage = enemy.Img;
+            // update for this enemy
+            UpdateHealthBars();
+            picEnemy.BackgroundImage = enemy.Img;
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
@@ -30,11 +31,10 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
 
       // Observer pattern
-      enemy.AttackEvent += PlayerDamage;
-      player.AttackEvent += EnemyDamage;
+      //enemy.AttackEvent += PlayerDamage;
+      //player.AttackEvent += EnemyDamage;
 
       // show health
-      UpdateHealthBars();
     }
 
     public void SetupForBossBattle() {
@@ -78,9 +78,9 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      player.OnAttack(-2);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        enemy.OnAttack(-4);
       }
 
       UpdateHealthBars();
@@ -128,9 +128,9 @@ namespace Fall2020_CSC403_Project {
         private void button2_Click(object sender, EventArgs e)
         {
             //this.Hide();
-            //player.AlterHealth(-1);
-            //instance = null;
-            //Close();
+            player.AlterHealth(-1);
+            instance = null;
+            Close();
         }
     }
 }
