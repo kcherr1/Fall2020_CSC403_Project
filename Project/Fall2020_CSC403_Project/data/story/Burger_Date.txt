@@ -1,1 +1,17 @@
-﻿#CT THIS IS A DATE!
+﻿#CF \\data\\foreground\\ burgerking.png Burger King: Finally. The restoration of my lineage is nigh!! I could not possibly thank you enough for this gift. But would you be willing to accompany me to a finer establishment than our poor school’s cafeteria? 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Of course!
+#CB \\data\\background\\ resturaunt.png
+#CF \\data\\foreground\\ player.png Mr. Peanut: This food is amazing! I’ve never had such good food before in my life. 
+#CF \\data\\foreground\\ burgerking.png Burger King: It is quite fine, is it not? I never get tired of a quality meal. 
+#CT Burger King: I should take you out on my yacht. It’ll be just like the movie Titanic. 
+#CF \\data\\foreground\\ player.png Mr. Peanut: Um, if it’s like Titanic, I’m not sure I want to go on your yacht. 
+#CF \\data\\foreground\\ burgerking.png Burger King: Ah, but you see, I will ensure that you are on one of the lifeboats! And if, perchance, we end up like Leonardo Di Caprio, both of us will get on the floating piece of wreckage! 
+#CF \\data\\foreground\\ player.png Mr. Peanut: I never thought of that! Sounds fun! 
+#HF
+#CB \\data\\background\\ black.jpg Burger King: Hold onto the railing. Keep your eyes closed and don’t peek. Step onto the rail. Do you trust me? 
+#CT Mr. Peanut: I trust you.
+#CT Burger King: Open your eyes. 
+#CB \\data\\background\\ yacht.jpg Mr. Peanut: (gasps)
+#CT Mr.Peanut: We’re flying! 
+#CB \\data\\background\\ black.jpg Man, what a great day. I had so much fun hanging out with Burger King... and the yacht didn't sink!
+#HF

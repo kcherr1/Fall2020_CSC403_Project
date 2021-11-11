@@ -134,6 +134,8 @@
     <Content Include="data\background\alley.jpg" />
     <Content Include="data\background\beginningofschoolday.jpg" />
     <Content Include="data\background\black.jpg" />
+    <Content Include="data\background\carnival.JPG" />
+    <Content Include="data\background\dorm.JPG" />
     <Content Include="data\background\dorms.jpg" />
     <Content Include="data\background\endofschoolday.png" />
     <Content Include="data\background\forest.jpg" />
@@ -142,8 +144,12 @@
     <Content Include="data\background\hannah_store.jpg" />
     <Content Include="data\background\hayley_store.png" />
     <Content Include="data\background\lunch.jpg" />
+    <Content Include="data\background\museum.JPG" />
     <Content Include="data\background\opening.jpg" />
     <Content Include="data\background\prom.jpg" />
+    <Content Include="data\background\resturaunt.PNG" />
+    <Content Include="data\background\tony_party.JPG" />
+    <Content Include="data\background\yacht.jpg" />
     <Content Include="data\foreground\burgerking.png" />
     <Content Include="data\foreground\hannah.png" />
     <Content Include="data\foreground\hayley.png" />
