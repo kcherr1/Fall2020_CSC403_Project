@@ -12,17 +12,17 @@ You interact with these characters through giving them gifts from the two shops.
 
 ## Installation
 ### Requirements:
-Github
-Visual Studio 
+- Github
+- Visual Studio 
 ### Steps:
-Clone the Github repository. 
-Open the project in Visual Studio.
-Build and run. 
+1. Clone the Github repository. 
+2. Open the project in Visual Studio.
+3. Build and run. 
 
 ## How To Play
-Progress through the story with any button.
-Use up and down arrow keys to progress through the options. Press enter to choose an option. 
-Can be played in fullscreen or windowed mode.
+- Progress through the story with any button.
+- Use up and down arrow keys to progress through the options. Press enter to choose an option. 
+- Can be played in fullscreen or windowed mode.
 
 ## Read the Docs
 For developers: See docs folder. 
@@ -51,6 +51,3 @@ Hannah Folkertsma
 
 ### Backend Lead 
 Hayley Owens
-
-
-https://docs.google.com/document/d/1-lJvtSfLd6IIQrbYqj4jGNyFIS0q56vW80q0JHgOuU8/edit?usp=sharing
