@@ -7,6 +7,7 @@
 - Tony the Tiger - The Jock
 - Green M&M - The Nerd
 - Wendy from Wendy’s - The Mean Girl
+
 You interact with these characters through giving them gifts from the two shops. But be careful! Some of the items found in the shops can kill the characters… 
 
 ## Installation
