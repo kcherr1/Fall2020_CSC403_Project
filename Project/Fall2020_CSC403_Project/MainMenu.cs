@@ -30,7 +30,7 @@ namespace Fall2020_CSC403_Project
             f1.Show(this);
             timer2.Enabled = false;
             Gameplay_Music.PlayLooping();
-            this.Hide();
+            //this.Hide();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
