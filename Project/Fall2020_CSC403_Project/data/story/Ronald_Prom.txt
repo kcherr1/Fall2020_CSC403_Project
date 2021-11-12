@@ -1,9 +1,9 @@
 ﻿#CBF \\data\\background\\ dorms.jpg \\data\\foreground\\ ronald.png 
 #SF Ronald: Knock knock!
 #CF \\data\\foreground\\ player.png Mr. Peanut: Who's there?
-#CF \\data\\foreground\\ ronald.png Ronald: Will you go to brand prom with me????
+#CF \\data\\foreground\\ ronald.png Ronald: Will you go to brand prom with me?
 #CF \\data\\foreground\\ player.png Mr. Peanut: Of course!
-#CF \\data\\foreground\\ ronald.png Ronald: OH YOU MAKE ME SO HAPPY!!! THANK YOU!!!! 
+#CF \\data\\foreground\\ ronald.png Ronald: Oh, you make me so happy! THANK YOU! 
 
 
 #HF

@@ -2,14 +2,14 @@
 #CID 2
 #CT Mr. Peanut: Hey, Tony!
 #CF \\data\\foreground\\ tony.png Tony: Hey dude! It’s cool to see you. Man, math really is the worst. 
-#O Give Gift,#GO 2] Exit,#] Maybe I should give them a gift.
+#O Give Gift,#GO 2] Exit,#] Maybe I should give him a gift.
 #T 2
 #CID 2
 #CT Tony: Well, see you tomorrow bro!
 [STD]
 #CID 3
 #CBF \\data\\background\\ gym.jpg \\data\\foreground\\ ronald.png Ronald: I’m gonna get Teach today! I know just the prank!
-#O Give Gift,#GO 3] Exit,#] Maybe I should give them a gift.
+#O Give Gift,#GO 3] Exit,#] Maybe I should give him a gift.
 #T 3
 #CID 3
 #CF \\data\\foreground\\ enemy_koolaid.png Kool-Aid Man: Hey kids! Let's get FIT!
@@ -17,7 +17,7 @@
 [STD]
 #CID 5
 #CBF \\data\\background\\ lunch.jpg \\data\\foreground\\ burgerking.png Burger King: This food is abysmal. I can’t believe people serve this. 
-#O Give Gift,#GO 5] Exit,#] Maybe I should give them a gift.
+#O Give Gift,#GO 5] Exit,#] Maybe I should give him a gift.
 #T 5
 [STD]
 #CID 4
@@ -25,7 +25,7 @@
 #CT Mr. Peanut: Oh look, Green M+M is sitting alone again…
 #CF \\data\\foreground\\ msgreen.png
 #SF 
-#O Give Gift,#GO 4] Exit,#] Maybe I should give them a gift.
+#O Give Gift,#GO 4] Exit,#] Maybe I should give her a gift.
 #T 4
 [STD]
 #CID 1
@@ -33,7 +33,7 @@
 #CB \data\\background\\ alley.jpg Mr. Peanut: Boy, it's been a day. Wonder how Wendy's doing.
 #CF \data\\foreground\\ wendy.png 
 #SF Wendy: Cum manibus sacrificium facio, o Venus, ut scio amorem.
-#O Give Gift,#GO 1] Exit,#] Maybe I should give them a gift.
+#O Give Gift,#GO 1] Exit,#] Maybe I should give her a gift.
 #T 1
 #CID 1
 #CT Wendy: BEGONE!
