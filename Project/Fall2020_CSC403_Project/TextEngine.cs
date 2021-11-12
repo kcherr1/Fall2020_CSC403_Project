@@ -358,10 +358,10 @@ namespace Fall2020_CSC403_Project
                     // Get the character you like the most
                     bool foundCharacter = false;
                     Character maxLoveCharacter = null;
-                    while (!foundCharacter)
+                    while (!foundCharacter && CharacterCollection.CharacterDictionary.Values.Count > 0)
                     {
                         maxLoveCharacter = CharacterCollection.CharacterDictionary.Values.Aggregate((char1, char2) => (char1.LoveScore > char2.LoveScore) ? char1 : char2);
-                        if(maxLoveCharacter.IsDead == true)
+                        if (maxLoveCharacter.IsDead == true)
                         {
                             CharacterCollection.CharacterDictionary.Remove((CharacterID)maxLoveCharacter.ID);
                             maxLoveCharacter = null;
@@ -369,7 +369,7 @@ namespace Fall2020_CSC403_Project
                         else
                         {
                             foundCharacter = true;
-                        }
+                        }                       
                     }
                     if(maxLoveCharacter != null)
                     {
