@@ -3,15 +3,19 @@ using System.Collections.Generic;
 
 namespace MyGameLibrary.Shop
 {
-    class Shop
+    public class Shop
     {
-        public Dictionary<Items, Item> Products = new Dictionary<Items, Item>();
+        public Dictionary<int, Item> Products { get; set; } = new Dictionary<int, Item>();
 
+        public Shop(Dictionary<int, Item> products)
+        {
+            Products = products;
+        }
         public void purchase(Items ID)
         {
-            Inventory.addItem(ID, Products[ID]);
-            Inventory.withdrawMoney(Products[ID].ItemPrice);
-            Products.Remove(ID);
+            Inventory.addItem(ID, Products[(int)ID]);
+            Inventory.withdrawMoney(Products[(int)ID].ItemPrice);
+            Products.Remove((int)ID);
         }
     }
 }

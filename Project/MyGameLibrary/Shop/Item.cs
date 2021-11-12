@@ -11,8 +11,8 @@ namespace Fall2020_CSC403_Project
         public Items ItemID { get; set; }
         public Boolean used {get; set;}
         public static Dictionary<int, Item> allItems { get; set; } = new Dictionary<int, Item>();
-        public static Dictionary<int, Item> hannahShopItems { get; set; } = new Dictionary<int, Item>();
-        public static Dictionary<int, Item> hayleyShopItems { get; set; } = new Dictionary<int, Item>();
+        public static Shop HannahShop { get; set; }
+        public static Shop HayleyShop { get; set; }
         public Item(Items identifier, string name, int price)
         {
             ItemID = identifier;
@@ -43,26 +43,28 @@ namespace Fall2020_CSC403_Project
 
         public static void initializeHannahShop()
         {
-            hannahShopItems.Add((int)Items.fantasyNovel, allItems[(int)Items.fantasyNovel]);
-            hannahShopItems.Add((int)Items.cookingWithChocolate, allItems[(int)Items.cookingWithChocolate]);
-            hannahShopItems.Add((int)Items.frozenSteak, allItems[(int)Items.frozenSteak]);
-            hannahShopItems.Add((int)Items.plushCat, allItems[(int)Items.plushCat]);
-            hannahShopItems.Add((int)Items.portableOven, allItems[(int)Items.portableOven]);
-            hannahShopItems.Add((int)Items.tigerLily, allItems[(int)Items.tigerLily]);
-            hannahShopItems.Add((int)Items.toolKit, allItems[(int)Items.toolKit]);
-            hannahShopItems.Add((int)Items.toyGun, allItems[(int)Items.toyGun]);
-            hannahShopItems.Add((int)Items.mathTextbook, allItems[(int)Items.mathTextbook]);
+            HannahShop = new Shop(new Dictionary<int, Item> {
+                { (int)Items.fantasyNovel, allItems[(int)Items.fantasyNovel]},
+                { (int)Items.cookingWithChocolate, allItems[(int)Items.cookingWithChocolate] },
+                { (int)Items.frozenSteak, allItems[(int)Items.frozenSteak] },
+                { (int)Items.plushCat, allItems[(int)Items.plushCat]},
+                { (int)Items.portableOven, allItems[(int)Items.portableOven] },
+                { (int)Items.tigerLily, allItems[(int)Items.tigerLily]},
+                { (int)Items.toolKit, allItems[(int)Items.toolKit]},
+                { (int)Items.toyGun, allItems[(int)Items.toyGun] },
+                { (int)Items.mathTextbook, allItems[(int)Items.mathTextbook]} });
         }
 
         public static void initializeHayleyShop()
         {
-            hayleyShopItems.Add((int)Items.brick, allItems[(int)Items.brick]);
-            hayleyShopItems.Add((int)Items.guillotine, allItems[(int)Items.guillotine]);
-            hayleyShopItems.Add((int)Items.hayleysCrown, allItems[(int)Items.hayleysCrown]);
-            hayleyShopItems.Add((int)Items.humanSoul, allItems[(int)Items.humanSoul]);
-            hayleyShopItems.Add((int)Items.readyPlayerTwo, allItems[(int)Items.readyPlayerTwo]);
-            hayleyShopItems.Add((int)Items.realGun, allItems[(int)Items.realGun]);
-            hayleyShopItems.Add((int)Items.whoopieCushion, allItems[(int)Items.whoopieCushion]);
+            HayleyShop = new Shop(new Dictionary<int, Item> {
+                { (int)Items.brick, allItems[(int)Items.brick]},
+                { (int)Items.guillotine, allItems[(int)Items.guillotine] },
+                { (int)Items.hayleysCrown, allItems[(int)Items.hayleysCrown] },
+                { (int)Items.humanSoul, allItems[(int)Items.humanSoul] },
+                { (int)Items.readyPlayerTwo, allItems[(int)Items.readyPlayerTwo] },
+                { (int)Items.realGun, allItems[(int)Items.realGun] },
+                { (int)Items.whoopieCushion, allItems[(int)Items.whoopieCushion]} });
         }
     }
 }
