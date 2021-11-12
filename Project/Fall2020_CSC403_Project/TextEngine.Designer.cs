@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -48,6 +49,9 @@ namespace Fall2020_CSC403_Project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextEngine));
             this.ForegroundImage = new System.Windows.Forms.PictureBox();
+            var DebugDirectory = Directory.GetCurrentDirectory();
+            string pathtoIcon = Directory.GetParent(DebugDirectory).Parent.FullName;
+            this.Icon = new Icon(pathtoIcon+"\\data/customicon.ico");
             this.Textbox = new MyGameLibrary.UI.GradientTextbox();
             this.NormalPanel = new DoubleBufferedPanel();
             this.OptionsPanel = new DoubleBufferedPanel();
@@ -145,7 +149,7 @@ namespace Fall2020_CSC403_Project
             Size = new Size(70, 30),
             TextAlign = ContentAlignment.TopRight,
             Text = Inventory.walletBalance.ToString(),
-            Font = new Font("Georgia", 16),
+            Font = new Font("Verdana Pro", 16),
         };
         
         
