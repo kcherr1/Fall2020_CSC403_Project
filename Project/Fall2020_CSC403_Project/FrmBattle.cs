@@ -151,15 +151,16 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void EnemyDamage(int amount) {
-      enemy.AlterHealth(amount);
+      
       //randomize message # which corresponds to a specific enemy message to be displayed when damaged
       message = 0;
       displayMessage(message);
 
+      enemy.DamageHealth(amount);
     }
 
     private void PlayerDamage(int amount) {
-      player.AlterHealth(amount);
+      player.DamageHealth(amount);
     }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
