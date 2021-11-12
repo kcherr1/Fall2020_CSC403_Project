@@ -17,11 +17,13 @@ namespace Fall2020_CSC403_Project.code
         public float evasion { get; protected set; }
         public float defense { get; protected set; }
 
+        private int difficulty;
         public event Action<int> AttackEvent;
 
 
         public BattleCharacter(Vector2 initPos, Collider collider, float strength, float evasion, float defense) : base(initPos, collider)
         {
+            difficulty = Game.difficulty;
             if(difficulty == 0){
                 MaxHealth = 20;
                 this.strength = strength;

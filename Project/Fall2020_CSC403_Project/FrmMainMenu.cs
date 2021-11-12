@@ -15,7 +15,7 @@ namespace Fall2020_CSC403_Project
     
     public partial class FrmMainMenu : ChildForm
     {
-        public static int difficultyVar = 0;
+        private static int difficultyVar = 0;
 
         public FrmMainMenu()
         {
@@ -49,6 +49,7 @@ namespace Fall2020_CSC403_Project
                 difficultyVar = 0;
                 pictureBoxDifficulties.Image = Properties.Resources.creamy;
             }
+            Game.difficulty = difficultyVar;
         }
 
         private void buttonStartGame_Click(object sender, EventArgs e)
