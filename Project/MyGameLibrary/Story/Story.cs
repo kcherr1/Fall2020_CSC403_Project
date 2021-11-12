@@ -70,7 +70,6 @@ namespace MyGameLibrary.Story
             }
             else if (string.Equals(splitLine[0], "#CB"))
             {
-                Console.WriteLine("I'm HERE!");
                 markup = Markup.ChangeBackgroundImage;
             }
             else if (string.Equals(splitLine[0], "#CF"))
