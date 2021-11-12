@@ -17,7 +17,7 @@ namespace Fall2020_CSC403_Project
         public FrmLevel level;
         private FrmMainMenu mainmenu;
 
-        public static int difficulty;
+        
         public FrmGame()
         {    
             Load += new EventHandler(this.FrmGame_Load);
@@ -30,7 +30,6 @@ namespace Fall2020_CSC403_Project
             //level = (FrmLevel) CreateChild(new FrmLevel());
             //level.Show();
             //level.Focus();
-
             mainmenu = (FrmMainMenu)CreateChild(new FrmMainMenu());
             mainmenu.Show();
             mainmenu.Focus();
