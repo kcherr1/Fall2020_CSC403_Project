@@ -29,11 +29,11 @@ For developers: See docs folder.
 
 ## Credits
 ### Developers
-Hayley Owens
-Hannah Folkertsma
-Tyler Lane
-Jason Marxsen
-Ashley Palmer
+- Hayley Owens
+- Hannah Folkertsma
+- Tyler Lane
+- Jason Marxsen
+- Ashley Palmer
 
 ### Character Art
 Ashley Palmer
