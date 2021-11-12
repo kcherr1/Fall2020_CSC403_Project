@@ -42,9 +42,9 @@ Ashley Palmer
 Various Artists (can credit artists individually if needed)
 
 ### Writers
-Ashley Palmer
-Hannah Folkertsma
-Jason Marxsen
+- Ashley Palmer
+- Hannah Folkertsma
+- Jason Marxsen
 
 ### UX/UI Lead
 Hannah Folkertsma
