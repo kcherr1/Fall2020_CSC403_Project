@@ -26,7 +26,7 @@
 #HF Wendy begrudgingly shows you where you need to be.
 #SF
 #CB \\data\\background\\ gym.jpg Mr. Peanut: Thanks for showing me to class!
-#CF \\data\\foreground\\ wendy.png Wendy: You’re welcome or whatever. If coach asks tell him I did great job, or you're dead. 
+#CF \\data\\foreground\\ wendy.png Wendy: You’re welcome or whatever. If Coach asks tell him I did a great job, or you're dead. 
 #HF She stomps off, but you notice as she ducks under the bleachers. 
 #CT Mr. Peanut: She's an... odd one. 
 #CT In her place two chaotic figures storm through.

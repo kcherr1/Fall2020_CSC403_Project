@@ -1,5 +1,5 @@
-﻿#CBF \\data\\background\\ hayley_store.png \\data\\foreground\\ player.png Mr. Peanut: Hi again! I have money this time! 
-#CF \\data\\foreground\\ hayley.png Hayley: Awesome. Are you gonna buy something or what?
+﻿#CBF \\data\\background\\ hayley_store.png \\data\\foreground\\ player.png Mr. Peanut: Hi again! 
+#CF \\data\\foreground\\ hayley.png Hayley: Are you gonna buy something or what?
 #S2
 #HW
 #CT Hayley: It’s not like I’ll miss you or anything. 
@@ -9,7 +9,8 @@
 #CT Mr. Peanut: I’ve missed all my afternoon classes again, and I didn’t even get to eat today. I feel like a house of cards, one blow from caving in. Or perhaps already buried deep, six feet under screams but no one seems to hear a thing. I guess I’ll head back to the dorm again. 
 #CT Mr. Peanut: Hang on, who’s that back there?
 #CF \\data\\foreground\\ wendy.png 
-#SF Wendy: The shwabble-dabble-wabble-gabble flibba blabba blab I'm full of shwibbly liber-kind I am the yeast of thoughts and minds
+#SF It's Wendy... It looks like she's chanting something.
+#CT Wendy: The shwabble-dabble-wabble-gabble flibba blabba blab I'm full of shwibbly liber-kind I am the yeast of thoughts and minds
 #CF \\data\\foreground\\ player.png Mr. Peanut: Oh, hey Wendy.
 #CF \\data\\foreground\\ wendy.png Wendy: DO NOT DISTURB THE RITUAL.
 #CF \\data\\foreground\\ player.png Mr. Peanut: Oh, sorry! See you tomorrow. 
