@@ -2,11 +2,11 @@
 
 ## Description
 *Mr. Peanut Finds Love* is a dating sim in which you, as Mr. Peanut, can date the mascots of other brands! Choose from:
-Ronald McDonald - The Clown
-Burger King - The Rich Kid
-Tony the Tiger - The Jock
-Green M&M - The Nerd
-Wendy from Wendy’s - The Mean Girl
+- Ronald McDonald - The Clown
+- Burger King - The Rich Kid
+- Tony the Tiger - The Jock
+- Green M&M - The Nerd
+- Wendy from Wendy’s - The Mean Girl
 You interact with these characters through giving them gifts from the two shops. But be careful! Some of the items found in the shops can kill the characters… 
 
 ## Installation
