@@ -35,16 +35,16 @@ For developers: See docs folder.
 - Jason Marxsen
 - Ashley Palmer
 
+### Writers
+- Ashley Palmer
+- Hannah Folkertsma
+- Jason Marxsen
+
 ### Character Art
 Ashley Palmer
 
 ### Background Art
 Various Artists (can credit artists individually if needed)
-
-### Writers
-- Ashley Palmer
-- Hannah Folkertsma
-- Jason Marxsen
 
 ### UX/UI Lead
 Hannah Folkertsma
