@@ -51,3 +51,6 @@ Hannah Folkertsma
 
 ### Backend Lead 
 Hayley Owens
+
+### Trello Board
+https://trello.com/b/j7FY5I1j/mr-peanut-finds-love
