@@ -285,26 +285,24 @@ namespace Fall2020_CSC403_Project
                     Item itemAdd = Item.allItems[(int)identifierAdd];
                     if(itemAdd.ItemPrice <= Inventory.walletBalance)
                     {
-                        Inventory.withdrawMoney(itemAdd.ItemPrice);
-                        Inventory.addItem(identifierAdd, itemAdd);
                         // if the options are a shop, refresh the shop options after buying an item
                         if (isShop)
                         {
-                            if (Item.hannahShopItems.ContainsKey((int)identifierAdd))
+                            if (Item.HannahShop.Products.ContainsKey((int)identifierAdd))
                             {
-                                Item.hannahShopItems.Remove((int)identifierAdd);
+                                Item.HannahShop.purchase(identifierAdd);
                                 Story.CurrentStoryText.AddFirst("#S1");
                             }
                             else
                             {
-                                Item.hayleyShopItems.Remove((int)identifierAdd);
+                                Item.HayleyShop.purchase(identifierAdd);
                                 Story.CurrentStoryText.AddFirst("#S2");
                             }
                         }
                     }
                     else
                     {
-                        if (Item.hannahShopItems.ContainsKey((int)identifierAdd))
+                        if (Item.HannahShop.Products.ContainsKey((int)identifierAdd))
                         {
                             Story.CurrentStoryText.AddFirst("#S1");
                         }
@@ -436,9 +434,9 @@ namespace Fall2020_CSC403_Project
                     string shop1OptionString = "#O S ";
                     if(this.Options.Count == 0)
                     {
-                        foreach (int itemID in Item.hannahShopItems.Keys)
+                        foreach (int itemID in Item.HannahShop.Products.Keys)
                         {
-                            shop1OptionString += (Item.hannahShopItems[itemID].ItemName + ": $" + Item.hannahShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
+                            shop1OptionString += (Item.HannahShop.Products[itemID].ItemName + ": $" + Item.HannahShop.Products[itemID].ItemPrice + ",#A " + itemID + "] ");
                         }
                     }
                     shop1OptionString += " Exit,#E]  Hannah: Hello, please buy something.";
@@ -450,9 +448,9 @@ namespace Fall2020_CSC403_Project
                     // line is: #S2
                     // creates a string containing the available items to be displayed as options
                     string shop2OptionString = "#O S ";
-                    foreach (int itemID in Item.hayleyShopItems.Keys)
+                    foreach (int itemID in Item.HayleyShop.Products.Keys)
                     {
-                        shop2OptionString += (Item.hayleyShopItems[itemID].ItemName + ": $" + Item.hayleyShopItems[itemID].ItemPrice + ",#A " + itemID + "] ");
+                        shop2OptionString += (Item.HayleyShop.Products[itemID].ItemName + ": $" + Item.HayleyShop.Products[itemID].ItemPrice + ",#A " + itemID + "] ");
                     }
                     shop2OptionString += " Exit,#E] Hayley: Check it.";
                     Story.CurrentStoryText.AddFirst(shop2OptionString);
