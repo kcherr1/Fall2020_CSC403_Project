@@ -15,16 +15,31 @@ namespace Fall2020_CSC403_Project
     
     public partial class FrmMainMenu : ChildForm
     {
-        private static int difficultyVar = 0;
+        private int difficultyVar;
+        private FrmLevel frmLevel;
 
         public FrmMainMenu()
         {
             InitializeComponent();
+            this.Load += new System.EventHandler(FrmMainMenu_Load);
+
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FrmMainMenu_Load(object sender, EventArgs e)
         {
-
+            difficultyVar = Game.difficulty;
+            if (difficultyVar == 0)
+            {
+                pictureBoxDifficulties.Image = Properties.Resources.creamy;
+            }
+            else if (difficultyVar == 1)
+            {
+                pictureBoxDifficulties.Image = Properties.Resources.crunchy;
+            }
+            else if (difficultyVar == 2)
+            {
+                pictureBoxDifficulties.Image = Properties.Resources.nutty;
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -54,9 +69,14 @@ namespace Fall2020_CSC403_Project
 
         private void buttonStartGame_Click(object sender, EventArgs e)
         {
-            FrmGame f = (FrmGame)this.Parent;
-            f.level = (FrmLevel)CreateChild(new FrmLevel());
-            f.level.RequestShow();
+            //FrmGame f = (FrmGame)this.Parent;
+            //f.level = (FrmLevel)CreateChild(new FrmLevel());
+            //f.level.RequestShow();
+            //Close();
+            FrmLevel.lose = false;
+            frmLevel = (FrmLevel)CreateChild(new FrmLevel());
+            frmLevel.MdiParent = this.MdiParent;
+            frmLevel.RequestShow();
             Close();
         }
     }

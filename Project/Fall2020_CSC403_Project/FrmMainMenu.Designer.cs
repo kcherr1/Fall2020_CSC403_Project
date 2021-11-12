@@ -31,37 +31,16 @@ namespace Fall2020_CSC403_Project
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainMenu));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.buttonStartGame = new System.Windows.Forms.Button();
             this.buttonChangeDifficulty = new System.Windows.Forms.Button();
             this.pictureBoxArt = new System.Windows.Forms.PictureBox();
             this.imageListDifficulties = new System.Windows.Forms.ImageList(this.components);
             this.pictureBoxDifficulties = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDifficulties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.textBox1.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(615, 34);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "NullPointerException Games Presents...";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.textBox2.Font = new System.Drawing.Font("Comic Sans MS", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(119, 126);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(740, 175);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "Game Title!";
             // 
             // buttonStartGame
             // 
@@ -113,21 +92,41 @@ namespace Fall2020_CSC403_Project
             this.pictureBoxDifficulties.TabIndex = 5;
             this.pictureBoxDifficulties.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(544, 27);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "NullPointerException Games Presents...";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(112, 141);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(736, 169);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Game Title!";
+            // 
             // FrmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1586, 924);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxDifficulties);
             this.Controls.Add(this.buttonChangeDifficulty);
             this.Controls.Add(this.buttonStartGame);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.pictureBoxArt);
-            this.Controls.Add(this.textBox1);
             this.Name = "FrmMainMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDifficulties)).EndInit();
             this.ResumeLayout(false);
@@ -136,13 +135,12 @@ namespace Fall2020_CSC403_Project
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBoxArt;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button buttonStartGame;
         private System.Windows.Forms.Button buttonChangeDifficulty;
         private System.Windows.Forms.ImageList imageListDifficulties;
         private System.Windows.Forms.PictureBox pictureBoxDifficulties;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

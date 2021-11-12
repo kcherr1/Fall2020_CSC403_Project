@@ -8,6 +8,7 @@ using System.Media;
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : ChildForm {
     public static bool win = false;
+    public static bool lose = false;
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -17,6 +18,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmGameOver frmGameOver;
     public StatsMenu statsMenu;
     public bool isMenuOpen = false;
 
@@ -253,6 +255,17 @@ namespace Fall2020_CSC403_Project {
         if (win)
         {
             winImage.Visible = true;
+        }
+    }
+
+    private void loseChecker(object sender, EventArgs e)
+    {
+        if (lose)
+        {
+            frmGameOver = (FrmGameOver)CreateChild(new FrmGameOver());
+            frmGameOver.MdiParent = this.MdiParent;
+            frmGameOver.RequestShow();
+            Close();
         }
     }
         

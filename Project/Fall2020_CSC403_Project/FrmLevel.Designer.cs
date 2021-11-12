@@ -47,6 +47,7 @@
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.winImage = new System.Windows.Forms.PictureBox();
             this.checkWin = new System.Windows.Forms.Timer(this.components);
+            this.checkLose = new System.Windows.Forms.Timer(this.components);
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cheatMenu = new System.Windows.Forms.Panel();
@@ -318,6 +319,11 @@
             // 
             this.checkWin.Enabled = true;
             this.checkWin.Tick += new System.EventHandler(this.winChecker);
+            //
+            // checkLose
+            //
+            this.checkLose.Enabled = true;
+            this.checkLose.Tick += new System.EventHandler(this.loseChecker);
             // 
             // lblPlayerHealthFull
             // 
@@ -656,6 +662,7 @@
     private System.Windows.Forms.PictureBox picWall11;
         private System.Windows.Forms.PictureBox winImage;
         private System.Windows.Forms.Timer checkWin;
+        private System.Windows.Forms.Timer checkLose;
         private System.Windows.Forms.Label lblPlayerHealthFull;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel cheatMenu;

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmGameOver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGameOver.Designer.cs">
+      <DependentUpon>FrmGameOver.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     <Compile Include="StatsMenu.Designer.cs">
       <DependentUpon>StatsMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmGameOver.resx">
+      <DependentUpon>FrmGameOver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMainMenu.resx">
       <DependentUpon>FrmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,8 +163,10 @@
     <Content Include="data\boxart.png" />
     <Content Include="data\creamy.png" />
     <Content Include="data\crunchy.png" />
+    <Content Include="data\death.gif" />
     <Content Include="data\map_music.wav" />
     <Content Include="data\nutty.png" />
+    <Content Include="data\youdied.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
