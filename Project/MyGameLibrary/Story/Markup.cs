@@ -24,6 +24,9 @@ namespace MyGameLibrary.Story
         HideWallet,
         GiftOptions,
         CheckPromPosal,
-        CheckIfDead
+        CheckIfDead,
+        PlayBackgroundAudio,
+        PlaySound,
+        Pause
     }
 }
