@@ -142,5 +142,26 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void picWall1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.MessageLoop == true) {
+                Application.Exit();
+            }
+            else
+            { 
+                Environment.Exit(1);
+            }
+        }
+    }
 }
