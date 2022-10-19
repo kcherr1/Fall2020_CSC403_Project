@@ -84,14 +84,33 @@ namespace Fall2020_CSC403_Project {
       player.AlterHealth(amount);
     }
 
-    private void tmrFinalBattle_Tick(object sender, EventArgs e) {
+    private void tmrFinalBattle_Tick(object sender, EventArgs e)
+    {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+    private void button1_Click(object sender, EventArgs e) {
+      double fleeChance = 0.5f;
+      Random random = new Random();
 
+      if (random.NextDouble() < fleeChance) {
+        // flee!
+        instance = null;
+        Close();
+      } else {
+        // TODO: alert user of flee failure.
+
+        if (enemy.Health > 0) {
+          enemy.OnAttack(-2);
         }
+
+        UpdateHealthBars();
+        if (player.Health <= 0) {
+          instance = null;
+          Close();
+        }
+      }
     }
+  }
 }
