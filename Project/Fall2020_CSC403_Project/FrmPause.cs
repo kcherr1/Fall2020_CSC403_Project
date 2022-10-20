@@ -35,7 +35,8 @@ namespace Fall2020_CSC403_Project
 
     private void btnQuit_Click(object sender, EventArgs e)
     {
-      Console.WriteLine("Quit Clicked");
+      Application.Exit();   // exit application
+      Environment.Exit(0);  // terminates without event handlers intervening
     }
   }
 }
