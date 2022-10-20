@@ -77,10 +77,7 @@ namespace Fall2020_CSC403_Project {
 	}
 
 	private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-	  
-	  
 
-			//============================================================
 			// Remove dead player's image
 			if (IsDead(player))
 			{
