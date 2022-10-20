@@ -12,8 +12,9 @@ namespace Fall2020_CSC403_Project {
 	private Enemy enemyCheeto;
 	private Character[] walls;
 
-	private DateTime timeBegin;
-	private FrmBattle frmBattle;
+    private DateTime timeBegin;
+    private FrmBattle frmBattle;
+    private FrmPause frmPause;
 
 	// PictureBox to handle dead Enemy and player
 	private Enemy offScreenEnemy; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
@@ -180,9 +181,14 @@ namespace Fall2020_CSC403_Project {
 		  player.GoDown();
 		  break;
 
-		default:
-		  player.ResetMoveSpeed();
-		  break;
+		case Keys.Escape:
+          frmPause = new FrmPause();
+          frmPause.Show();
+          break;
+
+        default:
+          player.ResetMoveSpeed();
+          break;
 	  }
 	}
 
