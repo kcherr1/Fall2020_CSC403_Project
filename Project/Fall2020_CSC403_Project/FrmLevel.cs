@@ -5,207 +5,217 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
-    private Player player;
+	private Player player;
 
-    private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
-    private Enemy enemyCheeto;
-    private Character[] walls;
+	private Enemy enemyPoisonPacket;
+	private Enemy bossKoolaid;
+	private Enemy enemyCheeto;
+	private Character[] walls;
 
-    private DateTime timeBegin;
-    private FrmBattle frmBattle;
+	private DateTime timeBegin;
+	private FrmBattle frmBattle;
 
-    // PictureBox to handle dead Enemy and player
-    private Enemy offScreenEnemy; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
-    private Player offScreenPlayer;
+	// PictureBox to handle dead Enemy and player
+	private Enemy offScreenEnemy; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
+	private Player offScreenPlayer;
 
-    public FrmLevel() {
-      InitializeComponent();
-    }
+	public FrmLevel() {
+	  InitializeComponent();
+	}
 
-    private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
-      const int NUM_WALLS = 13;
+	private void FrmLevel_Load(object sender, EventArgs e) {
+	  const int PADDING = 7;
+	  const int NUM_WALLS = 13;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+	  player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+	  bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+	  enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+	  enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-      // create instance of for dead enemy and player
-      offScreenEnemy = new Enemy(CreatePosition(picOffScreenEnemy), CreateCollider(picOffScreenEnemy, 0));
-      offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
+	  // create instance of for dead enemy and player
+	  offScreenEnemy = new Enemy(CreatePosition(picOffScreenEnemy), CreateCollider(picOffScreenEnemy, 0));
+	  offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
 
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+	  bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+	  enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+	  enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+	  bossKoolaid.Color = Color.Red;
+	  enemyPoisonPacket.Color = Color.Green;
+	  enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
-      walls = new Character[NUM_WALLS];
-      for (int w = 0; w < NUM_WALLS; w++) {
-        PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
-      }
+	  walls = new Character[NUM_WALLS];
+	  for (int w = 0; w < NUM_WALLS; w++) {
+		PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+		walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+	  }
 
-      Game.player = player;
-      timeBegin = DateTime.Now;
+	  Game.player = player;
+	  timeBegin = DateTime.Now;
 
-      // Show player's health bar when the game first loaded
-      PlayerHealthBar();
-    }
+	  // Show player's health bar when the game first loaded
+	  PlayerHealthBar();
+	}
 
-    private Vector2 CreatePosition(PictureBox pic) {
-      return new Vector2(pic.Location.X, pic.Location.Y);
-    }
+	private Vector2 CreatePosition(PictureBox pic) {
+	  return new Vector2(pic.Location.X, pic.Location.Y);
+	}
 
-    private Collider CreateCollider(PictureBox pic, int padding) {
-      Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-      return new Collider(rect);
-    }
+	private Collider CreateCollider(PictureBox pic, int padding) {
+	  Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+	  return new Collider(rect);
+	}
 
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      player.ResetMoveSpeed();
-    }
+	private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
+	  player.ResetMoveSpeed();
+	}
 
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
-    }
+	private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
+	  TimeSpan span = DateTime.Now - timeBegin;
+	  string time = span.ToString(@"hh\:mm\:ss");
+	  lblInGameTime.Text = "Time: " + time.ToString();
+	}
 
-    private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      // move player
-      player.Move();
+	private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+	  
+	  
 
-      // check collision with walls
-      if (HitAWall(player)) {
-        player.MoveBack();
-      }
+			//============================================================
+			// Remove dead player's image
+			if (IsDead(player))
+			{
+				picPlayer.Hide();
+				player = offScreenPlayer;
+				player.Die();
+			} else
+      {
+				// move player
+				player.Move();
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
-      }
+				// check collision with walls
+				if (HitAWall(player))
+				{
+					player.MoveBack();
+				}
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+				// check collision with enemies
+				if (HitAChar(player, enemyPoisonPacket))
+				{
+					Fight(enemyPoisonPacket);
+				}
+				else if (HitAChar(player, enemyCheeto))
+				{
+					Fight(enemyCheeto);
+				}
+				if (HitAChar(player, bossKoolaid))
+				{
+					Fight(bossKoolaid);
+				}
 
-            //============================================================
-            // Remove dead player's image
-            if (IsDead(player))
-            {
-                picPlayer.Hide();
-                player = offScreenPlayer;
-                player.Die();
-            }
+				// update player's picture box
+				picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
-            // Remove the dead enemies' images
-            if (IsDead(enemyPoisonPacket))
-            {
-                picEnemyPoisonPacket.Hide();
-                enemyPoisonPacket = offScreenEnemy;
-            }
-            else if (IsDead(enemyCheeto))
-            {
-                picEnemyCheeto.Hide();
-                enemyCheeto = offScreenEnemy;
-            }
-            else if (IsDead(bossKoolaid))
-            {
-                picBossKoolAid.Hide();
-                bossKoolaid = offScreenEnemy;
-            }
+				// Remove the dead enemies' images
+				if (IsDead(enemyPoisonPacket))
+				{
+					picEnemyPoisonPacket.Hide();
+					enemyPoisonPacket = offScreenEnemy;
+				}
+				else if (IsDead(enemyCheeto))
+				{
+					picEnemyCheeto.Hide();
+					enemyCheeto = offScreenEnemy;
+				}
+				else if (IsDead(bossKoolaid))
+				{
+					picBossKoolAid.Hide();
+					bossKoolaid = offScreenEnemy;
+				}
 
-            // Update player's health while he is moving
-            PlayerHealthBar();
-    }
+				// Update player's health while he is moving
+				PlayerHealthBar();
+			}
 
-    private bool HitAWall(Character c) {
-      bool hitAWall = false;
-      for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
-          hitAWall = true;
-          break;
-        }
-      }
-      return hitAWall;
-    }
+			
+	}
 
-    private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
-    }
+	private bool HitAWall(Character c) {
+	  bool hitAWall = false;
+	  for (int w = 0; w < walls.Length; w++) {
+		if (c.Collider.Intersects(walls[w].Collider)) {
+		  hitAWall = true;
+		  break;
+		}
+	  }
+	  return hitAWall;
+	}
 
-    private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
+	private bool HitAChar(Character you, Character other) {
+	  return you.Collider.Intersects(other.Collider);
+	}
 
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
+	private void Fight(Enemy enemy) {
+	  player.ResetMoveSpeed();
+	  player.MoveBack();
+	  frmBattle = FrmBattle.GetInstance(enemy);
+	  frmBattle.Show();
 
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
+	  if (enemy == bossKoolaid) {
+		frmBattle.SetupForBossBattle();
+	  }
+	}
 
-        case Keys.Right:
-          player.GoRight();
-          break;
+	private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+	  switch (e.KeyCode) {
+		case Keys.Left:
+		  player.GoLeft();
+		  break;
 
-        case Keys.Up:
-          player.GoUp();
-          break;
+		case Keys.Right:
+		  player.GoRight();
+		  break;
 
-        case Keys.Down:
-          player.GoDown();
-          break;
+		case Keys.Up:
+		  player.GoUp();
+		  break;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
-    }
+		case Keys.Down:
+		  player.GoDown();
+		  break;
 
-    //=======================================================================================
-    // Function for update the player's health bar on the main map
-    public void PlayerHealthBar()
-    {
-        float playerHealthPer = player.Health / (float)player.MaxHealth;
+		default:
+		  player.ResetMoveSpeed();
+		  break;
+	  }
+	}
 
-        const int MAX_HEALTHBAR_WIDTH = 226;
-        lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+	//=======================================================================================
+	// Function for update the player's health bar on the main map
+	public void PlayerHealthBar()
+	{
+		float playerHealthPer = player.Health / (float)player.MaxHealth;
 
-        lblPlayerHealthFull.Text = player.Health.ToString();
-    }
+		const int MAX_HEALTHBAR_WIDTH = 226;
+		lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
 
-    // Function to check if enemy is dead
-    public bool IsDead(BattleCharacter character)
-    {
-        bool isDead = false;
-        if (character.Health <= 0)
-        {
-            isDead = true;
-        }
-        return isDead;
-    }
+		lblPlayerHealthFull.Text = player.Health.ToString();
+	}
 
-    // Function to move enemy infinitely 
-    public void MoveInterval(Enemy enemy, string moveCoordinate, int moveSpeed, int moveDistance)
-    {
+	// Function to check if enemy is dead
+	public bool IsDead(BattleCharacter character)
+	{
+		bool isDead = false;
+		if (character.Health <= 0)
+		{
+			isDead = true;
+		}
+		return isDead;
+	}
 
-    }
-    }
+	// Function to move enemy infinitely 
+	public void MoveInterval(Enemy enemy, string moveCoordinate, int moveSpeed, int moveDistance)
+	{
+			enemy.Move();
+	}
+	}
 }
