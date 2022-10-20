@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmMenu : Form
     {
-        public FrmLevel theGame = null;
+        private FrmCharacterSelect select = null;
         public FrmMenu()
         {
             InitializeComponent();
@@ -26,8 +26,8 @@ namespace Fall2020_CSC403_Project
 
         private void playBtn_Click(object sender, EventArgs e)
         {
-            theGame = FrmLevel.GetInstance(0);
-            theGame.Show();
+            select = new FrmCharacterSelect();
+            select.Show();
             this.Hide();
         }
 
