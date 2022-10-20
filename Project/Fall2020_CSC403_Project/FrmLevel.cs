@@ -15,6 +15,10 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
+    // PictureBox to handle dead Enemy and player
+    private Enemy offScreenEnemy; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
+    private Player offScreenPlayer;
+
     public FrmLevel() {
       InitializeComponent();
     }
@@ -27,6 +31,10 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
+      // create instance of for dead enemy and player
+      offScreenEnemy = new Enemy(CreatePosition(picOffScreenEnemy), CreateCollider(picOffScreenEnemy, 0));
+      offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -45,8 +53,8 @@ namespace Fall2020_CSC403_Project {
       Game.player = player;
       timeBegin = DateTime.Now;
 
-        // Show player's health bar when the game first loaded
-        PlayerHealthBar();
+      // Show player's health bar when the game first loaded
+      PlayerHealthBar();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -91,8 +99,34 @@ namespace Fall2020_CSC403_Project {
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
-        // Update player's health while he is moving
-        PlayerHealthBar();
+            //============================================================
+            // Remove dead player's image
+            if (IsDead(player))
+            {
+                picPlayer.Hide();
+                player = offScreenPlayer;
+                player.Die();
+            }
+
+            // Remove the dead enemies' images
+            if (IsDead(enemyPoisonPacket))
+            {
+                picEnemyPoisonPacket.Hide();
+                enemyPoisonPacket = offScreenEnemy;
+            }
+            else if (IsDead(enemyCheeto))
+            {
+                picEnemyCheeto.Hide();
+                enemyCheeto = offScreenEnemy;
+            }
+            else if (IsDead(bossKoolaid))
+            {
+                picBossKoolAid.Hide();
+                bossKoolaid = offScreenEnemy;
+            }
+
+            // Update player's health while he is moving
+            PlayerHealthBar();
     }
 
     private bool HitAWall(Character c) {
@@ -145,6 +179,7 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
+    //=======================================================================================
     // Function for update the player's health bar on the main map
     public void PlayerHealthBar()
     {
@@ -155,5 +190,16 @@ namespace Fall2020_CSC403_Project {
 
         lblPlayerHealthFull.Text = player.Health.ToString();
     }
-  }
+
+    // Function to check if enemy is dead
+    public bool IsDead(BattleCharacter character)
+    {
+        bool isDead = false;
+        if (character.Health <= 0)
+        {
+            isDead = true;
+        }
+        return isDead;
+    }
+    }
 }

@@ -48,6 +48,8 @@
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             this.lblPlayerHealthFullBlack = new System.Windows.Forms.Label();
             this.HPlabel = new System.Windows.Forms.Label();
+            this.picOffScreenEnemy = new System.Windows.Forms.PictureBox();
+            this.picOffScreenPlayer = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -65,6 +67,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffScreenEnemy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffScreenPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -329,6 +333,22 @@
             this.HPlabel.Text = "Player HP";
             this.HPlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // picOffScreenEnemy
+            // 
+            this.picOffScreenEnemy.Location = new System.Drawing.Point(1860, 2);
+            this.picOffScreenEnemy.Name = "picOffScreenEnemy";
+            this.picOffScreenEnemy.Size = new System.Drawing.Size(100, 50);
+            this.picOffScreenEnemy.TabIndex = 21;
+            this.picOffScreenEnemy.TabStop = false;
+            // 
+            // picOffScreenPlayer
+            // 
+            this.picOffScreenPlayer.Location = new System.Drawing.Point(1960, 2);
+            this.picOffScreenPlayer.Name = "picOffScreenPlayer";
+            this.picOffScreenPlayer.Size = new System.Drawing.Size(100, 50);
+            this.picOffScreenPlayer.TabIndex = 22;
+            this.picOffScreenPlayer.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -336,11 +356,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(3136, 1731);
+            this.Controls.Add(this.picWall2);
+            this.Controls.Add(this.picOffScreenPlayer);
+            this.Controls.Add(this.picOffScreenEnemy);
             this.Controls.Add(this.HPlabel);
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.lblPlayerHealthFullBlack);
             this.Controls.Add(this.picWall11);
-            this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
             this.Controls.Add(this.picWall7);
             this.Controls.Add(this.lblInGameTime);
@@ -382,6 +404,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffScreenEnemy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOffScreenPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,6 +436,8 @@
         private System.Windows.Forms.Label lblPlayerHealthFull;
         private System.Windows.Forms.Label lblPlayerHealthFullBlack;
         private System.Windows.Forms.Label HPlabel;
+        private System.Windows.Forms.PictureBox picOffScreenEnemy;
+        private System.Windows.Forms.PictureBox picOffScreenPlayer;
     }
 }
 

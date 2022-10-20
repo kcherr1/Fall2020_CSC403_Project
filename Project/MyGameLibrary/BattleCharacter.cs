@@ -27,5 +27,11 @@ namespace Fall2020_CSC403_Project.code {
     public void AlterHealth(int amount) {
       Health += amount;
     }
-  }
+
+    // Function set dead character's health to 0
+    public void Die()
+    {
+        Health = 0;
+    }
+   }
 }
