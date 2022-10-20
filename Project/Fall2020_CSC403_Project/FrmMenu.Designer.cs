@@ -92,6 +92,7 @@
             this.Controls.Add(this.squonkCage);
             this.Name = "FrmMenu";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.squonkCage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
