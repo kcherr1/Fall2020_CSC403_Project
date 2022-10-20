@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmPause frmPause;
 
     public FrmLevel() {
       InitializeComponent();
@@ -131,6 +132,11 @@ namespace Fall2020_CSC403_Project {
 
         case Keys.Down:
           player.GoDown();
+          break;
+
+        case Keys.Escape:
+          frmPause = new FrmPause();
+          frmPause.Show();
           break;
 
         default:
