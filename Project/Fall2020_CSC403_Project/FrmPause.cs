@@ -29,7 +29,8 @@ namespace Fall2020_CSC403_Project
 
     private void btnRestart_Click(object sender, EventArgs e)
     {
-      Console.WriteLine("Restart Clicked");
+      Application.Restart();  // exit and start new instance
+      Environment.Exit(0);    // terminates without event handlers intervening
     }
 
     private void btnQuit_Click(object sender, EventArgs e)
