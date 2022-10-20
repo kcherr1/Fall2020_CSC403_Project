@@ -41,7 +41,7 @@
             // btnAttack
             // 
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttack.Location = new System.Drawing.Point(339, 1006);
+            this.btnAttack.Location = new System.Drawing.Point(915, 1021);
             this.btnAttack.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(341, 103);
@@ -139,6 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(2192, 1438);
