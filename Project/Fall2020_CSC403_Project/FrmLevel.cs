@@ -201,5 +201,11 @@ namespace Fall2020_CSC403_Project {
         }
         return isDead;
     }
+
+    // Function to move enemy infinitely 
+    public void MoveInterval(Enemy enemy, string moveCoordinate, int moveSpeed, int moveDistance)
+    {
+
+    }
     }
 }
