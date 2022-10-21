@@ -25,6 +25,8 @@
     private void InitializeComponent() {
       this.components = new System.ComponentModel.Container();
       this.btnAttack = new System.Windows.Forms.Button();
+      this.btnFlee = new System.Windows.Forms.Button();
+      this.lblFleeStatus = new System.Windows.Forms.Label();
       this.lblPlayerHealthFull = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
@@ -33,8 +35,6 @@
       this.picEnemy = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
       this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
-      this.btnFlee = new System.Windows.Forms.Button();
-      this.lblFleeStatus = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -51,6 +51,30 @@
       this.btnAttack.Text = "Attack";
       this.btnAttack.UseVisualStyleBackColor = true;
       this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
+      // 
+      // btnFlee
+      // 
+      this.btnFlee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnFlee.Location = new System.Drawing.Point(169, 604);
+      this.btnFlee.Margin = new System.Windows.Forms.Padding(4);
+      this.btnFlee.Name = "btnFlee";
+      this.btnFlee.Size = new System.Drawing.Size(171, 53);
+      this.btnFlee.TabIndex = 3;
+      this.btnFlee.Text = "Flee";
+      this.btnFlee.UseVisualStyleBackColor = true;
+      this.btnFlee.Click += new System.EventHandler(this.button1_Click);
+      // 
+      // lblFleeStatus
+      // 
+      this.lblFleeStatus.AutoSize = true;
+      this.lblFleeStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblFleeStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+      this.lblFleeStatus.Location = new System.Drawing.Point(373, 616);
+      this.lblFleeStatus.Name = "lblFleeStatus";
+      this.lblFleeStatus.Size = new System.Drawing.Size(217, 29);
+      this.lblFleeStatus.TabIndex = 9;
+      this.lblFleeStatus.Text = "Flee Status Label";
+      this.lblFleeStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // lblPlayerHealthFull
       // 
@@ -137,30 +161,6 @@
       this.tmrFinalBattle.Interval = 5600;
       this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
       // 
-      // btnFlee
-      // 
-      this.btnFlee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnFlee.Location = new System.Drawing.Point(169, 604);
-      this.btnFlee.Margin = new System.Windows.Forms.Padding(4);
-      this.btnFlee.Name = "btnFlee";
-      this.btnFlee.Size = new System.Drawing.Size(171, 53);
-      this.btnFlee.TabIndex = 8;
-      this.btnFlee.Text = "Flee";
-      this.btnFlee.UseVisualStyleBackColor = true;
-      this.btnFlee.Click += new System.EventHandler(this.button1_Click);
-      // 
-      // lblFleeStatus
-      // 
-      this.lblFleeStatus.AutoSize = true;
-      this.lblFleeStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblFleeStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-      this.lblFleeStatus.Location = new System.Drawing.Point(373, 616);
-      this.lblFleeStatus.Name = "lblFleeStatus";
-      this.lblFleeStatus.Size = new System.Drawing.Size(217, 29);
-      this.lblFleeStatus.TabIndex = 9;
-      this.lblFleeStatus.Text = "Flee Status Label";
-      this.lblFleeStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      // 
       // FrmBattle
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -169,7 +169,6 @@
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1096, 742);
       this.Controls.Add(this.lblFleeStatus);
-      this.Controls.Add(this.btnFlee);
       this.Controls.Add(this.picBossBattle);
       this.Controls.Add(this.lblEnemyHealthFull);
       this.Controls.Add(this.label2);
@@ -178,6 +177,7 @@
       this.Controls.Add(this.btnAttack);
       this.Controls.Add(this.picEnemy);
       this.Controls.Add(this.picPlayer);
+      this.Controls.Add(this.btnFlee);
       this.DoubleBuffered = true;
       this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "FrmBattle";
