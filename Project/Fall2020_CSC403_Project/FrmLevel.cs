@@ -180,7 +180,7 @@ namespace Fall2020_CSC403_Project {
 		  break;
 
 		case Keys.Escape:
-			showPauseMenu();
+			ShowPauseMenu();
       break;
 
 		default:
@@ -189,14 +189,14 @@ namespace Fall2020_CSC403_Project {
 	  }
     }
 
-    private void showPauseMenu()
-    {
-      frmPause = new FrmPause();
-      tmrUpdateInGameTime.Enabled = false;    // stop updating game clock
-      frmPause.ShowDialog();                  // ShowDialog() disables game window
-      timeBegin = DateTime.Now - span;        // account for time elapsed during pause
-      tmrUpdateInGameTime.Enabled = true;
-    }
+  private void ShowPauseMenu()
+  {
+    frmPause = new FrmPause();
+    tmrUpdateInGameTime.Enabled = false;    // stop updating game clock
+    frmPause.ShowDialog();                  // ShowDialog() disables game window
+    timeBegin = DateTime.Now - span;        // account for time elapsed during pause
+    tmrUpdateInGameTime.Enabled = true;
+  }
 
 	//=======================================================================================
 	// Function for update the player's health bar on the main map
