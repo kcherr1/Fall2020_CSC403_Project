@@ -24,7 +24,7 @@ namespace Fall2020_CSC403_Project
 
     private void btnResume_Click(object sender, EventArgs e)
     {
-      this.Close();   // "this" is the pause window
+      Close();
     }
 
     private void btnRestart_Click(object sender, EventArgs e)
