@@ -17,10 +17,10 @@ namespace Fall2020_CSC403_Project
       InitializeComponent();
     }
 
-        private void FrmPause_Load(object sender, EventArgs e)
-        {
-
-        }
+    private void FrmPause_Load(object sender, EventArgs e)
+    {
+      
+    }
 
     private void btnResume_Click(object sender, EventArgs e)
     {

@@ -12,9 +12,10 @@ namespace Fall2020_CSC403_Project {
 	private Enemy enemyCheeto;
 	private Character[] walls;
 
-    private DateTime timeBegin;
-    private FrmBattle frmBattle;
-    private FrmPause frmPause;
+  private DateTime timeBegin;
+	private TimeSpan span;
+  private FrmBattle frmBattle;
+  private FrmPause frmPause;
 
 	// PictureBox to handle dead Enemy and player
 	private Enemy offScreenEnemy; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
@@ -72,69 +73,66 @@ namespace Fall2020_CSC403_Project {
 	}
 
 	private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-	  TimeSpan span = DateTime.Now - timeBegin;
+	  span = DateTime.Now - timeBegin;
 	  string time = span.ToString(@"hh\:mm\:ss");
 	  lblInGameTime.Text = "Time: " + time.ToString();
 	}
 
-	private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+    private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+		// Remove dead player's image
+		if (IsDead(player))
+		{
+			picPlayer.Hide();
+			player = offScreenPlayer;
+			player.Die();
+		} else
+		{
+			// move player
+			player.Move();
 
-			// Remove dead player's image
-			if (IsDead(player))
+			// check collision with walls
+			if (HitAWall(player))
 			{
-				picPlayer.Hide();
-				player = offScreenPlayer;
-				player.Die();
-			} else
-      {
-				// move player
-				player.Move();
-
-				// check collision with walls
-				if (HitAWall(player))
-				{
-					player.MoveBack();
-				}
-
-				// check collision with enemies
-				if (HitAChar(player, enemyPoisonPacket))
-				{
-					Fight(enemyPoisonPacket);
-				}
-				else if (HitAChar(player, enemyCheeto))
-				{
-					Fight(enemyCheeto);
-				}
-				if (HitAChar(player, bossKoolaid))
-				{
-					Fight(bossKoolaid);
-				}
-
-				// update player's picture box
-				picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-
-				// Remove the dead enemies' images
-				if (IsDead(enemyPoisonPacket))
-				{
-					picEnemyPoisonPacket.Hide();
-					enemyPoisonPacket = offScreenEnemy;
-				}
-				else if (IsDead(enemyCheeto))
-				{
-					picEnemyCheeto.Hide();
-					enemyCheeto = offScreenEnemy;
-				}
-				else if (IsDead(bossKoolaid))
-				{
-					picBossKoolAid.Hide();
-					bossKoolaid = offScreenEnemy;
-				}
-
-				// Update player's health while he is moving
-				PlayerHealthBar();
+				player.MoveBack();
 			}
 
-			
+			// check collision with enemies
+			if (HitAChar(player, enemyPoisonPacket))
+			{
+				Fight(enemyPoisonPacket);
+			}
+			else if (HitAChar(player, enemyCheeto))
+			{
+				Fight(enemyCheeto);
+			}
+			if (HitAChar(player, bossKoolaid))
+			{
+				Fight(bossKoolaid);
+			}
+
+			// update player's picture box
+			picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+
+			// Remove the dead enemies' images
+			if (IsDead(enemyPoisonPacket))
+			{
+				picEnemyPoisonPacket.Hide();
+				enemyPoisonPacket = offScreenEnemy;
+			}
+			else if (IsDead(enemyCheeto))
+			{
+				picEnemyCheeto.Hide();
+				enemyCheeto = offScreenEnemy;
+			}
+			else if (IsDead(bossKoolaid))
+			{
+				picBossKoolAid.Hide();
+				bossKoolaid = offScreenEnemy;
+			}
+
+			// Update player's health while he is moving
+			PlayerHealthBar();
+		}
 	}
 
 	private bool HitAWall(Character c) {
@@ -182,15 +180,23 @@ namespace Fall2020_CSC403_Project {
 		  break;
 
 		case Keys.Escape:
-          frmPause = new FrmPause();
-          frmPause.Show();
-          break;
+			showPauseMenu();
+      break;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
+		default:
+			player.ResetMoveSpeed();
+			break;
 	  }
-	}
+    }
+
+    private void showPauseMenu()
+    {
+      frmPause = new FrmPause();
+      tmrUpdateInGameTime.Enabled = false;    // stop updating game clock
+      frmPause.ShowDialog();                  // ShowDialog() disables game window
+      timeBegin = DateTime.Now - span;        // account for time elapsed during pause
+      tmrUpdateInGameTime.Enabled = true;
+    }
 
 	//=======================================================================================
 	// Function for update the player's health bar on the main map
