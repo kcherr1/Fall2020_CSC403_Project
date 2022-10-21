@@ -22,7 +22,7 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void menuBtn_Click(object sender, EventArgs e)
         {
             FrmMenu menu = new FrmMenu();
             menu.Show();

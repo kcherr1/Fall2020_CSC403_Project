@@ -38,5 +38,10 @@ namespace Fall2020_CSC403_Project
             theGame.Show();
             this.Hide();
         }
+
+        private void FrmCharacterSelect_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

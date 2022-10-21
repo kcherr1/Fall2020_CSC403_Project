@@ -31,7 +31,7 @@ namespace Fall2020_CSC403_Project
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDeath));
-            this.MenuBtn = new System.Windows.Forms.Button();
+            this.menuBtn = new System.Windows.Forms.Button();
             this.quitBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -41,17 +41,17 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // MenuBtn
+            // menuBtn
             // 
-            this.MenuBtn.BackColor = System.Drawing.Color.SteelBlue;
-            this.MenuBtn.Font = new System.Drawing.Font("MV Boli", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuBtn.Location = new System.Drawing.Point(461, 408);
-            this.MenuBtn.Name = "MenuBtn";
-            this.MenuBtn.Size = new System.Drawing.Size(210, 94);
-            this.MenuBtn.TabIndex = 1;
-            this.MenuBtn.Text = "Main Menu";
-            this.MenuBtn.UseVisualStyleBackColor = false;
-            this.MenuBtn.Click += new System.EventHandler(this.button2_Click);
+            this.menuBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.menuBtn.Font = new System.Drawing.Font("MV Boli", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuBtn.Location = new System.Drawing.Point(461, 408);
+            this.menuBtn.Name = "menuBtn";
+            this.menuBtn.Size = new System.Drawing.Size(210, 94);
+            this.menuBtn.TabIndex = 1;
+            this.menuBtn.Text = "Main Menu";
+            this.menuBtn.UseVisualStyleBackColor = false;
+            this.menuBtn.Click += new System.EventHandler(this.menuBtn_Click);
             // 
             // quitBtn
             // 
@@ -106,7 +106,7 @@ namespace Fall2020_CSC403_Project
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.quitBtn);
-            this.Controls.Add(this.MenuBtn);
+            this.Controls.Add(this.menuBtn);
             this.Name = "FrmDeath";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Death_Screen_Load);
@@ -119,7 +119,7 @@ namespace Fall2020_CSC403_Project
 
         #endregion
 
-        private System.Windows.Forms.Button MenuBtn;
+        private System.Windows.Forms.Button menuBtn;
         private System.Windows.Forms.Button quitBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
