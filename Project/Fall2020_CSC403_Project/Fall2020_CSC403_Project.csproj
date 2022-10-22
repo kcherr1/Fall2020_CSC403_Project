@@ -58,6 +58,12 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRandomBattleDamageInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRandomBattleDamageInput.Designer.cs">
+      <DependentUpon>frmRandomBattleDamageInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
@@ -66,6 +72,9 @@
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRandomBattleDamageInput.resx">
+      <DependentUpon>frmRandomBattleDamageInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

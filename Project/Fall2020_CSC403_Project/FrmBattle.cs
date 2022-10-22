@@ -10,8 +10,8 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
-
-    private FrmBattle() {
+        private readonly Random _random = new Random();
+        private FrmBattle() {
       InitializeComponent();
       player = Game.player;
     }
@@ -64,10 +64,19 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
-      if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
-      }
+            int MinDamagePossible = Properties.Settings.Default.MinRandomBattleDamage;
+            int MaxDamagePossible = Properties.Settings.Default.MaxRandomBattleDamage;
+            int DamageDealtByPlayer = _random.Next(MinDamagePossible, MaxDamagePossible);
+            int DamageDealtByEnemy = _random.Next(MinDamagePossible, MaxDamagePossible);
+            //MessageBox.Show("Player Hits for " + DamageDealtByPlayer.ToString() + " points of damage.");
+            //MessageBox.Show(DamageDealtByEnemy.ToString());
+
+            //player.OnAttack(-4);
+            player.OnAttack(DamageDealtByPlayer*-1);  
+            if (enemy.Health > 0) {
+                //enemy.OnAttack(-2);
+                enemy.OnAttack(DamageDealtByEnemy*-1); 
+            }
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {

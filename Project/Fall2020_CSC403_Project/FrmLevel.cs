@@ -27,7 +27,7 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-
+      
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -85,8 +85,35 @@ namespace Fall2020_CSC403_Project {
         Fight(bossKoolaid);
       }
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      // Edited by Buddy
+      //if (enemyPoisonPacket.Health <=0) { enemyPoisonPacket = null; }
+      if (enemyPoisonPacket != null) { if (enemyPoisonPacket.Health <= 0)
+                {
+                    enemyPoisonPacket = null;
+                    picEnemyPoisonPacket.Dispose();
+                    
+                } 
+            }
+        if (enemyCheeto != null)
+        {
+            if (enemyCheeto.Health <= 0)
+            {
+                    enemyCheeto = null;
+                    picEnemyCheeto.Dispose();
+
+            }
+        }
+        if (bossKoolaid != null)
+        {
+            if (bossKoolaid.Health <= 0)
+            {
+                    bossKoolaid = null;
+                    picBossKoolAid.Dispose();
+
+            }
+        }
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
     private bool HitAWall(Character c) {
@@ -101,7 +128,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
+            if (other != null)
+            {
+                return you.Collider.Intersects(other.Collider);
+            }
+            else { return false; }
     }
 
     private void Fight(Enemy enemy) {
@@ -143,25 +174,21 @@ namespace Fall2020_CSC403_Project {
 
     }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
+    private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        if (Application.MessageLoop == true) {
+            Application.Exit();
         }
-
-        private void picWall1_Click(object sender, EventArgs e)
-        {
-
+        else
+        { 
+            Environment.Exit(1);
         }
+    }
 
-        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Application.MessageLoop == true) {
-                Application.Exit();
-            }
-            else
-            { 
-                Environment.Exit(1);
-            }
+    private void editBattleDamageOptionsToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        frmRandomBattleDamageInput Form2 = new frmRandomBattleDamageInput();
+        Form2.ShowDialog();
         }
     }
 }
