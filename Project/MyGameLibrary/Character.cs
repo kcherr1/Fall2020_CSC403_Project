@@ -28,17 +28,8 @@ namespace Fall2020_CSC403_Project.code {
       Position = LastPosition;
     }
 
-    public void GoLeft() {
-      MoveSpeed = new Vector2(-GO_INC, 0);
-    }
-    public void GoRight() {
-      MoveSpeed = new Vector2(+GO_INC, 0);
-    }
-    public void GoUp() {
-      MoveSpeed = new Vector2(0, -GO_INC);
-    }
-    public void GoDown() {
-      MoveSpeed = new Vector2(0, +GO_INC);
+    public void GoVector(Vector2 MoveDir) {
+      MoveSpeed = new Vector2(GO_INC * MoveDir.x, GO_INC * MoveDir.y);
     }
 
     public void ResetMoveSpeed() {
