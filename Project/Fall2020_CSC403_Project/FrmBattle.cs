@@ -51,24 +51,61 @@ namespace Fall2020_CSC403_Project {
       return instance;
     }
 
-    private void UpdateHealthBars() {
-      float playerHealthPer = player.Health / (float)player.MaxHealth;
-      float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
-
+        private void UpdateHealthBars() {
+            float playerHealthPer = player.Health / (float)player.MaxHealth;
+            float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+            float playerExperience = 100 / (float)player.Experience;
+    
       const int MAX_HEALTHBAR_WIDTH = 226;
-      lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
-      lblEnemyHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
-
-      lblPlayerHealthFull.Text = player.Health.ToString();
-      lblEnemyHealthFull.Text = enemy.Health.ToString();
-    }
-
+            lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+            lblEnemyHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
+     
+            lblPlayerHealthFull.Text = player.Health.ToString();
+            lblEnemyHealthFull.Text = enemy.Health.ToString();
+    /*
+            lblPlayerExperienceFull.Width = (int)(MAX_EXPERIENCE_WIDTH / playerExperience);
+            lblPlayerExperienceFull.Text = player.Experience.ToString();
+    */
+        }
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
-      if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
-      }
+            if (player.playerSpeed >= enemy.enemySpeed)
+            {
+                player.PlayerAttack(-1);
+                if (enemy.Health > 0)
+                {
+                    enemy.EnemyAttack(-1);
+                }
+                else
+                {
+                    player.RewardExperience(100);
+                        if (player.Experience >= 100);
+                        {
+                            player.RewardExperience(-100);
+                            player.LevelUp();
+                            UpdateHealthBars();
+                        }
+                }
+            }
+            else
+            {
+                enemy.EnemyAttack(-1);
+                if (player.Health > 0)
+                {
+                    player.PlayerAttack(-1);
+                    if (enemy.Health <= 0)
+                    {
+                        player.RewardExperience(100);
+                        if (player.Experience >= 100);
+                        {
+                            player.RewardExperience(-100);
+                            player.LevelUp();
+                            UpdateHealthBars();
+                        }
+                    }
 
+                }
+               
+            }
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;

@@ -151,10 +151,21 @@
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
       this.ResumeLayout(false);
 
-    }
+        }
 
-    #endregion
 
+        /* Experience Bar
+         this.lblPlayerExperienceFull.BackColor = System.Drawing.Color.Blue;
+          this.lblPlayerExperienceFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.lblPlayerExperienceFull.ForeColor = System.Drawing.Color.White;
+             this.lblPlayerExperienceFull.Location = new System.Drawing.Point(71, 40);
+            this.lblPlayerExperienceFull.Name = "PlayerExperienceFull";
+           this.lblPlayerExperienceFull.Size = new System.Drawing.Size(226, 20);
+          this.lblPlayerExperienceFull.TabIndex = 3;
+        */
+     
+            
+        #endregion
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
@@ -164,5 +175,6 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
+    // private System.Windows.Forms.Label lblPlayerExperienceFull;
   }
 }
