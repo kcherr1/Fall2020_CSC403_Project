@@ -1,6 +1,8 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -14,6 +16,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmPause frmPause; 
 
     public FrmLevel() {
       InitializeComponent();
@@ -131,6 +134,11 @@ namespace Fall2020_CSC403_Project {
 
         case Keys.Down:
           player.GoDown();
+          break;
+
+        case Keys.Escape:
+          frmPause = FrmPause.GetInstance();
+          frmPause.ShowDialog();
           break;
 
         default:
