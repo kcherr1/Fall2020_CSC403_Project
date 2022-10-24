@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
+    public static FrmLevel instance = null;
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -19,7 +20,22 @@ namespace Fall2020_CSC403_Project {
       InitializeComponent();
     }
 
-    private void FrmLevel_Load(object sender, EventArgs e) {
+    public static FrmLevel GetInstance(int flag)
+    {
+        if (flag == 1)
+        {
+            instance = null;
+        }
+        else
+        {
+            if (instance == null)
+            {
+                instance = new FrmLevel();
+            }
+        }
+        return instance;
+    }
+        private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
@@ -37,6 +53,7 @@ namespace Fall2020_CSC403_Project {
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
       walls = new Character[NUM_WALLS];
+
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
