@@ -70,7 +70,14 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (player.Health <= 0) {
+        // TODO: show game over screen
+        instance = null;
+        Close();
+      }
+      else if (enemy.Health <= 0) {
+        // TODO: add experience
+        player.AlterExperience(50);
         instance = null;
         Close();
       }

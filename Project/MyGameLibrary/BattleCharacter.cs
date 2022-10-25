@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project.code {
 	public int MaxHealth { get; private set; }
 	private float strength;
 	private int experience;
+	private int level;
 
 	public event Action<int> AttackEvent;
 
@@ -19,6 +20,7 @@ namespace Fall2020_CSC403_Project.code {
 	  MaxHealth = 20;
 	  strength = 2;
 	  experience = 0;
+		level = 1;
 	  Health = MaxHealth;
 	}
 
@@ -28,6 +30,21 @@ namespace Fall2020_CSC403_Project.code {
 
     public void AlterHealth(int amount) {
       Health += amount;
+    }
+
+	public void AlterExperience(int amount) {
+			experience += amount;
+			if (experience >= 100) {
+				LevelUp();
+			}
+	}
+
+	public void LevelUp() {
+      MaxHealth += 10;
+      Health = MaxHealth;
+      strength += 1;
+      level += 1;
+      experience -= 100;
     }
 
     // Function set dead character's health to 0
