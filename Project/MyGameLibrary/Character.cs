@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyGameLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,13 @@ namespace Fall2020_CSC403_Project.code {
     }
 
     public void Move() {
-      LastPosition = Position;
-      Position = new Vector2(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
-      Collider.MovePosition((int)Position.x, (int)Position.y);
+            LastPosition = Position;
+            // Calculate magintude of move speed
+            float magnitude = (float)Math.Sqrt(Math.Pow(MoveSpeed.x, 2) + Math.Pow(MoveSpeed.y, 2));
+            StatisticsModel.DistanceTraveled += magnitude;
+            
+            Position = new Vector2(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
+            Collider.MovePosition((int)Position.x, (int)Position.y);
     }
 
     public void MoveBack() {

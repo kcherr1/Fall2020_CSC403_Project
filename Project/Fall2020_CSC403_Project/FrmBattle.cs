@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
+using MyGameLibrary.Models;
 using System;
 using System.Drawing;
 using System.Media;
@@ -77,16 +78,29 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void EnemyDamage(int amount) {
-      enemy.AlterHealth(amount);
-    }
+
+            enemy.AlterHealth(amount);
+            amount = amount * -1;
+            StatisticsModel.DamageDone += (uint)amount;
+        }
 
     private void PlayerDamage(int amount) {
-      player.AlterHealth(amount);
-    }
+            
+
+            player.AlterHealth(amount);
+            amount = amount * -1;
+
+            StatisticsModel.DamageTaken += (uint)amount;
+        }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
