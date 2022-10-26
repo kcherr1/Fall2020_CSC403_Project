@@ -8,6 +8,7 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
+    private FrmDeath death_window;
     private Enemy enemy;
     private Player player;
 
@@ -70,10 +71,15 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (player.Health <= 0) {
         instance = null;
+        death_window = FrmDeath.GetInstance();
         Close();
         // open death sequence window here**
+      }
+      if (enemy.Health <= 0){
+        instance = null;
+        Close();
       }
     }
 
