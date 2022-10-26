@@ -2,9 +2,11 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
+    private Pausemenu psMenu =  Pausemenu.getInstance();
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -134,10 +136,14 @@ namespace Fall2020_CSC403_Project {
           break;
 
         case Keys.Down:
-          player.GoDown();
-          break;
+                    player.GoDown();
+                    break;
+        case Keys.Escape:
+                    psMenu.Show();
+                    break;
 
-        default:
+
+                default:
           player.ResetMoveSpeed();
           break;
       }

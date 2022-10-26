@@ -78,7 +78,7 @@ namespace Fall2020_CSC403_Project {
                 else
                 {
                     player.RewardExperience(100);
-                        if (player.Experience >= 100);
+                        if (player.Experience >= 100)
                         {
                             player.RewardExperience(-100);
                             player.LevelUp();
@@ -95,7 +95,7 @@ namespace Fall2020_CSC403_Project {
                     if (enemy.Health <= 0)
                     {
                         player.RewardExperience(100);
-                        if (player.Experience >= 100);
+                        if (player.Experience >= 100)
                         {
                             player.RewardExperience(-100);
                             player.LevelUp();
