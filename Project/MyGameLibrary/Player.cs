@@ -17,20 +17,20 @@ namespace Fall2020_CSC403_Project.code {
                 strength = 2.1f;
                 Health = 15;
                 MaxHealth = 15;
-                img = Image.FromFile("player.png");
+                img = Image.FromFile(@"..\..\data\player.png");
             }
             else if(selection == "mrs")
             {
                 character = "mrs";
                 GO_INC = 4;
                 strength = 1.5f;
-                img = Image.FromFile("Mrs.png");
+                img = Image.FromFile(@"..\..\data\Mrs.png");
             }
             else
             {
                 character = "baby";
                 GO_INC = 2;
-                img = Image.FromFile("baby.png");
+                img = Image.FromFile(@"..\..\data\baby.png");
             }
     }
   }

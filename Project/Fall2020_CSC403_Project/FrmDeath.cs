@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fall2020_CSC403_Project.code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,16 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmDeath : Form
     {
+        private Player player;
         public FrmDeath()
         {
             InitializeComponent();
+            player = Game.player;
         }
 
         private void Death_Screen_Load(object sender, EventArgs e)
         {
-
+            picPlayer.BackgroundImage = player.img;
         }
 
         private void menuBtn_Click(object sender, EventArgs e)

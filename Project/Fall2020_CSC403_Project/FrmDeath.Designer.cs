@@ -32,10 +32,10 @@ namespace Fall2020_CSC403_Project
         {
             this.menuBtn = new System.Windows.Forms.Button();
             this.quitBtn = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.picPlayer = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -64,15 +64,15 @@ namespace Fall2020_CSC403_Project
             this.quitBtn.UseVisualStyleBackColor = false;
             this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
             // 
-            // pictureBox3
+            // picPlayer
             // 
-            this.pictureBox3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.rip;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(181, 162);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(310, 222);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
+            this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.rip;
+            this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picPlayer.Location = new System.Drawing.Point(181, 162);
+            this.picPlayer.Name = "picPlayer";
+            this.picPlayer.Size = new System.Drawing.Size(310, 222);
+            this.picPlayer.TabIndex = 5;
+            this.picPlayer.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -101,7 +101,7 @@ namespace Fall2020_CSC403_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
             this.ClientSize = new System.Drawing.Size(1176, 726);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.quitBtn);
@@ -109,7 +109,7 @@ namespace Fall2020_CSC403_Project
             this.Name = "FrmDeath";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Death_Screen_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -122,6 +122,6 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Button quitBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private PictureBox pictureBox3;
+        private PictureBox picPlayer;
     }
 }
