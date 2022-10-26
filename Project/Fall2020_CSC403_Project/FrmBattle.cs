@@ -69,11 +69,24 @@ namespace Fall2020_CSC403_Project {
         enemy.OnAttack(-2);
       }
 
+
+
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
         Close();
       }
+    }
+
+    // Retreat button
+    private void btnRetreat_Click(object sender, EventArgs e)
+    {
+        if (player.Health > 0 && enemy.Health > 0)
+        {
+            UpdateHealthBars();
+            instance = null;
+            Close();
+        }
     }
 
     private void EnemyDamage(int amount) {
