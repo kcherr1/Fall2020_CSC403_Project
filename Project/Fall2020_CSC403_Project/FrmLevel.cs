@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private bool playerIsDead;
 
     public FrmLevel() {
       InitializeComponent();
@@ -22,6 +23,7 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
+      playerIsDead = false;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -41,7 +43,6 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
-
       Game.player = player;
       timeBegin = DateTime.Now;
     }
@@ -63,6 +64,9 @@ namespace Fall2020_CSC403_Project {
       TimeSpan span = DateTime.Now - timeBegin;
       string time = span.ToString(@"hh\:mm\:ss");
       lblInGameTime.Text = "Time: " + time.ToString();
+      if(player.Health <= 0 && !playerIsDead) {
+        KillPlayer();
+      }
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
@@ -142,5 +146,33 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+        public void KillPlayer()
+        {
+            playerIsDead = true;
+            MakePlayerDisappear();
+            PromptUserToRestart();
+        }
+
+        //makes the player disappear when they die
+        public void MakePlayerDisappear()
+        {
+            picPlayer.Visible = false;
+            picPlayer.Refresh();
+        }
+
+        //prompts the user to restart the game
+        public void PromptUserToRestart()
+        {
+            bool restart = MessageBox.Show("Restart?", "", MessageBoxButtons.YesNo) == DialogResult.Yes;
+            if (restart)
+            {
+                Application.Restart();
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+    }
 }
