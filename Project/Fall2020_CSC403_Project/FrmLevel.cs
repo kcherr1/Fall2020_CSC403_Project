@@ -65,6 +65,18 @@ namespace Fall2020_CSC403_Project {
       lblInGameTime.Text = "Time: " + time.ToString();
     }
 
+    private void tmrUpdateEnemyPic_Tick(object sender, EventArgs e){
+            if (enemyPoisonPacket.Health <= 0){
+                picEnemyPoisonPacket.Hide();
+            }
+            if (bossKoolaid.Health <= 0){
+                picBossKoolAid.Hide();
+            }
+            if (enemyCheeto.Health <= 0){
+                picEnemyCheeto.Hide();
+            }
+        }
+
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
       player.Move();
@@ -138,9 +150,5 @@ namespace Fall2020_CSC403_Project {
           break;
       }
     }
-
-    private void lblInGameTime_Click(object sender, EventArgs e) {
-
     }
-  }
 }

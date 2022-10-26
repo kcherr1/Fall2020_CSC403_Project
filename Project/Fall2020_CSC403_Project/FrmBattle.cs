@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using static Fall2020_CSC403_Project.FrmLevel;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
@@ -70,9 +71,14 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (player.Health <= 0) {
         instance = null;
         Close();
+      }
+      if (enemy.Health <= 0){
+        instance = null;
+        Close();
+        enemy.Collider.DeleteCollider();
       }
     }
 
@@ -88,5 +94,5 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+    }
 }
