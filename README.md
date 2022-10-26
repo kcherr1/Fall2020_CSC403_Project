@@ -23,7 +23,8 @@ Below, There is a list of all of the sounds and music that were added, their pur
 #### pause_sound.wav
 - Obtained from the internet for when the user clicks the Escape key to pull up the pause menu (originally from Mario 64) (not looped).
 
-#### oof_sound.waw
+#### oof_sound.mp3
 - Obtained from the internet for when the user is hit (not looped) (this sound can be found in many different games).
 
-#### (other sounds to be added here)
+#### attack_sound1.wav & attack_sound2.wav
+- Obtained from the internet for when the player attacks. (originally from Zelda: Ocarina of Time young Link attack sounds) (not looped)
