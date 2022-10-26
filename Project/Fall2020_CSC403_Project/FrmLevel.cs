@@ -1,6 +1,8 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.Media;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +16,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Character[] walls;
 
-    private DateTime timeBegin;
+    private bool isPaused;
+    private Stopwatch timer;
     private FrmBattle frmBattle;
     private FrmPause frmPause; 
 
@@ -46,7 +49,8 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
-      timeBegin = DateTime.Now;
+      isPaused = false;
+      timer = new Stopwatch();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -62,10 +66,15 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
     }
 
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
+    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) { 
+        timer.Start();
+
+        if (isPaused)
+           timer.Stop();
+
+        TimeSpan span = timer.Elapsed;
+        string time = span.ToString(@"hh\:mm\:ss");
+        lblInGameTime.Text = "Time: " + time.ToString();
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
@@ -137,8 +146,10 @@ namespace Fall2020_CSC403_Project {
           break;
 
         case Keys.Escape:
+          isPaused = true;
           frmPause = FrmPause.GetInstance();
           frmPause.ShowDialog();
+          isPaused = false;
           break;
 
         default:
@@ -148,7 +159,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
-
+        
     }
   }
 }

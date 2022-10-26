@@ -29,26 +29,59 @@
         private void InitializeComponent()
         {
             this.resumeButton = new System.Windows.Forms.Button();
+            this.startOverButton = new System.Windows.Forms.Button();
+            this.quitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // resumeButton
             // 
-            this.resumeButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.resumeButton.Font = new System.Drawing.Font("Ravie", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resumeButton.Location = new System.Drawing.Point(225, 63);
-            this.resumeButton.Name = "button1";
-            this.resumeButton.Size = new System.Drawing.Size(336, 98);
+            this.resumeButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.resumeButton.Font = new System.Drawing.Font("Ravie", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resumeButton.Location = new System.Drawing.Point(238, 73);
+            this.resumeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.resumeButton.Name = "resumeButton";
+            this.resumeButton.Size = new System.Drawing.Size(687, 151);
             this.resumeButton.TabIndex = 0;
             this.resumeButton.Text = "RESUME";
             this.resumeButton.UseVisualStyleBackColor = false;
             this.resumeButton.Click += new System.EventHandler(this.resumeButton_Click);
             // 
+            // startOverButton
+            // 
+            this.startOverButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.startOverButton.Font = new System.Drawing.Font("Ravie", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startOverButton.Location = new System.Drawing.Point(238, 250);
+            this.startOverButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.startOverButton.Name = "startOverButton";
+            this.startOverButton.Size = new System.Drawing.Size(687, 151);
+            this.startOverButton.TabIndex = 1;
+            this.startOverButton.Text = "START OVER";
+            this.startOverButton.UseVisualStyleBackColor = false;
+            this.startOverButton.Click += new System.EventHandler(this.startOverButton_Click);
+            // 
+            // quitButton
+            // 
+            this.quitButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.quitButton.Font = new System.Drawing.Font("Ravie", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitButton.Location = new System.Drawing.Point(238, 424);
+            this.quitButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Size = new System.Drawing.Size(687, 151);
+            this.quitButton.TabIndex = 2;
+            this.quitButton.Text = "QUIT";
+            this.quitButton.UseVisualStyleBackColor = false;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
+            // 
             // FrmPause
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.pauseMenuBackground;
+            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.quitButton);
+            this.Controls.Add(this.startOverButton);
             this.Controls.Add(this.resumeButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmPause";
             this.Text = "Pause Menu";
             this.ResumeLayout(false);
@@ -58,5 +91,7 @@
         #endregion
 
         private System.Windows.Forms.Button resumeButton;
+        private System.Windows.Forms.Button startOverButton;
+        private System.Windows.Forms.Button quitButton;
     }
 }
