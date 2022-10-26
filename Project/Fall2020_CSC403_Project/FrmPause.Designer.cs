@@ -50,8 +50,7 @@
             // 
             this.startOverButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.startOverButton.Font = new System.Drawing.Font("Ravie", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startOverButton.Location = new System.Drawing.Point(238, 250);
-            this.startOverButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.startOverButton.Location = new System.Drawing.Point(238, 245);
             this.startOverButton.Name = "startOverButton";
             this.startOverButton.Size = new System.Drawing.Size(687, 151);
             this.startOverButton.TabIndex = 1;
@@ -63,14 +62,12 @@
             // 
             this.quitButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.quitButton.Font = new System.Drawing.Font("Ravie", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitButton.Location = new System.Drawing.Point(238, 424);
-            this.quitButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.quitButton.Location = new System.Drawing.Point(238, 416);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(687, 151);
             this.quitButton.TabIndex = 2;
             this.quitButton.Text = "QUIT";
             this.quitButton.UseVisualStyleBackColor = false;
-            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
             // FrmPause
             // 

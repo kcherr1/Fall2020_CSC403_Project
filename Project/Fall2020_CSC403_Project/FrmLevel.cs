@@ -51,7 +51,8 @@ namespace Fall2020_CSC403_Project {
       Game.player = player;
       isPaused = false;
       timer = new Stopwatch();
-    }
+      timer.Start();
+        }
 
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
@@ -67,10 +68,10 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) { 
-        timer.Start();
-
         if (isPaused)
            timer.Stop();
+        else
+            timer.Start();
 
         TimeSpan span = timer.Elapsed;
         string time = span.ToString(@"hh\:mm\:ss");

@@ -132,7 +132,6 @@
   <ItemGroup>
     <Content Include="data\pauseMenuBackground.jpg" />
     <None Include="Resources\pauseMenuBackground.jpg" />
-    <None Include="Resources\Image1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

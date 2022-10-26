@@ -24,14 +24,27 @@ namespace Fall2020_CSC403_Project
 
         public static FrmPause GetInstance()
         {
-            instance = new FrmPause();
+            if (instance == null)
+                instance = new FrmPause();
+
             return instance;
         }
 
 
         private void resumeButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
+        }
+
+        private void startOverButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+            Environment.Exit(0);
+        }
+
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
