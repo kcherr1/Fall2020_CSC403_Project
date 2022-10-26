@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 namespace Fall2020_CSC403_Project.code {
   public class Collider {
     private Rectangle rect;
+    private Boolean canBeCollidedWith;
 
-    public Collider(Rectangle rect) {
+    public Collider(Rectangle rect, Boolean canBeCollidedWith) {
+      this.canBeCollidedWith = canBeCollidedWith;
       this.rect = rect;
     }
 
@@ -18,8 +20,15 @@ namespace Fall2020_CSC403_Project.code {
       rect.Y = y;
     }
 
+    public void EnableCollider() {
+      this.canBeCollidedWith = true;
+    }
+    public void DisableCollider() {
+      this.canBeCollidedWith = false;
+    }
+
     public bool Intersects(Collider c) {
-      return rect.IntersectsWith(c.rect);
+      return canBeCollidedWith && rect.IntersectsWith(c.rect);
     }
   }
 }
