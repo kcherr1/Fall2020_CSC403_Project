@@ -51,7 +51,8 @@
             this.new_game_btn.Size = new System.Drawing.Size(309, 112);
             this.new_game_btn.TabIndex = 0;
             this.new_game_btn.TabStop = false;
-            this.new_game_btn.Click += new System.EventHandler(this.new_game_btn_Click);
+            StartMenu startMenu = this;
+            //this.new_game_btn.Click += new System.EventHandler(this.new_game_btn_Click);
             this.new_game_btn.MouseHover += new System.EventHandler(this.new_game_btn_MouseHover);
             // 
             // StartMenu
