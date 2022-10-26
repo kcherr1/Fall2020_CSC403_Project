@@ -21,6 +21,7 @@ namespace Fall2020_CSC403_Project
         private void selectMr_Click(object sender, EventArgs e)
         {
             theGame = FrmLevel.GetInstance(0);
+            theGame.character = "mr";
             theGame.Show();
             this.Hide();
         }
@@ -28,6 +29,7 @@ namespace Fall2020_CSC403_Project
         private void selectMs_Click(object sender, EventArgs e)
         {
             theGame = FrmLevel.GetInstance(0);
+            theGame.character = "mrs";
             theGame.Show();
             this.Hide();
         }
@@ -35,6 +37,7 @@ namespace Fall2020_CSC403_Project
         private void selectBaby_Click(object sender, EventArgs e)
         {
             theGame = FrmLevel.GetInstance(0);
+            theGame.character = "baby";
             theGame.Show();
             this.Hide();
         }
