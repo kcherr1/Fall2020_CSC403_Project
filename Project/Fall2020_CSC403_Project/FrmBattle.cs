@@ -26,6 +26,8 @@ namespace Fall2020_CSC403_Project {
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
 
+     picPlayer.BackgroundImage = player.img;
+
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
