@@ -25,12 +25,10 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void new_game_btn_Click(object sender, System.EventArgs e, StartMenu startMenu)
+        private void new_game_btn_Click(object sender, System.EventArgs e)
         {
             frmLevel = new FrmLevel();
-
-            startMenu.Visible = false;
-
+            this.Hide();
             frmLevel.Show();
         }
 

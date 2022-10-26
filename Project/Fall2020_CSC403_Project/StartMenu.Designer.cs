@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartMenu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.new_game_btn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -45,14 +44,13 @@
             // 
             // new_game_btn
             // 
-            this.new_game_btn.Image = ((System.Drawing.Image)(resources.GetObject("new_game_btn.Image")));
-            this.new_game_btn.Location = new System.Drawing.Point(303, 212);
+            this.new_game_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.new_game;
+            this.new_game_btn.Location = new System.Drawing.Point(246, 163);
             this.new_game_btn.Name = "new_game_btn";
-            this.new_game_btn.Size = new System.Drawing.Size(309, 112);
+            this.new_game_btn.Size = new System.Drawing.Size(509, 170);
             this.new_game_btn.TabIndex = 0;
             this.new_game_btn.TabStop = false;
-            StartMenu startMenu = this;
-            //this.new_game_btn.Click += new System.EventHandler(this.new_game_btn_Click);
+            this.new_game_btn.Click += new System.EventHandler(this.new_game_btn_Click);
             this.new_game_btn.MouseHover += new System.EventHandler(this.new_game_btn_MouseHover);
             // 
             // StartMenu
