@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project.code {
       return new Vector2(VectorA.x + VectorB.x, VectorA.y + VectorB.y);
     }
 
-    public void Normalize() {
+    public void NormalizeSquare() {
       float MaxValue = Math.Abs(Math.Max(this.x, this.y));
       if (MaxValue > 0f) {
         this.x /= MaxValue;

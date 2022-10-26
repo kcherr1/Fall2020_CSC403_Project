@@ -154,7 +154,7 @@ namespace Fall2020_CSC403_Project {
 
       // Normalize MovementDirection so that the maximum absolute value
       // of either direction is 1
-      MovementDirection.Normalize();
+      MovementDirection.NormalizeSquare();
 
       if (MovementDirection.IsZero())
         player.ResetMoveSpeed();
