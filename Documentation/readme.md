@@ -71,7 +71,7 @@
   Process: To implement the start menu, I started with adding a new form called FrmMenuScreen. 
 <img width="610" alt="image" src="https://user-images.githubusercontent.com/80478785/198042244-2c00f35b-d557-4138-8933-37ec70ec4496.png">
 
-The form was designed by tweaking the attributes in the properties menu. The size was changed, background image was added, title text, and two buttons. Each button calls a method upon click. The start game button is linked to the LoadGame function, and the help button is linked to the LoadHelpMenu function shown below.
+The form was designed by tweaking the attributes in the properties menu. The size was changed, background image was added, title text, and two buttons. Each button calls a method upon click that creates a new form and displays it. The start game button is linked to the LoadGame function, and the help button is linked to the LoadHelpMenu function shown below. In the program.cs file I changed the project to display the start menu first upon running.
 
 <pre><code>
  public partial class FrmMenuScreen : Form
