@@ -77,8 +77,7 @@ namespace Fall2020_CSC403_Project {
         Close();
       }
       else if (enemy.Health <= 0) {
-        // TODO: add experience
-        player.AlterExperience(50);
+        player.AlterExperience(enemy.Type);
         instance = null;
         Close();
       }

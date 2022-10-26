@@ -28,15 +28,27 @@ namespace Fall2020_CSC403_Project.code {
 	  AttackEvent((int)(amount * strength));
 	}
 
-    public void AlterHealth(int amount) {
-      Health += amount;
-    }
+  public void AlterHealth(int amount) {
+    Health += amount;
+  }
 
-	public void AlterExperience(int amount) {
-			experience += amount;
-			if (experience >= 100) {
-				LevelUp();
-			}
+	public void AlterExperience(string enemyType) {
+		switch (enemyType) {
+			case "regular":
+				experience += 50;
+				break;
+
+			case "boss":
+				experience += 100;
+				break;
+
+			default:
+				throw new ArgumentException("enemyType is either null of invalid");
+		}		
+
+		if (experience >= 100) {
+			LevelUp();
+		}
 	}
 
 	public void LevelUp() {
@@ -47,10 +59,10 @@ namespace Fall2020_CSC403_Project.code {
       experience -= 100;
     }
 
-    // Function set dead character's health to 0
-    public void Die()
-    {
-        Health = 0;
-    }
-   }
+  // Function set dead character's health to 0
+  public void Die()
+  {
+      Health = 0;
+  }
+  }
 }

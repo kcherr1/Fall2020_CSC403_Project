@@ -47,6 +47,10 @@ namespace Fall2020_CSC403_Project {
 	  enemyPoisonPacket.Color = Color.Green;
 	  enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
+		bossKoolaid.Type = "boss";
+		enemyPoisonPacket.Type = "regular";
+		enemyCheeto.Type = "regular";
+
 	  walls = new Character[NUM_WALLS];
 	  for (int w = 0; w < NUM_WALLS; w++) {
 		PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
@@ -156,8 +160,9 @@ namespace Fall2020_CSC403_Project {
 	  player.MoveBack();
 	  frmBattle = FrmBattle.GetInstance(enemy);
 	  frmBattle.Show();
+			Console.WriteLine(enemy);
 
-	  if (enemy == bossKoolaid) {
+      if (enemy == bossKoolaid) {
 		frmBattle.SetupForBossBattle();
 	  }
 	}
