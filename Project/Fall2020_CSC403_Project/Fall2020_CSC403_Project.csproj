@@ -142,5 +142,17 @@
   <ItemGroup>
     <None Include="data\Game Title.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\mainMenuMusic.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\FinalBattleTheme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\NonBossTheme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\hurtSFX.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

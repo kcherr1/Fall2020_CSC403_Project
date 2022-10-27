@@ -21,11 +21,19 @@ namespace Fall2020_CSC403_Project
 
 
 
+        //go back
         private void startButton_Click(object sender, EventArgs e)
         {
-            MainMenu menu = new MainMenu();
-            menu.Show();
+            //MainMenu menu = new MainMenu();
+            Menu.Show();
             Close();
+        }
+
+        //maximize window
+        public void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

@@ -40,6 +40,7 @@ namespace Fall2020_CSC403_Project
             startButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             startButton.AutoSize = true;
             startButton.BackColor = System.Drawing.Color.Gold;
+            startButton.Cursor = System.Windows.Forms.Cursors.Hand;
             startButton.Font = new System.Drawing.Font("Segoe UI Black", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             startButton.Location = new System.Drawing.Point(739, 611);
             startButton.Name = "startButton";
@@ -54,6 +55,7 @@ namespace Fall2020_CSC403_Project
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.AutoSize = true;
             this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("Segoe UI Black", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Gold;
             this.button2.Location = new System.Drawing.Point(258, 611);
@@ -69,6 +71,7 @@ namespace Fall2020_CSC403_Project
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button3.AutoSize = true;
             this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("Segoe UI Black", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Gold;
             this.button3.Location = new System.Drawing.Point(1216, 611);

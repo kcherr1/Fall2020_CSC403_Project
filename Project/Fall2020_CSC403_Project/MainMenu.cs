@@ -14,21 +14,27 @@ namespace Fall2020_CSC403_Project
 {
     public partial class MainMenu : Form
     {
+        SoundPlayer menuMusic = new SoundPlayer(Resources.main_menu);
+
         public MainMenu()
         {
             InitializeComponent();
 
             //play Music
-            SoundPlayer menuMusic = new SoundPlayer(Resources.final_battle);
-            menuMusic.Play();
+            menuMusic.PlayLooping();
+
         }
 
         //Start
         private void button1_Click(object sender, EventArgs e)
         {
             FrmLevel newGame = new FrmLevel();
+            
             newGame.Show();
-            Hide();
+            
+            menuMusic.Stop();
+
+            Hide(); //can't Close(), will shut down entire application
         }
 
         //Quit
@@ -38,15 +44,17 @@ namespace Fall2020_CSC403_Project
         }
 
         //Settings
-        private void button2_Click(object sender, EventArgs e) 
+        public void button2_Click(object sender, EventArgs e) 
         {
-            Settings settings = new Settings();
+            Settings changeSettings = new Settings();
 
-            settings.Menu = this;
+            changeSettings.Menu = this;
 
-            settings.Show();
+            changeSettings.Show();
             
             Hide();
+
         }
+
     }
 }
