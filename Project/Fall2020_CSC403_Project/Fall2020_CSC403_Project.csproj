@@ -52,6 +52,12 @@
     <Compile Include="FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDialogue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDialogue.Designer.cs">
+      <DependentUpon>FrmDialogue.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHelpScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDialogue.resx">
+      <DependentUpon>FrmDialogue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHelpScreen.resx">
       <DependentUpon>FrmHelpScreen.cs</DependentUpon>

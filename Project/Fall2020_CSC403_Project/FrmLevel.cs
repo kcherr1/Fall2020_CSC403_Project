@@ -14,8 +14,11 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+        private FrmDialogue player_frmDialogue;
+        private FrmDialogue enemy_frmDialogue;
 
-    public FrmLevel() {
+
+        public FrmLevel() {
       InitializeComponent();
     }
 
@@ -76,13 +79,13 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+        Talk(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
+        Talk(enemyCheeto);
       }
       if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+        Talk(bossKoolaid);
       }
 
       // update player's picture box
@@ -114,6 +117,17 @@ namespace Fall2020_CSC403_Project {
         frmBattle.SetupForBossBattle();
       }
     }
+
+    private void Talk(Enemy enemy)
+    {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            enemy_frmDialogue = FrmDialogue.GetInstance(enemy);
+            player_frmDialogue = FrmDialogue.GetInstance(player);
+            enemy_frmDialogue.Show();
+
+            player_frmDialogue.Show();
+        }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
