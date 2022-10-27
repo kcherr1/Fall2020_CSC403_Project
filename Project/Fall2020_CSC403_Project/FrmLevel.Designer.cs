@@ -135,7 +135,7 @@
       // picPlayer
       // 
       this.picPlayer.BackColor = System.Drawing.Color.Transparent;
-      this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+      this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.MrPeanut;
       this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.picPlayer.Location = new System.Drawing.Point(119, 510);
       this.picPlayer.Name = "picPlayer";
@@ -330,8 +330,6 @@
     }
 
     #endregion
-
-    private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picBossKoolAid;
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
@@ -351,6 +349,7 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
+    public System.Windows.Forms.PictureBox picPlayer;
   }
 }
 

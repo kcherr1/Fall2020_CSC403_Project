@@ -63,16 +63,6 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _224_2242510_transparent_pillsbury_doughboy_png_png_download_removebg_preview__1_ {
-            get {
-                object obj = ResourceManager.GetObject("224-2242510_transparent-pillsbury-doughboy-png-png-download-removebg-preview (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap battle_screen {
             get {
                 object obj = ResourceManager.GetObject("battle_screen", resourceCulture);
@@ -83,9 +73,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap download_removebg_preview__1_ {
+        internal static System.Drawing.Bitmap Doughboy {
             get {
-                object obj = ResourceManager.GetObject("download-removebg-preview (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("Doughboy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -132,9 +122,19 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player {
+        internal static System.Drawing.Bitmap Martin {
             get {
-                object obj = ResourceManager.GetObject("player", resourceCulture);
+                object obj = ResourceManager.GetObject("Martin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MrPeanut {
+            get {
+                object obj = ResourceManager.GetObject("MrPeanut", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
