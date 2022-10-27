@@ -73,7 +73,14 @@ namespace Fall2020_CSC403_Project {
 	  return new Collider(rect);
 	}
 
+	// now this function also tells the "moving" character to stop moving
 	private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
+	  if(player.face_direction == "front")
+		picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.still_front;
+	  else
+		picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.still_back;
+
+	  player.move_direction = "still";
 	  player.ResetMoveSpeed();
 	}
 
@@ -167,21 +174,46 @@ namespace Fall2020_CSC403_Project {
 	  }
 	}
 
+	// now this function also controls what is shown in the player picturebox (animation)
 	private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
 	  switch (e.KeyCode) {
 		case Keys.Left:
+		  if (player.move_direction != "left" ){
+			player.move_direction = "left";
+			if (player.face_direction == "front")
+				picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.side_front;
+			else
+				picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.side_back;
+		  }
 		  player.GoLeft();
 		  break;
 
 		case Keys.Right:
+		  if (player.move_direction != "right" ){
+			player.move_direction = "right";
+			if (player.face_direction == "front")
+				picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.side_front;
+			else
+				picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.side_back;
+		  }
 		  player.GoRight();
 		  break;
 
 		case Keys.Up:
+		  if (player.move_direction != "backward" ){
+			player.move_direction = "backward";
+			player.face_direction = "back";
+			picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.walk_back;
+		  }
 		  player.GoUp();
 		  break;
 
 		case Keys.Down:
+		  if (player.move_direction != "forward" ){
+			player.move_direction = "forward";
+			player.face_direction = "front";
+			picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.walk_front;
+		  }
 		  player.GoDown();
 		  break;
 
@@ -233,5 +265,10 @@ namespace Fall2020_CSC403_Project {
 	{
 			enemy.Move();
 	}
+
+		private void picPlayer_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
