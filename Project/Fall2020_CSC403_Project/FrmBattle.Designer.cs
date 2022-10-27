@@ -26,6 +26,8 @@
       this.components = new System.ComponentModel.Container();
       this.btnAttack = new System.Windows.Forms.Button();
       this.btnRetreat = new System.Windows.Forms.Button();
+      this.btnCounter = new System.Windows.Forms.Button();
+      this.btnFinisher = new System.Windows.Forms.Button();
       this.lblPlayerHealthFull = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
@@ -60,7 +62,29 @@
       this.btnRetreat.Text = "Retreat";
       this.btnRetreat.UseVisualStyleBackColor = true;
       this.btnRetreat.Click += new System.EventHandler(this.btnRetreat_Click);
-      // 
+      //
+      // btnCounter
+      //
+      this.btnCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnCounter.Location = new System.Drawing.Point(389, 422);
+      this.btnCounter.Name = "btnCounter";
+      this.btnCounter.Size = new System.Drawing.Size(128, 43);
+      this.btnCounter.TabIndex = 9;
+      this.btnCounter.Text = "Counter";
+      this.btnCounter.UseVisualStyleBackColor = true;
+      this.btnCounter.Click += new System.EventHandler(this.btnCounter_Click);
+      //
+      // btnFinisher
+      //
+      this.btnFinisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnFinisher.Location = new System.Drawing.Point(520, 422);
+      this.btnFinisher.Name = "btnFinisher";
+      this.btnFinisher.Size = new System.Drawing.Size(128, 43);
+      this.btnFinisher.TabIndex = 10;
+      this.btnFinisher.Text = "Finisher";
+      this.btnFinisher.UseVisualStyleBackColor = true;
+      this.btnFinisher.Click += new System.EventHandler(this.btnFinisher_Click);
+      //
       // lblPlayerHealthFull
       // 
       this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
@@ -153,6 +177,8 @@
       this.Controls.Add(this.label1);
       this.Controls.Add(this.btnAttack);
       this.Controls.Add(this.btnRetreat);
+      this.Controls.Add(this.btnCounter);
+      this.Controls.Add(this.btnFinisher);
       this.Controls.Add(this.picEnemy);
       this.Controls.Add(this.picPlayer);
       this.DoubleBuffered = true;
@@ -172,6 +198,8 @@
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Button btnRetreat;
+    private System.Windows.Forms.Button btnCounter;
+    private System.Windows.Forms.Button btnFinisher;
     private System.Windows.Forms.Label lblPlayerHealthFull;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
