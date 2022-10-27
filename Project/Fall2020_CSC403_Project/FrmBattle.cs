@@ -71,10 +71,12 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      player.OnAttack(-2);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        enemy.OnAttack(-1);
       }
+
+
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
@@ -84,6 +86,46 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
+    // Retreat button
+    private void btnRetreat_Click(object sender, EventArgs e)
+    {
+        if (player.Health > 0 && enemy.Health > 0)
+        {
+            UpdateHealthBars();
+            instance = null;
+            Close();
+        }
+    }
+    // Counter button
+    private void btnCounter_Click(object sender, EventArgs e) 
+    {   enemy.OnAttack(-1);
+        if(player.Health > 0)
+        {
+            player.OnAttack(-1);
+        }
+        UpdateHealthBars();
+        if(player.Health <= 0 || enemy.Health <= 0) 
+        { 
+            instance = null;
+            Close();
+        }
+    }
+
+    // Finisher button
+    private void btnFinisher_Click(object sender, EventArgs e)
+    {
+        if(enemy.Health < 10 && player.Health > enemy.Health) 
+        {
+            player.OnAttack(-6);
+        }
+        UpdateHealthBars();
+        if(player.Health <= 0 || enemy.Health <= 0) 
+        { 
+            instance = null;
+            Close();
+        }
+    
+    }
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
