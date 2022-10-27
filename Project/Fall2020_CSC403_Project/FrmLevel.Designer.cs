@@ -139,6 +139,7 @@ namespace Fall2020_CSC403_Project {
             this.picWall2.Size = new System.Drawing.Size(469, 67);
             this.picWall2.TabIndex = 16;
             this.picWall2.TabStop = false;
+            this.picWall2.Click += new System.EventHandler(this.picWall2_Click);
             // 
             // picOffScreenPlayer
             // 
