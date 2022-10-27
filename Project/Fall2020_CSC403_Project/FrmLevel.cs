@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -11,12 +12,13 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
-
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
     public FrmLevel() {
       InitializeComponent();
+      SoundPlayer worldSound = new SoundPlayer("./data/world_music.wav");
+      worldSound.PlayLooping();
     }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
