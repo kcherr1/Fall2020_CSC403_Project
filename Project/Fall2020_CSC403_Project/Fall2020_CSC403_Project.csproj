@@ -150,6 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\menubackground.jpg" />
+    <None Include="data\persuasion.PNG" />
+    <None Include="data\water_cooler.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
