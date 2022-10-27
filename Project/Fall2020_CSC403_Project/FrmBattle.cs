@@ -69,6 +69,8 @@ namespace Fall2020_CSC403_Project {
     private void btnAttack_Click(object sender, EventArgs e)
     {
       player.OnAttack(-4);
+      SoundPlayer attackSound = new SoundPlayer("./data/attack_sound1.wav");
+      attackSound.Play();
       if (enemy.Health > 0)
       {
         enemy.OnAttack(-2);
