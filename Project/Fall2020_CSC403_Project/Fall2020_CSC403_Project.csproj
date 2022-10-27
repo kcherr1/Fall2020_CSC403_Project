@@ -244,6 +244,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mongocrypt.dll" />
+    <None Include="Resources\medkit.png" />
     <None Include="Resources\dead.png" />
     <None Include="Resources\back_walk.gif" />
     <None Include="Resources\back.png" />

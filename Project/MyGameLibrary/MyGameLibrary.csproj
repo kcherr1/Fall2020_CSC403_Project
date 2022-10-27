@@ -146,6 +146,7 @@
   <ItemGroup>
     <Compile Include="BattleCharacter.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="Medkit.cs" />
     <Compile Include="DatabaseHandler.cs" />
     <Compile Include="Collider.cs" />
     <Compile Include="Enemy.cs" />

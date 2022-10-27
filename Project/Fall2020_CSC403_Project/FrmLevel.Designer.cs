@@ -33,6 +33,7 @@ namespace Fall2020_CSC403_Project {
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             this.lblPlayerHealthFullBlack = new System.Windows.Forms.Label();
             this.HPlabel = new System.Windows.Forms.Label();
+            this.medkit0 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picOffScreenPlayer = new System.Windows.Forms.PictureBox();
             this.picOffScreenEnemy = new System.Windows.Forms.PictureBox();
@@ -52,6 +53,8 @@ namespace Fall2020_CSC403_Project {
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+            this.medkit1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.medkit0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOffScreenPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOffScreenEnemy)).BeginInit();
@@ -71,6 +74,7 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medkit1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -128,6 +132,16 @@ namespace Fall2020_CSC403_Project {
             this.HPlabel.TabIndex = 20;
             this.HPlabel.Text = "Player HP";
             this.HPlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // medkit0
+            // 
+            this.medkit0.Image = global::Fall2020_CSC403_Project.Properties.Resources.medkit;
+            this.medkit0.Location = new System.Drawing.Point(533, 98);
+            this.medkit0.Name = "medkit0";
+            this.medkit0.Size = new System.Drawing.Size(53, 68);
+            this.medkit0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.medkit0.TabIndex = 23;
+            this.medkit0.TabStop = false;
             // 
             // picWall2
             // 
@@ -326,14 +340,25 @@ namespace Fall2020_CSC403_Project {
             // 
             // picPlayer
             // 
+            this.picPlayer.BackColor = System.Drawing.Color.Transparent;
             this.picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.still_front;
-            this.picPlayer.Location = new System.Drawing.Point(110, 488);
+            this.picPlayer.Location = new System.Drawing.Point(109, 488);
             this.picPlayer.Name = "picPlayer";
             this.picPlayer.Size = new System.Drawing.Size(85, 104);
             this.picPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             this.picPlayer.Click += new System.EventHandler(this.picPlayer_Click);
+            // 
+            // medkit1
+            // 
+            this.medkit1.Image = global::Fall2020_CSC403_Project.Properties.Resources.medkit;
+            this.medkit1.Location = new System.Drawing.Point(1034, 582);
+            this.medkit1.Name = "medkit1";
+            this.medkit1.Size = new System.Drawing.Size(53, 68);
+            this.medkit1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.medkit1.TabIndex = 24;
+            this.medkit1.TabStop = false;
             // 
             // FrmLevel
             // 
@@ -342,7 +367,9 @@ namespace Fall2020_CSC403_Project {
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(992, 604);
+            this.ClientSize = new System.Drawing.Size(1157, 700);
+            this.Controls.Add(this.medkit1);
+            this.Controls.Add(this.medkit0);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picOffScreenPlayer);
             this.Controls.Add(this.picOffScreenEnemy);
@@ -373,6 +400,7 @@ namespace Fall2020_CSC403_Project {
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.medkit0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOffScreenPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOffScreenEnemy)).EndInit();
@@ -392,6 +420,7 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medkit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,6 +453,8 @@ namespace Fall2020_CSC403_Project {
         private System.Windows.Forms.Label HPlabel;
         private System.Windows.Forms.PictureBox picOffScreenEnemy;
         private System.Windows.Forms.PictureBox picOffScreenPlayer;
+        private PictureBox medkit0;
+        private PictureBox medkit1;
     }
 }
 

@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project {
 	private Enemy bossKoolaid;
 	private Enemy enemyCheeto;
 	private Character[] walls;
+	private Medkit[] medkits;
 
   private DateTime timeBegin;
 	private TimeSpan span;
@@ -22,6 +23,9 @@ namespace Fall2020_CSC403_Project {
 	private Enemy offScreenEnemy; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
 	private Player offScreenPlayer;
 
+	private Medkit offScreenMedkit;
+	private int MEDKIT_VALUE;
+
 	public FrmLevel() {
 	  InitializeComponent();
 	}
@@ -29,6 +33,8 @@ namespace Fall2020_CSC403_Project {
 	private void FrmLevel_Load(object sender, EventArgs e) {
 	  const int PADDING = 7;
 	  const int NUM_WALLS = 13;
+	  const int NUM_MEDKITS = 2;
+	  MEDKIT_VALUE = 5;
 
 	  player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 	  bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -38,6 +44,9 @@ namespace Fall2020_CSC403_Project {
 	  // create instance of for dead enemy and player
 	  offScreenEnemy = new Enemy(CreatePosition(picOffScreenEnemy), CreateCollider(picOffScreenEnemy, 0));
 	  offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
+
+
+	  offScreenMedkit = new Medkit(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0), 0);
 
 	  bossKoolaid.Img = picBossKoolAid.BackgroundImage;
 	  enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -55,6 +64,12 @@ namespace Fall2020_CSC403_Project {
 	  for (int w = 0; w < NUM_WALLS; w++) {
 		PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
 		walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+	  }
+
+	  medkits = new Medkit[NUM_MEDKITS];
+	  for (int m = 0; m < NUM_MEDKITS; m++) {
+		PictureBox pic = Controls.Find("medkit" + m.ToString(), true)[0] as PictureBox;
+		medkits[m] = new Medkit(CreatePosition(pic), CreateCollider(pic, PADDING), MEDKIT_VALUE);
 	  }
 
 	  Game.player = player;
@@ -108,6 +123,11 @@ namespace Fall2020_CSC403_Project {
 				player.MoveBack();
 			}
 
+			if (HitAMedkit(player)) 
+			{ 
+				PlayerHealthBar();
+			}
+
 			// check collision with enemies
 			if (HitAChar(player, enemyPoisonPacket))
 			{
@@ -155,6 +175,31 @@ namespace Fall2020_CSC403_Project {
 		  break;
 		}
 	  }
+	  return hitAWall;
+	}
+
+	private bool HitAMedkit(Character c) {
+	  bool hitAWall = false;
+	  for (int m = 0; m < medkits.Length; m++) {
+		if (c.Collider.Intersects(medkits[m].Collider)) {
+		  if (((player.Health + medkits[m].health_value) <= player.MaxHealth) && (player.Health < player.MaxHealth)) {
+			  Console.WriteLine("player is being healed");
+			  player.Health += medkits[m].health_value;
+			  PictureBox ppp = Controls.Find("medkit" + m.ToString(), true)[0] as PictureBox;
+			  ppp.Hide();
+			  medkits[m].health_value = 0;
+			  medkits[m] = offScreenMedkit;
+
+              hitAWall = true;
+		  }
+		  else { 
+			  Console.WriteLine("player is already at full health");
+		  }
+		  break;
+		  
+		}
+	  }
+	  
 	  return hitAWall;
 	}
 
