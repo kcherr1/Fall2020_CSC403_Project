@@ -11,6 +11,9 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemy;
     private Player player;
 
+    private SoundPlayer music;
+    private SoundPlayer hurt = new SoundPlayer(Resources.hurtSFX);
+
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -29,6 +32,10 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
+
+      //play music 
+      music = new SoundPlayer(Resources.nonBossTheme);
+      music.PlayLooping();
     }
 
     public void SetupForBossBattle() {
@@ -36,8 +43,8 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
 
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-      simpleSound.Play();
+      music = new SoundPlayer(Resources.newFinalTheme);
+      music.PlayLooping();
 
       tmrFinalBattle.Enabled = true;
     }
@@ -72,6 +79,7 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
+        music.Stop(); //stop any music playing
         Close();
       }
     }
@@ -81,6 +89,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void PlayerDamage(int amount) {
+      hurt.Play(); //damage sound bite
       player.AlterHealth(amount);
     }
 
@@ -88,5 +97,10 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
