@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 
-namespace Fall2020_CSC403_Project
+namespace Fall2020_CSC403_Project.code
 {
 
 	public struct SaveStruct
