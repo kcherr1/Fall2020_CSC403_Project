@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class BattleCharacter : Character {
-    public int Health { get; private set; }
-    public int MaxHealth { get; private set; }
-    public int Experience { get; private set; }
-    private float playerStrength;
-    private float playerDefense;
-    private float enemyStrength;
-    private float enemyDefense;
+        public int Health;
+        public int MaxHealth;
+        public int Experience;
+    public float playerStrength;
+    public float playerDefense;
+    public float enemyStrength;
+    public float enemyDefense;
     public float playerSpeed;
     public float enemySpeed;
     public float level;

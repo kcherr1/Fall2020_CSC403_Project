@@ -123,6 +123,9 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
+                case Keys.F5:
+                    player.SaveGame(enemyPoisonPacket, enemyCheeto, bossKoolaid);
+                    break;
         case Keys.Left:
           player.GoLeft();
           break;

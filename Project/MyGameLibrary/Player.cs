@@ -9,5 +9,10 @@ namespace Fall2020_CSC403_Project.code {
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
 
     }
+
+    public void SaveGame(Enemy poison, Enemy cheeto, Enemy koolaid)
+        {
+            SaveSystem.SaveGame(this, poison, cheeto, koolaid);
+        }
   }
 }
