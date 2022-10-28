@@ -139,7 +139,58 @@
   <data name="enemy_poisonpacket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_poisonpacket.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="new_game" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\new_game.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Back_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\back_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Back_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\back_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Difficulty_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\difficulty_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Difficulty_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\difficulty_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exit_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\exit_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exit_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\exit_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Load_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\load_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Load_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\load_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_game_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\new_game_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_game_btn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\new_game_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_game_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\new_game_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_game_hover1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\new_game_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Options_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\options_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Options_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\options_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\save_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\save_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sound_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\sound.btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sound_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\sound.hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
