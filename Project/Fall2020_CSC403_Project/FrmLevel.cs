@@ -87,8 +87,9 @@ namespace Fall2020_CSC403_Project {
         Fight(bossKoolaid);
       }
       if (HitAChar(player, hearts) & player.Health != player.MaxHealth){
-          player.Health += 1;
+          player.Health += 5;
           picHeart.Location = new Point(1000, 1000);
+            player.MaxHealth = player.Health;
           System.Console.WriteLine("Hit heart!!!");
       }
       if(HitAChar(player, hearts) & player.Health == player.MaxHealth){
