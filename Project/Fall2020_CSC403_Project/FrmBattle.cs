@@ -11,6 +11,9 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemy;
     private Player player;
 
+    private SoundPlayer music;
+    private SoundPlayer hurt = new SoundPlayer(Resources.hurtSFX);
+
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -29,6 +32,10 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
+
+      //play music 
+      music = new SoundPlayer(Resources.nonBossTheme);
+      music.PlayLooping();
     }
 
     public void SetupForBossBattle() {
@@ -36,8 +43,8 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
 
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-      simpleSound.Play();
+      music = new SoundPlayer(Resources.newFinalTheme);
+      music.PlayLooping();
 
       tmrFinalBattle.Enabled = true;
     }
@@ -64,23 +71,67 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      player.OnAttack(-2);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        enemy.OnAttack(-1);
       }
+
+
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
+        music.Stop(); //stop any music playing
         Close();
       }
     }
 
+    // Retreat button
+    private void btnRetreat_Click(object sender, EventArgs e)
+    {
+        if (player.Health > 0 && enemy.Health > 0)
+        {
+            UpdateHealthBars();
+            instance = null;
+            Close();
+        }
+    }
+    // Counter button
+    private void btnCounter_Click(object sender, EventArgs e) 
+    {   enemy.OnAttack(-1);
+        if(player.Health > 0)
+        {
+            player.OnAttack(-1);
+        }
+        UpdateHealthBars();
+        if(player.Health <= 0 || enemy.Health <= 0) 
+        { 
+            instance = null;
+            Close();
+        }
+    }
+
+    // Finisher button
+    private void btnFinisher_Click(object sender, EventArgs e)
+    {
+        if(enemy.Health < 10 && player.Health > enemy.Health) 
+        {
+            player.OnAttack(-6);
+        }
+        UpdateHealthBars();
+        if(player.Health <= 0 || enemy.Health <= 0) 
+        { 
+            instance = null;
+            Close();
+        }
+    
+    }
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
 
     private void PlayerDamage(int amount) {
+      hurt.Play(); //damage sound bite
       player.AlterHealth(amount);
     }
 
@@ -88,5 +139,10 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
