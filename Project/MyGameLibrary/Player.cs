@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter {
         public Image img;
+        public Image imgDed;
         public String character;
     public Player(Vector2 initPos, Collider collider, String selection) : base(initPos, collider) {
             if(selection == "mr")
@@ -18,6 +19,7 @@ namespace Fall2020_CSC403_Project.code {
                 Health = 15;
                 MaxHealth = 15;
                 img = Image.FromFile(@"..\..\data\player.png");
+                imgDed = Image.FromFile(@"..\..\data\playerDed.png");
             }
             else if(selection == "mrs")
             {
@@ -25,12 +27,14 @@ namespace Fall2020_CSC403_Project.code {
                 GO_INC = 4;
                 strength = 1.5f;
                 img = Image.FromFile(@"..\..\data\Mrs.png");
+                imgDed = Image.FromFile(@"..\..\data\mrsDed.png");
             }
             else
             {
                 character = "baby";
                 GO_INC = 2;
                 img = Image.FromFile(@"..\..\data\baby.png");
+                imgDed = Image.FromFile(@"..\..\data\babyDed.png");
             }
     }
   }

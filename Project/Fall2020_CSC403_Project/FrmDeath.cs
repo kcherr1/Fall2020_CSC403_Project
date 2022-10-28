@@ -22,7 +22,7 @@ namespace Fall2020_CSC403_Project
 
         private void Death_Screen_Load(object sender, EventArgs e)
         {
-            picPlayer.BackgroundImage = player.img;
+            picPlayer.BackgroundImage = player.imgDed;
         }
 
         private void menuBtn_Click(object sender, EventArgs e)
