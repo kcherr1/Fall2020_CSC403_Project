@@ -151,6 +151,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\menubackground.jpg" />
+    <None Include="Resources\plant.png" />
+    <None Include="Resources\plant.bmp" />
+    <None Include="Resources\office_desk.bmp" />
+    <None Include="Resources\office_wall2.bmp" />
+    <None Include="Resources\Image11.bmp" />
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\Cubicles.bmp" />
     <None Include="Resources\PixelOfficeAssets.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
