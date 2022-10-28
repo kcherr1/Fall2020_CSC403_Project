@@ -74,30 +74,26 @@ namespace Fall2020_CSC403_Project.code
 			};
         }
 
-		public static void CheckIfSaveFileExists()
+		public static bool IsSaveFileValid()
 		{
 			if (File.Exists("Save.txt"))
 			{
-				if (CheckIfSaveFileIsValid())
+				string[] texts = File.ReadAllLines("Save.txt");
+				foreach (string text in texts)
 				{
-
+					double val;
+					if (!double.TryParse(text, out val))
+					{
+						return false;
+					}
 				}
+				return true;
+			}
+			else
+			{
+				return false;
 			}
 		}
-
-		private static bool CheckIfSaveFileIsValid()
-		{
-            string[] texts = File.ReadAllLines("Save.txt");
-			foreach (string text in texts)
-			{
-				double val;
-				if(!double.TryParse(text, out val))
-				{
-					return false;
-				}
-			}
-			return true;
-        }
 
         public static void LoadGame(Player player, Enemy poison, Enemy cheeto, Enemy koolaid)
         {
@@ -112,7 +108,7 @@ namespace Fall2020_CSC403_Project.code
 			player.Position = new Vector2(float.Parse(texts[7]), float.Parse(texts[8]));
 			poison.Health = Int32.Parse(texts[9]);
 			cheeto.Health = Int32.Parse(texts[10]);
-			koolaid.Health = Int32.Parse(texts[12]);
+			koolaid.Health = Int32.Parse(texts[11]);
         }
     }
 }
