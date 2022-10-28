@@ -207,7 +207,7 @@
             this.picHeart.BackColor = System.Drawing.Color.Transparent;
             this.picHeart.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.heart;
             this.picHeart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHeart.Location = new System.Drawing.Point(871, 337);
+            this.picHeart.Location = new System.Drawing.Point(1130, 500);
             this.picHeart.Margin = new System.Windows.Forms.Padding(4);
             this.picHeart.Name = "picHeart";
             this.picHeart.Size = new System.Drawing.Size(48, 47);
