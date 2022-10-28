@@ -14,10 +14,11 @@ namespace Fall2020_CSC403_Project {
     private Character[] walls;
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private SoundPlayer worldSound;
 
     public FrmLevel() {
       InitializeComponent();
-      SoundPlayer worldSound = new SoundPlayer("./data/world_music.wav");
+      worldSound = new SoundPlayer("./data/world_music.wav");
       worldSound.PlayLooping();
     }
 
@@ -109,6 +110,7 @@ namespace Fall2020_CSC403_Project {
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
+      worldSound.Stop();
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
 
