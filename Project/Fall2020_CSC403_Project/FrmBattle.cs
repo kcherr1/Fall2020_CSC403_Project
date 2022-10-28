@@ -3,6 +3,7 @@ using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
 using System.Media;
+using WMPLib;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -12,7 +13,6 @@ namespace Fall2020_CSC403_Project {
     private Player player;
 
     private SoundPlayer music;
-    private SoundPlayer hurt = new SoundPlayer(Resources.hurtSFX);
 
     private FrmBattle() {
       InitializeComponent();
@@ -131,7 +131,6 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void PlayerDamage(int amount) {
-      hurt.Play(); //damage sound bite
       player.AlterHealth(amount);
     }
 
