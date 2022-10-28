@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    private Heart hearts;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -24,6 +25,7 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      hearts = new Heart(CreatePosition(picHeart), CreateCollider(picHeart, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -84,9 +86,20 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
+      if (HitAChar(player, hearts) & player.Health != player.MaxHealth){
+          player.Health += 1;
+          picHeart.Location = new Point(1000, 1000);
+          System.Console.WriteLine("Hit heart!!!");
+      }
+      if(HitAChar(player, hearts) & player.Health == player.MaxHealth){
+          picHeart.Location = new Point(1000, 1000);
+     
+      }
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+
+
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
     private bool HitAWall(Character c) {
