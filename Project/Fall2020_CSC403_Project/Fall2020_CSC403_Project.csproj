@@ -155,6 +155,7 @@
     <Content Include="data\Difficulty_hover.png" />
     <Content Include="data\Exit_btn.png" />
     <Content Include="data\Exit_hover.png" />
+    <Content Include="data\Game_Title.png" />
     <Content Include="data\Load_btn.png" />
     <Content Include="data\Load_hover.png" />
     <Content Include="data\new_game.png" />
