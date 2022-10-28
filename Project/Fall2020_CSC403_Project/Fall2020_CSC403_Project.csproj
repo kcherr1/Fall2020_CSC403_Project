@@ -140,6 +140,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\heart.png" />
     <None Include="data\Game Title.png" />
   </ItemGroup>
   <ItemGroup>
