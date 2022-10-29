@@ -74,8 +74,10 @@ namespace Fall2020_CSC403_Project {
       if (player.Health <= 0) {
         instance = null;
         death_window = FrmDeath.GetInstance();
+        death_window.ShowDialog();
         Close();
-        // open death sequence window here**
+        
+        
       }
       if (enemy.Health <= 0){
         instance = null;
