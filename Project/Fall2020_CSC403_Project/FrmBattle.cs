@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+    private SoundPlayer battleSound;
 
     private FrmBattle() {
       InitializeComponent();
@@ -27,7 +28,7 @@ namespace Fall2020_CSC403_Project {
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
 
-      SoundPlayer battleSound = new SoundPlayer("./data/battle_music.wav");
+      battleSound = new SoundPlayer("./data/battle_music.wav");
       battleSound.PlayLooping();
 
       // show health
@@ -80,7 +81,7 @@ namespace Fall2020_CSC403_Project {
       if (player.Health <= 0)
       {
         SoundPlayer deathSound = new SoundPlayer("./data/death_music.wav");
-        //battleSound.Stop();
+        battleSound.Stop();
         deathSound.Play();
         instance = null;
         Close();
@@ -89,6 +90,7 @@ namespace Fall2020_CSC403_Project {
       if (enemy.Health <= 0)
       {
         SoundPlayer winSound = new SoundPlayer("./data/win_music.wav");
+        battleSound.Stop();
         winSound.Play();
         instance = null;
         Close();
