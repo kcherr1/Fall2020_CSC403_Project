@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project
     public partial class StartMenu : Form
     {
         private FrmLevel frmLevel;
+        private SaveMenu saveMenu;
         private bool button_Options_Clicked = false;
         private bool button_Back1_Clicked = false;
         private bool button_Difficulty_Clicked = false;
@@ -40,9 +41,10 @@ namespace Fall2020_CSC403_Project
             new_game_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.new_game_hover;
         }
 
-        private void Load_btn_Click(object sender, EventArgs e)
+        private void Save_btn_Click(object sender, EventArgs e)
         {
-            Save_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Load_btn;
+            saveMenu = new SaveMenu();
+            saveMenu.Show();
         }
 
         private void Options_btn_Click(object sender, EventArgs e)

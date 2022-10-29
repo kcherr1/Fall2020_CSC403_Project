@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartMenu));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Options_panel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Options_panel = new System.Windows.Forms.Panel();
             this.Sound_btn = new System.Windows.Forms.PictureBox();
             this.Back_btn1 = new System.Windows.Forms.PictureBox();
             this.Difficulty_btn = new System.Windows.Forms.PictureBox();
@@ -40,8 +40,8 @@
             this.Options_btn = new System.Windows.Forms.PictureBox();
             this.Exit_btn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.Options_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Options_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Sound_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Back_btn1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Difficulty_btn)).BeginInit();
@@ -64,17 +64,6 @@
             this.panel1.Size = new System.Drawing.Size(1089, 681);
             this.panel1.TabIndex = 0;
             // 
-            // Options_panel
-            // 
-            this.Options_panel.Controls.Add(this.Sound_btn);
-            this.Options_panel.Controls.Add(this.Back_btn1);
-            this.Options_panel.Controls.Add(this.Difficulty_btn);
-            this.Options_panel.Location = new System.Drawing.Point(179, 195);
-            this.Options_panel.Name = "Options_panel";
-            this.Options_panel.Size = new System.Drawing.Size(634, 483);
-            this.Options_panel.TabIndex = 4;
-            this.Options_panel.Visible = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Game_Title;
@@ -83,6 +72,17 @@
             this.pictureBox1.Size = new System.Drawing.Size(1146, 194);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // Options_panel
+            // 
+            this.Options_panel.Controls.Add(this.Sound_btn);
+            this.Options_panel.Controls.Add(this.Back_btn1);
+            this.Options_panel.Controls.Add(this.Difficulty_btn);
+            this.Options_panel.Location = new System.Drawing.Point(205, 198);
+            this.Options_panel.Name = "Options_panel";
+            this.Options_panel.Size = new System.Drawing.Size(634, 483);
+            this.Options_panel.TabIndex = 4;
+            this.Options_panel.Visible = false;
             // 
             // Sound_btn
             // 
@@ -143,7 +143,7 @@
             this.Save_btn.Size = new System.Drawing.Size(254, 127);
             this.Save_btn.TabIndex = 1;
             this.Save_btn.TabStop = false;
-            this.Save_btn.Click += new System.EventHandler(this.Load_btn_Click);
+            this.Save_btn.Click += new System.EventHandler(this.Save_btn_Click);
             this.Save_btn.MouseLeave += new System.EventHandler(this.Save_btn_MouseLeave);
             this.Save_btn.MouseHover += new System.EventHandler(this.Load_btn_MouseHover);
             // 
@@ -182,8 +182,8 @@
             this.Text = "Start Game";
             this.Load += new System.EventHandler(this.StartMenu_Load);
             this.panel1.ResumeLayout(false);
-            this.Options_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Options_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Sound_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Back_btn1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Difficulty_btn)).EndInit();

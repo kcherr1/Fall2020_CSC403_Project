@@ -73,7 +73,7 @@ namespace Fall2020_CSC403_Project
 
         private void Leave_SaveMenu_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
         }
     }
 }
