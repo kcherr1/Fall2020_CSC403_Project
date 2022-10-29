@@ -58,6 +58,12 @@
     <Compile Include="Pausemenu.Designer.cs">
       <DependentUpon>Pausemenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="SaveMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveMenu.Designer.cs">
+      <DependentUpon>SaveMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pausemenu.resx">
       <DependentUpon>Pausemenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveMenu.resx">
+      <DependentUpon>SaveMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartMenu.resx">
       <DependentUpon>StartMenu.cs</DependentUpon>
@@ -163,6 +172,7 @@
     <Content Include="data\new_game_hover.png" />
     <Content Include="data\Options_btn.png" />
     <Content Include="data\Options_hover.png" />
+    <Content Include="data\SaveMenuTitle.png" />
     <Content Include="data\Save_btn.png" />
     <Content Include="data\Save_hover.png" />
     <Content Include="data\Sound.btn.png" />
