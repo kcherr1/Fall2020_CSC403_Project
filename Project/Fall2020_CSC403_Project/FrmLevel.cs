@@ -1,7 +1,11 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Input;
+using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -11,6 +15,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+
+    private Tuple<Key, Vector2>[] KeyBindings;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -42,6 +48,21 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
+      // Bindings: an array of tuples. Each tuple includes a key
+      // and which direction that key should cause the player to move.
+      // Tuples are normalized before being applied, so we don't
+      // have to worry about adding them.
+      KeyBindings = new Tuple<Key, Vector2>[] {
+        Tuple.Create(Key.Left,  new Vector2(-1, 0)),
+        Tuple.Create(Key.Right, new Vector2(+1, 0)),
+        Tuple.Create(Key.Up,    new Vector2(0, -1)),
+        Tuple.Create(Key.Down,  new Vector2(0, +1)),
+        Tuple.Create(Key.A,     new Vector2(-1, 0)),
+        Tuple.Create(Key.D,     new Vector2(+1, 0)),
+        Tuple.Create(Key.W,     new Vector2(0, -1)),
+        Tuple.Create(Key.S,     new Vector2(0, +1)),
+      };
+
       Game.player = player;
       timeBegin = DateTime.Now;
     }
@@ -56,7 +77,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      player.ResetMoveSpeed();
+      CheckKeys();
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
@@ -116,27 +137,29 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
+      CheckKeys();
+    }
 
-        case Keys.Right:
-          player.GoRight();
-          break;
+    private void CheckKeys() {
+      // We will add each binding's Vector2 to MovementDirection
+      // to obtain the final direction.
+      Vector2 MovementDirection = new Vector2(0, 0);
 
-        case Keys.Up:
-          player.GoUp();
-          break;
-
-        case Keys.Down:
-          player.GoDown();
-          break;
-
-        default:
-          player.ResetMoveSpeed();
-          break;
+      // Check if we're pressing each bound button
+      foreach (Tuple<Key, Vector2> Binding in this.KeyBindings) {
+        if (Keyboard.IsKeyDown(Binding.Item1)) {
+          MovementDirection = Vector2.Add(MovementDirection, Binding.Item2);
+        }
       }
+
+      // Normalize MovementDirection so that the maximum absolute value
+      // of either direction is 1
+      MovementDirection.NormalizeSquare();
+
+      if (MovementDirection.IsZero())
+        player.ResetMoveSpeed();
+      else
+        player.GoVector(MovementDirection);
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
