@@ -8,7 +8,7 @@ Created a new Windows Forms class that acts as the pause menu for the game calle
 
 A boolean class variable inside of `FrmLevel.cs` called isPaused was created solely for the purpose of stopping the ingame timer. isPaused's value is initially set to false. When the escape key is hit, the isPaused variable is set to true, and when the frmPause window is closed, isPaused is set back to false. More on pausing the ingame timer is discussed below.
 
-### `FrmPause.cs` Functionality 
+#### `FrmPause.cs` Functionality 
 
 `FrmPause.cs` contains three buttons: `resumeButton`, `startOverButton`, and `quitButton`. For each button, there is a Click `EventHandler` inside `FrmPause.Designer.cs` that triggers each of the `[button]_Click` functions inside `FrmPause.cs` in the event that any one of the buttons are clicked.
 
