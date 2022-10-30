@@ -24,7 +24,7 @@ When clicked, the entire Windows Forms application is restarted and the game sta
 
 When clicked, the entire Window Forms application is closed, quitting the game entirely. 
 
-### `FrmPause.cs` Design
+#### `FrmPause.cs` Design
 
 The buttons were implemented using the Windows Forms Toolbox. The background photo in the window, named `pauseMenuBackground.jpg` can be found in the `Team_CSC403_Scrum_1/Properties/` folder inside the file `Resources.resx `. The `pauseMenuBackground.jpg` photo was uploaded to `Resources.resx` from the `Team_CSC403_Scrum_1/Data/` folder (`pauseMenuBackground.jpg` was uploaded manually to this folder). 
 
