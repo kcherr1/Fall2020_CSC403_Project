@@ -28,7 +28,7 @@ namespace Fall2020_CSC403_Project
             // 
             // Try_Again
             // 
-            this.Try_Again.Location = new System.Drawing.Point(158, 333);
+            this.Try_Again.Location = new System.Drawing.Point(111, 144);
             this.Try_Again.Name = "Try_Again";
             this.Try_Again.Size = new System.Drawing.Size(120, 45);
             this.Try_Again.TabIndex = 0;
@@ -38,7 +38,7 @@ namespace Fall2020_CSC403_Project
             // 
             // Quit
             // 
-            this.Quit.Location = new System.Drawing.Point(499, 333);
+            this.Quit.Location = new System.Drawing.Point(341, 144);
             this.Quit.Name = "Quit";
             this.Quit.Size = new System.Drawing.Size(120, 45);
             this.Quit.TabIndex = 1;
@@ -48,11 +48,13 @@ namespace Fall2020_CSC403_Project
             // 
             // FrmDeath
             // 
-            this.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.BackColor = System.Drawing.SystemColors.WindowText;
+            this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.Quit);
             this.Controls.Add(this.Try_Again);
+            this.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.Name = "FrmDeath";
+            this.Text = "GAME OVER";
             this.ResumeLayout(false);
 
         }
