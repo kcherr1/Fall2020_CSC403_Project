@@ -28,7 +28,7 @@ namespace Fall2020_CSC403_Project {
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
 
-      battleSound = new SoundPlayer("./data/battle_music.wav");
+      battleSound = new SoundPlayer(Resources.battle_music);
       battleSound.PlayLooping();
 
       // show health
@@ -70,7 +70,7 @@ namespace Fall2020_CSC403_Project {
     private void btnAttack_Click(object sender, EventArgs e)
     {
       player.OnAttack(-4);
-      SoundPlayer attackSound = new SoundPlayer("./data/attack_sound1.wav");
+      SoundPlayer attackSound = new SoundPlayer(Resources.attack_sound1);
       attackSound.Play();
       if (enemy.Health > 0)
       {
@@ -80,7 +80,7 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (player.Health <= 0)
       {
-        SoundPlayer deathSound = new SoundPlayer("./data/death_music.wav");
+        SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
         battleSound.Stop();
         deathSound.Play();
         instance = null;
@@ -89,7 +89,7 @@ namespace Fall2020_CSC403_Project {
 
       if (enemy.Health <= 0)
       {
-        SoundPlayer winSound = new SoundPlayer("./data/win_music.wav");
+        SoundPlayer winSound = new SoundPlayer(Resources.win_music);
         battleSound.Stop();
         winSound.Play();
         instance = null;

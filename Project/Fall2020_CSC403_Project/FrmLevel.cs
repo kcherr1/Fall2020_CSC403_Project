@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Media;
+using Fall2020_CSC403_Project.Properties;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -18,7 +19,7 @@ namespace Fall2020_CSC403_Project {
 
     public FrmLevel() {
       InitializeComponent();
-      worldSound = new SoundPlayer("./data/world_music.wav");
+      worldSound = new SoundPlayer(Resources.world_music);
       worldSound.PlayLooping();
     }
 
