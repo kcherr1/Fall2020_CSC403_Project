@@ -50,6 +50,8 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       isPaused = false;
+
+      // Initiate Stopwatch instance and start the timer 
       timer = new Stopwatch();
       timer.Start();
         }
@@ -68,11 +70,14 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) { 
+
+        // If the pause window is shown then pause the timer 
         if (isPaused)
            timer.Stop();
         else
             timer.Start();
 
+        // Counts how many seconds have passed since the timer first started
         TimeSpan span = timer.Elapsed;
         string time = span.ToString(@"hh\:mm\:ss");
         lblInGameTime.Text = "Time: " + time.ToString();
@@ -147,10 +152,20 @@ namespace Fall2020_CSC403_Project {
           break;
 
         case Keys.Escape:
+           
+          // Game is paused when the escape key is hit 
           isPaused = true;
+
+          // Get instance of FrmPause window and show it 
           frmPause = FrmPause.GetInstance();
+
+          // ShowDialog() ensures no other windows can be accessed while 
+          // frmPause window is shown
           frmPause.ShowDialog();
+
+          // Once frmPause window is closed, the game is no longer paused
           isPaused = false;
+
           break;
 
         default:

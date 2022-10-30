@@ -13,6 +13,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Fall2020_CSC403_Project
 {
+    // Windows Forms class that will act as the pause window for the game
     public partial class FrmPause : Form
     {
         public static FrmPause instance = null;
@@ -30,20 +31,26 @@ namespace Fall2020_CSC403_Project
             return instance;
         }
 
-
+        // Click EventHandler that is triggered when the Resume Button is clicked
         private void resumeButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Click EventHandler that is triggered when the Start Over Button is clicked
         private void startOverButton_Click(object sender, EventArgs e)
         {
+            // Restart the application 
             Application.Restart();
+
+            // Ensures a clean exit (i.e., exit is not caused by an error)
             Environment.Exit(0);
         }
 
+        // Click EventHandler that is triggered when the Quit Button is clicked
         private void quitButton_Click(object sender, EventArgs e)
         {
+            // Exit the application 
             Application.Exit();
         }
     }
