@@ -23,4 +23,3 @@
 3.   I added code to first check to see if the enemy object had already been disposed of (!=null).
 4.   Then I checked to see if that enemy had died (Health<=0). If so, then I called the Dispose method for that object.
 5.   I tried to dispose of the enemy object after the frmBattle form was closed, but I kept getting errors, so this was the easiest method I could find.  There are probably better options available though.
-6.   
