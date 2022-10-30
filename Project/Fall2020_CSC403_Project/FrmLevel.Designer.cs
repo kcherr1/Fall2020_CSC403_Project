@@ -86,27 +86,31 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = global::Fall2020_CSC403_Project.Properties.Resources.office_desk;
-            this.pictureBox9.Location = new System.Drawing.Point(1577, 695);
+            this.pictureBox9.Location = new System.Drawing.Point(1452, 643);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(186, 331);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox9.TabIndex = 23;
             this.pictureBox9.TabStop = false;
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = global::Fall2020_CSC403_Project.Properties.Resources.office_wall2;
-            this.pictureBox8.Location = new System.Drawing.Point(1311, 673);
+            this.pictureBox8.Location = new System.Drawing.Point(1186, 621);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(452, 16);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox8.TabIndex = 22;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::Fall2020_CSC403_Project.Properties.Resources.office_wall1;
-            this.pictureBox7.Location = new System.Drawing.Point(1295, 673);
+            this.pictureBox7.Location = new System.Drawing.Point(1186, 634);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(16, 208);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox7.TabIndex = 21;
             this.pictureBox7.TabStop = false;
             // 
@@ -237,7 +241,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1764, 1050);
+            this.ClientSize = new System.Drawing.Size(1362, 1050);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
