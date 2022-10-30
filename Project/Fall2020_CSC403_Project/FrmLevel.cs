@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy office_desk;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
+    private Enemy techlead;
     private Character[] walls;
 
     private DateTime timeBegin;
