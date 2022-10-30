@@ -15,7 +15,7 @@ namespace Fall2020_CSC403_Project.code
         }
         public new Weapon Clone()
         {
-            return new Weapon(ItemNum, Name, Price, MinimumDamage, MaximumDamage);
+            return new Weapon(ItemNum, Name, Damage);
         }
     }
 }
