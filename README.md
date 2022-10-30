@@ -8,7 +8,7 @@ Ingame enemies are now removed from the game when their health is less than or e
 
 #### private bool enemyIsDead(Enemy enemy)
 
-Takes in a `Enemy.cs` instance as an input and checks if its health is less than or equal to zero, and if so, return true. Otherwise, if the enemie's health is above zero, return false. 
+Takes in a `Enemy.cs` instance as an input and checks if its health is less than or equal to zero, and if so, return true. Otherwise, if the enemy's health is above zero, return false. 
 
 #### private void removeEnemy(Enemy enemy)
 Takes in a `Enemy.cs` instance as an input and sets the instance to null. Furthermore, the PictureBox image that is attached to the enemy instance (as a collider) is set to be invisible. 
