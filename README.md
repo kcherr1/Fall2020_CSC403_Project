@@ -38,3 +38,9 @@ Below, There is a list of all of the sounds and music that were added, their pur
 
 #### attack_sound1.wav & attack_sound2.wav
 - Obtained from the internet for when the player attacks. (originally from Zelda: Ocarina of Time young Link attack sounds) (not looped)
+
+<br/><br/>
+
+### Known Bugs:
+- When the final boss music plays, the GUI freezes due to a sleep function added to make sure the final_battle.wav file doesn't play and overlap the battle_music.wav.
+- After the user defeats the final boss, the world music will begin to play again. Need to add a success screen that stops the music and gives the user the ability to either end the game or restart the game.
