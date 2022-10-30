@@ -53,6 +53,11 @@ namespace Fall2020_CSC403_Project {
       if (instance == null) {
         instance = new FrmBattle();
         instance.enemy = enemy;
+        if(instance.enemy.Boss == true)
+        {
+          instance.enemy.MaxHealth = 60;
+          instance.enemy.Health = instance.enemy.MaxHealth;
+        }
         instance.Setup();
       }
       return instance;
