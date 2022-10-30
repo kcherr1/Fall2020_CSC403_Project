@@ -139,7 +139,7 @@
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.Location = new System.Drawing.Point(119, 505);
             this.picPlayer.Name = "picPlayer";
-            this.picPlayer.Size = new System.Drawing.Size(54, 106);
+            this.picPlayer.Size = new System.Drawing.Size(44, 90);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
