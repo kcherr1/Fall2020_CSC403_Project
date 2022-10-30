@@ -31,10 +31,12 @@
       this.lblEnemyHealthFull = new System.Windows.Forms.Label();
       this.picBossBattle = new System.Windows.Forms.PictureBox();
       this.picEnemy = new System.Windows.Forms.PictureBox();
+      this.picWeapon = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
       this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
+     ((System.ComponentModel.ISupportInitialize)(this.picWeapon)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
       this.SuspendLayout();
       // 
@@ -109,6 +111,18 @@
       this.picEnemy.Size = new System.Drawing.Size(229, 267);
       this.picEnemy.TabIndex = 1;
       this.picEnemy.TabStop = false;
+        //
+        //picWeapon
+        //
+        this.picEnemy.BackColor = System.Drawing.Color.WhiteSmoke;
+        this.picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.ak47;
+        this.picEnemy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        this.picEnemy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+        this.picEnemy.Location = new System.Drawing.Point(400, 98);
+        this.picEnemy.Name = "picWeapon";
+        this.picEnemy.Size = new System.Drawing.Size(229, 267);
+        this.picEnemy.TabIndex = 1;
+        this.picEnemy.TabStop = false;
       // 
       // picPlayer
       // 
@@ -141,6 +155,7 @@
       this.Controls.Add(this.label1);
       this.Controls.Add(this.btnAttack);
       this.Controls.Add(this.picEnemy);
+      this.Controls.Add(this.picWeapon);
       this.Controls.Add(this.picPlayer);
       this.DoubleBuffered = true;
       this.Name = "FrmBattle";
@@ -148,6 +163,7 @@
       this.Text = "Fight!";
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.picWeapon)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
       this.ResumeLayout(false);
 
@@ -156,6 +172,7 @@
     #endregion
 
     private System.Windows.Forms.PictureBox picPlayer;
+    private System.Windows.Forms.PictureBox picWeapon;
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Label lblPlayerHealthFull;
