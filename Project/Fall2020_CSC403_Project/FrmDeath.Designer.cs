@@ -68,7 +68,7 @@ namespace Fall2020_CSC403_Project
             // 
             this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.rip;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picPlayer.Location = new System.Drawing.Point(181, 162);
+            this.picPlayer.Location = new System.Drawing.Point(175, 180);
             this.picPlayer.Name = "picPlayer";
             this.picPlayer.Size = new System.Drawing.Size(310, 222);
             this.picPlayer.TabIndex = 5;
