@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemy;
     private Player player;
     private SoundPlayer battleSound;
+    private SoundPlayer worldSound;
 
     private FrmBattle() {
       InitializeComponent();
@@ -91,6 +92,8 @@ namespace Fall2020_CSC403_Project {
       {
         //SoundPlayer winSound = new SoundPlayer(Resources.win_music);
         battleSound.Stop();
+        worldSound = new SoundPlayer(Resources.world_music);
+        worldSound.PlayLooping();
         //winSound.Play();
         instance = null;
         Close();

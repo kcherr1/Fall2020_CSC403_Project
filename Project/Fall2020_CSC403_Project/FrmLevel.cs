@@ -81,15 +81,12 @@ namespace Fall2020_CSC403_Project {
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
-        worldSound.PlayLooping();
       }
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
-        worldSound.PlayLooping();
       }
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
-        worldSound.PlayLooping();
       }
 
       // update player's picture box
