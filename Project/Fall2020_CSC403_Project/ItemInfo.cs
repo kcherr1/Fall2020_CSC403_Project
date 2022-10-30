@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project.code
 		{
 			_gameItem = new List<Item>();
 			_gameItem.Add(new Weapon(01, "Stapler", 1);
+			_gameItem.Add(new HealthItem(02, "Health", 10);
 		}
 	}
 	public static Item CreateItem(int itemNum)
