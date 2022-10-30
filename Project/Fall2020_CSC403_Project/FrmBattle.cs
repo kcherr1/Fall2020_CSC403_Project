@@ -70,9 +70,8 @@ namespace Fall2020_CSC403_Project {
     private void btnAttack_Click(object sender, EventArgs e)
     {
       player.OnAttack(-4);
-      SoundPlayer attackSound = new SoundPlayer(Resources.attack_sound1);
-      attackSound.Play();
-      battleSound.PlayLooping();
+      //SoundPlayer attackSound = new SoundPlayer(Resources.attack_sound1);
+      //attackSound.Play();
       if (enemy.Health > 0)
       {
         enemy.OnAttack(-2);
@@ -90,9 +89,9 @@ namespace Fall2020_CSC403_Project {
 
       if (enemy.Health <= 0)
       {
-        SoundPlayer winSound = new SoundPlayer(Resources.win_music);
+        //SoundPlayer winSound = new SoundPlayer(Resources.win_music);
         battleSound.Stop();
-        winSound.Play();
+        //winSound.Play();
         instance = null;
         Close();
       }
