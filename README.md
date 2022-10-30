@@ -8,8 +8,10 @@
 Created or obtained game music and sound effects for a multitude of scenarios. Some are played only once, and some are loops which is continuously played.
 Below, There is a list of all of the sounds and music that were added, their purpose, and if they were created or obtained from the internet. (Any music that was created was created by Kennedy Ford)
 
+<br/>
 
 ### Currently Implemented Sounds / Music:
+<hr/>
 
 #### world_music.waw
 - Created as a loop to give a particular ambiance to the level map.
@@ -20,8 +22,10 @@ Below, There is a list of all of the sounds and music that were added, their pur
 #### death_music.wav
 - Created as a sound to be played once when the player is killed in battle (not looped).
 
+<br/><br/>
 
 ### Sounds / Music to Be Implemented:
+<hr/>
 
 #### win_music.wav
 - Created as a sound to be played when the player wins a battle (not looped).
