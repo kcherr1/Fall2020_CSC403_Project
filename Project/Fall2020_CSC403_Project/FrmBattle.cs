@@ -44,11 +44,11 @@ namespace Fall2020_CSC403_Project {
       SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
       simpleSound.Play();
 
-      System.Threading.Thread.Sleep(5000);
-      worldSound = new SoundPlayer(Resources.world_music);
-      worldSound.PlayLooping();
-
       tmrFinalBattle.Enabled = true;
+
+      System.Threading.Thread.Sleep(5000);
+      battleSound = new SoundPlayer(Resources.battle_music);
+      battleSound.PlayLooping();
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
