@@ -46,7 +46,7 @@ namespace Fall2020_CSC403_Project.code
 
 	public static class SaveSystem
 	{
-		public static void SaveGame(Player player, Enemy poison, Enemy cheeto, Enemy koolaid)
+		public static void SaveGame(string savename, Player player, Enemy poison, Enemy cheeto, Enemy koolaid)
 		{
 			SaveStruct save = new SaveStruct(player, poison, cheeto, koolaid);
 			string[] data =
@@ -65,20 +65,24 @@ namespace Fall2020_CSC403_Project.code
                 save.koolaidHealth.ToString(),
 			};
 
-			File.WriteAllLines("Save.txt", data);
+			File.WriteAllLines(savename, data);
 
-			string[] texts = File.ReadAllLines("Save.txt");
+			string[] texts = File.ReadAllLines(savename);
 			foreach(string text in texts)
 			{
 				Console.WriteLine(text);
 			};
         }
 
-		public static bool IsSaveFileValid()
+		public static bool IsSaveFileValid(string saveName)
 		{
-			if (File.Exists("Save.txt"))
+			if (File.Exists(saveName))
 			{
-				string[] texts = File.ReadAllLines("Save.txt");
+				string[] texts = File.ReadAllLines(saveName);
+				if(texts.Length != 12)
+				{
+					return false;
+				}
 				foreach (string text in texts)
 				{
 					double val;
@@ -95,20 +99,20 @@ namespace Fall2020_CSC403_Project.code
 			}
 		}
 
-        public static void LoadGame(Player player, Enemy poison, Enemy cheeto, Enemy koolaid)
+        public static void LoadGame(string savename, Player player, Enemy poison, Enemy cheeto, Enemy koolaid)
         {
-			string[] texts = File.ReadAllLines("Save.txt");
-			player.Health = Int32.Parse(texts[0]);
-			player.MaxHealth = Int32.Parse(texts[1]);
-			player.Experience = Int32.Parse(texts[2]);
+			string[] texts = File.ReadAllLines(savename);
+			player.Health = int.Parse(texts[0]);
+			player.MaxHealth = int.Parse(texts[1]);
+			player.Experience = int.Parse(texts[2]);
 			player.playerStrength = float.Parse(texts[3]);
 			player.playerDefense = float.Parse(texts[4]);
 			player.playerSpeed = float.Parse(texts[5]);
 			player.level = float.Parse(texts[6]);
 			player.Position = new Vector2(float.Parse(texts[7]), float.Parse(texts[8]));
-			poison.Health = Int32.Parse(texts[9]);
-			cheeto.Health = Int32.Parse(texts[10]);
-			koolaid.Health = Int32.Parse(texts[11]);
+			poison.Health = int.Parse(texts[9]);
+			cheeto.Health = int.Parse(texts[10]);
+			koolaid.Health = int.Parse(texts[11]);
         }
     }
 }
