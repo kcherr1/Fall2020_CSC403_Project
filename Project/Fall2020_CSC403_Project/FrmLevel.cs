@@ -7,33 +7,33 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
 
-    private Enemy enemyPoisonPacket;
+    private Enemy office_desk;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmSnake frmSnake;
 
     public FrmLevel() {
       InitializeComponent();
     }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 1;
+      const int PADDING = 4;
       const int NUM_WALLS = 0;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+      office_desk = new Enemy(CreatePosition(picOfficeDesk), CreateCollider(picOfficeDesk, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+      office_desk.Img = picOfficeDesk.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
       walls = new Character[NUM_WALLS];
@@ -75,8 +75,8 @@ namespace Fall2020_CSC403_Project {
       }
 
       // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+      if (HitAChar(player, office_desk)) {
+        PlayMiniGame(office_desk);
       }
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
@@ -113,6 +113,13 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
+    }
+
+    private void PlayMiniGame(Enemy enemy) {
+      player.ResetMoveSpeed();
+      player.MoveBack();
+      frmSnake = new FrmSnake();
+      frmSnake.Show();
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {

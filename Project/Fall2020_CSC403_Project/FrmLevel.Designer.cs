@@ -29,7 +29,7 @@
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.picOfficeDesk = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -44,7 +44,7 @@
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOfficeDesk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -95,15 +95,15 @@
             this.pictureBox10.TabIndex = 24;
             this.pictureBox10.TabStop = false;
             // 
-            // pictureBox9
+            // picOfficeDesk
             // 
-            this.pictureBox9.Image = global::Fall2020_CSC403_Project.Properties.Resources.office_desk;
-            this.pictureBox9.Location = new System.Drawing.Point(1452, 643);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(186, 331);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox9.TabIndex = 23;
-            this.pictureBox9.TabStop = false;
+            this.picOfficeDesk.Image = global::Fall2020_CSC403_Project.Properties.Resources.office_desk;
+            this.picOfficeDesk.Location = new System.Drawing.Point(1452, 643);
+            this.picOfficeDesk.Name = "picOfficeDesk";
+            this.picOfficeDesk.Size = new System.Drawing.Size(186, 331);
+            this.picOfficeDesk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picOfficeDesk.TabIndex = 23;
+            this.picOfficeDesk.TabStop = false;
             // 
             // pictureBox8
             // 
@@ -255,7 +255,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1637, 1050);
             this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.picOfficeDesk);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
@@ -280,7 +280,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picOfficeDesk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -317,7 +317,7 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox picOfficeDesk;
         private System.Windows.Forms.PictureBox pictureBox10;
     }
 }
