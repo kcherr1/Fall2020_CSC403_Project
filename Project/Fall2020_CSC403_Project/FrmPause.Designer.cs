@@ -68,6 +68,7 @@
             this.quitButton.TabIndex = 2;
             this.quitButton.Text = "QUIT";
             this.quitButton.UseVisualStyleBackColor = false;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
             // FrmPause
             // 
