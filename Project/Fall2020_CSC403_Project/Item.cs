@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threating.task;
-namespace Fall2020_CSC403_Project
+namespace Fall2020_CSC403_Project.code
 {
 	public class Item
 	{
