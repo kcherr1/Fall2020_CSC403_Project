@@ -151,6 +151,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\menubackground.jpg" />
+    <None Include="Resources\elevator1.png" />
+    <None Include="Resources\elevator.png" />
     <None Include="Resources\plant.png" />
     <None Include="Resources\plant.bmp" />
     <None Include="Resources\office_desk.bmp" />
