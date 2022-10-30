@@ -2,18 +2,25 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
+using Fall2020_CSC403_Project.Properties;
+
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
 
     private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
+    public Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+
+    SoundPlayer walkSFX = new SoundPlayer(Resources.walkSound);
+    public bool lvlMusicOn;
+    public bool isKoolAidMan = false;
 
     public FrmLevel() {
       InitializeComponent();
@@ -108,14 +115,20 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle.UpdateSettings(lvlMusicOn, isKoolAidMan);
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
+        isKoolAidMan = true;
         frmBattle.SetupForBossBattle();
+        frmBattle.UpdateSettings(lvlMusicOn, isKoolAidMan);
       }
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      
+      walkSFX.Play(); //walk sound
+
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
@@ -138,6 +151,16 @@ namespace Fall2020_CSC403_Project {
           break;
       }
     }
+
+    public void UpdateSettings(Settings s)
+        {
+            if (s.maxWindow)
+            {
+                s.maximizeWindow(this);
+            }
+
+            lvlMusicOn = s.musicOn;
+        }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 

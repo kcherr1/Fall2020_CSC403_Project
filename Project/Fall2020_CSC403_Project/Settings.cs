@@ -12,28 +12,61 @@ namespace Fall2020_CSC403_Project
 {
     public partial class Settings : Form
     {
+        public bool maxWindow = false;
+        public bool musicOn = true;
         public Settings()
         {
             InitializeComponent();
         }
 
-        public Form Menu { get; set; }
-
-
+        public MainMenu Menu { get; set; }
 
         //go back
         private void startButton_Click(object sender, EventArgs e)
         {
-            //MainMenu menu = new MainMenu();
             Menu.Show();
-            Close();
+            Hide();
         }
 
         //maximize window
         public void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
+            if (checkBox1.Checked)
+            {
+                maxWindow = true;
+                maximizeWindow(this);
+                maximizeWindow(Menu);
+            }
+            else
+            {
+                maxWindow = false;
+                minimizeWindow(this);
+                minimizeWindow(Menu);
+            }
+        }
+
+        public void maximizeWindow(Form f)
+        {
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        public void minimizeWindow(Form f)
+        {
+            f.WindowState = FormWindowState.Normal;
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox2.Checked)
+            {
+                musicOn = false;
+                Menu.menuMusic.Stop();
+            }
+            else
+            {
+                musicOn = true;
+                Menu.menuMusic.PlayLooping();
+            }
         }
     }
 }
