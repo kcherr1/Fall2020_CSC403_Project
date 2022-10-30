@@ -2,7 +2,7 @@
 
 ## Documentation 
 
-### Enemy Instance Removal Upon Death
+### Enemy Instance Removal Upon Death - Josh
 
 Ingame enemies are now removed from the game when their health is less than or equal to zero. Three functions were created in `FrmLevel.cs` to implement this capability. 
 
