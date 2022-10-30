@@ -72,6 +72,7 @@ namespace Fall2020_CSC403_Project {
       player.OnAttack(-4);
       SoundPlayer attackSound = new SoundPlayer(Resources.attack_sound1);
       attackSound.Play();
+      battleSound.PlayLooping();
       if (enemy.Health > 0)
       {
         enemy.OnAttack(-2);

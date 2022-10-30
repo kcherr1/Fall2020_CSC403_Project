@@ -48,6 +48,7 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       timeBegin = DateTime.Now;
+      worldSound.PlayLooping();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
