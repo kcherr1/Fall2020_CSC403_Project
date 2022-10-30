@@ -45,10 +45,6 @@ namespace Fall2020_CSC403_Project {
       simpleSound.Play();
 
       tmrFinalBattle.Enabled = true;
-
-      System.Threading.Thread.Sleep(5000);
-      battleSound = new SoundPlayer(Resources.battle_music);
-      battleSound.PlayLooping();
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {

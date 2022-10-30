@@ -8,7 +8,6 @@ using Fall2020_CSC403_Project.Properties;
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
-
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
@@ -16,6 +15,7 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private SoundPlayer worldSound;
+    private SoundPlayer battleSound;
 
     public FrmLevel() {
       InitializeComponent();
@@ -117,6 +117,9 @@ namespace Fall2020_CSC403_Project {
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
+        System.Threading.Thread.Sleep(5000);
+        battleSound = new SoundPlayer(Resources.battle_music);
+        battleSound.PlayLooping();
       }
     }
 
