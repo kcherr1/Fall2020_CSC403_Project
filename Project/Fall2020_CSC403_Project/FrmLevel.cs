@@ -159,10 +159,10 @@ namespace Fall2020_CSC403_Project {
 
        // battleOver function will be called when frmBattle window is closed
       frmBattle.FormClosed += battleOver;
+      frmBattle.picPlayer.BackgroundImage = this.picPlayer.BackgroundImage; //Set character image for the new battle to be the same as the current FrmLevel.
       
       frmBattle.Show();
-      frmBattle.picPlayer.BackgroundImage = this.picPlayer.BackgroundImage; //Set character image for the new battle to be the same as the current FrmLevel.
-      frmBattle.picPlayer.Refresh();
+     
 
       if (enemy == bossKoolaid) {
         battleSound = new SoundPlayer(Resources.battle_music);
