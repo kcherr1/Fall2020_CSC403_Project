@@ -72,16 +72,22 @@ namespace Fall2020_CSC403_Project {
 
     private void PlayDeathSound() {
       SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
-      battleSound.Stop();
-      death_window = FrmDeath.GetInstance();
-      death_window.ShowDialog();
       deathSound.Play();
+    }
+
+    private void PlayWorldSound() {
+      worldSound = new SoundPlayer(Resources.world_music);
+      worldSound.PlayLooping();
+    }
+
+    private void ShowDeathWindow() {
+      death_window = FrmDeath.GetInstance();
+      death_window.FormClosed += gameOver;
+      death_window.ShowDialog();
     }
 
     private void StopBattleSound() {
       battleSound.Stop();
-      worldSound = new SoundPlayer(Resources.world_music);
-      worldSound.PlayLooping();
     }
 
 
@@ -99,19 +105,12 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (player.Health <= 0)
       {
-<<<<<<< HEAD
-        SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
-        battleSound.Stop();
-        deathSound.Play();
-=======
->>>>>>> 6aa6e98aa8a75e6dcedda048c5bb63507f10a2e3
+        StopBattleSound();
         PlayDeathSound();
         instance = null;
         Close();
-        death_window = FrmDeath.GetInstance();
-        death_window.FormClosed += gameOver;
-        death_window.ShowDialog();
-            }
+        ShowDeathWindow();
+      }
 
       if (enemy.Health <= 0)
       {
@@ -120,6 +119,7 @@ namespace Fall2020_CSC403_Project {
         //winSound.Play();
         instance = null;
         Close();
+        PlayWorldSound();
       }
     }
 
@@ -151,6 +151,7 @@ namespace Fall2020_CSC403_Project {
         StopBattleSound();
         instance = null;
         Close();
+        PlayWorldSound();
       } else {
         // Flee failed.
         lblFleeStatus.Text = "Failed to flee!";
@@ -163,9 +164,11 @@ namespace Fall2020_CSC403_Project {
         // We don't need to check for enemy health because the enemy cannot
         // be damaged if we are fleeing.
         if (player.Health <= 0) {
+          StopBattleSound();
           PlayDeathSound();
           instance = null;
           Close();
+          ShowDeathWindow();
         }
       }
     }
