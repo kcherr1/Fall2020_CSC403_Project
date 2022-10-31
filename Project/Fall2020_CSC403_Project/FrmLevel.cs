@@ -138,18 +138,37 @@ namespace Fall2020_CSC403_Project {
     }
 
     private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
+
+      // If the enemy has not been killed (or deleted) then check for collision
+      if (other != null)
+        return you.Collider.Intersects(other.Collider);
+
+      // Enemy has been killed therefore there can be no collision 
+      return false;
     }
 
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
+
+       // battleOver function will be called when frmBattle window is closed
+      frmBattle.FormClosed += battleOver;
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
+    }
+
+    // Function that is called when frmBattle window, created in Fight function, is closed.
+    private void battleOver(object sender, FormClosedEventArgs e) { 
+        
+        // If the enemy has no health after the battle
+        if (enemyIsDead(frmBattle.enemy))
+
+            // Remove the enemy from the game
+            removeEnemy(frmBattle.enemy);   
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
@@ -197,6 +216,32 @@ namespace Fall2020_CSC403_Project {
         player.ResetMoveSpeed();
       else
         player.GoVector(MovementDirection);
+    }
+
+    // Function that checks if an enemy is dead. If its health is less than or 
+    // equal to zero, we say that the enemy is dead.
+    private bool enemyIsDead(Enemy enemy) {
+        if (enemy.Health <= 0)
+            return true;
+        else
+            return false;
+    }
+
+    // Function that removes an enemy from the game by setting its instance to null
+    // and making the PictureBox image that it is attached to invisible. 
+    private void removeEnemy (Enemy enemy) { 
+        if (enemy == enemyPoisonPacket) { 
+            enemyPoisonPacket = null;
+            picEnemyPoisonPacket.Visible = false;
+        }
+        else if (enemy == enemyCheeto) {
+            enemyCheeto = null;
+            picEnemyCheeto.Visible = false;
+        }   
+        else { 
+            bossKoolaid = null;
+            picBossKoolAid.Visible = false;
+        }
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
