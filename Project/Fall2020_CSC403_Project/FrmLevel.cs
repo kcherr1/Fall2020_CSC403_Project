@@ -191,27 +191,23 @@ namespace Fall2020_CSC403_Project {
       // of either direction is 1
       MovementDirection.NormalizeSquare();
 
-        case Keys.Escape:
-           
-          // Game is paused when the escape key is hit 
-          isPaused = true;
+      if (Keyboard.IsKeyDown(Key.Escape)) {
 
-          // Get instance of FrmPause window and show it 
-          frmPause = FrmPause.GetInstance();
+        // Game is paused when the escape key is hit 
+        isPaused = true;
 
-          // ShowDialog() ensures no other windows can be accessed while 
-          // frmPause window is shown
-          frmPause.ShowDialog();
+        // Get instance of FrmPause window and show it 
+        frmPause = FrmPause.GetInstance();
 
-          // Once frmPause window is closed, the game is no longer paused
-          isPaused = false;
+        // ShowDialog() ensures no other windows can be accessed while 
+        // frmPause window is shown
+        frmPause.ShowDialog();
 
-          break;
+        // Once frmPause window is closed, the game is no longer paused
+        isPaused = false;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
       }
+
       if (MovementDirection.IsZero())
         player.ResetMoveSpeed();
       else
