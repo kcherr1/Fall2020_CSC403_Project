@@ -8,6 +8,7 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Pausemenu psMenu =  Pausemenu.getInstance();
     private Player player;
+    private string saveName;
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
@@ -31,10 +32,15 @@ namespace Fall2020_CSC403_Project {
       InitializeComponent();
     }
 
-        private void FrmLevel_Load(object sender, EventArgs e) {
-            const int PADDING = 7;
-            const int NUM_WALLS = 13;
-            playerIsDead = false;
+    public FrmLevel(string saveName)
+        {
+            this.saveName = saveName;
+            InitializeComponent();
+        }
+    private void FrmLevel_Load(object sender, EventArgs e) {
+      const int PADDING = 7;
+      const int NUM_WALLS = 13;
+      playerIsDead = false;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -65,6 +71,33 @@ namespace Fall2020_CSC403_Project {
       }
       Game.player = player;
       timeBegin = DateTime.Now;
+
+        //checks if its a new game
+        //if there is
+        if(saveName == null)
+        {
+            //checks for a valid savegame to save to
+            for (int i = 0; i < 3; i++)
+            {
+                string saveName = "Save" + i + ".txt";
+                if (!SaveSystem.IsSaveFileValid(saveName))
+                {
+                    this.saveName = saveName;
+                    SaveSystem.SaveGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid);
+                    break;
+                }
+            }
+            if(saveName == null)
+                {
+                    saveName = "Save0.txt";
+                }
+        }
+        //if its loading a game
+        else
+        {
+            SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid);
+        }
+      
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -215,6 +248,20 @@ namespace Fall2020_CSC403_Project {
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
+      string Difficulty = checkDifficulty();
+            switch (Difficulty) { 
+                case "Easy":
+                    enemy.MaxHealth += 0;
+                    break;
+                case "Medium":
+                    enemy.MaxHealth += 10;
+                    enemy.Health = enemy.MaxHealth;
+                    break;
+                case "Hard":
+                    enemy.MaxHealth += 20;
+                    enemy.Health = enemy.MaxHealth;
+                    break;
+                }
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
 
@@ -225,6 +272,17 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
+                //f5 to save to save slot
+                case Keys.F5:
+                    SaveSystem.SaveGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid);
+                    break;
+                //f9 to load from save slot
+                case Keys.F9:
+                    if (SaveSystem.IsSaveFileValid(saveName))
+                    {
+                        SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid);
+                    }
+                    break;
         case Keys.Left:
           player.GoLeft();
           break;
@@ -281,6 +339,10 @@ namespace Fall2020_CSC403_Project {
             {
                 Application.Exit();
             }
+        }
+        public string checkDifficulty()
+        {
+            return psMenu.difMenu.Dif;
         }
  
         private void pictureBox1_Click(object sender, EventArgs e)
