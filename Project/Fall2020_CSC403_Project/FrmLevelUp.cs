@@ -21,11 +21,15 @@ namespace Fall2020_CSC403_Project
         {
             InitializeComponent();
             player = Game.player;
+            UpdateSkillPoints();
         }
         private void UpdateSkillPoints()
         {
             skillpoints = player.skillPoints.ToString();
-            textBox1.Text = "Skill points remaining:" + skillpoints;
+            textBox1.Text = "Skill points remaining: " + skillpoints;
+            attackButton.Text = "Attack = " + player.playerStrength;
+            defenseButton.Text = "Defense = " + player.playerDefense;
+            speedButton.Text = "Speed = " + player.playerSpeed;
         }
         private void button2_Click(object sender, EventArgs e)
         {
