@@ -78,6 +78,8 @@ namespace Fall2020_CSC403_Project {
       if (enemy.Health <= 0) {
         instance = null;
         Close();
+        enemy.Img = null;
+
       }
       if (player.Health <= 0){
         instance = null;
