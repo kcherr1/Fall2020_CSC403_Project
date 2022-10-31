@@ -238,6 +238,12 @@ namespace Fall2020_CSC403_Project {
         }
         public string checkDifficulty()
         {
+            bool pMenuExists, dMenuExists;
+            pMenuExists = (psMenu != null);
+            if (pMenuExists)
+            {
+                dMenuExists = (psMenu.difMenu != null);
+            }
             return psMenu.difMenu.Dif;
         }
     }

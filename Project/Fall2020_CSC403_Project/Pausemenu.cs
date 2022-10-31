@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project
     public partial class Pausemenu : Form
     {
         public static Pausemenu instance = null;
-        public DifficultyMenu difMenu;
+        public DifficultyMenu difMenu = DifficultyMenu.getInstance();
         public Pausemenu()
         {
             InitializeComponent();
@@ -31,7 +31,6 @@ namespace Fall2020_CSC403_Project
 
         private void button3_Click(object sender, EventArgs e)
         {
-            difMenu = DifficultyMenu.getInstance();
             difMenu.Show();
         }
         public static Pausemenu getInstance()
