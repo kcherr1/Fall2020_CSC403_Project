@@ -59,7 +59,7 @@ namespace Fall2020_CSC403_Project.Properties {
                 resourceCulture = value;
             }
         }
-       
+        
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
@@ -86,9 +86,10 @@ namespace Fall2020_CSC403_Project.Properties {
                 return ResourceManager.GetStream("battle_music", resourceCulture);
             }
         }
-        ///
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap battle_screen {
             get {
                 object obj = ResourceManager.GetObject("battle_screen", resourceCulture);
@@ -155,25 +156,6 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream pause_sound {
-            get {
-                return ResourceManager.GetStream("pause_sound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pauseMenuBackground {
-            get {
-                object obj = ResourceManager.GetObject("pauseMenuBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Martin {
@@ -189,6 +171,25 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap MrPeanut {
             get {
                 object obj = ResourceManager.GetObject("MrPeanut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream pause_sound {
+            get {
+                return ResourceManager.GetStream("pause_sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pauseMenuBackground {
+            get {
+                object obj = ResourceManager.GetObject("pauseMenuBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
