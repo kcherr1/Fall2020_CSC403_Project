@@ -134,15 +134,6 @@ namespace Fall2020_CSC403_Project.Properties {
 
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream hurtSFX {
-            get {
-                return ResourceManager.GetStream("hurtSFX", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
         internal static System.IO.UnmanagedMemoryStream main_menu {
             get {
                 return ResourceManager.GetStream("main_menu", resourceCulture);
@@ -175,6 +166,15 @@ namespace Fall2020_CSC403_Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("player", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream walkSound {
+            get {
+                return ResourceManager.GetStream("walkSound", resourceCulture);
             }
         }
         
