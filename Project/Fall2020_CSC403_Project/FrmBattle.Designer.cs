@@ -274,7 +274,7 @@
       // picPlayer
       // 
       this.picPlayer.BackColor = System.Drawing.Color.WhiteSmoke;
-      this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+      this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Toucan_Sam;
       this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.picPlayer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.picPlayer.Location = new System.Drawing.Point(93, 121);
@@ -328,9 +328,7 @@
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
     public System.Windows.Forms.PictureBox picPlayer;
-  }
-    private System.Windows.Forms.Timer tmrFinalBattle;
-        private System.Windows.Forms.Button btnFlee;
-        private System.Windows.Forms.Label lblFleeStatus;
+    private System.Windows.Forms.Button btnFlee;
+    private System.Windows.Forms.Label lblFleeStatus;
     }
 }
