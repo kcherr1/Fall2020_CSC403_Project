@@ -10,7 +10,9 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
-        public FrmLevelUp lvlUpMenu = FrmLevelUp.getInstance();
+    public FrmLevelUp lvlUpMenu = FrmLevelUp.getInstance();
+    SoundPlayer battleMusic = new SoundPlayer(stream: Resources.battle_music);
+    SoundPlayer levelMusic = new SoundPlayer(stream: Resources.level_music);
 
         private FrmBattle() {
       InitializeComponent();
@@ -30,7 +32,10 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
-    }
+
+      // play music
+      battleMusic.PlayLooping();
+        }
 
     public void SetupForBossBattle() {
       picBossBattle.Location = Point.Empty;
@@ -41,7 +46,7 @@ namespace Fall2020_CSC403_Project {
       simpleSound.Play();
 
       tmrFinalBattle.Enabled = true;
-    }
+      }
 
     public static FrmBattle GetInstance(Enemy enemy) {
       if (instance == null) {
@@ -122,6 +127,9 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
+        battleMusic.Stop();
+        levelMusic.PlayLooping();
+
         Close();
       }
     }

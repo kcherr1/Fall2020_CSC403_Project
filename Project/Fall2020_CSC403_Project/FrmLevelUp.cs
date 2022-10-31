@@ -16,17 +16,15 @@ namespace Fall2020_CSC403_Project
     {
         public static FrmLevelUp instance = null;
         private Player player;
-        String skillpoints = null;
+        string skillpoints = null;
         public FrmLevelUp()
         {
             InitializeComponent();
             player = Game.player;
-            UpdateSkillPoints();
         }
         private void UpdateSkillPoints()
         {
-            skillpoints = player.skillPoints.ToString();
-            textBox1.Text = "Skill points remaining: " + skillpoints;
+            textBox1.Text = "Skill points remaining: " + player.skillPoints;
             attackButton.Text = "Attack = " + player.playerStrength;
             defenseButton.Text = "Defense = " + player.playerDefense;
             speedButton.Text = "Speed = " + player.playerSpeed;

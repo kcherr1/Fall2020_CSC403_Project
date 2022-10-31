@@ -1,6 +1,9 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
+using System.Media;
+using System.Reflection;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -21,13 +24,15 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private bool playerIsDead;
-        private bool bossKoolAidIsDead;
-        private bool enemyCheetoIsDead;
+    private bool bossKoolAidIsDead;
+    private bool enemyCheetoIsDead;
         private bool enemyPoisonPacketIsDead;
         private bool tonyTigerWeakIsDead;
         private bool trixBunnyIsDead;
         private bool tonyTigerStrongIsDead;
-        
+    SoundPlayer battleMusic = new SoundPlayer(stream: Resources.battle_music);
+    SoundPlayer level_music = new SoundPlayer(stream: Resources.level_music);
+
         public FrmLevel() {
       InitializeComponent();
     }
@@ -41,14 +46,15 @@ namespace Fall2020_CSC403_Project {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
       playerIsDead = false;
+      level_music.PlayLooping();
 
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-            tonyTigerWeak = new Enemy(CreatePosition(picEnemyTonyTigerWeak), CreateCollider(picEnemyTonyTigerWeak, PADDING));
+      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      tonyTigerWeak = new Enemy(CreatePosition(picEnemyTonyTigerWeak), CreateCollider(picEnemyTonyTigerWeak, PADDING));
             tonyTigerStrong = new Enemy(CreatePosition(picEnemyTonyTigerStrong), CreateCollider(picEnemyTonyTigerStrong, PADDING));
-            trixBunny = new Enemy(CreatePosition(picEnemyTrixBunny), CreateCollider(picEnemyTrixBunny, PADDING));
+      trixBunny = new Enemy(CreatePosition(picEnemyTrixBunny),CreateCollider(picEnemyTrixBunny, PADDING));
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -145,9 +151,9 @@ namespace Fall2020_CSC403_Project {
                 }
                 else
                 {
-                    player.enemySpeed = 1;
-                    player.enemyStrength = 1;
-                    player.enemyDefense = 1;
+                    player.enemySpeed = 2;
+                    player.enemyStrength = 4;
+                    player.enemyDefense = 2;
                     Fight(enemyPoisonPacket);
                     picEnemyPoisonPacket.Visible = false;
                     enemyPoisonPacketIsDead = true;
@@ -160,9 +166,9 @@ namespace Fall2020_CSC403_Project {
                 }
                 else
                 {
-                    player.enemySpeed = 1;
-                    player.enemyStrength = 1;
-                    player.enemyDefense = 1;
+                    player.enemySpeed = 2;
+                    player.enemyStrength = 4;
+                    player.enemyDefense = 2;
                     Fight(enemyCheeto);
                     picEnemyCheeto.Visible = false;
                     enemyCheetoIsDead = true;
@@ -178,7 +184,7 @@ namespace Fall2020_CSC403_Project {
                 {
                     player.enemySpeed = 4;
                     player.enemyStrength = 2;
-                    player.enemyDefense = 2;
+                    player.enemyDefense = 1;
                     Fight(trixBunny);
                     picEnemyTrixBunny.Visible = false;
                     trixBunnyIsDead = true;
@@ -264,6 +270,7 @@ namespace Fall2020_CSC403_Project {
                     enemy.Health = enemy.MaxHealth;
                     break;
                 }
+      level_music.Stop();
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
 

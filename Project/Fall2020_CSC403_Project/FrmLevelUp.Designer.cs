@@ -42,7 +42,7 @@
             this.attackButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.attackButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.attackButton.Location = new System.Drawing.Point(337, 156);
-            this.attackButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.attackButton.Margin = new System.Windows.Forms.Padding(4);
             this.attackButton.Name = "attackButton";
             this.attackButton.Size = new System.Drawing.Size(200, 81);
             this.attackButton.TabIndex = 3;
@@ -56,7 +56,7 @@
             this.defenseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.defenseButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.defenseButton.Location = new System.Drawing.Point(337, 245);
-            this.defenseButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.defenseButton.Margin = new System.Windows.Forms.Padding(4);
             this.defenseButton.Name = "defenseButton";
             this.defenseButton.Size = new System.Drawing.Size(200, 81);
             this.defenseButton.TabIndex = 4;
@@ -70,7 +70,7 @@
             this.speedButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.speedButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.speedButton.Location = new System.Drawing.Point(337, 334);
-            this.speedButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.speedButton.Margin = new System.Windows.Forms.Padding(4);
             this.speedButton.Name = "speedButton";
             this.speedButton.Size = new System.Drawing.Size(200, 81);
             this.speedButton.TabIndex = 5;
@@ -91,7 +91,7 @@
             // 
             this.exitButton.BackColor = System.Drawing.Color.Red;
             this.exitButton.Location = new System.Drawing.Point(377, 452);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(121, 47);
             this.exitButton.TabIndex = 7;
@@ -104,10 +104,10 @@
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.textBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox1.Location = new System.Drawing.Point(316, 94);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(305, 94);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 34);
+            this.textBox1.Size = new System.Drawing.Size(278, 34);
             this.textBox1.TabIndex = 8;
             this.textBox1.Text = "You have 5 skill points!";
             // 
@@ -123,7 +123,7 @@
             this.Controls.Add(this.speedButton);
             this.Controls.Add(this.defenseButton);
             this.Controls.Add(this.attackButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLevelUp";
             this.Text = "FrmLevelUp";
             this.ResumeLayout(false);

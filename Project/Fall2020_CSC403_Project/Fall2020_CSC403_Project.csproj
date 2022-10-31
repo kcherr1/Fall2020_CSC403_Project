@@ -70,6 +70,12 @@
     <Compile Include="SaveMenu.Designer.cs">
       <DependentUpon>SaveMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sound.Designer.cs">
+      <DependentUpon>Sound.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SaveMenu.resx">
       <DependentUpon>SaveMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sound.resx">
+      <DependentUpon>Sound.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartMenu.resx">
       <DependentUpon>StartMenu.cs</DependentUpon>
@@ -169,6 +178,7 @@
   <ItemGroup>
     <Content Include="data\Back_btn.png" />
     <Content Include="data\Back_hover.png" />
+    <Content Include="data\battle_music.wav" />
     <Content Include="data\Difficulty_btn.png" />
     <Content Include="data\Difficulty_hover.png" />
     <Content Include="data\Exit_btn.png" />
@@ -176,6 +186,7 @@
     <Content Include="data\Game_Title.png" />
     <Content Include="data\Load_btn.png" />
     <Content Include="data\Load_hover.png" />
+    <Content Include="data\level_music.wav" />
     <Content Include="data\new_game.png" />
     <Content Include="data\new_game_btn.png" />
     <Content Include="data\new_game_hover.png" />
@@ -190,6 +201,25 @@
     <Content Include="data\tonyTigerStrong.png" />
     <Content Include="data\tonyTigerWeak.png" />
     <Content Include="data\trixBunny.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
