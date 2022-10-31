@@ -73,9 +73,13 @@ namespace Fall2020_CSC403_Project {
     private void PlayDeathSound() {
       SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
       battleSound.Stop();
-      death_window = FrmDeath.GetInstance();
-      death_window.ShowDialog();
       deathSound.Play();
+    }
+
+    private void ShowDeathWindow() {
+      death_window = FrmDeath.GetInstance();
+      death_window.FormClosed += gameOver;
+      death_window.ShowDialog();
     }
 
     private void StopBattleSound() {
@@ -99,19 +103,11 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (player.Health <= 0)
       {
-<<<<<<< HEAD
-        SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
-        battleSound.Stop();
-        deathSound.Play();
-=======
->>>>>>> 6aa6e98aa8a75e6dcedda048c5bb63507f10a2e3
         PlayDeathSound();
         instance = null;
         Close();
-        death_window = FrmDeath.GetInstance();
-        death_window.FormClosed += gameOver;
-        death_window.ShowDialog();
-            }
+        ShowDeathWindow();
+      }
 
       if (enemy.Health <= 0)
       {
@@ -124,8 +120,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void gameOver(object sender, FormClosedEventArgs e) {
-      Application.Restart();
-      Environment.Exit(0);
+      Application.Exit();
     }
 
     private void EnemyDamage(int amount) {
@@ -166,6 +161,7 @@ namespace Fall2020_CSC403_Project {
           PlayDeathSound();
           instance = null;
           Close();
+          ShowDeathWindow();
         }
       }
     }
