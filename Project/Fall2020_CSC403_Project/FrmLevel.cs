@@ -27,7 +27,6 @@ namespace Fall2020_CSC403_Project {
     private bool isPaused;
     private Stopwatch timer;
     private Tuple<Key, Vector2>[] KeyBindings;
-    private FrmBattle frmBattle;
     private FrmPause frmPause; 
 
     public FrmLevel() {

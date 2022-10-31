@@ -9,7 +9,7 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
     private FrmDeath death_window;
-    private Enemy enemy;
+    public Enemy enemy;
     private Player player;
     private SoundPlayer battleSound;
     private SoundPlayer worldSound;
@@ -88,6 +88,7 @@ namespace Fall2020_CSC403_Project {
         SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
         battleSound.Stop();
         death_window = FrmDeath.GetInstance();
+        death_window.FormClosed += gameover;
         death_window.ShowDialog();
         deathSound.Play();
         instance = null;
@@ -101,7 +102,14 @@ namespace Fall2020_CSC403_Project {
         worldSound = new SoundPlayer(Resources.world_music);
         worldSound.PlayLooping();
         //winSound.Play();
+        instance = null;
+        Close();
       }
+    }
+
+    private void battleOver(object sender, FormClosedEventArgs e) {
+      Application.Restart();
+      Environment.Exit(0);
     }
 
     private void EnemyDamage(int amount) {
