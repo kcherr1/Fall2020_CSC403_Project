@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
@@ -11,6 +11,8 @@ namespace Fall2020_CSC403_Project {
     private FrmDeath death_window;
     private Enemy enemy;
     private Player player;
+    private SoundPlayer battleSound;
+    private SoundPlayer worldSound;
 
     private FrmBattle() {
       InitializeComponent();
@@ -28,6 +30,9 @@ namespace Fall2020_CSC403_Project {
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
+
+      battleSound = new SoundPlayer(Resources.battle_music);
+      battleSound.PlayLooping();
 
       // show health
       UpdateHealthBars();
@@ -65,26 +70,37 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
+
     private void btnAttack_Click(object sender, EventArgs e) {
       lblFleeStatus.Text = "";
 
       player.OnAttack(-4);
-      if (enemy.Health > 0) {
+      //SoundPlayer attackSound = new SoundPlayer(Resources.attack_sound1);
+      //attackSound.Play();
+      if (enemy.Health > 0)
+      {
         enemy.OnAttack(-2);
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0) {
-        instance = null;
+      if (player.Health <= 0)
+      {
+        SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
+        battleSound.Stop();
         death_window = FrmDeath.GetInstance();
         death_window.ShowDialog();
-        Close();
-        
-        
-      }
-      if (enemy.Health <= 0){
+        deathSound.Play();
         instance = null;
         Close();
+      }
+
+      if (enemy.Health <= 0)
+      {
+        //SoundPlayer winSound = new SoundPlayer(Resources.win_music);
+        battleSound.Stop();
+        worldSound = new SoundPlayer(Resources.world_music);
+        worldSound.PlayLooping();
+        //winSound.Play();
       }
     }
 

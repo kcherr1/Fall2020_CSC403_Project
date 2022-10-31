@@ -7,17 +7,22 @@ using System.Media;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+using Fall2020_CSC403_Project.Properties;
 using System.Windows.Input;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
-
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    private DateTime timeBegin;
+    private FrmBattle frmBattle;
+    private SoundPlayer worldSound;
+    private SoundPlayer battleSound;
 
     private bool isPaused;
     private Stopwatch timer;
@@ -27,6 +32,8 @@ namespace Fall2020_CSC403_Project {
 
     public FrmLevel() {
       InitializeComponent();
+      worldSound = new SoundPlayer(Resources.world_music);
+      worldSound.PlayLooping();
     }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
@@ -150,6 +157,7 @@ namespace Fall2020_CSC403_Project {
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
+      worldSound.Stop();
       frmBattle = FrmBattle.GetInstance(enemy);
 
        // battleOver function will be called when frmBattle window is closed
@@ -158,6 +166,9 @@ namespace Fall2020_CSC403_Project {
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
+        System.Threading.Thread.Sleep(5000);
+        battleSound = new SoundPlayer(Resources.battle_music);
+        battleSound.PlayLooping();
       }
     }
 

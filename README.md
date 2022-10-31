@@ -57,6 +57,11 @@ Battle fleeing was implemented using a button below Attack labeled "Flee" in `Fr
 Created or obtained game music and sound effects for a multitude of scenarios. Some are played only once, and some are loops which is continuously played.
 Below, There is a list of all of the sounds and music that were added, their purpose, and if they were created or obtained from the internet. (Any music that was created was created by Kennedy Ford)
 
+<br/>
+
+#### Currently Implemented Sounds / Music:
+<hr/>
+
 #### world_music.waw
 - Created as a loop to give a particular ambiance to the level map.
 
@@ -65,6 +70,11 @@ Below, There is a list of all of the sounds and music that were added, their pur
 
 #### death_music.wav
 - Created as a sound to be played once when the player is killed in battle (not looped).
+
+<br/><br/>
+
+### Sounds / Music to Be Implemented:
+<hr/>
 
 #### win_music.wav
 - Created as a sound to be played when the player wins a battle (not looped).
@@ -78,6 +88,10 @@ Below, There is a list of all of the sounds and music that were added, their pur
 #### attack_sound1.wav & attack_sound2.wav
 - Obtained from the internet for when the player attacks. (originally from Zelda: Ocarina of Time young Link attack sounds) (not looped)
 
+#### Known Bugs:
+- When the final boss music plays, the GUI freezes due to a sleep function added to make sure the final_battle.wav file doesn't play and overlap the battle_music.wav.
+- After the user defeats the final boss, the world music will begin to play again. Need to add a success screen that stops the music and gives the user the ability to either end the game or restart the game.
+
 ### Multi-key movement - Brendan
 Originally, players were only able to move with one arrow key at a time. This branch adds the ability to use more than one key (including WASD). This was accomplished by making, mainly, changes to `FrmLevel.cs`. Both KeyDown() and KeyUp() were modified to two only two things: reset player movement and call a new function, `CheckKeys()`. This new function reads a new instance variable `KeyBindings`and checks *individually* for each binding whether or not the key is pressed. This way, any number of keys can be pressed at any time during the level and `CheckKeys()` should never miss any.
 
@@ -90,3 +104,4 @@ Key bindings can be altered by changing the `KeyBindings` array in `FrmLevel.cs`
 
 ### New characters and character select screen - John
 Users are met with a character select screen when opening the game. Depending on their choice, the character chosen will be used for the duration of their play time. Characters are: MrPeanut, Toucan_Sam, Doughboy, and Martin. `Program.cs` now calls on `FrmCharSelect.cs` rather than `FrmLevel.cs` now. 
+
