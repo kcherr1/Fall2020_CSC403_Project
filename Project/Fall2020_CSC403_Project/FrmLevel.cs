@@ -15,7 +15,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
-    private DateTime timeBegin;
+    // private DateTime timeBegin; - never used. From Cherry.
     private FrmBattle frmBattle;
     private SoundPlayer worldSound;
     private SoundPlayer battleSound;
