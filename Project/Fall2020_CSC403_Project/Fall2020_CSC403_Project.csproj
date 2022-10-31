@@ -144,5 +144,35 @@
   <ItemGroup>
     <None Include="Resources\Snow Texture.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stone Texture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dirt Texture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Portal Texture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wood Plank Texture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wood Log Texture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Smooth Stone Texture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Water Texture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Obsidian Texture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gloawstone Texture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gravel Texture.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
