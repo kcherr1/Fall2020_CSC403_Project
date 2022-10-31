@@ -5,8 +5,14 @@
 
 Amiyah Frierson:
 
+###### Main Menu
+To create the main menu, you have to create a new Windows Form and call it in Program.cs, replacing Application.Form(new FrmLevel()). In the designer window, I added 3 buttons that would start and quit the game, and open settings. Opening settings and starting the game is just a matter of Form.Show() and quitting the game closes the form that the application runs with.   
 
+###### Sounds 
+I added sound to the game with SoundPlayer class. I added two new songs (one for the boss and one for the non-bosses) and a walking sound effect. I then added these to this project’s resources. This way you don’t have to have a specific file location for the source of the music files; especially helpful since the project is opened on different devices. 
 
+###### Settings
+Create a new Windows Form that is called to show when you click the settings button in the main menu. The only button I added here in the designer was the “go back” button. I also have “full window” and “music on/off” settings as checkboxes. These settings were made to work across all forms by maximizing the game window when checked and carrying the “musicOn” boolean to when any FrmBattle opens.  
 
 
 
