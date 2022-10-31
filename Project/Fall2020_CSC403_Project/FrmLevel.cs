@@ -83,7 +83,8 @@ namespace Fall2020_CSC403_Project {
                 if (!SaveSystem.IsSaveFileValid(saveName))
                 {
                     this.saveName = saveName;
-                    SaveSystem.SaveGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid);
+                    SaveSystem.SaveGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong, 
+                        bossKoolAidIsDead, enemyCheetoIsDead, enemyPoisonPacketIsDead, trixBunnyIsDead, tonyTigerWeakIsDead, tonyTigerStrongIsDead);
                     break;
                 }
             }
@@ -95,7 +96,8 @@ namespace Fall2020_CSC403_Project {
         //if its loading a game
         else
         {
-            SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid);
+            SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong,
+                        bossKoolAidIsDead, enemyCheetoIsDead, enemyPoisonPacketIsDead, trixBunnyIsDead, tonyTigerWeakIsDead, tonyTigerStrongIsDead);
         }
       
     }
@@ -274,13 +276,15 @@ namespace Fall2020_CSC403_Project {
       switch (e.KeyCode) {
                 //f5 to save to save slot
                 case Keys.F5:
-                    SaveSystem.SaveGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid);
+                    SaveSystem.SaveGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong,
+                        bossKoolAidIsDead, enemyCheetoIsDead, enemyPoisonPacketIsDead, trixBunnyIsDead, tonyTigerWeakIsDead, tonyTigerStrongIsDead);
                     break;
                 //f9 to load from save slot
                 case Keys.F9:
                     if (SaveSystem.IsSaveFileValid(saveName))
                     {
-                        SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid);
+                        SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong,
+                        bossKoolAidIsDead, enemyCheetoIsDead, enemyPoisonPacketIsDead, trixBunnyIsDead, tonyTigerWeakIsDead, tonyTigerStrongIsDead);
                     }
                     break;
         case Keys.Left:
@@ -353,6 +357,16 @@ namespace Fall2020_CSC403_Project {
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void deadCheck()
+        {
+            picBossKoolAid.Visible = !bossKoolAidIsDead;
+            picEnemyCheeto.Visible = !enemyCheetoIsDead;
+            picEnemyPoisonPacket.Visible = !enemyPoisonPacketIsDead;
+            picEnemyTonyTigerWeak.Visible = !tonyTigerWeakIsDead;
+            picEnemyTonyTigerStrong.Visible = tonyTigerWeakIsDead && !tonyTigerStrongIsDead;
+            picEnemyTrixBunny.Visible = !trixBunnyIsDead;
         }
     }
 }
