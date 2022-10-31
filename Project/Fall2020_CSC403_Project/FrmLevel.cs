@@ -170,9 +170,11 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
+                //f5 to save to save slot
                 case Keys.F5:
                     SaveSystem.SaveGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid);
                     break;
+                //f9 to load from save slot
                 case Keys.F9:
                     if (SaveSystem.IsSaveFileValid(saveName))
                     {
@@ -238,12 +240,6 @@ namespace Fall2020_CSC403_Project {
         }
         public string checkDifficulty()
         {
-            bool pMenuExists, dMenuExists;
-            pMenuExists = (psMenu != null);
-            if (pMenuExists)
-            {
-                dMenuExists = (psMenu.difMenu != null);
-            }
             return psMenu.difMenu.Dif;
         }
     }
