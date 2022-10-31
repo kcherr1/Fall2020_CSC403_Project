@@ -1,13 +1,9 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Media;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Media;
 using Fall2020_CSC403_Project.Properties;
 using System.Windows.Input;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;

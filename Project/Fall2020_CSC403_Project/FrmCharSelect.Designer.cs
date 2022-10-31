@@ -171,7 +171,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Select;
+        private new System.Windows.Forms.Button Select;
         private System.Windows.Forms.Button Doughboy;
         private System.Windows.Forms.Button ToucanSam;
         private System.Windows.Forms.Button button4;

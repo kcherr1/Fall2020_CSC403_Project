@@ -70,6 +70,14 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
+    private void PlayDeathSound() {
+      SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
+      battleSound.Stop();
+      death_window = FrmDeath.GetInstance();
+      death_window.ShowDialog();
+      deathSound.Play();
+    }
+
 
     private void btnAttack_Click(object sender, EventArgs e) {
       lblFleeStatus.Text = "";
@@ -88,9 +96,10 @@ namespace Fall2020_CSC403_Project {
         SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
         battleSound.Stop();
         death_window = FrmDeath.GetInstance();
-        death_window.FormClosed += gameover;
+        death_window.FormClosed += gameOver;
         death_window.ShowDialog();
         deathSound.Play();
+        PlayDeathSound();
         instance = null;
         Close();
       }
@@ -107,7 +116,7 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void battleOver(object sender, FormClosedEventArgs e) {
+    private void gameOver(object sender, FormClosedEventArgs e) {
       Application.Restart();
       Environment.Exit(0);
     }
@@ -146,6 +155,7 @@ namespace Fall2020_CSC403_Project {
         // We don't need to check for enemy health because the enemy cannot
         // be damaged if we are fleeing.
         if (player.Health <= 0) {
+          PlayDeathSound();
           instance = null;
           Close();
         }
