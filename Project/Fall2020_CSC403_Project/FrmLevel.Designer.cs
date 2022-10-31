@@ -138,20 +138,18 @@
             this.picBossKoolAid.Size = new System.Drawing.Size(290, 298);
             this.picBossKoolAid.TabIndex = 1;
             this.picBossKoolAid.TabStop = false;
-            
             // 
             // picGun
             // 
             this.picGun.BackColor = System.Drawing.Color.Transparent;
             this.picGun.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.ak47;
             this.picGun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picGun.Location = new System.Drawing.Point(750, 300);
+            this.picGun.Location = new System.Drawing.Point(1492, 535);
             this.picGun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picGun.Name = "picGun";
             this.picGun.Size = new System.Drawing.Size(140, 75);
             this.picGun.TabIndex = 1;
             this.picGun.TabStop = false;
-            
             // 
             // picPlayer
             // 
