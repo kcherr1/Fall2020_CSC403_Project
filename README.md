@@ -4,7 +4,7 @@
 
 When the player dies, a window will pop up letting the user know that they have lost the game. They will also be prompted with two options: A button to restart the game and a button to quit the game. For future additions, I would like to add customized death images that will be displayed based on what character the player is playing as. I would also like to customize the UI more.
 
-
+<br/>
 
 ### Enemy Instance Removal Upon Death - Josh
 
@@ -19,6 +19,8 @@ Takes in a `Enemy.cs` instance as an input and sets the instance to null. Furthe
 
 #### private void battleOver(object sender, FormClosedEventArgs e)
 Closed EventHandler for `FrmBattle` instance frmBattle created in `Fight` function. This function is called when the frmBattle window is closed. Inside the function is a call to the `enemyIsDead` function to check if the enemy from the battle is dead. If this function returns true, the enemy instance is passed into the `removeEnemy` function and is removed from the game.
+
+<br/>
 
 ### Ingame Pause Window - Josh
 
@@ -49,8 +51,12 @@ The buttons were implemented using the Windows Forms Toolbox. The background pho
 #### Pausing Ingame Timer
 In order to pause the timer found inside of the game, a Stopwatch instance named timer was created inside `FrmLevel.cs` (replacing the old DateTime instance startTime). The timer is started when the game is first loaded. When the isPaused variable is true, the timer is stopped. The timer can only be started again when the isPaused variable is set back to true, which only happens when the frmPause window is closed. 
 
+<br/>
+
 ### Fleeing from battle - Brendan
 Battle fleeing was implemented using a button below Attack labeled "Flee" in `FrmBattle`. Once clicked, this button chooses between two options: closing the window as if the fight has ended (successful flee), or allowing the enemy to attack the player (failed flee). The success chance of fleeing is set at 50%. Changes confined to `FrmBattle.cs` and `FrmBattle.Designer.cs`.
+
+<br/>
 
 ### In-game music and sounds - Kennedy
 
@@ -89,8 +95,9 @@ Below, There is a list of all of the sounds and music that were added, their pur
 - Obtained from the internet for when the player attacks. (originally from Zelda: Ocarina of Time young Link attack sounds) (not looped)
 
 #### Known Bugs:
-- When the final boss music plays, the GUI freezes due to a sleep function added to make sure the final_battle.wav file doesn't play and overlap the battle_music.wav.
 - After the user defeats the final boss, the world music will begin to play again. Need to add a success screen that stops the music and gives the user the ability to either end the game or restart the game.
+
+<br/>
 
 ### Multi-key movement - Brendan
 Originally, players were only able to move with one arrow key at a time. This branch adds the ability to use more than one key (including WASD). This was accomplished by making, mainly, changes to `FrmLevel.cs`. Both KeyDown() and KeyUp() were modified to two only two things: reset player movement and call a new function, `CheckKeys()`. This new function reads a new instance variable `KeyBindings`and checks *individually* for each binding whether or not the key is pressed. This way, any number of keys can be pressed at any time during the level and `CheckKeys()` should never miss any.
@@ -101,6 +108,8 @@ Originally, players were only able to move with one arrow key at a time. This br
 3. The `Vector2` struct got a few new functions: `static Add(Vector2 VectorA, Vector2 VectorB)`, `NormalizeSquare()`, and `IsZero()`. `Add()` returns a new vector which is a combination of the provided two. `NormalizeSquare()` makes sure that the magnitude of the vector in either the x or y direction is not greater than 1 unit. `IsZero()` is self-explanatory.
 
 Key bindings can be altered by changing the `KeyBindings` array in `FrmLevel.cs`.
+
+<br/>
 
 ### New characters and character select screen - John
 Users are met with a character select screen when opening the game. Depending on their choice, the character chosen will be used for the duration of their play time. Characters are: MrPeanut, Toucan_Sam, Doughboy, and Martin. `Program.cs` now calls on `FrmCharSelect.cs` rather than `FrmLevel.cs` now. 
