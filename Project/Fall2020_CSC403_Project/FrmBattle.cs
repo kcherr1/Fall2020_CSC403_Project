@@ -106,6 +106,7 @@ namespace Fall2020_CSC403_Project {
 
       if (enemy.Health <= 0)
       {
+        StopBattleSound();
         //SoundPlayer winSound = new SoundPlayer(Resources.win_music);
         //winSound.Play();
         instance = null;
