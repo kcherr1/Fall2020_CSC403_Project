@@ -6,6 +6,7 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
+    private PlayerInventory inventory;
 
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
@@ -24,9 +25,16 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      inventory = new PlayerInventory();
+      Weapon sword = new Weapon("Sword", 2, 6);
+      Potion healthPotion = new Potion("Health Potion", 10);
+      inventory.Add(sword);
+      inventory.Add(healthPotion);
+
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      
       
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -41,6 +49,8 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
+
+
 
       Game.player = player;
       timeBegin = DateTime.Now;
@@ -190,5 +200,56 @@ namespace Fall2020_CSC403_Project {
         frmRandomBattleDamageInput Form2 = new frmRandomBattleDamageInput();
         Form2.ShowDialog();
         }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+            toolStripComboBox1.Items.Clear();
+            foreach (Item item in inventory.Inventory)
+            {
+                toolStripComboBox1.Items.Add(item.Name);
+            }
+        }
+
+        private void toolStripComboBox1_SelectionChanged(object sender, EventArgs e)
+        {
+            int index = toolStripComboBox1.SelectedIndex;
+            Item item = inventory.Inventory[index];
+
+            if (item is Potion)
+            {
+                int amtHealing = item.Use();
+                inventory.Remove(item);
+                player.AlterHealth(amtHealing);
+            }
+            else if (item is Weapon)
+            {
+                Weapon weapon = (Weapon)item;
+
+                weapon.Use();
+                
+                if (weapon.IsEquiped)
+                {
+                    Properties.Settings.Default.MinRandomBattleDamage = weapon.MinDamage;
+                    Properties.Settings.Default.MaxRandomBattleDamage = weapon.MaxDamage;
+                }
+                else
+                {
+                    // Set back to the default damage
+                    Properties.Settings.Default.MinRandomBattleDamage = 0;
+                    Properties.Settings.Default.MaxRandomBattleDamage = 4;
+                }
+            }
+            toolStripComboBox1.Items.Clear();
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripComboBox1.Items.Clear();
+            foreach (Item item in inventory.Inventory)
+            {
+                toolStripComboBox1.Items.Add(item.Name);
+            }
+        }
     }
+
 }
