@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project
     public partial class DifficultyMenu : Form
     {
         public static DifficultyMenu instance = null;
-        private string Dif = "Easy";
+        public string Dif = "Easy";
         public DifficultyMenu()
         {
             InitializeComponent();

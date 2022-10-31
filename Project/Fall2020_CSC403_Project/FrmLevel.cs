@@ -146,6 +146,20 @@ namespace Fall2020_CSC403_Project {
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
+      string Difficulty = checkDifficulty();
+            switch (Difficulty) { 
+                case "Easy":
+                    enemy.MaxHealth += 0;
+                    break;
+                case "Medium":
+                    enemy.MaxHealth += 10;
+                    enemy.Health = enemy.MaxHealth;
+                    break;
+                case "Hard":
+                    enemy.MaxHealth += 20;
+                    enemy.Health = enemy.MaxHealth;
+                    break;
+                }
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
 
@@ -221,6 +235,10 @@ namespace Fall2020_CSC403_Project {
             {
                 Application.Exit();
             }
+        }
+        public string checkDifficulty()
+        {
+            return psMenu.difMenu.Dif;
         }
     }
 }

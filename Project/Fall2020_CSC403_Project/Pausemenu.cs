@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project
     public partial class Pausemenu : Form
     {
         public static Pausemenu instance = null;
-        public static DifficultyMenu difMenu;
+        public DifficultyMenu difMenu;
         public Pausemenu()
         {
             InitializeComponent();
