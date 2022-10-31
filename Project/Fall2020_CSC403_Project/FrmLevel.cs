@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Media;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
@@ -16,10 +19,11 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Character[] walls;
 
+    private bool isPaused;
+    private Stopwatch timer;
     private Tuple<Key, Vector2>[] KeyBindings;
-
-    private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmPause frmPause; 
 
     public FrmLevel() {
       InitializeComponent();
@@ -64,8 +68,12 @@ namespace Fall2020_CSC403_Project {
       };
 
       Game.player = player;
-      timeBegin = DateTime.Now;
-    }
+      isPaused = false;
+
+      // Initiate Stopwatch instance and start the timer 
+      timer = new Stopwatch();
+      timer.Start();
+        }
 
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
@@ -80,10 +88,18 @@ namespace Fall2020_CSC403_Project {
       CheckKeys();
     }
 
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
+    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) { 
+
+        // If the pause window is shown then pause the timer 
+        if (isPaused)
+           timer.Stop();
+        else
+            timer.Start();
+
+        // Counts how many seconds have passed since the timer first started
+        TimeSpan span = timer.Elapsed;
+        string time = span.ToString(@"hh\:mm\:ss");
+        lblInGameTime.Text = "Time: " + time.ToString();
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
@@ -156,6 +172,27 @@ namespace Fall2020_CSC403_Project {
       // of either direction is 1
       MovementDirection.NormalizeSquare();
 
+        case Keys.Escape:
+           
+          // Game is paused when the escape key is hit 
+          isPaused = true;
+
+          // Get instance of FrmPause window and show it 
+          frmPause = FrmPause.GetInstance();
+
+          // ShowDialog() ensures no other windows can be accessed while 
+          // frmPause window is shown
+          frmPause.ShowDialog();
+
+          // Once frmPause window is closed, the game is no longer paused
+          isPaused = false;
+
+          break;
+
+        default:
+          player.ResetMoveSpeed();
+          break;
+      }
       if (MovementDirection.IsZero())
         player.ResetMoveSpeed();
       else
@@ -163,7 +200,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
-
+        
     }
   }
 }
