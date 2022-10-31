@@ -34,7 +34,9 @@ namespace Fall2020_CSC403_Project
     private void Doughboy_Click(object sender, EventArgs e)
     {
       FrmLevel game = new FrmLevel(); // create new instance of FrmLevel
+      game.FormClosed += gameclosed;
       game.Show(); //Show it
+      this.Hide();
       game.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Doughboy; //change the character image used
       game.picPlayer.Refresh(); //Refresh the character to ensure the change was visible.
 
@@ -43,7 +45,9 @@ namespace Fall2020_CSC403_Project
     private void Martin_Click(object sender, EventArgs e)
     {
       FrmLevel game = new FrmLevel(); // create new instance of FrmLevel
+      game.FormClosed += gameclosed;
       game.Show(); //Show it
+      this.Hide();
       game.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Martin; //change the character image used
       game.picPlayer.Refresh(); //Refresh the character to ensure the change was visible.
     }
@@ -51,15 +55,20 @@ namespace Fall2020_CSC403_Project
     private void MrPeanut_Click(object sender, EventArgs e)
     {
       FrmLevel game = new FrmLevel(); // create new instance of FrmLevel
+      game.FormClosed += gameclosed;
       game.Show(); //Show it
+      this.Hide();
       game.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.MrPeanut; //change the character image used
       game.picPlayer.Refresh(); //Refresh the character to ensure the change was visible.
+    
     }
     //ToucanSam Button
     private void ToucanSam_Click(object sender, EventArgs e)
     {
       FrmLevel game = new FrmLevel(); // create new instance of FrmLevel
+      game.FormClosed += gameclosed;
       game.Show(); //Show it
+      this.Hide();
       game.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Toucan_Sam; //change the character image used
       game.picPlayer.Refresh(); //Refresh the character to ensure the change was visible.
     }
@@ -67,6 +76,11 @@ namespace Fall2020_CSC403_Project
     private void ExitButton_Click(object sender, EventArgs e)
     {
       this.Close(); //close the window
+    }
+
+    private void gameclosed(object sender, FormClosedEventArgs e)
+    {
+      Application.Exit();
     }
   }    
 }
