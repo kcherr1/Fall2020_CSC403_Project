@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Fall2020_CSC403_Project {
     public partial class FrmLevel : Form
@@ -14,7 +15,7 @@ namespace Fall2020_CSC403_Project {
         private Enemy enemyCheeto;
         private Weapon weapon;
         private Character[] walls;
-
+        
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
@@ -22,8 +23,8 @@ namespace Fall2020_CSC403_Project {
         {
             InitializeComponent();
         }
-
-
+        //var for weapon iteration
+        int index;
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
@@ -40,7 +41,7 @@ namespace Fall2020_CSC403_Project {
             //Randomizes the weapons that are on the Map
             Random rand = new Random(DateTime.Now.ToString().GetHashCode());
             var list = new List<string> { "one", "two", "three" };
-            int index = rand.Next(0,list.Count);
+             index = rand.Next(0,list.Count);
 
             if (index == 0)
             {
@@ -52,7 +53,7 @@ namespace Fall2020_CSC403_Project {
                 this.picGun.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.m16;
 
             }
-            else if(index == 2)
+            if (index == 2)
             {
                 this.picGun.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.sniper;
 
@@ -125,16 +126,30 @@ namespace Fall2020_CSC403_Project {
             {
                 Fight(bossKoolaid);
             }
+
+
             //Picks up weapon if collided with!
-            if (HitAChar(player, weapon))
+            if ((HitAChar(player, weapon) && index == 0))
             {
                 picGun.Visible = false;
-                picGun.Location = new Point(1500, 1500);
+                this.picGun.Location = new System.Drawing.Point(-500,-500);
                 this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_ak47;
-
-
             }
 
+            if ((HitAChar(player, weapon) && index == 1))
+            {
+                picGun.Visible = false;
+                this.picGun.Size = new System.Drawing.Size(200, 75);
+                this.picGun.Location = new System.Drawing.Point(-500, -500);
+                this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_m16;
+            }
+
+            if ((HitAChar(player, weapon) && index == 2))
+            {
+                picGun.Visible = false;
+                this.picGun.Location = new System.Drawing.Point(-500, -500);
+                this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_sniper;
+            }
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -159,6 +174,7 @@ namespace Fall2020_CSC403_Project {
             return you.Collider.Intersects(other.Collider);
         }
 
+
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
@@ -174,7 +190,7 @@ namespace Fall2020_CSC403_Project {
             if (picGun.Visible == false)
             {
                 BoostAttack(player);
-                picGun.Visible = true;
+                picGun.Visible = false;
             }
         }
 

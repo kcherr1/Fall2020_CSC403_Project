@@ -148,7 +148,7 @@
             this.picGun.Location = new System.Drawing.Point(750, 300);
             this.picGun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picGun.Name = "picGun";
-            this.picGun.Size = new System.Drawing.Size(135, 75);
+            this.picGun.Size = new System.Drawing.Size(140, 75);
             this.picGun.TabIndex = 1;
             this.picGun.TabStop = false;
             
@@ -161,7 +161,7 @@
             this.picPlayer.Location = new System.Drawing.Point(178, 785);
             this.picPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picPlayer.Name = "picPlayer";
-            this.picPlayer.Size = new System.Drawing.Size(81, 163);
+            this.picPlayer.Size = new System.Drawing.Size(120, 163);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
