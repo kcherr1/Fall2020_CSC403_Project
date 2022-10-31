@@ -95,14 +95,14 @@ namespace Fall2020_CSC403_Project {
       {
         SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
         battleSound.Stop();
-        death_window = FrmDeath.GetInstance();
-        death_window.FormClosed += gameOver;
-        death_window.ShowDialog();
         deathSound.Play();
         PlayDeathSound();
         instance = null;
         Close();
-      }
+        death_window = FrmDeath.GetInstance();
+        death_window.FormClosed += gameOver;
+        death_window.ShowDialog();
+            }
 
       if (enemy.Health <= 0)
       {
