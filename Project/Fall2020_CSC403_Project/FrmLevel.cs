@@ -165,8 +165,6 @@ namespace Fall2020_CSC403_Project {
       frmBattle.picPlayer.Refresh();
 
       if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-        System.Threading.Thread.Sleep(5000);
         battleSound = new SoundPlayer(Resources.battle_music);
         battleSound.PlayLooping();
       }
