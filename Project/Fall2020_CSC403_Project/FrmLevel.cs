@@ -52,6 +52,9 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      tonyTigerWeak = new Enemy(CreatePosition(picEnemyTonyTigerWeak), CreateCollider(picEnemyTonyTigerWeak, PADDING));
+            tonyTigerStrong = new Enemy(CreatePosition(picEnemyTonyTigerStrong), CreateCollider(picEnemyTonyTigerStrong, PADDING));
+      trixBunny = new Enemy(CreatePosition(picEnemyTrixBunny),CreateCollider(picEnemyTrixBunny, PADDING));
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
