@@ -99,10 +99,19 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (player.Health <= 0)
       {
+<<<<<<< HEAD
+        SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
+        battleSound.Stop();
+        deathSound.Play();
+=======
+>>>>>>> 6aa6e98aa8a75e6dcedda048c5bb63507f10a2e3
         PlayDeathSound();
         instance = null;
         Close();
-      }
+        death_window = FrmDeath.GetInstance();
+        death_window.FormClosed += gameOver;
+        death_window.ShowDialog();
+            }
 
       if (enemy.Health <= 0)
       {
