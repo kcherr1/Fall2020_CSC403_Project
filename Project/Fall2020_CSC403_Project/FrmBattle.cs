@@ -9,7 +9,7 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
     private FrmDeath death_window;
-    private Enemy enemy;
+    public Enemy enemy;
     private Player player;
     private SoundPlayer battleSound;
     private SoundPlayer worldSound;
