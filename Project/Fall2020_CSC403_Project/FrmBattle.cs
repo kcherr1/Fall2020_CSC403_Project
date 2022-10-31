@@ -32,6 +32,12 @@ namespace Fall2020_CSC403_Project {
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
 
+      if(player.getInventory().Count == 0)
+            {
+                button1.Visible = false;
+                button2.Visible = false;
+            }
+
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
