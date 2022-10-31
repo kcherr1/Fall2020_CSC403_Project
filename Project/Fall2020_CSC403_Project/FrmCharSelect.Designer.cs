@@ -28,149 +28,148 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Select = new System.Windows.Forms.Button();
-            this.Doughboy = new System.Windows.Forms.Button();
-            this.ToucanSam = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.MrPeanut = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // Select
-            // 
-            this.Select.Location = new System.Drawing.Point(570, 398);
-            this.Select.Name = "Select";
-            this.Select.Size = new System.Drawing.Size(75, 23);
-            this.Select.TabIndex = 0;
-            this.Select.Text = "Select";
-            this.Select.UseVisualStyleBackColor = true;
-            // 
-            // Doughboy
-            // 
-            this.Doughboy.Location = new System.Drawing.Point(56, 76);
-            this.Doughboy.Name = "Doughboy";
-            this.Doughboy.Size = new System.Drawing.Size(75, 23);
-            this.Doughboy.TabIndex = 1;
-            this.Doughboy.Text = "Doughboy";
-            this.Doughboy.UseVisualStyleBackColor = true;
-            this.Doughboy.Click += new System.EventHandler(this.Doughboy_Click);
-            // 
-            // ToucanSam
-            // 
-            this.ToucanSam.Location = new System.Drawing.Point(590, 76);
-            this.ToucanSam.Name = "ToucanSam";
-            this.ToucanSam.Size = new System.Drawing.Size(80, 23);
-            this.ToucanSam.TabIndex = 3;
-            this.ToucanSam.Text = "Toucan Sam";
-            this.ToucanSam.UseVisualStyleBackColor = true;
-            this.ToucanSam.Click += new System.EventHandler(this.ToucanSam_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(663, 398);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Exit";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Fall2020_CSC403_Project.Properties.Resources.player;
-            this.pictureBox1.Location = new System.Drawing.Point(387, 125);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(104, 233);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Fall2020_CSC403_Project.Properties.Resources.Toucan_Sam;
-            this.pictureBox2.Location = new System.Drawing.Point(530, 125);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(208, 218);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Fall2020_CSC403_Project.Properties.Resources.download_removebg_preview__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(186, 125);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(161, 233);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 8;
-            this.pictureBox4.TabStop = false;
-            // 
-            // MrPeanut
-            // 
-            this.MrPeanut.Location = new System.Drawing.Point(404, 76);
-            this.MrPeanut.Name = "MrPeanut";
-            this.MrPeanut.Size = new System.Drawing.Size(75, 23);
-            this.MrPeanut.TabIndex = 9;
-            this.MrPeanut.Text = "Mr. Peanut";
-            this.MrPeanut.UseVisualStyleBackColor = true;
-            this.MrPeanut.Click += new System.EventHandler(this.MrPeanut_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Fall2020_CSC403_Project.Properties.Resources._224_2242510_transparent_pillsbury_doughboy_png_png_download_removebg_preview__1_;
-            this.pictureBox3.Location = new System.Drawing.Point(2, 114);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(178, 257);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 10;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(235, 76);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Martin";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Martin_Click);
-            // 
-            // FrmCharSelect
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.MrPeanut);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.ToucanSam);
-            this.Controls.Add(this.Doughboy);
-            this.Controls.Add(this.Select);
-            this.Name = "FrmCharSelect";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.FrmCharSelect_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.ResumeLayout(false);
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCharSelect));
+      this.DoughboyButton = new System.Windows.Forms.Button();
+      this.ToucanSamButton = new System.Windows.Forms.Button();
+      this.ExitButton = new System.Windows.Forms.Button();
+      this.MrPeanutPictureBox = new System.Windows.Forms.PictureBox();
+      this.ToucanSamPictureBox = new System.Windows.Forms.PictureBox();
+      this.MartinPictureBox = new System.Windows.Forms.PictureBox();
+      this.MrPeanutButton = new System.Windows.Forms.Button();
+      this.DoughboyPictureBox = new System.Windows.Forms.PictureBox();
+      this.MartinButton = new System.Windows.Forms.Button();
+      ((System.ComponentModel.ISupportInitialize)(this.MrPeanutPictureBox)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ToucanSamPictureBox)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MartinPictureBox)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.DoughboyPictureBox)).BeginInit();
+      this.SuspendLayout();
+      // 
+      // DoughboyButton
+      // 
+      this.DoughboyButton.Location = new System.Drawing.Point(56, 76);
+      this.DoughboyButton.Name = "DoughboyButton";
+      this.DoughboyButton.Size = new System.Drawing.Size(75, 23);
+      this.DoughboyButton.TabIndex = 1;
+      this.DoughboyButton.Text = "Doughboy";
+      this.DoughboyButton.UseVisualStyleBackColor = true;
+      this.DoughboyButton.Click += new System.EventHandler(this.Doughboy_Click);
+      // 
+      // ToucanSamButton
+      // 
+      this.ToucanSamButton.Location = new System.Drawing.Point(590, 76);
+      this.ToucanSamButton.Name = "ToucanSamButton";
+      this.ToucanSamButton.Size = new System.Drawing.Size(80, 23);
+      this.ToucanSamButton.TabIndex = 3;
+      this.ToucanSamButton.Text = "Toucan Sam";
+      this.ToucanSamButton.UseVisualStyleBackColor = true;
+      this.ToucanSamButton.Click += new System.EventHandler(this.ToucanSam_Click);
+      // 
+      // ExitButton
+      // 
+      this.ExitButton.Location = new System.Drawing.Point(663, 398);
+      this.ExitButton.Name = "ExitButton";
+      this.ExitButton.Size = new System.Drawing.Size(75, 23);
+      this.ExitButton.TabIndex = 4;
+      this.ExitButton.Text = "Exit";
+      this.ExitButton.UseVisualStyleBackColor = true;
+      this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+      // 
+      // MrPeanutPictureBox
+      // 
+      this.MrPeanutPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("MrPeanutPictureBox.Image")));
+      this.MrPeanutPictureBox.Location = new System.Drawing.Point(387, 125);
+      this.MrPeanutPictureBox.Name = "MrPeanutPictureBox";
+      this.MrPeanutPictureBox.Size = new System.Drawing.Size(104, 233);
+      this.MrPeanutPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.MrPeanutPictureBox.TabIndex = 5;
+      this.MrPeanutPictureBox.TabStop = false;
+      // 
+      // ToucanSamPictureBox
+      // 
+      this.ToucanSamPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("ToucanSamPictureBox.Image")));
+      this.ToucanSamPictureBox.Location = new System.Drawing.Point(530, 125);
+      this.ToucanSamPictureBox.Name = "ToucanSamPictureBox";
+      this.ToucanSamPictureBox.Size = new System.Drawing.Size(208, 218);
+      this.ToucanSamPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.ToucanSamPictureBox.TabIndex = 6;
+      this.ToucanSamPictureBox.TabStop = false;
+      // 
+      // MartinPictureBox
+      // 
+      this.MartinPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("MartinPictureBox.Image")));
+      this.MartinPictureBox.Location = new System.Drawing.Point(186, 125);
+      this.MartinPictureBox.Name = "MartinPictureBox";
+      this.MartinPictureBox.Size = new System.Drawing.Size(161, 233);
+      this.MartinPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.MartinPictureBox.TabIndex = 8;
+      this.MartinPictureBox.TabStop = false;
+      // 
+      // MrPeanutButton
+      // 
+      this.MrPeanutButton.Location = new System.Drawing.Point(404, 76);
+      this.MrPeanutButton.Name = "MrPeanutButton";
+      this.MrPeanutButton.Size = new System.Drawing.Size(75, 23);
+      this.MrPeanutButton.TabIndex = 9;
+      this.MrPeanutButton.Text = "Mr. Peanut";
+      this.MrPeanutButton.UseVisualStyleBackColor = true;
+      this.MrPeanutButton.Click += new System.EventHandler(this.MrPeanut_Click);
+      // 
+      // DoughboyPictureBox
+      // 
+      this.DoughboyPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("DoughboyPictureBox.Image")));
+      this.DoughboyPictureBox.Location = new System.Drawing.Point(2, 114);
+      this.DoughboyPictureBox.Name = "DoughboyPictureBox";
+      this.DoughboyPictureBox.Size = new System.Drawing.Size(178, 257);
+      this.DoughboyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.DoughboyPictureBox.TabIndex = 10;
+      this.DoughboyPictureBox.TabStop = false;
+      // 
+      // MartinButton
+      // 
+      this.MartinButton.Location = new System.Drawing.Point(235, 76);
+      this.MartinButton.Name = "MartinButton";
+      this.MartinButton.Size = new System.Drawing.Size(75, 23);
+      this.MartinButton.TabIndex = 12;
+      this.MartinButton.Text = "Martin";
+      this.MartinButton.UseVisualStyleBackColor = true;
+      this.MartinButton.Click += new System.EventHandler(this.Martin_Click);
+      // 
+      // FrmCharSelect
+      // 
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.MartinButton);
+      this.Controls.Add(this.DoughboyPictureBox);
+      this.Controls.Add(this.MrPeanutButton);
+      this.Controls.Add(this.MartinPictureBox);
+      this.Controls.Add(this.ToucanSamPictureBox);
+      this.Controls.Add(this.MrPeanutPictureBox);
+      this.Controls.Add(this.ExitButton);
+      this.Controls.Add(this.ToucanSamButton);
+      this.Controls.Add(this.DoughboyButton);
+      this.Name = "FrmCharSelect";
+      this.Text = "Form1";
+      this.Load += new System.EventHandler(this.FrmCharSelect_Load);
+      ((System.ComponentModel.ISupportInitialize)(this.MrPeanutPictureBox)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ToucanSamPictureBox)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MartinPictureBox)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.DoughboyPictureBox)).EndInit();
+      this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        
+        private System.Windows.Forms.Button DoughboyButton;
+        private System.Windows.Forms.Button ToucanSamButton;
+        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.PictureBox MrPeanutPictureBox;
+        private System.Windows.Forms.PictureBox ToucanSamPictureBox;
+        private System.Windows.Forms.PictureBox MartinPictureBox;
+        private System.Windows.Forms.Button MrPeanutButton;
+        private System.Windows.Forms.PictureBox DoughboyPictureBox;
+        private System.Windows.Forms.Button MartinButton;
         private new System.Windows.Forms.Button Select;
         private System.Windows.Forms.Button Doughboy;
         private System.Windows.Forms.Button ToucanSam;

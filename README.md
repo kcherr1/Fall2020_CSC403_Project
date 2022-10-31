@@ -1,5 +1,3 @@
-# Fall2020_CSC403_Project
-
 ## Documentation
 
 ### Death Sequence - Kennedy
@@ -104,4 +102,3 @@ Key bindings can be altered by changing the `KeyBindings` array in `FrmLevel.cs`
 
 ### New characters and character select screen - John
 Users are met with a character select screen when opening the game. Depending on their choice, the character chosen will be used for the duration of their play time. Characters are: MrPeanut, Toucan_Sam, Doughboy, and Martin. `Program.cs` now calls on `FrmCharSelect.cs` rather than `FrmLevel.cs` now. 
-

@@ -120,9 +120,6 @@
     <None Include="data\final_battle.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\player.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="data\battle_screen.fw.png" />
   </ItemGroup>
   <ItemGroup>
@@ -152,10 +149,10 @@
     <None Include="data\Toucan_Sam.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\224-2242510_transparent-pillsbury-doughboy-png-png-download-removebg-preview %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\download-removebg-preview %281%29.png" />
+    <Content Include="data\Doughboy.png" />
+    <Content Include="data\Martin.png" />
+    <Content Include="data\MrPeanut.png" />
+    <None Include="Resources\Martin.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\attack_sound1.wav" />
