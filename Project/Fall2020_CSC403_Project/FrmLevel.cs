@@ -157,7 +157,7 @@ namespace Fall2020_CSC403_Project {
 
        // battleOver function will be called when frmBattle window is closed
       frmBattle.FormClosed += battleOver;
-      frmBattle.Show();
+      frmBattle.ShowDialog();
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
