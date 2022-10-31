@@ -40,9 +40,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("MV Boli", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label1.Location = new System.Drawing.Point(248, 127);
+            this.label1.Location = new System.Drawing.Point(372, 195);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(308, 46);
+            this.label1.Size = new System.Drawing.Size(450, 70);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cool Game Alert";
             // 
@@ -53,12 +54,14 @@
             this.Start.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Start.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Start.ForeColor = System.Drawing.Color.Black;
-            this.Start.Location = new System.Drawing.Point(312, 199);
+            this.Start.Location = new System.Drawing.Point(468, 306);
+            this.Start.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(173, 28);
+            this.Start.Size = new System.Drawing.Size(260, 43);
             this.Start.TabIndex = 1;
             this.Start.Text = "Start";
             this.Start.UseVisualStyleBackColor = false;
+            this.Start.Click += new System.EventHandler(this.LoadGame);
             // 
             // Help
             // 
@@ -67,25 +70,28 @@
             this.Help.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Help.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Help.ForeColor = System.Drawing.Color.Black;
-            this.Help.Location = new System.Drawing.Point(312, 250);
+            this.Help.Location = new System.Drawing.Point(468, 385);
+            this.Help.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Help.Name = "Help";
-            this.Help.Size = new System.Drawing.Size(173, 28);
+            this.Help.Size = new System.Drawing.Size(260, 43);
             this.Help.TabIndex = 2;
             this.Help.Text = "Help";
             this.Help.UseVisualStyleBackColor = false;
+            this.Help.Click += new System.EventHandler(this.LoadHelpMenu);
             // 
-            // MenuScreen
+            // FrmMenuScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 551);
+            this.ClientSize = new System.Drawing.Size(1200, 848);
             this.Controls.Add(this.Help);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.label1);
-            this.Name = "MenuScreen";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "FrmMenuScreen";
             this.Text = "MenuScreen";
             this.ResumeLayout(false);
             this.PerformLayout();

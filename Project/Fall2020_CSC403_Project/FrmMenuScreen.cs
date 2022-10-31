@@ -16,5 +16,17 @@ namespace Fall2020_CSC403_Project
         {
             InitializeComponent();
         }
+
+        private void LoadGame(object sender, EventArgs e)
+        {
+            Form gameWindow = new FrmLevel();
+            gameWindow.Show();
+        }
+
+        private void LoadHelpMenu(object sender, EventArgs e)
+        {
+            Form helpWindow = new FrmHelpScreen();
+            helpWindow.Show();
+        }
     }
 }

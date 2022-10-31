@@ -73,6 +73,26 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cubicles {
+            get {
+                object obj = ResourceManager.GetObject("Cubicles", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap elevator {
+            get {
+                object obj = ResourceManager.GetObject("elevator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enemy_cheetos {
             get {
                 object obj = ResourceManager.GetObject("enemy_cheetos", resourceCulture);
@@ -115,6 +135,39 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap inventoryIcon {
             get {
                 object obj = ResourceManager.GetObject("inventoryIcon", resourceCulture);
+        internal static System.Drawing.Bitmap office_desk {
+            get {
+                object obj = ResourceManager.GetObject("office_desk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap office_wall1 {
+            get {
+                object obj = ResourceManager.GetObject("office_wall1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap office_wall2 {
+            get {
+                object obj = ResourceManager.GetObject("office_wall2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PixelOfficeAssets {
+            get {
+                object obj = ResourceManager.GetObject("PixelOfficeAssets", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -132,9 +185,39 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap techlead {
+            get {
+                object obj = ResourceManager.GetObject("techlead", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wall {
             get {
                 object obj = ResourceManager.GetObject("wall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wasd {
+            get {
+                object obj = ResourceManager.GetObject("wasd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap watercooler {
+            get {
+                object obj = ResourceManager.GetObject("watercooler", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
