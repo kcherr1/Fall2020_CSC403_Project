@@ -83,3 +83,6 @@ Originally, players were only able to move with one arrow key at a time. This br
 3. The `Vector2` struct got a few new functions: `static Add(Vector2 VectorA, Vector2 VectorB)`, `NormalizeSquare()`, and `IsZero()`. `Add()` returns a new vector which is a combination of the provided two. `NormalizeSquare()` makes sure that the magnitude of the vector in either the x or y direction is not greater than 1 unit. `IsZero()` is self-explanatory.
 
 Key bindings can be altered by changing the `KeyBindings` array in `FrmLevel.cs`.
+
+### New characters and character select screen - John
+Users are met with a character select screen when opening the game. Depending on their choice, the character chosen will be used for the duration of their play time. Characters are: MrPeanut, Toucan_Sam, Doughboy, and Martin. The `FrmCharSelect.cs`
