@@ -160,6 +160,7 @@
         }
 
         #endregion
+        
         private System.Windows.Forms.Button DoughboyButton;
         private System.Windows.Forms.Button ToucanSamButton;
         private System.Windows.Forms.Button ExitButton;
@@ -169,5 +170,15 @@
         private System.Windows.Forms.Button MrPeanutButton;
         private System.Windows.Forms.PictureBox DoughboyPictureBox;
         private System.Windows.Forms.Button MartinButton;
+        private new System.Windows.Forms.Button Select;
+        private System.Windows.Forms.Button Doughboy;
+        private System.Windows.Forms.Button ToucanSam;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button MrPeanut;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -79,6 +79,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDeath.resx">
       <DependentUpon>FrmDeath.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCharSelect.resx">
       <DependentUpon>FrmCharSelect.cs</DependentUpon>
     </EmbeddedResource>
