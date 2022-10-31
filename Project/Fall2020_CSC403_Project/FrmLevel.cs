@@ -143,9 +143,9 @@ namespace Fall2020_CSC403_Project {
                 }
                 else
                 {
-                    player.enemySpeed = 1;
-                    player.enemyStrength = 1;
-                    player.enemyDefense = 1;
+                    player.enemySpeed = 2;
+                    player.enemyStrength = 4;
+                    player.enemyDefense = 2;
                     Fight(enemyPoisonPacket);
                     picEnemyPoisonPacket.Visible = false;
                     enemyPoisonPacketIsDead = true;
@@ -158,9 +158,9 @@ namespace Fall2020_CSC403_Project {
                 }
                 else
                 {
-                    player.enemySpeed = 1;
-                    player.enemyStrength = 1;
-                    player.enemyDefense = 1;
+                    player.enemySpeed = 2;
+                    player.enemyStrength = 4;
+                    player.enemyDefense = 2;
                     Fight(enemyCheeto);
                     picEnemyCheeto.Visible = false;
                     enemyCheetoIsDead = true;
@@ -176,7 +176,7 @@ namespace Fall2020_CSC403_Project {
                 {
                     player.enemySpeed = 4;
                     player.enemyStrength = 2;
-                    player.enemyDefense = 2;
+                    player.enemyDefense = 1;
                     Fight(trixBunny);
                     picEnemyTrixBunny.Visible = false;
                     trixBunnyIsDead = true;
