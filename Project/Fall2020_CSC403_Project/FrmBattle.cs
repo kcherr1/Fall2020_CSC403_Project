@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
-    private Enemy enemy;
+    public Enemy enemy;
     private Player player;
     private SoundPlayer battleSound;
     private SoundPlayer worldSound;
@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
+      lblFleeStatus.Text = "";
     }
 
     public void Setup() {
@@ -68,8 +69,10 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
-    private void btnAttack_Click(object sender, EventArgs e)
-    {
+
+    private void btnAttack_Click(object sender, EventArgs e) {
+      lblFleeStatus.Text = "";
+
       player.OnAttack(-4);
       //SoundPlayer attackSound = new SoundPlayer(Resources.attack_sound1);
       //attackSound.Play();
@@ -111,6 +114,33 @@ namespace Fall2020_CSC403_Project {
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
+    }
+
+    private void button1_Click(object sender, EventArgs e) {
+      double fleeChance = 0.5f;
+      Random random = new Random();
+
+      if (random.NextDouble() < fleeChance) {
+        // flee!
+        lblFleeStatus.Text = "Flee successful!";
+        instance = null;
+        Close();
+      } else {
+        // Flee failed.
+        lblFleeStatus.Text = "Failed to flee!";
+
+        if (enemy.Health > 0) {
+          enemy.OnAttack(-2);
+        }
+
+        UpdateHealthBars();
+        // We don't need to check for enemy health because the enemy cannot
+        // be damaged if we are fleeing.
+        if (player.Health <= 0) {
+          instance = null;
+          Close();
+        }
+      }
     }
   }
 }
