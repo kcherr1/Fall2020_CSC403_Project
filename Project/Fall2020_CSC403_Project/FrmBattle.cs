@@ -78,6 +78,12 @@ namespace Fall2020_CSC403_Project {
       deathSound.Play();
     }
 
+    private void StopBattleSound() {
+      battleSound.Stop();
+      worldSound = new SoundPlayer(Resources.world_music);
+      worldSound.PlayLooping();
+    }
+
 
     private void btnAttack_Click(object sender, EventArgs e) {
       lblFleeStatus.Text = "";
@@ -93,9 +99,12 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (player.Health <= 0)
       {
+<<<<<<< HEAD
         SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
         battleSound.Stop();
         deathSound.Play();
+=======
+>>>>>>> 6aa6e98aa8a75e6dcedda048c5bb63507f10a2e3
         PlayDeathSound();
         instance = null;
         Close();
@@ -106,10 +115,8 @@ namespace Fall2020_CSC403_Project {
 
       if (enemy.Health <= 0)
       {
+        StopBattleSound();
         //SoundPlayer winSound = new SoundPlayer(Resources.win_music);
-        battleSound.Stop();
-        worldSound = new SoundPlayer(Resources.world_music);
-        worldSound.PlayLooping();
         //winSound.Play();
         instance = null;
         Close();
@@ -141,6 +148,7 @@ namespace Fall2020_CSC403_Project {
       if (random.NextDouble() < fleeChance) {
         // flee!
         lblFleeStatus.Text = "Flee successful!";
+        StopBattleSound();
         instance = null;
         Close();
       } else {
