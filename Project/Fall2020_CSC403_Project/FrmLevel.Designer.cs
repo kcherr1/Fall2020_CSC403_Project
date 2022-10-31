@@ -46,6 +46,7 @@
             this.picWall1 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -64,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -132,7 +134,7 @@
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
             this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(1446, 115);
+            this.picBossKoolAid.Location = new System.Drawing.Point(1448, 102);
             this.picBossKoolAid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picBossKoolAid.Name = "picBossKoolAid";
             this.picBossKoolAid.Size = new System.Drawing.Size(290, 298);
@@ -144,7 +146,7 @@
             this.picGun.BackColor = System.Drawing.Color.Transparent;
             this.picGun.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.ak47;
             this.picGun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picGun.Location = new System.Drawing.Point(1492, 535);
+            this.picGun.Location = new System.Drawing.Point(119, 524);
             this.picGun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picGun.Name = "picGun";
             this.picGun.Size = new System.Drawing.Size(140, 75);
@@ -216,10 +218,10 @@
             this.picWall9.BackColor = System.Drawing.Color.Transparent;
             this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall9.Location = new System.Drawing.Point(399, 237);
+            this.picWall9.Location = new System.Drawing.Point(399, 250);
             this.picWall9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picWall9.Name = "picWall9";
-            this.picWall9.Size = new System.Drawing.Size(296, 182);
+            this.picWall9.Size = new System.Drawing.Size(296, 169);
             this.picWall9.TabIndex = 10;
             this.picWall9.TabStop = false;
             // 
@@ -307,6 +309,16 @@
             this.picWall11.TabIndex = 17;
             this.picWall11.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 889);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(192, 107);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -314,6 +326,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1764, 1050);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -359,6 +372,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,7 +401,8 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-  }
+        private System.Windows.Forms.PictureBox pictureBox1;
+    }
 }
 
 //added ak47 to most functions in this code.

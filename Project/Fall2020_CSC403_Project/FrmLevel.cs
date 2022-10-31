@@ -132,15 +132,19 @@ namespace Fall2020_CSC403_Project {
             if ((HitAChar(player, weapon) && index == 0))
             {
                 picGun.Visible = false;
-                this.picGun.Location = new System.Drawing.Point(-500,-500);
+                //this.picGun.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.null;
+                this.picGun.Location = new System.Drawing.Point(2000,2000);
+                this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.ak47;
                 this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_ak47;
             }
 
             if ((HitAChar(player, weapon) && index == 1))
             {
                 picGun.Visible = false;
+                //this.picGun.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.null;
                 this.picGun.Size = new System.Drawing.Size(200, 75);
                 this.picGun.Location = new System.Drawing.Point(-500, -500);
+                this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.m16;
                 this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_m16;
             }
 
@@ -148,6 +152,7 @@ namespace Fall2020_CSC403_Project {
             {
                 picGun.Visible = false;
                 this.picGun.Location = new System.Drawing.Point(-500, -500);
+                this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.sniper;
                 this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player_sniper;
             }
 
@@ -190,6 +195,7 @@ namespace Fall2020_CSC403_Project {
             if (picGun.Visible == false)
             {
                 BoostAttack(player);
+                picGun.Location = new Point(2000, 2000);
                 picGun.Visible = false;
             }
         }
@@ -230,6 +236,7 @@ namespace Fall2020_CSC403_Project {
         {
             player.OnAttack(-8);
             this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+            this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
         }
 
     }

@@ -31,12 +31,6 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
     }
 
-    /*public void PickupWeapon()
-        {
-            picPlayer.
-        }
-    */
-
 
     public void SetupForBossBattle() {
       picBossBattle.Location = Point.Empty;

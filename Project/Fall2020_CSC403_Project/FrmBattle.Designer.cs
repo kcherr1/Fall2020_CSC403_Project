@@ -28,6 +28,7 @@
       this.lblPlayerHealthFull = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
+      this.label3 = new System.Windows.Forms.Label();
       this.lblEnemyHealthFull = new System.Windows.Forms.Label();
       this.picBossBattle = new System.Windows.Forms.PictureBox();
       this.picEnemy = new System.Windows.Forms.PictureBox();
@@ -78,6 +79,15 @@
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(229, 23);
       this.label2.TabIndex = 5;
+      // 
+      // label3
+      // 
+      this.label3.BackColor = System.Drawing.Color.White;
+      this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.label3.Location = new System.Drawing.Point(70, 1000);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(150, 150);
+      this.label3.TabIndex = 4;
       // 
       // lblEnemyHealthFull
       // 
@@ -151,6 +161,7 @@
       this.Controls.Add(this.picBossBattle);
       this.Controls.Add(this.lblEnemyHealthFull);
       this.Controls.Add(this.label2);
+      this.Controls.Add(this.label3);
       this.Controls.Add(this.lblPlayerHealthFull);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.btnAttack);
@@ -178,6 +189,7 @@
     private System.Windows.Forms.Label lblPlayerHealthFull;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
