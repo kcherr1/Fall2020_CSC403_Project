@@ -15,6 +15,11 @@ namespace Fall2020_CSC403_Project.code {
             inventoryList.Add(newItem);
         }
 
+        public void drop(object item)
+        {
+            inventoryList.Remove(item);
+        }
+
         public List<object> getInventoryList()
         {
             return inventoryList;
