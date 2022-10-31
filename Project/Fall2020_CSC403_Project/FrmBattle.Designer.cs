@@ -35,11 +35,13 @@
       this.lblEnemyHealthFull = new System.Windows.Forms.Label();
       this.picBossBattle = new System.Windows.Forms.PictureBox();
       this.picEnemy = new System.Windows.Forms.PictureBox();
+      this.picHeart = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
       this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picHeart)).BeginInit();
       this.SuspendLayout();
       // 
       // btnAttack
@@ -159,8 +161,22 @@
       this.picPlayer.TabIndex = 0;
       this.picPlayer.TabStop = false;
       // 
-      // tmrFinalBattle
-      // 
+      //
+      // picHeart
+      //
+      //
+      this.picHeart.BackColor = System.Drawing.Color.WhiteSmoke;
+      this.picHeart.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.heart;
+      this.picHeart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picHeart.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.picHeart.Location = new System.Drawing.Point(70, 98);
+      this.picHeart.Name = "picPlayer";
+      this.picHeart.Size = new System.Drawing.Size(229, 267);
+      this.picHeart.TabIndex = 0;
+      this.picHeart.TabStop = false;
+       //
+       // tmrFinalBattle
+       // 
       this.tmrFinalBattle.Interval = 5600;
       this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
       // 
@@ -189,14 +205,15 @@
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picHeart)).EndInit();
       this.ResumeLayout(false);
-
 
     }
 
     #endregion
 
     private System.Windows.Forms.PictureBox picPlayer;
+    private System.Windows.Forms.PictureBox picHeart;
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Button btnRetreat;

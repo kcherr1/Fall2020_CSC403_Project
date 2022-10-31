@@ -2,18 +2,26 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
+using Fall2020_CSC403_Project.Properties;
+
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
 
     private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
+    public Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    private Heart hearts;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+
+    SoundPlayer walkSFX = new SoundPlayer(Resources.walkSound);
+    public bool lvlMusicOn;
+    public bool isKoolAidMan = false;
 
     public FrmLevel() {
       InitializeComponent();
@@ -24,6 +32,7 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      hearts = new Heart(CreatePosition(picHeart), CreateCollider(picHeart, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -89,9 +98,21 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
+      if (HitAChar(player, hearts) & player.Health != player.MaxHealth){
+          player.Health += 5;
+          picHeart.Location = new Point(1000, 1000);
+            player.MaxHealth = player.Health;
+          System.Console.WriteLine("Hit heart!!!");
+      }
+      if(HitAChar(player, hearts) & player.Health == player.MaxHealth){
+          picHeart.Location = new Point(1000, 1000);
+     
+      }
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+
+
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
     private bool HitAWall(Character c) {
@@ -113,14 +134,20 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle.UpdateSettings(lvlMusicOn, isKoolAidMan);
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
+        isKoolAidMan = true;
         frmBattle.SetupForBossBattle();
+        frmBattle.UpdateSettings(lvlMusicOn, isKoolAidMan);
       }
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      
+      walkSFX.Play(); //walk sound
+
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
@@ -143,6 +170,16 @@ namespace Fall2020_CSC403_Project {
           break;
       }
     }
+
+    public void UpdateSettings(Settings s)
+        {
+            if (s.maxWindow)
+            {
+                s.maximizeWindow(this);
+            }
+
+            lvlMusicOn = s.musicOn;
+        }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
