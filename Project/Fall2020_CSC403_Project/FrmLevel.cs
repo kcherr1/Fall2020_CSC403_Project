@@ -159,7 +159,8 @@ namespace Fall2020_CSC403_Project {
 
        // battleOver function will be called when frmBattle window is closed
       frmBattle.FormClosed += battleOver;
-      frmBattle.Show();
+      
+      frmBattle.ShowDialog();
       frmBattle.picPlayer.BackgroundImage = this.picPlayer.BackgroundImage; //Set character image for the new battle to be the same as the current FrmLevel.
       frmBattle.picPlayer.Refresh();
 
