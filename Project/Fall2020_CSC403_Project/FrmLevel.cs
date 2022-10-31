@@ -8,39 +8,57 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Pausemenu psMenu =  Pausemenu.getInstance();
     private Player player;
-
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    private Enemy trixBunny;
+    private Enemy tonyTigerWeak;
+    private Enemy tonyTigerStrong;
+
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private bool playerIsDead;
-
-    public FrmLevel() {
+        private bool bossKoolAidIsDead;
+        private bool enemyCheetoIsDead;
+        private bool enemyPoisonPacketIsDead;
+        private bool tonyTigerWeakIsDead;
+        private bool trixBunnyIsDead;
+        private bool tonyTigerStrongIsDead;
+        
+        public FrmLevel() {
       InitializeComponent();
     }
 
-    private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
-      const int NUM_WALLS = 13;
-      playerIsDead = false;
+        private void FrmLevel_Load(object sender, EventArgs e) {
+            const int PADDING = 7;
+            const int NUM_WALLS = 13;
+            playerIsDead = false;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            tonyTigerWeak = new Enemy(CreatePosition(picEnemyTonyTigerWeak), CreateCollider(picEnemyTonyTigerWeak, PADDING));
+            tonyTigerStrong = new Enemy(CreatePosition(picEnemyTonyTigerStrong), CreateCollider(picEnemyTonyTigerStrong, PADDING));
+            trixBunny = new Enemy(CreatePosition(picEnemyTrixBunny), CreateCollider(picEnemyTrixBunny, PADDING));
 
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+            enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+            enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+            trixBunny.Img = picEnemyTrixBunny.BackgroundImage;
+            tonyTigerStrong.Img = picEnemyTonyTigerStrong.BackgroundImage;
+            tonyTigerWeak.Img = picEnemyTonyTigerWeak.BackgroundImage;
 
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
-
-      walls = new Character[NUM_WALLS];
+            trixBunny.Color = Color.White;
+            tonyTigerStrong.Color = Color.Orange;
+            tonyTigerWeak.Color = Color.Orange;
+            bossKoolaid.Color = Color.Red;
+            enemyPoisonPacket.Color = Color.Green;
+            enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+            picEnemyTonyTigerStrong.Visible = false;
+            walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
@@ -57,6 +75,10 @@ namespace Fall2020_CSC403_Project {
       Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
       return new Collider(rect);
     }
+        private Collider RemoveCollider(PictureBox pic)
+        {
+            return null;
+        }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       player.ResetMoveSpeed();
@@ -80,15 +102,95 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
-      // check collision with enemies
+      // check collision with enemies, removes enemy collisions and images after combat
       if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
+                if (enemyPoisonPacketIsDead == true)
+                {
+                }
+                else
+                {
+                    player.enemySpeed = 1;
+                    player.enemyStrength = 1;
+                    player.enemyDefense = 1;
+                    Fight(enemyPoisonPacket);
+                    picEnemyPoisonPacket.Visible = false;
+                    enemyPoisonPacketIsDead = true;
+                }
+                picEnemyPoisonPacket.Visible = false;
       }
       else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+                if (enemyCheetoIsDead == true)
+                {
+                }
+                else
+                {
+                    player.enemySpeed = 1;
+                    player.enemyStrength = 1;
+                    player.enemyDefense = 1;
+                    Fight(enemyCheeto);
+                    picEnemyCheeto.Visible = false;
+                    enemyCheetoIsDead = true;
+                }
+            }
+        
+            else if (HitAChar(player, trixBunny))
+            {
+                if (trixBunnyIsDead == true)
+                {
+                }
+                else
+                {
+                    player.enemySpeed = 4;
+                    player.enemyStrength = 2;
+                    player.enemyDefense = 2;
+                    Fight(trixBunny);
+                    picEnemyTrixBunny.Visible = false;
+                    trixBunnyIsDead = true;
+                }
+            }
+            else if (HitAChar(player, tonyTigerWeak))
+            {
+                if (tonyTigerWeakIsDead == true)
+                {
+                }
+                else
+                {
+                    player.enemySpeed = 3;
+                    player.enemyStrength = 2;
+                    player.enemyDefense = 3;
+                    Fight(tonyTigerWeak);
+                    picEnemyTonyTigerWeak.Visible = false;
+                    picEnemyTonyTigerStrong.Visible = true;
+                    tonyTigerWeakIsDead = true;
+                }
+            }
+            else if (HitAChar(player, tonyTigerStrong))
+            {
+                if (tonyTigerStrongIsDead == true)
+                {
+                }
+                else
+                {
+                    player.enemySpeed = 5;
+                    player.enemyStrength = 5;
+                    player.enemyDefense = 5;
+                    Fight(tonyTigerStrong);
+                    picEnemyTonyTigerStrong.Visible = false;
+                    tonyTigerStrongIsDead = true;
+                }
+            }
+            if (HitAChar(player, bossKoolaid)) {
+                if (bossKoolAidIsDead == true) { }
+                else
+                {
+                    player.enemySpeed = 3;
+                    player.enemyStrength = 8;
+                    player.enemyDefense = 2;
+                    Fight(bossKoolaid);
+                    picBossKoolAid.Visible = false;
+                    bossKoolAidIsDead = true;
+                }
       }
 
       // update player's picture box
@@ -179,6 +281,16 @@ namespace Fall2020_CSC403_Project {
             {
                 Application.Exit();
             }
+        }
+ 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

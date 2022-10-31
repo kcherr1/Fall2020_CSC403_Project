@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Remoting.Activation;
 using System.Text;
@@ -9,16 +10,18 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class BattleCharacter : Character {
-    public int Health { get; private set; }
+        
+        public int Health { get; private set; }
     public int MaxHealth { get; private set; }
     public int Experience { get; private set; }
-    private float playerStrength;
-    private float playerDefense;
-    private float enemyStrength;
-    private float enemyDefense;
+    public float playerStrength;
+    public float playerDefense;
+    public float enemyStrength;
+    public float enemyDefense;
     public float playerSpeed;
     public float enemySpeed;
     public float level;
+    public float skillPoints;
         public event Action<int> AttackEvent;
 
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
@@ -32,7 +35,7 @@ namespace Fall2020_CSC403_Project.code {
       Health = MaxHealth;
       Experience = 0;
       level = 1;
-      
+      skillPoints = 0;
     }
 
     public void PlayerAttack(int amount) {
@@ -51,12 +54,7 @@ namespace Fall2020_CSC403_Project.code {
     }
     public void LevelUp()
         {
-            MaxHealth += 2;
-            playerStrength += 1;
-            playerDefense += 1;
-            playerSpeed += 1;
-            Health = MaxHealth;
-            level += 1;
+            skillPoints += 2;
         }
   }
 }
