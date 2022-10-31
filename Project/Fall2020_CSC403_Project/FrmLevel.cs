@@ -153,19 +153,19 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
             switch (e.KeyCode) {
-                case Keys.Left:
+                case Keys.A:
                     player.GoLeft();
                     break;
 
-                case Keys.Right:
+                case Keys.D:
                     player.GoRight();
                     break;
 
-                case Keys.Up:
+                case Keys.W:
                     player.GoUp();
                     break;
 
-                case Keys.Down:
+                case Keys.S:
                     player.GoDown();
                     break;
 
