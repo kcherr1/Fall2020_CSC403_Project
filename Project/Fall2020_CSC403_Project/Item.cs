@@ -13,6 +13,8 @@ namespace Fall2020_CSC403_Project.code
 		public Item(int itemNum, string name)
 		{
 			// item properties
+		public Item(int itemNum, string name)
+		{
 			ItemNum = itemNum;
 			Name = name;
 		}
@@ -22,4 +24,5 @@ namespace Fall2020_CSC403_Project.code
 	{
 		return new Item(ItemNum, Name);
 	}
+
 }

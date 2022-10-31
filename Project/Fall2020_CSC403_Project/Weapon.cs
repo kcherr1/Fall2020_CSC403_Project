@@ -8,6 +8,7 @@ namespace Fall2020_CSC403_Project.code
 	public class Weapon : Item
     {
         public int Damage { get; set; }
+
 	// weapon constructor w/ parameters
         public Weapon(int itemNum, string name, int damage) 
             : base(itemNum, name)
