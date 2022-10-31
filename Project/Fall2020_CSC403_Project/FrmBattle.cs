@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
@@ -8,7 +8,8 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
-    public Enemy enemy;
+    private FrmDeath death_window;
+    private Enemy enemy;
     private Player player;
     private SoundPlayer battleSound;
     private SoundPlayer worldSound;
@@ -86,6 +87,8 @@ namespace Fall2020_CSC403_Project {
       {
         SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
         battleSound.Stop();
+        death_window = FrmDeath.GetInstance();
+        death_window.ShowDialog();
         deathSound.Play();
         instance = null;
         Close();
@@ -98,8 +101,6 @@ namespace Fall2020_CSC403_Project {
         worldSound = new SoundPlayer(Resources.world_music);
         worldSound.PlayLooping();
         //winSound.Play();
-        instance = null;
-        Close();
       }
     }
 
