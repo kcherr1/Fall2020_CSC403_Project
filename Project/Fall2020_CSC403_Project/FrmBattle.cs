@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
-
+    public FrmLevelUp lvlUpMenu = FrmLevelUp.getInstance();
     SoundPlayer battleMusic = new SoundPlayer(stream: Resources.battle_music);
     SoundPlayer levelMusic = new SoundPlayer(stream: Resources.level_music);
 
@@ -68,11 +68,13 @@ namespace Fall2020_CSC403_Project {
      
             lblPlayerHealthFull.Text = player.Health.ToString();
             lblEnemyHealthFull.Text = enemy.Health.ToString();
-    /*
+            // experience bar to match the health bars
+      const int MAX_EXPERIENCE_WIDTH = 226;
             lblPlayerExperienceFull.Width = (int)(MAX_EXPERIENCE_WIDTH / playerExperience);
             lblPlayerExperienceFull.Text = player.Experience.ToString();
-    */
+    
         }
+        // Creates turns in combat, and handles post-combat responsibilities such as levelling up the player
     private void btnAttack_Click(object sender, EventArgs e) {
             if (player.playerSpeed >= enemy.enemySpeed)
             {
@@ -83,13 +85,18 @@ namespace Fall2020_CSC403_Project {
                 }
                 else
                 {
-                    player.RewardExperience(100);
+                    player.RewardExperience(50);
                         if (player.Experience >= 100)
                         {
                             player.RewardExperience(-100);
-                            player.LevelUp();
-                            UpdateHealthBars();
+                        player.skillPoints += 5;
+                        player.level += 1;
+                        lvlUpMenu = FrmLevelUp.getInstance();
+                        lvlUpMenu.Show();
+                        player.AlterHealth(player.MaxHealth - player.Health);
+                        UpdateHealthBars();
                         }
+
                 }
             }
             else
@@ -99,12 +106,17 @@ namespace Fall2020_CSC403_Project {
                 {
                     player.PlayerAttack(-1);
                     if (enemy.Health <= 0)
-                    {
-                        player.RewardExperience(100);
+                    {   
+                        
+                        player.RewardExperience(50);
                         if (player.Experience >= 100)
                         {
                             player.RewardExperience(-100);
-                            player.LevelUp();
+                            player.level += 1;
+                            player.skillPoints += 5;
+                            lvlUpMenu = FrmLevelUp.getInstance();
+                            lvlUpMenu.Show();
+                            player.AlterHealth(player.MaxHealth - player.Health);
                             UpdateHealthBars();
                         }
                     }
@@ -134,5 +146,20 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEnemyHealthFull_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

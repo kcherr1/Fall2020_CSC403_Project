@@ -28,6 +28,8 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.picEnemyTonyTigerWeak = new System.Windows.Forms.PictureBox();
+            this.picEnemyTrixBunny = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
@@ -45,6 +47,9 @@
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+            this.picEnemyTonyTigerStrong = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyTonyTigerWeak)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyTrixBunny)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -62,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyTonyTigerStrong)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -88,12 +94,32 @@
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
+            // picEnemyTonyTigerWeak
+            // 
+            this.picEnemyTonyTigerWeak.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.tonyTigerWeak;
+            this.picEnemyTonyTigerWeak.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemyTonyTigerWeak.Location = new System.Drawing.Point(714, 425);
+            this.picEnemyTonyTigerWeak.Name = "picEnemyTonyTigerWeak";
+            this.picEnemyTonyTigerWeak.Size = new System.Drawing.Size(141, 176);
+            this.picEnemyTonyTigerWeak.TabIndex = 19;
+            this.picEnemyTonyTigerWeak.TabStop = false;
+            // 
+            // picEnemyTrixBunny
+            // 
+            this.picEnemyTrixBunny.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picEnemyTrixBunny.BackgroundImage")));
+            this.picEnemyTrixBunny.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemyTrixBunny.Location = new System.Drawing.Point(462, 274);
+            this.picEnemyTrixBunny.Name = "picEnemyTrixBunny";
+            this.picEnemyTrixBunny.Size = new System.Drawing.Size(129, 134);
+            this.picEnemyTrixBunny.TabIndex = 18;
+            this.picEnemyTrixBunny.TabStop = false;
+            // 
             // picWall11
             // 
             this.picWall11.BackColor = System.Drawing.Color.Transparent;
             this.picWall11.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall11.Location = new System.Drawing.Point(551, 425);
+            this.picWall11.Location = new System.Drawing.Point(517, 425);
             this.picWall11.Name = "picWall11";
             this.picWall11.Size = new System.Drawing.Size(164, 232);
             this.picWall11.TabIndex = 17;
@@ -159,7 +185,7 @@
             this.picWall10.BackColor = System.Drawing.Color.Transparent;
             this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall10.Location = new System.Drawing.Point(653, 89);
+            this.picWall10.Location = new System.Drawing.Point(586, 64);
             this.picWall10.Name = "picWall10";
             this.picWall10.Size = new System.Drawing.Size(228, 162);
             this.picWall10.TabIndex = 11;
@@ -170,7 +196,7 @@
             this.picWall9.BackColor = System.Drawing.Color.Transparent;
             this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall9.Location = new System.Drawing.Point(266, 154);
+            this.picWall9.Location = new System.Drawing.Point(394, 139);
             this.picWall9.Name = "picWall9";
             this.picWall9.Size = new System.Drawing.Size(197, 118);
             this.picWall9.TabIndex = 10;
@@ -192,7 +218,7 @@
             this.picWall12.BackColor = System.Drawing.Color.Transparent;
             this.picWall12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall12.Location = new System.Drawing.Point(890, 397);
+            this.picWall12.Location = new System.Drawing.Point(891, 342);
             this.picWall12.Name = "picWall12";
             this.picWall12.Size = new System.Drawing.Size(203, 113);
             this.picWall12.TabIndex = 8;
@@ -225,7 +251,7 @@
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyCheeto.Location = new System.Drawing.Point(838, 540);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(225, 274);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
             this.picEnemyCheeto.TabIndex = 5;
@@ -258,9 +284,9 @@
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
             this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(971, 74);
+            this.picBossKoolAid.Location = new System.Drawing.Point(942, 74);
             this.picBossKoolAid.Name = "picBossKoolAid";
-            this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
+            this.picBossKoolAid.Size = new System.Drawing.Size(173, 194);
             this.picBossKoolAid.TabIndex = 1;
             this.picBossKoolAid.TabStop = false;
             // 
@@ -275,6 +301,17 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
+            // picEnemyTonyTigerStrong
+            // 
+            this.picEnemyTonyTigerStrong.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picEnemyTonyTigerStrong.BackgroundImage")));
+            this.picEnemyTonyTigerStrong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemyTonyTigerStrong.Location = new System.Drawing.Point(907, 461);
+            this.picEnemyTonyTigerStrong.Name = "picEnemyTonyTigerStrong";
+            this.picEnemyTonyTigerStrong.Size = new System.Drawing.Size(170, 189);
+            this.picEnemyTonyTigerStrong.TabIndex = 20;
+            this.picEnemyTonyTigerStrong.TabStop = false;
+            this.picEnemyTonyTigerStrong.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,6 +319,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.picEnemyTonyTigerStrong);
+            this.Controls.Add(this.picEnemyTonyTigerWeak);
+            this.Controls.Add(this.picEnemyTrixBunny);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -307,6 +347,8 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyTonyTigerWeak)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyTrixBunny)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
@@ -324,6 +366,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyTonyTigerStrong)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,6 +394,9 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-  }
+        private System.Windows.Forms.PictureBox picEnemyTrixBunny;
+        private System.Windows.Forms.PictureBox picEnemyTonyTigerWeak;
+        private System.Windows.Forms.PictureBox picEnemyTonyTigerStrong;
+    }
 }
 
