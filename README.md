@@ -41,6 +41,6 @@ Below, There is a list of all of the sounds and music that were added, their pur
 
 <br/><br/>
 
-### Known Bugs:
+#### Known Bugs:
 - When the final boss music plays, the GUI freezes due to a sleep function added to make sure the final_battle.wav file doesn't play and overlap the battle_music.wav.
 - After the user defeats the final boss, the world music will begin to play again. Need to add a success screen that stops the music and gives the user the ability to either end the game or restart the game.
