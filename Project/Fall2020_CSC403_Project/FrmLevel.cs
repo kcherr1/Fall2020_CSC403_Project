@@ -104,6 +104,7 @@ namespace Fall2020_CSC403_Project {
         {
             SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong,
                         bossKoolAidIsDead, enemyCheetoIsDead, enemyPoisonPacketIsDead, trixBunnyIsDead, tonyTigerWeakIsDead, tonyTigerStrongIsDead);
+                deadCheck();
         }
       
     }
@@ -292,6 +293,7 @@ namespace Fall2020_CSC403_Project {
                     {
                         SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong,
                         bossKoolAidIsDead, enemyCheetoIsDead, enemyPoisonPacketIsDead, trixBunnyIsDead, tonyTigerWeakIsDead, tonyTigerStrongIsDead);
+                        deadCheck();
                     }
                     break;
         case Keys.Left:
