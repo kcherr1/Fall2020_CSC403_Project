@@ -72,8 +72,12 @@ namespace Fall2020_CSC403_Project {
 
     private void PlayDeathSound() {
       SoundPlayer deathSound = new SoundPlayer(Resources.death_music);
-      battleSound.Stop();
       deathSound.Play();
+    }
+
+    private void PlayWorldSound() {
+      worldSound = new SoundPlayer(Resources.world_music);
+      worldSound.PlayLooping();
     }
 
     private void ShowDeathWindow() {
@@ -84,10 +88,7 @@ namespace Fall2020_CSC403_Project {
 
     private void StopBattleSound() {
       battleSound.Stop();
-      worldSound = new SoundPlayer(Resources.world_music);
-      worldSound.PlayLooping();
     }
-
 
     private void btnAttack_Click(object sender, EventArgs e) {
       lblFleeStatus.Text = "";
@@ -103,6 +104,7 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (player.Health <= 0)
       {
+        StopBattleSound();
         PlayDeathSound();
         instance = null;
         Close();
@@ -116,6 +118,7 @@ namespace Fall2020_CSC403_Project {
         //winSound.Play();
         instance = null;
         Close();
+        PlayWorldSound();
       }
     }
 
@@ -146,6 +149,7 @@ namespace Fall2020_CSC403_Project {
         StopBattleSound();
         instance = null;
         Close();
+        PlayWorldSound();
       } else {
         // Flee failed.
         lblFleeStatus.Text = "Failed to flee!";
@@ -158,6 +162,7 @@ namespace Fall2020_CSC403_Project {
         // We don't need to check for enemy health because the enemy cannot
         // be damaged if we are fleeing.
         if (player.Health <= 0) {
+          StopBattleSound();
           PlayDeathSound();
           instance = null;
           Close();
