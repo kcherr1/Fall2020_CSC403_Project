@@ -129,6 +129,7 @@ namespace Fall2020_CSC403_Project
         private void Sound_btn_Click(object sender, EventArgs e)
         {
             Sound_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Sound_Hover;
+            new Sound().Show();
         }
 
         private void Difficulty_btn_MouseHover(object sender, EventArgs e)

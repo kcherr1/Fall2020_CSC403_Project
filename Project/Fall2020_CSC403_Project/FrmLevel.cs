@@ -23,7 +23,7 @@ namespace Fall2020_CSC403_Project {
 
     SoundPlayer level_music = new SoundPlayer(Resources.level_music);
 
-        public FrmLevel() {
+    public FrmLevel() {
       InitializeComponent();
     }
 
