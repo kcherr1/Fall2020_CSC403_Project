@@ -1,13 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
@@ -18,7 +11,9 @@ namespace Fall2020_CSC403_Project
         public static FrmDialogue enemy_instance = null;
         private Enemy enemy;
         private Player player;
-
+        private int lineTracker;
+        private string[] interactionDialogue = new string[] { };
+        private static List<Enemy> formEnemyList = null;
         public FrmDialogue()
         {
             InitializeComponent();
@@ -27,26 +22,28 @@ namespace Fall2020_CSC403_Project
 
         public void Setup()
         {
-            // update for this enemy
-            Console.WriteLine(picEnemy);
-            Console.WriteLine(picEnemy.BackgroundImage);
-            Console.WriteLine(enemy.Img.Width);
+            // Update for this enemy
             pictureBox1.Image = enemy.Img;
             pictureBox1.Refresh();
-            Console.WriteLine(picEnemy?.BackgroundImage?.Width);
+            lineTracker = 0;
+            System.Diagnostics.Debug.WriteLine(lineTracker);
+            interactionDialogue = LoadDialogue(enemy);
+            System.Diagnostics.Debug.WriteLine(interactionDialogue[lineTracker]);
+            dialogueTextBox.Text = interactionDialogue[lineTracker];
             picEnemy.Visible = true;
 
             // Observer pattern
             //enemy.AttackEvent += PlayerDamage;
             //player.AttackEvent += EnemyDamage;
 
-            // show health
+            // Show health
             //UpdateHealthBars();
         }
 
-        public static FrmDialogue GetInstance(Enemy enemy)
+        public static FrmDialogue GetInstance(Enemy enemy, List<Enemy> enemyList)
         {
             Console.WriteLine(enemy.Img.Width);
+            formEnemyList = enemyList;
 
             if (player_instance != null && player_instance.IsDisposed)
             {
@@ -65,9 +62,48 @@ namespace Fall2020_CSC403_Project
         {
         }
 
+        public static string[] LoadDialogue(Enemy enemy)
+        {
+            Console.WriteLine(enemy.Img.Width);
+            string[] dialogueset;
+            // poison packet man
+            if (enemy == formEnemyList[0])
+            {
+                dialogueset = new string[]
+                { "Mr. Peanut: What are you doing here?",
+                  "Poisoned Bruther: I work and scrum here."};
+                return dialogueset;
+            }
+            // cheeto ma'am
+            else if (enemy == formEnemyList[1])
+            {
+                dialogueset = new string[]
+                { "Mr. Peanut: What are you doing here?",
+                  "Cheeto bruther: I work and scrum here."};
+                return dialogueset;
+            }
+            //bossKoolaid
+            else if (enemy == formEnemyList[2])
+            {
+                dialogueset = new string[]
+                { "Mr. Peanut: What are you doing here?",
+                  "Boss Bruther: I work and scrum here."};
+                return dialogueset;
+            }
+            return null;
+        }
+            
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            lineTracker++;
+            if (lineTracker != interactionDialogue.Length)
+            {
+                dialogueTextBox.Text = interactionDialogue[lineTracker];
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

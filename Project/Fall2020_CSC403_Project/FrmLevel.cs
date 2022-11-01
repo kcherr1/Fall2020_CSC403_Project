@@ -2,6 +2,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -10,12 +12,12 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
+    private List<Enemy> enemyList;
     private Character[] walls;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
-        private FrmDialogue player_frmDialogue;
-        private FrmDialogue enemy_frmDialogue;
+    private FrmDialogue enemy_frmDialogue;
 
 
         public FrmLevel() {
@@ -30,6 +32,7 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      enemyList = new List<Enemy>() { enemyPoisonPacket, enemyCheeto, bossKoolaid };
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -85,7 +88,7 @@ namespace Fall2020_CSC403_Project {
         Talk(enemyCheeto);
       }
       if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+        Talk(bossKoolaid);
       }
 
       // update player's picture box
@@ -122,8 +125,8 @@ namespace Fall2020_CSC403_Project {
     {
       player.ResetMoveSpeed();
       player.MoveBack();
-      enemy_frmDialogue = FrmDialogue.GetInstance(enemy);
-            Console.WriteLine(enemy_frmDialogue);
+      enemy_frmDialogue = FrmDialogue.GetInstance(enemy, enemyList);
+      Console.WriteLine(enemy_frmDialogue);
       enemy_frmDialogue.Show();
     }
 
