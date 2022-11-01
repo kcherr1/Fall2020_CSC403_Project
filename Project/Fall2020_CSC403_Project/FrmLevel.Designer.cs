@@ -100,13 +100,14 @@
             // 
             // picWall2
             // 
+            /*
             this.picWall2.Image = global::Fall2020_CSC403_Project.Properties.Resources.office_wall1;
             this.picWall2.Location = new System.Drawing.Point(0, 276);
             this.picWall2.Name = "picWall2";
             this.picWall2.Size = new System.Drawing.Size(16, 761);
             this.picWall2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picWall2.TabIndex = 27;
-            this.picWall2.TabStop = false;
+            this.picWall2.TabStop = false;*/
             // 
             // picWall1
             // 
