@@ -143,7 +143,7 @@
             // picPlayer
             // 
             this.picPlayer.BackColor = System.Drawing.Color.Transparent;
-            this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+            this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.PickedPlayer;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.Location = new System.Drawing.Point(119, 510);
             this.picPlayer.Name = "picPlayer";

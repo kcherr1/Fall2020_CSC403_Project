@@ -64,6 +64,12 @@
     <Compile Include="frmRandomBattleDamageInput.Designer.cs">
       <DependentUpon>frmRandomBattleDamageInput.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlayerPicks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayerPicks.Designer.cs">
+      <DependentUpon>PlayerPicks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRandomBattleDamageInput.resx">
       <DependentUpon>frmRandomBattleDamageInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayerPicks.resx">
+      <DependentUpon>PlayerPicks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -123,13 +132,33 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Player_Choice_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Player_Choice_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Player_Choice_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Player_Choice_4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Player_Choice_5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Player_Choice_6.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PickedPlayer.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
