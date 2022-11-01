@@ -117,21 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Help
-
-Welcome to Cool Game Alert!
-
-You are a special agents tasked with taking down the 
-evil Scrum Lord Zucc who uses mind control on his devlopers.
-Ascend to his office and confront him, good luck agent!
-
-To play the game, refer to the controls below:
-
-W A S D to move the player
-
-
-
-</value>
-  </data>
 </root>
