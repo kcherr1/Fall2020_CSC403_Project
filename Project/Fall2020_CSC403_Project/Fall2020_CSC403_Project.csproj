@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Fall2020_CSC403_Project.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -161,6 +164,8 @@
   <ItemGroup>
     <Content Include="data\menubackground.jpg" />
     <Content Include="data\persuasion.PNG" />
+    <None Include="Resources\wasd.jpg" />
+    <None Include="Resources\techlead.png" />
     <None Include="Resources\elevator1.png" />
     <None Include="Resources\elevator.png" />
     <None Include="Resources\plant.png" />
