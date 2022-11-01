@@ -75,7 +75,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
             this.pictureBox1.Location = new System.Drawing.Point(1474, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(321, 393);
@@ -121,6 +120,5 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.PictureBox pictureBox2;
         //private System.Windows.Forms.PictureBox picCooler;
-
     }
 }

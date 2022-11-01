@@ -85,7 +85,7 @@ namespace Fall2020_CSC403_Project {
         Talk(enemyCheeto);
       }
       if (HitAChar(player, bossKoolaid)) {
-        Talk(bossKoolaid);
+        Fight(bossKoolaid);
       }
 
       // update player's picture box
@@ -120,14 +120,12 @@ namespace Fall2020_CSC403_Project {
 
     private void Talk(Enemy enemy)
     {
-            player.ResetMoveSpeed();
-            player.MoveBack();
-            enemy_frmDialogue = FrmDialogue.GetInstance(enemy);
-            player_frmDialogue = FrmDialogue.GetInstance(player);
-            enemy_frmDialogue.Show();
-
-            player_frmDialogue.Show();
-        }
+      player.ResetMoveSpeed();
+      player.MoveBack();
+      enemy_frmDialogue = FrmDialogue.GetInstance(enemy);
+            Console.WriteLine(enemy_frmDialogue);
+      enemy_frmDialogue.Show();
+    }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {

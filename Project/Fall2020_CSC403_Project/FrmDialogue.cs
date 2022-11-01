@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,10 +28,13 @@ namespace Fall2020_CSC403_Project
         public void Setup()
         {
             // update for this enemy
-            //picEnemy.BackgroundImage = enemy.Img;
-            //picEnemy.Refresh();
-            //BackColor = enemy.Color;
-            //picBossBattle.Visible = false;
+            Console.WriteLine(picEnemy);
+            Console.WriteLine(picEnemy.BackgroundImage);
+            Console.WriteLine(enemy.Img.Width);
+            pictureBox1.Image = enemy.Img;
+            pictureBox1.Refresh();
+            Console.WriteLine(picEnemy?.BackgroundImage?.Width);
+            picEnemy.Visible = true;
 
             // Observer pattern
             //enemy.AttackEvent += PlayerDamage;
@@ -42,6 +46,12 @@ namespace Fall2020_CSC403_Project
 
         public static FrmDialogue GetInstance(Enemy enemy)
         {
+            Console.WriteLine(enemy.Img.Width);
+
+            if (player_instance != null && player_instance.IsDisposed)
+            {
+                player_instance = null;
+            }
             if (player_instance == null)
             {
                 player_instance = new FrmDialogue();
@@ -50,23 +60,14 @@ namespace Fall2020_CSC403_Project
             }
             return player_instance;
         }
-        public static FrmDialogue GetInstance(Player player)
-        {
-            if (player_instance == null)
-            {
-                player_instance = new FrmDialogue();
-                player_instance.player = player;
-                player_instance.Setup();
-            }
-            return player_instance;
-        }
+
         public static void FrmDialogue_Load()
-        { 
+        {
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

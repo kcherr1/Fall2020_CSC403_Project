@@ -109,7 +109,7 @@
       this.picEnemy.Size = new System.Drawing.Size(229, 267);
       this.picEnemy.TabIndex = 1;
       this.picEnemy.TabStop = false;
-      // 
+      //
       // picPlayer
       // 
       this.picPlayer.BackColor = System.Drawing.Color.WhiteSmoke;
