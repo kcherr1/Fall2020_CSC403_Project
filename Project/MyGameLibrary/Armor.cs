@@ -7,20 +7,20 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project.code
 {
-    public class Weapon : Item
+    public class Armor : Item
     {
 
-        public int Damage { get; private set; }
+        public int Protection { get; private set; }
 
         public bool IsEquiped { get; set; }
-        
-        public Weapon(string name, int damage) : base(name)
+
+        public Armor(string name, int protection) : base(name)
         {
             this.Name = name;
-            this.Damage = damage;
+            this.Protection = protection;
             this.IsEquiped = false;
         }
-        
+
         override public int Use()
         {
             if (this.IsEquiped)
@@ -39,7 +39,7 @@ namespace Fall2020_CSC403_Project.code
                 return 1;
             }
 
-            
+
         }
 
         public void Equip()

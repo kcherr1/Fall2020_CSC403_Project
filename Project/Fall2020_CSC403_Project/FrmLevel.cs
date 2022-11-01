@@ -7,6 +7,9 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
     private PlayerInventory inventory;
+    private Weapon sword;
+    private Armor shield;
+    private Potion healthPotion;
 
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
@@ -26,10 +29,12 @@ namespace Fall2020_CSC403_Project {
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       inventory = new PlayerInventory();
-      Weapon sword = new Weapon("Sword", 2, 6);
-      Potion healthPotion = new Potion("Health Potion", 10);
-      inventory.Add(sword);
+      sword = new Weapon("Sword", 2);
+      healthPotion = new Potion("Health Potion", 10);
+      shield = new Armor("Shield", 2);
+      //inventory.Add(sword);
       inventory.Add(healthPotion);
+      //inventory.Add(shield);
 
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
@@ -101,7 +106,8 @@ namespace Fall2020_CSC403_Project {
                 {
                     enemyPoisonPacket = null;
                     picEnemyPoisonPacket.Dispose();
-                    
+                    inventory.Add(sword);
+                    MessageBox.Show("You have obtained a " + sword.Name + "!", "Loot");
                 } 
             }
         if (enemyCheeto != null)
@@ -110,8 +116,9 @@ namespace Fall2020_CSC403_Project {
             {
                     enemyCheeto = null;
                     picEnemyCheeto.Dispose();
-
-            }
+                    inventory.Add(shield);
+                    MessageBox.Show("You have obtained a " + shield.Name + "!", "Loot");
+                }
         }
         if (bossKoolaid != null)
         {
@@ -229,14 +236,27 @@ namespace Fall2020_CSC403_Project {
                 
                 if (weapon.IsEquiped)
                 {
-                    Properties.Settings.Default.MinRandomBattleDamage = weapon.MinDamage;
-                    Properties.Settings.Default.MaxRandomBattleDamage = weapon.MaxDamage;
+                    Properties.Settings.Default.WeaponDamage = weapon.Damage;
                 }
                 else
                 {
                     // Set back to the default damage
-                    Properties.Settings.Default.MinRandomBattleDamage = 0;
-                    Properties.Settings.Default.MaxRandomBattleDamage = 4;
+                    Properties.Settings.Default.WeaponDamage = 0;
+                }
+            }
+            else if (item is Armor)
+            {
+                Armor armor = (Armor)item;
+
+                armor.Use();
+
+                if (armor.IsEquiped)
+                {
+                    Properties.Settings.Default.ArmorProtection = armor.Protection;
+                }
+                else
+                {
+                    Properties.Settings.Default.ArmorProtection = 0;
                 }
             }
             toolStripComboBox1.Items.Clear();

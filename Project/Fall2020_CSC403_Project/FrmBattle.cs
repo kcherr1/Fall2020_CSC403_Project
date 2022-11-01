@@ -52,6 +52,14 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void UpdateHealthBars() {
+    
+      // Make sure health does not go over max
+      if (player.Health > 20)
+      {
+          int offset = player.MaxHealth - player.Health;
+          player.AlterHealth(offset);
+      }
+
       float playerHealthPer = player.Health / (float)player.MaxHealth;
       float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
@@ -66,8 +74,21 @@ namespace Fall2020_CSC403_Project {
     private void btnAttack_Click(object sender, EventArgs e) {
             int MinDamagePossible = Properties.Settings.Default.MinRandomBattleDamage;
             int MaxDamagePossible = Properties.Settings.Default.MaxRandomBattleDamage;
-            int DamageDealtByPlayer = _random.Next(MinDamagePossible, MaxDamagePossible);
-            int DamageDealtByEnemy = _random.Next(MinDamagePossible, MaxDamagePossible);
+            int WeaponDamage = Properties.Settings.Default.WeaponDamage;
+            int ArmorProtection = Properties.Settings.Default.ArmorProtection;
+            int DamageDealtByPlayer = _random.Next(MinDamagePossible, MaxDamagePossible) + WeaponDamage;
+            int DamageDealtByEnemy = _random.Next(MinDamagePossible, MaxDamagePossible) - ArmorProtection;
+
+            // Ensure negative damage does not heal player or enemy
+            if (DamageDealtByEnemy < 0)
+            {
+                DamageDealtByEnemy = 0;
+            }
+            if (DamageDealtByPlayer < 0)
+            {
+                DamageDealtByPlayer = 0;
+            }
+
             //MessageBox.Show("Player Hits for " + DamageDealtByPlayer.ToString() + " points of damage.");
             //MessageBox.Show(DamageDealtByEnemy.ToString());
 
@@ -77,7 +98,7 @@ namespace Fall2020_CSC403_Project {
                 //enemy.OnAttack(-2);
                 enemy.OnAttack(DamageDealtByEnemy*-1); 
             }
-
+     
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
