@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHelpScreen));
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -41,18 +43,20 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(969, 531);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Cool Game Alert Help Screen\r\nWelcome to Cool Game Alert!\r\n\r\nTo play the game, ref" +
-    "er to the controls below:\r\n\r\nW A S D to move the player\r\n\r\n...More about the gam" +
-    "e here\r\n\r\n";
+            this.label1.Text = resources.GetString("label1.Text");
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // panel1
+            // pictureBox1
             // 
-            this.panel1.Location = new System.Drawing.Point(2, 321);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 369);
-            this.panel1.TabIndex = 1;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Fall2020_CSC403_Project.Properties.Resources.wasd;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 432);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(276, 260);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmHelpScreen
             // 
@@ -60,11 +64,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmHelpScreen";
             this.Text = "FrmHelpScreen";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -72,6 +77,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
