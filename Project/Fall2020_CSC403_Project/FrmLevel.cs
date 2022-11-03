@@ -60,8 +60,8 @@ namespace Fall2020_CSC403_Project {
         return instance;
     }
         private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 0;
-      const int NUM_WALLS = 13;
+        const int PADDING = 0;
+        const int NUM_WALLS = 13;
 
         
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), character);
@@ -395,15 +395,9 @@ namespace Fall2020_CSC403_Project {
                 player.Collider = CreateCollider(picPlayer, 0);
                 player.CharacterSelectedSpeed(1);
             }
-            if (character == "mrs")
+            else if (character == "mrs")
             {
                 picPlayer.Size = new Size(36, 71);
-                player.Collider = CreateCollider(picPlayer, 0);
-                player.CharacterSelectedSpeed(1);
-            }
-            if (character == "baby")
-            {
-                picPlayer.Size = new Size(30, 50);
                 player.Collider = CreateCollider(picPlayer, 0);
                 player.CharacterSelectedSpeed(1);
             }
@@ -416,16 +410,11 @@ namespace Fall2020_CSC403_Project {
                 player.Collider = CreateCollider(picPlayer, 0);
                 player.CharacterSelectedSpeed(2);
             }
-            if (character == "mrs")
+            else if (character == "mrs")
             {
                 picPlayer.Size = new Size(44, 90);
                 player.Collider = CreateCollider(picPlayer, 0);
-                player.CharacterSelectedSpeed(3);
-            }
-            if (character == "baby")
-            {
-                picPlayer.Size = new Size(35, 60);
-                player.CharacterSelectedSpeed(1);
+                player.CharacterSelectedSpeed(4);
             }
         }
         player.KeysPressed(e,UpKeyDown,LeftKeyDown,DownKeyDown,RightKeyDown,UpKeyUp,LeftKeyUp,DownKeyUp,RightKeyDown);
