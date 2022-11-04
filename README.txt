@@ -1,5 +1,4 @@
 Documentation for Team Squonk Fall 2022 Project
-###############################################
 
 FrmMenu.cs
     - The FrmMenu.cs file adds the new main menu for the game
