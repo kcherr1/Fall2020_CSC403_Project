@@ -386,6 +386,11 @@ namespace Fall2020_CSC403_Project {
         Console.WriteLine("FrameLevel_KeyDownCall\n"+"  " + UpKeyDown + "        " + UpKeyUp + "        " + U +
             "\n" + LeftKeyDown + "   " + RightKeyDown + "    " + LeftKeyUp + "   " + RightKeyUp + "    " + L + "   " + R +
             "\n  " + DownKeyDown + "        " + DownKeyUp + "        " + D);
+        if (e.KeyCode == Keys.P)
+            {
+                // Where the Pause interface will be initiated
+                Console.WriteLine("P has been pressed on the KeyBoard");
+            }
         // if Control key is pressed then call method that will change player values otherwise stay stock size
         if (e.Control == true)
         {
