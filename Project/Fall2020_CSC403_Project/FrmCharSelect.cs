@@ -33,7 +33,7 @@ namespace Fall2020_CSC403_Project
     //Doughboy Button
     private void Doughboy_Click(object sender, EventArgs e)
     {
-      FrmLevel game = new FrmLevel(); // create new instance of FrmLevel
+      FrmLevelBakery game = new FrmLevelBakery(); // create new instance of FrmLevel
       game.FormClosed += gameclosed;
       game.Show(); //Show it
       this.Hide();
@@ -44,7 +44,7 @@ namespace Fall2020_CSC403_Project
     //Martin Button
     private void Martin_Click(object sender, EventArgs e)
     {
-      FrmLevel game = new FrmLevel(); // create new instance of FrmLevel
+      FrmLevelCity game = new FrmLevelCity(); // create new instance of FrmLevel
       game.FormClosed += gameclosed;
       game.Show(); //Show it
       this.Hide();
@@ -54,7 +54,7 @@ namespace Fall2020_CSC403_Project
     //MrPeanut Button
     private void MrPeanut_Click(object sender, EventArgs e)
     {
-      FrmLevel game = new FrmLevel(); // create new instance of FrmLevel
+      FrmLevelIESB game = new FrmLevelIESB(); // create new instance of FrmLevel
       game.FormClosed += gameclosed;
       game.Show(); //Show it
       this.Hide();
@@ -65,7 +65,7 @@ namespace Fall2020_CSC403_Project
     //ToucanSam Button
     private void ToucanSam_Click(object sender, EventArgs e)
     {
-      FrmLevel game = new FrmLevel(); // create new instance of FrmLevel
+      FrmLevelJungle game = new FrmLevelJungle(); // create new instance of FrmLevel
       game.FormClosed += gameclosed;
       game.Show(); //Show it
       this.Hide();

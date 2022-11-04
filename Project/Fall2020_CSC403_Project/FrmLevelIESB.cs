@@ -9,7 +9,7 @@ using System.Windows.Input;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
+  public partial class FrmLevelIESB : Form {
     private Player player;
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
@@ -25,7 +25,7 @@ namespace Fall2020_CSC403_Project {
     private Tuple<Key, Vector2>[] KeyBindings;
     private FrmPause frmPause; 
 
-    public FrmLevel() {
+    public FrmLevelIESB() {
       InitializeComponent();
       worldSound = new SoundPlayer(Resources.world_music);
       worldSound.PlayLooping();

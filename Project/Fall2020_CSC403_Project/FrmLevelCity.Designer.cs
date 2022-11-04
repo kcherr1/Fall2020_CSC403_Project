@@ -1,5 +1,7 @@
-﻿namespace Fall2020_CSC403_Project {
-  partial class FrmLevel {
+﻿namespace Fall2020_CSC403_Project
+{
+  partial class FrmLevelCity
+  {
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -9,8 +11,10 @@
     /// Clean up any resources being used.
     /// </summary>
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-      if (disposing && (components != null)) {
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (components != null))
+      {
         components.Dispose();
       }
       base.Dispose(disposing);
@@ -22,9 +26,10 @@
     /// Required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
-    private void InitializeComponent() {
+    private void InitializeComponent()
+    {
       this.components = new System.ComponentModel.Container();
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevelCity));
       this.lblInGameTime = new System.Windows.Forms.Label();
       this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
       this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
@@ -192,9 +197,9 @@
       this.picWall9.BackColor = System.Drawing.Color.Transparent;
       this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall9.Location = new System.Drawing.Point(266, 154);
+      this.picWall9.Location = new System.Drawing.Point(242, 79);
       this.picWall9.Name = "picWall9";
-      this.picWall9.Size = new System.Drawing.Size(197, 118);
+      this.picWall9.Size = new System.Drawing.Size(328, 172);
       this.picWall9.TabIndex = 10;
       this.picWall9.TabStop = false;
       // 
@@ -275,7 +280,7 @@
       this.picWall11.TabIndex = 17;
       this.picWall11.TabStop = false;
       // 
-      // FrmLevel
+      // FrmLevelCity
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -301,7 +306,7 @@
       this.Controls.Add(this.picBossKoolAid);
       this.Controls.Add(this.picPlayer);
       this.DoubleBuffered = true;
-      this.Name = "FrmLevel";
+      this.Name = "FrmLevelCity";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "Explore";
       this.Load += new System.EventHandler(this.FrmLevel_Load);
