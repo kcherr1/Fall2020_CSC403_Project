@@ -59,6 +59,12 @@ namespace Fall2020_CSC403_Project {
         }
         return instance;
     }
+
+        public static void PauseGame()
+        {
+
+        }
+
         private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 0;
       const int NUM_WALLS = 13;
@@ -164,6 +170,7 @@ namespace Fall2020_CSC403_Project {
         frmBattle.SetupForBossBattle();
       }
     }
+
 
     protected override void OnKeyUp(KeyEventArgs e)
     {
@@ -387,10 +394,11 @@ namespace Fall2020_CSC403_Project {
             "\n" + LeftKeyDown + "   " + RightKeyDown + "    " + LeftKeyUp + "   " + RightKeyUp + "    " + L + "   " + R +
             "\n  " + DownKeyDown + "        " + DownKeyUp + "        " + D);
         if (e.KeyCode == Keys.P)
-            {
-                // Where the Pause interface will be initiated
-                Console.WriteLine("P has been pressed on the KeyBoard");
-            }
+        {
+            PauseGame();
+            // Where the Pause interface will be initiated
+            Console.WriteLine("P has been pressed on the KeyBoard");
+        }
         // if Control key is pressed then call method that will change player values otherwise stay stock size
         if (e.Control == true)
         {
