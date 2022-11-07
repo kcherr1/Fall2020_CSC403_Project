@@ -31,7 +31,7 @@
 
 
 ---
-# **Scrum Project 1** #
+# **Scrum Project 2** #
 ---
 # **Finch, Laurence H** #
 ---
