@@ -13,9 +13,11 @@ namespace Fall2020_CSC403_Project.code
 			// creating the items for the game
 			_gameItem = new List<Item>();
 			// creating first weapon
-			_gameItem.Add(new Weapon(01, "Stapler", 1);
+			_gameItem.Add(new Weapon(01, "Stapler", 5);
 			// creating first health item
 			_gameItem.Add(new HealthItem(02, "Health", 10);
+			// second weapon
+			_gameItem.Add(new Weapon(03, "Pencil", 1);
 		}
 	}
 	// instantiates the items
