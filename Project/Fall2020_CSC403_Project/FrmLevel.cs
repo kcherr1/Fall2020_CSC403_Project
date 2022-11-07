@@ -102,9 +102,8 @@ namespace Fall2020_CSC403_Project {
         //if its loading a game
         else
         {
-            SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong,
-                        bossKoolAidIsDead, enemyCheetoIsDead, enemyPoisonPacketIsDead, trixBunnyIsDead, tonyTigerWeakIsDead, tonyTigerStrongIsDead);
-                deadCheck();
+                bool[] deadFlags = SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong);
+                deadCheck(deadFlags);
         }
       
     }
@@ -291,9 +290,8 @@ namespace Fall2020_CSC403_Project {
                 case Keys.F9:
                     if (SaveSystem.IsSaveFileValid(saveName))
                     {
-                        SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong,
-                        bossKoolAidIsDead, enemyCheetoIsDead, enemyPoisonPacketIsDead, trixBunnyIsDead, tonyTigerWeakIsDead, tonyTigerStrongIsDead);
-                        deadCheck();
+                        bool[] deadFlags = SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong);
+                        deadCheck(deadFlags);
                     }
                     break;
         case Keys.Left:
@@ -368,14 +366,28 @@ namespace Fall2020_CSC403_Project {
 
         }
 
-        private void deadCheck()
+        private void deadCheck(bool[] deadFlags)
         {
-            picBossKoolAid.Visible = !bossKoolAidIsDead;
-            picEnemyCheeto.Visible = !enemyCheetoIsDead;
-            picEnemyPoisonPacket.Visible = !enemyPoisonPacketIsDead;
-            picEnemyTonyTigerWeak.Visible = !tonyTigerWeakIsDead;
-            picEnemyTonyTigerStrong.Visible = tonyTigerWeakIsDead && !tonyTigerStrongIsDead;
-            picEnemyTrixBunny.Visible = !trixBunnyIsDead;
+            picBossKoolAid.Visible = !deadFlags[0];
+            bossKoolAidIsDead = deadFlags[0];
+
+            picEnemyCheeto.Visible = !deadFlags[1];
+            enemyCheetoIsDead = deadFlags[1];
+
+            picEnemyPoisonPacket.Visible = !deadFlags[2];
+            enemyPoisonPacketIsDead = deadFlags[2];
+
+
+            picEnemyTrixBunny.Visible = !deadFlags[3];
+            trixBunnyIsDead = deadFlags[3];
+
+            picEnemyTonyTigerWeak.Visible = !deadFlags[4];
+            tonyTigerWeakIsDead = deadFlags[4];
+
+            picEnemyTonyTigerStrong.Visible = deadFlags[4] && !deadFlags[5];
+            tonyTigerStrongIsDead = deadFlags[5];
+
+            
         }
     }
 }

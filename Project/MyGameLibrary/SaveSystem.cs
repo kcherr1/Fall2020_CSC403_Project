@@ -33,6 +33,7 @@ namespace Fall2020_CSC403_Project.code
         public bool trixBunnyIsDead;
         public bool ttWeakIsDead;
         public bool ttStrongIsDead;
+		public int playerSkillPoints;
 
         //constructor
         public SaveStruct(Player player, Enemy poison, Enemy cheeto, Enemy koolaid, Enemy trixBunny, Enemy ttWeak, Enemy ttStrong, 
@@ -59,6 +60,7 @@ namespace Fall2020_CSC403_Project.code
 			this.trixBunnyIsDead = trixBunnyIsDead;
 			this.ttWeakIsDead = ttWeakIsDead;
 			this.ttStrongIsDead = ttStrongIsDead;
+			this.playerSkillPoints = player.skillPoints;
 
         }
 
@@ -93,7 +95,8 @@ namespace Fall2020_CSC403_Project.code
 				save.enemyPoisonPacketIsDead.ToString(),
 				save.trixBunnyIsDead.ToString(),
 				save.ttWeakIsDead.ToString(),
-				save.ttStrongIsDead.ToString()
+				save.ttStrongIsDead.ToString(),
+				save.playerSkillPoints.ToString(),
             };
 
 			File.WriteAllLines(savename, data);
@@ -110,21 +113,10 @@ namespace Fall2020_CSC403_Project.code
 			if (File.Exists(saveName))
 			{
 				string[] texts = File.ReadAllLines(saveName);
-				if(texts.Length != 21)
+				if(texts.Length != 22)
 				{
 					return false;
 				}
-				/*
-				foreach (string text in texts)
-				{
-					double dVal;
-					bool bVal;
-					if (!double.TryParse(text, out dVal) || !bool.TryParse(text, out bVal))
-					{
-						return false;
-					}
-				}
-				*/
 				return true;
 			}
 			else
@@ -133,8 +125,7 @@ namespace Fall2020_CSC403_Project.code
 			}
 		}
 
-        public static void LoadGame(string savename, Player player, Enemy poison, Enemy cheeto, Enemy koolaid, Enemy trixBunny, Enemy ttWeak, Enemy ttStrong,
-            bool bossKoolAidIsDead, bool enemyCheetoIsDead, bool enemyPoisonPacketIsDead, bool trixBunnyIsDead, bool ttWeakIsDead, bool ttStrongIsDead)
+        public static bool[] LoadGame(string savename, Player player, Enemy poison, Enemy cheeto, Enemy koolaid, Enemy trixBunny, Enemy ttWeak, Enemy ttStrong)
         {
 			string[] texts = File.ReadAllLines(savename);
 			player.Health = int.Parse(texts[0]);
@@ -151,12 +142,13 @@ namespace Fall2020_CSC403_Project.code
 			trixBunny.Health = int.Parse(texts[12]);
 			ttWeak.Health = int.Parse(texts[13]);
 			ttStrong.Health = int.Parse(texts[14]);
-			bossKoolAidIsDead = bool.Parse(texts[15]);
-			enemyCheetoIsDead = bool.Parse(texts[16]);
-			enemyPoisonPacketIsDead = bool.Parse(texts[17]);
-            trixBunnyIsDead = bool.Parse(texts[18]);
-            ttWeakIsDead = bool.Parse(texts[19]);
-			ttStrongIsDead = bool.Parse(texts[20]);
+			bool[] deadFlags = new bool[6];
+			for(int i = 0; i < deadFlags.Length; i++)
+			{
+				deadFlags[i] = bool.Parse(texts[i + 15]);
+			}
+			player.skillPoints = int.Parse(texts[21]);
+			return deadFlags;
 
         }
     }
