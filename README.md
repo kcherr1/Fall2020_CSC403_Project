@@ -1,6 +1,10 @@
-# Fall2020_CSC403_Project
+# Fall2022_CSC532_Project
 
-# Finch, Laurence H
+
+---
+# **Scrum Project 1** #
+---
+# **Finch, Laurence H** #
 ## **User Story 1**: As a player, I can click on a menu to exit the game.
 1.   I created a menustrip with File - Quit option on frmLevel.
 2.   On the quitToolStripMenuItem_Click event, I added code to exit the application.
@@ -23,3 +27,17 @@
 3.   I added code to first check to see if the enemy object had already been disposed of (!=null).
 4.   Then I checked to see if that enemy had died (Health<=0). If so, then I called the Dispose method for that object.
 5.   I tried to dispose of the enemy object after the frmBattle form was closed, but I kept getting errors, so this was the easiest method I could find.  There are probably better options available though.
+
+
+
+---
+# **Scrum Project 1** #
+---
+# **Finch, Laurence H** #
+---
+## **User Story 1**: As a player, I want the enemy characters to move randomly around the screen.	
+
+
+## **User Story 2**: As a player, every time the game starts I want the location of inner walls to change.
+
+---
