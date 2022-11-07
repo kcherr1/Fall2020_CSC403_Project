@@ -162,6 +162,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\player.png" />
     <None Include="Resources\boss_intro.wav" />
     <None Include="Resources\boss.wav" />
     <None Include="Resources\floor1.wav" />

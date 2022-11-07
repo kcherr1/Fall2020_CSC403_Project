@@ -100,14 +100,11 @@
             // 
             // picWall2
             // 
-            /*
-            this.picWall2.Image = global::Fall2020_CSC403_Project.Properties.Resources.office_wall1;
-            this.picWall2.Location = new System.Drawing.Point(0, 276);
+            this.picWall2.Location = new System.Drawing.Point(0, 0);
             this.picWall2.Name = "picWall2";
-            this.picWall2.Size = new System.Drawing.Size(16, 761);
-            this.picWall2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picWall2.TabIndex = 27;
-            this.picWall2.TabStop = false;*/
+            this.picWall2.Size = new System.Drawing.Size(100, 50);
+            this.picWall2.TabIndex = 0;
+            this.picWall2.TabStop = false;
             // 
             // picWall1
             // 
@@ -282,12 +279,12 @@
             // picPlayer
             // 
             this.picPlayer.BackColor = System.Drawing.Color.Transparent;
-            this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+            this.picPlayer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picPlayer.BackgroundImage")));
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.Location = new System.Drawing.Point(679, 434);
             this.picPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picPlayer.Name = "picPlayer";
-            this.picPlayer.Size = new System.Drawing.Size(81, 115);
+            this.picPlayer.Size = new System.Drawing.Size(90, 135);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
