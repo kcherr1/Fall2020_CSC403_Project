@@ -1,6 +1,10 @@
-# Fall2020_CSC403_Project
+# Fall2022_CSC532_Project
 
-# Finch, Laurence H
+
+---
+# **Scrum Project 1** #
+---
+# **Finch, Laurence H** #
 ## **User Story 1**: As a player, I can click on a menu to exit the game.
 1.   I created a menustrip with File - Quit option on frmLevel.
 2.   On the quitToolStripMenuItem_Click event, I added code to exit the application.
@@ -23,3 +27,29 @@
 3.   I added code to first check to see if the enemy object had already been disposed of (!=null).
 4.   Then I checked to see if that enemy had died (Health<=0). If so, then I called the Dispose method for that object.
 5.   I tried to dispose of the enemy object after the frmBattle form was closed, but I kept getting errors, so this was the easiest method I could find.  There are probably better options available though.
+
+
+
+---
+# **Scrum Project 2** #
+---
+# **Finch, Laurence H** #
+---
+## **User Story 1**: As a player, I want the enemy characters to move randomly around the screen.	
+
+
+1.   I researched different ways of making the enemy characters change direction when they hit either a wall or another enemy character.
+2.   I decided on using another timer, named tmrEnemyMove. 
+3.   I started with a list of the three enemy characters, with their 'object' name.  This way if there is another enemy character added later, all we'd need to do is add that object to the list. I was trying to find a way to just find all the objects of Enemy class, but couldn't.
+4.   I then created a for loop to iterate through the enemies.
+5.   If the enemy object was still valid (!=null), then I called their Location method to update their cooresponding picture box.
+6.   Under the Character class, I created a new integer variable to store what direction the character is currently moving.
+7.   I created a new function called ChooseRandomDirection that takes the enemy object as input and stores a new random direction, not the current direction, in the variable I created in step 6. Directions are 1:left, 2:up, 3:right, 4:down.  I did notice that in using the Random.Next(minvalue, maxvalue) that the maxvalue has to be one more than what you really want. So for a random value between 1 & 4, you have to use 1 & 5.
+7.   I then started each enemy moving left.
+8.   Then I created an if statement to determine if any of the enemies hit a wall or each other. If they did, then I called ChooseRandomDirection to get a new direction and had the enemy start moving in that direction.
+
+
+
+## **User Story 2**: As a player, every time the game starts I want the location of inner walls to change.
+
+---
