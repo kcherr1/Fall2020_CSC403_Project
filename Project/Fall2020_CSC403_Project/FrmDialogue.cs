@@ -74,7 +74,9 @@ namespace Fall2020_CSC403_Project
                   "Water Cooler: Hi. How are you?",
                   "Mr. Peanut: I'm fine, how are you?",
                   "Water Cooler: Good. Did you happen to catch the big game last night?",
-                  "Mr. Peanut: Yes, I did. It was a football game, with kicks, and also with throws",};
+                  "Mr. Peanut: Yes, I did. It was a football game, with kicks, and also with throws of the ball.",
+                  "Water Cooler: Astute observation. I like the observation, and I also like football. We enjoy football, yes?",
+                  "Mr. Peanut: Yes, we do."};
 
 
                 return dialogueset;
