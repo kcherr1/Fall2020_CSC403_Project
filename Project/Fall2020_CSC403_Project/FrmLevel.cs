@@ -2,10 +2,12 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Linq;
 using System.Collections.Generic;
+using Fall2020_CSC403_Project.Properties;
+using System.Media;
+using System.Xml.Linq;
 
-namespace Fall2020_CSC403_Project 
+namespace Fall2020_CSC403_Project
 {
     public partial class FrmLevel : Form
     {
@@ -15,30 +17,49 @@ namespace Fall2020_CSC403_Project
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Enemy techlead;
+        List<Enemy> enemyList;
         private Character[] walls;
+        const int PADDING = 4;
+        const int NUM_WALLS = 2;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
         private FrmSnake frmSnake;
+        FrmDialogue enemy_frmDialogue;
 
         public FrmLevel() {
             InitializeComponent();
         }
 
         private void FrmLevel_Load(object sender, EventArgs e) {
-            const int PADDING = 4;
-            const int NUM_WALLS = 2;
+
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             office_desk = new Enemy(CreatePosition(picOfficeDesk), CreateCollider(picOfficeDesk, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             techlead = new Enemy(CreatePosition(picTechlead), CreateCollider(picTechlead, PADDING));
-
+            enemyList = new List<Enemy> { enemyCheeto, techlead, bossKoolaid };
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             office_desk.Img = picOfficeDesk.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
             techlead.Img = picTechlead.BackgroundImage;
+
+            bossKoolaid.Color = Color.Red;
+            enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+
+            walls = new Character[NUM_WALLS];
+            for (int w = 0; w < NUM_WALLS; w++)
+            {
+                PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+            }
+
+            Game.player = player;
+            timeBegin = DateTime.Now;
+
+            SoundPlayer level_music = new SoundPlayer(Resources.floor1);
+            level_music.PlayLooping();
         }
     private void Talk(Enemy enemy)
     {
@@ -48,26 +69,6 @@ namespace Fall2020_CSC403_Project
       Console.WriteLine(enemy_frmDialogue);
       enemy_frmDialogue.Show();
     }
-
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
-            bossKoolaid.Color = Color.Red;
-            enemyCheeto.Color = Color.FromArgb(255, 245, 161);
-
-            walls = new Character[NUM_WALLS];
-            for (int w = 0; w < NUM_WALLS; w++) {
-                PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
-            }
-
-            Game.player = player;
-            timeBegin = DateTime.Now;
-
-
-        }
 
         private Vector2 CreatePosition(PictureBox pic) {
             return new Vector2(pic.Location.X, pic.Location.Y);
@@ -102,7 +103,7 @@ namespace Fall2020_CSC403_Project
                 PlayMiniGame(office_desk);
             }
             else if (HitAChar(player, enemyCheeto)) {
-                Fight(enemyCheeto);
+                Talk(enemyCheeto);
             }
             if (HitAChar(player, bossKoolaid)) {
                 Fight(bossKoolaid);
