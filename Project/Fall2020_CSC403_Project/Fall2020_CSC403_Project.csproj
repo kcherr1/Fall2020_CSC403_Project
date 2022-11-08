@@ -160,5 +160,41 @@
   <ItemGroup>
     <None Include="Resources\PickedPlayer.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_Major_Toht.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_German_Mechanic.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boss_Villain_Belloq.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_Delgado_Master.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_Mondasian_Cyberman.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boss_Villain_Dalek.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_Wolfman.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_Invisible_Man.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boss_Villain_Dracula.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wood_Wall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stone_Wall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pipe_Wall.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

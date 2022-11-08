@@ -154,4 +154,40 @@
   <data name="Player_Choice_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Player_Choice_6.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Boss_Villain_Belloq" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boss_Villain_Belloq.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boss_Villain_Dalek" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boss_Villain_Dalek.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boss_Villain_Dracula" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boss_Villain_Dracula.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pipe_Wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pipe_Wall.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Stone_Wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stone_Wall.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_Delgado_Master" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_Delgado_Master.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_German_Mechanic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_German_Mechanic.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_Invisible_Man" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_Invisible_Man.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_Major_Toht" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_Major_Toht.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_Mondasian_Cyberman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_Mondasian_Cyberman.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_Wolfman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_Wolfman.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wood_Wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wood_Wall.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
