@@ -70,8 +70,13 @@ namespace Fall2020_CSC403_Project
             if (enemy == formEnemyList[0])
             {
                 dialogueset = new string[]
-                { "Mr. Peanut: What are you doing here?",
-                  "Poisoned Bruther: I work and scrum here."};
+                { "Mr. Peanut: *In thought* Thank god a water cooler, I sure am parched.",
+                  "Water Cooler: Hi. How are you?",
+                  "Mr. Peanut: I'm fine, how are you?",
+                  "Water Cooler: Good. Did you happen to catch the big game last night?",
+                  "Mr. Peanut: Yes, I did. It was a football game, with kicks, and also with throws",};
+
+
                 return dialogueset;
             }
             // cheeto ma'am

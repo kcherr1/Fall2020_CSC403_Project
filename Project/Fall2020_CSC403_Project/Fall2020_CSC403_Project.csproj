@@ -88,6 +88,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
@@ -117,11 +122,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -164,6 +164,10 @@
   <ItemGroup>
     <Content Include="data\menubackground.jpg" />
     <Content Include="data\persuasion.PNG" />
+    <None Include="Resources\battle_screen.fw.png" />
+    <None Include="Resources\boss.wav" />
+    <None Include="Resources\boss_intro.wav" />
+    <None Include="Resources\floor1.wav" />
     <None Include="Resources\wasd.jpg" />
     <None Include="Resources\techlead.png" />
     <None Include="Resources\elevator1.png" />

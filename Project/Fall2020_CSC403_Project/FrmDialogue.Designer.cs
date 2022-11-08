@@ -53,7 +53,10 @@
             // 
             // dialogueTextBox
             // 
+            this.dialogueTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.dialogueTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dialogueTextBox.Font = new System.Drawing.Font("Old English Text MT", 22.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dialogueTextBox.ForeColor = System.Drawing.SystemColors.Info;
             this.dialogueTextBox.Location = new System.Drawing.Point(534, 19);
             this.dialogueTextBox.Multiline = true;
             this.dialogueTextBox.Name = "dialogueTextBox";
@@ -72,8 +75,9 @@
             // 
             // picPlayer
             // 
-            this.picPlayer.BackColor = System.Drawing.SystemColors.Control;
+            this.picPlayer.BackColor = System.Drawing.SystemColors.Info;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picPlayer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.picPlayer.Location = new System.Drawing.Point(241, 0);
             this.picPlayer.Margin = new System.Windows.Forms.Padding(6);
@@ -107,6 +111,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(2740, 429);
             this.Controls.Add(this.dialogueTextBox);
             this.Controls.Add(this.pictureBox2);
