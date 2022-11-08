@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Fall2020_CSC403_Project
     public partial class FrmCharacterSelect : Form
     {
         public FrmLevel theGame = null;
+        public FrmMenu theMusic = new FrmMenu();
         public FrmCharacterSelect()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace Fall2020_CSC403_Project
         {
             theGame = FrmLevel.GetInstance(0);
             theGame.character = "mr";
+            theMusic.StopMusic();
             theGame.Show();
             this.Hide();
         }
@@ -30,6 +33,7 @@ namespace Fall2020_CSC403_Project
         {
             theGame = FrmLevel.GetInstance(0);
             theGame.character = "mrs";
+            theMusic.StopMusic();
             theGame.Show();
             this.Hide();
         }
@@ -38,6 +42,7 @@ namespace Fall2020_CSC403_Project
         {
             theGame = FrmLevel.GetInstance(0);
             theGame.character = "baby";
+            theMusic.StopMusic();
             theGame.Show();
             this.Hide();
         }
