@@ -72,12 +72,13 @@ namespace Fall2020_CSC403_Project {
       };
 
       Game.player = player;
+      this.moneyLabel.Text = "$" + player.getMoney();
       isPaused = false;
 
       // Initiate Stopwatch instance and start the timer 
       timer = new Stopwatch();
       timer.Start();
-        }
+    }
 
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
@@ -174,10 +175,18 @@ namespace Fall2020_CSC403_Project {
     private void battleOver(object sender, FormClosedEventArgs e) { 
         
         // If the enemy has no health after the battle
-        if (enemyIsDead(frmBattle.enemy))
+        if (enemyIsDead(frmBattle.enemy)) { 
 
             // Remove the enemy from the game
-            removeEnemy(frmBattle.enemy);   
+            removeEnemy(frmBattle.enemy);  
+            
+            // Getting random number from 5 to 100 (will be given as money to player)
+            Random random = new Random();
+
+            // Give the player some money (and consequently mo problems)
+            player.giveMoney(random.Next(5, 101));
+            this.moneyLabel.Text = "$" + player.getMoney();
+        }  
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
