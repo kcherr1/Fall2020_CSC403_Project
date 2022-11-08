@@ -12,6 +12,17 @@ namespace Fall2020_CSC403_Project
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
+        SoundPlayer level_music;
+        bool isClick = false;
+
+        public void getInventory()
+        {
+            /*int inventoryL = Player.playlerInventory.getInventoryList().Count;
+            if(inventoryL == 0)
+            {
+                instance.invetoryIcon.Visible = false;
+            }*/
+        }
 
         private FrmBattle()
         {
@@ -27,6 +38,12 @@ namespace Fall2020_CSC403_Project
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
 
+            if (player.getInventory().Count == 0)
+            {
+                button1.Visible = false;
+                button2.Visible = false;
+            }
+
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
             player.AttackEvent += EnemyDamage;
@@ -41,8 +58,8 @@ namespace Fall2020_CSC403_Project
             picBossBattle.Size = ClientSize;
             picBossBattle.Visible = true;
 
-            SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-            simpleSound.Play();
+            SoundPlayer bossalert = new SoundPlayer(Resources.boss_intro);
+            bossalert.Play();
 
             tmrFinalBattle.Enabled = true;
         }
@@ -73,9 +90,15 @@ namespace Fall2020_CSC403_Project
 
         private void btnAttack_Click(object sender, EventArgs e)
         {
+            if (isClick == false)
+            {
+                level_music = new SoundPlayer(Resources.boss);
+                level_music.PlayLooping();
+            }
             player.OnAttack(-4);
             if (enemy.Health > 0)
             {
+                isClick = true;
                 enemy.OnAttack(-2);
             }
 
@@ -83,7 +106,10 @@ namespace Fall2020_CSC403_Project
             if (player.Health <= 0 || enemy.Health <= 0)
             {
                 instance = null;
+                level_music = new SoundPlayer(Resources.floor1);
+                level_music.PlayLooping();
                 Close();
+                return;
             }
         }
 
@@ -102,6 +128,63 @@ namespace Fall2020_CSC403_Project
             picBossBattle.Visible = false;
             tmrFinalBattle.Enabled = false;
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void healItem(object sender, EventArgs e)
+        {
+            player.AlterHealth(10);
+
+            UpdateHealthBars();
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+
+            if (Control.ModifierKeys == Keys.Control)
+            {
+                ((Control)sender).Hide();
+            }
+        }
+
+        private void StapleClicked(object sender, EventArgs e)
+        {
+            player.OnAttack(-8);
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
+            }
+
+            UpdateHealthBars();
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+        }
+
+        private void HealButtonClicked(object sender, EventArgs e)
+        {
+            player.AlterHealth(10);
+
+            UpdateHealthBars();
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+
+            ((Control)sender).Hide();
+        }
     }
 }
-

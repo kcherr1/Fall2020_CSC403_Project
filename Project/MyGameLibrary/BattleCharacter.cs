@@ -25,7 +25,11 @@ namespace Fall2020_CSC403_Project.code {
     }
 
     public void AlterHealth(int amount) {
-      Health += amount;
+            while((amount + Health) > MaxHealth)
+            {
+                amount -= 1;
+            } 
+            Health += amount;
     }
   }
 }
