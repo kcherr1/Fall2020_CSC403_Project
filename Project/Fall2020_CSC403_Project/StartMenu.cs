@@ -13,20 +13,13 @@ namespace Fall2020_CSC403_Project
 {
     public partial class StartMenu : Form
     {
-        private FrmLevel frmLevel;
-
-        //Bools that check if button is clicked
+        private SaveMenu saveMenu;
         private bool button_Options_Clicked = false;
         private bool button_Back1_Clicked = false;
         private bool button_Difficulty_Clicked = false;
+        private FrmCharacter frmcharacter;
 
-        //Bools that check if the mouse is hovering
-        private bool button_NewGame_Hover = false;
-        private bool button_Saves_Hover = false;
-        private bool button_Exit_Hover = false;
-        private bool button_Options_Hover = false;
-        private bool button_Back1_Hover = false;
-        private bool button_Difficulty_Hover = false;
+        public FrmCharacter Frmcharacter { get => frmcharacter; set => frmcharacter = value; }
 
         public StartMenu()
         {
@@ -34,29 +27,26 @@ namespace Fall2020_CSC403_Project
         }
 
         private void StartMenu_Load(object sender, EventArgs e)
-        {}
+        {
+
+        }
 
         private void new_game_btn_Click(object sender, System.EventArgs e)
         {
-            frmLevel = new FrmLevel();
+            Frmcharacter = new FrmCharacter();
+            Frmcharacter.Show();
             this.Hide();
-            frmLevel.Show();
-            new_game_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.new_game_btn;
         }
 
         private void new_game_btn_MouseHover(object sender, EventArgs e)
         {
-                new_game_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.new_game_hover;
+            new_game_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.new_game_hover;
         }
 
-        private void new_game_btn_MouseLeave(object sender, EventArgs e)
+        private void Save_btn_Click(object sender, EventArgs e)
         {
-            new_game_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.new_game_btn;
-        }
-
-        private void Load_btn_Click(object sender, EventArgs e)
-        {
-            Load_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Load_btn;
+            saveMenu = new SaveMenu();
+            saveMenu.Show();
         }
 
         private void Options_btn_Click(object sender, EventArgs e)
@@ -80,17 +70,37 @@ namespace Fall2020_CSC403_Project
 
         private void Load_btn_MouseHover(object sender, EventArgs e)
         {
-            Load_btn.Image = global::Fall2020_CSC403_Project.Properties.Resources.Load_hover;
+            Save_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Save_hover;
         }
 
         private void Options_btn_MouseHover(object sender, EventArgs e)
         {
-            Options_btn.Image = global::Fall2020_CSC403_Project.Properties.Resources.Options_hover;
+            Options_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Options_hover;
         }
 
         private void Exit_btn_MouseHover(object sender, EventArgs e)
         {
-            Exit_btn.Image = global::Fall2020_CSC403_Project.Properties.Resources.Exit_hover;
+            Exit_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Exit_hover;
+        }
+
+        private void new_game_btn_MouseLeave(object sender, EventArgs e)
+        {
+            new_game_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.new_game_btn;
+        }
+
+        private void Save_btn_MouseLeave(object sender, EventArgs e)
+        {
+            Save_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Save_btn;
+        }
+
+        private void Options_btn_MouseLeave(object sender, EventArgs e)
+        {
+            Options_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Options_btn;
+        }
+
+        private void Exit_btn_MouseLeave(object sender, EventArgs e)
+        {
+            Exit_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Exit_btn;
         }
         //
         // Opitions panel
@@ -120,24 +130,38 @@ namespace Fall2020_CSC403_Project
 
         private void Sound_btn_Click(object sender, EventArgs e)
         {
-
+            Sound_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Sound_Hover;
+            new Sound().Show();
         }
 
         private void Difficulty_btn_MouseHover(object sender, EventArgs e)
         {
-
+            Difficulty_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Difficulty_hover;
         }
 
         private void Sound_btn_MouseHover(object sender, EventArgs e)
         {
-
+            Sound_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Sound_Hover;
         }
 
         private void Back_btn1_MouseHover(object sender, EventArgs e)
         {
-
+            Back_btn1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Back_hover;
         }
 
-        
+        private void Difficulty_btn_MouseLeave(object sender, EventArgs e)
+        {
+            Difficulty_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Difficulty_btn;
+        }
+
+        private void Sound_btn_MouseLeave(object sender, EventArgs e)
+        {
+            Sound_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Sound_btn;
+        }
+
+        private void Back_btn1_MouseLeave(object sender, EventArgs e)
+        {
+            Back_btn1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Back_btn;
+        }
     }
 }

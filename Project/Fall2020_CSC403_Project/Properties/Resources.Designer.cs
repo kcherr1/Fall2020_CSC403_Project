@@ -81,6 +81,15 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream battle_music {
+            get {
+                return ResourceManager.GetStream("battle_music", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap battle_screen {
@@ -176,6 +185,15 @@ namespace Fall2020_CSC403_Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("Game_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream level_music {
+            get {
+                return ResourceManager.GetStream("level_music", resourceCulture);
             }
         }
         
@@ -292,6 +310,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SaveMenuTitle {
+            get {
+                object obj = ResourceManager.GetObject("SaveMenuTitle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sound_btn {
             get {
                 object obj = ResourceManager.GetObject("Sound_btn", resourceCulture);
@@ -305,6 +333,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap Sound_Hover {
             get {
                 object obj = ResourceManager.GetObject("Sound_Hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tonyTigerWeak {
+            get {
+                object obj = ResourceManager.GetObject("tonyTigerWeak", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

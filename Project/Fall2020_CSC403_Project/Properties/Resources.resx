@@ -124,11 +124,14 @@
   <data name="Exit_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\exit_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Save_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\save_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="enemy_cheetos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_cheetos.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="new_game" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  </data>
+    <value>..\data\new_game.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="enemy_koolaid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_koolaid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -147,9 +150,6 @@
   </data>
   <data name="Difficulty_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\difficulty_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Save_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\save_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="new_game_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\new_game_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,10 +196,22 @@
   <data name="Game_Title" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\game_title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Honey_peanut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\honey_peanut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SaveMenuTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\savemenutitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Peanut_Death" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\peanut_death.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Save_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\save_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\save_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	  </data>
+  <data name="tonyTigerWeak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tonyTigerWeak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battle_music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\battle_music.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="level_music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\level_music.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

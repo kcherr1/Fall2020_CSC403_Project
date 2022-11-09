@@ -52,11 +52,53 @@
     <Compile Include="DifficultyMenu.Designer.cs">
       <DependentUpon>DifficultyMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCredits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCredits.Designer.cs">
+      <DependentUpon>FrmCredits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVictory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVictory.Designer.cs">
+      <DependentUpon>FrmVictory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeath.Designer.cs">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCharacter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCharacter.Designer.cs">
+      <DependentUpon>FrmCharacter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLevelUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevelUp.Designer.cs">
+      <DependentUpon>FrmLevelUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pausemenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pausemenu.Designer.cs">
       <DependentUpon>Pausemenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveMenu.Designer.cs">
+      <DependentUpon>SaveMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sound.Designer.cs">
+      <DependentUpon>Sound.cs</DependentUpon>
     </Compile>
     <Compile Include="StartMenu.cs">
       <SubType>Form</SubType>
@@ -81,8 +123,29 @@
     <EmbeddedResource Include="DifficultyMenu.resx">
       <DependentUpon>DifficultyMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCharacter.resx">
+      <DependentUpon>FrmCharacter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCredits.resx">
+      <DependentUpon>FrmCredits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDeath.resx">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLevelUp.resx">
+      <DependentUpon>FrmLevelUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVictory.resx">
+      <DependentUpon>FrmVictory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pausemenu.resx">
       <DependentUpon>Pausemenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveMenu.resx">
+      <DependentUpon>SaveMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sound.resx">
+      <DependentUpon>Sound.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartMenu.resx">
       <DependentUpon>StartMenu.cs</DependentUpon>
@@ -151,25 +214,48 @@
   <ItemGroup>
     <Content Include="data\Back_btn.png" />
     <Content Include="data\Back_hover.png" />
+    <Content Include="data\battle_music.wav" />
     <Content Include="data\Difficulty_btn.png" />
     <Content Include="data\Difficulty_hover.png" />
     <Content Include="data\Exit_btn.png" />
     <Content Include="data\Exit_hover.png" />
     <Content Include="data\Game_Title.png" />
-    <Content Include="data\Honey_peanut.png" />
     <Content Include="data\Load_btn.png" />
     <Content Include="data\Load_hover.png" />
+    <Content Include="data\level_music.wav" />
     <Content Include="data\new_game.png" />
     <Content Include="data\new_game_btn.png" />
     <Content Include="data\new_game_hover.png" />
     <Content Include="data\Options_btn.png" />
     <Content Include="data\Options_hover.png" />
-    <Content Include="data\Peanut_Death.png" />
+    <Content Include="data\SaveMenuTitle.png" />
     <Content Include="data\Save_btn.png" />
     <Content Include="data\Save_hover.png" />
     <Content Include="data\Sound.btn.png" />
     <Content Include="data\Sound.Hover.png" />
-    <Content Include="Properties\Peanut_Death.png" />
+    <Content Include="data\new_game_bttn.png" />
+    <Content Include="data\tonyTigerStrong.png" />
+    <Content Include="data\tonyTigerWeak.png" />
+    <Content Include="data\trixBunny.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
