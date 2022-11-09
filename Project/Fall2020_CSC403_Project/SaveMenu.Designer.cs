@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.SaveMenu_table = new System.Windows.Forms.TableLayoutPanel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.SaveTextbox2 = new System.Windows.Forms.RichTextBox();
-            this.SaveTextbox1 = new System.Windows.Forms.RichTextBox();
-            this.SaveTextbox3 = new System.Windows.Forms.RichTextBox();
-            this.New_Save_btn = new System.Windows.Forms.Button();
-            this.Load_Save_btn = new System.Windows.Forms.Button();
             this.Leave_SaveMenu = new System.Windows.Forms.Button();
+            this.Load_Save_btn = new System.Windows.Forms.Button();
+            this.New_Save_btn = new System.Windows.Forms.Button();
+            this.SaveMenu_table = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SaveMenu_table.SuspendLayout();
@@ -69,71 +69,17 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // SaveMenu_table
+            // Leave_SaveMenu
             // 
-            this.SaveMenu_table.ColumnCount = 1;
-            this.SaveMenu_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SaveMenu_table.Controls.Add(this.SaveTextbox3, 0, 2);
-            this.SaveMenu_table.Controls.Add(this.SaveTextbox1, 0, 0);
-            this.SaveMenu_table.Controls.Add(this.SaveTextbox2, 0, 1);
-            this.SaveMenu_table.Location = new System.Drawing.Point(114, 94);
-            this.SaveMenu_table.Name = "SaveMenu_table";
-            this.SaveMenu_table.RowCount = 3;
-            this.SaveMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SaveMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SaveMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SaveMenu_table.Size = new System.Drawing.Size(494, 239);
-            this.SaveMenu_table.TabIndex = 0;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // SaveTextbox2
-            // 
-            this.SaveTextbox2.BackColor = System.Drawing.SystemColors.MenuText;
-            this.SaveTextbox2.Location = new System.Drawing.Point(3, 82);
-            this.SaveTextbox2.Name = "SaveTextbox2";
-            this.SaveTextbox2.Size = new System.Drawing.Size(488, 73);
-            this.SaveTextbox2.TabIndex = 3;
-            this.SaveTextbox2.Text = "";
-            this.SaveTextbox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SaveTextbox2_MouseClick);
-            this.SaveTextbox2.TextChanged += new System.EventHandler(this.SaveTextbox2_TextChanged);
-            // 
-            // SaveTextbox1
-            // 
-            this.SaveTextbox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SaveTextbox1.Location = new System.Drawing.Point(3, 3);
-            this.SaveTextbox1.Name = "SaveTextbox1";
-            this.SaveTextbox1.Size = new System.Drawing.Size(488, 73);
-            this.SaveTextbox1.TabIndex = 4;
-            this.SaveTextbox1.Text = "";
-            this.SaveTextbox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SaveTextbox1_MouseClick);
-            this.SaveTextbox1.TextChanged += new System.EventHandler(this.SaveTextbox1_TextChanged);
-            // 
-            // SaveTextbox3
-            // 
-            this.SaveTextbox3.BackColor = System.Drawing.SystemColors.MenuText;
-            this.SaveTextbox3.Location = new System.Drawing.Point(3, 161);
-            this.SaveTextbox3.Name = "SaveTextbox3";
-            this.SaveTextbox3.Size = new System.Drawing.Size(488, 73);
-            this.SaveTextbox3.TabIndex = 5;
-            this.SaveTextbox3.Text = "";
-            this.SaveTextbox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SaveTextbox3_MouseClick);
-            this.SaveTextbox3.TextChanged += new System.EventHandler(this.SaveTextbox3_TextChanged);
-            // 
-            // New_Save_btn
-            // 
-            this.New_Save_btn.Font = new System.Drawing.Font("Forte", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.New_Save_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.New_Save_btn.Location = new System.Drawing.Point(114, 334);
-            this.New_Save_btn.Name = "New_Save_btn";
-            this.New_Save_btn.Size = new System.Drawing.Size(161, 41);
-            this.New_Save_btn.TabIndex = 2;
-            this.New_Save_btn.Text = "New Save";
-            this.New_Save_btn.UseVisualStyleBackColor = true;
-            this.New_Save_btn.Click += new System.EventHandler(this.New_Save_btn_Click);
+            this.Leave_SaveMenu.Font = new System.Drawing.Font("Forte", 21.75F);
+            this.Leave_SaveMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.Leave_SaveMenu.Location = new System.Drawing.Point(448, 334);
+            this.Leave_SaveMenu.Name = "Leave_SaveMenu";
+            this.Leave_SaveMenu.Size = new System.Drawing.Size(161, 41);
+            this.Leave_SaveMenu.TabIndex = 4;
+            this.Leave_SaveMenu.Text = "Leave";
+            this.Leave_SaveMenu.UseVisualStyleBackColor = true;
+            this.Leave_SaveMenu.Click += new System.EventHandler(this.Leave_SaveMenu_Click);
             // 
             // Load_Save_btn
             // 
@@ -147,17 +93,70 @@
             this.Load_Save_btn.UseVisualStyleBackColor = true;
             this.Load_Save_btn.Click += new System.EventHandler(this.Load_Save_btn_Click);
             // 
-            // Leave_SaveMenu
+            // New_Save_btn
             // 
-            this.Leave_SaveMenu.Font = new System.Drawing.Font("Forte", 21.75F);
-            this.Leave_SaveMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.Leave_SaveMenu.Location = new System.Drawing.Point(448, 334);
-            this.Leave_SaveMenu.Name = "Leave_SaveMenu";
-            this.Leave_SaveMenu.Size = new System.Drawing.Size(161, 41);
-            this.Leave_SaveMenu.TabIndex = 4;
-            this.Leave_SaveMenu.Text = "Leave";
-            this.Leave_SaveMenu.UseVisualStyleBackColor = true;
-            this.Leave_SaveMenu.Click += new System.EventHandler(this.Leave_SaveMenu_Click);
+            this.New_Save_btn.Font = new System.Drawing.Font("Forte", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.New_Save_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.New_Save_btn.Location = new System.Drawing.Point(114, 334);
+            this.New_Save_btn.Name = "New_Save_btn";
+            this.New_Save_btn.Size = new System.Drawing.Size(161, 41);
+            this.New_Save_btn.TabIndex = 2;
+            this.New_Save_btn.Text = "New Save";
+            this.New_Save_btn.UseVisualStyleBackColor = true;
+            this.New_Save_btn.Click += new System.EventHandler(this.New_Save_btn_Click);
+            // 
+            // SaveMenu_table
+            // 
+            this.SaveMenu_table.ColumnCount = 1;
+            this.SaveMenu_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SaveMenu_table.Controls.Add(this.button1, 0, 0);
+            this.SaveMenu_table.Controls.Add(this.button2, 0, 1);
+            this.SaveMenu_table.Controls.Add(this.button3, 0, 2);
+            this.SaveMenu_table.Location = new System.Drawing.Point(114, 94);
+            this.SaveMenu_table.Name = "SaveMenu_table";
+            this.SaveMenu_table.RowCount = 3;
+            this.SaveMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SaveMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SaveMenu_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SaveMenu_table.Size = new System.Drawing.Size(494, 239);
+            this.SaveMenu_table.TabIndex = 0;
+            this.SaveMenu_table.Paint += new System.Windows.Forms.PaintEventHandler(this.SaveMenu_table_Paint);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Forte", 35F);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(488, 73);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Save 1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SaveSlotButton1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Forte", 35F);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button2.Location = new System.Drawing.Point(3, 82);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(488, 73);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Save 2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.SaveSlotButton2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Forte", 35F);
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button3.Location = new System.Drawing.Point(3, 161);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(488, 74);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Save 3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.SaveSlotButton3_Click);
             // 
             // pictureBox1
             // 
@@ -167,6 +166,11 @@
             this.pictureBox1.Size = new System.Drawing.Size(494, 159);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // SaveMenu
             // 
@@ -189,14 +193,14 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel SaveMenu_table;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RichTextBox SaveTextbox3;
-        private System.Windows.Forms.RichTextBox SaveTextbox1;
-        private System.Windows.Forms.RichTextBox SaveTextbox2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button Leave_SaveMenu;
         private System.Windows.Forms.Button Load_Save_btn;
         private System.Windows.Forms.Button New_Save_btn;
+        private System.Windows.Forms.TableLayoutPanel SaveMenu_table;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

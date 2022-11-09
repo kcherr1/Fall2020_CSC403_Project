@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Runtime.CompilerServices;
 
 namespace Fall2020_CSC403_Project.code
 {
@@ -23,9 +24,20 @@ namespace Fall2020_CSC403_Project.code
 		public float poisonHealth;
         public float cheetoHealth;
         public float koolaidHealth;
+        public float trixBunnyHealth;
+        public float ttWeakHealth;
+        public float ttStrongHealth;
+        public bool bossKoolAidIsDead;
+        public bool enemyCheetoIsDead;
+        public bool enemyPoisonPacketIsDead;
+        public bool trixBunnyIsDead;
+        public bool ttWeakIsDead;
+        public bool ttStrongIsDead;
+		public int playerSkillPoints;
 
-		//constructor
-        public SaveStruct(Player player, Enemy poison, Enemy cheeto, Enemy koolaid)
+        //constructor
+        public SaveStruct(Player player, Enemy poison, Enemy cheeto, Enemy koolaid, Enemy trixBunny, Enemy ttWeak, Enemy ttStrong, 
+			bool bossKoolAidIsDead, bool enemyCheetoIsDead, bool enemyPoisonPacketIsDead, bool trixBunnyIsDead, bool ttWeakIsDead, bool ttStrongIsDead)
 		{
 			this.Health = player.Health;
 			this.maxHealth = player.MaxHealth;
@@ -39,6 +51,16 @@ namespace Fall2020_CSC403_Project.code
             this.poisonHealth = poison.Health;
             this.cheetoHealth = cheeto.Health;
             this.koolaidHealth = koolaid.Health;
+			this.trixBunnyHealth = trixBunny.Health;
+			this.ttWeakHealth = ttWeak.Health;
+			this.ttStrongHealth = ttStrong.Health;
+			this.bossKoolAidIsDead = bossKoolAidIsDead;
+			this.enemyCheetoIsDead = enemyCheetoIsDead;
+			this.enemyPoisonPacketIsDead = enemyPoisonPacketIsDead;
+			this.trixBunnyIsDead = trixBunnyIsDead;
+			this.ttWeakIsDead = ttWeakIsDead;
+			this.ttStrongIsDead = ttStrongIsDead;
+			this.playerSkillPoints = player.skillPoints;
 
         }
 
@@ -46,9 +68,11 @@ namespace Fall2020_CSC403_Project.code
 
 	public static class SaveSystem
 	{
-		public static void SaveGame(string savename, Player player, Enemy poison, Enemy cheeto, Enemy koolaid)
+		public static void SaveGame(string savename, Player player, Enemy poison, Enemy cheeto, Enemy koolaid, Enemy trixBunny, Enemy ttWeak, Enemy ttStrong,
+            bool bossKoolAidIsDead, bool enemyCheetoIsDead, bool enemyPoisonPacketIsDead, bool trixBunnyIsDead, bool ttWeakIsDead, bool ttStrongIsDead)
 		{
-			SaveStruct save = new SaveStruct(player, poison, cheeto, koolaid);
+			SaveStruct save = new SaveStruct(player, poison, cheeto, koolaid, trixBunny, ttWeak, ttStrong, 
+				bossKoolAidIsDead, enemyCheetoIsDead, enemyPoisonPacketIsDead, trixBunnyIsDead, ttWeakIsDead, ttStrongIsDead);
 			string[] data =
 			{
 				save.Health.ToString(),
@@ -63,7 +87,17 @@ namespace Fall2020_CSC403_Project.code
                 save.poisonHealth.ToString(),
                 save.cheetoHealth.ToString(),
                 save.koolaidHealth.ToString(),
-			};
+				save.trixBunnyHealth.ToString(),
+				save.ttWeakHealth.ToString(),
+				save.ttStrongHealth.ToString(),
+				save.bossKoolAidIsDead.ToString(),
+				save.enemyCheetoIsDead.ToString(),
+				save.enemyPoisonPacketIsDead.ToString(),
+				save.trixBunnyIsDead.ToString(),
+				save.ttWeakIsDead.ToString(),
+				save.ttStrongIsDead.ToString(),
+				save.playerSkillPoints.ToString(),
+            };
 
 			File.WriteAllLines(savename, data);
 
@@ -79,17 +113,9 @@ namespace Fall2020_CSC403_Project.code
 			if (File.Exists(saveName))
 			{
 				string[] texts = File.ReadAllLines(saveName);
-				if(texts.Length != 12)
+				if(texts.Length != 22)
 				{
 					return false;
-				}
-				foreach (string text in texts)
-				{
-					double val;
-					if (!double.TryParse(text, out val))
-					{
-						return false;
-					}
 				}
 				return true;
 			}
@@ -99,7 +125,7 @@ namespace Fall2020_CSC403_Project.code
 			}
 		}
 
-        public static void LoadGame(string savename, Player player, Enemy poison, Enemy cheeto, Enemy koolaid)
+        public static bool[] LoadGame(string savename, Player player, Enemy poison, Enemy cheeto, Enemy koolaid, Enemy trixBunny, Enemy ttWeak, Enemy ttStrong)
         {
 			string[] texts = File.ReadAllLines(savename);
 			player.Health = int.Parse(texts[0]);
@@ -113,6 +139,17 @@ namespace Fall2020_CSC403_Project.code
 			poison.Health = int.Parse(texts[9]);
 			cheeto.Health = int.Parse(texts[10]);
 			koolaid.Health = int.Parse(texts[11]);
+			trixBunny.Health = int.Parse(texts[12]);
+			ttWeak.Health = int.Parse(texts[13]);
+			ttStrong.Health = int.Parse(texts[14]);
+			bool[] deadFlags = new bool[6];
+			for(int i = 0; i < deadFlags.Length; i++)
+			{
+				deadFlags[i] = bool.Parse(texts[i + 15]);
+			}
+			player.skillPoints = int.Parse(texts[21]);
+			return deadFlags;
+
         }
     }
 }
