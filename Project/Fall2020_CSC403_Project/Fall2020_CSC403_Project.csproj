@@ -173,6 +173,8 @@
   <ItemGroup>
     <Content Include="data\menubackground.jpg" />
     <Content Include="data\persuasion.PNG" />
+    <None Include="Resources\BossLevel.gif" />
+    <None Include="Resources\BossFloor.bmp" />
     <None Include="Resources\floor.png" />
     <None Include="Resources\battle_screen.fw.png" />
     <None Include="Resources\boss.wav" />
