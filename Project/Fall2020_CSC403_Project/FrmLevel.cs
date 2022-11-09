@@ -4,6 +4,8 @@ using System.Drawing;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
+using System.Media;
+using System.Text;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -18,6 +20,8 @@ namespace Fall2020_CSC403_Project {
         private Character[] potions;
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private SoundPlayer gamePlay = new SoundPlayer(@"..\..\data\GamePlayAudio.wav");
+    private SoundPlayer battle = new SoundPlayer(@"..\..\data\BattleAudio.wav");
     // Public variables
     public String character;
     public int UpKeyDown = 0;
@@ -62,6 +66,20 @@ namespace Fall2020_CSC403_Project {
         }
         return instance;
     }
+        public void StopMusic()
+        {
+            gamePlay.Stop();
+        }
+
+        public void StartMusic()
+        {
+            gamePlay.PlayLooping();
+        }
+        public void PauseGame()
+        {
+
+        }
+
         private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 0;
       const int NUM_WALLS = 13;
@@ -115,6 +133,8 @@ namespace Fall2020_CSC403_Project {
 
             Game.player = player;
       timeBegin = DateTime.Now;
+
+      StartMusic();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -159,17 +179,21 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
-            // check collision with enemies
-            if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+      // check collision with enemies
+      if (HitAChar(player, enemyPoisonPacket)) {
+                StopMusic();
+                battle.PlayLooping();
+                Fight(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
+                StopMusic();
+                battle.PlayLooping();
+                Fight(enemyCheeto);
       }
       if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+                StopMusic();
+                Fight(bossKoolaid);
       }
-
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
@@ -226,6 +250,7 @@ namespace Fall2020_CSC403_Project {
         frmBattle.SetupForBossBattle();
       }
     }
+
 
     protected override void OnKeyUp(KeyEventArgs e)
     {
@@ -448,6 +473,12 @@ namespace Fall2020_CSC403_Project {
         Console.WriteLine("FrameLevel_KeyDownCall\n"+"  " + UpKeyDown + "        " + UpKeyUp + "        " + U +
             "\n" + LeftKeyDown + "   " + RightKeyDown + "    " + LeftKeyUp + "   " + RightKeyUp + "    " + L + "   " + R +
             "\n  " + DownKeyDown + "        " + DownKeyUp + "        " + D);
+        if (e.KeyCode == Keys.P)
+        {
+            PauseGame();
+            // Where the Pause interface will be initiated
+            Console.WriteLine("P has been pressed on the KeyBoard");
+        }
         // if Control key is pressed then call method that will change player values otherwise stay stock size
         if (e.Control == true)
         {
