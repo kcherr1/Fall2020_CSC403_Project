@@ -20,7 +20,7 @@ namespace Fall2020_CSC403_Project
         List<Enemy> enemyList;
         private Character[] walls;
         const int PADDING = 4;
-        const int NUM_WALLS = 2;
+        const int NUM_WALLS = 11;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -169,7 +169,7 @@ namespace Fall2020_CSC403_Project
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-            switch (e.KeyCode) {
+            switch (e.KeyData) {
                 case Keys.A:
                     player.GoLeft();
                     break;
@@ -211,5 +211,10 @@ namespace Fall2020_CSC403_Project
             {
 
             }
-  }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
