@@ -28,20 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.choose_Your_Character = new System.Windows.Forms.PictureBox();
             this.Honey_peanut = new System.Windows.Forms.PictureBox();
             this.Salty_peanut = new System.Windows.Forms.PictureBox();
             this.Crunchy_peanut = new System.Windows.Forms.PictureBox();
             this.orginial_peanut = new System.Windows.Forms.PictureBox();
-            this.choose_Your_Character = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.choose_Your_Character)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Honey_peanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salty_peanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Crunchy_peanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orginial_peanut)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.choose_Your_Character)).BeginInit();
             this.SuspendLayout();
+            // 
+            // choose_Your_Character
+            // 
+            this.choose_Your_Character.Location = new System.Drawing.Point(128, 12);
+            this.choose_Your_Character.Name = "choose_Your_Character";
+            this.choose_Your_Character.Size = new System.Drawing.Size(572, 106);
+            this.choose_Your_Character.TabIndex = 4;
+            this.choose_Your_Character.TabStop = false;
             // 
             // Honey_peanut
             // 
+            this.Honey_peanut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Honey_peanut.Location = new System.Drawing.Point(660, 170);
             this.Honey_peanut.Name = "Honey_peanut";
             this.Honey_peanut.Size = new System.Drawing.Size(109, 234);
@@ -50,6 +59,7 @@
             // 
             // Salty_peanut
             // 
+            this.Salty_peanut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Salty_peanut.Location = new System.Drawing.Point(269, 170);
             this.Salty_peanut.Name = "Salty_peanut";
             this.Salty_peanut.Size = new System.Drawing.Size(109, 234);
@@ -58,6 +68,7 @@
             // 
             // Crunchy_peanut
             // 
+            this.Crunchy_peanut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Crunchy_peanut.Location = new System.Drawing.Point(469, 168);
             this.Crunchy_peanut.Name = "Crunchy_peanut";
             this.Crunchy_peanut.Size = new System.Drawing.Size(109, 234);
@@ -73,14 +84,7 @@
             this.orginial_peanut.Size = new System.Drawing.Size(106, 236);
             this.orginial_peanut.TabIndex = 0;
             this.orginial_peanut.TabStop = false;
-            // 
-            // choose_Your_Character
-            // 
-            this.choose_Your_Character.Location = new System.Drawing.Point(128, 12);
-            this.choose_Your_Character.Name = "choose_Your_Character";
-            this.choose_Your_Character.Size = new System.Drawing.Size(572, 106);
-            this.choose_Your_Character.TabIndex = 4;
-            this.choose_Your_Character.TabStop = false;
+            this.orginial_peanut.Click += new System.EventHandler(this.orginial_peanut_Click);
             // 
             // FrmCharacter
             // 
@@ -94,11 +98,11 @@
             this.Controls.Add(this.orginial_peanut);
             this.Name = "FrmCharacter";
             this.Text = "Choose your Character";
+            ((System.ComponentModel.ISupportInitialize)(this.choose_Your_Character)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Honey_peanut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salty_peanut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Crunchy_peanut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orginial_peanut)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.choose_Your_Character)).EndInit();
             this.ResumeLayout(false);
 
         }

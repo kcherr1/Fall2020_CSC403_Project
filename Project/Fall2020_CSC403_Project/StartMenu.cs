@@ -13,11 +13,13 @@ namespace Fall2020_CSC403_Project
 {
     public partial class StartMenu : Form
     {
-        private FrmLevel frmLevel;
         private SaveMenu saveMenu;
         private bool button_Options_Clicked = false;
         private bool button_Back1_Clicked = false;
         private bool button_Difficulty_Clicked = false;
+        private FrmCharacter frmcharacter;
+
+        public FrmCharacter Frmcharacter { get => frmcharacter; set => frmcharacter = value; }
 
         public StartMenu()
         {
@@ -31,9 +33,9 @@ namespace Fall2020_CSC403_Project
 
         private void new_game_btn_Click(object sender, System.EventArgs e)
         {
-            frmLevel = new FrmLevel();
+            Frmcharacter = new FrmCharacter();
+            Frmcharacter.Show();
             this.Hide();
-            frmLevel.Show();
         }
 
         private void new_game_btn_MouseHover(object sender, EventArgs e)

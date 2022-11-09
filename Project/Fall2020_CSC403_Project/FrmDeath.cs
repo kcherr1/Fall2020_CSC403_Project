@@ -12,6 +12,8 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmDeath : Form
     {
+        private StartMenu start;
+
         public FrmDeath()
         {
             InitializeComponent();
@@ -19,7 +21,14 @@ namespace Fall2020_CSC403_Project
 
         private void exit_btn_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void tryAgain_btn_Click(object sender, EventArgs e)
+        {
+            start = new StartMenu();
+            this.Hide();
+            start.Show();
         }
     }
 }

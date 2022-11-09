@@ -53,6 +53,7 @@
             this.tryAgain_btn.Size = new System.Drawing.Size(170, 71);
             this.tryAgain_btn.TabIndex = 1;
             this.tryAgain_btn.TabStop = false;
+            this.tryAgain_btn.Click += new System.EventHandler(this.tryAgain_btn_Click);
             // 
             // Peanut_death
             // 

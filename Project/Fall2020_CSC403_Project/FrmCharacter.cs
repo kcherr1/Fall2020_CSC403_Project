@@ -12,9 +12,18 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmCharacter : Form
     {
+        private FrmLevel frmlvl;
+
         public FrmCharacter()
         {
             InitializeComponent();
+        }
+
+        private void orginial_peanut_Click(object sender, EventArgs e)
+        {
+            frmlvl = new FrmLevel();
+            this.Close();
+            frmlvl.Show();
         }
     }
 }
