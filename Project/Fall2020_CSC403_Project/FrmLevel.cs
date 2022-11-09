@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
@@ -13,6 +14,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    private Character[] pits;
+        private Character[] potions;
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     // Public variables
@@ -62,6 +65,8 @@ namespace Fall2020_CSC403_Project {
         private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 0;
       const int NUM_WALLS = 13;
+      const int PITS = 2;
+      const int NUM_POTS = 2;
 
         
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), character);
@@ -92,7 +97,23 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
-      Game.player = player;
+      pits = new Character[PITS];
+
+      for (int i = 0; i < PITS; i++)
+      {
+        PictureBox pic = Controls.Find("pit" + i.ToString(), true)[0] as PictureBox;
+        pits[i] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      }
+
+      potions = new Character[NUM_POTS];
+
+      for (int p = 0; p < NUM_POTS; p++)
+      {
+        PictureBox pic = Controls.Find("potion" + p.ToString(), true)[0] as PictureBox;
+        potions[p] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      }
+
+            Game.player = player;
       timeBegin = DateTime.Now;
     }
 
@@ -123,9 +144,23 @@ namespace Fall2020_CSC403_Project {
       if (HitAWall(player)) {
         player.MoveBack();
       }
+      if (HitAPit(player))
+      {
+        player.MoveBack();
+        /*instance = null;
+        game.Close();
+        game = FrmLevel.GetInstance(1);
+        death = new FrmDeath();
+        death.Show();
+        Close();*/
+      }
+      if (HitAPotion(player))
+      {
+        player.MoveBack();
+      }
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
+            // check collision with enemies
+            if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
@@ -149,8 +184,35 @@ namespace Fall2020_CSC403_Project {
       }
       return hitAWall;
     }
+    private bool HitAPit(Character c)
+    {
+      bool hitAPit = false;
+      for (int p = 0; p < pits.Length; p++)
+      {
+        if (c.Collider.Intersects(pits[p].Collider))
+        {
+          hitAPit = true;
+          break;
+        }
+      }
+      return hitAPit;
+    }
 
-    private bool HitAChar(Character you, Character other) {
+     private bool HitAPotion(Character c)
+     {
+       bool hitAPotion = false;
+       for (int p = 0; p < potions.Length; p++)
+       {
+         if (c.Collider.Intersects(potions[p].Collider))
+         {
+           hitAPotion = true;
+           break;
+         }
+       }
+       return hitAPotion;
+     }
+
+        private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
     }
 
@@ -439,5 +501,10 @@ namespace Fall2020_CSC403_Project {
         private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
+
+        private void picPlayer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
