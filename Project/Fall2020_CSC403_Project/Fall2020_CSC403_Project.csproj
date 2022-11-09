@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBossLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBossLevel.Designer.cs">
+      <DependentUpon>FrmBossLevel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Circle.cs" />
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
@@ -96,6 +102,9 @@
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBossLevel.resx">
+      <DependentUpon>FrmBossLevel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDialogue.resx">
       <DependentUpon>FrmDialogue.cs</DependentUpon>
@@ -164,6 +173,7 @@
   <ItemGroup>
     <Content Include="data\menubackground.jpg" />
     <Content Include="data\persuasion.PNG" />
+    <None Include="Resources\floor.png" />
     <None Include="Resources\battle_screen.fw.png" />
     <None Include="Resources\boss.wav" />
     <None Include="Resources\boss_intro.wav" />

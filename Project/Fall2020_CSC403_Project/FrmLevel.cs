@@ -13,6 +13,7 @@ namespace Fall2020_CSC403_Project
     {
         private Player player;
 
+        private Enemy elevator;
         private Enemy office_desk;
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
@@ -37,11 +38,15 @@ namespace Fall2020_CSC403_Project
 
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+
+            elevator = new Enemy(CreatePosition(picElevator), CreateCollider(picElevator, PADDING));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             office_desk = new Enemy(CreatePosition(picOfficeDesk), CreateCollider(picOfficeDesk, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             techlead = new Enemy(CreatePosition(picTechlead), CreateCollider(picTechlead, PADDING));
-            enemyList = new List<Enemy> { enemyCheeto, techlead, bossKoolaid };
+            enemyList = new List<Enemy> { enemyCheeto, techlead, bossKoolaid, elevator };
+
+            elevator.Img = picElevator.BackgroundImage;
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             office_desk.Img = picOfficeDesk.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -85,6 +90,12 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
+            if (HitAChar(player, elevator))
+            {
+                Form level2 = new FrmBossLevel();
+                this.Hide();
+                level2.Show();
+            }
             player.ResetMoveSpeed();
         }
 
@@ -115,11 +126,11 @@ namespace Fall2020_CSC403_Project
             {
                 Talk(enemyCheeto);
             }
-            if (HitAChar(player, bossKoolaid))
+            else if (HitAChar(player, bossKoolaid))
             {
                 Fight(bossKoolaid);
             }
-            if (HitAChar(player, techlead))
+            else if (HitAChar(player, techlead))
             {
                 GameOver();
             }
@@ -212,6 +223,7 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+
         public void GameOver()
         {
             tmrUpdateInGameTime.Stop();
@@ -231,6 +243,11 @@ namespace Fall2020_CSC403_Project
         private void pictureBox8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void OnFormClosed(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

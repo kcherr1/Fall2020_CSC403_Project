@@ -32,7 +32,7 @@
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall1 = new System.Windows.Forms.PictureBox();
             this.picTechlead = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.picElevator = new System.Windows.Forms.PictureBox();
             this.picOfficeDesk = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -50,7 +50,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTechlead)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picElevator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOfficeDesk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -100,14 +100,11 @@
             // 
             // picWall2
             // 
-            /*
-            this.picWall2.Image = global::Fall2020_CSC403_Project.Properties.Resources.office_wall1;
-            this.picWall2.Location = new System.Drawing.Point(0, 276);
+            this.picWall2.Location = new System.Drawing.Point(0, 0);
             this.picWall2.Name = "picWall2";
-            this.picWall2.Size = new System.Drawing.Size(16, 761);
-            this.picWall2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picWall2.TabIndex = 27;
-            this.picWall2.TabStop = false;*/
+            this.picWall2.Size = new System.Drawing.Size(100, 50);
+            this.picWall2.TabIndex = 0;
+            this.picWall2.TabStop = false;
             // 
             // picWall1
             // 
@@ -129,15 +126,15 @@
             this.picTechlead.TabIndex = 25;
             this.picTechlead.TabStop = false;
             // 
-            // pictureBox10
+            // picElevator
             // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(1282, 61);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(214, 217);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 24;
-            this.pictureBox10.TabStop = false;
+            this.picElevator.Image = ((System.Drawing.Image)(resources.GetObject("picElevator.Image")));
+            this.picElevator.Location = new System.Drawing.Point(1282, 61);
+            this.picElevator.Name = "picElevator";
+            this.picElevator.Size = new System.Drawing.Size(214, 217);
+            this.picElevator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picElevator.TabIndex = 24;
+            this.picElevator.TabStop = false;
             // 
             // picOfficeDesk
             // 
@@ -272,7 +269,7 @@
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
             this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(1186, 299);
+            this.picBossKoolAid.Location = new System.Drawing.Point(584, 714);
             this.picBossKoolAid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picBossKoolAid.Name = "picBossKoolAid";
             this.picBossKoolAid.Size = new System.Drawing.Size(290, 298);
@@ -302,7 +299,7 @@
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall1);
             this.Controls.Add(this.picTechlead);
-            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.picElevator);
             this.Controls.Add(this.picOfficeDesk);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
@@ -325,13 +322,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "z";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosed);
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTechlead)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picElevator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOfficeDesk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -370,7 +368,7 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox picOfficeDesk;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox picElevator;
         private System.Windows.Forms.PictureBox picTechlead;
         private System.Windows.Forms.Timer TechLeadPatrol;
         private System.Windows.Forms.PictureBox picWall1;
