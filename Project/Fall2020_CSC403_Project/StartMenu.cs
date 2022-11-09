@@ -14,9 +14,19 @@ namespace Fall2020_CSC403_Project
     public partial class StartMenu : Form
     {
         private FrmLevel frmLevel;
+
+        //Bools that check if button is clicked
         private bool button_Options_Clicked = false;
         private bool button_Back1_Clicked = false;
         private bool button_Difficulty_Clicked = false;
+
+        //Bools that check if the mouse is hovering
+        private bool button_NewGame_Hover = false;
+        private bool button_Saves_Hover = false;
+        private bool button_Exit_Hover = false;
+        private bool button_Options_Hover = false;
+        private bool button_Back1_Hover = false;
+        private bool button_Difficulty_Hover = false;
 
         public StartMenu()
         {
@@ -24,9 +34,7 @@ namespace Fall2020_CSC403_Project
         }
 
         private void StartMenu_Load(object sender, EventArgs e)
-        {
-
-        }
+        {}
 
         private void new_game_btn_Click(object sender, System.EventArgs e)
         {
@@ -38,7 +46,12 @@ namespace Fall2020_CSC403_Project
 
         private void new_game_btn_MouseHover(object sender, EventArgs e)
         {
-            new_game_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.new_game_hover;
+                new_game_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.new_game_hover;
+        }
+
+        private void new_game_btn_MouseLeave(object sender, EventArgs e)
+        {
+            new_game_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.new_game_btn;
         }
 
         private void Load_btn_Click(object sender, EventArgs e)
@@ -67,17 +80,17 @@ namespace Fall2020_CSC403_Project
 
         private void Load_btn_MouseHover(object sender, EventArgs e)
         {
-            Load_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Load_hover;
+            Load_btn.Image = global::Fall2020_CSC403_Project.Properties.Resources.Load_hover;
         }
 
         private void Options_btn_MouseHover(object sender, EventArgs e)
         {
-            Options_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Options_hover;
+            Options_btn.Image = global::Fall2020_CSC403_Project.Properties.Resources.Options_hover;
         }
 
         private void Exit_btn_MouseHover(object sender, EventArgs e)
         {
-            Exit_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Exit_hover;
+            Exit_btn.Image = global::Fall2020_CSC403_Project.Properties.Resources.Exit_hover;
         }
         //
         // Opitions panel
@@ -109,5 +122,22 @@ namespace Fall2020_CSC403_Project
         {
 
         }
+
+        private void Difficulty_btn_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Sound_btn_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Back_btn1_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
