@@ -52,6 +52,12 @@
     <Compile Include="DifficultyMenu.Designer.cs">
       <DependentUpon>DifficultyMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCredits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCredits.Designer.cs">
+      <DependentUpon>FrmCredits.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVictory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCharacter.resx">
       <DependentUpon>FrmCharacter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCredits.resx">
+      <DependentUpon>FrmCredits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDeath.resx">
       <DependentUpon>FrmDeath.cs</DependentUpon>

@@ -30,8 +30,10 @@
         {
             this.exit_btn = new System.Windows.Forms.PictureBox();
             this.playAgain_btn = new System.Windows.Forms.PictureBox();
+            this.Credits = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.exit_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playAgain_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Credits)).BeginInit();
             this.SuspendLayout();
             // 
             // exit_btn
@@ -53,17 +55,28 @@
             this.playAgain_btn.TabStop = false;
             this.playAgain_btn.Click += new System.EventHandler(this.playAgain_btn_Click);
             // 
+            // Credits
+            // 
+            this.Credits.Location = new System.Drawing.Point(292, 342);
+            this.Credits.Name = "Credits";
+            this.Credits.Size = new System.Drawing.Size(221, 78);
+            this.Credits.TabIndex = 2;
+            this.Credits.TabStop = false;
+            this.Credits.Click += new System.EventHandler(this.Credits_Click);
+            // 
             // FrmVictory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Credits);
             this.Controls.Add(this.playAgain_btn);
             this.Controls.Add(this.exit_btn);
             this.Name = "FrmVictory";
             this.Text = "Victory!";
             ((System.ComponentModel.ISupportInitialize)(this.exit_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playAgain_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Credits)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -72,5 +85,6 @@
 
         private System.Windows.Forms.PictureBox exit_btn;
         private System.Windows.Forms.PictureBox playAgain_btn;
+        private System.Windows.Forms.PictureBox Credits;
     }
 }

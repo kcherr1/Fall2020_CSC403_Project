@@ -13,6 +13,7 @@ namespace Fall2020_CSC403_Project
     public partial class FrmVictory : Form
     {
         private StartMenu start;
+        private FrmCredits credit;
 
         public FrmVictory()
         {
@@ -29,6 +30,13 @@ namespace Fall2020_CSC403_Project
             start = new StartMenu();
             this.Hide();
             start.Show();
+        }
+
+        private void Credits_Click(object sender, EventArgs e)
+        {
+            credit = new FrmCredits();
+            this.Hide();
+            credit.Show();
         }
     }
 }
