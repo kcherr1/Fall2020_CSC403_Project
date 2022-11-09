@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmBossLevel : Form
     {
+        private bool hasItems = false;
         private Player player;
         private SoundPlayer level_music;
         private Enemy elevator;
@@ -29,8 +30,9 @@ namespace Fall2020_CSC403_Project
         private DateTime timeBegin;
 
 
-        public FrmBossLevel()
+        public FrmBossLevel(bool hasItems)
         {
+            this.hasItems = hasItems;
             InitializeComponent();
         }
 
@@ -52,7 +54,7 @@ namespace Fall2020_CSC403_Project
             Game.player = player;
             timeBegin = DateTime.Now;
 
-            level_music = new SoundPlayer(Resources.boss);
+            level_music = new SoundPlayer(Resources.boss_intro);
             level_music.PlayLooping();
         }
 
@@ -71,9 +73,9 @@ namespace Fall2020_CSC403_Project
         {
             if (HitAChar(player, elevator))
             {
-                Form level2 = new FrmBossLevel();
                 this.Hide();
-                level2.Show();
+                Form level1 = new FrmLevel();
+                level1.Show();
             }
             player.ResetMoveSpeed();
         }
@@ -138,7 +140,7 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle = FrmBattle.GetInstance(enemy, picBossKoolAid, hasItems);
             frmBattle.Show();
 
             if (enemy == bossKoolaid)

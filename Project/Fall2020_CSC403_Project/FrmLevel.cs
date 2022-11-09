@@ -12,16 +12,18 @@ namespace Fall2020_CSC403_Project
     public partial class FrmLevel : Form
     {
         private Player player;
-
+        private bool hasItems = false;
         private Enemy elevator;
         private Enemy office_desk;
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Enemy techlead;
+        public bool FIGHT;
         List<Enemy> enemyList;
         private Character[] walls;
         const int PADDING = 4;
         const int NUM_WALLS = 2;
+        public PictureBox _pictechlead;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -45,12 +47,12 @@ namespace Fall2020_CSC403_Project
             techlead = new Enemy(CreatePosition(picTechlead), CreateCollider(picTechlead, PADDING));
             enemyList = new List<Enemy> { enemyCheeto, techlead, bossKoolaid, elevator };
 
+            _pictechlead = picTechlead;
             elevator.Img = picElevator.BackgroundImage;
             office_desk.Img = picOfficeDesk.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
             techlead.Img = picTechlead.BackgroundImage;
             techlead.Color = Color.Bisque;
-            System.Console.WriteLine();
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
             walls = new Character[NUM_WALLS];
@@ -90,7 +92,13 @@ namespace Fall2020_CSC403_Project
         {
             if (HitAChar(player, elevator))
             {
-                Form level2 = new FrmBossLevel();
+                if (enemy_frmDialogue != null)
+                {
+                    hasItems = enemy_frmDialogue.waterCoolerGiven;
+                    enemy_frmDialogue.Close();
+                }
+                Form level2 = new FrmBossLevel(hasItems);
+         
                 this.Hide();
                 level2.Show();
             }
@@ -126,7 +134,11 @@ namespace Fall2020_CSC403_Project
             }
             else if (HitAChar(player, techlead))
             {
-                GameOver();
+                techlead.ResetMoveSpeed();
+                techlead.MoveBack();
+                if (FIGHT)
+                    return;
+                Fight(techlead);
             }
 
             // update player's picture box
@@ -135,7 +147,8 @@ namespace Fall2020_CSC403_Project
 
         private void TechLeadPatrol_Tick(object sender, EventArgs e)
         {
-            techlead.Move();
+            if (!FIGHT)
+                techlead.Move();
             if (HitAChar(techlead, enemyCheeto))
             {
                 techlead.GoRight();
@@ -146,7 +159,17 @@ namespace Fall2020_CSC403_Project
             }
             if (HitAChar(techlead, player))
             {
-                GameOver();
+                if (FIGHT)
+                {
+                    picTechlead.Location = new Point((int)1200, (int)1200);
+                    return;
+                }
+
+                
+                techlead.ResetMoveSpeed();
+                techlead.MoveBack();
+                FIGHT = true;
+                Fight(techlead);
             }
             picTechlead.Location = new Point((int)techlead.Position.x, (int)techlead.Position.y);
         }
@@ -172,9 +195,12 @@ namespace Fall2020_CSC403_Project
 
         private void Fight(Enemy enemy)
         {
+            if (enemy.Color == Color.Bisque && FIGHT)
+                enemy.MoveBack();
+
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle = FrmBattle.GetInstance(enemy, _pictechlead, hasItems);
             frmBattle.Show();
 
         }
