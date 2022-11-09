@@ -22,7 +22,7 @@ FrmLevel.cs
         - An input of 0 tells the function to return a new FrmLevel form while an input of 1 tells the function to reset the instance to null
 
 FrmDeath.cs
-    - The death screen that pop ups when the game ends, specifically after the player's health has reached 0 while fighting
+    - The death screen that pop ups when the game ends, specifically after the player's health has reached 0 while fighting. It displays a specific image for each character option.
 
     METHODS
     1) menuBtn_Click(object sender, EventArgs e)
@@ -42,3 +42,19 @@ FrmCharacterSelect.cs
         
     3) selectBaby_Click(object sender, EventArgs e)
         - This function sets the player model and stats to the Baby Peanut class
+        
+FrmBattle.cs
+    - The battle screen. The player picture displays the image for the specific character chosen. The player also now has the option to do a special attack that is unique for each character.
+    
+    METHODS
+    1) btnAttack_Click(object sender, EventArgs e)
+        - Function now checks the health of the player and pops up the death form
+        - Also checks if the player is playing as baby and if so, checks if the baby has used the special attack so it can know if it needs to deal extra damage or not.
+    2) specialAttack_Click(object sender, EventArgs e)
+        - New function that will do damage based on a special attack unique to the character
+        - Mr. Peanut's special attack is just a stronger one time attack he can do once
+        - Mrs. Peanut's is a health steal that takes health from the enemy and heals her for that amount
+        - Baby Peanut has a bleed attack that will continuously do damage for the next three attacks
+
+FrmHelp.cs
+    - A help screen that the player will be able to access on the menu, battle screens, and level screen in pause. 
