@@ -88,6 +88,12 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPBDeath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPBDeath.Designer.cs">
+      <DependentUpon>FrmPBDeath.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form2.resx">
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPBDeath.resx">
+      <DependentUpon>FrmPBDeath.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -210,6 +219,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\nutt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\black.png" />
+    <Content Include="data\pit.png" />
+    <Content Include="data\pit2.png" />
+    <Content Include="data\potion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

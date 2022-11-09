@@ -8,6 +8,9 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
+    public SoundPlayer bossBattle = new SoundPlayer(@"..\..\data\BossBattleAudio.wav");
+    public SoundPlayer winGame = new SoundPlayer(@"..\..\data\WinGameAudio.wav");
+    public SoundPlayer loseGame = new SoundPlayer(@"..\..\data\LoseGameAudio.wav");
     private Enemy enemy;
     private Player player;
     private FrmLevel game;
@@ -62,8 +65,7 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
 
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-      simpleSound.Play();
+      bossBattle.PlayLooping();
 
       tmrFinalBattle.Enabled = true;
     }
@@ -114,24 +116,24 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      deathCheck();
-    }
-    private void deathCheck()
-    {
-        if (enemy.Health <= 0)
-        {
-            instance = null;
-            Close();
-        }
-        if (player.Health <= 0)
-        {
-            instance = null;
-            game.Close();
-            game = FrmLevel.GetInstance(1);
-            death = new FrmDeath();
-            death.Show();
-            Close();
-        }
+      if (enemy.Health <= 0) {
+        instance = null;
+        bossBattle.Stop();
+        game.StartMusic();
+        //winGame.PlayLooping();
+        Close();
+      }
+      if (player.Health <= 0){
+        instance = null;
+        bossBattle.Stop();
+        game.Close();
+        game = FrmLevel.GetInstance(1);
+        death = new FrmDeath();
+        loseGame.PlayLooping();
+        death.Show();
+        Close();
+
+      }
     }
 
     private void EnemyDamage(int amount) {
