@@ -42,36 +42,41 @@
             // 
             // choose_Your_Character
             // 
-            this.choose_Your_Character.Location = new System.Drawing.Point(128, 12);
+            this.choose_Your_Character.Location = new System.Drawing.Point(171, 15);
+            this.choose_Your_Character.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.choose_Your_Character.Name = "choose_Your_Character";
-            this.choose_Your_Character.Size = new System.Drawing.Size(572, 106);
+            this.choose_Your_Character.Size = new System.Drawing.Size(763, 130);
             this.choose_Your_Character.TabIndex = 4;
             this.choose_Your_Character.TabStop = false;
             // 
             // Honey_peanut
             // 
+            this.Honey_peanut.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.honey_peanut;
             this.Honey_peanut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Honey_peanut.Location = new System.Drawing.Point(660, 170);
+            this.Honey_peanut.Location = new System.Drawing.Point(880, 209);
+            this.Honey_peanut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Honey_peanut.Name = "Honey_peanut";
-            this.Honey_peanut.Size = new System.Drawing.Size(109, 234);
+            this.Honey_peanut.Size = new System.Drawing.Size(145, 288);
             this.Honey_peanut.TabIndex = 3;
             this.Honey_peanut.TabStop = false;
             // 
             // Salty_peanut
             // 
             this.Salty_peanut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Salty_peanut.Location = new System.Drawing.Point(269, 170);
+            this.Salty_peanut.Location = new System.Drawing.Point(359, 209);
+            this.Salty_peanut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Salty_peanut.Name = "Salty_peanut";
-            this.Salty_peanut.Size = new System.Drawing.Size(109, 234);
+            this.Salty_peanut.Size = new System.Drawing.Size(145, 288);
             this.Salty_peanut.TabIndex = 2;
             this.Salty_peanut.TabStop = false;
             // 
             // Crunchy_peanut
             // 
             this.Crunchy_peanut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Crunchy_peanut.Location = new System.Drawing.Point(469, 168);
+            this.Crunchy_peanut.Location = new System.Drawing.Point(625, 207);
+            this.Crunchy_peanut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Crunchy_peanut.Name = "Crunchy_peanut";
-            this.Crunchy_peanut.Size = new System.Drawing.Size(109, 234);
+            this.Crunchy_peanut.Size = new System.Drawing.Size(145, 288);
             this.Crunchy_peanut.TabIndex = 1;
             this.Crunchy_peanut.TabStop = false;
             // 
@@ -79,23 +84,25 @@
             // 
             this.orginial_peanut.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.orginial_peanut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.orginial_peanut.Location = new System.Drawing.Point(95, 170);
+            this.orginial_peanut.Location = new System.Drawing.Point(127, 209);
+            this.orginial_peanut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.orginial_peanut.Name = "orginial_peanut";
-            this.orginial_peanut.Size = new System.Drawing.Size(106, 236);
+            this.orginial_peanut.Size = new System.Drawing.Size(141, 290);
             this.orginial_peanut.TabIndex = 0;
             this.orginial_peanut.TabStop = false;
             this.orginial_peanut.Click += new System.EventHandler(this.orginial_peanut_Click);
             // 
             // FrmCharacter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 474);
+            this.ClientSize = new System.Drawing.Size(1184, 583);
             this.Controls.Add(this.choose_Your_Character);
             this.Controls.Add(this.Honey_peanut);
             this.Controls.Add(this.Salty_peanut);
             this.Controls.Add(this.Crunchy_peanut);
             this.Controls.Add(this.orginial_peanut);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmCharacter";
             this.Text = "Choose your Character";
             ((System.ComponentModel.ISupportInitialize)(this.choose_Your_Character)).EndInit();
