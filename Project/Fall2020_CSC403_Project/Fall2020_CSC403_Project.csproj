@@ -52,6 +52,24 @@
     <Compile Include="DifficultyMenu.Designer.cs">
       <DependentUpon>DifficultyMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVictory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVictory.Designer.cs">
+      <DependentUpon>FrmVictory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeath.Designer.cs">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCharacter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCharacter.Designer.cs">
+      <DependentUpon>FrmCharacter.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLevelUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,8 +117,17 @@
     <EmbeddedResource Include="DifficultyMenu.resx">
       <DependentUpon>DifficultyMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCharacter.resx">
+      <DependentUpon>FrmCharacter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDeath.resx">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLevelUp.resx">
       <DependentUpon>FrmLevelUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVictory.resx">
+      <DependentUpon>FrmVictory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pausemenu.resx">
       <DependentUpon>Pausemenu.cs</DependentUpon>
