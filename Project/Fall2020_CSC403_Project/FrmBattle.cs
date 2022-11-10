@@ -61,9 +61,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     public void SetupForBossBattle() {
+            Console.WriteLine("Boss triggered");
       picBossBattle.Location = Point.Empty;
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
+      picBossBattle.BringToFront();
 
       bossBattle.PlayLooping();
 
@@ -116,24 +118,31 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (enemy.Health <= 0) {
-        instance = null;
-        bossBattle.Stop();
-        game.StartMusic();
-        //winGame.PlayLooping();
-        Close();
-      }
-      if (player.Health <= 0){
-        instance = null;
-        bossBattle.Stop();
-        game.Close();
-        game = FrmLevel.GetInstance(1);
-        death = new FrmDeath();
-        loseGame.PlayLooping();
-        death.Show();
-        Close();
+      DeathCheck();
+    }
 
-      }
+    private void DeathCheck()
+    {
+        if (enemy.Health <= 0)
+        {
+            instance = null;
+            bossBattle.Stop();
+            game.StartMusic();
+            //winGame.PlayLooping();
+            Close();
+        }
+        if (player.Health <= 0)
+        {
+            instance = null;
+            bossBattle.Stop();
+            game.Close();
+            game = FrmLevel.GetInstance(1);
+            death = new FrmDeath();
+            loseGame.PlayLooping();
+            death.Show();
+            Close();
+
+        }
     }
 
     private void EnemyDamage(int amount) {
@@ -212,6 +221,7 @@ namespace Fall2020_CSC403_Project {
                 }
             }
             UpdateHealthBars();
+            DeathCheck();
         }
     }
 }

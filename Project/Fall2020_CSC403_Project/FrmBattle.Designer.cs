@@ -118,7 +118,7 @@
             this.charge3.Location = new System.Drawing.Point(394, 440);
             this.charge3.Name = "charge3";
             this.charge3.Size = new System.Drawing.Size(74, 72);
-            this.charge3.TabIndex = 11;
+            this.charge3.TabIndex = 7;
             this.charge3.TabStop = false;
             // 
             // charge2
@@ -145,11 +145,12 @@
             // 
             // picBossBattle
             // 
+            this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bossFight;
             this.picBossBattle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossBattle.Location = new System.Drawing.Point(780, 563);
             this.picBossBattle.Name = "picBossBattle";
             this.picBossBattle.Size = new System.Drawing.Size(30, 28);
-            this.picBossBattle.TabIndex = 7;
+            this.picBossBattle.TabIndex = 11;
             this.picBossBattle.TabStop = false;
             this.picBossBattle.Visible = false;
             // 

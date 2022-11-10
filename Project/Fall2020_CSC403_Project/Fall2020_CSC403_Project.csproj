@@ -213,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\black.png" />
+    <None Include="data\bossFight.jpg" />
     <Content Include="data\pit.png" />
     <Content Include="data\pit2.png" />
     <Content Include="data\potion.png" />
