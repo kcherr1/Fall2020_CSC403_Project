@@ -202,6 +202,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nutt {
+            get {
+                object obj = ResourceManager.GetObject("nutt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pit {
             get {
                 object obj = ResourceManager.GetObject("pit", resourceCulture);
@@ -215,16 +225,6 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap pit2 {
             get {
                 object obj = ResourceManager.GetObject("pit2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap nutt {
-            get {
-                object obj = ResourceManager.GetObject("nutt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
