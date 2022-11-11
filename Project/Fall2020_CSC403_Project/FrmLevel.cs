@@ -77,7 +77,8 @@ namespace Fall2020_CSC403_Project {
         }
         public void PauseGame()
         {
-
+            FrmPause paused = new FrmPause();
+            paused.Show();
         }
 
         private void FrmLevel_Load(object sender, EventArgs e) {
