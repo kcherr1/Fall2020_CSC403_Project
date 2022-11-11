@@ -29,10 +29,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblEnemyHealthFull = new System.Windows.Forms.Label();
+            this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+            this.specialAttack = new System.Windows.Forms.Button();
+            this.charge3 = new System.Windows.Forms.PictureBox();
+            this.charge2 = new System.Windows.Forms.PictureBox();
+            this.charge1 = new System.Windows.Forms.PictureBox();
             this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.charge3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.charge2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.charge1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -40,8 +47,8 @@
             // 
             // btnAttack
             // 
-            this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttack.Location = new System.Drawing.Point(127, 422);
+            this.btnAttack.Font = new System.Drawing.Font("MV Boli", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttack.Location = new System.Drawing.Point(123, 391);
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(128, 43);
             this.btnAttack.TabIndex = 2;
@@ -87,21 +94,69 @@
             this.lblEnemyHealthFull.Size = new System.Drawing.Size(226, 20);
             this.lblEnemyHealthFull.TabIndex = 6;
             // 
+            // tmrFinalBattle
+            // 
+            this.tmrFinalBattle.Interval = 5600;
+            this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
+            // 
+            // specialAttack
+            // 
+            this.specialAttack.Font = new System.Drawing.Font("MV Boli", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.specialAttack.Location = new System.Drawing.Point(123, 453);
+            this.specialAttack.Name = "specialAttack";
+            this.specialAttack.Size = new System.Drawing.Size(128, 43);
+            this.specialAttack.TabIndex = 8;
+            this.specialAttack.Text = "Attack";
+            this.specialAttack.UseVisualStyleBackColor = true;
+            this.specialAttack.Click += new System.EventHandler(this.specialAttack_Click);
+            // 
+            // charge3
+            // 
+            this.charge3.BackColor = System.Drawing.Color.Transparent;
+            this.charge3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.cracked;
+            this.charge3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.charge3.Location = new System.Drawing.Point(394, 440);
+            this.charge3.Name = "charge3";
+            this.charge3.Size = new System.Drawing.Size(74, 72);
+            this.charge3.TabIndex = 7;
+            this.charge3.TabStop = false;
+            // 
+            // charge2
+            // 
+            this.charge2.BackColor = System.Drawing.Color.Transparent;
+            this.charge2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.cracked;
+            this.charge2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.charge2.Location = new System.Drawing.Point(326, 440);
+            this.charge2.Name = "charge2";
+            this.charge2.Size = new System.Drawing.Size(74, 72);
+            this.charge2.TabIndex = 10;
+            this.charge2.TabStop = false;
+            // 
+            // charge1
+            // 
+            this.charge1.BackColor = System.Drawing.Color.Transparent;
+            this.charge1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.cracked;
+            this.charge1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.charge1.Location = new System.Drawing.Point(257, 440);
+            this.charge1.Name = "charge1";
+            this.charge1.Size = new System.Drawing.Size(74, 72);
+            this.charge1.TabIndex = 9;
+            this.charge1.TabStop = false;
+            // 
             // picBossBattle
             // 
-            this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
+            this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bossFight;
             this.picBossBattle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossBattle.Location = new System.Drawing.Point(780, 563);
             this.picBossBattle.Name = "picBossBattle";
             this.picBossBattle.Size = new System.Drawing.Size(30, 28);
-            this.picBossBattle.TabIndex = 7;
+            this.picBossBattle.TabIndex = 11;
             this.picBossBattle.TabStop = false;
             this.picBossBattle.Visible = false;
             // 
             // picEnemy
             // 
             this.picEnemy.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid;
             this.picEnemy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picEnemy.Location = new System.Drawing.Point(515, 98);
@@ -113,7 +168,6 @@
             // picPlayer
             // 
             this.picPlayer.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picPlayer.Location = new System.Drawing.Point(70, 98);
@@ -122,11 +176,6 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
-            // tmrFinalBattle
-            // 
-            this.tmrFinalBattle.Interval = 5600;
-            this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
-            // 
             // FrmBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,6 +183,10 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
+            this.Controls.Add(this.charge3);
+            this.Controls.Add(this.charge2);
+            this.Controls.Add(this.charge1);
+            this.Controls.Add(this.specialAttack);
             this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
@@ -147,6 +200,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
             this.Load += new System.EventHandler(this.FrmBattle_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.charge3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.charge2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.charge1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
@@ -165,5 +221,9 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
-  }
+        private System.Windows.Forms.Button specialAttack;
+        private System.Windows.Forms.PictureBox charge1;
+        private System.Windows.Forms.PictureBox charge2;
+        private System.Windows.Forms.PictureBox charge3;
+    }
 }

@@ -29,7 +29,28 @@ namespace Fall2020_CSC403_Project {
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
 
+      for (int c = 1; c <= player.charges; c++)
+      {
+          PictureBox pic = Controls.Find("charge" + c.ToString(), true)[0] as PictureBox;
+          pic.BackgroundImage = Image.FromFile(@"..\..\data\nutt.png");
+      }
+      if (player.character == "mr")
+      {
+          specialAttack.Text = "Wack";
+          charge3.BackgroundImage = null;
+      }
+      else if(player.character == "mrs")
+      {
+          specialAttack.Text = "Karen Mode";
+      }
+      else
+      {
+          specialAttack.Text = "Bite";
+      }
      picPlayer.BackgroundImage = player.img;
+    player.BiteTurns[0] = 0;
+    player.BiteTurns[1] = 0;
+    player.BiteTurns[2] = 0;
 
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
@@ -40,9 +61,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     public void SetupForBossBattle() {
+            Console.WriteLine("Boss triggered");
       picBossBattle.Location = Point.Empty;
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
+      picBossBattle.BringToFront();
 
       bossBattle.PlayLooping();
 
@@ -71,30 +94,55 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      if(player.character == "mr")
+      {
+            player.OnAttack(-5);
+      }
+      else if(player.character == "baby"){
+            player.OnAttack(-3);
+            for(int i =  0; i<3; i++)
+            {
+                    if (player.BiteTurns[i] > 0)
+                    {
+                        player.OnAttack(-2);
+                        player.BiteTurns[i] -= 1;
+                    }
+            }
+      }
+      else
+      {
+            player.OnAttack(-4);
+      }
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
       }
 
       UpdateHealthBars();
-      if (enemy.Health <= 0) {
-        instance = null;
-        bossBattle.Stop();
-        game.StartMusic();
-        //winGame.PlayLooping();
-        Close();
-      }
-      if (player.Health <= 0){
-        instance = null;
-        bossBattle.Stop();
-        game.Close();
-        game = FrmLevel.GetInstance(1);
-        death = new FrmDeath();
-        loseGame.PlayLooping();
-        death.Show();
-        Close();
+      DeathCheck();
+    }
 
-      }
+    private void DeathCheck()
+    {
+        if (enemy.Health <= 0)
+        {
+            instance = null;
+            bossBattle.Stop();
+            game.StartMusic();
+            //winGame.PlayLooping();
+            Close();
+        }
+        if (player.Health <= 0)
+        {
+            instance = null;
+            bossBattle.Stop();
+            game.Close();
+            game = FrmLevel.GetInstance(1);
+            death = new FrmDeath();
+            loseGame.PlayLooping();
+            death.Show();
+            Close();
+
+        }
     }
 
     private void EnemyDamage(int amount) {
@@ -113,6 +161,67 @@ namespace Fall2020_CSC403_Project {
         private void FrmBattle_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void specialAttack_Click(object sender, EventArgs e)
+        {
+            if (player.charges == 0)
+            {
+                return;
+            }
+            player.charges -= 1;
+            if(player.charges == 2)
+            {
+                charge3.BackgroundImage = Image.FromFile(@"..\..\data\cracked.png");
+            }
+            else if(player.charges == 1)
+            {
+                charge2.BackgroundImage = Image.FromFile(@"..\..\data\cracked.png");
+            }
+            else if(player.charges == 0)
+            {
+                charge1.BackgroundImage = Image.FromFile(@"..\..\data\cracked.png");
+            }
+            if(player.character == "mr")
+            {
+                player.OnAttack(-6);
+                if (enemy.Health > 0)
+                {
+                    enemy.OnAttack(-2);
+                }
+            }
+            else if(player.character == "mrs")
+            {
+                player.OnAttack(-3);
+                player.Health += 6;
+                if (player.Health >= player.MaxHealth)
+                {
+                    player.Health = player.MaxHealth;
+                }
+            }
+            else
+            {
+                player.OnAttack(-3);
+                for(int i=0; i < 3; i++)
+                {
+                    if (player.BiteTurns[i] == 0)
+                    {
+                        player.BiteTurns[i] = 3;
+                        break;
+                    }
+                    else if (player.BiteTurns[i] > 0)
+                    {
+                        player.OnAttack(-2);
+                        player.BiteTurns[i] -= 1;
+                    }
+                }
+                if (enemy.Health > 0)
+                {
+                    enemy.OnAttack(-2);
+                }
+            }
+            UpdateHealthBars();
+            DeathCheck();
         }
     }
 }

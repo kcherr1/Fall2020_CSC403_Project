@@ -38,9 +38,10 @@
             // 
             // squonkCage
             // 
+            this.squonkCage.BackColor = System.Drawing.Color.Transparent;
             this.squonkCage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("squonkCage.BackgroundImage")));
             this.squonkCage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.squonkCage.Location = new System.Drawing.Point(549, 79);
+            this.squonkCage.Location = new System.Drawing.Point(529, 83);
             this.squonkCage.Name = "squonkCage";
             this.squonkCage.Size = new System.Drawing.Size(576, 536);
             this.squonkCage.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             this.gameTitle.AutoSize = true;
             this.gameTitle.Font = new System.Drawing.Font("MV Boli", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gameTitle.Location = new System.Drawing.Point(35, 112);
+            this.gameTitle.Location = new System.Drawing.Point(85, 131);
             this.gameTitle.Name = "gameTitle";
             this.gameTitle.Size = new System.Drawing.Size(473, 85);
             this.gameTitle.TabIndex = 1;
@@ -85,13 +86,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(77)))), ((int)(((byte)(89)))));
+            this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Backgrounds;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
             this.Controls.Add(this.quitBtn);
             this.Controls.Add(this.playBtn);
             this.Controls.Add(this.gameTitle);
             this.Controls.Add(this.squonkCage);
+            this.DoubleBuffered = true;
             this.Name = "FrmMenu";
-            this.Text = "Form1";
+            this.Text = "Menu";
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.squonkCage)).EndInit();
             this.ResumeLayout(false);

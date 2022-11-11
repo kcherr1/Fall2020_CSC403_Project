@@ -44,7 +44,7 @@ namespace Fall2020_CSC403_Project
             // 
             this.menuBtn.BackColor = System.Drawing.Color.SteelBlue;
             this.menuBtn.Font = new System.Drawing.Font("MV Boli", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuBtn.Location = new System.Drawing.Point(461, 408);
+            this.menuBtn.Location = new System.Drawing.Point(461, 420);
             this.menuBtn.Name = "menuBtn";
             this.menuBtn.Size = new System.Drawing.Size(210, 94);
             this.menuBtn.TabIndex = 1;
@@ -66,9 +66,10 @@ namespace Fall2020_CSC403_Project
             // 
             // picPlayer
             // 
+            this.picPlayer.BackColor = System.Drawing.Color.Transparent;
             this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.rip;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picPlayer.Location = new System.Drawing.Point(175, 180);
+            this.picPlayer.Location = new System.Drawing.Point(220, 181);
             this.picPlayer.Name = "picPlayer";
             this.picPlayer.Size = new System.Drawing.Size(310, 222);
             this.picPlayer.TabIndex = 5;
@@ -79,14 +80,15 @@ namespace Fall2020_CSC403_Project
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(589, 17);
+            this.pictureBox2.Location = new System.Drawing.Point(603, 47);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(263, 385);
+            this.pictureBox2.Size = new System.Drawing.Size(248, 367);
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.squonk_cage;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(821, 59);
@@ -100,12 +102,15 @@ namespace Fall2020_CSC403_Project
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
+            this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Backgrounds;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.quitBtn);
             this.Controls.Add(this.menuBtn);
+            this.DoubleBuffered = true;
             this.Name = "FrmDeath";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Death_Screen_Load);

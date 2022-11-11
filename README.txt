@@ -55,6 +55,10 @@ FrmBattle.cs
         - Mr. Peanut's special attack is just a stronger one time attack he can do once
         - Mrs. Peanut's is a health steal that takes health from the enemy and heals her for that amount
         - Baby Peanut has a bleed attack that will continuously do damage for the next three attacks
+    3) DeathCheck(object sender, EventArgs e)
+        - New function that checks if either the player or the enemy's health reaches zero. 
+        - If the enemy reaches zero, then the battle is closed and the player is able to continue playing.
+        - If the player reaches zero, then the battle and level is closed and a new instance of FrmDeath.cs pops up.
 
 FrmHelp.cs
     - A help screen that the player will be able to access on the menu, battle screens, and level screen in pause. 

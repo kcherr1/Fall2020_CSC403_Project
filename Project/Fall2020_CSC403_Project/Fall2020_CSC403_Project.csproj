@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHelp.Designer.cs">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCharacterSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmHelp.resx">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCharacterSelect.resx">
       <DependentUpon>FrmCharacterSelect.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,7 +191,38 @@
     <None Include="data\rip.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\Backgrounds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\helpScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\keys.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\ctrl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\charge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\peanut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\crackedPeanut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\cracked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\nutt.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="data\black.png" />
+    <None Include="data\bossFight.jpg" />
     <Content Include="data\pit.png" />
     <Content Include="data\pit2.png" />
     <Content Include="data\potion.png" />
