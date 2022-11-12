@@ -161,5 +161,34 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
+
+        private void btnFlee_Click(object sender, EventArgs e)
+        {
+            Flee();
+        }
+
+        //try to flee from battle
+        private void Flee()
+        {
+            //generate random int
+            Random rand = new Random();
+            float num = rand.Next(0, 11);
+
+            //if int less than 10 - player speed, player fails to flee and takes damage
+            if(num < (10-player.playerSpeed))
+            {
+                enemy.EnemyAttack(-1);
+                UpdateHealthBars();
+            }
+            else
+            {
+                instance = null;
+                enemy.AlterHealth(enemy.MaxHealth - enemy.Health);
+                UpdateHealthBars();
+                battleMusic.Stop();
+                levelMusic.PlayLooping();
+                Close();
+            }
+        }
     }
 }

@@ -103,7 +103,7 @@ namespace Fall2020_CSC403_Project {
         else
         {
                 bool[] deadFlags = SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong);
-                deadCheck(deadFlags);
+                loadDeadCheck(deadFlags);
         }
       
     }
@@ -129,6 +129,7 @@ namespace Fall2020_CSC403_Project {
       TimeSpan span = DateTime.Now - timeBegin;
       string time = span.ToString(@"hh\:mm\:ss");
       lblInGameTime.Text = "Time: " + time.ToString();
+            tickDeadCheck();
       if(player.Health <= 0 && !playerIsDead) {
         KillPlayer();
       }
@@ -291,7 +292,7 @@ namespace Fall2020_CSC403_Project {
                     if (SaveSystem.IsSaveFileValid(saveName))
                     {
                         bool[] deadFlags = SaveSystem.LoadGame(saveName, player, enemyPoisonPacket, enemyCheeto, bossKoolaid, trixBunny, tonyTigerWeak, tonyTigerStrong);
-                        deadCheck(deadFlags);
+                        loadDeadCheck(deadFlags);
                     }
                     break;
         case Keys.Left:
@@ -366,7 +367,8 @@ namespace Fall2020_CSC403_Project {
 
         }
 
-        private void deadCheck(bool[] deadFlags)
+        //checks if dead on load
+        private void loadDeadCheck(bool[] deadFlags)
         {
             picBossKoolAid.Visible = !deadFlags[0];
             bossKoolAidIsDead = deadFlags[0];
@@ -386,8 +388,29 @@ namespace Fall2020_CSC403_Project {
 
             picEnemyTonyTigerStrong.Visible = deadFlags[4] && !deadFlags[5];
             tonyTigerStrongIsDead = deadFlags[5];
-
-            
         }
+
+        private void tickDeadCheck()
+        {
+            picBossKoolAid.Visible = bossKoolaid.Health > 0;
+            bossKoolAidIsDead = bossKoolaid.Health < 0;
+
+            picEnemyCheeto.Visible = enemyCheeto.Health > 0;
+            enemyCheetoIsDead = enemyCheeto.Health < 0;
+
+            picEnemyPoisonPacket.Visible = enemyPoisonPacket.Health > 0;
+            enemyPoisonPacketIsDead = enemyPoisonPacket.Health < 0;
+
+
+            picEnemyTrixBunny.Visible = trixBunny.Health > 0;
+            trixBunnyIsDead = trixBunny.Health < 0;
+
+            picEnemyTonyTigerWeak.Visible = tonyTigerWeak.Health > 0;
+            tonyTigerWeakIsDead = tonyTigerWeak.Health < 0;
+
+            picEnemyTonyTigerStrong.Visible = tonyTigerWeak.Health < 0 && tonyTigerStrong.Health > 0;
+            tonyTigerStrongIsDead = tonyTigerStrong.Health < 0;
+        }
+
     }
 }
