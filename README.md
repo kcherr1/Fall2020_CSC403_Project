@@ -48,8 +48,11 @@
 7.   I then started each enemy moving left.
 8.   Then I created an if statement to determine if any of the enemies hit a wall or each other. If they did, then I called ChooseRandomDirection to get a new direction and had the enemy start moving in that direction.
 
-
-
 ## **User Story 2**: As a player, every time the game starts I want the location of inner walls to change.
+
+1.   After a lot of research, I found a small algorithm to use to create a random map. I used a nxm matrix holding either 0 (open area) or 1 (wall). 
+2.   Once the matrix is created, I then loop through it and everywhere there is a 1, I created a new PictureBox named "PictureWall_#" at the cooresponding location on the form and updated the count of number of walls.
+3.   Then I modified the existing code, so instead of using the old walls, I loop through all these new pictureboxes and created colliders for them so that the player and enemy characters would bounce off of them.
+4.  Now I had to randomly place the player and enemy characters in open areas of the map. I did this by creating a while loop checking if the player/enemy object was null. If it was, then I grabbed a 2 random integers (between 1 and the size of the map minus 1). I then used these two numbers to check the map matrix to see if the value was 0 (open), and if so place the character/enemy there. If it was 1, then I just looped back through until the character/enemy was placed.
 
 ---
