@@ -195,17 +195,23 @@ namespace Fall2020_CSC403_Project {
                 StopMusic();
                 battle.PlayLooping();
                 Fight(enemyPoisonPacket);
+                enemyPoisonPacket.Move2();
+                picEnemyPoisonPacket.BackgroundImage = null;
             }
             else if (HitAChar(player, enemyCheeto))
             {
                 StopMusic();
                 battle.PlayLooping();
                 Fight(enemyCheeto);
+                enemyCheeto.Move2();
+                picEnemyCheeto.BackgroundImage = null;
             }
             if (HitAChar(player, bossKoolaid))
             {
                 StopMusic();
                 Fight(bossKoolaid);
+                bossKoolaid.Move2();
+                picBossKoolAid.BackgroundImage = null;
             }
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
