@@ -252,6 +252,17 @@ namespace Fall2020_CSC403_Project {
                 if (c.Collider.Intersects(potions[p].Collider))
                 {
                     hitAPotion = true;
+                    player.Health = player.MaxHealth;
+                    if(p == 0)
+                    {   
+                        potions[0].Move2();
+                        potion0.BackgroundImage = null;
+                    }
+                    if (p == 1)
+                    {
+                        potions[1].Move2();
+                        potion1.BackgroundImage = null;
+                    }
                     break;
                 }
             }
