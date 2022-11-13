@@ -37,6 +37,7 @@
             this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+            this.helpBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.charge3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.charge2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.charge1)).BeginInit();
@@ -176,6 +177,17 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
+            // helpBtn
+            // 
+            this.helpBtn.Font = new System.Drawing.Font("MV Boli", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpBtn.Location = new System.Drawing.Point(123, 520);
+            this.helpBtn.Name = "helpBtn";
+            this.helpBtn.Size = new System.Drawing.Size(128, 43);
+            this.helpBtn.TabIndex = 12;
+            this.helpBtn.Text = "Help";
+            this.helpBtn.UseVisualStyleBackColor = true;
+            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
+            // 
             // FrmBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +195,7 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
+            this.Controls.Add(this.helpBtn);
             this.Controls.Add(this.charge3);
             this.Controls.Add(this.charge2);
             this.Controls.Add(this.charge1);
@@ -225,5 +238,6 @@
         private System.Windows.Forms.PictureBox charge1;
         private System.Windows.Forms.PictureBox charge2;
         private System.Windows.Forms.PictureBox charge3;
+        private System.Windows.Forms.Button helpBtn;
     }
 }

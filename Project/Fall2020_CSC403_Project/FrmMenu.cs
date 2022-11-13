@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project
     public partial class FrmMenu : Form
     {
         private FrmCharacterSelect select = null;
+        private FrmHelp helpScreen = null;
         public SoundPlayer MenuAndCharacterSelection = new SoundPlayer(@"..\..\data\MenuAndCharacterSelectionAudio.wav");
 
         public void StartMusic()
@@ -48,6 +49,12 @@ namespace Fall2020_CSC403_Project
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             StartMusic();
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            helpScreen = new FrmHelp();
+            helpScreen.Show();
         }
     }
 }

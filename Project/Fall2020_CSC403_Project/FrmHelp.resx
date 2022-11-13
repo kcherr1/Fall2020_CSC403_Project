@@ -117,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Mrs. Peanut is a former track star who
+loves her family dearly. Her special attack
+turns her into a certified Karen. Her verbal 
+attack stuns and damages the enemy and 
+she heals from the satisfaction of a job 
+well done.</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Baby Peanut is the smallest of the Peanut
+family, allowing access to tighter spaces. His
+special attack is his ferocious baby bite, using 
+his sharpened teeth to draw blood and deal
+continuous damage for several turns.</value>
+  </data>
 </root>

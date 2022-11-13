@@ -33,6 +33,7 @@
             this.gameTitle = new System.Windows.Forms.Label();
             this.playBtn = new System.Windows.Forms.Button();
             this.quitBtn = new System.Windows.Forms.Button();
+            this.helpBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.squonkCage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,10 +51,11 @@
             // gameTitle
             // 
             this.gameTitle.AutoSize = true;
-            this.gameTitle.Font = new System.Drawing.Font("MV Boli", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gameTitle.Location = new System.Drawing.Point(85, 131);
+            this.gameTitle.BackColor = System.Drawing.Color.Transparent;
+            this.gameTitle.Font = new System.Drawing.Font("MV Boli", 53.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameTitle.Location = new System.Drawing.Point(63, 138);
             this.gameTitle.Name = "gameTitle";
-            this.gameTitle.Size = new System.Drawing.Size(473, 85);
+            this.gameTitle.Size = new System.Drawing.Size(522, 92);
             this.gameTitle.TabIndex = 1;
             this.gameTitle.Text = "Squonk Rescue";
             // 
@@ -73,13 +75,26 @@
             // 
             this.quitBtn.BackColor = System.Drawing.Color.Silver;
             this.quitBtn.Font = new System.Drawing.Font("MV Boli", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitBtn.Location = new System.Drawing.Point(152, 399);
+            this.quitBtn.Location = new System.Drawing.Point(152, 506);
             this.quitBtn.Name = "quitBtn";
             this.quitBtn.Size = new System.Drawing.Size(223, 95);
             this.quitBtn.TabIndex = 3;
             this.quitBtn.Text = "Exit Game";
             this.quitBtn.UseVisualStyleBackColor = false;
             this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
+            // 
+            // helpBtn
+            // 
+            this.helpBtn.BackColor = System.Drawing.Color.RosyBrown;
+            this.helpBtn.Font = new System.Drawing.Font("MV Boli", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpBtn.Location = new System.Drawing.Point(152, 389);
+            this.helpBtn.Name = "helpBtn";
+            this.helpBtn.Size = new System.Drawing.Size(223, 95);
+            this.helpBtn.TabIndex = 4;
+            this.helpBtn.Text = "Help";
+            this.helpBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.helpBtn.UseVisualStyleBackColor = false;
+            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
             // 
             // FrmMenu
             // 
@@ -89,6 +104,7 @@
             this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Backgrounds;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.helpBtn);
             this.Controls.Add(this.quitBtn);
             this.Controls.Add(this.playBtn);
             this.Controls.Add(this.gameTitle);
@@ -109,5 +125,6 @@
         private System.Windows.Forms.Label gameTitle;
         private System.Windows.Forms.Button playBtn;
         private System.Windows.Forms.Button quitBtn;
+        private System.Windows.Forms.Button helpBtn;
     }
 }

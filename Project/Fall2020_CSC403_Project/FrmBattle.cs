@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project {
     public SoundPlayer bossBattle = new SoundPlayer(@"..\..\data\BossBattleAudio.wav");
     public SoundPlayer winGame = new SoundPlayer(@"..\..\data\WinGameAudio.wav");
     public SoundPlayer loseGame = new SoundPlayer(@"..\..\data\LoseGameAudio.wav");
+    private FrmHelp helpScreen;
     private Enemy enemy;
     private Player player;
     private FrmLevel game;
@@ -222,6 +223,12 @@ namespace Fall2020_CSC403_Project {
             }
             UpdateHealthBars();
             DeathCheck();
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            helpScreen = new FrmHelp();
+            helpScreen.Show();
         }
     }
 }

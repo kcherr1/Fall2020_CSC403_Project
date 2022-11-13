@@ -17,9 +17,10 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
 
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
