@@ -16,5 +16,16 @@ namespace Fall2020_CSC403_Project
         {
             InitializeComponent();
         }
+        private void menuBtn_Click(object sender, EventArgs e)
+        {
+            FrmMenu menu = new FrmMenu();
+            menu.Show();
+            this.Close();
+        }
+
+        private void quitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
