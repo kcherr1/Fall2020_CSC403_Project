@@ -352,7 +352,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1723, 1050);
+            this.ClientSize = new System.Drawing.Size(1170, 709);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.potion1);
             this.Controls.Add(this.potion0);

@@ -23,6 +23,7 @@ namespace Fall2020_CSC403_Project {
         private FrmBattle frmBattle;
         private SoundPlayer gamePlay = new SoundPlayer(@"..\..\data\GamePlayAudio.wav");
         private SoundPlayer battle = new SoundPlayer(@"..\..\data\BattleAudio.wav");
+        private FrmPBDeath death;
         // Public variables
         public String character;
         public int UpKeyDown = 0;
@@ -177,12 +178,11 @@ namespace Fall2020_CSC403_Project {
             if (HitAPit(player))
             {
                 player.MoveBack();
-                /*instance = null;
-                game.Close();
-                game = FrmLevel.GetInstance(1);
-                death = new FrmDeath();
+                instance = null;
+                this.Close();
+                death = new FrmPBDeath();
                 death.Show();
-                Close();*/
+                Close();
             }
             if (HitAPotion(player))
             {

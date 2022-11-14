@@ -27,10 +27,5 @@ namespace Fall2020_CSC403_Project
         {
             Application.Exit();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
