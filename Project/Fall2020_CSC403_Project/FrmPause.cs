@@ -12,9 +12,12 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmPause : Form
     {
+        public FrmLevel theMusic = FrmLevel.GetInstance(0);
         public FrmPause()
         {
             InitializeComponent();
+            FrmLevel.pausedTime = true;
+            theMusic.StopMusic();
         }
 
         private void FrmPause_Load(object sender, EventArgs e)
@@ -24,7 +27,10 @@ namespace Fall2020_CSC403_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // when the window is closed the time resumes
             this.Close();
+            FrmLevel.pausedTime = false;
+            theMusic.StartMusic();
         }
 
         private void button2_Click(object sender, EventArgs e)

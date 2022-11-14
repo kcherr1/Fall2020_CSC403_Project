@@ -10,8 +10,11 @@ using System.Text;
 namespace Fall2020_CSC403_Project {
     public partial class FrmLevel : Form
     {
-        public static FrmLevel instance = null;
         // Private variables
+        private static SoundPlayer gamePlay = new SoundPlayer(@"..\..\data\GamePlayAudio.wav");
+        private static SoundPlayer battle = new SoundPlayer(@"..\..\data\BattleAudio.wav");
+        private static System.Timers.Timer clock;
+        private DateTime timeBegin;
         private Player player;
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
@@ -19,11 +22,12 @@ namespace Fall2020_CSC403_Project {
         private Character[] walls;
         private Character[] pits;
         private Character[] potions;
-        private DateTime timeBegin;
         private FrmBattle frmBattle;
-        private SoundPlayer gamePlay = new SoundPlayer(@"..\..\data\GamePlayAudio.wav");
-        private SoundPlayer battle = new SoundPlayer(@"..\..\data\BattleAudio.wav");
         // Public variables
+        public static FrmLevel instance = null;
+        public static bool pausedTime = false;
+        public TimeSpan span;
+        public TimeSpan elapsedTime;
         public String character;
         public int UpKeyDown = 0;
         public int LeftKeyDown = 0;
@@ -41,8 +45,6 @@ namespace Fall2020_CSC403_Project {
         public int L = 0;
         public int D = 0;
         public int R = 0;
-        // Timer used for KeyEvents
-        private static System.Timers.Timer clock;
 
         public FrmLevel()
         {
@@ -78,6 +80,8 @@ namespace Fall2020_CSC403_Project {
         }
         public void PauseGame()
         {
+            // time when pause was pressed
+            elapsedTime = DateTime.Now - timeBegin;
             FrmPause paused = new FrmPause();
             paused.Show();
         }
@@ -136,8 +140,9 @@ namespace Fall2020_CSC403_Project {
             }
 
             Game.player = player;
+            // start time on level
             timeBegin = DateTime.Now;
-
+            // start game play music
             StartMusic();
         }
 
@@ -159,7 +164,18 @@ namespace Fall2020_CSC403_Project {
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
         {
-            TimeSpan span = DateTime.Now - timeBegin;
+            // if not paused then set span to the current instance of time
+            if (pausedTime == false)
+            {
+                span = DateTime.Now - timeBegin;
+
+            }
+            // if paused then the new beginning time is reset by elapsed time
+            else if (pausedTime == true)
+            {
+                timeBegin = DateTime.Now - elapsedTime;
+            }
+            // display time value
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
         }
