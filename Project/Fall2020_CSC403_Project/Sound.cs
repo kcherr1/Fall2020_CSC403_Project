@@ -19,6 +19,7 @@ namespace Fall2020_CSC403_Project
         public int Value;
         public int start_pont = 100;
         private FrmLevel frmLevel;
+        public static Sound instance = null;
 
         SoundPlayer battleMusic = new SoundPlayer(stream: Resources.battle_music);
         SoundPlayer levelMusic = new SoundPlayer(stream: Resources.level_music);
@@ -37,6 +38,15 @@ namespace Fall2020_CSC403_Project
         private void Volume_slider_ValueChanged(object sender, EventArgs e)
         {
             Volume_val.Text = Volume_slider.Value.ToString();
+        }
+        public static Sound getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new Sound();
+            }
+            return instance;
+
         }
     }
 }

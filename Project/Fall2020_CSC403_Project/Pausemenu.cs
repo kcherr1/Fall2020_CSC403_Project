@@ -14,6 +14,8 @@ namespace Fall2020_CSC403_Project
     {
         public static Pausemenu instance = null;
         public DifficultyMenu difMenu = DifficultyMenu.getInstance();
+        public Sound SoundMenu = Sound.getInstance();
+        //public FrmLevelUp ExpMenu = FrmLevelUp.getInstance();
         public Pausemenu()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@ namespace Fall2020_CSC403_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            FrmLevel.psMenuUp = false;
             this.Hide();
         }
 
@@ -45,7 +48,18 @@ namespace Fall2020_CSC403_Project
 
         private void button4_Click(object sender, EventArgs e)
         {
+            
             Application.Exit();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SoundMenu.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FrmBattle.lvlUpMenu.Show();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
-    public FrmLevelUp lvlUpMenu = FrmLevelUp.getInstance();
+    public static FrmLevelUp lvlUpMenu = FrmLevelUp.getInstance();
     SoundPlayer battleMusic = new SoundPlayer(stream: Resources.battle_music);
     SoundPlayer levelMusic = new SoundPlayer(stream: Resources.level_music);
 

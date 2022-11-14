@@ -20,6 +20,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy tonyTigerWeak;
     private Enemy tonyTigerStrong;
 
+        public static bool psMenuUp;
+
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -125,15 +127,20 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
     }
 
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
-            tickDeadCheck();
-      if(player.Health <= 0 && !playerIsDead) {
-        KillPlayer();
-      }
-    }
+        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
+        {
+            if (!psMenuUp)
+            {
+                TimeSpan span = DateTime.Now - timeBegin;
+                string time = span.ToString(@"hh\:mm\:ss");
+                lblInGameTime.Text = "Time: " + time.ToString();
+                tickDeadCheck();
+                if (player.Health <= 0 && !playerIsDead)
+                {
+                    KillPlayer();
+                }
+            }
+        }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
@@ -296,12 +303,12 @@ namespace Fall2020_CSC403_Project {
                     }
                     break;
         case Keys.Left:
-          player.GoLeft();
-          break;
+                    player.GoLeft();
+            break;
 
         case Keys.Right:
-          player.GoRight();
-          break;
+            player.GoRight();
+            break;
 
         case Keys.Up:
           player.GoUp();
@@ -311,6 +318,7 @@ namespace Fall2020_CSC403_Project {
                     player.GoDown();
                     break;
         case Keys.Escape:
+                    psMenuUp = true;
                     psMenu.Show();
                     break;
 

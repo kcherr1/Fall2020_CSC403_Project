@@ -40,7 +40,22 @@ namespace Fall2020_CSC403_Project.code {
     public void GoDown() {
       MoveSpeed = new Vector2(0, +GO_INC);
     }
-
+    public void GoRUpDiag()
+        {
+            MoveSpeed = new Vector2(+GO_INC,+GO_INC);
+        }
+    public void GoLUpDiag() 
+        {  
+            MoveSpeed = new Vector2(-GO_INC,+GO_INC);
+        }
+    public void GoLDownDiag()
+        {
+            MoveSpeed = new Vector2(-GO_INC,-GO_INC);
+        }
+    public void GoRDownDiag()
+        {
+            MoveSpeed = new Vector2(+GO_INC,-GO_INC);
+        }
     public void ResetMoveSpeed() {
       MoveSpeed = new Vector2(0, 0);
     }
