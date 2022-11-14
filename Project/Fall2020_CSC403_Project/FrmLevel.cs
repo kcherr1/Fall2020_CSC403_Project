@@ -86,6 +86,14 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
             player.ResetMoveSpeed();
+            if (e.KeyCode == Keys.W)
+                w = false;
+            if (e.KeyCode == Keys.A)
+                a = false;
+            if (e.KeyCode == Keys.S)
+                s = false;
+            if (e.KeyCode == Keys.D)
+                d = false;
         }
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
@@ -186,30 +194,47 @@ namespace Fall2020_CSC403_Project
             frmSnake.Show();
         }
 
+        bool w = false;
+        bool s = false;
+        bool a = false;
+        bool d = false;
+
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.A:
-                    player.GoLeft();
-                    break;
+            if (e.KeyCode == Keys.W)
+                w = true;
+            if (e.KeyCode == Keys.A)
+                a = true;
+            if (e.KeyCode == Keys.S)
+                s = true;
+            if (e.KeyCode == Keys.D)
+                d = true;
 
-                case Keys.D:
-                    player.GoRight();
-                    break;
-
-                case Keys.W:
-                    player.GoUp();
-                    break;
-
-                case Keys.S:
-                    player.GoDown();
-                    break;
-
-                default:
-                    player.ResetMoveSpeed();
-                    break;
+            if (w && d) {
+                player.GoUpRight();
             }
+            else if(w && a){
+                player.GoUpLeft();
+            }
+            else if (s && d){
+                player.GoDownRight();
+            }
+            else if(s && a){
+                player.GoDownLeft();
+            }
+            else if (a){
+                player.GoLeft();
+            }
+            else if (s){
+                player.GoDown();
+            }
+            else if (w){
+                player.GoUp();
+            }
+            else if (d){
+                player.GoRight();
+            }
+
         }
 
         public void GameOver()
