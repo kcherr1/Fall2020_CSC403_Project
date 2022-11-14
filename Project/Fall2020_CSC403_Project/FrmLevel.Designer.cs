@@ -28,6 +28,7 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.picMushy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.potion1 = new System.Windows.Forms.PictureBox();
             this.potion0 = new System.Windows.Forms.PictureBox();
@@ -49,6 +50,8 @@
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
+            this.potion2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picMushy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion0)).BeginInit();
@@ -70,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.potion2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -97,12 +101,23 @@
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
+            // picMushy
+            // 
+            this.picMushy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.mushy;
+            this.picMushy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picMushy.Image = global::Fall2020_CSC403_Project.Properties.Resources.back;
+            this.picMushy.Location = new System.Drawing.Point(550, 802);
+            this.picMushy.Name = "picMushy";
+            this.picMushy.Size = new System.Drawing.Size(281, 75);
+            this.picMushy.TabIndex = 22;
+            this.picMushy.TabStop = false;
+            // 
             // picPlayer
             // 
             this.picPlayer.BackColor = System.Drawing.Color.Transparent;
             this.picPlayer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picPlayer.BackgroundImage")));
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picPlayer.Location = new System.Drawing.Point(103, 861);
+            this.picPlayer.Location = new System.Drawing.Point(103, 852);
             this.picPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picPlayer.Name = "picPlayer";
             this.picPlayer.Size = new System.Drawing.Size(66, 138);
@@ -345,6 +360,16 @@
             this.picBossKoolAid.TabIndex = 1;
             this.picBossKoolAid.TabStop = false;
             // 
+            // potion2
+            // 
+            this.potion2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.potion;
+            this.potion2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.potion2.Location = new System.Drawing.Point(649, 912);
+            this.potion2.Name = "potion2";
+            this.potion2.Size = new System.Drawing.Size(89, 78);
+            this.potion2.TabIndex = 23;
+            this.potion2.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -352,7 +377,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1723, 1050);
+            this.ClientSize = new System.Drawing.Size(1756, 1050);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.potion1);
             this.Controls.Add(this.potion0);
@@ -375,6 +400,8 @@
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.picBossKoolAid);
+            this.Controls.Add(this.picMushy);
+            this.Controls.Add(this.potion2);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmLevel";
@@ -383,6 +410,7 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picMushy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion0)).EndInit();
@@ -404,6 +432,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.potion2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,6 +464,8 @@
         private System.Windows.Forms.PictureBox pit0;
         private System.Windows.Forms.PictureBox potion0;
         private System.Windows.Forms.PictureBox potion1;
+        private System.Windows.Forms.PictureBox picMushy;
+        private System.Windows.Forms.PictureBox potion2;
     }
 }
 
