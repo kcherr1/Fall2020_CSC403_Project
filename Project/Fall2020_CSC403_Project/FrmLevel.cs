@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project {
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
+        private Enemy mushy;
         private Character[] walls;
         private Character[] pits;
         private Character[] potions;
@@ -88,13 +89,14 @@ namespace Fall2020_CSC403_Project {
             const int PADDING = 0;
             const int NUM_WALLS = 13;
             const int PITS = 2;
-            const int NUM_POTS = 2;
+            const int NUM_POTS = 3;
 
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), character);
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            mushy = new Enemy(CreatePosition(picMushy), CreateCollider(picMushy, PADDING));
 
             if (character == "baby")
             {
@@ -107,10 +109,12 @@ namespace Fall2020_CSC403_Project {
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+            mushy.Img = picMushy.BackgroundImage;
 
             bossKoolaid.Color = Color.Red;
             enemyPoisonPacket.Color = Color.Green;
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+            mushy.Color = Color.FromArgb(60, 238, 242);
 
             walls = new Character[NUM_WALLS];
 
@@ -206,6 +210,15 @@ namespace Fall2020_CSC403_Project {
                 enemyCheeto.Move2();
                 picEnemyCheeto.BackgroundImage = null;
             }
+            else if (HitAChar(player, mushy))
+            {
+                StopMusic();
+                battle.PlayLooping();
+                Fight(mushy);
+                mushy.Move2();
+                picMushy.BackgroundImage = null;
+                picMushy.Image = null;
+            }
             if (HitAChar(player, bossKoolaid))
             {
                 StopMusic();
@@ -262,6 +275,11 @@ namespace Fall2020_CSC403_Project {
                     {
                         potions[1].Move2();
                         potion1.BackgroundImage = null;
+                    }
+                    if (p == 2)
+                    {
+                        potions[2].Move2();
+                        potion2.BackgroundImage = null;
                     }
                     break;
                 }
