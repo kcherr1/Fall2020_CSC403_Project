@@ -179,6 +179,7 @@ namespace Fall2020_CSC403_Project {
             {
                 player.MoveBack();
                 instance = null;
+                StopMusic();
                 this.Close();
                 death = new FrmPBDeath();
                 death.Show();
