@@ -34,7 +34,10 @@
             this.playBtn = new System.Windows.Forms.Button();
             this.quitBtn = new System.Windows.Forms.Button();
             this.helpBtn = new System.Windows.Forms.Button();
+            this.cutscene = new AxWMPLib.AxWindowsMediaPlayer();
+            this.skipBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.squonkCage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cutscene)).BeginInit();
             this.SuspendLayout();
             // 
             // squonkCage
@@ -96,6 +99,27 @@
             this.helpBtn.UseVisualStyleBackColor = false;
             this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
             // 
+            // cutscene
+            // 
+            this.cutscene.Enabled = true;
+            this.cutscene.Location = new System.Drawing.Point(-20, -73);
+            this.cutscene.Name = "cutscene";
+            this.cutscene.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cutscene.OcxState")));
+            this.cutscene.Size = new System.Drawing.Size(1223, 900);
+            this.cutscene.TabIndex = 5;
+            this.cutscene.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.cutscene_PlayStateChange);
+            // 
+            // skipBtn
+            // 
+            this.skipBtn.Font = new System.Drawing.Font("MV Boli", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skipBtn.Location = new System.Drawing.Point(1006, 625);
+            this.skipBtn.Name = "skipBtn";
+            this.skipBtn.Size = new System.Drawing.Size(138, 70);
+            this.skipBtn.TabIndex = 6;
+            this.skipBtn.Text = "Skip";
+            this.skipBtn.UseVisualStyleBackColor = true;
+            this.skipBtn.Click += new System.EventHandler(this.skipBtn_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +128,8 @@
             this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Backgrounds;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.skipBtn);
+            this.Controls.Add(this.cutscene);
             this.Controls.Add(this.helpBtn);
             this.Controls.Add(this.quitBtn);
             this.Controls.Add(this.playBtn);
@@ -114,6 +140,7 @@
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.squonkCage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cutscene)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +153,7 @@
         private System.Windows.Forms.Button playBtn;
         private System.Windows.Forms.Button quitBtn;
         private System.Windows.Forms.Button helpBtn;
+        private AxWMPLib.AxWindowsMediaPlayer cutscene;
+        private System.Windows.Forms.Button skipBtn;
     }
 }
