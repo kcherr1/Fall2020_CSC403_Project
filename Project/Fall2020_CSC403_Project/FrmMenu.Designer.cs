@@ -78,7 +78,7 @@
             this.quitBtn.Location = new System.Drawing.Point(152, 506);
             this.quitBtn.Name = "quitBtn";
             this.quitBtn.Size = new System.Drawing.Size(223, 95);
-            this.quitBtn.TabIndex = 3;
+            this.quitBtn.TabIndex = 4;
             this.quitBtn.Text = "Exit Game";
             this.quitBtn.UseVisualStyleBackColor = false;
             this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
@@ -90,7 +90,7 @@
             this.helpBtn.Location = new System.Drawing.Point(152, 389);
             this.helpBtn.Name = "helpBtn";
             this.helpBtn.Size = new System.Drawing.Size(223, 95);
-            this.helpBtn.TabIndex = 4;
+            this.helpBtn.TabIndex = 3;
             this.helpBtn.Text = "Help";
             this.helpBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.helpBtn.UseVisualStyleBackColor = false;
