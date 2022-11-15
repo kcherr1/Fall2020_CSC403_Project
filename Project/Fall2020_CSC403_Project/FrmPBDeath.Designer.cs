@@ -38,10 +38,10 @@
             // 
             this.menuBtn.BackColor = System.Drawing.Color.SteelBlue;
             this.menuBtn.Font = new System.Drawing.Font("MV Boli", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuBtn.Location = new System.Drawing.Point(21, 223);
-            this.menuBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.menuBtn.Location = new System.Drawing.Point(8, 94);
+            this.menuBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.menuBtn.Name = "menuBtn";
-            this.menuBtn.Size = new System.Drawing.Size(309, 243);
+            this.menuBtn.Size = new System.Drawing.Size(116, 102);
             this.menuBtn.TabIndex = 0;
             this.menuBtn.Text = "Main Menu";
             this.menuBtn.UseVisualStyleBackColor = false;
@@ -51,10 +51,10 @@
             // 
             this.quitBtn.BackColor = System.Drawing.Color.Silver;
             this.quitBtn.Font = new System.Drawing.Font("MV Boli", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitBtn.Location = new System.Drawing.Point(21, 505);
-            this.quitBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.quitBtn.Location = new System.Drawing.Point(8, 212);
+            this.quitBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.quitBtn.Name = "quitBtn";
-            this.quitBtn.Size = new System.Drawing.Size(309, 254);
+            this.quitBtn.Size = new System.Drawing.Size(116, 107);
             this.quitBtn.TabIndex = 1;
             this.quitBtn.Text = "Quit Game";
             this.quitBtn.UseVisualStyleBackColor = false;
@@ -65,25 +65,25 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.pb2;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(523, 240);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(196, 101);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1093, 589);
+            this.pictureBox1.Size = new System.Drawing.Size(410, 247);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // FrmPBDeath
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut_butter;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(2130, 973);
+            this.ClientSize = new System.Drawing.Size(798, 418);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.quitBtn);
             this.Controls.Add(this.menuBtn);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmPBDeath";
             this.Text = "FrmPBDeath";
             this.Load += new System.EventHandler(this.FrmPBDeath_Load);
