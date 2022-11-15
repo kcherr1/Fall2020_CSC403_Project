@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fall2020_CSC403_Project.code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,29 +13,44 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmPause : Form
     {
-        public FrmLevel theMusic = FrmLevel.GetInstance(0);
+        private FrmLevel theMusic = FrmLevel.GetInstance(0);
+        private FrmHelp helpScreen = null;
+
         public FrmPause()
         {
             InitializeComponent();
-            FrmLevel.pausedTime = true;
-            theMusic.StopMusic();
         }
 
         private void FrmPause_Load(object sender, EventArgs e)
         {
+            FrmLevel.pausedTime = true;
+            theMusic.StopMusic();
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Resume_Click(object sender, EventArgs e)
         {
             // when the window is closed the time resumes
             this.Close();
             FrmLevel.pausedTime = false;
             theMusic.StartMusic();
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void Restart_Click(object sender, EventArgs e)
         {
-            Application.Exit();        }
+            FrmMenu menu = new FrmMenu();
+            FrmLevel.instance.Close();
+            FrmLevel.instance = null;
+            menu.Show();
+            this.Close();
         }
+        private void Quit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();        
+        }
+
+        private void help_button_Click(object sender, EventArgs e)
+        {
+            helpScreen = new FrmHelp();
+            helpScreen.Show();
+        }
+    }
 }

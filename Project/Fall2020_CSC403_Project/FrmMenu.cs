@@ -35,8 +35,8 @@ namespace Fall2020_CSC403_Project
 
         private void quitBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
             StopMusic();
+            Application.Exit();
         }
 
         private void playBtn_Click(object sender, EventArgs e)
