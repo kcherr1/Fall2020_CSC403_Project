@@ -110,9 +110,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\final_battle.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="data\player.png" />
   </ItemGroup>
   <ItemGroup>
@@ -255,6 +252,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Final Battle Minotaur versus Belloq %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Amazo-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Amazo-versus-Dracula-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final Battle Amazo versus Belloq %28mp3cut.net%29.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

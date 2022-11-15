@@ -104,29 +104,68 @@ namespace Fall2020_CSC403_Project {
             var random = new Random();
             var list = new List<string> { "Indiana Jones", "Universal Monsters", "Doctor Who" };
             int Rogue = random.Next(list.Count);
+
+
+            var random1 = new Random();
+            var list1 = new List<string> { "Pipe Wall", "Stone Wall", "Brick Wall", "Wood Wall" };
+            int WallPattern = random1.Next(list1.Count);
             if (Rogue == 0)
                 Properties.Resources.enemy_cheetos = Properties.Resources.Villain_German_Mechanic;
                 Properties.Resources.enemy_poisonpacket = Properties.Resources.Villain_Major_Toht;
                 Properties.Resources.enemy_koolaid = Properties.Resources.Boss_Villain_Belloq;
-            if (Rogue==1)
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_1)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Belloq__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_2)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Belloq__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_3)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Minotaur_versus_Belloq__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_4)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Amazo_versus_Belloq__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_5)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Mad_Hatter_versus_Belloq__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_6)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Corn_versus_Belloq__mp3cut_net___1_;
+            if (Rogue == 1)
                 Properties.Resources.enemy_cheetos=Properties.Resources.Villain_Wolfman;
                 Properties.Resources.enemy_poisonpacket = Properties.Resources.Villain_Invisible_Man;
                 Properties.Resources.enemy_koolaid=Properties.Resources.Boss_Villain_Dracula;
-            if (Rogue==2)
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_1)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Dracula__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_2)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_3)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Minotaur_versus_Dracula__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_4)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Amazo_versus_Dracula__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_5)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Mad_Hatter_versus_Dracula__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_6)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Corn_versus_Dracula__mp3cut_net_;
+            if (Rogue == 2)
                 Properties.Resources.enemy_cheetos=Properties.Resources.Villain_Mondasian_Cyberman;
                 Properties.Resources.enemy_poisonpacket=Properties.Resources.Villain_Delgado_Master;
                 Properties.Resources.enemy_koolaid=Properties.Resources.Boss_Villain_Dalek;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_1)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Dalek__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_2)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Dalek__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_3)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Minotaur_versus_Dalek__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_4)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Amazo_versus_Dalek__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_5)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Mad_Hatter_versus_Dalek__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_6)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Corn_versus_Dalek__mp3cut_net_;
 
-            var random1 = new Random();
-            var list1 = new List<string> { "Pipe Wall", "Stone Wall", "Brick Wall","Wood Wall" };
-            int WallPattern = random1.Next(list1.Count);
+
             if (WallPattern == 0)
                 Properties.Resources.wall = Properties.Resources.Pipe_Wall;
             if (WallPattern == 1)
                 Properties.Resources.wall = Properties.Resources.Stone_Wall;
             if (WallPattern == 2)
                 Properties.Resources.wall = Properties.Resources.Brick_Wall;
-            if (WallPattern==3)
+            if (WallPattern == 3)
                 Properties.Resources.wall = Properties.Resources.Wood_Wall;
 
 

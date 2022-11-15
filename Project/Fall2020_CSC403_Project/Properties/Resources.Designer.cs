@@ -10,8 +10,9 @@
 
 namespace Fall2020_CSC403_Project.Properties {
     using System;
-    
-    
+    using System.Collections.Generic;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -117,15 +118,6 @@ namespace Fall2020_CSC403_Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("Brick_Wall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream final_battle {
-            get {
-                return ResourceManager.GetStream("final_battle", resourceCulture);
             }
         }
         
@@ -290,15 +282,7 @@ namespace Fall2020_CSC403_Project.Properties {
                 return ResourceManager.GetStream("Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_", resourceCulture);
             }
         }
-        public static System.Drawing.Bitmap PickedPlayer { get; internal set; }
-
-        public static System.Drawing.Bitmap enemy_cheetos { get; internal set; }
-
-        public static System.Drawing.Bitmap enemy_poisonpacket { get; internal set; }
-
-        public static System.Drawing.Bitmap enemy_koolaid { get; internal set; }
-
-        public static System.Drawing.Bitmap wall { get; internal set; }
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -448,5 +432,17 @@ namespace Fall2020_CSC403_Project.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        public static System.Drawing.Bitmap PickedPlayer { get; internal set; }
+
+        public static System.Drawing.Bitmap enemy_cheetos { get; internal set; }
+
+        public static System.Drawing.Bitmap enemy_poisonpacket { get; internal set; }
+
+        public static System.Drawing.Bitmap enemy_koolaid { get; internal set; }
+
+        public static System.Drawing.Bitmap wall { get; internal set; }
+
+        public static System.IO.UnmanagedMemoryStream final_battle { get; internal set; }
+
     }
 }
