@@ -1,4 +1,7 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿using System;
+using System.Collections.Generic;
+
+namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
@@ -100,7 +103,76 @@
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
             // picEnemyCheeto
-            // 
+            //
+            var random = new Random();
+            var list = new List<string> { "Indiana Jones", "Universal Monsters", "Doctor Who" };
+            int Rogue = random.Next(list.Count);
+
+
+            var random1 = new Random();
+            var list1 = new List<string> { "Pipe Wall", "Stone Wall", "Brick Wall", "Wood Wall" };
+            int WallPattern = random1.Next(list1.Count);
+            if (Rogue == 0)
+                Properties.Resources.enemy_cheetos = Properties.Resources.Villain_German_Mechanic;
+                Properties.Resources.enemy_poisonpacket = Properties.Resources.Villain_Major_Toht;
+                Properties.Resources.enemy_koolaid = Properties.Resources.Boss_Villain_Belloq;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_1)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Belloq__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_2)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Belloq__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_3)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Minotaur_versus_Belloq__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_4)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Amazo_versus_Belloq__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_5)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Mad_Hatter_versus_Belloq__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_6)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Corn_versus_Belloq__mp3cut_net___1_;
+            if (Rogue == 1)
+                Properties.Resources.enemy_cheetos=Properties.Resources.Villain_Wolfman;
+                Properties.Resources.enemy_poisonpacket = Properties.Resources.Villain_Invisible_Man;
+                Properties.Resources.enemy_koolaid=Properties.Resources.Boss_Villain_Dracula;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_1)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Dracula__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_2)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_3)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Minotaur_versus_Dracula__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_4)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Amazo_versus_Dracula__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_5)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Mad_Hatter_versus_Dracula__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_6)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Corn_versus_Dracula__mp3cut_net_;
+            if (Rogue == 2)
+                Properties.Resources.enemy_cheetos=Properties.Resources.Villain_Mondasian_Cyberman;
+                Properties.Resources.enemy_poisonpacket=Properties.Resources.Villain_Delgado_Master;
+                Properties.Resources.enemy_koolaid=Properties.Resources.Boss_Villain_Dalek;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_1)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Dalek__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_2)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Dalek__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_3)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Minotaur_versus_Dalek__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_4)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Amazo_versus_Dalek__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_5)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Mad_Hatter_versus_Dalek__mp3cut_net_;
+                if (Properties.Resources.PickedPlayer == Properties.Resources.Player_Choice_6)
+                    Properties.Resources.final_battle = Properties.Resources.Final_Battle_Corn_versus_Dalek__mp3cut_net_;
+
+
+            if (WallPattern == 0)
+                Properties.Resources.wall = Properties.Resources.Pipe_Wall;
+            if (WallPattern == 1)
+                Properties.Resources.wall = Properties.Resources.Stone_Wall;
+            if (WallPattern == 2)
+                Properties.Resources.wall = Properties.Resources.Brick_Wall;
+            if (WallPattern == 3)
+                Properties.Resources.wall = Properties.Resources.Wood_Wall;
+
+
+
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -138,7 +210,7 @@
             // picBossKoolAid
             // 
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
-            this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
+            this.picBossKoolAid.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid;
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossKoolAid.Location = new System.Drawing.Point(900, 103);
             this.picBossKoolAid.Name = "picBossKoolAid";

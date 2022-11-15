@@ -118,23 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Brick_Wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\wall.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="battle_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\battle_screen.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enemy_cheetos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\enemy_cheetos.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enemy_koolaid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\enemy_koolaid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enemy_poisonpacket" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\enemy_poisonpacket.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Player_Choice_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Player_Choice_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -153,5 +138,101 @@
   </data>
   <data name="Player_Choice_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Player_Choice_6.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boss_Villain_Belloq" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boss_Villain_Belloq.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boss_Villain_Dalek" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boss_Villain_Dalek.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boss_Villain_Dracula" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boss_Villain_Dracula.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pipe_Wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pipe_Wall.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Stone_Wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stone_Wall.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_Delgado_Master" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_Delgado_Master.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_German_Mechanic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_German_Mechanic.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_Invisible_Man" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_Invisible_Man.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_Major_Toht" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_Major_Toht.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_Mondasian_Cyberman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_Mondasian_Cyberman.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Villain_Wolfman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Villain_Wolfman.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wood_Wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wood_Wall.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battle_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\battle_screen.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battle_screen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\battle_screen.fw1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Final_Battle_Amazo_versus_Belloq__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Amazo versus Belloq (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Amazo_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Amazo-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Amazo_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Amazo-versus-Dracula-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Corn_versus_Belloq__mp3cut_net___1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Corn versus Belloq (mp3cut.net) (1).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Corn_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Corn-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Corn_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Corn-versus-Dracula-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Mad_Hatter_versus_Belloq__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Mad Hatter versus Belloq (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Mad_Hatter_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Mad-Hatter-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Mad_Hatter_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Mad-Hatter-versus-Dracula-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Minotaur_versus_Belloq__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Minotaur versus Belloq (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Minotaur_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Minotaur-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Minotaur_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Minotaur versus Dracula (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Sherlock_Holmes_versus_Belloq__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Sherlock Holmes versus Belloq (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Sherlock_Holmes_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Sherlock-Holmes-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Sherlock_Holmes_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Sherlock Holmes versus Dracula (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Winnie_the_Pooh_versus_Belloq__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Winnie the Pooh versus Belloq (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Winnie_the_Pooh_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Winnie-the-Pooh-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Winnie the Pooh versus Dracula (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

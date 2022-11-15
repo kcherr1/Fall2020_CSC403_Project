@@ -88,7 +88,7 @@
       this.lblEnemyHealthFull.TabIndex = 6;
       // 
       // picBossBattle
-      // 
+      //
       this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
       this.picBossBattle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.picBossBattle.Location = new System.Drawing.Point(780, 563);

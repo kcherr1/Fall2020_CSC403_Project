@@ -128,9 +128,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\final_battle.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="data\player.png" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +174,111 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PickedPlayer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_Major_Toht.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_German_Mechanic.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boss_Villain_Belloq.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_Delgado_Master.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_Mondasian_Cyberman.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boss_Villain_Dalek.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_Wolfman.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Villain_Invisible_Man.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boss_Villain_Dracula.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wood_Wall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stone_Wall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pipe_Wall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\battle_screen.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\battle_screen.fw1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final-Battle-Minotaur-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final-Battle-Sherlock-Holmes-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final-Battle-Winnie-the-Pooh-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final-Battle-Amazo-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final-Battle-Corn-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final-Battle-Mad-Hatter-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final-Battle-Corn-versus-Dracula-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final-Battle-Mad-Hatter-versus-Dracula-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final Battle Minotaur versus Dracula %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final Battle Sherlock Holmes versus Dracula %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final Battle Winnie the Pooh versus Dracula %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final-Battle-Amazo-versus-Dracula-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final Battle Sherlock Holmes versus Belloq %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final Battle Winnie the Pooh versus Belloq %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final Battle Amazo versus Belloq %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final Battle Corn versus Belloq %28mp3cut.net%29 %281%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final Battle Mad Hatter versus Belloq %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final Battle Minotaur versus Belloq %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Amazo-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Amazo-versus-Dracula-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final Battle Amazo versus Belloq %28mp3cut.net%29.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
