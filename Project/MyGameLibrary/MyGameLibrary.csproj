@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,6 +51,7 @@
     <Compile Include="BattleCharacter.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Collider.cs" />
+    <Compile Include="Dialogue.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="NPC.cs" />

@@ -65,6 +65,43 @@
 <!-- ROADMAP -->
 ## Roadmap
 
+- [ ] Implement Menu System
+  - Start Menu
+  Description: As a user, I'd like a start/pause menu to start/resume game or view the help menu
+  Process: To implement the start menu, I started with adding a new form called FrmMenuScreen. 
+<img width="610" alt="image" src="https://user-images.githubusercontent.com/80478785/198042244-2c00f35b-d557-4138-8933-37ec70ec4496.png">
+
+The form was designed by tweaking the attributes in the properties menu. The size was changed, background image was added, title text, and two buttons. Each button calls a method upon click that creates a new form and displays it. The start game button is linked to the LoadGame function, and the help button is linked to the LoadHelpMenu function shown below. In the program.cs file I changed the project to display the start menu first upon running.
+
+<pre><code>
+ public partial class FrmMenuScreen : Form
+    {
+        public FrmMenuScreen()
+        {
+            InitializeComponent();
+        }
+
+        private void LoadGame(object sender, EventArgs e)
+        {
+            Form gameWindow = new FrmLevel();
+            gameWindow.Show();
+        }
+
+        private void LoadHelpMenu(object sender, EventArgs e)
+        {
+            Form helpWindow = new FrmHelpScreen();
+            helpWindow.Show();
+        }
+    }
+</code></pre>
+
+  - Help Menu
+  Description:
+  Process:
+  
+- [ ] Feature 2
+- [ ] Feature 3
+    - [ ] Nested Feature
 - [ ] Implement Item System : As a user, I'd like to have different types of weapons.
   - Creating Item Class
     -  Process: In order to have different weapons, I have to create an item class. I had to research online on how to create an item class for a game in C#. Once I found something that could work, I read the code and comments as well as the explanations. Then, I made changes to the code for it to work for this project.
@@ -76,7 +113,6 @@
 - [ ] Implement Healing Item: As a user, I'd like to find items that can heal myself
   - Creating Health item class
     - Process: By looking at the weapon class, I made changes so that this class would not have damage stats but health. I then added the item to the item informatin class so that it would be created.
-
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 

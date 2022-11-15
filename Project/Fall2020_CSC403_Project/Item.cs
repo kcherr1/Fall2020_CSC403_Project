@@ -9,6 +9,7 @@ namespace Fall2020_CSC403_Project.code
 	{
 		public int ItemNum {get; set;}
 		public string Name {get; set;}
+
 		// item constructor w/ parameters
 		public Item(int itemNum, string name)
 		{
@@ -24,5 +25,4 @@ namespace Fall2020_CSC403_Project.code
 	{
 		return new Item(ItemNum, Name);
 	}
-
 }
