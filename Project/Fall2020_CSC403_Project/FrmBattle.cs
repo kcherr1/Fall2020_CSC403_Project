@@ -11,6 +11,15 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemy;
     private Player player;
 
+    public void getInventory()
+        {
+            /*int inventoryL = Player.playlerInventory.getInventoryList().Count;
+            if(inventoryL == 0)
+            {
+                instance.invetoryIcon.Visible = false;
+            }*/
+        }
+
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -22,6 +31,12 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
+
+      if(player.getInventory().Count == 0)
+            {
+                button1.Visible = false;
+                button2.Visible = false;
+            }
 
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
@@ -48,7 +63,7 @@ namespace Fall2020_CSC403_Project {
         instance.enemy = enemy;
         instance.Setup();
       }
-      return instance;
+        return instance;
     }
 
     private void UpdateHealthBars() {
@@ -88,5 +103,63 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void healItem(object sender, EventArgs e)
+        {
+            player.AlterHealth(10);
+
+            UpdateHealthBars();
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+
+            if (Control.ModifierKeys == Keys.Control)
+            {
+                ((Control)sender).Hide();
+            }
+        }
+
+        private void StapleClicked(object sender, EventArgs e)
+        {
+            player.OnAttack(-8);
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
+            }
+
+            UpdateHealthBars();
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+        }
+
+        private void HealButtonClicked(object sender, EventArgs e)
+        {
+            player.AlterHealth(10);
+
+            UpdateHealthBars();
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+
+            ((Control)sender).Hide();
+        }
+    }
 }
