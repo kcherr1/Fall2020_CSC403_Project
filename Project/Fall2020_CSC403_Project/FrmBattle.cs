@@ -93,7 +93,7 @@ namespace Fall2020_CSC403_Project {
             //MessageBox.Show(DamageDealtByEnemy.ToString());
 
             //player.OnAttack(-4);
-            player.OnAttack(DamageDealtByPlayer*-1);  
+            player.OnAttack(DamageDealtByPlayer*-3);  
             if (enemy.Health > 0) {
                 //enemy.OnAttack(-2);
                 enemy.OnAttack(DamageDealtByEnemy*-1); 

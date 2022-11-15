@@ -64,6 +64,18 @@
     <Compile Include="frmRandomBattleDamageInput.Designer.cs">
       <DependentUpon>frmRandomBattleDamageInput.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRandomMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRandomMap.Designer.cs">
+      <DependentUpon>FrmRandomMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWinner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWinner.Designer.cs">
+      <DependentUpon>frmWinner.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlayerPicks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +93,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRandomBattleDamageInput.resx">
       <DependentUpon>frmRandomBattleDamageInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRandomMap.resx">
+      <DependentUpon>FrmRandomMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWinner.resx">
+      <DependentUpon>frmWinner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayerPicks.resx">
       <DependentUpon>PlayerPicks.cs</DependentUpon>

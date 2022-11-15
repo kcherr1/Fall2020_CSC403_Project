@@ -14,7 +14,8 @@ namespace Fall2020_CSC403_Project {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Application.Run(new PlayerPicks());
-      Application.Run(new FrmLevel());
+            Application.Run(new FrmLevel());
+            //Application.Run(new FrmRandomMap());
 
 
     }
