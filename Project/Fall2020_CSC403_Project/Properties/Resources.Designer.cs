@@ -434,11 +434,11 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         public static System.Drawing.Bitmap PickedPlayer { get; internal set; }
 
-        public static System.Drawing.Bitmap enemy_cheetos { get; internal set; }
+        public static System.Drawing.Bitmap enemy_cheetos { get; set; }
 
-        public static System.Drawing.Bitmap enemy_poisonpacket { get; internal set; }
+        public static System.Drawing.Bitmap enemy_poisonpacket { get; set; }
 
-        public static System.Drawing.Bitmap enemy_koolaid { get; internal set; }
+        public static System.Drawing.Bitmap enemy_koolaid { get; set; }
 
         public static System.Drawing.Bitmap wall { get; internal set; }
 
