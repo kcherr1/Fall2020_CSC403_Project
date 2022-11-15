@@ -20,39 +20,39 @@ namespace Fall2020_CSC403_Project
         
         private void button1_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Sherlock Holmes has been chosen.");
+            MessageBox.Show("Sherlock Holmes has been chosen.");
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_1;
             this.Close();
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Winnie the Pooh has been chosen.");
+            MessageBox.Show("Winnie the Pooh has been chosen.");
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_2;
             this.Close();
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Minotaur has been chosen.");
+            MessageBox.Show("Minotaur has been chosen.");
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_3;
             this.Close();
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Amazo has been chosen.");
+            MessageBox.Show("Amazo has been chosen.");
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_4;
             this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Mad Hatter has been chosen.");
+            MessageBox.Show("Mad Hatter has been chosen.");
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_5;
             this.Close();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Corn has been chosen.");
+            MessageBox.Show("Corn has been chosen.");
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_6;
             this.Close();
         }

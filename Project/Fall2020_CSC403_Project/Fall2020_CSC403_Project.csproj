@@ -280,5 +280,53 @@
   <ItemGroup>
     <None Include="data\Final Battle Amazo versus Belloq %28mp3cut.net%29.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Corn-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Corn-versus-Dracula-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final Battle Corn versus Belloq %28mp3cut.net%29 %281%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Mad-Hatter-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Mad-Hatter-versus-Dracula-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final Battle Mad Hatter versus Belloq %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Minotaur-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final Battle Minotaur versus Belloq %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final Battle Minotaur versus Dracula %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final Battle Winnie the Pooh versus Dracula %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final Battle Winnie the Pooh versus Belloq %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Winnie-the-Pooh-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final Battle Sherlock Holmes versus Dracula %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final-Battle-Sherlock-Holmes-versus-Dalek-_mp3cut.net_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Final Battle Sherlock Holmes versus Belloq %28mp3cut.net%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Final Battle Winnie the Pooh versus Dracula %28mp3cut.net%291.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
