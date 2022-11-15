@@ -202,6 +202,9 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap PixelOfficeAssets {
             get {
                 object obj = ResourceManager.GetObject("PixelOfficeAssets", resourceCulture);
+        internal static System.Drawing.Bitmap inventoryIcon {
+            get {
+                object obj = ResourceManager.GetObject("inventoryIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
