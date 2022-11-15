@@ -311,16 +311,8 @@ namespace Fall2020_CSC403_Project.Properties {
             }
         }
         
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap PickedPlayer {
-            get {
-                object obj = ResourceManager.GetObject("PickedPlayer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
+        public static System.Drawing.Bitmap PickedPlayer { get; internal set; }
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
