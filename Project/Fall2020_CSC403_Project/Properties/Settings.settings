@@ -14,5 +14,8 @@
     <Setting Name="ArmorProtection" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="enemyCheetoDirection" Type="System.String" Scope="User">
+      <Value Profile="(Default)">left</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
