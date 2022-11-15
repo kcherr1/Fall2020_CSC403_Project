@@ -112,20 +112,24 @@ namespace Fall2020_CSC403_Project
             if (HitAWall(player))
             {
                 player.MoveBack();
+                wasdFalse();
             }
 
             // check collision with enemies
             if (HitAChar(player, office_desk))
             {
                 PlayMiniGame(office_desk);
+                wasdFalse();
             }
             else if (HitAChar(player, enemyCheeto))
             {
                 Talk(enemyCheeto);
+                wasdFalse();
             }
             if (HitAChar(player, bossKoolaid))
             {
                 Fight(bossKoolaid);
+                wasdFalse();
             }
             if (HitAChar(player, techlead))
             {
@@ -179,6 +183,7 @@ namespace Fall2020_CSC403_Project
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
+            wasdFalse();
 
             if (enemy == bossKoolaid)
             {
@@ -198,6 +203,14 @@ namespace Fall2020_CSC403_Project
         bool s = false;
         bool a = false;
         bool d = false;
+
+        private void wasdFalse()
+        {
+            w = false;
+            a = false;
+            s = false;
+            d = false;
+        }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
