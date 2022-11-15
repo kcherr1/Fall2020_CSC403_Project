@@ -196,4 +196,58 @@
   <data name="battle_screen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\battle_screen.fw1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Final_Battle_Amazo_versus_Belloq__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Amazo versus Belloq (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Amazo_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Amazo-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Amazo_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Amazo-versus-Dracula-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Corn_versus_Belloq__mp3cut_net___1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Corn versus Belloq (mp3cut.net) (1).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Corn_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Corn-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Corn_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Corn-versus-Dracula-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Mad_Hatter_versus_Belloq__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Mad Hatter versus Belloq (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Mad_Hatter_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Mad-Hatter-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Mad_Hatter_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Mad-Hatter-versus-Dracula-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Minotaur_versus_Belloq__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Minotaur versus Belloq (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Minotaur_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Minotaur-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Minotaur_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Minotaur versus Dracula (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Sherlock_Holmes_versus_Belloq__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Sherlock Holmes versus Belloq (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Sherlock_Holmes_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Sherlock-Holmes-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Sherlock_Holmes_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Sherlock Holmes versus Dracula (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Winnie_the_Pooh_versus_Belloq__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Winnie the Pooh versus Belloq (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Winnie_the_Pooh_versus_Dalek__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final-Battle-Winnie-the-Pooh-versus-Dalek-_mp3cut.net_.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Final Battle Winnie the Pooh versus Dracula (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
