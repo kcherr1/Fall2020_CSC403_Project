@@ -113,29 +113,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enemy_cheetos {
+        internal static System.Drawing.Bitmap Brick_Wall {
             get {
-                object obj = ResourceManager.GetObject("enemy_cheetos", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap enemy_koolaid {
-            get {
-                object obj = ResourceManager.GetObject("enemy_koolaid", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap enemy_poisonpacket {
-            get {
-                object obj = ResourceManager.GetObject("enemy_poisonpacket", resourceCulture);
+                object obj = ResourceManager.GetObject("Brick_Wall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -310,9 +290,15 @@ namespace Fall2020_CSC403_Project.Properties {
                 return ResourceManager.GetStream("Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_", resourceCulture);
             }
         }
-        
         public static System.Drawing.Bitmap PickedPlayer { get; internal set; }
 
+        public static System.Drawing.Bitmap enemy_cheetos { get; internal set; }
+
+        public static System.Drawing.Bitmap enemy_poisonpacket { get; internal set; }
+
+        public static System.Drawing.Bitmap enemy_koolaid { get; internal set; }
+
+        public static System.Drawing.Bitmap wall { get; internal set; }
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -449,16 +435,6 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap Villain_Wolfman {
             get {
                 object obj = ResourceManager.GetObject("Villain_Wolfman", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap wall {
-            get {
-                object obj = ResourceManager.GetObject("wall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
