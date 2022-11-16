@@ -88,6 +88,11 @@
     <Compile Include="Pausemenu.Designer.cs">
       <DependentUpon>Pausemenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SaveMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,11 +173,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -214,9 +214,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Crunchy_peanut.png" />
     <Content Include="data\Back_btn.png" />
     <Content Include="data\Back_hover.png" />
     <Content Include="data\battle_music.wav" />
+    <Content Include="data\Choose_character.png" />
+    <Content Include="data\credit_btn.png" />
+    <Content Include="data\credit_hover.png" />
+    <Content Include="data\Crunchy_peanut.png" />
     <Content Include="data\Difficulty_btn.png" />
     <Content Include="data\Difficulty_hover.png" />
     <Content Include="data\Exit_btn.png" />
@@ -230,6 +235,9 @@
     <Content Include="data\new_game_hover.png" />
     <Content Include="data\Options_btn.png" />
     <Content Include="data\Options_hover.png" />
+    <Content Include="data\Peanut_Death.png" />
+    <Content Include="data\playAgain.png" />
+    <Content Include="data\playAgain_hover.png" />
     <Content Include="data\SaveMenuTitle.png" />
     <Content Include="data\Save_btn.png" />
     <Content Include="data\Save_hover.png" />
@@ -239,6 +247,8 @@
     <Content Include="data\tonyTigerStrong.png" />
     <Content Include="data\tonyTigerWeak.png" />
     <Content Include="data\trixBunny.png" />
+    <Content Include="data\tryAgain.png" />
+    <Content Include="data\tryAgain_hover.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">

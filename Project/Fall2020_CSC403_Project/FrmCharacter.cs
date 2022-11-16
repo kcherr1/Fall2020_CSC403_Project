@@ -25,5 +25,15 @@ namespace Fall2020_CSC403_Project
             this.Close();
             frmlvl.Show();
         }
+
+        private void Honey_peanut_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Crunchy_peanut_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

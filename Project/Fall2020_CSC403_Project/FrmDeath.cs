@@ -30,5 +30,25 @@ namespace Fall2020_CSC403_Project
             this.Hide();
             start.Show();
         }
+
+        private void exit_btn_MouseHover(object sender, EventArgs e)
+        {
+            exit_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Exit_hover;
+        }
+
+        private void tryAgain_btn_MouseHover(object sender, EventArgs e)
+        {
+            tryAgain_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.tryAgain_hover;
+        }
+
+        private void exit_btn_MouseLeave(object sender, EventArgs e)
+        {
+            exit_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Exit_btn;
+        }
+
+        private void tryAgain_btn_MouseLeave(object sender, EventArgs e)
+        {
+            tryAgain_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.tryAgain;
+        }
     }
 }
