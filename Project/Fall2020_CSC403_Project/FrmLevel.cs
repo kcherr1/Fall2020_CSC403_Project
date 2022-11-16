@@ -100,10 +100,18 @@ namespace Fall2020_CSC403_Project {
 
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), character);
+            
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+            //changed boossKoollaid.health 100 from default(30)
+            bossKoolaid.Health = 100;
+
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            //changed enemyCheeto.health 40 from default(30)
+            enemyCheeto.Health = 40;
+            
             mushy = new Enemy(CreatePosition(picMushy), CreateCollider(picMushy, PADDING));
+            
             NPCsquonk = new NPC(CreatePosition(picSquonkCaged), CreateCollider(picSquonkCaged, PADDING));
 
             if (character == "baby")
