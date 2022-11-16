@@ -20,18 +20,20 @@ namespace Fall2020_CSC403_Project
         List<Enemy> enemyList;
         private Character[] walls;
         const int PADDING = 4;
-        const int NUM_WALLS = 11;
+        const int NUM_WALLS = 2;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
         private FrmSnake frmSnake;
         FrmDialogue enemy_frmDialogue;
 
-        public FrmLevel() {
+        public FrmLevel()
+        {
             InitializeComponent();
         }
 
-        private void FrmLevel_Load(object sender, EventArgs e) {
+        private void FrmLevel_Load(object sender, EventArgs e)
+        {
 
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
@@ -61,52 +63,73 @@ namespace Fall2020_CSC403_Project
             SoundPlayer level_music = new SoundPlayer(Resources.floor1);
             level_music.PlayLooping();
         }
-    private void Talk(Enemy enemy)
-    {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      enemy_frmDialogue = FrmDialogue.GetInstance(enemy, enemyList);
-      Console.WriteLine(enemy_frmDialogue);
-      enemy_frmDialogue.Show();
-    }
+        private void Talk(Enemy enemy)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            enemy_frmDialogue = FrmDialogue.GetInstance(enemy, enemyList);
+            Console.WriteLine(enemy_frmDialogue);
+            enemy_frmDialogue.Show();
+        }
 
-        private Vector2 CreatePosition(PictureBox pic) {
+        private Vector2 CreatePosition(PictureBox pic)
+        {
             return new Vector2(pic.Location.X, pic.Location.Y);
         }
 
-        private Collider CreateCollider(PictureBox pic, int padding) {
+        private Collider CreateCollider(PictureBox pic, int padding)
+        {
             Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
             return new Collider(rect);
         }
 
-        private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        {
             player.ResetMoveSpeed();
+            if (e.KeyCode == Keys.W)
+                w = false;
+            if (e.KeyCode == Keys.A)
+                a = false;
+            if (e.KeyCode == Keys.S)
+                s = false;
+            if (e.KeyCode == Keys.D)
+                d = false;
         }
 
-        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
+        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
+        {
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
         }
 
-        private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+        private void tmrPlayerMove_Tick(object sender, EventArgs e)
+        {
             // move player
             player.Move();
 
             // check collision with walls
-            if (HitAWall(player)) {
+            if (HitAWall(player))
+            {
                 player.MoveBack();
+                wasdFalse();
             }
 
             // check collision with enemies
-            if (HitAChar(player, office_desk)) {
+            if (HitAChar(player, office_desk))
+            {
                 PlayMiniGame(office_desk);
+                wasdFalse();
             }
-            else if (HitAChar(player, enemyCheeto)) {
+            else if (HitAChar(player, enemyCheeto))
+            {
                 Talk(enemyCheeto);
+                wasdFalse();
             }
-            if (HitAChar(player, bossKoolaid)) {
+            if (HitAChar(player, bossKoolaid))
+            {
                 Fight(bossKoolaid);
+                wasdFalse();
             }
             if (HitAChar(player, techlead))
             {
@@ -135,10 +158,13 @@ namespace Fall2020_CSC403_Project
             picTechlead.Location = new Point((int)techlead.Position.x, (int)techlead.Position.y);
         }
 
-        private bool HitAWall(Character c) {
+        private bool HitAWall(Character c)
+        {
             bool hitAWall = false;
-            for (int w = 0; w < walls.Length; w++) {
-                if (c.Collider.Intersects(walls[w].Collider)) {
+            for (int w = 0; w < walls.Length; w++)
+            {
+                if (c.Collider.Intersects(walls[w].Collider))
+                {
                     hitAWall = true;
                     break;
                 }
@@ -146,50 +172,82 @@ namespace Fall2020_CSC403_Project
             return hitAWall;
         }
 
-        private bool HitAChar(Character you, Character other) {
+        private bool HitAChar(Character you, Character other)
+        {
             return you.Collider.Intersects(other.Collider);
         }
 
-        private void Fight(Enemy enemy) {
+        private void Fight(Enemy enemy)
+        {
             player.ResetMoveSpeed();
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
+            wasdFalse();
 
-            if (enemy == bossKoolaid) {
+            if (enemy == bossKoolaid)
+            {
                 frmBattle.SetupForBossBattle();
             }
         }
 
-        private void PlayMiniGame(Enemy enemy) {
+        private void PlayMiniGame(Enemy enemy)
+        {
             player.ResetMoveSpeed();
             player.MoveBack();
             frmSnake = new FrmSnake();
             frmSnake.Show();
         }
 
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-            switch (e.KeyData) {
-                case Keys.A:
-                    player.GoLeft();
-                    break;
+        bool w = false;
+        bool s = false;
+        bool a = false;
+        bool d = false;
 
-                case Keys.D:
-                    player.GoRight();
-                    break;
+        private void wasdFalse()
+        {
+            w = false;
+            a = false;
+            s = false;
+            d = false;
+        }
 
-                case Keys.W:
-                    player.GoUp();
-                    break;
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.W)
+                w = true;
+            if (e.KeyCode == Keys.A)
+                a = true;
+            if (e.KeyCode == Keys.S)
+                s = true;
+            if (e.KeyCode == Keys.D)
+                d = true;
 
-                case Keys.S:
-                    player.GoDown();
-                    break;
-
-                default:
-                    player.ResetMoveSpeed();
-                    break;
+            if (w && d) {
+                player.GoUpRight();
             }
+            else if(w && a){
+                player.GoUpLeft();
+            }
+            else if (s && d){
+                player.GoDownRight();
+            }
+            else if(s && a){
+                player.GoDownLeft();
+            }
+            else if (a){
+                player.GoLeft();
+            }
+            else if (s){
+                player.GoDown();
+            }
+            else if (w){
+                player.GoUp();
+            }
+            else if (d){
+                player.GoRight();
+            }
+
         }
 
         public void GameOver()
@@ -198,21 +256,17 @@ namespace Fall2020_CSC403_Project
         }
 
 
-        private void lblInGameTime_Click(object sender, EventArgs e) {
+        private void lblInGameTime_Click(object sender, EventArgs e)
+        {
 
         }
 
-            private void picWall1_Click(object sender, EventArgs e)
-            {
+        private void picWall1_Click(object sender, EventArgs e)
+        {
 
-            }
+        }
 
-            private void pictureBox8_Click(object sender, EventArgs e)
-            {
-
-            }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox8_Click(object sender, EventArgs e)
         {
 
         }

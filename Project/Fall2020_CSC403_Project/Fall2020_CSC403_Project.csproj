@@ -162,6 +162,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Image1.png" />
+    <None Include="data\inventory.png" />
     <None Include="Resources\player3.png" />
     <None Include="Resources\player2.png" />
     <None Include="Resources\player1.png" />
@@ -188,6 +190,8 @@
     <None Include="Resources\Image1.bmp" />
     <None Include="Resources\Cubicles.bmp" />
     <None Include="Resources\PixelOfficeAssets.png" />
+    <None Include="Resources\inventory.png" />
+    <None Include="Resources\inventory.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

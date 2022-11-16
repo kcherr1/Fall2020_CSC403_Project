@@ -23,7 +23,6 @@ namespace Fall2020_CSC403_Project
                 instance.invetoryIcon.Visible = false;
             }*/
         }
-
         private FrmBattle()
         {
             InitializeComponent();
