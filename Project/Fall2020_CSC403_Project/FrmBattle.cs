@@ -164,6 +164,7 @@ namespace Fall2020_CSC403_Project {
                             player.AlterHealth(player.MaxHealth - player.Health);
                             UpdateHealthBars();
                         }
+
                     }
 
                 }
