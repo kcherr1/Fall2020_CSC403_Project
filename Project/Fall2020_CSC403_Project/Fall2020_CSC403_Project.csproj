@@ -241,6 +241,7 @@
     <Content Include="data\SaveMenuTitle.png" />
     <Content Include="data\Save_btn.png" />
     <Content Include="data\Save_hover.png" />
+    <Content Include="data\skulls.png" />
     <Content Include="data\Sound.btn.png" />
     <Content Include="data\Sound.Hover.png" />
     <Content Include="data\new_game_bttn.png" />
