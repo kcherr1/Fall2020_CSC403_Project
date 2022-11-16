@@ -39,6 +39,7 @@
             this.Save_btn = new System.Windows.Forms.PictureBox();
             this.Options_btn = new System.Windows.Forms.PictureBox();
             this.Exit_btn = new System.Windows.Forms.PictureBox();
+            this.credits_btn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Options_panel.SuspendLayout();
@@ -49,6 +50,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Save_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Options_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Exit_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.credits_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,6 +80,7 @@
             this.Options_panel.Controls.Add(this.Sound_btn);
             this.Options_panel.Controls.Add(this.Back_btn1);
             this.Options_panel.Controls.Add(this.Difficulty_btn);
+            this.Options_panel.Controls.Add(this.credits_btn);
             this.Options_panel.Location = new System.Drawing.Point(205, 198);
             this.Options_panel.Name = "Options_panel";
             this.Options_panel.Size = new System.Drawing.Size(634, 483);
@@ -87,7 +90,7 @@
             // Sound_btn
             // 
             this.Sound_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Sound_btn;
-            this.Sound_btn.Location = new System.Drawing.Point(180, 168);
+            this.Sound_btn.Location = new System.Drawing.Point(180, 134);
             this.Sound_btn.Name = "Sound_btn";
             this.Sound_btn.Size = new System.Drawing.Size(283, 122);
             this.Sound_btn.TabIndex = 2;
@@ -100,7 +103,7 @@
             // Back_btn1
             // 
             this.Back_btn1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Back_btn;
-            this.Back_btn1.Location = new System.Drawing.Point(196, 279);
+            this.Back_btn1.Location = new System.Drawing.Point(194, 343);
             this.Back_btn1.Name = "Back_btn1";
             this.Back_btn1.Size = new System.Drawing.Size(248, 126);
             this.Back_btn1.TabIndex = 1;
@@ -113,7 +116,7 @@
             // Difficulty_btn
             // 
             this.Difficulty_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Difficulty_btn.BackgroundImage")));
-            this.Difficulty_btn.Location = new System.Drawing.Point(140, 45);
+            this.Difficulty_btn.Location = new System.Drawing.Point(140, 4);
             this.Difficulty_btn.Name = "Difficulty_btn";
             this.Difficulty_btn.Size = new System.Drawing.Size(342, 126);
             this.Difficulty_btn.TabIndex = 0;
@@ -171,6 +174,19 @@
             this.Exit_btn.MouseLeave += new System.EventHandler(this.Exit_btn_MouseLeave);
             this.Exit_btn.MouseHover += new System.EventHandler(this.Exit_btn_MouseHover);
             // 
+            // credits_btn
+            // 
+            this.credits_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.credit_btn;
+            this.credits_btn.Location = new System.Drawing.Point(180, 228);
+            this.credits_btn.Name = "credits_btn";
+            this.credits_btn.Size = new System.Drawing.Size(283, 122);
+            this.credits_btn.TabIndex = 3;
+            this.credits_btn.TabStop = false;
+            this.credits_btn.Visible = false;
+            this.credits_btn.Click += new System.EventHandler(this.credits_btn_Click);
+            this.credits_btn.MouseLeave += new System.EventHandler(this.credits_btn_MouseLeave);
+            this.credits_btn.MouseHover += new System.EventHandler(this.credits_btn_MouseHover);
+            // 
             // StartMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +207,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Save_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Options_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Exit_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.credits_btn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +228,6 @@
         private System.Windows.Forms.PictureBox Back_btn1;
         private System.Windows.Forms.PictureBox Sound_btn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox credits_btn;
     }
 }

@@ -152,6 +152,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Developers {
+            get {
+                object obj = ResourceManager.GetObject("Developers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Difficulty_btn {
             get {
                 object obj = ResourceManager.GetObject("Difficulty_btn", resourceCulture);
@@ -165,6 +175,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap Difficulty_hover {
             get {
                 object obj = ResourceManager.GetObject("Difficulty_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Earp {
+            get {
+                object obj = ResourceManager.GetObject("Earp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -234,6 +254,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap Game_Title {
             get {
                 object obj = ResourceManager.GetObject("Game_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Grey {
+            get {
+                object obj = ResourceManager.GetObject("Grey", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -440,6 +470,26 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap thankYou {
+            get {
+                object obj = ResourceManager.GetObject("thankYou", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Thorn {
+            get {
+                object obj = ResourceManager.GetObject("Thorn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tonyTigerWeak {
             get {
                 object obj = ResourceManager.GetObject("tonyTigerWeak", resourceCulture);
@@ -463,6 +513,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap tryAgain_hover {
             get {
                 object obj = ResourceManager.GetObject("tryAgain_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vu {
+            get {
+                object obj = ResourceManager.GetObject("Vu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

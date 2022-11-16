@@ -18,6 +18,7 @@ namespace Fall2020_CSC403_Project
         private bool button_Back1_Clicked = false;
         private bool button_Difficulty_Clicked = false;
         private FrmCharacter frmcharacter;
+        private FrmCredits credits;
 
         public FrmCharacter Frmcharacter { get => frmcharacter; set => frmcharacter = value; }
 
@@ -162,6 +163,23 @@ namespace Fall2020_CSC403_Project
         private void Back_btn1_MouseLeave(object sender, EventArgs e)
         {
             Back_btn1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Back_btn;
+        }
+
+        private void credits_btn_MouseHover(object sender, EventArgs e)
+        {
+            credits_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.credit_hover;
+        }
+
+        private void credits_btn_MouseLeave(object sender, EventArgs e)
+        {
+           credits_btn.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.credit_btn;
+        }
+
+        private void credits_btn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            credits = new FrmCredits();
+            credits.Show();
         }
     }
 }

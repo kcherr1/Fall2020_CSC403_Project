@@ -223,11 +223,14 @@
     <Content Include="data\credit_btn.png" />
     <Content Include="data\credit_hover.png" />
     <Content Include="data\Crunchy_peanut.png" />
+    <Content Include="data\Developers.png" />
     <Content Include="data\Difficulty_btn.png" />
     <Content Include="data\Difficulty_hover.png" />
+    <Content Include="data\Earp.png" />
     <Content Include="data\Exit_btn.png" />
     <Content Include="data\Exit_hover.png" />
     <Content Include="data\Game_Title.png" />
+    <Content Include="data\Grey.png" />
     <Content Include="data\Load_btn.png" />
     <Content Include="data\Load_hover.png" />
     <Content Include="data\level_music.wav" />
@@ -246,11 +249,14 @@
     <Content Include="data\Sound.btn.png" />
     <Content Include="data\Sound.Hover.png" />
     <Content Include="data\new_game_bttn.png" />
+    <Content Include="data\thankYou.png" />
+    <Content Include="data\Thorn.png" />
     <Content Include="data\tonyTigerStrong.png" />
     <Content Include="data\tonyTigerWeak.png" />
     <Content Include="data\trixBunny.png" />
     <Content Include="data\tryAgain.png" />
     <Content Include="data\tryAgain_hover.png" />
+    <Content Include="data\Vu.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">
