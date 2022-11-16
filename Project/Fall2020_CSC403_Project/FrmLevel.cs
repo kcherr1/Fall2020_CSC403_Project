@@ -21,11 +21,11 @@ namespace Fall2020_CSC403_Project {
     private Enemy trixBunny;
     private Enemy tonyTigerWeak;
     private Enemy tonyTigerStrong;
-        private Enemy goldenFrieza;
-        private Enemy frieza;
-        private int stageLevel;
+    private Enemy goldenFrieza;
+    private Enemy frieza;
+    private int stageLevel;
 
-        public static bool psMenuUp;
+    public static bool psMenuUp;
 
 
     private DateTime timeBegin;
@@ -37,11 +37,12 @@ namespace Fall2020_CSC403_Project {
     private bool tonyTigerWeakIsDead;
     private bool trixBunnyIsDead;
     private bool tonyTigerStrongIsDead;
-        private bool friezaIsDead;
-        private bool goldenFriezaIsDead;
+    private bool friezaIsDead;
+    private bool goldenFriezaIsDead;
     SoundPlayer battleMusic = new SoundPlayer(stream: Resources.battle_music);
     SoundPlayer level_music = new SoundPlayer(stream: Resources.level_music);
-        private FrmDeath death;
+    private FrmDeath death;
+        private FrmVictory victory;
 
         public FrmLevel() {
       InitializeComponent();
@@ -86,6 +87,7 @@ namespace Fall2020_CSC403_Project {
             picBossKoolAid.Visible = false;
             picEnemyTonyTigerWeak.Visible = false;
             walls = new Character[NUM_WALLS];
+
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
@@ -93,6 +95,7 @@ namespace Fall2020_CSC403_Project {
       Game.player = player;
       timeBegin = DateTime.Now;
       Level1SetUp();
+
             //checks if its a new game
             //if there is
             if (saveName == null)
@@ -219,6 +222,11 @@ namespace Fall2020_CSC403_Project {
                 if (player.Health <= 0 && !playerIsDead)
                 {
                     KillPlayer();
+                }
+                if (goldenFrieza.Health < 0 && stageLevel == 5){
+                    this.Hide();
+                    victory = new FrmVictory();
+                    victory.Show();
                 }
             }
         }
