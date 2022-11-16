@@ -19,6 +19,7 @@ namespace Fall2020_CSC403_Project
         private Enemy enemyCheeto;
         private Enemy techlead;
         public bool FIGHT;
+        public bool FIGHTED;
         List<Enemy> enemyList;
         private Character[] walls;
         const int PADDING = 4;
@@ -98,7 +99,6 @@ namespace Fall2020_CSC403_Project
                     enemy_frmDialogue.Close();
                 }
                 Form level2 = new FrmBossLevel(hasItems);
-         
                 this.Hide();
                 level2.Show();
             }
@@ -114,6 +114,7 @@ namespace Fall2020_CSC403_Project
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
+          
             // move player
             player.Move();
 
@@ -261,6 +262,11 @@ namespace Fall2020_CSC403_Project
             Application.Exit();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picWall10_Click(object sender, EventArgs e)
         {
 
         }

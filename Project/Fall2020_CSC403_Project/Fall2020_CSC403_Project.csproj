@@ -69,6 +69,12 @@
     <Compile Include="FrmDialogue.Designer.cs">
       <DependentUpon>FrmDialogue.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGameOver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGameOver.Designer.cs">
+      <DependentUpon>FrmGameOver.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHelpScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDialogue.resx">
       <DependentUpon>FrmDialogue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGameOver.resx">
+      <DependentUpon>FrmGameOver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHelpScreen.resx">
       <DependentUpon>FrmHelpScreen.cs</DependentUpon>
@@ -181,6 +190,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\GameOver.png" />
+    <None Include="Resources\player.png" />
     <None Include="Resources\enemy_koolaid.jpg" />
     <None Include="data\enemy_koolaid1.png" />
     <Content Include="data\menubackground.jpg" />

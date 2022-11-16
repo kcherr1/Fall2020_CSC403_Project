@@ -35,16 +35,20 @@ namespace Fall2020_CSC403_Project
             if (enemy.Color != Color.Bisque)
             {
                 _hasItems = hasItems;
-                button1.Visible = false;
-                button2.Visible = false;
+                button1.Visible = hasItems;
+                button2.Visible = hasItems;
+                player.AlterHealth(-12);
             }
-                
+
+            
+
             _characterimg = characterimg;
             // update for this enemy
             picEnemy.BackgroundImage = characterimg.Image;
             picEnemy.Refresh();
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
+
 
             if (player.getInventory().Count == 0)
             {
@@ -65,7 +69,7 @@ namespace Fall2020_CSC403_Project
 
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
-            picBossBattle.Visible = true;
+            picBossBattle.Visible = false;
 
             SoundPlayer bossalert = new SoundPlayer(Resources.boss);
             bossalert.PlayLooping();
@@ -101,9 +105,13 @@ namespace Fall2020_CSC403_Project
         private void btnAttack_Click(object sender, EventArgs e)
         {
             player.OnAttack(-4);
+            if (enemy.Health > 0 && enemy.Color != Color.Bisque)
+            {
+                enemy.OnAttack(-5);
+            }
             if (enemy.Health > 0)
             {
-                enemy.OnAttack(-2);
+                enemy.OnAttack(-3);
             }
 
             UpdateHealthBars();
@@ -131,9 +139,12 @@ namespace Fall2020_CSC403_Project
         private void PlayerDamage(int amount)
         {
             player.AlterHealth(amount);
-            if (player.Health == 0)
+            if (player.Health <= 0)
             {
                 GameOver();
+                FrmGameOver gameover = new FrmGameOver();
+                Hide();
+                gameover.Show();
 
             }
         }
