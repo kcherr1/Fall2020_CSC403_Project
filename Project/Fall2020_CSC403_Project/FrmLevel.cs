@@ -20,7 +20,7 @@ namespace Fall2020_CSC403_Project
         List<Enemy> enemyList;
         private Character[] walls;
         const int PADDING = 4;
-        const int NUM_WALLS = 2;
+        const int NUM_WALLS = 11;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -56,6 +56,7 @@ namespace Fall2020_CSC403_Project
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
+
 
             Game.player = player;
             timeBegin = DateTime.Now;
@@ -131,10 +132,7 @@ namespace Fall2020_CSC403_Project
                 Fight(bossKoolaid);
                 wasdFalse();
             }
-            if (HitAChar(player, techlead))
-            {
-                GameOver();
-            }
+            
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -142,6 +140,18 @@ namespace Fall2020_CSC403_Project
 
         private void TechLeadPatrol_Tick(object sender, EventArgs e)
         {
+            if (techlead.Health < 0)
+            {
+                picTechlead.Dispose();
+                picTechlead.Visible = false;
+                return;
+            }
+            if (HitAChar(player, techlead))
+            {
+                techlead.ResetMoveSpeed();
+                Fight(techlead);
+                wasdFalse();
+            }
             techlead.Move();
             if (HitAChar(techlead, enemyCheeto))
             {
@@ -150,10 +160,6 @@ namespace Fall2020_CSC403_Project
             if (HitAChar(techlead, office_desk))
             {
                 techlead.GoLeft();
-            }
-            if (HitAChar(techlead, player))
-            {
-                GameOver();
             }
             picTechlead.Location = new Point((int)techlead.Position.x, (int)techlead.Position.y);
         }
@@ -182,7 +188,16 @@ namespace Fall2020_CSC403_Project
             player.ResetMoveSpeed();
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
-            frmBattle.Show();
+            if (enemy.Health > 0)
+            {
+                frmBattle.Show();
+            }
+            else
+            {
+                picTechlead.Visible = false;
+
+            }
+            
             wasdFalse();
 
             if (enemy == bossKoolaid)
@@ -223,36 +238,28 @@ namespace Fall2020_CSC403_Project
             if (e.KeyCode == Keys.D)
                 d = true;
 
-            if (w && d)
-            {
+            if (w && d) {
                 player.GoUpRight();
             }
-            else if (w && a)
-            {
+            else if(w && a){
                 player.GoUpLeft();
             }
-            else if (s && d)
-            {
+            else if (s && d){
                 player.GoDownRight();
             }
-            else if (s && a)
-            {
+            else if(s && a){
                 player.GoDownLeft();
             }
-            else if (a)
-            {
+            else if (a){
                 player.GoLeft();
             }
-            else if (s)
-            {
+            else if (s){
                 player.GoDown();
             }
-            else if (w)
-            {
+            else if (w){
                 player.GoUp();
             }
-            else if (d)
-            {
+            else if (d){
                 player.GoRight();
             }
 
@@ -265,16 +272,6 @@ namespace Fall2020_CSC403_Project
 
 
         private void lblInGameTime_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picWall1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
         {
 
         }
