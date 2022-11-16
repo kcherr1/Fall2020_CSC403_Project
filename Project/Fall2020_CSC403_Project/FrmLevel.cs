@@ -260,11 +260,12 @@ namespace Fall2020_CSC403_Project
 
         private void stapleCollected()
         {
-            string message = "A stapler has collected!";
-            string caption = "Form Closing";
+            string message = "A stapler has been collected!!";
+            string caption = "Alert";
             var result = MessageBox.Show(message, caption,
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Information);
+            player.addToInventory(1);
          }
 
         public void GameOver()
