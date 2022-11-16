@@ -14,7 +14,6 @@ namespace Fall2020_CSC403_Project
         private int lineTracker;
         private string[] interactionDialogue = new string[] { };
         private static List<Enemy> formEnemyList = null;
-        private HealthItem waterCup = new HealthItem(1, "Water Cup", 5);
         public bool waterCoolerFlag = false;
         public bool waterCoolerGiven = false;
         public FrmDialogue()
@@ -81,7 +80,7 @@ namespace Fall2020_CSC403_Project
                   "Water Cooler: Good. Did you happen to catch the big game last night?",
                   "Mr. Peanut: Yes, I did. It was a football game, with kicks, and also with throws of the ball.",
                   "Water Cooler: Astute observation. I like the observation, and I also like football. We enjoy football, yes?",
-                  "Mr. Peanut: Yes, we do."};
+                  "Mr. Peanut: Yes, we do. Here is a stapler and a tall drink of water. Glug glug. You'll need a lot of that stuff. "};
 
 
                 return dialogueset;
@@ -121,7 +120,7 @@ namespace Fall2020_CSC403_Project
                     waterCoolerFlag = false;
                     waterCoolerGiven = true;
                 }
-                Close();
+                Hide();
             }
         }
 

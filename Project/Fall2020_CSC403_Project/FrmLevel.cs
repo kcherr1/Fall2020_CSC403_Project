@@ -12,16 +12,20 @@ namespace Fall2020_CSC403_Project
     public partial class FrmLevel : Form
     {
         private Player player;
-
+        private bool hasItems = false;
+        private Enemy elevator;
         private Enemy office_desk;
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Enemy techlead;
+        public bool FIGHT;
+        public bool FIGHTED;
         List<Enemy> enemyList;
         private Character[] walls;
         private Character secretDesk;
         const int PADDING = 4;
         const int NUM_WALLS = 11;
+        public PictureBox _pictechlead;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -39,7 +43,8 @@ namespace Fall2020_CSC403_Project
 
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+
+            elevator = new Enemy(CreatePosition(picElevator), CreateCollider(picElevator, PADDING));
             office_desk = new Enemy(CreatePosition(picOfficeDesk), CreateCollider(picOfficeDesk, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             techlead = new Enemy(CreatePosition(picTechlead), CreateCollider(picTechlead, PADDING));
@@ -49,8 +54,7 @@ namespace Fall2020_CSC403_Project
             office_desk.Img = picOfficeDesk.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
             techlead.Img = picTechlead.BackgroundImage;
-
-            bossKoolaid.Color = Color.Red;
+            techlead.Color = Color.Bisque;
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
             walls = new Character[NUM_WALLS];
@@ -59,7 +63,6 @@ namespace Fall2020_CSC403_Project
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
-
 
             Game.player = player;
             timeBegin = DateTime.Now;
@@ -89,15 +92,18 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
+            if (HitAChar(player, elevator))
+            {
+                if (enemy_frmDialogue != null)
+                {
+                    hasItems = enemy_frmDialogue.waterCoolerGiven;
+                    enemy_frmDialogue.Close();
+                }
+                Form level2 = new FrmBossLevel(hasItems);
+                this.Hide();
+                level2.Show();
+            }
             player.ResetMoveSpeed();
-            if (e.KeyCode == Keys.W)
-                w = false;
-            if (e.KeyCode == Keys.A)
-                a = false;
-            if (e.KeyCode == Keys.S)
-                s = false;
-            if (e.KeyCode == Keys.D)
-                d = false;
         }
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
@@ -109,6 +115,7 @@ namespace Fall2020_CSC403_Project
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
+          
             // move player
             player.Move();
 
@@ -116,19 +123,16 @@ namespace Fall2020_CSC403_Project
             if (HitAWall(player))
             {
                 player.MoveBack();
-                wasdFalse();
             }
 
             // check collision with enemies
             if (HitAChar(player, office_desk))
             {
                 PlayMiniGame(office_desk);
-                wasdFalse();
             }
             else if (HitAChar(player, enemyCheeto))
             {
                 Talk(enemyCheeto);
-                wasdFalse();
             }
             if (HitAChar(player, bossKoolaid))
             {
@@ -155,13 +159,9 @@ namespace Fall2020_CSC403_Project
                 picTechlead.Visible = false;
                 return;
             }
-            if (HitAChar(player, techlead))
-            {
-                techlead.ResetMoveSpeed();
-                Fight(techlead);
-                wasdFalse();
-            }
-            techlead.Move();
+           
+            if (!FIGHT)
+                techlead.Move();
             if (HitAChar(techlead, enemyCheeto))
             {
                 techlead.GoRight();
@@ -169,6 +169,15 @@ namespace Fall2020_CSC403_Project
             if (HitAChar(techlead, office_desk))
             {
                 techlead.GoLeft();
+            }
+            if (HitAChar(techlead, player))
+            {
+
+                
+                techlead.ResetMoveSpeed();
+                techlead.MoveBack();
+                FIGHT = true;
+                Fight(techlead);
             }
             picTechlead.Location = new Point((int)techlead.Position.x, (int)techlead.Position.y);
         }
@@ -194,25 +203,14 @@ namespace Fall2020_CSC403_Project
 
         private void Fight(Enemy enemy)
         {
+            if (enemy.Color == Color.Bisque && FIGHT)
+                enemy.MoveBack();
+
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
-            if (enemy.Health > 0)
-            {
-                frmBattle.Show();
-            }
-            else
-            {
-                picTechlead.Visible = false;
+            frmBattle = FrmBattle.GetInstance(enemy, _pictechlead, hasItems);
+            frmBattle.Show();
 
-            }
-            
-            wasdFalse();
-
-            if (enemy == bossKoolaid)
-            {
-                frmBattle.SetupForBossBattle();
-            }
         }
 
         private void PlayMiniGame(Enemy enemy)
@@ -223,55 +221,30 @@ namespace Fall2020_CSC403_Project
             frmSnake.Show();
         }
 
-        bool w = false;
-        bool s = false;
-        bool a = false;
-        bool d = false;
-
-        private void wasdFalse()
-        {
-            w = false;
-            a = false;
-            s = false;
-            d = false;
-        }
-
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W)
-                w = true;
-            if (e.KeyCode == Keys.A)
-                a = true;
-            if (e.KeyCode == Keys.S)
-                s = true;
-            if (e.KeyCode == Keys.D)
-                d = true;
+            switch (e.KeyCode)
+            {
+                case Keys.A:
+                    player.GoLeft();
+                    break;
 
-            if (w && d) {
-                player.GoUpRight();
-            }
-            else if(w && a){
-                player.GoUpLeft();
-            }
-            else if (s && d){
-                player.GoDownRight();
-            }
-            else if(s && a){
-                player.GoDownLeft();
-            }
-            else if (a){
-                player.GoLeft();
-            }
-            else if (s){
-                player.GoDown();
-            }
-            else if (w){
-                player.GoUp();
-            }
-            else if (d){
-                player.GoRight();
-            }
+                case Keys.D:
+                    player.GoRight();
+                    break;
 
+                case Keys.W:
+                    player.GoUp();
+                    break;
+
+                case Keys.S:
+                    player.GoDown();
+                    break;
+
+                default:
+                    player.ResetMoveSpeed();
+                    break;
+            }
         }
 
         private void stapleCollected()
@@ -297,6 +270,30 @@ namespace Fall2020_CSC403_Project
 
 
         private void lblInGameTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picWall1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnFormClosed(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picWall10_Click(object sender, EventArgs e)
         {
 
         }
