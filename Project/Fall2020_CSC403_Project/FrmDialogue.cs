@@ -14,6 +14,9 @@ namespace Fall2020_CSC403_Project
         private int lineTracker;
         private string[] interactionDialogue = new string[] { };
         private static List<Enemy> formEnemyList = null;
+        private HealthItem waterCup = new HealthItem(1, "Water Cup", 5);
+        public bool waterCoolerFlag = false;
+        public bool waterCoolerGiven = false;
         public FrmDialogue()
         {
             InitializeComponent();
@@ -28,6 +31,8 @@ namespace Fall2020_CSC403_Project
             lineTracker = 0;
             System.Diagnostics.Debug.WriteLine(lineTracker);
             interactionDialogue = LoadDialogue(enemy);
+            if (enemy == formEnemyList[0])
+                waterCoolerFlag = true;
             System.Diagnostics.Debug.WriteLine(interactionDialogue[lineTracker]);
             dialogueTextBox.Text = interactionDialogue[lineTracker];
             picEnemy.Visible = true;
@@ -109,6 +114,13 @@ namespace Fall2020_CSC403_Project
             }
             else
             {
+                if (!waterCoolerGiven)
+                {
+                    if (waterCoolerFlag)
+                        player.addToInventory(0);
+                    waterCoolerFlag = false;
+                    waterCoolerGiven = true;
+                }
                 Close();
             }
         }

@@ -23,7 +23,6 @@ namespace Fall2020_CSC403_Project
                 instance.invetoryIcon.Visible = false;
             }*/
         }
-
         private FrmBattle()
         {
             InitializeComponent();
@@ -119,11 +118,21 @@ namespace Fall2020_CSC403_Project
         private void EnemyDamage(int amount)
         {
             enemy.AlterHealth(amount);
+            if (enemy.Health < 0)
+            {
+                instance = null;
+                this.Close();
+            }
         }
 
         private void PlayerDamage(int amount)
         {
             player.AlterHealth(amount);
+            if (player.Health == 0)
+            {
+                GameOver();
+
+            }
         }
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e)
@@ -188,6 +197,11 @@ namespace Fall2020_CSC403_Project
             }
 
             ((Control)sender).Hide();
+        }
+
+        public void GameOver()
+        {
+            tmrFinalBattle.Stop();
         }
     }
 }
