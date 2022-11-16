@@ -108,7 +108,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.developers;
+            this.pictureBox5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Developers;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox5.Location = new System.Drawing.Point(-5, 178);
             this.pictureBox5.Name = "pictureBox5";

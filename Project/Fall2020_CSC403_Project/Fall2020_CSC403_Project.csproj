@@ -242,6 +242,7 @@
     <Content Include="data\Peanut_Death.png" />
     <Content Include="data\playAgain.png" />
     <Content Include="data\playAgain_hover.png" />
+    <Content Include="data\saltyPeanut.png" />
     <Content Include="data\SaveMenuTitle.png" />
     <Content Include="data\Save_btn.png" />
     <Content Include="data\Save_hover.png" />
