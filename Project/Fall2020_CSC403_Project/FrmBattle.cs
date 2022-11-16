@@ -15,6 +15,8 @@ namespace Fall2020_CSC403_Project {
     public static FrmLevelUp lvlUpMenu = FrmLevelUp.getInstance();
     SoundPlayer battleMusic = new SoundPlayer(stream: Resources.battle_music);
     SoundPlayer levelMusic = new SoundPlayer(stream: Resources.level_music);
+
+        public bool buttonEnabled = true;
         private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -87,6 +89,8 @@ namespace Fall2020_CSC403_Project {
             await Task.Delay(250);
         }
         private async void btnAttack_Click(object sender, EventArgs e) {
+            if (buttonEnabled == true){
+                buttonEnabled = false;
             if (player.playerSpeed >= enemy.enemySpeed)
             {
                 picPlayer.Left = 60;
@@ -150,25 +154,26 @@ namespace Fall2020_CSC403_Project {
                     picPlayer.Left = 49;
                     UpdateHealthBars();
                     await BetweenTurns();
-                    if (enemy.Health <= 0)
-                    {
-
-                        player.RewardExperience(50);
-                        if (player.Experience >= 100)
+                        if (enemy.Health <= 0)
                         {
-                            player.RewardExperience(-100);
-                            player.level += 1;
-                            player.skillPoints += 5;
-                            lvlUpMenu = FrmLevelUp.getInstance();
-                            lvlUpMenu.Show();
-                            player.AlterHealth(player.MaxHealth - player.Health);
-                            UpdateHealthBars();
+
+                            player.RewardExperience(50);
+                            if (player.Experience >= 100)
+                            {
+                                player.RewardExperience(-100);
+                                player.level += 1;
+                                player.skillPoints += 5;
+                                lvlUpMenu = FrmLevelUp.getInstance();
+                                lvlUpMenu.Show();
+                                player.AlterHealth(player.MaxHealth - player.Health);
+                                UpdateHealthBars();
+                            }
                         }
 
                     }
 
                 }
-
+                buttonEnabled = true;
             }
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
