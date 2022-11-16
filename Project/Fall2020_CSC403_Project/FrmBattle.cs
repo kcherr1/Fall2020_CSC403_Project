@@ -1,7 +1,9 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Media;
 using System.Windows.Forms;
 
@@ -14,14 +16,22 @@ namespace Fall2020_CSC403_Project
         private Player player;
         SoundPlayer level_music;
         bool isClick = false;
+        private List<object> inventory;
 
         public void getInventory()
         {
-            /*int inventoryL = Player.playlerInventory.getInventoryList().Count;
-            if(inventoryL == 0)
+            inventory = player.getInventory();
+            if (inventory.Contains(0))
             {
-                instance.invetoryIcon.Visible = false;
-            }*/
+                button2.Visible = true;
+                Application.DoEvents();
+            }
+            if (inventory.Contains(1))
+            {
+                button1.Visible = true;
+                Application.DoEvents();
+            }
+
         }
         private FrmBattle()
         {
@@ -36,12 +46,9 @@ namespace Fall2020_CSC403_Project
             picEnemy.Refresh();
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
-
-            if (player.getInventory().Count == 0)
-            {
-                button1.Visible = false;
-                button2.Visible = false;
-            }
+            button1.Visible = false;
+            button2.Visible = false;
+            getInventory();
 
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;

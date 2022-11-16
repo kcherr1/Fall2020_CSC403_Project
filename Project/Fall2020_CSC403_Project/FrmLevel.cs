@@ -223,28 +223,36 @@ namespace Fall2020_CSC403_Project
             if (e.KeyCode == Keys.D)
                 d = true;
 
-            if (w && d) {
+            if (w && d)
+            {
                 player.GoUpRight();
             }
-            else if(w && a){
+            else if (w && a)
+            {
                 player.GoUpLeft();
             }
-            else if (s && d){
+            else if (s && d)
+            {
                 player.GoDownRight();
             }
-            else if(s && a){
+            else if (s && a)
+            {
                 player.GoDownLeft();
             }
-            else if (a){
+            else if (a)
+            {
                 player.GoLeft();
             }
-            else if (s){
+            else if (s)
+            {
                 player.GoDown();
             }
-            else if (w){
+            else if (w)
+            {
                 player.GoUp();
             }
-            else if (d){
+            else if (d)
+            {
                 player.GoRight();
             }
 
