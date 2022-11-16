@@ -258,6 +258,15 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        private void stapleCollected()
+        {
+            string message = "A stapler has collected!";
+            string caption = "Form Closing";
+            var result = MessageBox.Show(message, caption,
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Information);
+         }
+
         public void GameOver()
         {
             tmrUpdateInGameTime.Stop();
