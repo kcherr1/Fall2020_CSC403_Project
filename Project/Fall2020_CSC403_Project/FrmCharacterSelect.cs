@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,9 +14,23 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmCharacterSelect : Form
     {
+        
         public FrmLevel theGame = null;
+        
         public FrmMenu theMusic = new FrmMenu();
+        public SoundPlayer MenuAndCharacterSelection = new SoundPlayer(@"..\..\data\MenuAndCharacterSelectionAudio.wav");
+
+        public void StartMusic()
+        {
+            MenuAndCharacterSelection.PlayLooping();
+        }
+
+        public void StopMusic()
+        {
+            MenuAndCharacterSelection.Stop();
+        }
         public FrmCharacterSelect()
+
         {
             InitializeComponent();
         }
@@ -24,7 +39,7 @@ namespace Fall2020_CSC403_Project
         {
             theGame = FrmLevel.GetInstance(0);
             theGame.character = "mr";
-            theMusic.StopMusic();
+            theGame.StopMusic();
             theGame.Show();
             this.Hide();
         }

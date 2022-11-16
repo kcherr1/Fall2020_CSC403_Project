@@ -28,7 +28,10 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
-            this.picMushy = new System.Windows.Forms.PictureBox();
+            this.timer30 = new System.Windows.Forms.Timer(this.components);
+            this.timerDashboard = new System.Windows.Forms.Label();
+            this.countdownTimer = new System.Windows.Forms.Timer(this.components);
+            this.picSquonkCaged = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.potion1 = new System.Windows.Forms.PictureBox();
             this.potion0 = new System.Windows.Forms.PictureBox();
@@ -50,9 +53,9 @@
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
+            this.picMushy = new System.Windows.Forms.PictureBox();
             this.potion2 = new System.Windows.Forms.PictureBox();
-            this.picSquonkCaged = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picMushy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSquonkCaged)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion0)).BeginInit();
@@ -74,8 +77,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMushy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSquonkCaged)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -103,16 +106,34 @@
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
-            // picMushy
+            // timer30
             // 
-            this.picMushy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.mushy;
-            this.picMushy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picMushy.Image = global::Fall2020_CSC403_Project.Properties.Resources.back;
-            this.picMushy.Location = new System.Drawing.Point(550, 802);
-            this.picMushy.Name = "picMushy";
-            this.picMushy.Size = new System.Drawing.Size(281, 75);
-            this.picMushy.TabIndex = 22;
-            this.picMushy.TabStop = false;
+            this.timer30.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timerDashboard
+            // 
+            this.timerDashboard.AutoSize = true;
+            this.timerDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerDashboard.Location = new System.Drawing.Point(793, 235);
+            this.timerDashboard.Name = "timerDashboard";
+            this.timerDashboard.Size = new System.Drawing.Size(35, 82);
+            this.timerDashboard.TabIndex = 25;
+            this.timerDashboard.Text = "\r\n";
+            // 
+            // countdownTimer
+            // 
+            this.countdownTimer.Interval = 1000;
+            this.countdownTimer.Tick += new System.EventHandler(this.countdownTimer_Tick);
+            // 
+            // picSquonkCaged
+            // 
+            this.picSquonkCaged.Image = global::Fall2020_CSC403_Project.Properties.Resources.squonk_cage;
+            this.picSquonkCaged.Location = new System.Drawing.Point(1497, 57);
+            this.picSquonkCaged.Name = "picSquonkCaged";
+            this.picSquonkCaged.Size = new System.Drawing.Size(126, 71);
+            this.picSquonkCaged.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSquonkCaged.TabIndex = 24;
+            this.picSquonkCaged.TabStop = false;
             // 
             // picPlayer
             // 
@@ -362,6 +383,17 @@
             this.picBossKoolAid.TabIndex = 1;
             this.picBossKoolAid.TabStop = false;
             // 
+            // picMushy
+            // 
+            this.picMushy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.mushy;
+            this.picMushy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picMushy.Image = global::Fall2020_CSC403_Project.Properties.Resources.back;
+            this.picMushy.Location = new System.Drawing.Point(550, 802);
+            this.picMushy.Name = "picMushy";
+            this.picMushy.Size = new System.Drawing.Size(281, 75);
+            this.picMushy.TabIndex = 22;
+            this.picMushy.TabStop = false;
+            // 
             // potion2
             // 
             this.potion2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.potion;
@@ -372,16 +404,6 @@
             this.potion2.TabIndex = 23;
             this.potion2.TabStop = false;
             // 
-            // picSquonkCaged
-            // 
-            this.picSquonkCaged.Image = global::Fall2020_CSC403_Project.Properties.Resources.squonk_cage;
-            this.picSquonkCaged.Location = new System.Drawing.Point(1475, 48);
-            this.picSquonkCaged.Name = "picSquonkCaged";
-            this.picSquonkCaged.Size = new System.Drawing.Size(126, 71);
-            this.picSquonkCaged.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picSquonkCaged.TabIndex = 24;
-            this.picSquonkCaged.TabStop = false;
-            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -390,6 +412,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1756, 1050);
+            this.Controls.Add(this.timerDashboard);
             this.Controls.Add(this.picSquonkCaged);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.potion1);
@@ -423,7 +446,7 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.picMushy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSquonkCaged)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion0)).EndInit();
@@ -445,8 +468,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMushy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSquonkCaged)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,6 +504,9 @@
         private System.Windows.Forms.PictureBox picMushy;
         private System.Windows.Forms.PictureBox potion2;
         private System.Windows.Forms.PictureBox picSquonkCaged;
+        private System.Windows.Forms.Timer timer30;
+        private System.Windows.Forms.Label timerDashboard;
+        private System.Windows.Forms.Timer countdownTimer;
     }
 }
 

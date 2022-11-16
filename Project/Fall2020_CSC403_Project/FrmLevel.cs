@@ -6,6 +6,7 @@ using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using System.Media;
 using System.Text;
+using System.Security.Cryptography;
 
 namespace Fall2020_CSC403_Project {
     public partial class FrmLevel : Form
@@ -27,6 +28,7 @@ namespace Fall2020_CSC403_Project {
         private FrmBattle frmBattle;
         private FrmPBDeath death;
         private FrmWin win;
+        
 
         // Public variables
         public static FrmLevel instance = null;
@@ -34,6 +36,7 @@ namespace Fall2020_CSC403_Project {
         public TimeSpan span;
         public TimeSpan elapsedTime;
         public String character;
+        public int seconds;
         public int UpKeyDown = 0;
         public int LeftKeyDown = 0;
         public int DownKeyDown = 0;
@@ -50,6 +53,7 @@ namespace Fall2020_CSC403_Project {
         public int L = 0;
         public int D = 0;
         public int R = 0;
+        
 
         public FrmLevel()
         {
@@ -97,12 +101,14 @@ namespace Fall2020_CSC403_Project {
             const int NUM_WALLS = 13;
             const int PITS = 2;
             const int NUM_POTS = 3;
+            seconds = 100;
+            countdownTimer.Start();
 
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), character);
             
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-            //changed boossKoollaid.health 100 from default(30)
+            //changed bossKoolaid.health 100 from default(30)
             bossKoolaid.Health = 100;
 
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
@@ -618,5 +624,25 @@ namespace Fall2020_CSC403_Project {
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void countdownTimer_Tick(object sender, EventArgs e)
+        {
+            timerDashboard.Text = seconds--.ToString();
+            if(seconds < 0)
+            {
+                countdownTimer.Stop();
+                instance = null;
+                StopMusic();
+                this.Close();
+                death = new FrmPBDeath();
+                death.Show();
+                Close();
+
+            }
+        }
     }
 }
