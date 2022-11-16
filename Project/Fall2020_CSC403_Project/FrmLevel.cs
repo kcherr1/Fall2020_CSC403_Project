@@ -49,6 +49,8 @@ namespace Fall2020_CSC403_Project
             office_desk.Img = picOfficeDesk.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
             techlead.Img = picTechlead.BackgroundImage;
+            techlead.Color = Color.Bisque;
+            System.Console.WriteLine();
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
             walls = new Character[NUM_WALLS];

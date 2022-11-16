@@ -90,6 +90,9 @@ namespace Fall2020_CSC403_Project
 
         private void btnAttack_Click(object sender, EventArgs e)
         {
+            //if (enemy.)
+            if (enemy.Color == Color.Bisque)
+                return;
             if (isClick == false)
             {
                 level_music = new SoundPlayer(Resources.boss);

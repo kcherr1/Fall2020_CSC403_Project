@@ -9,13 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project.Properties;
 using Fall2020_CSC403_Project.code;
+using System.Media;
+
 
 namespace Fall2020_CSC403_Project
 {
     public partial class FrmBossLevel : Form
     {
         private Player player;
-
+        private SoundPlayer level_music;
         private Enemy elevator;
         private Enemy bossKoolaid;
 
@@ -49,6 +51,9 @@ namespace Fall2020_CSC403_Project
 
             Game.player = player;
             timeBegin = DateTime.Now;
+
+            level_music = new SoundPlayer(Resources.boss);
+            level_music.PlayLooping();
         }
 
         private Vector2 CreatePosition(PictureBox pic)
