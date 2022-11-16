@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 using System.Security.Policy;
+using WMPLib;
+using System.IO;
+using System.Reflection;
 
 namespace Fall2020_CSC403_Project
 {
@@ -48,13 +51,35 @@ namespace Fall2020_CSC403_Project
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            StartMusic();
+            cutscene.URL = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath),"cutscene.mp4");
+            cutscene.settings.autoStart = true;
+            cutscene.BringToFront();
+            skipBtn.BringToFront();
+        }
+
+        private void cutscene_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if (e.newState == 1)
+            {
+                cutscene.Hide();
+                skipBtn.Hide();
+                StartMusic();
+            }
         }
 
         private void helpBtn_Click(object sender, EventArgs e)
         {
             helpScreen = new FrmHelp();
             helpScreen.Show();
+        }
+
+        private void skipBtn_Click(object sender, EventArgs e)
+        {
+            cutscene.Hide();
+
+            cutscene.Ctlcontrols.stop();
+            StartMusic();
+            skipBtn.Hide();
         }
     }
 }
