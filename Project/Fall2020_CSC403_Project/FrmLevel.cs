@@ -40,19 +40,15 @@ namespace Fall2020_CSC403_Project
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 
             elevator = new Enemy(CreatePosition(picElevator), CreateCollider(picElevator, PADDING));
-            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             office_desk = new Enemy(CreatePosition(picOfficeDesk), CreateCollider(picOfficeDesk, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             techlead = new Enemy(CreatePosition(picTechlead), CreateCollider(picTechlead, PADDING));
             enemyList = new List<Enemy> { enemyCheeto, techlead, bossKoolaid, elevator };
 
             elevator.Img = picElevator.BackgroundImage;
-            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             office_desk.Img = picOfficeDesk.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
             techlead.Img = picTechlead.BackgroundImage;
-
-            bossKoolaid.Color = Color.Red;
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
             walls = new Character[NUM_WALLS];
@@ -126,10 +122,6 @@ namespace Fall2020_CSC403_Project
             {
                 Talk(enemyCheeto);
             }
-            else if (HitAChar(player, bossKoolaid))
-            {
-                Fight(bossKoolaid);
-            }
             else if (HitAChar(player, techlead))
             {
                 GameOver();
@@ -183,10 +175,6 @@ namespace Fall2020_CSC403_Project
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
 
-            if (enemy == bossKoolaid)
-            {
-                frmBattle.SetupForBossBattle();
-            }
         }
 
         private void PlayMiniGame(Enemy enemy)
@@ -248,6 +236,10 @@ namespace Fall2020_CSC403_Project
         private void OnFormClosed(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
