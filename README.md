@@ -9,6 +9,7 @@
 - Player position
 - Enemy health
 - Enemy death flag
+#### 3.Added ability to flee from enemy. If fleeing fails, player takes damage. If fleeing succeeds, the enemy's hp gets reset the battle screen closes.
 ##### What went right: Save system was simple easier to implement.
 ##### What went wrong: Save system was and will be tedious to integrate with new systems. Its simplicity makes its inflexible. All things must be saved manually.
 ##### Code reviewed by: Sara
