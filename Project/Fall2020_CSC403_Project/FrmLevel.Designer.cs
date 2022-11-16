@@ -167,7 +167,6 @@
             this.picWall10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.picWall10.TabIndex = 22;
             this.picWall10.TabStop = false;
-            this.picWall10.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // picWall9
             // 
@@ -202,9 +201,9 @@
             // picWall3
             // 
             this.picWall3.Image = global::Fall2020_CSC403_Project.Properties.Resources.Cubicles;
-            this.picWall3.Location = new System.Drawing.Point(318, 398);
+            this.picWall3.Location = new System.Drawing.Point(318, 434);
             this.picWall3.Name = "picWall3";
-            this.picWall3.Size = new System.Drawing.Size(257, 167);
+            this.picWall3.Size = new System.Drawing.Size(257, 131);
             this.picWall3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picWall3.TabIndex = 18;
             this.picWall3.TabStop = false;
@@ -212,9 +211,9 @@
             // picWall8
             // 
             this.picWall8.Image = global::Fall2020_CSC403_Project.Properties.Resources.Cubicles;
-            this.picWall8.Location = new System.Drawing.Point(881, 714);
+            this.picWall8.Location = new System.Drawing.Point(881, 702);
             this.picWall8.Name = "picWall8";
-            this.picWall8.Size = new System.Drawing.Size(257, 167);
+            this.picWall8.Size = new System.Drawing.Size(257, 148);
             this.picWall8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picWall8.TabIndex = 17;
             this.picWall8.TabStop = false;
@@ -224,7 +223,7 @@
             this.picWall7.Image = global::Fall2020_CSC403_Project.Properties.Resources.Cubicles;
             this.picWall7.Location = new System.Drawing.Point(881, 563);
             this.picWall7.Name = "picWall7";
-            this.picWall7.Size = new System.Drawing.Size(257, 167);
+            this.picWall7.Size = new System.Drawing.Size(257, 146);
             this.picWall7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picWall7.TabIndex = 16;
             this.picWall7.TabStop = false;
@@ -232,9 +231,9 @@
             // picWall6
             // 
             this.picWall6.Image = global::Fall2020_CSC403_Project.Properties.Resources.Cubicles;
-            this.picWall6.Location = new System.Drawing.Point(881, 398);
+            this.picWall6.Location = new System.Drawing.Point(881, 420);
             this.picWall6.Name = "picWall6";
-            this.picWall6.Size = new System.Drawing.Size(257, 167);
+            this.picWall6.Size = new System.Drawing.Size(257, 145);
             this.picWall6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picWall6.TabIndex = 15;
             this.picWall6.TabStop = false;
@@ -250,7 +249,6 @@
             this.picWall0.Size = new System.Drawing.Size(1764, 276);
             this.picWall0.TabIndex = 13;
             this.picWall0.TabStop = false;
-            this.picWall0.Click += new System.EventHandler(this.picWall1_Click);
             // 
             // picEnemyCheeto
             // 

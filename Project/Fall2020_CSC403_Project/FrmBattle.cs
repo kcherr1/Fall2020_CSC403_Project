@@ -1,9 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Media;
 using System.Windows.Forms;
 
@@ -16,22 +14,14 @@ namespace Fall2020_CSC403_Project
         private Player player;
         SoundPlayer level_music;
         bool isClick = false;
-        private List<object> inventory;
 
         public void getInventory()
         {
-            inventory = player.getInventory();
-            if (inventory.Contains(0))
+            /*int inventoryL = Player.playlerInventory.getInventoryList().Count;
+            if(inventoryL == 0)
             {
-                button2.Visible = true;
-                Application.DoEvents();
-            }
-            if (inventory.Contains(1))
-            {
-                button1.Visible = true;
-                Application.DoEvents();
-            }
-
+                instance.invetoryIcon.Visible = false;
+            }*/
         }
         private FrmBattle()
         {
@@ -46,9 +36,12 @@ namespace Fall2020_CSC403_Project
             picEnemy.Refresh();
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
-            button1.Visible = false;
-            button2.Visible = false;
-            getInventory();
+
+            if (player.getInventory().Count == 0)
+            {
+                button1.Visible = false;
+                button2.Visible = false;
+            }
 
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
@@ -122,11 +115,21 @@ namespace Fall2020_CSC403_Project
         private void EnemyDamage(int amount)
         {
             enemy.AlterHealth(amount);
+            if (enemy.Health < 0)
+            {
+                instance = null;
+                this.Close();
+            }
         }
 
         private void PlayerDamage(int amount)
         {
             player.AlterHealth(amount);
+            if (player.Health == 0)
+            {
+                GameOver();
+
+            }
         }
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e)
@@ -191,6 +194,11 @@ namespace Fall2020_CSC403_Project
             }
 
             ((Control)sender).Hide();
+        }
+
+        public void GameOver()
+        {
+            tmrFinalBattle.Stop();
         }
     }
 }
