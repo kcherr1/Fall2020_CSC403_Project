@@ -242,7 +242,6 @@ namespace Fall2020_CSC403_Project {
             // check collision with enemies, removes enemy collisions and images after combat
             if (HitAChar(player, enemyPoisonPacket))
             {
-                Fight(enemyPoisonPacket);
                 if (enemyPoisonPacketIsDead == true)
                 {
                 }
@@ -254,6 +253,7 @@ namespace Fall2020_CSC403_Project {
                     Fight(enemyPoisonPacket);
                     picEnemyPoisonPacket.Visible = false;
                     enemyPoisonPacketIsDead = true;
+
                 }
                 picEnemyPoisonPacket.Visible = false;
             }
