@@ -51,6 +51,7 @@
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.potion2 = new System.Windows.Forms.PictureBox();
+            this.picSquonkCaged = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picMushy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion1)).BeginInit();
@@ -74,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSquonkCaged)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -370,6 +372,16 @@
             this.potion2.TabIndex = 23;
             this.potion2.TabStop = false;
             // 
+            // picSquonkCaged
+            // 
+            this.picSquonkCaged.Image = global::Fall2020_CSC403_Project.Properties.Resources.squonk_cage;
+            this.picSquonkCaged.Location = new System.Drawing.Point(724, 309);
+            this.picSquonkCaged.Name = "picSquonkCaged";
+            this.picSquonkCaged.Size = new System.Drawing.Size(126, 71);
+            this.picSquonkCaged.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSquonkCaged.TabIndex = 24;
+            this.picSquonkCaged.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -378,6 +390,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1756, 1050);
+            this.Controls.Add(this.picSquonkCaged);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.potion1);
             this.Controls.Add(this.potion0);
@@ -433,6 +446,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.potion2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSquonkCaged)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,6 +480,7 @@
         private System.Windows.Forms.PictureBox potion1;
         private System.Windows.Forms.PictureBox picMushy;
         private System.Windows.Forms.PictureBox potion2;
+        private System.Windows.Forms.PictureBox picSquonkCaged;
     }
 }
 

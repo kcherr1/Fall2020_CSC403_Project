@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControl1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl1.Designer.cs">
+      <DependentUpon>CustomControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHelp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
     <Compile Include="FrmPause.Designer.cs">
       <DependentUpon>FrmPause.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWin.Designer.cs">
+      <DependentUpon>FrmWin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPBDeath.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPause.resx">
       <DependentUpon>FrmPause.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWin.resx">
+      <DependentUpon>FrmWin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPBDeath.resx">
       <DependentUpon>FrmPBDeath.cs</DependentUpon>
@@ -223,11 +238,13 @@
   <ItemGroup>
     <Content Include="data\back.png" />
     <Content Include="data\black.png" />
+    <None Include="data\winScreen.png" />
     <None Include="data\bossFight.jpg" />
     <None Include="data\p.png" />
     <Content Include="data\mushy.png" />
     <Content Include="data\pb2.png" />
     <Content Include="data\peanut butter.png" />
+    <None Include="data\peanutbutter.png" />
     <Content Include="data\pit.png" />
     <Content Include="data\pit2.png" />
     <Content Include="data\potion.png" />

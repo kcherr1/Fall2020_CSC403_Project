@@ -20,11 +20,13 @@ namespace Fall2020_CSC403_Project {
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Enemy mushy;
+        private NPC NPCsquonk;
         private Character[] walls;
         private Character[] pits;
         private Character[] potions;
         private FrmBattle frmBattle;
         private FrmPBDeath death;
+        private FrmWin win;
 
         // Public variables
         public static FrmLevel instance = null;
@@ -102,6 +104,7 @@ namespace Fall2020_CSC403_Project {
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             mushy = new Enemy(CreatePosition(picMushy), CreateCollider(picMushy, PADDING));
+            NPCsquonk = new NPC(CreatePosition(picSquonkCaged), CreateCollider(picSquonkCaged, PADDING));
 
             if (character == "baby")
             {
@@ -243,6 +246,17 @@ namespace Fall2020_CSC403_Project {
                 Fight(bossKoolaid);
                 bossKoolaid.Move2();
                 picBossKoolAid.BackgroundImage = null;
+            }
+            if (HitAChar(player, NPCsquonk))
+            {
+                instance = null;
+                StopMusic();
+                this.Close();
+                win = new FrmWin();
+                win.Show();
+                Close();
+
+
             }
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
