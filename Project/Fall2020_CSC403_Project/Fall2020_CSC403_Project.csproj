@@ -164,12 +164,20 @@
   <ItemGroup>
     <None Include="Resources\Image1.png" />
     <None Include="data\inventory.png" />
-    <Content Include="data\menubackground.jpg" />
-    <Content Include="data\persuasion.PNG" />
-    <None Include="Resources\battle_screen.fw.png" />
-    <None Include="Resources\boss.wav" />
+    <None Include="Resources\player3.png" />
+    <None Include="Resources\player2.png" />
+    <None Include="Resources\player1.png" />
+    <None Include="Resources\player.png" />
+    <None Include="Resources\player.bmp" />
+    <None Include="Resources\player1.bmp" />
     <None Include="Resources\boss_intro.wav" />
+    <None Include="Resources\boss.wav" />
     <None Include="Resources\floor1.wav" />
+    <None Include="Resources\Image1.png" />
+    <None Include="data\inventory.png" />
+    <Content Include="data\menubackground.jpg" />
+    <None Include="Resources\inventory.png" />
+    <None Include="Resources\inventory.bmp" />
     <None Include="Resources\wasd.jpg" />
     <None Include="Resources\techlead.png" />
     <None Include="Resources\elevator1.png" />
