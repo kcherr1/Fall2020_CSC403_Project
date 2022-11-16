@@ -40,117 +40,99 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Location = Point.Empty;
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
-      SoundPlayer sound = new SoundPlayer();
+      SoundPlayer simpleSound = new SoundPlayer();
       {
           if (Properties.Settings.Default.Rogue == 0 & Properties.Settings.Default.PlayerChoice == 1)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Belloq__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Belloq__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 0 & Properties.Settings.Default.PlayerChoice == 2)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Belloq__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Belloq__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 0 & Properties.Settings.Default.PlayerChoice == 3)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Minotaur_versus_Belloq__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Minotaur_versus_Belloq__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 0 & Properties.Settings.Default.PlayerChoice == 4)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Amazo_versus_Belloq__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Amazo_versus_Belloq__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 0 & Properties.Settings.Default.PlayerChoice == 5)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Mad_Hatter_versus_Belloq__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Mad_Hatter_versus_Belloq__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 0 & Properties.Settings.Default.PlayerChoice == 6)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Corn_versus_Belloq__mp3cut_net___1_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Corn_versus_Belloq__mp3cut_net___1_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 1 & Properties.Settings.Default.PlayerChoice == 1)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Dracula__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Dracula__mp3cut_net_;
+            simpleSound.Play();
           }
           if (Properties.Settings.Default.Rogue == 1 & Properties.Settings.Default.PlayerChoice == 2)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 1 & Properties.Settings.Default.PlayerChoice == 3)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Minotaur_versus_Dracula__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Minotaur_versus_Dracula__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 1 & Properties.Settings.Default.PlayerChoice == 4)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Amazo_versus_Dracula__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Amazo_versus_Dracula__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 1 & Properties.Settings.Default.PlayerChoice == 5)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Mad_Hatter_versus_Dracula__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Mad_Hatter_versus_Dracula__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 1 & Properties.Settings.Default.PlayerChoice == 6)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Corn_versus_Dracula__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Corn_versus_Dracula__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 2 & Properties.Settings.Default.PlayerChoice == 1)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Dalek__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Sherlock_Holmes_versus_Dalek__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 2 & Properties.Settings.Default.PlayerChoice == 2)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Dalek__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Winnie_the_Pooh_versus_Dalek__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 2 & Properties.Settings.Default.PlayerChoice == 3)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Minotaur_versus_Dalek__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Minotaur_versus_Dalek__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 2 & Properties.Settings.Default.PlayerChoice == 4)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Amazo_versus_Dalek__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Amazo_versus_Dalek__mp3cut_net_;
+            simpleSound.Play();
           }
           else if (Properties.Settings.Default.Rogue == 2 & Properties.Settings.Default.PlayerChoice == 5)
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Mad_Hatter_versus_Dalek__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Mad_Hatter_versus_Dalek__mp3cut_net_;
+            simpleSound.Play();
           }
           else
           {
-            sound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Corn_versus_Dalek__mp3cut_net_;
-            sound.Play();
-            this.Close();
+            simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Corn_versus_Dalek__mp3cut_net_;
+            simpleSound.Play();
           }
-       }
+      }
 
       tmrFinalBattle.Enabled = true;
     }
