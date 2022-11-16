@@ -52,6 +52,7 @@ namespace Fall2020_CSC403_Project
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             cutscene.URL = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath),"cutscene.mp4");
+            
             cutscene.settings.autoStart = true;
             cutscene.BringToFront();
             skipBtn.BringToFront();

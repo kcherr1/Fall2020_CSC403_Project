@@ -375,7 +375,7 @@
             // picSquonkCaged
             // 
             this.picSquonkCaged.Image = global::Fall2020_CSC403_Project.Properties.Resources.squonk_cage;
-            this.picSquonkCaged.Location = new System.Drawing.Point(724, 309);
+            this.picSquonkCaged.Location = new System.Drawing.Point(1475, 48);
             this.picSquonkCaged.Name = "picSquonkCaged";
             this.picSquonkCaged.Size = new System.Drawing.Size(126, 71);
             this.picSquonkCaged.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
