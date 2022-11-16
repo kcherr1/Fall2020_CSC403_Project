@@ -328,5 +328,8 @@
   <ItemGroup>
     <None Include="Resources\Final Battle Winnie the Pooh versus Dracula %28mp3cut.net%291.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\final_battle.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

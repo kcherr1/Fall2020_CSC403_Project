@@ -235,7 +235,4 @@
   <data name="Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Final Battle Winnie the Pooh versus Dracula (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Final Battle Winnie the Pooh versus Dracula (mp3cut.net)1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>

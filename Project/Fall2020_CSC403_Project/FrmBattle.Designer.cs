@@ -39,7 +39,9 @@
       this.SuspendLayout();
       // 
       // btnAttack
-      // 
+      //
+      
+
       this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.btnAttack.Location = new System.Drawing.Point(127, 422);
       this.btnAttack.Name = "btnAttack";
@@ -123,7 +125,10 @@
       this.picPlayer.TabStop = false;
       // 
       // tmrFinalBattle
-      // 
+      //
+      
+      this.final_battle=global::Fall2020_CSC403_Project.Properties.Resources.final_battle;
+
       this.tmrFinalBattle.Interval = 5600;
       this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
       // 
@@ -164,5 +169,6 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
+    public System.IO.UnmanagedMemoryStream final_battle;
   }
 }
