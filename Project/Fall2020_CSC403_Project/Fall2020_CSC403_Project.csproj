@@ -215,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Crunchy_peanut.png" />
+    <Content Include="data\background.png" />
     <Content Include="data\Back_btn.png" />
     <Content Include="data\Back_hover.png" />
     <Content Include="data\battle_music.wav" />
