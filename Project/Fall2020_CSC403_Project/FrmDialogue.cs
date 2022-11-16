@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project
         private static List<Enemy> formEnemyList = null;
         private HealthItem waterCup = new HealthItem(1, "Water Cup", 5);
         public bool waterCoolerFlag = false;
+        public bool waterCoolerGiven = false;
         public FrmDialogue()
         {
             InitializeComponent();
@@ -113,9 +114,13 @@ namespace Fall2020_CSC403_Project
             }
             else
             {
-                if(waterCoolerFlag)
-                    player.addToInventory(waterCup);
-                waterCoolerFlag = false;
+                if (!waterCoolerGiven)
+                {
+                    if (waterCoolerFlag)
+                        player.addToInventory(0);
+                    waterCoolerFlag = false;
+                    waterCoolerGiven = true;
+                }
                 Close();
             }
         }

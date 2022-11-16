@@ -112,20 +112,24 @@ namespace Fall2020_CSC403_Project
             if (HitAWall(player))
             {
                 player.MoveBack();
+                wasdFalse();
             }
 
             // check collision with enemies
             if (HitAChar(player, office_desk))
             {
                 PlayMiniGame(office_desk);
+                wasdFalse();
             }
             else if (HitAChar(player, enemyCheeto))
             {
                 Talk(enemyCheeto);
+                wasdFalse();
             }
             if (HitAChar(player, bossKoolaid))
             {
                 Fight(bossKoolaid);
+                wasdFalse();
             }
             if (HitAChar(player, techlead))
             {
@@ -179,6 +183,7 @@ namespace Fall2020_CSC403_Project
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
+            wasdFalse();
 
             if (enemy == bossKoolaid)
             {
@@ -199,6 +204,14 @@ namespace Fall2020_CSC403_Project
         bool a = false;
         bool d = false;
 
+        private void wasdFalse()
+        {
+            w = false;
+            a = false;
+            s = false;
+            d = false;
+        }
+
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W)
@@ -210,28 +223,36 @@ namespace Fall2020_CSC403_Project
             if (e.KeyCode == Keys.D)
                 d = true;
 
-            if (w && d) {
+            if (w && d)
+            {
                 player.GoUpRight();
             }
-            else if(w && a){
+            else if (w && a)
+            {
                 player.GoUpLeft();
             }
-            else if (s && d){
+            else if (s && d)
+            {
                 player.GoDownRight();
             }
-            else if(s && a){
+            else if (s && a)
+            {
                 player.GoDownLeft();
             }
-            else if (a){
+            else if (a)
+            {
                 player.GoLeft();
             }
-            else if (s){
+            else if (s)
+            {
                 player.GoDown();
             }
-            else if (w){
+            else if (w)
+            {
                 player.GoUp();
             }
-            else if (d){
+            else if (d)
+            {
                 player.GoRight();
             }
 

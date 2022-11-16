@@ -21,13 +21,15 @@ namespace Fall2020_CSC403_Project
         public void getInventory()
         {
             inventory = player.getInventory();
-            if (inventory.Contains(new HealthItem(1, "Water Cup", 5)))
+            if (inventory.Contains(0))
             {
-                button1.Visible = true;
+                button2.Visible = true;
+                Application.DoEvents();
             }
-            if (inventory.Contains(new Weapon(1, "Stapler", 5)))
+            if (inventory.Contains(1))
             {
                 button1.Visible = true;
+                Application.DoEvents();
             }
 
         }
@@ -44,12 +46,9 @@ namespace Fall2020_CSC403_Project
             picEnemy.Refresh();
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
-
-            if (player.getInventory().Count == 0)
-            {
-                button1.Visible = false;
-                button2.Visible = false;
-            }
+            button1.Visible = false;
+            button2.Visible = false;
+            getInventory();
 
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
