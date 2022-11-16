@@ -37,15 +37,21 @@
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.peanutAttack = new System.Windows.Forms.PictureBox();
+            this.enemyAttackimg = new System.Windows.Forms.PictureBox();
+            this.starPlatinum = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peanutAttack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyAttackimg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.starPlatinum)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAttack
             // 
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttack.Location = new System.Drawing.Point(353, 418);
+            this.btnAttack.Location = new System.Drawing.Point(353, 444);
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(128, 43);
             this.btnAttack.TabIndex = 2;
@@ -154,13 +160,47 @@
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Default;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.button1.Location = new System.Drawing.Point(353, 467);
+            this.button1.Location = new System.Drawing.Point(353, 493);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 43);
             this.button1.TabIndex = 12;
             this.button1.Text = "Flee";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnFlee_Click);
+            // 
+            // peanutAttack
+            // 
+            this.peanutAttack.BackColor = System.Drawing.Color.Transparent;
+            this.peanutAttack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("peanutAttack.BackgroundImage")));
+            this.peanutAttack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.peanutAttack.Location = new System.Drawing.Point(248, 274);
+            this.peanutAttack.Name = "peanutAttack";
+            this.peanutAttack.Size = new System.Drawing.Size(459, 187);
+            this.peanutAttack.TabIndex = 13;
+            this.peanutAttack.TabStop = false;
+            // 
+            // enemyAttackimg
+            // 
+            this.enemyAttackimg.BackColor = System.Drawing.Color.Transparent;
+            this.enemyAttackimg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("enemyAttackimg.BackgroundImage")));
+            this.enemyAttackimg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.enemyAttackimg.Location = new System.Drawing.Point(625, 95);
+            this.enemyAttackimg.Name = "enemyAttackimg";
+            this.enemyAttackimg.Size = new System.Drawing.Size(155, 113);
+            this.enemyAttackimg.TabIndex = 14;
+            this.enemyAttackimg.TabStop = false;
+            this.enemyAttackimg.Visible = false;
+            // 
+            // starPlatinum
+            // 
+            this.starPlatinum.BackColor = System.Drawing.Color.Transparent;
+            this.starPlatinum.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("starPlatinum.BackgroundImage")));
+            this.starPlatinum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.starPlatinum.Location = new System.Drawing.Point(296, 93);
+            this.starPlatinum.Name = "starPlatinum";
+            this.starPlatinum.Size = new System.Drawing.Size(260, 332);
+            this.starPlatinum.TabIndex = 15;
+            this.starPlatinum.TabStop = false;
             // 
             // FrmBattle
             // 
@@ -170,6 +210,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
+            this.Controls.Add(this.starPlatinum);
+            this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblPlayerExperienceFull);
             this.Controls.Add(this.picBossBattle);
@@ -178,9 +220,10 @@
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttack);
-            this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.enemyAttackimg);
+            this.Controls.Add(this.peanutAttack);
             this.DoubleBuffered = true;
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -188,6 +231,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peanutAttack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyAttackimg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.starPlatinum)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +254,8 @@
         private System.Windows.Forms.Label lblPlayerExperienceFull;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox peanutAttack;
+        private System.Windows.Forms.PictureBox enemyAttackimg;
+        private System.Windows.Forms.PictureBox starPlatinum;
     }
 }

@@ -3,17 +3,18 @@ using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
 using System.Media;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
-    public static FrmBattle instance = null;
+        public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
     public static FrmLevelUp lvlUpMenu = FrmLevelUp.getInstance();
     SoundPlayer battleMusic = new SoundPlayer(stream: Resources.battle_music);
     SoundPlayer levelMusic = new SoundPlayer(stream: Resources.level_music);
-
         private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -25,9 +26,11 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
-
-      // Observer pattern
-      enemy.AttackEvent += PlayerDamage;
+            peanutAttack.Visible = false;
+            enemyAttackimg.Visible = false;
+            starPlatinum.Visible = false;
+            // Observer pattern
+            enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
 
       // show health
@@ -74,40 +77,82 @@ namespace Fall2020_CSC403_Project {
             lblPlayerExperienceFull.Text = player.Experience.ToString();
     
         }
-        // Creates turns in combat, and handles post-combat responsibilities such as levelling up the player
-    private void btnAttack_Click(object sender, EventArgs e) {
+        // Creates turns in combat, and handles post-combat responsibilities such as leveling up the player
+        async Task PutTaskDelay()
+        {
+            await Task.Delay(750);
+        }
+        async Task BetweenTurns()
+        {
+            await Task.Delay(250);
+        }
+        private async void btnAttack_Click(object sender, EventArgs e) {
             if (player.playerSpeed >= enemy.enemySpeed)
             {
+                picPlayer.Left = 60;
+                peanutAttack.Visible = true;
+                await PutTaskDelay();
                 player.PlayerAttack(-1);
+                peanutAttack.Visible = false;
+                picPlayer.Left = 49;
+                UpdateHealthBars();
+                await BetweenTurns();
                 if (enemy.Health > 0)
+                    
                 {
+                    picEnemy.Left = 540;
+                    enemyAttackimg.Visible = true;
+                    starPlatinum.Visible = true;
+                    await PutTaskDelay();
                     enemy.EnemyAttack(-1);
+                    enemyAttackimg.Visible = false;
+                    starPlatinum.Visible = false;
+                    picEnemy.Left = 551;
+                    UpdateHealthBars();
+                    await BetweenTurns();
+
                 }
                 else
                 {
                     player.RewardExperience(50);
-                        if (player.Experience >= 100)
-                        {
-                            player.RewardExperience(-100);
+                    if (player.Experience >= 100)
+                    {
+                        player.RewardExperience(-100);
                         player.skillPoints += 5;
                         player.level += 1;
                         lvlUpMenu = FrmLevelUp.getInstance();
                         lvlUpMenu.Show();
                         player.AlterHealth(player.MaxHealth - player.Health);
                         UpdateHealthBars();
-                        }
+                    }
 
                 }
             }
             else
             {
+                picEnemy.Left = 540;
+                enemyAttackimg.Visible = true;
+                starPlatinum.Visible = true;
+                await PutTaskDelay();
                 enemy.EnemyAttack(-1);
+                enemyAttackimg.Visible = false;
+                starPlatinum.Visible = false;
+                picEnemy.Left = 551;
+                UpdateHealthBars();
+                await BetweenTurns();
                 if (player.Health > 0)
                 {
+                    picPlayer.Left = 60;
+                    peanutAttack.Visible = true;
+                    await PutTaskDelay();
                     player.PlayerAttack(-1);
+                    peanutAttack.Visible = false;
+                    picPlayer.Left = 49;
+                    UpdateHealthBars();
+                    await BetweenTurns();
                     if (enemy.Health <= 0)
-                    {   
-                        
+                    {
+
                         player.RewardExperience(50);
                         if (player.Experience >= 100)
                         {
@@ -122,7 +167,7 @@ namespace Fall2020_CSC403_Project {
                     }
 
                 }
-               
+
             }
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {

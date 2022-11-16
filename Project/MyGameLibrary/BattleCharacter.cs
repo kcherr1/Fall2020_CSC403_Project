@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Remoting.Activation;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
@@ -39,11 +40,13 @@ namespace Fall2020_CSC403_Project.code {
 
     public void PlayerAttack(int amount) {
       AttackEvent((int)(((amount * playerStrength)/enemyDefense))-1);
+
     }
     public void EnemyAttack(int amount)
     {
       AttackEvent((int)(((amount * enemyStrength) / playerDefense))-1);
-    }
+       
+        }
     public void RewardExperience(int amount)
         {
             Experience += amount;

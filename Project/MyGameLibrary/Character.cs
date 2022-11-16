@@ -23,8 +23,12 @@ namespace Fall2020_CSC403_Project.code {
       Position = new Vector2(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
       Collider.MovePosition((int)Position.x, (int)Position.y);
     }
+    public void ResetPosition()
+        {
+         
+        }
 
-    public void MoveBack() {
+        public void MoveBack() {
       Position = LastPosition;
     }
 

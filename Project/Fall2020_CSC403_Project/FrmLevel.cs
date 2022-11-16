@@ -2,8 +2,10 @@
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Media;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -19,6 +21,9 @@ namespace Fall2020_CSC403_Project {
     private Enemy trixBunny;
     private Enemy tonyTigerWeak;
     private Enemy tonyTigerStrong;
+        private Enemy goldenFrieza;
+        private Enemy frieza;
+        private int stageLevel;
 
         public static bool psMenuUp;
 
@@ -28,10 +33,12 @@ namespace Fall2020_CSC403_Project {
     private bool playerIsDead;
     private bool bossKoolAidIsDead;
     private bool enemyCheetoIsDead;
-        private bool enemyPoisonPacketIsDead;
-        private bool tonyTigerWeakIsDead;
-        private bool trixBunnyIsDead;
-        private bool tonyTigerStrongIsDead;
+    private bool enemyPoisonPacketIsDead;
+    private bool tonyTigerWeakIsDead;
+    private bool trixBunnyIsDead;
+    private bool tonyTigerStrongIsDead;
+        private bool friezaIsDead;
+        private bool goldenFriezaIsDead;
     SoundPlayer battleMusic = new SoundPlayer(stream: Resources.battle_music);
     SoundPlayer level_music = new SoundPlayer(stream: Resources.level_music);
 
@@ -45,18 +52,20 @@ namespace Fall2020_CSC403_Project {
             InitializeComponent();
         }
     private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
+     
+            const int PADDING = 7;
       const int NUM_WALLS = 13;
       playerIsDead = false;
       level_music.PlayLooping();
-
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
       tonyTigerWeak = new Enemy(CreatePosition(picEnemyTonyTigerWeak), CreateCollider(picEnemyTonyTigerWeak, PADDING));
             tonyTigerStrong = new Enemy(CreatePosition(picEnemyTonyTigerStrong), CreateCollider(picEnemyTonyTigerStrong, PADDING));
       trixBunny = new Enemy(CreatePosition(picEnemyTrixBunny),CreateCollider(picEnemyTrixBunny, PADDING));
+            goldenFrieza = new Enemy(CreatePosition(picGoldenFrieza), CreateCollider(picGoldenFrieza, PADDING));
+            frieza = new Enemy(CreatePosition(picFrieza), CreateCollider(picFrieza, PADDING));
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -64,7 +73,8 @@ namespace Fall2020_CSC403_Project {
             trixBunny.Img = picEnemyTrixBunny.BackgroundImage;
             tonyTigerStrong.Img = picEnemyTonyTigerStrong.BackgroundImage;
             tonyTigerWeak.Img = picEnemyTonyTigerWeak.BackgroundImage;
-
+            frieza.Img = picFrieza.BackgroundImage;
+            goldenFrieza.Img = picGoldenFrieza.BackgroundImage;
             trixBunny.Color = Color.White;
             tonyTigerStrong.Color = Color.Orange;
             tonyTigerWeak.Color = Color.Orange;
@@ -72,6 +82,8 @@ namespace Fall2020_CSC403_Project {
             enemyPoisonPacket.Color = Color.Green;
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
             picEnemyTonyTigerStrong.Visible = false;
+            picBossKoolAid.Visible = false;
+            picEnemyTonyTigerWeak.Visible = false;
             walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
@@ -79,10 +91,10 @@ namespace Fall2020_CSC403_Project {
       }
       Game.player = player;
       timeBegin = DateTime.Now;
-
-        //checks if its a new game
-        //if there is
-        if(saveName == null)
+      Level1SetUp();
+            //checks if its a new game
+            //if there is
+            if (saveName == null)
         {
             //checks for a valid savegame to save to
             for (int i = 0; i < 3; i++)
@@ -122,8 +134,76 @@ namespace Fall2020_CSC403_Project {
         {
             return null;
         }
+        private void Level1SetUp()
+        {
+            picEnemyTrixBunny.Visible = true;
+            picBossKoolAid.Visible = false;
+            picEnemyPoisonPacket.Visible = true;
+            picEnemyTonyTigerWeak.Visible = false;
+            picEnemyTonyTigerStrong.Visible = false;
+            picEnemyCheeto.Visible = true;
+            picEnemyPoisonPacket.Visible = false;
+            picFrieza.Visible = false;
+            picGoldenFrieza.Visible = false;
+            stageLevel = 1;
 
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
+        }
+
+        private void Level2SetUp()
+        {
+            picEnemyTrixBunny.Visible = false;
+            picBossKoolAid.Visible = true;
+            picEnemyPoisonPacket.Visible = false;
+            picEnemyTonyTigerWeak.Visible = false;
+            picEnemyTonyTigerStrong.Visible = false;
+            picEnemyCheeto.Visible = false;
+            picEnemyPoisonPacket.Visible = false;
+            picFrieza.Visible = false;
+            picGoldenFrieza.Visible = false;
+            stageLevel = 2;
+
+        }
+        private void Level3SetUp()
+        {
+            picEnemyTrixBunny.Visible = false;
+            picBossKoolAid.Visible = false;
+            picEnemyPoisonPacket.Visible = false;
+            picEnemyTonyTigerWeak.Visible = true;
+            picEnemyTonyTigerStrong.Visible = false;
+            picEnemyCheeto.Visible = false;
+            picEnemyPoisonPacket.Visible = false;
+            picFrieza.Visible = false;
+            picGoldenFrieza.Visible = false;
+            stageLevel = 3;
+
+        }
+        private void Level4SetUp()
+        {
+            picEnemyTrixBunny.Visible = false;
+            picBossKoolAid.Visible = false;
+            picEnemyPoisonPacket.Visible = false;
+            picEnemyTonyTigerWeak.Visible = false;
+            picEnemyTonyTigerStrong.Visible = false;
+            picEnemyCheeto.Visible = false;
+            picEnemyPoisonPacket.Visible = false;
+            picFrieza.Visible = true;
+            picGoldenFrieza.Visible = false;
+            stageLevel = 4;
+        }
+        private void Level5SetUp()
+        {
+            picEnemyTrixBunny.Visible = false;
+            picBossKoolAid.Visible = false;
+            picEnemyPoisonPacket.Visible = false;
+            picEnemyTonyTigerWeak.Visible = false;
+            picEnemyTonyTigerStrong.Visible = false;
+            picEnemyCheeto.Visible = false;
+            picEnemyPoisonPacket.Visible = false;
+            picFrieza.Visible = false;
+            picGoldenFrieza.Visible = true;
+            stageLevel = 5;
+        }
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       player.ResetMoveSpeed();
     }
 
@@ -145,15 +225,15 @@ namespace Fall2020_CSC403_Project {
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
       player.Move();
-
       // check collision with walls
       if (HitAWall(player)) {
         player.MoveBack();
       }
 
-      // check collision with enemies, removes enemy collisions and images after combat
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+            // check collision with enemies, removes enemy collisions and images after combat
+            if (HitAChar(player, enemyPoisonPacket))
+            {
+                Fight(enemyPoisonPacket);
                 if (enemyPoisonPacketIsDead == true)
                 {
                 }
@@ -167,8 +247,9 @@ namespace Fall2020_CSC403_Project {
                     enemyPoisonPacketIsDead = true;
                 }
                 picEnemyPoisonPacket.Visible = false;
-      }
-      else if (HitAChar(player, enemyCheeto)) {
+            }
+            else if (HitAChar(player, enemyCheeto))
+            {
                 if (enemyCheetoIsDead == true)
                 {
                 }
@@ -180,9 +261,16 @@ namespace Fall2020_CSC403_Project {
                     Fight(enemyCheeto);
                     picEnemyCheeto.Visible = false;
                     enemyCheetoIsDead = true;
+                    if (enemyCheetoIsDead && trixBunnyIsDead)
+                    {
+                        picPlayer.Location = new Point(119, 510);
+                        player.Position.x = 119;
+                        player.Position.y = 510;
+                        Level2SetUp();
+                    }
                 }
             }
-        
+
             else if (HitAChar(player, trixBunny))
             {
                 if (trixBunnyIsDead == true)
@@ -196,8 +284,17 @@ namespace Fall2020_CSC403_Project {
                     Fight(trixBunny);
                     picEnemyTrixBunny.Visible = false;
                     trixBunnyIsDead = true;
+                    if (enemyCheetoIsDead && trixBunnyIsDead)
+                    {
+                        picPlayer.Location = new Point(119, 510);
+                        player.Position.x = 119;
+                        player.Position.y = 510;
+                        Level2SetUp();
+                    }
+
                 }
             }
+
             else if (HitAChar(player, tonyTigerWeak))
             {
                 if (tonyTigerWeakIsDead == true)
@@ -227,6 +324,10 @@ namespace Fall2020_CSC403_Project {
                     Fight(tonyTigerStrong);
                     picEnemyTonyTigerStrong.Visible = false;
                     tonyTigerStrongIsDead = true;
+                    picPlayer.Location = new Point(119, 510);
+                    player.Position.x = 119;
+                    player.Position.y = 510;
+                    Level4SetUp();
                 }
             }
             if (HitAChar(player, bossKoolaid)) {
@@ -239,8 +340,42 @@ namespace Fall2020_CSC403_Project {
                     Fight(bossKoolaid);
                     picBossKoolAid.Visible = false;
                     bossKoolAidIsDead = true;
+                    picPlayer.Location = new Point(119, 510);
+                    player.Position.x = 119;
+                    player.Position.y = 510;
+                    Level3SetUp();
                 }
-      }
+            if (HitAChar(player, frieza))
+                {
+                    if (friezaIsDead == true) { }
+                    else
+                    {
+                        player.enemySpeed = 15;
+                        player.enemyStrength = 15;
+                        player.enemyDefense = 15;
+                        Fight(frieza);
+                        picFrieza.Visible = false;
+                        friezaIsDead = false;
+                        picPlayer.Location = new Point(119, 510);
+                        player.Position.x = 119;
+                        player.Position.y = 510;
+                        Level5SetUp();
+                    }
+                }
+                if (HitAChar(player, goldenFrieza))
+                {
+                    if (goldenFriezaIsDead == true) { }
+                    else
+                    {
+                        player.enemySpeed = 20;
+                        player.enemyStrength = 20;
+                        player.enemyDefense = 20;
+                        Fight(goldenFrieza);
+                        picGoldenFrieza.Visible = false;
+                        goldenFriezaIsDead = false;
+                    }
+                }
+            }
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -378,7 +513,7 @@ namespace Fall2020_CSC403_Project {
         //checks if dead on load
         private void loadDeadCheck(bool[] deadFlags)
         {
-            picBossKoolAid.Visible = !deadFlags[0];
+           picBossKoolAid.Visible = !deadFlags[0];
             bossKoolAidIsDead = deadFlags[0];
 
             picEnemyCheeto.Visible = !deadFlags[1];
@@ -398,26 +533,32 @@ namespace Fall2020_CSC403_Project {
             tonyTigerStrongIsDead = deadFlags[5];
         }
 
-        private void tickDeadCheck()
+       private void tickDeadCheck()
         {
-            picBossKoolAid.Visible = bossKoolaid.Health > 0;
+            picBossKoolAid.Visible = bossKoolaid.Health > 0 && stageLevel == 2;
             bossKoolAidIsDead = bossKoolaid.Health < 0;
 
-            picEnemyCheeto.Visible = enemyCheeto.Health > 0;
+            picEnemyCheeto.Visible = enemyCheeto.Health > 0 && stageLevel == 1;
             enemyCheetoIsDead = enemyCheeto.Health < 0;
 
-            picEnemyPoisonPacket.Visible = enemyPoisonPacket.Health > 0;
+            picEnemyPoisonPacket.Visible = enemyPoisonPacket.Health > 0 && stageLevel == 1;
             enemyPoisonPacketIsDead = enemyPoisonPacket.Health < 0;
 
 
-            picEnemyTrixBunny.Visible = trixBunny.Health > 0;
+            picEnemyTrixBunny.Visible = trixBunny.Health > 0 && stageLevel == 1;
             trixBunnyIsDead = trixBunny.Health < 0;
 
-            picEnemyTonyTigerWeak.Visible = tonyTigerWeak.Health > 0;
+            picEnemyTonyTigerWeak.Visible = tonyTigerWeak.Health > 0 && stageLevel == 3;
             tonyTigerWeakIsDead = tonyTigerWeak.Health < 0;
 
-            picEnemyTonyTigerStrong.Visible = tonyTigerWeak.Health < 0 && tonyTigerStrong.Health > 0;
+            picEnemyTonyTigerStrong.Visible = tonyTigerWeak.Health < 0 && tonyTigerStrong.Health > 0 && stageLevel == 3;
             tonyTigerStrongIsDead = tonyTigerStrong.Health < 0;
+
+            picFrieza.Visible = frieza.Health > 0 && stageLevel == 4;
+            friezaIsDead = frieza.Health < 0;
+
+            picGoldenFrieza.Visible = goldenFrieza.Health > 0 && stageLevel == 5;
+            goldenFriezaIsDead = goldenFrieza.Health < 0;
         }
 
     }
