@@ -1,4 +1,6 @@
-﻿namespace Fall2020_CSC403_Project
+﻿using System.Windows.Forms;
+
+namespace Fall2020_CSC403_Project
 {
     partial class Dialogue
     {
@@ -43,9 +45,10 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Cornsilk;
-            this.textBox1.Location = new System.Drawing.Point(107, 491);
+            this.textBox1.Location = new System.Drawing.Point(50, 490);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(995, 31);
+            this.textBox1.Size = new System.Drawing.Size(620, 66);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "I have came to defeat the wicked koolaid man and his minions. \r\nDo you know where" +
     " I can find them?\r\n";
@@ -53,16 +56,16 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.YellowGreen;
-            this.textBox2.Location = new System.Drawing.Point(1294, 419);
+            this.textBox2.Location = new System.Drawing.Point(546, 408);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(579, 31);
+            this.textBox2.Size = new System.Drawing.Size(593, 31);
             this.textBox2.TabIndex = 3;
             this.textBox2.Text = "What has made you travel through this dangerous passage?";
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.Cornsilk;
-            this.textBox3.Location = new System.Drawing.Point(107, 692);
+            this.textBox3.Location = new System.Drawing.Point(50, 680);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(686, 31);
             this.textBox3.TabIndex = 4;
@@ -71,7 +74,7 @@
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.Color.YellowGreen;
-            this.textBox4.Location = new System.Drawing.Point(1187, 607);
+            this.textBox4.Location = new System.Drawing.Point(453, 607);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(686, 31);
             this.textBox4.TabIndex = 5;
@@ -79,9 +82,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(827, 154);
+            this.button1.Location = new System.Drawing.Point(499, 202);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(374, 164);
+            this.button1.Size = new System.Drawing.Size(219, 124);
             this.button1.TabIndex = 6;
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = true;
@@ -90,7 +93,7 @@
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.YellowGreen;
-            this.textBox5.Location = new System.Drawing.Point(1294, 788);
+            this.textBox5.Location = new System.Drawing.Point(560, 765);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(579, 31);
             this.textBox5.TabIndex = 7;
@@ -98,11 +101,11 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox2.Image = global::Fall2020_CSC403_Project.Properties.Resources.villager;
-            this.pictureBox2.Location = new System.Drawing.Point(1502, 39);
+            this.pictureBox2.Location = new System.Drawing.Point(873, 66);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(312, 279);
+            this.pictureBox2.Size = new System.Drawing.Size(226, 231);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -111,9 +114,9 @@
             this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(107, 39);
+            this.pictureBox1.Location = new System.Drawing.Point(50, 66);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(342, 279);
+            this.pictureBox1.Size = new System.Drawing.Size(282, 260);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 

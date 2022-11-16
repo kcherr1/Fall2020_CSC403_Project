@@ -20,6 +20,8 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private Dialogue villagerConvo;
+    private Dialogue2 prisonerConvo;
 
     SoundPlayer walkSFX = new SoundPlayer(Resources.walkSound);
     public bool lvlMusicOn;
@@ -38,8 +40,9 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-      // Create NPCs
-
+      
+      villager = new NPC(CreatePosition(pictureBox2), CreateCollider(pictureBox2, PADDING));
+      prisoner = new NPC(CreatePosition(pictureBox3), CreateCollider(pictureBox3, PADDING));
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -47,6 +50,8 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+            
+
 
       // Determine who is the boss of the level
       bossKoolaid.Boss = true;
@@ -111,9 +116,19 @@ namespace Fall2020_CSC403_Project {
           picHeart.Location = new Point(1000, 1000);
      
       }
+      if (HitAChar(player, villager)) {
+        player.ResetMoveSpeed();
+        player.MoveBack();
+        villagerConvo = new Dialogue();
+        villagerConvo.Show();
+      }
 
-
-
+      if(HitAChar(player, prisoner)){
+        player.ResetMoveSpeed();
+        player.MoveBack();
+        prisonerConvo = new Dialogue2();
+        prisonerConvo.Show();
+      }
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }

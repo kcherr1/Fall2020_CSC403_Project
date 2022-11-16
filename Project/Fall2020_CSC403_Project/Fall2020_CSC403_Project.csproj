@@ -173,6 +173,7 @@
     <None Include="data\hurtSFX.wav" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\prisoner.png" />
     <Content Include="data\survivor.png" />
     <Content Include="data\villager.png" />
   </ItemGroup>

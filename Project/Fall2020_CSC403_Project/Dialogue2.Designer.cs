@@ -45,33 +45,34 @@
             this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(57, 51);
+            this.pictureBox1.Location = new System.Drawing.Point(57, 33);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(356, 285);
+            this.pictureBox1.Size = new System.Drawing.Size(250, 273);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Fall2020_CSC403_Project.Properties.Resources.survivor;
-            this.pictureBox2.Location = new System.Drawing.Point(1167, 51);
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox2.Image = global::Fall2020_CSC403_Project.Properties.Resources.prisoner;
+            this.pictureBox2.Location = new System.Drawing.Point(818, 33);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(382, 285);
+            this.pictureBox2.Size = new System.Drawing.Size(180, 290);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(57, 506);
+            this.textBox1.Location = new System.Drawing.Point(57, 429);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(567, 31);
+            this.textBox1.Size = new System.Drawing.Size(565, 31);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "Sshhhh, you have to be quiet or we will both be captured. \r\n";
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.Crimson;
-            this.textBox2.Location = new System.Drawing.Point(1179, 427);
+            this.textBox2.Location = new System.Drawing.Point(641, 373);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(382, 31);
             this.textBox2.TabIndex = 3;
@@ -79,17 +80,18 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(57, 739);
+            this.textBox3.Location = new System.Drawing.Point(57, 639);
+            this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(1016, 31);
+            this.textBox3.Size = new System.Drawing.Size(565, 67);
             this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "That sounds miserable, but luckily I\'m here to save you. When I defeat the Koolai" +
-    "d-Man, I will set you free.";
+            this.textBox3.Text = "That sounds miserable, but luckily I\'m here to save you. \r\nWhen I defeat the Kool" +
+    "aid-Man, I will set you free.";
             // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.Color.Crimson;
-            this.textBox4.Location = new System.Drawing.Point(829, 604);
+            this.textBox4.Location = new System.Drawing.Point(291, 525);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(732, 59);
@@ -99,9 +101,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(659, 162);
+            this.button1.Location = new System.Drawing.Point(440, 162);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(321, 174);
+            this.button1.Size = new System.Drawing.Size(232, 144);
             this.button1.TabIndex = 6;
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = true;
@@ -110,7 +112,7 @@
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.Crimson;
-            this.textBox5.Location = new System.Drawing.Point(997, 815);
+            this.textBox5.Location = new System.Drawing.Point(459, 743);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(564, 31);
             this.textBox5.TabIndex = 7;
