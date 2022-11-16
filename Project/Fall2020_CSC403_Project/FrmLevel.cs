@@ -41,6 +41,7 @@ namespace Fall2020_CSC403_Project {
         private bool goldenFriezaIsDead;
     SoundPlayer battleMusic = new SoundPlayer(stream: Resources.battle_music);
     SoundPlayer level_music = new SoundPlayer(stream: Resources.level_music);
+        private FrmDeath death;
 
         public FrmLevel() {
       InitializeComponent();
@@ -485,15 +486,9 @@ namespace Fall2020_CSC403_Project {
         //prompts the user to restart the game
         public void PromptUserToRestart()
         {
-            bool restart = MessageBox.Show("Restart?", "", MessageBoxButtons.YesNo) == DialogResult.Yes;
-            if (restart)
-            {
-                Application.Restart();
-            }
-            else
-            {
-                Application.Exit();
-            }
+            this.Hide();
+            death = new FrmDeath();
+            death.Show();
         }
         public string checkDifficulty()
         {
