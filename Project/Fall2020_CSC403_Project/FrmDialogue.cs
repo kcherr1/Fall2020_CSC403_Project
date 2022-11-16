@@ -14,7 +14,6 @@ namespace Fall2020_CSC403_Project
         private int lineTracker;
         private string[] interactionDialogue = new string[] { };
         private static List<Enemy> formEnemyList = null;
-        private HealthItem waterCup = new HealthItem(1, "Water Cup", 5);
         public bool waterCoolerFlag = false;
         public bool waterCoolerGiven = false;
         public FrmDialogue()
