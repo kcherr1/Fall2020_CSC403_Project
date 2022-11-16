@@ -11,4 +11,4 @@
 - Enemy death flag
 ##### What went right: Save system was simple easier to implement.
 ##### What went wrong: Save system was and will be tedious to integrate with new systems. Its simplicity makes its inflexible. All things must be saved manually.
-##### Code reviewed by: Colson
+##### Code reviewed by: Sara
