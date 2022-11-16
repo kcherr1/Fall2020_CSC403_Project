@@ -77,14 +77,16 @@ namespace Fall2020_CSC403_Project
             // picBossKoolAid
             // 
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
-            this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(845, 221);
+            this.picBossKoolAid.Image = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.Image")));
+            this.picBossKoolAid.Location = new System.Drawing.Point(681, 227);
             this.picBossKoolAid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picBossKoolAid.Name = "picBossKoolAid";
-            this.picBossKoolAid.Size = new System.Drawing.Size(138, 169);
+            this.picBossKoolAid.Size = new System.Drawing.Size(117, 163);
+            this.picBossKoolAid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBossKoolAid.TabIndex = 27;
             this.picBossKoolAid.TabStop = false;
+            this.picBossKoolAid.Click += new System.EventHandler(this.picBossKoolAid_Click);
             // 
             // lblInGameTime
             // 

@@ -144,7 +144,17 @@ namespace Fall2020_CSC403_Project
             if (enemy == bossKoolaid)
             {
                 frmBattle.SetupForBossBattle();
+                if (enemy.Health <= 0)
+                {
+                    Form YouWin = new FrmYouWin();
+                    YouWin.Show();
+                }
             }
+        }
+
+        private void picBossKoolAid_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
