@@ -22,7 +22,7 @@ namespace Fall2020_CSC403_Project
         List<Enemy> enemyList;
         private Character[] walls;
         const int PADDING = 4;
-        const int NUM_WALLS = 2;
+        const int NUM_WALLS = 11;
         public PictureBox _pictechlead;
 
         private DateTime timeBegin;
@@ -132,14 +132,7 @@ namespace Fall2020_CSC403_Project
             {
                 Talk(enemyCheeto);
             }
-            else if (HitAChar(player, techlead))
-            {
-                techlead.ResetMoveSpeed();
-                techlead.MoveBack();
-                if (FIGHT)
-                    return;
-                Fight(techlead);
-            }
+         
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -147,6 +140,13 @@ namespace Fall2020_CSC403_Project
 
         private void TechLeadPatrol_Tick(object sender, EventArgs e)
         {
+            if (techlead.Health < 0)
+            {
+                picTechlead.Dispose();
+                picTechlead.Visible = false;
+                return;
+            }
+           
             if (!FIGHT)
                 techlead.Move();
             if (HitAChar(techlead, enemyCheeto))
@@ -159,11 +159,6 @@ namespace Fall2020_CSC403_Project
             }
             if (HitAChar(techlead, player))
             {
-                if (FIGHT)
-                {
-                    picTechlead.Location = new Point((int)1200, (int)1200);
-                    return;
-                }
 
                 
                 techlead.ResetMoveSpeed();
