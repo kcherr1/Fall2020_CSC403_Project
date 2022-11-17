@@ -29,6 +29,8 @@ namespace Fall2020_CSC403_Project
 
             MessageBox.Show("Sherlock Holmes has been chosen.");
             Properties.Settings.Default.PlayerChoice += 1;
+            //string PlayerChoice = Convert.ToString(Properties.Settings.Default.PlayerChoice);
+            //MessageBox.Show("Player Choice is" + PlayerChoice);
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_1;
             this.Close();
         }
@@ -44,6 +46,8 @@ namespace Fall2020_CSC403_Project
 
             MessageBox.Show("Winnie the Pooh has been chosen.");
             Properties.Settings.Default.PlayerChoice += 2;
+            //string PlayerChoice = Convert.ToString(Properties.Settings.Default.PlayerChoice);
+            //MessageBox.Show("Player Choice is" + PlayerChoice);
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_2;
             this.Close();
         }
@@ -53,6 +57,8 @@ namespace Fall2020_CSC403_Project
             Avat.controls.play();
             MessageBox.Show("Minotaur has been chosen.");
             Properties.Settings.Default.PlayerChoice += 3;
+            //string PlayerChoice = Convert.ToString(Properties.Settings.Default.PlayerChoice);
+            //MessageBox.Show("Player Choice is" + PlayerChoice);
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_3;
             this.Close();
         }
@@ -62,6 +68,8 @@ namespace Fall2020_CSC403_Project
             Avat.controls.play();
             MessageBox.Show("Amazo has been chosen.");
             Properties.Settings.Default.PlayerChoice += 4;
+            //string PlayerChoice = Convert.ToString(Properties.Settings.Default.PlayerChoice);
+            //MessageBox.Show("Player Choice is" + PlayerChoice);
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_4;
             this.Close();
         }
@@ -72,6 +80,8 @@ namespace Fall2020_CSC403_Project
             Avat.controls.play();
             MessageBox.Show("Mad Hatter has been chosen.");
             Properties.Settings.Default.PlayerChoice += 5;
+            //string PlayerChoice = Convert.ToString(Properties.Settings.Default.PlayerChoice);
+            //MessageBox.Show("Player Choice is" + PlayerChoice);
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_5;
             this.Close();
         }
@@ -83,6 +93,8 @@ namespace Fall2020_CSC403_Project
 
             MessageBox.Show("Corn has been chosen.");
             Properties.Settings.Default.PlayerChoice += 6;
+            //string PlayerChoice = Convert.ToString(Properties.Settings.Default.PlayerChoice);
+            //MessageBox.Show("Player Choice is" + PlayerChoice);
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_6;
             this.Close();
         }
