@@ -127,7 +127,7 @@ namespace Fall2020_CSC403_Project {
             simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Mad_Hatter_versus_Dalek__mp3cut_net_;
             simpleSound.Play();
           }
-          else
+          else if (Properties.Settings.Default.Rogue == 2 & Properties.Settings.Default.PlayerChoice == 6)
           {
             simpleSound.Stream = global::Fall2020_CSC403_Project.Properties.Resources.Final_Battle_Corn_versus_Dalek__mp3cut_net_;
             simpleSound.Play();
