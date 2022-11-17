@@ -22,6 +22,9 @@ namespace Fall2020_CSC403_Project
         private Character[] walls;
         private DateTime timeBegin;
         private FrmBattle frmBattle;
+        private bool GamePaused;
+        private TimeSpan GamePausedTime;
+        private DateTime TimePauseBegan;
 
         public FrmLevel()
         {
@@ -323,11 +326,38 @@ namespace Fall2020_CSC403_Project
                     player.GoDown();
                     break;
 
+                case Keys.Space:
+                    PauseGame();
+                    break;
+
                 default:
                     player.ResetMoveSpeed();
                     break;
             }
         }
+        private void PauseGame()
+        {
+            if (GamePaused)
+            {
+                tmrEnemyMove.Enabled = true;
+                tmrPlayerMove.Enabled = true;
+                tmrUpdateInGameTime.Enabled = true;
+                GamePausedTime = DateTime.Now - TimePauseBegan;
+                timeBegin += GamePausedTime;
+                GamePaused = false;
+            }
+            else
+            {
+                tmrEnemyMove.Enabled = false;
+                tmrPlayerMove.Enabled = false;
+                tmrUpdateInGameTime.Enabled= false;
+                GamePaused = true;
+                lblInGameTime.Text = "Paused";
+                TimePauseBegan = DateTime.Now;
+
+            }
+        }
+
 
         private void lblInGameTime_Click(object sender, EventArgs e)
         {
@@ -477,6 +507,7 @@ namespace Fall2020_CSC403_Project
                         case 4:
                             EnemyName.GoDown();
                             break;
+
                     }
                 }
             }
