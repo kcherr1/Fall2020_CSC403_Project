@@ -43,7 +43,7 @@ namespace Fall2020_CSC403_Project {
             {
                 if (Rogue == 0)
                 {
-                    MessageBox.Show("Indiana Jones has been chosen.");
+                    //MessageBox.Show("Indiana Jones has been chosen.");
                     Properties.Resources.enemy_cheetos = Properties.Resources.Villain_German_Mechanic;
                     Properties.Resources.enemy_poisonpacket = Properties.Resources.Villain_Major_Toht;
                     Properties.Resources.enemy_koolaid = Properties.Resources.Boss_Villain_Belloq;
@@ -51,7 +51,7 @@ namespace Fall2020_CSC403_Project {
 
                 else if (Rogue == 1)
                 {
-                    MessageBox.Show("Universal Monsters has been chosen.");
+                    //MessageBox.Show("Universal Monsters has been chosen.");
                     Properties.Resources.enemy_cheetos = Properties.Resources.Villain_Wolfman;
                     Properties.Resources.enemy_poisonpacket = Properties.Resources.Villain_Invisible_Man;
                     Properties.Resources.enemy_koolaid = Properties.Resources.Boss_Villain_Dracula;
@@ -59,7 +59,7 @@ namespace Fall2020_CSC403_Project {
 
                 else if (Rogue == 2)
                 {
-                    MessageBox.Show("Doctor Who has been chosen.");
+                    //MessageBox.Show("Doctor Who has been chosen.");
                     Properties.Resources.enemy_cheetos = Properties.Resources.Villain_Mondasian_Cyberman;
                     Properties.Resources.enemy_poisonpacket = Properties.Resources.Villain_Delgado_Master;
                     Properties.Resources.enemy_koolaid = Properties.Resources.Boss_Villain_Dalek;
@@ -214,6 +214,7 @@ namespace Fall2020_CSC403_Project {
             // picPlayer
             // 
             this.picPlayer.BackColor = System.Drawing.Color.Transparent;
+            this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.PickedPlayer;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.Location = new System.Drawing.Point(751, 404);
             this.picPlayer.Name = "picPlayer";
