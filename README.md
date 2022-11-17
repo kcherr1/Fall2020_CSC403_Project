@@ -4,6 +4,7 @@
 ---
 # **Scrum Project 1** #
 ---
+
 # **Finch, Laurence H** #
 ## **User Story 1**: As a player, I can click on a menu to exit the game.
 1.   I created a menustrip with File - Quit option on frmLevel.
@@ -28,11 +29,48 @@
 4.   Then I checked to see if that enemy had died (Health<=0). If so, then I called the Dispose method for that object.
 5.   I tried to dispose of the enemy object after the frmBattle form was closed, but I kept getting errors, so this was the easiest method I could find.  There are probably better options available though.
 
+# **Boyt, Jacob C** #
+## **User Story 1**: As a game player, I want to choose my avatar from a collection of possible avatars.
+1. I collected six different images of characters to use as avatars in the game.
+2. Each of the six avatars, and an empty image called "PickedPlayer" were encoded in the Resources program.
+3. Mr. Peanut's design was removed to avoid confusion.
+4. After researching C# forms, I made a form entitled "PlayerPicks".
+5. Six buttons were added to this form, each of which corresponds to one of the six avatar choices.
+6. A message box was added to let the player which avatar had been selected.
+7. "PickedPlayer" image, which is used as the player image, is overwritten by the image of the avatar character selected.
+
 
 
 ---
 # **Scrum Project 2** #
 ---
+# **Boyt, Jacob C** #
+## **User Story 1**: As a game player, I want to have random Wall patterns chosen from a collection of Wall Patterns.
+1. I found three different wall pattern designs were collected.
+2. Along with the existing brick wall design, the wall patterns were encoded into the Resources program.
+3. The brick wall image was relabeled so that the "wall" Resource image could be overwritten with any of the four design patterns.
+4. A random variable entitled "WallPattern" was made, producing an integer of either 0, 1, 2, or 3.
+5. The "wall" image was overwritten with one of the four different wall design patterns, depending on which random integer was selected.
+
+## **User Story 2**: As a game player, I want to have random villains chosen from a set of villainous characters.
+1. I found nine different villainous characters, three characters each from three major franchises (Indiana Jones, Doctor Who, Universal Monsters)
+2. All were encoded into the Resources program, and the three original enemy characters were removed.
+3. To avoid issues with how the enemies' movements, health, etc. were defined, the names of the enemy characters were used to define empty images.
+4. A integer parameter in the settings labelled "Rogue" was set to zero.
+5. A random integer in the FrmLevel, also labelled Rogue, was made, producing an integer of either 0, 1, or 2.
+6. The "Rogue" paramter was set equal to the "Rogue" integer.
+7. The enemy characters were overwritten by one of the villain groups, dependent on which random integer was selected.
+
+## **User Story 3**: As a game player, I want to change the Final Battle Audio Files based on chosen Avatars and Rogues.
+1. For each combination of one of the three BossEnemys and one of the six Avatar choices, I recorded a Final Battle Audio File.
+2. Online Recording editors were used to change the pitch and volume of the audio files, and to convert from mp3/mp4 files to wav files.
+3. All eighteen Audio Files were uploaded to the Resources program.
+4. A second integer parameter, "PlayerChoice", was made in settings and set to zero.
+5. In the "PlayerPicks" form, for any of the avatar selections, an integer between 1 and 6 was added to the "PlayerChoice" parameter, corresponding to the button number selected.
+6. In the "FrmBattle", for the Final Battle sound file being played, a series of if/else if statements were made for each of the eighteen possible combinations of "Rogue" and "PlayerChoice" parameter integers.
+7. If the conditions of the one of the if/else if statements were met, the corresponding audio file was called and played.
+8. For troubleshooting, a Message Box was made declaring the "Player Choice" integer in the "PlayerPicks" form.
+
 # **Finch, Laurence H** #
 ---
 ## **User Story 1**: As a player, I want the enemy characters to move randomly around the screen.	
