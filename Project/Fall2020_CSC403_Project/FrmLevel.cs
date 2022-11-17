@@ -178,6 +178,7 @@ namespace Fall2020_CSC403_Project
             return new Collider(rect);
         }
 
+
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
             player.ResetMoveSpeed();

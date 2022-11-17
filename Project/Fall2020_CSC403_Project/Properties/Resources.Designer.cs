@@ -10,8 +10,8 @@
 
 namespace Fall2020_CSC403_Project.Properties {
     using System;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -442,6 +442,7 @@ namespace Fall2020_CSC403_Project.Properties {
         public static System.Drawing.Bitmap wall { get; internal set; }
 
         public static System.IO.UnmanagedMemoryStream final_battle { get; internal set; }
+
 
     }
 }

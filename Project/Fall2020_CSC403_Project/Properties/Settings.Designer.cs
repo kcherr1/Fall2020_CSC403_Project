@@ -82,5 +82,31 @@ namespace Fall2020_CSC403_Project.Properties {
                 this["enemyCheetoDirection"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Rogue {
+            get {
+                return ((int)(this["Rogue"]));
+            }
+            set
+            {
+                this["Rogue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int PlayerChoice {
+            get {
+                return ((int)(this["PlayerChoice"]));
+            }
+            set
+            {
+                this["PlayerChoice"] = value;
+            }
+        }
     }
 }

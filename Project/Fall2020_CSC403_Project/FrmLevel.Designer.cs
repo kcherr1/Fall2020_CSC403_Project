@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
+
+    
+
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -28,13 +31,17 @@ namespace Fall2020_CSC403_Project {
     /// Required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
-    private void InitializeComponent() {
+    public void InitializeComponent() {
+            
+            
             var random = new Random();
             var list = new List<string> { "Indiana Jones", "Universal Monsters", "Doctor Who" };
             int Rogue = random.Next(list.Count);
-            
+            Properties.Settings.Default.Rogue = Rogue;
+
+
             {
-                if (list[Rogue] == "Indiana Jones")
+                if (Rogue == 0)
                 {
                     MessageBox.Show("Indiana Jones has been chosen.");
                     Properties.Resources.enemy_cheetos = Properties.Resources.Villain_German_Mechanic;
@@ -42,7 +49,7 @@ namespace Fall2020_CSC403_Project {
                     Properties.Resources.enemy_koolaid = Properties.Resources.Boss_Villain_Belloq;
                 }
 
-                else if (list[Rogue] == "Universal Monsters")
+                else if (Rogue == 1)
                 {
                     MessageBox.Show("Universal Monsters has been chosen.");
                     Properties.Resources.enemy_cheetos = Properties.Resources.Villain_Wolfman;
@@ -50,7 +57,7 @@ namespace Fall2020_CSC403_Project {
                     Properties.Resources.enemy_koolaid = Properties.Resources.Boss_Villain_Dracula;
                 }
 
-                else if (list[Rogue] == "Doctor Who")
+                else if (Rogue == 2)
                 {
                     MessageBox.Show("Doctor Who has been chosen.");
                     Properties.Resources.enemy_cheetos = Properties.Resources.Villain_Mondasian_Cyberman;
@@ -60,7 +67,7 @@ namespace Fall2020_CSC403_Project {
             }
 
 
-        var random1 = new Random();
+            var random1 = new Random();
             var list1 = new List<string> { "Pipe Wall", "Stone Wall", "Brick Wall", "Wood Wall" };
             int WallPattern = random1.Next(list1.Count);
             if (WallPattern == 0)

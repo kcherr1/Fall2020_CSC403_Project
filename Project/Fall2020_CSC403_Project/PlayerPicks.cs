@@ -28,6 +28,7 @@ namespace Fall2020_CSC403_Project
             Avat.controls.play();
 
             MessageBox.Show("Sherlock Holmes has been chosen.");
+            Properties.Settings.Default.PlayerChoice += 1;
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_1;
             this.Close();
         }
@@ -42,6 +43,7 @@ namespace Fall2020_CSC403_Project
         }**/
 
             MessageBox.Show("Winnie the Pooh has been chosen.");
+            Properties.Settings.Default.PlayerChoice += 2;
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_2;
             this.Close();
         }
@@ -50,6 +52,7 @@ namespace Fall2020_CSC403_Project
             Avat.URL = "YusMin.mp3";
             Avat.controls.play();
             MessageBox.Show("Minotaur has been chosen.");
+            Properties.Settings.Default.PlayerChoice += 3;
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_3;
             this.Close();
         }
@@ -58,6 +61,7 @@ namespace Fall2020_CSC403_Project
             Avat.URL = "YusAma.mp3";
             Avat.controls.play();
             MessageBox.Show("Amazo has been chosen.");
+            Properties.Settings.Default.PlayerChoice += 4;
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_4;
             this.Close();
         }
@@ -67,6 +71,7 @@ namespace Fall2020_CSC403_Project
             Avat.URL = "YusMad.mp3";
             Avat.controls.play();
             MessageBox.Show("Mad Hatter has been chosen.");
+            Properties.Settings.Default.PlayerChoice += 5;
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_5;
             this.Close();
         }
@@ -77,6 +82,7 @@ namespace Fall2020_CSC403_Project
             Avat.controls.play();
 
             MessageBox.Show("Corn has been chosen.");
+            Properties.Settings.Default.PlayerChoice += 6;
             Properties.Resources.PickedPlayer = Properties.Resources.Player_Choice_6;
             this.Close();
         }
