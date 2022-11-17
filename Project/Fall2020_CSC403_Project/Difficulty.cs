@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Fall2020_CSC403_Project
 {
@@ -19,25 +20,25 @@ namespace Fall2020_CSC403_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Difficulty = (Decimal)0.75;
+            File.WriteAllText(@".\Difficulty.txt", 0.75.ToString());
             Application.Restart();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Difficulty = (Decimal)1;
+            File.WriteAllText(@".\Difficulty.txt", 1.0.ToString());
             Application.Restart();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Difficulty = (Decimal)1.75;
+            File.WriteAllText(@".\Difficulty.txt", 1.50.ToString());
             Application.Restart();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Difficulty = (Decimal)2;
+            File.WriteAllText(@".\Difficulty.txt", 1.75.ToString());
             Application.Restart();
         }
     }

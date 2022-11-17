@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Fall2020_CSC403_Project
 {
@@ -28,6 +29,13 @@ namespace Fall2020_CSC403_Project
 
         public FrmLevel()
         {
+            if (File.Exists(@".\Difficulty.txt"))
+            {
+                string[] strmod = File.ReadAllLines(@".\Difficulty.txt");
+                string modifierStr = strmod[0];
+                decimal modifier = Convert.ToDecimal(modifierStr);
+                Properties.Settings.Default.Difficulty = modifier;
+            }
             InitializeComponent();
         }
 
@@ -37,10 +45,7 @@ namespace Fall2020_CSC403_Project
             //const int NUM_WALLS = 13;
             int NUM_WALLS = 0;
             Random random = new Random();
-            decimal modifier = Properties.Settings.Default.Difficulty;
-            int newHealth = (int)Math.Floor(Decimal.Multiply(Convert.ToDecimal(20), modifier));
-            int newStrength = (int)Math.Floor(Decimal.Multiply(Convert.ToDecimal(2), modifier));
-
+ 
             /*
                 Here is where I am adding my code to create a random layout of walls
             
@@ -99,7 +104,7 @@ namespace Fall2020_CSC403_Project
                 {
                     picPlayer.Size = new Size(40, 40);
                     picPlayer.Location = new Point(rndY * 50 + 5, rndX *50 + 5);
-                    player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), 20, 2);
+                    player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
                 }
             }
             while (bossKoolaid == null)
@@ -111,7 +116,7 @@ namespace Fall2020_CSC403_Project
                 {
                     picBossKoolAid.Size = new Size(40, 40);
                     picBossKoolAid.Location = new Point(rndY * 50 + 5, rndX * 50 + 5);
-                    bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), newHealth, newStrength);
+                    bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
                 }
             }
             while (enemyCheeto == null)
@@ -123,7 +128,7 @@ namespace Fall2020_CSC403_Project
                 {
                     picEnemyCheeto.Size = new Size(40, 40);
                     picEnemyCheeto.Location = new Point(rndY * 50 + 5, rndX * 50 + 5);
-                    enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), newHealth, newStrength);
+                    enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
                 }
             }
             while (enemyPoisonPacket == null)
@@ -135,7 +140,7 @@ namespace Fall2020_CSC403_Project
                 {
                     picEnemyPoisonPacket.Size = new Size(40, 40);
                     picEnemyPoisonPacket.Location = new Point(rndY * 50 + 5, rndX * 50 + 5);
-                    enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), newHealth, newStrength);
+                    enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
                 }
             }
 
@@ -152,8 +157,8 @@ namespace Fall2020_CSC403_Project
            
 
             //bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), newHealth, newStrength);
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), newHealth, newStrength);
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             bossKoolaid.Name = "The Kool Aid Man";
             enemyCheeto.Name = "Cheeto Man";
             enemyPoisonPacket.Name = "Poison Packet Man";
@@ -440,6 +445,8 @@ namespace Fall2020_CSC403_Project
                 int amtHealing = item.Use();
                 inventory.Remove(item);
                 player.AlterHealth(amtHealing);
+                Properties.Settings.Default.Health = player.Health;
+                
             }
             else if (item is Weapon)
             {

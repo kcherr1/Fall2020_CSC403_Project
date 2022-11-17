@@ -15,6 +15,7 @@ namespace Fall2020_CSC403_Project {
         private FrmBattle() {
       InitializeComponent();
       player = Game.player;
+      
     }
 
     public void Setup() {
@@ -24,9 +25,21 @@ namespace Fall2020_CSC403_Project {
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
 
+            
+
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
+
+
+      
+      if (enemy.Health == enemy.MaxHealth)
+      { 
+        decimal modifier = Properties.Settings.Default.Difficulty;
+        int newHealth = (int)Math.Floor(Decimal.Multiply(Convert.ToDecimal(enemy.Health), modifier));
+        int offsetHealth = newHealth - enemy.Health;
+        enemy.AlterHealth(offsetHealth);
+      }
 
       // show health
       UpdateHealthBars();
@@ -147,7 +160,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void UpdateHealthBars() {
-    
+      MessageBox.Show(enemy.Health.ToString());
       // Make sure health does not go over max
       if (player.Health > player.MaxHealth)
       {
@@ -172,8 +185,10 @@ namespace Fall2020_CSC403_Project {
             int MaxDamagePossible = Properties.Settings.Default.MaxRandomBattleDamage;
             int WeaponDamage = Properties.Settings.Default.WeaponDamage;
             int ArmorProtection = Properties.Settings.Default.ArmorProtection;
-            int DamageDealtByPlayer = _random.Next(MinDamagePossible, MaxDamagePossible) + WeaponDamage;
-            int DamageDealtByEnemy = _random.Next(MinDamagePossible, MaxDamagePossible) - ArmorProtection;
+            decimal modifier = Properties.Settings.Default.Difficulty;
+            MessageBox.Show("The modifier is " + modifier.ToString());
+            int DamageDealtByPlayer = (int)Math.Floor(Decimal.Divide(Convert.ToDecimal(_random.Next(MinDamagePossible, MaxDamagePossible)), modifier)) + WeaponDamage;
+            int DamageDealtByEnemy = (int)Math.Floor(Decimal.Multiply(Convert.ToDecimal(_random.Next(MinDamagePossible, MaxDamagePossible)), modifier)) - ArmorProtection;
 
             // Ensure negative damage does not heal player or enemy
             if (DamageDealtByEnemy < 0)
@@ -203,11 +218,14 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void EnemyDamage(int amount) {
+      MessageBox.Show("Player does " + amount.ToString());
       enemy.AlterHealth(amount);
     }
 
     private void PlayerDamage(int amount) {
+      
       player.AlterHealth(amount);
+      MessageBox.Show("Enemy does " + amount.ToString());
       Properties.Settings.Default.Health = player.Health;
     }
 
