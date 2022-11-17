@@ -94,3 +94,32 @@
 4.  Now I had to randomly place the player and enemy characters in open areas of the map. I did this by creating a while loop checking if the player/enemy object was null. If it was, then I grabbed a 2 random integers (between 1 and the size of the map minus 1). I then used these two numbers to check the map matrix to see if the value was 0 (open), and if so place the character/enemy there. If it was 1, then I just looped back through until the character/enemy was placed.
 
 ---
+
+# **Petty, Alex** #
+---
+## **Inventory**: As a player, I want items and store them in an inventory
+
+1. I researched methods of class building for items.
+2. I built an abstract item class to use as a base for all items, items had names and abstract functions for uses
+3. I built three item classes of weapon, armor, and potion: each overrides the use function and added a variable for damage, protection, or healing
+4. I added items for a health potion, sword, and shield to the frmLevel
+5. I created a class for inventory
+6. Inventory had a list of class items and functions to add and remove the items
+7. Added health potion to the inventory and had the sword and shield added to inventory on enemy death
+8. Added menu item to the frmlevel to display a combo box of the inventory items
+9. Added function for when an item in combobox is selected the use function for the corresponding item is run
+10. Added function to remove potions from inventory when used
+
+## **Status**: As a player, I want to be able to see my tasks
+
+1. Created a new form
+2. Made labels and had them updated with player stats
+3. made a menu option for status and attached the new for to the button
+
+## **Difficulty**: As a player, I want to be able to change the difficulty
+
+1. Created a new form and property variable for a difficulty modifier
+2. Added buttons to the form for Easy, Medium, Hard, and Impossible
+3. Made an on-click function for when the buttons are clicked to modify a file with the new difficulty modifier and restart the application
+4. Modified the frmLevel to read difficult modifier from the file and save it to the property variable
+5. In battle modify damage and health based on the property variable for the difficulty modifier
