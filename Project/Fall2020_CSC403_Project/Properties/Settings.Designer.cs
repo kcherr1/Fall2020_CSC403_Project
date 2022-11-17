@@ -109,10 +109,10 @@ namespace Fall2020_CSC403_Project.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int Difficulty {
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0")]
+        public decimal Difficulty {
             get {
-                return ((int)(this["Difficulty"]));
+                return ((decimal)(this["Difficulty"]));
             }
             set {
                 this["Difficulty"] = value;

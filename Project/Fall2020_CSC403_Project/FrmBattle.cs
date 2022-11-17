@@ -149,7 +149,7 @@ namespace Fall2020_CSC403_Project {
     private void UpdateHealthBars() {
     
       // Make sure health does not go over max
-      if (player.Health > 20)
+      if (player.Health > player.MaxHealth)
       {
           int offset = player.MaxHealth - player.Health;
           player.AlterHealth(offset);

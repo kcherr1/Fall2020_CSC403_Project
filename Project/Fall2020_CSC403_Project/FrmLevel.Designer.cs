@@ -114,6 +114,7 @@ namespace Fall2020_CSC403_Project {
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.difficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.tmrEnemyMove = new System.Windows.Forms.Timer(this.components);
@@ -384,6 +385,7 @@ namespace Fall2020_CSC403_Project {
             this.editBattleDamageOptionsToolStripMenuItem,
             this.toolStripSeparator1,
             this.statusToolStripMenuItem,
+            this.difficultyToolStripMenuItem,
             this.restartToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -409,6 +411,13 @@ namespace Fall2020_CSC403_Project {
             this.statusToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.statusToolStripMenuItem.Text = "Status";
             this.statusToolStripMenuItem.Click += new System.EventHandler(this.statusToolStripMenuItem_Click);
+            // 
+            // difficultyToolStripMenuItem
+            // 
+            this.difficultyToolStripMenuItem.Name = "difficultyToolStripMenuItem";
+            this.difficultyToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.difficultyToolStripMenuItem.Text = "Difficulty";
+            this.difficultyToolStripMenuItem.Click += new System.EventHandler(this.difficultyToolStripMenuItem_Click);
             // 
             // restartToolStripMenuItem
             // 
@@ -549,6 +558,7 @@ namespace Fall2020_CSC403_Project {
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem difficultyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editBattleDamageOptionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

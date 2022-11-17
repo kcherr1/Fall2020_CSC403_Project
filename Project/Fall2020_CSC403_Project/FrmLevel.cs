@@ -37,6 +37,9 @@ namespace Fall2020_CSC403_Project
             //const int NUM_WALLS = 13;
             int NUM_WALLS = 0;
             Random random = new Random();
+            decimal modifier = Properties.Settings.Default.Difficulty;
+            int newHealth = (int)Math.Floor(Decimal.Multiply(Convert.ToDecimal(20), modifier));
+            int newStrength = (int)Math.Floor(Decimal.Multiply(Convert.ToDecimal(2), modifier));
 
             /*
                 Here is where I am adding my code to create a random layout of walls
@@ -96,40 +99,43 @@ namespace Fall2020_CSC403_Project
                 {
                     picPlayer.Size = new Size(40, 40);
                     picPlayer.Location = new Point(rndY * 50 + 5, rndX *50 + 5);
-                    player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+                    player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), 20, 2);
                 }
             }
             while (bossKoolaid == null)
             {
                 int rndX = random.Next(rowCount);
                 int rndY = random.Next(colCount);
+                
                 if (Map[rndX, rndY] == 0)
                 {
                     picBossKoolAid.Size = new Size(40, 40);
                     picBossKoolAid.Location = new Point(rndY * 50 + 5, rndX * 50 + 5);
-                    bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+                    bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), newHealth, newStrength);
                 }
             }
             while (enemyCheeto == null)
             {
                 int rndX = random.Next(rowCount);
                 int rndY = random.Next(colCount);
+                
                 if (Map[rndX, rndY] == 0)
                 {
                     picEnemyCheeto.Size = new Size(40, 40);
                     picEnemyCheeto.Location = new Point(rndY * 50 + 5, rndX * 50 + 5);
-                    enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+                    enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), newHealth, newStrength);
                 }
             }
             while (enemyPoisonPacket == null)
             {
                 int rndX = random.Next(rowCount);
                 int rndY = random.Next(colCount);
+                
                 if (Map[rndX, rndY] == 0)
                 {
                     picEnemyPoisonPacket.Size = new Size(40, 40);
                     picEnemyPoisonPacket.Location = new Point(rndY * 50 + 5, rndX * 50 + 5);
-                    enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+                    enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), newHealth, newStrength);
                 }
             }
 
@@ -143,9 +149,11 @@ namespace Fall2020_CSC403_Project
             inventory.Add(healthPotion);
             //inventory.Add(shield);
 
+           
+
             //bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), newHealth, newStrength);
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), newHealth, newStrength);
             bossKoolaid.Name = "The Kool Aid Man";
             enemyCheeto.Name = "Cheeto Man";
             enemyPoisonPacket.Name = "Poison Packet Man";
@@ -384,6 +392,13 @@ namespace Fall2020_CSC403_Project
         {
             Status StatusForm = new Status();
             StatusForm.ShowDialog();
+        }
+
+        private void
+        difficultyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Difficulty DifficultyForm = new Difficulty();
+            DifficultyForm.ShowDialog();
         }
 
         private void
