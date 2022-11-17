@@ -17,11 +17,17 @@
     <Setting Name="enemyCheetoDirection" Type="System.String" Scope="User">
       <Value Profile="(Default)">left</Value>
     </Setting>
-    <Setting Name="Rogue" Type="System.Int32" Scope="Application">
+    <Setting Name="Rogue" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="PlayerChoice" Type="System.Int32" Scope="Application">
+    <Setting Name="PlayerChoice" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Difficulty" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="Health" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">20</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -380,6 +380,13 @@ namespace Fall2020_CSC403_Project
         }
 
         private void
+        statusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Status StatusForm = new Status();
+            StatusForm.ShowDialog();
+        }
+
+        private void
 
            restartToolStripMenuItem_Click(object sender, EventArgs e)
         {

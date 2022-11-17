@@ -153,6 +153,7 @@ namespace Fall2020_CSC403_Project {
       {
           int offset = player.MaxHealth - player.Health;
           player.AlterHealth(offset);
+          Properties.Settings.Default.Health = player.Health;
       }
 
       float playerHealthPer = player.Health / (float)player.MaxHealth;
@@ -207,6 +208,7 @@ namespace Fall2020_CSC403_Project {
 
     private void PlayerDamage(int amount) {
       player.AlterHealth(amount);
+      Properties.Settings.Default.Health = player.Health;
     }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
