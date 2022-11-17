@@ -565,7 +565,7 @@ namespace Fall2020_CSC403_Project
         }
         private static int[,] createMap()
         {
-            int[] dimensions = { 15, 30 };   // rows & columns of map
+            int[] dimensions = { 15, 25 };   // rows & columns of map
             int maxTunnels = 80;             // max number of tunnels possible
             int maxLength = 10;              // max length each tunnel can have
 
