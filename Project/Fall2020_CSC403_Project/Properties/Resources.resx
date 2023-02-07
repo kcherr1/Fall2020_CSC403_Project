@@ -118,14 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\wall.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="player" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="battle_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\battle_screen.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Difficulty_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\difficulty_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="enemy_cheetos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_cheetos.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,10 +127,142 @@
   <data name="enemy_koolaid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_koolaid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="enemy_poisonpacket" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\enemy_poisonpacket.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\wall.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Load_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\load_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_game_hover1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\new_game_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sound_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\sound.hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Difficulty_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\difficulty_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_game_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\new_game_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Back_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\back_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Options_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\options_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Options_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\options_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_game_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\new_game_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exit_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\exit_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Back_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\back_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Load_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\load_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sound_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\sound.btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="battle_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\battle_screen.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_game_btn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\new_game_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enemy_poisonpacket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\enemy_poisonpacket.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Game_Title" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\game_title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveMenuTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\savemenutitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\save_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\save_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tonyTigerWeak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tonyTigerWeak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battle_music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\battle_music.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="level_music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\level_music.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="honey_peanut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\honey_peanut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Peanut_Death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\peanut_death.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Choose_character" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\choose_character.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="credit_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\credit_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="credit_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\credit_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Crunchy_peanut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\crunchy_peanut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exit_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\exit_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playAgain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\playagain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playAgain_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\playagain_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="skulls" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\skulls.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tryAgain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tryagain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tryAgain_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tryagain_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Developers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\developers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Earp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\earp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="saltyPeanut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\saltypeanut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thankYou" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\thankyou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Thorn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\thorn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Vu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\vu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
