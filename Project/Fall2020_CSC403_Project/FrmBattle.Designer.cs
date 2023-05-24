@@ -39,7 +39,9 @@
       this.SuspendLayout();
       // 
       // btnAttack
-      // 
+      //
+      
+
       this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.btnAttack.Location = new System.Drawing.Point(127, 422);
       this.btnAttack.Name = "btnAttack";
@@ -88,7 +90,7 @@
       this.lblEnemyHealthFull.TabIndex = 6;
       // 
       // picBossBattle
-      // 
+      //
       this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
       this.picBossBattle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.picBossBattle.Location = new System.Drawing.Point(780, 563);
@@ -113,7 +115,7 @@
       // picPlayer
       // 
       this.picPlayer.BackColor = System.Drawing.Color.WhiteSmoke;
-      this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+      this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.PickedPlayer;
       this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.picPlayer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.picPlayer.Location = new System.Drawing.Point(70, 98);
@@ -123,7 +125,9 @@
       this.picPlayer.TabStop = false;
       // 
       // tmrFinalBattle
-      // 
+      //
+
+
       this.tmrFinalBattle.Interval = 5600;
       this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
       // 

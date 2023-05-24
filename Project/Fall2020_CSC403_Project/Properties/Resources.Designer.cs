@@ -10,8 +10,8 @@
 
 namespace Fall2020_CSC403_Project.Properties {
     using System;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,7 +19,7 @@ namespace Fall2020_CSC403_Project.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -73,9 +73,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enemy_cheetos {
+        internal static System.Drawing.Bitmap battle_screen2 {
             get {
-                object obj = ResourceManager.GetObject("enemy_cheetos", resourceCulture);
+                object obj = ResourceManager.GetObject("battle_screen2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enemy_koolaid {
+        internal static System.Drawing.Bitmap Boss_Villain_Belloq {
             get {
-                object obj = ResourceManager.GetObject("enemy_koolaid", resourceCulture);
+                object obj = ResourceManager.GetObject("Boss_Villain_Belloq", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,29 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enemy_poisonpacket {
+        internal static System.Drawing.Bitmap Boss_Villain_Dalek {
             get {
-                object obj = ResourceManager.GetObject("enemy_poisonpacket", resourceCulture);
+                object obj = ResourceManager.GetObject("Boss_Villain_Dalek", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Boss_Villain_Dracula {
+            get {
+                object obj = ResourceManager.GetObject("Boss_Villain_Dracula", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Brick_Wall {
+            get {
+                object obj = ResourceManager.GetObject("Brick_Wall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,18 +123,171 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream final_battle {
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Amazo_versus_Belloq__mp3cut_net_ {
             get {
-                return ResourceManager.GetStream("final_battle", resourceCulture);
+                return ResourceManager.GetStream("Final_Battle_Amazo_versus_Belloq__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Amazo_versus_Dalek__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Amazo_versus_Dalek__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Amazo_versus_Dracula__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Amazo_versus_Dracula__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Corn_versus_Belloq__mp3cut_net___1_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Corn_versus_Belloq__mp3cut_net___1_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Corn_versus_Dalek__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Corn_versus_Dalek__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Corn_versus_Dracula__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Corn_versus_Dracula__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Mad_Hatter_versus_Belloq__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Mad_Hatter_versus_Belloq__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Mad_Hatter_versus_Dalek__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Mad_Hatter_versus_Dalek__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Mad_Hatter_versus_Dracula__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Mad_Hatter_versus_Dracula__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Minotaur_versus_Belloq__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Minotaur_versus_Belloq__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Minotaur_versus_Dalek__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Minotaur_versus_Dalek__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Minotaur_versus_Dracula__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Minotaur_versus_Dracula__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Sherlock_Holmes_versus_Belloq__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Sherlock_Holmes_versus_Belloq__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Sherlock_Holmes_versus_Dalek__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Sherlock_Holmes_versus_Dalek__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Sherlock_Holmes_versus_Dracula__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Sherlock_Holmes_versus_Dracula__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Winnie_the_Pooh_versus_Belloq__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Winnie_the_Pooh_versus_Belloq__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Winnie_the_Pooh_versus_Dalek__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Winnie_the_Pooh_versus_Dalek__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("Final_Battle_Winnie_the_Pooh_versus_Dracula__mp3cut_net_", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player {
+        internal static System.Drawing.Bitmap Pipe_Wall {
             get {
-                object obj = ResourceManager.GetObject("player", resourceCulture);
+                object obj = ResourceManager.GetObject("Pipe_Wall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -122,11 +295,154 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap wall {
+        internal static System.Drawing.Bitmap Player_Choice_1 {
             get {
-                object obj = ResourceManager.GetObject("wall", resourceCulture);
+                object obj = ResourceManager.GetObject("Player_Choice_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player_Choice_2 {
+            get {
+                object obj = ResourceManager.GetObject("Player_Choice_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player_Choice_3 {
+            get {
+                object obj = ResourceManager.GetObject("Player_Choice_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player_Choice_4 {
+            get {
+                object obj = ResourceManager.GetObject("Player_Choice_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player_Choice_5 {
+            get {
+                object obj = ResourceManager.GetObject("Player_Choice_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player_Choice_6 {
+            get {
+                object obj = ResourceManager.GetObject("Player_Choice_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stone_Wall {
+            get {
+                object obj = ResourceManager.GetObject("Stone_Wall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Villain_Delgado_Master {
+            get {
+                object obj = ResourceManager.GetObject("Villain_Delgado_Master", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Villain_German_Mechanic {
+            get {
+                object obj = ResourceManager.GetObject("Villain_German_Mechanic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Villain_Invisible_Man {
+            get {
+                object obj = ResourceManager.GetObject("Villain_Invisible_Man", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Villain_Major_Toht {
+            get {
+                object obj = ResourceManager.GetObject("Villain_Major_Toht", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Villain_Mondasian_Cyberman {
+            get {
+                object obj = ResourceManager.GetObject("Villain_Mondasian_Cyberman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Villain_Wolfman {
+            get {
+                object obj = ResourceManager.GetObject("Villain_Wolfman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wood_Wall {
+            get {
+                object obj = ResourceManager.GetObject("Wood_Wall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        public static System.Drawing.Bitmap PickedPlayer { get; internal set; }
+
+        public static System.Drawing.Bitmap enemy_cheetos { get; internal set; }
+
+        public static System.Drawing.Bitmap enemy_poisonpacket { get; internal set; }
+
+        public static System.Drawing.Bitmap enemy_koolaid { get; internal set; }
+
+        public static System.Drawing.Bitmap wall { get; internal set; }
+
+        public static System.IO.UnmanagedMemoryStream final_battle { get; internal set; }
+
+
     }
 }
