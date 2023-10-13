@@ -5,22 +5,18 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 
-namespace Fall2020_CSC403_Project
-{
-    public partial class FrmBattle : Form
-    {
+namespace Fall2020_CSC403_Project {
+    public partial class FrmBattle : Form {
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
 
-        private FrmBattle()
-        {
+        private FrmBattle() {
             InitializeComponent();
             player = Game.player;
         }
 
-        public void Setup()
-        {
+        public void Setup() {
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
@@ -35,8 +31,7 @@ namespace Fall2020_CSC403_Project
             UpdateHealthBars();
         }
 
-        public void SetupForBossBattle()
-        {
+        public void SetupForBossBattle() {
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
             picBossBattle.Visible = true;
@@ -47,10 +42,8 @@ namespace Fall2020_CSC403_Project
             tmrFinalBattle.Enabled = true;
         }
 
-        public static FrmBattle GetInstance(Enemy enemy)
-        {
-            if (instance == null)
-            {
+        public static FrmBattle GetInstance(Enemy enemy) {
+            if (instance == null) {
                 instance = new FrmBattle();
                 instance.enemy = enemy;
                 instance.Setup();
@@ -58,8 +51,7 @@ namespace Fall2020_CSC403_Project
             return instance;
         }
 
-        private void UpdateHealthBars()
-        {
+        private void UpdateHealthBars() {
             float playerHealthPer = player.Health / (float)player.MaxHealth;
             float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
@@ -71,34 +63,28 @@ namespace Fall2020_CSC403_Project
             lblEnemyHealthFull.Text = enemy.Health.ToString();
         }
 
-        private void btnAttack_Click(object sender, EventArgs e)
-        {
+        private void btnAttack_Click(object sender, EventArgs e) {
             player.OnAttack(-4);
-            if (enemy.Health > 0)
-            {
+            if (enemy.Health > 0) {
                 enemy.OnAttack(-2);
             }
 
             UpdateHealthBars();
-            if (player.Health <= 0 || enemy.Health <= 0)
-            {
+            if (player.Health <= 0 || enemy.Health <= 0) {
                 instance = null;
                 Close();
             }
         }
 
-        private void EnemyDamage(int amount)
-        {
+        private void EnemyDamage(int amount) {
             enemy.AlterHealth(amount);
         }
 
-        private void PlayerDamage(int amount)
-        {
+        private void PlayerDamage(int amount) {
             player.AlterHealth(amount);
         }
 
-        private void tmrFinalBattle_Tick(object sender, EventArgs e)
-        {
+        private void tmrFinalBattle_Tick(object sender, EventArgs e) {
             picBossBattle.Visible = false;
             tmrFinalBattle.Enabled = false;
         }
