@@ -32,9 +32,9 @@ namespace Fall2020_CSC403_Project {
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      bossKoolaid.BackgroundColor = Color.Red;
+      enemyPoisonPacket.BackgroundColor = Color.Green;
+      enemyCheeto.BackgroundColor = Color.FromArgb(255, 245, 161);
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
