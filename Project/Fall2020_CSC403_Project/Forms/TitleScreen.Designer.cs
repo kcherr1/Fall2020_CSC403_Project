@@ -34,7 +34,9 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(216, 157);
@@ -63,10 +65,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(860, 484);
+            this.ClientSize = new System.Drawing.Size(860, 580);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(860, 484);
+            this.MinimumSize = new System.Drawing.Size(860, 580);
             this.Name = "TitleScreen";
             this.Text = "Start Game";
             this.ResumeLayout(false);

@@ -14,7 +14,7 @@ namespace Fall2020_CSC403_Project
     public partial class TitleScreen : Form
     {
         private FontFamily titleFont;
-        private Font titleFontStyle; // Store the title font style
+        private Font titleFontStyle; 
 
         public TitleScreen()
         {
@@ -59,16 +59,17 @@ namespace Fall2020_CSC403_Project
 
         private void SetButtonStyle()
         {
-            float buttonFontSize = this.ClientSize.Width / 24; // You can adjust this value as needed
-            FontStyle buttonFontStyle = FontStyle.Regular; // Set your desired style here
-
+            float buttonFontSize = this.ClientSize.Width / 24;
+            FontStyle buttonFontStyle = FontStyle.Regular; 
             Font buttonFont = new Font(titleFont, buttonFontSize, buttonFontStyle);
             button1.Font = buttonFont;
         }
 
         private void SetButtonLocation()
         {
-            button1.Location = new Point((this.ClientSize.Width - button1.Width) / 2, (this.ClientSize.Height - button1.Height) / 2);
+            int buttonX = (this.ClientSize.Width - button1.Width) / 2;
+            int buttonY = (2 * this.ClientSize.Height) / 3 - button1.Height; 
+            button1.Location = new Point(buttonX, buttonY);
         }
 
         private void TitleScreen_SizeChanged(object sender, EventArgs e)
@@ -83,7 +84,7 @@ namespace Fall2020_CSC403_Project
         private void SetButtonSize()
         {
             int buttonWidth = this.ClientSize.Width / 4;
-            int buttonHeight = this.ClientSize.Height / 10;
+            int buttonHeight = this.ClientSize.Height / 15;
 
             button1.Size = new Size(buttonWidth, buttonHeight);
         }
@@ -92,6 +93,10 @@ namespace Fall2020_CSC403_Project
         private void button1_Click(object sender, EventArgs e)
         {
 
+            this.Hide();
+            var FrmLevel = new FrmLevel();
+            FrmLevel.Closed += (s, args) => this.Close();
+            FrmLevel.Show();
         }
 
         // Leave empty, needed to render the label
