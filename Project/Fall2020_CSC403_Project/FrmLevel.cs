@@ -116,6 +116,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      picPlayer.BringToFront();
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
