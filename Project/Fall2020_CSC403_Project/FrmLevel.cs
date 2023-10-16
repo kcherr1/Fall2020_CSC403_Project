@@ -39,7 +39,7 @@ namespace Fall2020_CSC403_Project {
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+        walls[w] = new Character(CreatePosition(pic), CreateWallCollider(pic, 0, picPlayer.Size.Height));
       }
 
       Game.player = player;
@@ -55,7 +55,22 @@ namespace Fall2020_CSC403_Project {
       return new Collider(rect);
     }
 
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
+    private Collider CreateWallCollider(PictureBox pic, int padding, int characterHeight)
+    {
+        Rectangle rect;
+        if (pic.Size.Width > pic.Size.Height)
+        {
+            rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, Convert.ToInt32(Math.Max(pic.Size.Height-characterHeight, pic.Size.Height*.1))));
+        } else
+        {
+            rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+        }
+
+        
+        return new Collider(rect);
+    }
+
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       player.ResetMoveSpeed();
     }
 
