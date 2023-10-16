@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 #pragma warning disable 1591 // use this to disable comment warnings
-
+// test comment
 namespace Fall2020_CSC403_Project.code {
   public class BattleCharacter : Character {
     public int Health { get; private set; }
