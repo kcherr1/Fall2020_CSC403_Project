@@ -104,59 +104,84 @@ namespace Fall2020_CSC403_Project {
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
-    private bool HitAWall(Character c) {
-      bool hitAWall = false;
-      for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
-          hitAWall = true;
-          break;
+        private bool HitAWall(Character c) {
+          bool hitAWall = false;
+          for (int w = 0; w < walls.Length; w++) {
+            if (c.Collider.Intersects(walls[w].Collider)) {
+              hitAWall = true;
+              break;
+            }
+          }
+          return hitAWall;
         }
-      }
-      return hitAWall;
-    }
 
-    private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
-    }
+        private bool HitAChar(Character you, Character other) {
+          return you.Collider.Intersects(other.Collider);
+        }
 
-    private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
-
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
-
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      picPlayer.BringToFront();
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
-
-        case Keys.Right:
-          player.GoRight();
-          break;
-
-        case Keys.Up:
-          player.GoUp();
-          break;
-
-        case Keys.Down:
-          player.GoDown();
-          break;
-
-        default:
+        private void Fight(Enemy enemy) {
           player.ResetMoveSpeed();
-          break;
-      }
-    }
+          player.MoveBack();
+          frmBattle = FrmBattle.GetInstance(enemy);
+          frmBattle.Show();
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+          if (enemy == bossKoolaid) {
+            frmBattle.SetupForBossBattle();
+          }
+        }
 
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+          picPlayer.BringToFront();
+          switch (e.KeyCode) {
+            case Keys.Left:
+              player.GoLeft();
+              break;
+
+            case Keys.Right:
+              player.GoRight();
+              break;
+
+            case Keys.Up:
+              player.GoUp();
+              break;
+
+            case Keys.Down:
+              player.GoDown();
+              break;
+
+            default:
+              player.ResetMoveSpeed();
+              break;
+          }
+        }
+
+        private void lblInGameTime_Click(object sender, EventArgs e) {
+
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            base.OnPaintBackground(e);
+            Graphics g = e.Graphics;
+
+            if (this.Parent != null)
+            {
+                var index = Parent.Controls.GetChildIndex(this);
+                for (var i = Parent.Controls.Count - 1; i > index; i--)
+                {
+                    var c = Parent.Controls[i];
+                    if (c.Bounds.IntersectsWith(Bounds) && c.Visible)
+                    {
+                        using (var bmp = new Bitmap(c.Width, c.Height, g))
+                        {
+                            c.DrawToBitmap(bmp, c.ClientRectangle);
+                            g.TranslateTransform(c.Left - Left, c.Top - Top);
+                            g.DrawImageUnscaled(bmp, Point.Empty);
+                            g.TranslateTransform(Left - c.Left, Top - c.Top);
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
 }
