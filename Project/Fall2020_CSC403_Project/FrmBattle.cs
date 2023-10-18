@@ -70,7 +70,13 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (enemy.Health <= 0) {
+        enemy.Die();
+        instance = null;
+        Close();
+      }
+      else if (player.Health <= 0) {
+        player.Die();
         instance = null;
         Close();
       }

@@ -24,9 +24,9 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), picBossKoolAid);
+      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), picEnemyPoisonPacket);
+      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto);
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -56,7 +56,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      player.ResetMoveSpeed();
+      if (!player.CharacterIsMoving())
+      {
+           player.ResetMoveSpeed();
+      }
+
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
@@ -116,27 +120,34 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      bool characterMoving = false;
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
+          characterMoving = true;  
           break;
 
         case Keys.Right:
           player.GoRight();
+          characterMoving = true;
           break;
 
         case Keys.Up:
           player.GoUp();
+          characterMoving = true;
           break;
 
         case Keys.Down:
           player.GoDown();
+          characterMoving = true;
           break;
 
         default:
           player.ResetMoveSpeed();
+          characterMoving = false;
           break;
       }
+      player.SetCharacterMoving(characterMoving);
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
