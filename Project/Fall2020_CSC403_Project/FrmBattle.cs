@@ -72,12 +72,14 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (enemy.Health <= 0) {
         enemy.Die();
+        instance = null;
+        Close();
       }
       else if (player.Health <= 0) {
-        player.Die();  
+        player.Die();
+        instance = null;
+        Close();
       }
-      instance = null;
-      Close();
     }
 
     private void EnemyDamage(int amount) {
