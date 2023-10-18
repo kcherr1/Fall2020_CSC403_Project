@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
-
+    private bool isPaused = false;
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
@@ -66,8 +66,12 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      // move player
-      player.Move();
+            if (isPaused)
+            {
+                return; // Skip moving if the game is paused
+            }
+            // move player
+            player.Move();
 
       // check collision with walls
       if (HitAWall(player)) {
@@ -102,44 +106,58 @@ namespace Fall2020_CSC403_Project {
 
     private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
+        }
+
+        private void Fight(Enemy enemy)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.Show();
+
+            if (enemy == bossKoolaid)
+            {
+                frmBattle.SetupForBossBattle();
+            }
+        }
+
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (isPaused && e.KeyCode != Keys.Escape)
+        {
+            return; // If the game is paused, ignore other keys
+        }
+
+        switch (e.KeyCode)
+        {
+            case Keys.Escape:
+                isPaused = !isPaused; // Toggle pause state
+                break;
+
+            case Keys.Left:
+                player.GoLeft();
+                break;
+
+            case Keys.Right:
+                player.GoRight();
+                break;
+
+            case Keys.Up:
+                player.GoUp();
+                break;
+
+            case Keys.Down:
+                player.GoDown();
+                break;
+
+            default:
+                player.ResetMoveSpeed();
+                break;
+        }
     }
 
-    private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
 
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
-
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
-
-        case Keys.Right:
-          player.GoRight();
-          break;
-
-        case Keys.Up:
-          player.GoUp();
-          break;
-
-        case Keys.Down:
-          player.GoDown();
-          break;
-
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
-    }
-
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+        private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
   }
