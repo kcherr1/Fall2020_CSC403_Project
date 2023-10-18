@@ -76,6 +76,15 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
+    private void btnFlee_Click(object sender, EventArgs e)
+        {
+            //observers have to be cleared, otherwise other instances will do n*damage
+            enemy.AttackEvent -= PlayerDamage;
+            player.AttackEvent -= EnemyDamage;
+            instance = null;
+            Close();
+        }
+
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
