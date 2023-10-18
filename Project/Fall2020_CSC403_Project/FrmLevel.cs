@@ -56,7 +56,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      player.ResetMoveSpeed();
+        player.ResetMoveSpeed();
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
