@@ -56,12 +56,33 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      if (!player.CharacterIsMoving())
+      if(player.MovementValue() <= 1)
       {
-           player.ResetMoveSpeed();
+                player.ResetMoveSpeed();
       }
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    player._movementBools[0] = false;
+                    break;
 
-    }
+                case Keys.Right:
+                    player._movementBools[1] = false;
+                    break;
+
+                case Keys.Up:
+                    player._movementBools[2] = false;
+                    break;
+
+                case Keys.Down:
+                    player._movementBools[3] = false;
+                    break;
+
+                default:
+                    player.ResetMoveSpeed();
+                    break;
+            }
+        }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
       TimeSpan span = DateTime.Now - timeBegin;
@@ -120,34 +141,31 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      bool characterMoving = false;
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
-          characterMoving = true;  
+                    player._movementBools[0] = true;
           break;
 
         case Keys.Right:
           player.GoRight();
-          characterMoving = true;
-          break;
+                    player._movementBools[1] = true;
+                    break;
 
         case Keys.Up:
           player.GoUp();
-          characterMoving = true;
-          break;
+                    player._movementBools[2] = true;
+                    break;
 
         case Keys.Down:
           player.GoDown();
-          characterMoving = true;
-          break;
+                    player._movementBools[3] = true;
+                    break;
 
         default:
           player.ResetMoveSpeed();
-          characterMoving = false;
           break;
       }
-      player.SetCharacterMoving(characterMoving);
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
