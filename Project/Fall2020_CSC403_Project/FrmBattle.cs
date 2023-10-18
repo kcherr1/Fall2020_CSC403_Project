@@ -27,14 +27,16 @@ namespace Fall2020_CSC403_Project {
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
 
-      // show health
+      // show health and health packs
       UpdateHealthBars();
+      HealthPackCountLabel.Text = player.HealthPackCount.ToString();
     }
 
     public void SetupForBossBattle() {
       picBossBattle.Location = Point.Empty;
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
+      picBossBattle.BringToFront();
 
       SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
       simpleSound.Play();
@@ -88,5 +90,19 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
+
+     private void Heal_Click(object sender, EventArgs e){
+        if (player.HealthPackCount > 0 && player.Health != player.MaxHealth) {
+            player.UseHealthPack();
+            if (player.Health + 10 > player.MaxHealth) {
+                player.AlterHealth(player.MaxHealth - player.Health);
+            }
+            else {
+                player.AlterHealth(10);
+            }
+            UpdateHealthBars();
+            HealthPackCountLabel.Text = player.HealthPackCount.ToString();
+        }
+     }
   }
 }
