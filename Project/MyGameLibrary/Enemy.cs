@@ -22,5 +22,10 @@ namespace Fall2020_CSC403_Project.code {
     /// <param name="collider">this is the collider for the enemy</param>
     public Enemy(Vector2 initPos, Collider collider) : base(initPos, collider) {
     }
+
+    public override void Die()
+    {
+
+    }
   }
 }
