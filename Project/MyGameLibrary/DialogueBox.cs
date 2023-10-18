@@ -15,6 +15,7 @@ namespace Fall2020_CSC403_Project.code {
     public class DialogueBox : Character {
         public Image Img { get; set; }
         public PictureBox PictureBox { get; set; }
+        public bool IsShown = true;
 
         public DialogueBox(Vector2 initPos, Collider collider, PictureBox picturebox) : base(initPos, collider) {
             //string[] lines = new string[] { "Line 1", "Line 2" };
@@ -29,18 +30,31 @@ namespace Fall2020_CSC403_Project.code {
         }
 
         public void ShowBox() {
-
+            PictureBox.Location = new Point(149, 567);
+            IsShown = true;
         }
 
-        public void RemoveBox() {
+        public void HideBox() {
+            PictureBox.Location = new Point(149, 1000);
+            IsShown = false;
+        }
 
+        public void ToggleBox() {
+            if (IsShown)
+            {
+                HideBox();
+            }
+            else
+            {
+                ShowBox();
+            }
         }
 
         public void TypeText() {
 
         }
 
-        public void NextBox() {
+        public void GetNextText() {
 
         }
     }

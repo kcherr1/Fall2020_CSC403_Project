@@ -45,10 +45,11 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
-
+      // Console.WriteLine(picDialogueBox.Location.X);
+      // Console.WriteLine(picDialogueBox.Location.Y);
       // dialogueBox.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
-      Game.player = player;
+            Game.player = player;
       timeBegin = DateTime.Now;
     }
 
@@ -148,6 +149,10 @@ namespace Fall2020_CSC403_Project {
           characterMoving = true;
           break;
 
+        case Keys.X:
+          dialogueBox.ToggleBox();
+          break;
+          
         default:
           player.ResetMoveSpeed();
           characterMoving = false;
@@ -159,5 +164,10 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
