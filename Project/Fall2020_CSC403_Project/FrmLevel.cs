@@ -23,7 +23,7 @@ namespace Fall2020_CSC403_Project {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, 0));
+      player = new Player(CreatePosition(mainCharacter), CreateCollider(mainCharacter, 0));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -39,9 +39,10 @@ namespace Fall2020_CSC403_Project {
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateWallCollider(pic, 0, picPlayer.Size.Height));
+        walls[w] = new Character(CreatePosition(pic), CreateWallCollider(pic, 0, mainCharacter.Size.Height));
       }
 
+       /*this.Transparent_images_Click();*/
       Game.player = player;
       timeBegin = DateTime.Now;
     }
@@ -54,8 +55,8 @@ namespace Fall2020_CSC403_Project {
       Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
       return new Collider(rect);
     }
-    // needed to create different size hitbox for walls
-    private Collider CreateWallCollider(PictureBox pic, int padding, int characterHeight)
+        // needed to create different size hitbox for walls
+        private Collider CreateWallCollider(PictureBox pic, int padding, int characterHeight)
     {
         Rectangle rect;
         if (pic.Size.Width > pic.Size.Height)
@@ -101,7 +102,7 @@ namespace Fall2020_CSC403_Project {
       }
 
       // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      mainCharacter.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
         private bool HitAWall(Character c) {
@@ -131,7 +132,7 @@ namespace Fall2020_CSC403_Project {
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-          picPlayer.BringToFront();
+          mainCharacter.BringToFront();
           switch (e.KeyCode) {
             case Keys.Left:
               player.GoLeft();
@@ -158,6 +159,7 @@ namespace Fall2020_CSC403_Project {
         private void lblInGameTime_Click(object sender, EventArgs e) {
 
         }
+
 
     }
 }
