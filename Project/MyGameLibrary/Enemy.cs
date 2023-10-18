@@ -25,7 +25,7 @@ namespace Fall2020_CSC403_Project.code {
 
     public override void Die()
     {
-
+    
     }
   }
 }
