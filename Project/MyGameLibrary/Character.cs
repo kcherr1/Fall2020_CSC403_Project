@@ -44,5 +44,10 @@ namespace Fall2020_CSC403_Project.code {
     public void ResetMoveSpeed() {
       MoveSpeed = new Vector2(0, 0);
     }
+
+    public void DisableCollider()
+    {
+        Collider.RemoveCollider();
+    }
   }
 }
