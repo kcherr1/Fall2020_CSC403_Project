@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project.code {
     public int Health { get; private set; }
     public int MaxHealth { get; private set; }
     public int HealthPackCount { get; private set; }
+    public Boolean WeaponEquiped { get; private set; }
     private float strength;
 
     public event Action<int> AttackEvent;
@@ -19,6 +20,7 @@ namespace Fall2020_CSC403_Project.code {
       MaxHealth = 20;
       strength = 2;
       HealthPackCount = 3;
+      WeaponEquiped = false;
       Health = MaxHealth;
     }
 
