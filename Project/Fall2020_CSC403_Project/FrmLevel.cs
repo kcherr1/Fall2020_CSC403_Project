@@ -56,7 +56,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-        player.ResetMoveSpeed();
+      if (!player.CharacterIsMoving())
+      {
+           player.ResetMoveSpeed();
+      }
+
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
@@ -116,27 +120,34 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      bool characterMoving = false;
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
+          characterMoving = true;  
           break;
 
         case Keys.Right:
           player.GoRight();
+          characterMoving = true;
           break;
 
         case Keys.Up:
           player.GoUp();
+          characterMoving = true;
           break;
 
         case Keys.Down:
           player.GoDown();
+          characterMoving = true;
           break;
 
         default:
           player.ResetMoveSpeed();
+          characterMoving = false;
           break;
       }
+      player.SetCharacterMoving(characterMoving);
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
