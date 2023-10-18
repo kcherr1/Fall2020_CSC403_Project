@@ -351,6 +351,7 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-  }
+    private System.Windows.Forms.PictureBox picDialogueBox;
+    }
 }
 
