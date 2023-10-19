@@ -122,6 +122,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\ammo.png" />
     <Content Include="data\health_pack.png" />
     <Content Include="data\weapon1.png" />
   </ItemGroup>

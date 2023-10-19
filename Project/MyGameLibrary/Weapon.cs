@@ -1,20 +1,22 @@
 ﻿using System;
 
-public class Weapon : Character {
+namespace Fall2020_CSC403_Project.code{
+  public class Weapon : Character{
 
-  public event Action<int> AttackEvent;
+    public event Action<int> AttackEvent;
 
-  private float strength;
+    private int strength;
 
-  public Weapon(Vector2 initPos, Collider collider) : base(initPos, collider){
-    strength = 1;
-  }
-    
-  public float getStrength(){
-    return strength;
-  }
+    public Weapon(Vector2 initPos, Collider collider) : base(initPos, collider){
+      strength = 0;
+    }
 
-  public void setStrength(float strength){
-    this.strength = strength;
+    public int getStrength(){
+      return strength;
+    }
+
+    public void setStrength(int strength){
+      this.strength = strength;
+    }
   }
 }

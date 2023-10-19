@@ -12,6 +12,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Character[] walls;
 
+    private Weapon ak;
+
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
@@ -35,6 +37,9 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+
+      ak = new Weapon(CreatePosition(weapon1), CreateCollider(weapon1, PADDING));
+      ak.setStrength(4);
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -80,6 +85,11 @@ namespace Fall2020_CSC403_Project {
       }
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
+      }
+      else if (HitAChar(player, ak)){
+        player.WeaponStrength = ak.getStrength();
+        player.WeaponEquiped = true;
+        weapon1.Visible = false;
       }
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
