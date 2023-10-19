@@ -92,7 +92,7 @@ namespace Fall2020_CSC403_Project {
     }
 
      private void Heal_Click(object sender, EventArgs e){
-        if (player.HealthPackCount > 0 && player.Health != player.MaxHealth) {
+         if (player.HealthPackCount > 0 && player.Health != player.MaxHealth) {
             player.UseHealthPack();
             if (player.Health + 10 > player.MaxHealth) {
                 player.AlterHealth(player.MaxHealth - player.Health);
