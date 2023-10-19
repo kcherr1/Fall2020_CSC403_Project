@@ -62,11 +62,59 @@ namespace Fall2020_CSC403_Project {
       lblPlayerHealthFull.Text = player.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
+        private int playerHitAmount()
+        {
+            Random rand = new Random();
 
-    private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+            uint num = (uint)rand.Next();
+            uint hit = num % 3;
+
+            if(hit == 0)
+            {
+                return -3;
+            }
+            if(hit == 1)
+            {
+                return -4;
+            }
+            if(hit == 2)
+            {
+                return -5;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        private int enemyHitAmount()
+        {
+            Random rand = new Random();
+
+            uint a = (uint)rand.Next();
+            uint hit = a % 3;
+
+            if (hit == 0)
+            {
+                return -2;
+            }
+            if (hit == 1)
+            {
+                return -3;
+            }
+            if (hit == 2)
+            {
+                return -4;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+      private void btnAttack_Click(object sender, EventArgs e) {
+      player.OnAttack(playerHitAmount()); //range -3,-4,-5
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+                enemy.OnAttack(enemyHitAmount()); //range -2,-3,-4
       }
 
       UpdateHealthBars();
@@ -83,7 +131,7 @@ namespace Fall2020_CSC403_Project {
     private void PlayerDamage(int amount) {
       player.AlterHealth(amount);
     }
-
+    
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
