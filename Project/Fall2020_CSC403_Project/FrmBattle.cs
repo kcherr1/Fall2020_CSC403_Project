@@ -3,6 +3,7 @@ using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
 using System.Media;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -22,6 +23,9 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
+      if (player.WeaponEquiped){
+        weapon.Visible = true;
+      }
 
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
@@ -65,10 +69,24 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
-    private void btnAttack_Click(object sender, EventArgs e) {
+    private async void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
+      }
+
+      if (player.WeaponEquiped){
+        gunfireBlast.Visible = true;
+        wait(100);
+        gunfireBlast.Visible = false;
+        wait(100);
+        gunfireBlast.Visible = true;
+        wait(100);
+        gunfireBlast.Visible = false;
+        wait(100);
+        gunfireBlast.Visible = true;
+        wait(100);
+        gunfireBlast.Visible = false;
       }
 
       UpdateHealthBars();
@@ -104,5 +122,29 @@ namespace Fall2020_CSC403_Project {
             HealthPackCountLabel.Text = player.HealthPackCount.ToString();
         }
      }
+
+    // Found this code at: https://stackoverflow.com/questions/10458118/wait-one-second-in-running-program
+    public void wait(int milliseconds)
+    {
+      var timer1 = new System.Windows.Forms.Timer();
+      if (milliseconds == 0 || milliseconds < 0) return;
+
+      // Console.WriteLine("start wait timer");
+      timer1.Interval = milliseconds;
+      timer1.Enabled = true;
+      timer1.Start();
+
+      timer1.Tick += (s, e) =>
+      {
+        timer1.Enabled = false;
+        timer1.Stop();
+        // Console.WriteLine("stop wait timer");
+      };
+
+      while (timer1.Enabled)
+      {
+        Application.DoEvents();
+      }
+    }
   }
 }
