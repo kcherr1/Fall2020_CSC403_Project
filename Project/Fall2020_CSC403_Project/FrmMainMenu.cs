@@ -26,6 +26,7 @@ namespace Fall2020_CSC403_Project
             FrmLevel frmLevel = new FrmLevel();
             frmLevel.Show();
 
+            instance = null;
             //this.Close();
         }
 
