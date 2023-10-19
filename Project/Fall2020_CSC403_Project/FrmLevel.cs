@@ -29,7 +29,7 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), picBossKoolAid);
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), picEnemyPoisonPacket);
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto);
-      dialogueBox = new DialogueBox(CreatePosition(picDialogueBox), CreateCollider(picDialogueBox, PADDING), picDialogueBox);
+      dialogueBox = new DialogueBox(CreatePosition(picDialogueBox), CreateCollider(picDialogueBox, PADDING), picDialogueBox, dialogLabel);
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -45,9 +45,8 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
-      // Console.WriteLine(picDialogueBox.Location.X);
-      // Console.WriteLine(picDialogueBox.Location.Y);
-      // dialogueBox.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      Console.WriteLine(dialogLabel.Location.X);
+      Console.WriteLine(dialogLabel.Location.Y);
 
             Game.player = player;
       timeBegin = DateTime.Now;
@@ -162,10 +161,8 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
-
     }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void picDialogueBox_Click(object sender, EventArgs e)
         {
 
         }

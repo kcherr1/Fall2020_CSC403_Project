@@ -46,6 +46,7 @@
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picDialogueBox = new System.Windows.Forms.PictureBox();
+            this.dialogLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -307,7 +308,20 @@
             this.picDialogueBox.Size = new System.Drawing.Size(1170, 183);
             this.picDialogueBox.TabIndex = 18;
             this.picDialogueBox.TabStop = false;
-            this.picDialogueBox.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picDialogueBox.Click += new System.EventHandler(this.picDialogueBox_Click);
+            // 
+            // dialogLabel
+            // 
+            this.dialogLabel.AutoSize = true;
+            this.dialogLabel.BackColor = System.Drawing.Color.Black;
+            this.dialogLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dialogLabel.ForeColor = System.Drawing.Color.White;
+            this.dialogLabel.Location = new System.Drawing.Point(220, 718);
+            this.dialogLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dialogLabel.Name = "dialogLabel";
+            this.dialogLabel.Size = new System.Drawing.Size(60, 24);
+            this.dialogLabel.TabIndex = 19;
+            this.dialogLabel.Text = "dialogLabel";
             // 
             // FrmLevel
             // 
@@ -316,6 +330,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
+            this.Controls.Add(this.dialogLabel);
             this.Controls.Add(this.picDialogueBox);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
@@ -389,6 +404,7 @@
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
     private System.Windows.Forms.PictureBox picDialogueBox;
+    private System.Windows.Forms.Label dialogLabel;
     }
 }
 
