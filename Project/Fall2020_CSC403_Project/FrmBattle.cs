@@ -90,8 +90,8 @@ namespace Fall2020_CSC403_Project {
         {
             Random rand = new Random();
 
-            uint a = (uint)rand.Next();
-            uint hit = a % 3;
+            uint num = (uint)rand.Next();
+            uint hit = num % 3;
 
             if (hit == 0)
             {
