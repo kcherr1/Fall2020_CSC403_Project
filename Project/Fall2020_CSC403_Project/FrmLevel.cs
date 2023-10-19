@@ -12,8 +12,6 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Character[] walls;
 
-    private Weapon
-
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
