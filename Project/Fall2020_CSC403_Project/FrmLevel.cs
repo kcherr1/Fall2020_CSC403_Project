@@ -121,40 +121,177 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
-    {
-        if (isPaused && e.KeyCode != Keys.Escape)
+        private Bitmap BlurImage(Bitmap image)
         {
-            return; // If the game is paused, ignore other keys
+            float blurValue = 5.0f;
+            Bitmap result = new Bitmap(image.Width, image.Height);
+            using (Graphics g = Graphics.FromImage(result))
+            {
+                // Create blur effect
+                System.Drawing.Imaging.ImageAttributes blur = new System.Drawing.Imaging.ImageAttributes();
+                blur.SetColorMatrix(new System.Drawing.Imaging.ColorMatrix(new float[][] {
+                    new float[] {1, 0, 0, 0, 0},
+                    new float[] {0, 1, 0, 0, 0},
+                    new float[] {0, 0, 1, 0, 0},
+                    new float[] {0, 0, 0, 1, 0},
+                    new float[] {0, 0, 0, 0, 1}
+                    }));
+                blur.SetGamma(blurValue);
+
+                // Draw the original image over the effect
+                g.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height),
+                            0, 0, image.Width, image.Height,
+                            GraphicsUnit.Pixel, blur);
+            }
+            return result;
         }
 
-        switch (e.KeyCode)
+
+        private void BlurBackground()
         {
-            case Keys.Escape:
+            // Capture the current screen
+            Bitmap screenshot = new Bitmap(this.Width, this.Height);
+            this.DrawToBitmap(screenshot, new Rectangle(0, 0, this.Width, this.Height));
+
+            // Apply blur
+            Bitmap blurredScreenshot = BlurImage(screenshot);
+
+            // Create a PictureBox to hold the blurred screenshot
+            PictureBox blurOverlay = new PictureBox
+            {
+                Size = new Size(this.Width, this.Height),
+                Location = new Point(-10, -30),
+                Image = blurredScreenshot,
+                Name = "blurOverlay"
+            };
+
+            // Add the PictureBox to your form
+            this.Controls.Add(blurOverlay);
+            blurOverlay.BringToFront();
+        }
+
+
+        private void AddPauseButtons()
+        {
+            // Create Exit button
+            Button btnExit = new Button();
+            btnExit.Text = "Exit";
+            btnExit.Size = new Size(100, 50);
+            btnExit.Location = new Point(this.Width / 2 - btnExit.Width - 30, this.Height / 2); // Centered
+            btnExit.Font = new Font("Arial", 12, FontStyle.Bold);  // Change the font style
+            btnExit.BackColor = Color.LightCoral; // Change the background color
+            btnExit.ForeColor = Color.White;  // Change the text color
+            btnExit.Click += (s, e) => { Application.Exit(); }; // Close the program when clicked
+            btnExit.Name = "btnExit";
+            this.Controls.Add(btnExit);
+            btnExit.BringToFront();
+
+            // Create Restart button
+            Button btnRestart = new Button();
+            btnRestart.Text = "Restart";
+            btnRestart.Size = new Size(100, 50);
+            btnRestart.Location = new Point(this.Width / 2 + 30, this.Height / 2); // Centered
+            btnRestart.Font = new Font("Arial", 12, FontStyle.Bold);  // Change the font style
+            btnRestart.BackColor = Color.LightGreen; // Change the background color
+            btnRestart.ForeColor = Color.White;  // Change the text color
+            btnRestart.Click += (s, e) => { Application.Restart(); }; // Restart the program when clicked
+            btnRestart.Name = "btnRestart";
+            this.Controls.Add(btnRestart);
+            btnRestart.BringToFront();
+
+            // Create Game Paused label
+            Label lblPaused = new Label();
+            lblPaused.Text = "Paused";
+            lblPaused.Size = new Size(300, 70);  // Increased size
+            lblPaused.Location = new Point(this.Width / 2 - 150, this.Height / 2 - 150);  // Centered
+            lblPaused.Font = new Font("Verdana", 28, FontStyle.Bold);  // Changed font and size
+            lblPaused.ForeColor = Color.Gold;  // Changed text color
+            lblPaused.BackColor = Color.Transparent;  // Made background transparent
+            lblPaused.Name = "lblPaused";
+            lblPaused.TextAlign = ContentAlignment.MiddleCenter;
+            this.Controls.Add(lblPaused);
+            lblPaused.BringToFront();
+
+            // Updated flashing Press ESC label
+            Label lblPressEsc = new Label();
+            lblPressEsc.Text = "Press 'ESC' key to Resume";
+            lblPressEsc.Size = new Size(300, 20);  // Increased size
+            lblPressEsc.Location = new Point(this.Width / 2 - 150, this.Height / 2 - 50);  // Centered
+            lblPressEsc.Font = new Font("Verdana", 8, FontStyle.Italic);  // Changed font and size
+            lblPressEsc.ForeColor = Color.LightGray;  // Changed text color
+            lblPressEsc.BackColor = Color.Transparent;  // Made background transparent
+            lblPressEsc.Name = "lblPressEsc";
+            lblPressEsc.TextAlign = ContentAlignment.MiddleCenter;
+            this.Controls.Add(lblPressEsc);
+            lblPressEsc.BringToFront();
+
+            // Timer for flashing text (same as before)
+            Timer flashTimer = new Timer();
+            flashTimer.Interval = 500; // half a second
+            flashTimer.Tick += (s, e) => { lblPressEsc.Visible = !lblPressEsc.Visible; };
+            flashTimer.Start();
+
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
                 isPaused = !isPaused; // Toggle pause state
-                break;
+                if (isPaused)
+                {
+                    BlurBackground();
+                    AddPauseButtons(); // Add Exit and Restart buttons
+                }
+                else
+                {
+                    Controls.RemoveByKey("blurOverlay"); // Remove the blur when unpaused
+                    Controls.RemoveByKey("btnExit"); // Remove the Exit button
+                    Controls.RemoveByKey("btnRestart"); // Remove the Restart button
+                    Controls.RemoveByKey("lblPaused"); // Remove the Pause label
+                    Controls.RemoveByKey("lblPressEsc"); // Remove the Press ESC label
+                }
 
-            case Keys.Left:
-                player.GoLeft();
-                break;
-
-            case Keys.Right:
-                player.GoRight();
-                break;
-
-            case Keys.Up:
-                player.GoUp();
-                break;
-
-            case Keys.Down:
-                player.GoDown();
-                break;
-
-            default:
-                player.ResetMoveSpeed();
-                break;
+                return true; // Indicate that you've handled this key
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
-    }
+
+
+
+
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (isPaused && e.KeyCode != Keys.Escape)
+            {
+                return; // If the game is paused, ignore other keys
+            }
+
+            switch (e.KeyCode)
+            {
+
+                case Keys.Left:
+                    player.GoLeft();
+                    break;
+
+                case Keys.Right:
+                    player.GoRight();
+                    break;
+
+                case Keys.Up:
+                    player.GoUp();
+                    break;
+
+                case Keys.Down:
+                    player.GoDown();
+                    break;
+
+                default:
+                    player.ResetMoveSpeed();
+                    break;
+            }
+        }
+
 
 
         private void lblInGameTime_Click(object sender, EventArgs e) {
