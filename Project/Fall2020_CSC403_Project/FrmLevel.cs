@@ -132,6 +132,10 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
+        
+        case Keys.Escape:
+          MessageBox.Show("Escape");
+          break;
 
         default:
           player.ResetMoveSpeed();
@@ -142,5 +146,12 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+    private void button1_Click(object sender, EventArgs e)
+        {
+            SettingsMenu secondaryForm = new SettingsMenu();
+            secondaryForm.ShowDialog();
+
+        }
+    }
 }
