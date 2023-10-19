@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class BattleCharacter : Character {
-    public int Health { get; private set; }
-    public int MaxHealth { get; private set; }
-    private float strength;
+    public int Health { get; protected set; }
+    public int MaxHealth { get; protected set; }
+    public float strength { get; protected set; }
 
     public int experience { get; protected set; }
 
@@ -18,13 +18,14 @@ namespace Fall2020_CSC403_Project.code {
 
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
       MaxHealth = 20;
-      strength = 2;
+      strength = 0;
       experience = 10;
       Health = MaxHealth;
     }
 
+    //amount should be a negative number, so subtract strength
     public void OnAttack(int amount) {
-      AttackEvent((int)(amount * strength));
+      AttackEvent((int)(amount - strength));
     }
 
     public void AlterHealth(int amount) {
