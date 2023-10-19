@@ -1,12 +1,7 @@
+using System.Drawing;
+
 namespace Fall2020_CSC403_Project.code
 {
-    class Archetype
-    {
-        public Archetype()
-        {
-
-        }
-    }
     interface PlayerArchetype
     {
         private int maxHealth;
@@ -17,27 +12,50 @@ namespace Fall2020_CSC403_Project.code
 
     class Tank : PlayerArchetype
     {
-        private int maxHealth = 100;
-        private int baseDefense = 10;
-        private int baseDamage = 5;
-        private int baseSpeed = 0;
+        private int maxHealth  { get; private set; }
+        private int baseDefense  { get; private set; }
+        private int baseDamage  { get; private set; }
+        private int baseSpeed  { get; private set; }
 
+        public Tank()
+        {
+            maxHealth = 100;
+            baseDefense = 10;
+            baseDamage = 5;
+            baseSpeed = 0;
+        }
     }
 
     class Rogue : PlayerArchetype
     {
-        private int maxHealth = 20;
-        private int baseDefense = 2;
-        private int baseDamage = 20;
-        private int baseSpeed = 5;
+        private int maxHealth { get; private set; }
+        private int baseDefense { get; private set; }
+        private int baseDamage { get; private set; }
+        private int baseSpeed { get; private set; }
+
+        public Rogue()
+        {
+            maxHealth = 20;
+            baseDefense = 2;
+            baseDamage = 10;
+            baseSpeed = 5;
+        }
     }
 
     class Swordsman : PlayerArchetype
     {
-        private int maxHealth = 50;
-        private int baseDefense = 5;
-        private int baseDamage = 10;
-        private int baseSpeed = 2;
+        private int maxHealth { get; private set; }
+        private int baseDefense { get; private set; }
+        private int baseDamage { get; private set; }
+        private int baseSpeed { get; private set; }
+
+        public Swordsman()
+        {
+            maxHealth = 50;
+            baseDefense = 5;
+            baseDamage = 10;
+            baseSpeed = 2;
+        }
     }
     
 }
