@@ -2,6 +2,8 @@
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
     public class DialogueBox : Character {
@@ -10,6 +12,7 @@ namespace Fall2020_CSC403_Project.code {
         public Label DialogueLabel { get; set; }
 
         public bool IsShown = true;
+        string defaultText = "default line";
 
         int[] shownPoint = { 149, 567 };
         int[] hidePoint = { 149, 1000 };
@@ -20,12 +23,10 @@ namespace Fall2020_CSC403_Project.code {
         public DialogueBox(Vector2 initPos, Collider collider, PictureBox picturebox, Label dialogueLabel) : base(initPos, collider) {
             //string[] lines = new string[] { "Line 1", "Line 2" };
             //double[] letterSpeeds = new double[] { 0.1, 0.1 };
-            //int line = 0;
-            //bool dialogueOn = false;
+
             PictureBox = picturebox;
             DialogueLabel = dialogueLabel;
-            string text = "default line";
-            double letterSpeed = 0.1;
+            
             DialogueBox nextDialogueBox = null;
             HideBox();
             DisableCollider();
@@ -35,27 +36,39 @@ namespace Fall2020_CSC403_Project.code {
             PictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
             DialogueLabel.Location = new Point(labelShownPoint[0], labelShownPoint[1]);
             IsShown = true;
+            TypeText();
         }
 
         public void HideBox() {
             PictureBox.Location = new Point(hidePoint[0], hidePoint[1]);
             DialogueLabel.Location = new Point(labelHidePoint[0], labelHidePoint[1]);
+            DialogueLabel.Text = "";
             IsShown = false;
         }
 
         public void ToggleBox() {
-            if (IsShown)
-            {
+            if (IsShown) {
                 HideBox();
             }
-            else
-            {
+            else {
                 ShowBox();
             }
         }
 
-        public void TypeText() {
+        async Task TextDelay() { 
+            await Task.Delay(50);
+        }
 
+        public async void TypeText() {
+
+            // Had help from this source for timing purposes
+            // https://stackoverflow.com/questions/22158278/wait-some-seconds-without-blocking-ui-execution
+            String text = "";
+            for (int i = 0; i < defaultText.Length; i++) {
+                text = text + defaultText[i];
+                DialogueLabel.Text = text;
+                await TextDelay();
+            }
         }
 
         public void GetNextText() {
