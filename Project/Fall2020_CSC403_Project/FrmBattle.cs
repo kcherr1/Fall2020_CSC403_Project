@@ -2,6 +2,7 @@
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Media;
 using System.Windows.Forms;
 
@@ -18,6 +19,7 @@ namespace Fall2020_CSC403_Project {
 
     public void Setup() {
       // update for this enemy
+      battleTheme.Play();
       picEnemy.BackgroundImage = enemy.Img;
       picEnemy.Refresh();
       BackColor = enemy.Color;
@@ -35,9 +37,9 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Location = Point.Empty;
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
-
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-      simpleSound.Play();
+      //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+      //simpleSound.Play();
+      battleTheme.Play();
 
       tmrFinalBattle.Enabled = true;
     }
