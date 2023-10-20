@@ -9,6 +9,13 @@ namespace Fall2020_CSC403_Project
     {
         public Settings()
         {
+            Initializer()
+        }
+
+        private void Initializer()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
 
         }
     }
