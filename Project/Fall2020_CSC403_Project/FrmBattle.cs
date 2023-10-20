@@ -26,6 +26,7 @@ namespace Fall2020_CSC403_Project {
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
+      player.HealEvent += PlayerHeal;
 
       // show health
       UpdateHealthBars();
@@ -76,6 +77,36 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
+    private void btnHeal_Click(object sender, EventArgs e)
+        {
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+            else
+            {
+
+                if ((player.Health + 8) > 20)
+                {
+                    player.OnHeal(20 - player.Health);
+                }
+                else
+                {
+                    player.OnHeal(8);
+                }
+
+
+                if (enemy.Health > 0)
+                {
+                    enemy.OnAttack(-2);
+                }
+
+                UpdateHealthBars();
+            }
+
+        }
+
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
@@ -83,6 +114,11 @@ namespace Fall2020_CSC403_Project {
     private void PlayerDamage(int amount) {
       player.AlterHealth(amount);
     }
+
+    private void PlayerHeal(int amount)
+        {
+            player.AlterHealth(amount);
+        }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
