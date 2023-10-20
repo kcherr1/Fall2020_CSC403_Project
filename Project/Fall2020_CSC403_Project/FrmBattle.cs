@@ -14,6 +14,9 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
+      this.FormClosed += (s, args) => { instance = null; 
+                                        enemy.AttackEvent -= PlayerDamage;
+                                        player.AttackEvent -= EnemyDamage; };
     }
 
     public void Setup() {
