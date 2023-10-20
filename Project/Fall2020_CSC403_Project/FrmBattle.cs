@@ -19,7 +19,7 @@ namespace Fall2020_CSC403_Project {
 
     public void Setup() {
       // update for this enemy
-      battleTheme.Play();
+      battleTheme.PlayLooping();
       picEnemy.BackgroundImage = enemy.Img;
       picEnemy.Refresh();
       BackColor = enemy.Color;
@@ -39,7 +39,7 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = true;
       //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
       //simpleSound.Play();
-      battleTheme.Play();
+      battleTheme.PlayLooping();
 
       tmrFinalBattle.Enabled = true;
     }
