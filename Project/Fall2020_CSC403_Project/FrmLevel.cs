@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -11,9 +12,11 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
-
     private DateTime timeBegin;
+    private TimeSpan totalTimePaused;
+    private DateTime pauseBegin;
     private FrmBattle frmBattle;
+    private SoundPlayer theme = new SoundPlayer("theme.wav");
 
     public FrmLevel() {
       InitializeComponent();
@@ -43,7 +46,13 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
+
+      // handling timer
       timeBegin = DateTime.Now;
+      totalTimePaused = new TimeSpan(0, 0, 0, 0, 0);
+
+      //start theme song
+      theme.PlayLooping();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -60,7 +69,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
+      TimeSpan span = DateTime.Now - timeBegin - totalTimePaused;
       string time = span.ToString(@"hh\:mm\:ss");
       lblInGameTime.Text = "Time: " + time.ToString();
     }
@@ -146,7 +155,6 @@ namespace Fall2020_CSC403_Project {
             return result;
         }
 
-
         private void BlurBackground()
         {
             // Capture the current screen
@@ -169,7 +177,6 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(blurOverlay);
             blurOverlay.BringToFront();
         }
-
 
         private void AddPauseButtons()
         {
@@ -237,14 +244,17 @@ namespace Fall2020_CSC403_Project {
         {
             if (keyData == Keys.Escape)
             {
+                
                 isPaused = !isPaused; // Toggle pause state
                 if (isPaused)
                 {
+                    pauseBegin = DateTime.Now;
                     BlurBackground();
                     AddPauseButtons(); // Add Exit and Restart buttons
                 }
                 else
                 {
+                    totalTimePaused += DateTime.Now - pauseBegin;
                     Controls.RemoveByKey("blurOverlay"); // Remove the blur when unpaused
                     Controls.RemoveByKey("btnExit"); // Remove the Exit button
                     Controls.RemoveByKey("btnRestart"); // Remove the Restart button
@@ -257,9 +267,6 @@ namespace Fall2020_CSC403_Project {
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-
-
-
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
             if (isPaused && e.KeyCode != Keys.Escape)
@@ -269,33 +276,23 @@ namespace Fall2020_CSC403_Project {
 
             switch (e.KeyCode)
             {
-
                 case Keys.Left:
                     player.GoLeft();
                     break;
-
                 case Keys.Right:
                     player.GoRight();
                     break;
-
                 case Keys.Up:
                     player.GoUp();
                     break;
-
                 case Keys.Down:
                     player.GoDown();
                     break;
-
                 default:
                     player.ResetMoveSpeed();
                     break;
             }
         }
-
-
-
-        private void lblInGameTime_Click(object sender, EventArgs e) {
-
-    }
+        private void lblInGameTime_Click(object sender, EventArgs e) {}
   }
 }
