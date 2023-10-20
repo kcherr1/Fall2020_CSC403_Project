@@ -12,6 +12,9 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Character[] walls;
 
+    private Item gun;
+    private Inventory inventory;
+
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
@@ -23,11 +26,13 @@ namespace Fall2020_CSC403_Project {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
+      gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING), "Gun");
+
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-
+      
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -35,6 +40,8 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+
+      inventory = new Inventory();
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -104,6 +111,17 @@ namespace Fall2020_CSC403_Project {
       return you.Collider.Intersects(other.Collider);
     }
 
+    private bool HitAItem(Character you, Item item)
+        {
+            if(item != null)
+            {
+                return you.Collider.Intersects(item.Collider);
+            } else
+            {
+                return false;
+            }
+        }
+
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
@@ -131,6 +149,16 @@ namespace Fall2020_CSC403_Project {
 
         case Keys.Down:
           player.GoDown();
+          break;
+
+        case Keys.E:
+          Console.WriteLine("You tried to pick up an item!");
+          if(HitAItem(player, gun)){
+            inventory.AddItem(gun);
+            picGun.Dispose();
+                        gun = null;
+          }
+          Console.WriteLine(inventory);
           break;
 
         default:
