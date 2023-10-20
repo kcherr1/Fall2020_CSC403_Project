@@ -117,31 +117,48 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
-          player.Keys
+          player.KeysPressed["left"] = new Vector2(-Player.GO_INC, 0);
           break;
 
         case Keys.Right:
-          player.GoRight();
-          break;
+                    player.KeysPressed["right"] = new Vector2(Player.GO_INC, 0);
+                    break;
 
         case Keys.Up:
-          player.GoUp();
-          break;
+                    player.KeysPressed["up"] = new Vector2(0, -Player.GO_INC);
+                    break;
 
         case Keys.Down:
-          player.GoDown();
-          break;
+                    player.KeysPressed["down"] = new Vector2(0, Player.GO_INC);
+                    break;
 
         default:
-          player.ResetMoveSpeed();
           break;
       }
     }
 
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
-    {
-        player.ResetMoveSpeed();
-    }
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    player.KeysPressed.Remove("left");
+                    break;
+
+                case Keys.Right:
+                    player.KeysPressed.Remove("right");
+                    break;
+
+                case Keys.Up:
+                    player.KeysPressed.Remove("up");
+                    break;
+
+                case Keys.Down:
+                    player.KeysPressed.Remove("down");
+                    break;
+            }
+
+        }
 
 
 
