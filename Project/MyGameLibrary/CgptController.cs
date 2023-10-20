@@ -48,7 +48,7 @@ namespace Fall2020_CSC403_Project
         public void InitializeCGPT()
         {
             /*
-             var openAi = new OpenAIAPI("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");
+             var openAi = new OpenAIAPI("");
 
              var completions = openAi.Completions.CreateCompletionAsync(
                 prompt: "What is the meaning of life?",
