@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,9 @@ namespace Fall2020_CSC403_Project.code {
     public Vector2 LastPosition { get; private set; }
     public Vector2 Position { get; private set; }
     public Collider Collider { get; private set; }
+    private Dictionary<string, Vector2> keysPressed = new Dictionary<string, Vector2>();
 
-    public Character(Vector2 initPos, Collider collider) {
+        public Character(Vector2 initPos, Collider collider) {
       Position = initPos;
       Collider = collider;
     }
@@ -28,7 +30,19 @@ namespace Fall2020_CSC403_Project.code {
       Position = LastPosition;
     }
 
-    public void GoLeft() {
+    public void SetMoveSpeed()
+    {
+        Vector2 sum = new Vector2();
+        foreach (var vector in keysPressed.Values)
+        {
+            sum = Vector2.Add(sum, vector);
+        }
+        MoveSpeed = sum;
+
+    }
+
+
+    /*    public void GoLeft() {
       MoveSpeed = new Vector2(-GO_INC, 0);
     }
     public void GoRight() {
@@ -39,7 +53,7 @@ namespace Fall2020_CSC403_Project.code {
     }
     public void GoDown() {
       MoveSpeed = new Vector2(0, +GO_INC);
-    }
+    }*/
 
     public void ResetMoveSpeed() {
       MoveSpeed = new Vector2(0, 0);

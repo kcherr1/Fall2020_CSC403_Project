@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -55,9 +56,7 @@ namespace Fall2020_CSC403_Project {
       return new Collider(rect);
     }
 
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      player.ResetMoveSpeed();
-    }
+    
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
       TimeSpan span = DateTime.Now - timeBegin;
@@ -118,7 +117,7 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
-          player.GoLeft();
+          player.Keys
           break;
 
         case Keys.Right:
@@ -139,7 +138,14 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+    private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+    {
+        player.ResetMoveSpeed();
+    }
+
+
+
+        private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
   }
