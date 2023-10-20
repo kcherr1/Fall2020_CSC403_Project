@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleCharacter.cs" />
+    <Compile Include="CgptController.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Character.cs" />
     <Compile Include="Collider.cs" />
     <Compile Include="Enemy.cs" />
