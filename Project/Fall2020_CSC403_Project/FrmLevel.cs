@@ -142,5 +142,13 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
+    /// <summary>
+    /// Closes the application when FrmLevel is closed 
+    /// </summary>
+    public void onFormClosed(object sender, FormClosedEventArgs e)
+        {            
+            System.Windows.Forms.Application.Exit();
+        }
+    
   }
 }
