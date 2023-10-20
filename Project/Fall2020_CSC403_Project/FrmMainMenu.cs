@@ -14,6 +14,8 @@ namespace Fall2020_CSC403_Project
     {
         public static FrmMainMenu instance = null;
 
+        private FrmLevel frmLevel;
+
         public FrmMainMenu()
         {
             InitializeComponent();
@@ -23,17 +25,22 @@ namespace Fall2020_CSC403_Project
         {
             this.Hide();
 
-            FrmLevel frmLevel = new FrmLevel();
+            frmLevel = new FrmLevel();
+            frmLevel.Closed += (s, args) => this.Close();
             frmLevel.Show();
 
             instance = null;
-            //this.Close();
         }
 
         private void btnLeaveGame_Click(object sender, EventArgs e)
         {
             instance = null;
             Close();
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
