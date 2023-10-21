@@ -137,44 +137,108 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            if (panel1.Visible == false)
             {
-                case Keys.Left:
-                    player.GoLeft();
-                    break;
+                switch (e.KeyCode)
+                {
+                    case Keys.Left:
+                        player.GoLeft();
+                        break;
 
-                case Keys.Right:
-                    player.GoRight();
-                    break;
+                    case Keys.Right:
+                        player.GoRight();
+                        break;
 
-                case Keys.Up:
-                    player.GoUp();
-                    break;
+                    case Keys.Up:
+                        player.GoUp();
+                        break;
 
-                case Keys.Down:
-                    player.GoDown();
-                    break;
+                    case Keys.Down:
+                        player.GoDown();
+                        break;
 
-                case Keys.Escape:
-                    this.openMenu();
-                    break;
+                    case Keys.Escape:
+                        if (panel1.Visible == false)
+                        {
+                            this.ShowOverlay();
+                        }
+                        else
+                        {
+                            this.CloseOverlay();
+                        }
+                        break;
 
-                default:
-                    player.ResetMoveSpeed();
-                    break;
+                    default:
+                        player.ResetMoveSpeed();
+                        break;
+                }
+            }
+            else
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Escape:
+                        if (panel1.Visible == false)
+                        {
+                            this.ShowOverlay();
+                        }
+                        else
+                        {
+                            this.CloseOverlay();
+                        }
+                        break;
+
+                    default:
+                        player.ResetMoveSpeed();
+                        break;
+
+                }
             }
         }
 
-        private bool openMenu()
+
+        private void ShowOverlay()
         {
-            SettingsMenu secondaryForm = new SettingsMenu();
-            secondaryForm.ShowDialog();
-            bool secondaryFormOpen = true;
-            return secondaryFormOpen;
+            panel1.Visible = true;
+            Console.WriteLine("here");
+        }
+
+        private void CloseOverlay()
+        {
+            panel1.Visible = false;
+ 
+        }
+        private void backToGame(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fullScreen(object sender, EventArgs e)
+        {
+            if (this.FormBorderStyle == FormBorderStyle.Sizable)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+            }
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
         {
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
