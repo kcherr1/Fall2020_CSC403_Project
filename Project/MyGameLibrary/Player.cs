@@ -8,6 +8,6 @@ namespace Fall2020_CSC403_Project.code {
   public class Player : Character {
     public Player(string name, Position initPos, Collider collider) : base(name, initPos, collider) {
 
+        }
     }
-  }
 }
