@@ -16,10 +16,12 @@ namespace Fall2020_CSC403_Project
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
+        
 
         public FrmLevel()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -185,6 +187,7 @@ namespace Fall2020_CSC403_Project
                         else
                         {
                             this.CloseOverlay();
+                            Console.WriteLine("here");
                         }
                         break;
 
@@ -199,8 +202,12 @@ namespace Fall2020_CSC403_Project
 
         private void ShowOverlay()
         {
+            button1.Location = new Point(520, 137);
+            button2.Location = new Point(520, 243);
+            button3.Location = new Point(520, 349);
+
             panel1.Visible = true;
-            Console.WriteLine("here");
+            richTextBox1.Visible = false;
         }
 
         private void CloseOverlay()
@@ -210,7 +217,8 @@ namespace Fall2020_CSC403_Project
         }
         private void backToGame(object sender, EventArgs e)
         {
-            panel1.Visible = false;
+            CloseOverlay();
+            this.Focus();
 
         }
 
@@ -229,6 +237,31 @@ namespace Fall2020_CSC403_Project
             else
             {
                 this.FormBorderStyle = FormBorderStyle.Sizable;
+            }
+        }
+
+        private void showControls(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(richTextBox1.Text))
+            {
+                richTextBox1.SelectionFont = new Font("Arial", 24, FontStyle.Bold);
+                richTextBox1.AppendText("Controls\n\n");
+                richTextBox1.SelectionFont = new Font("Times New Roman", 14, FontStyle.Italic);
+                richTextBox1.AppendText(" E\t\t\tPick up item\n\n I\t\t\tShow Inventory\n\n \u2191\t\t\tMove up\n\n \u2193\t\t\tMove down\n\n \u2190\t\t\tMove left\n\n \u2192\t\t\tMove right\n\n Esc\t\t\tOpen Menu");
+            }
+            if (button1.Location.X > 200)
+            {
+                button1.Left -= 400;
+                button2.Left -= 400;
+                button3.Left -= 400;
+                richTextBox1.Visible = true;
+            }
+            else
+            {
+                button1.Left += 400;
+                button2.Left += 400;
+                button3.Left += 400;
+                richTextBox1.Visible = false;
             }
         }
 
