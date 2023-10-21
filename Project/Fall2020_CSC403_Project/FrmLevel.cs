@@ -23,10 +23,12 @@ namespace Fall2020_CSC403_Project {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      player = new Player("Peanut", CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+
+
+      bossKoolaid = new Enemy("KoolAidman", CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+      enemyPoisonPacket = new Enemy("Poison", CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+      enemyCheeto = new Enemy("CheetoKnives", CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -39,7 +41,7 @@ namespace Fall2020_CSC403_Project {
       walls = new Entity[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Entity(CreatePosition(pic), CreateCollider(pic, PADDING));
+        walls[w] = new Entity("wall", CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
       Game.player = player;

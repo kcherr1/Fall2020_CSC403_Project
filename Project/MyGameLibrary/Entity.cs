@@ -14,11 +14,13 @@ namespace Fall2020_CSC403_Project.code {
     public Collider Collider { get; private set; }
 
 
-    public Rectangle size { get; private set; }
+    public Rectangle Size { get; private set; }
     public Position Position { get; private set; }
 
+    public string Name { get; private set; }
 
-    public Entity(Position initPos, Collider collider) {
+
+    public Entity(string Name, Position initPos, Collider collider) {
         Position = initPos;
         Collider = collider;
     }

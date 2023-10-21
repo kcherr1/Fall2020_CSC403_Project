@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class Player : Character {
-    public Player(Position initPos, Collider collider) : base(initPos, collider) {
+    public Player(string name, Position initPos, Collider collider) : base(name, initPos, collider) {
 
     }
   }
