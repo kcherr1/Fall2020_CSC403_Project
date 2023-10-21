@@ -6,34 +6,37 @@ using System.Threading.Tasks;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
-namespace Fall2020_CSC403_Project.code {
-  public class Character : Entity {
-    
-    
+namespace Fall2020_CSC403_Project.code
+{
+	public class Character : Entity
+	{
 
-    public event Action<int> AttackEvent;
+		public event Action<int> AttackEvent;
 
-    public String name { get; private set; }
-    // archetype here
-    // touchness here
-    // damage here
-    private float strength; // replace with damage
-    // inventory here
-    public int Health { get; private set; }
-    public int MaxHealth { get; private set; }
+		public String name { get; private set; }
+		// archetype here
+		// touchness here
+		// damage here
+		private float strength; // replace with damage
+								// inventory here
+		public int Health { get; private set; }
+		public int MaxHealth { get; private set; }
 
-    public Character(Position initPos, Collider collider) : base(initPos, collider) {
-      MaxHealth = 20;
-      strength = 2;
-      Health = MaxHealth;
-    }
+		public Character(Position initPos, Collider collider) : base(initPos, collider)
+		{
+			MaxHealth = 20;
+			strength = 2;
+			Health = MaxHealth;
+		}
+		
+		public void OnAttack(int amount)
+		{
+			AttackEvent((int)(amount * strength));
+		}
 
-    public void OnAttack(int amount) {
-      AttackEvent((int)(amount * strength));
-    }
-
-    public void AlterHealth(int amount) {
-      Health += amount;
-    }
-  }
+		public void AlterHealth(int amount)
+		{
+			Health += amount;
+		}
+	}
 }
