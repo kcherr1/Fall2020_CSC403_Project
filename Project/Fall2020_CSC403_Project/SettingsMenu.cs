@@ -15,6 +15,8 @@ namespace Fall2020_CSC403_Project
         public SettingsMenu()
         {
             InitializeComponent();
+            this.KeyPreview = true; // Enable form-wide key events
+            this.KeyDown += Settings_KeyDown; // Subscribe to the KeyDown event
         }
 
         private void SettingsMenu_Load(object sender, EventArgs e)
@@ -30,6 +32,16 @@ namespace Fall2020_CSC403_Project
         private void exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Settings_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
         }
     }
 }

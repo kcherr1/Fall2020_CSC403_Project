@@ -61,6 +61,7 @@
             this.Name = "SettingsMenu";
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.SettingsMenu_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Settings_KeyDown);
             this.ResumeLayout(false);
 
         }
