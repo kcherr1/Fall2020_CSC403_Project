@@ -15,7 +15,7 @@ namespace Fall2020_CSC403_Project.code {
         // archetype here
         // toughness here
         private float strength; // replace with damage
-        private Inventory inventory;
+        private Inventory inventory { get; set; }
 
         public int Health { get; private set; }
         public int MaxHealth { get; private set; }
@@ -30,6 +30,14 @@ namespace Fall2020_CSC403_Project.code {
             
         }
 
+        public Character(string Name) : base(Name) {
+            inventory = new Inventory(); // fill in inventory based on archetype
+
+            MaxHealth = 20; // get from archetype
+            strength = 2; // get from archetype + weapon 
+            Health = MaxHealth;
+        }
+
         public void OnAttack(int amount) {
             AttackEvent((int)(amount * strength));
         }
@@ -37,5 +45,6 @@ namespace Fall2020_CSC403_Project.code {
         public void AlterHealth(int amount) {
             Health += amount;
         }
-      }
+        
+    }
 }
