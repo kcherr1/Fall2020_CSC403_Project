@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
-    private Character[] walls;
+    private Character[] walls, fences, dialog;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -22,6 +22,11 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
+      const int NUM_FENCES = 1;
+      const int NUM_DIALOG = 1;
+
+        
+
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -40,6 +45,16 @@ namespace Fall2020_CSC403_Project {
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      }
+      fences = new Character[NUM_FENCES];
+      for (int w = 0; w < NUM_FENCES; w++) {
+        PictureBox pic = Controls.Find("picFence" + w.ToString(), true)[0] as PictureBox;
+        fences[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      }
+       dialog = new Character[NUM_DIALOG];
+      for (int w = 0; w < NUM_DIALOG; w++) {
+        PictureBox pic = Controls.Find("picDialog" + w.ToString(), true)[0] as PictureBox;
+        dialog[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
       Game.player = player;
@@ -74,6 +89,11 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
+      // check collision with fences
+      if (HitAFence(player)) {
+        player.MoveBack();
+      }
+
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
@@ -98,6 +118,16 @@ namespace Fall2020_CSC403_Project {
         }
       }
       return hitAWall;
+    }
+        private bool HitAFence(Character c) {
+      bool hitAFence = false;
+      for (int w = 0; w < fences.Length; w++) {
+        if (c.Collider.Intersects(fences[w].Collider)) {
+          hitAFence = true;
+          break;
+        }
+      }
+      return hitAFence;
     }
 
     private bool HitAChar(Character you, Character other) {

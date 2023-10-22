@@ -45,6 +45,8 @@
       this.picWall1 = new System.Windows.Forms.PictureBox();
       this.picWall2 = new System.Windows.Forms.PictureBox();
       this.picWall11 = new System.Windows.Forms.PictureBox();
+      this.picFence0 = new System.Windows.Forms.PictureBox();
+      this.picDialog0 = new System.Windows.Forms.PictureBox();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -62,6 +64,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picFence0)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picDialog0)).BeginInit();
       this.SuspendLayout();
       // 
       // lblInGameTime
@@ -203,9 +207,9 @@
       this.picWall10.BackColor = System.Drawing.Color.Transparent;
       this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall10.Location = new System.Drawing.Point(653, 89);
+      this.picWall10.Location = new System.Drawing.Point(653, 89); 
       this.picWall10.Name = "picWall10";
-      this.picWall10.Size = new System.Drawing.Size(228, 162);
+      this.picWall10.Size = new System.Drawing.Size(247, 162);
       this.picWall10.TabIndex = 11;
       this.picWall10.TabStop = false;
       // 
@@ -275,6 +279,28 @@
       this.picWall11.TabIndex = 17;
       this.picWall11.TabStop = false;
       // 
+         // picFence0
+      // 
+      this.picFence0.BackColor = System.Drawing.Color.Transparent;
+      this.picFence0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.fence;
+      this.picFence0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picFence0.Location = new System.Drawing.Point(890, 250);
+      this.picFence0.Name = "picFence0";
+      this.picFence0.Size = new System.Drawing.Size(20, 147); 
+      this.picFence0.TabIndex = 17;
+      this.picFence0.TabStop = false;
+      //
+       // picDialog0
+      // 
+      this.picDialog0.BackColor = System.Drawing.Color.Transparent;
+      this.picDialog0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.boss_dialog;
+      this.picDialog0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picDialog0.Location = new System.Drawing.Point(905, 260);
+      this.picDialog0.Name = "picDialog0";
+      this.picDialog0.Size = new System.Drawing.Size(200, 150); 
+      this.picDialog0.TabIndex = 17;
+      this.picDialog0.TabStop = false;
+
       // FrmLevel
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +326,8 @@
       this.Controls.Add(this.picWall3);
       this.Controls.Add(this.picBossKoolAid);
       this.Controls.Add(this.picPlayer);
+      this.Controls.Add(this.picFence0);
+      this.Controls.Add(this.picDialog0);
       this.DoubleBuffered = true;
       this.Name = "FrmLevel";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -324,6 +352,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picFence0)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picDialog0)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -351,6 +381,8 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
+    private System.Windows.Forms.PictureBox picFence0;
+    private System.Windows.Forms.PictureBox picDialog0;
   }
 }
 
