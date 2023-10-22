@@ -16,7 +16,6 @@ namespace Fall2020_CSC403_Project {
     private TimeSpan totalTimePaused;
     private DateTime pauseBegin;
     private FrmBattle frmBattle;
-    private SoundPlayer theme = new SoundPlayer("theme.wav");
 
     public FrmLevel() {
       InitializeComponent();
@@ -50,9 +49,6 @@ namespace Fall2020_CSC403_Project {
       // handling timer
       timeBegin = DateTime.Now;
       totalTimePaused = new TimeSpan(0, 0, 0, 0, 0);
-
-      //start theme song
-      theme.PlayLooping();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -294,5 +290,5 @@ namespace Fall2020_CSC403_Project {
             }
         }
         private void lblInGameTime_Click(object sender, EventArgs e) {}
-  }
+    }
 }
