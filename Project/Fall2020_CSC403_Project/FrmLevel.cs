@@ -11,9 +11,12 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    private Item[] items;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+
+    private Inventory inventory;
 
     public FrmLevel() {
       InitializeComponent();
@@ -22,15 +25,19 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
+      const int NUM_ITEMS = 1;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      inventory = player.inventory;
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      inventory.image = inventoryboard.BackgroundImage;
+      inventoryboard.Hide();
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
@@ -41,6 +48,14 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
+
+      items = new Item[NUM_ITEMS];
+      for (int i = 0; i < NUM_ITEMS; i++)
+      {
+          //
+      }
+
+      
 
       Game.player = player;
       timeBegin = DateTime.Now;
@@ -85,6 +100,8 @@ namespace Fall2020_CSC403_Project {
         Fight(bossKoolaid);
       }
 
+      //if (HitAnItem(player, ))
+
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
@@ -115,28 +132,61 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
+    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) 
+    {
+        if (this.inventory.visible)
+        {
+            switch(e.KeyCode)
+            {
+                case Keys.I:
+                   Inventory_Load();
+                   break;
+                default:
+                   break;
+            }
+        }
+        else
+        {
+          switch (e.KeyCode) 
+          {
+            case Keys.Left: case Keys.A:
+              player.GoLeft();
+              break;
 
-        case Keys.Right:
-          player.GoRight();
-          break;
+            case Keys.Right: case Keys.D:
+              player.GoRight();
+              break;
 
-        case Keys.Up:
-          player.GoUp();
-          break;
+            case Keys.Up: case Keys.W:
+              player.GoUp();
+              break;
 
-        case Keys.Down:
-          player.GoDown();
-          break;
+            case Keys.Down: case Keys.S:
+              player.GoDown();
+              break;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
+            case Keys.I:
+              Inventory_Load();
+              break;
+
+            default:
+              player.ResetMoveSpeed();
+              break;
+          }
+        }
+    }
+
+    public void Inventory_Load()
+    {
+        if (this.inventory.visible)
+        {
+            this.inventoryboard.Hide();
+        }
+        else
+        {
+            this.inventoryboard.Show();
+        }
+        inventory.setVisible(!inventory.visible);
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {

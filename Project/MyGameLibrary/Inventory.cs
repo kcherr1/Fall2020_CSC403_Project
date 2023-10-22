@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Fall2020_CSC403_Project.code
 {
@@ -13,6 +14,8 @@ namespace Fall2020_CSC403_Project.code
 
         public Inventory()
         { }
+
+        public Image image { get; set; }
 
         public void addItem(Item item)
         {
@@ -25,6 +28,11 @@ namespace Fall2020_CSC403_Project.code
             {
                 itemstorage.Remove(item.NAME);
             }
+        }
+
+        public void setVisible(bool visible)
+        {
+            this.visible = visible;
         }
     }
 }
