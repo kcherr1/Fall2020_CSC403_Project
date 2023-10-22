@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fall2020_CSC403_Project.code;
 using MyGameLibrary;
 
 namespace MyGameLibrary
@@ -50,9 +51,10 @@ namespace MyGameLibrary
             if (item.Type == Item.ItemType.Weapon)
             {
                 this.Weapon = item;
+                RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    Drop(currently_equipped);
+                    // Drop(currently_equipped, player position);
                 } else
                 {
                     AddToBackpack(currently_equipped);
@@ -69,9 +71,10 @@ namespace MyGameLibrary
             if (item.Type == Item.ItemType.Armor)
             {
                 this.Armor = item;
+                RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    Drop(currently_equipped);
+                    // Drop(currently_equipped, player position)
                 }
                 else
                 {
@@ -87,9 +90,10 @@ namespace MyGameLibrary
             if (item.Type == Item.ItemType.Utility)
             {
                 this.Utility = item;
+                RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    Drop(currently_equipped);
+                    // Drop(currently_equipped, player position)
                 }
                 else
                 {
@@ -119,7 +123,7 @@ namespace MyGameLibrary
 
         }
 
-        public void DropFromBackpack(Item item)
+        public void RemoveFromBackpack(Item item)
         {
             int index = -1;
             if (this.Backpack[this.Backpack.Length - 1] == item)
@@ -137,13 +141,13 @@ namespace MyGameLibrary
             }
             if (index > 0)
             {
-                DropFromBackpack(index);
+                RemoveFromBackpack(index);
             } else {
                 Console.Error.WriteLine("Item not in Backpack");
             }
         }
 
-        public void DropFromBackpack(int index)
+        public void RemoveFromBackpack(int index)
         {
             if (index == this.Backpack.Length - 1)
             {
@@ -156,9 +160,9 @@ namespace MyGameLibrary
             }
         }
 
-        public void Drop(Item item)
+        public void Drop(Item item, Position position)
         {
-            // todo, create item at player position
+            // todo, create item at player position outside of collision range
         }
 
 
