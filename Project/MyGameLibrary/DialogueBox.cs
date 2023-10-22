@@ -20,14 +20,12 @@ namespace Fall2020_CSC403_Project.code {
         int[] labelShownPoint = { 165, 583 };
         int[] labelHidePoint = { 165, 1000-567+583 };
 
-        public DialogueBox(Vector2 initPos, Collider collider, PictureBox picturebox, Label dialogueLabel) : base(initPos, collider) {
-            //string[] lines = new string[] { "Line 1", "Line 2" };
-            //double[] letterSpeeds = new double[] { 0.1, 0.1 };
+        Dialogue currentDialogue;
 
+        public DialogueBox(Vector2 initPos, Collider collider, PictureBox picturebox, Label dialogueLabel) : base(initPos, collider) {
             PictureBox = picturebox;
             DialogueLabel = dialogueLabel;
-            
-            DialogueBox nextDialogueBox = null;
+
             HideBox();
             DisableCollider();
         }
@@ -36,7 +34,7 @@ namespace Fall2020_CSC403_Project.code {
             PictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
             DialogueLabel.Location = new Point(labelShownPoint[0], labelShownPoint[1]);
             IsShown = true;
-            TypeText();
+            // TypeText(defaultText);
         }
 
         public void HideBox() {
@@ -52,27 +50,37 @@ namespace Fall2020_CSC403_Project.code {
             }
             else {
                 ShowBox();
+                TypeText(currentDialogue.GetNextLine());
             }
         }
 
-        async Task TextDelay() { 
-            await Task.Delay(50);
+        public void SetCurrentDialogue(Dialogue enemyDialogue) {
+            this.currentDialogue = enemyDialogue;
         }
 
-        public async void TypeText() {
+        async Task TextDelay(int ms) { 
+            await Task.Delay(ms);
+        }
 
-            // Had help from this source for timing purposes
-            // https://stackoverflow.com/questions/22158278/wait-some-seconds-without-blocking-ui-execution
+        public async void TypeText(String givenLine) {
             String text = "";
-            for (int i = 0; i < defaultText.Length; i++) {
-                text = text + defaultText[i];
+            for (int i = 0; i < givenLine.Length; i++) {
+                text = text + givenLine[i];
                 DialogueLabel.Text = text;
-                await TextDelay();
+                /*
+                 * PLAY TEXT SOUND
+                 */
+                await TextDelay(currentDialogue.GetLineSpeed());
             }
+        }
+
+        public bool IsLastLine() {
+            return currentDialogue.IsLastLine();
         }
 
         public void GetNextText() {
-
+            String text = currentDialogue.GetNextLine();
+            TypeText(text);
         }
     }
 }

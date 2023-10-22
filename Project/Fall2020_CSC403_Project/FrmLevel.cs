@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
 
     private DialogueBox dialogueBox;
+    private Dialogue defaultDialog;
 
     public FrmLevel() {
       InitializeComponent();
@@ -34,7 +35,7 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-      dialogueBox.Img = picEnemyCheeto.BackgroundImage;
+      dialogueBox.Img = picDialogueBox.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
@@ -45,8 +46,14 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
-      Console.WriteLine(dialogLabel.Location.X);
-      Console.WriteLine(dialogLabel.Location.Y);
+
+      String[] defaultLines = { "Test Line 1", "Test\nLine 2" };
+      int[] defaultLetterSpeeds = { 40, 10 };
+      defaultDialog = new Dialogue(defaultLines, defaultLetterSpeeds);
+
+      String[] koolaidManLines = { "Test Line 1", "Test\nLine 2" };
+      int[] koolaidManSpeeds = { 40, 80 };
+      defaultDialog = new Dialogue(defaultLines, defaultLetterSpeeds);
 
             Game.player = player;
       timeBegin = DateTime.Now;
@@ -62,12 +69,33 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      if (!player.CharacterIsMoving())
+      if(player.MovementValue() <= 1)
       {
-           player.ResetMoveSpeed();
+                player.ResetMoveSpeed();
       }
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    player._movementBools[0] = false;
+                    break;
 
-    }
+                case Keys.Right:
+                    player._movementBools[1] = false;
+                    break;
+
+                case Keys.Up:
+                    player._movementBools[2] = false;
+                    break;
+
+                case Keys.Down:
+                    player._movementBools[3] = false;
+                    break;
+
+                default:
+                    player.ResetMoveSpeed();
+                    break;
+            }
+        }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
       TimeSpan span = DateTime.Now - timeBegin;
@@ -128,33 +156,33 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       bool characterMoving = false;
       switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          characterMoving = true;  
-          break;
+                case Keys.Left:
+                    player.GoLeft();
+                    player._movementBools[0] = true;
+                    break;
 
-        case Keys.Right:
-          player.GoRight();
-          characterMoving = true;
-          break;
+                case Keys.Right:
+                    player.GoRight();
+                    player._movementBools[1] = true;
+                    break;
 
-        case Keys.Up:
-          player.GoUp();
-          characterMoving = true;
-          break;
+                case Keys.Up:
+                    player.GoUp();
+                    player._movementBools[2] = true;
+                    break;
 
-        case Keys.Down:
-          player.GoDown();
-          characterMoving = true;
-          break;
+                case Keys.Down:
+                    player.GoDown();
+                    player._movementBools[3] = true;
+                    break;
 
-        case Keys.X:
-          dialogueBox.ToggleBox();
+                case Keys.X:
+                    dialogueBox.SetCurrentDialogue(defaultDialog);
+                    dialogueBox.ToggleBox();
           break;
           
         default:
           player.ResetMoveSpeed();
-          characterMoving = false;
           break;
       }
       player.SetCharacterMoving(characterMoving);
@@ -164,7 +192,14 @@ namespace Fall2020_CSC403_Project {
     }
         private void picDialogueBox_Click(object sender, EventArgs e)
         {
-
+            if (dialogueBox.IsLastLine())
+            {
+                dialogueBox.HideBox();
+            }
+            else
+            {
+                dialogueBox.GetNextText();
+            }
         }
     }
 }

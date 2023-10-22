@@ -299,7 +299,7 @@
             // picDialogueBox
             // 
             this.picDialogueBox.BackColor = System.Drawing.Color.Transparent;
-            this.picDialogueBox.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picDialogueBox.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.dialogue_box;
             this.picDialogueBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picDialogueBox.Image = global::Fall2020_CSC403_Project.Properties.Resources.dialogue_box;
             this.picDialogueBox.Location = new System.Drawing.Point(199, 698);
@@ -319,7 +319,7 @@
             this.dialogLabel.Location = new System.Drawing.Point(220, 718);
             this.dialogLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dialogLabel.Name = "dialogLabel";
-            this.dialogLabel.Size = new System.Drawing.Size(60, 24);
+            this.dialogLabel.Size = new System.Drawing.Size(107, 24);
             this.dialogLabel.TabIndex = 19;
             this.dialogLabel.Text = "dialogLabel";
             // 
