@@ -107,7 +107,9 @@ namespace Fall2020_CSC403_Project {
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
+            this.Hide();
       frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle.FormClosed += (s, args) => this.Show();
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
