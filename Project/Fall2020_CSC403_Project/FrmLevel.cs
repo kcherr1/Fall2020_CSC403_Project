@@ -1,6 +1,8 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -11,6 +13,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    private AudioManager audioManager;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -27,6 +30,10 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), picBossKoolAid);
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), picEnemyPoisonPacket);
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto);
+      audioManager = AudioManager.Instance;
+      audioManager.AddSound("overworld_music", new SoundPlayer(Resources.overworld_music));
+      audioManager.AddSound("final_battle", new SoundPlayer(Resources.final_battle));
+      audioManager.PlaySoundLoop("overworld_music");
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -136,7 +143,8 @@ namespace Fall2020_CSC403_Project {
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
+      audioManager.PlaySound("final_battle");
+      frmBattle.SetupForBossBattle();
       }
     }
 

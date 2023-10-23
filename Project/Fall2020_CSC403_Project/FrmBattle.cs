@@ -3,20 +3,28 @@ using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
 using System.Media;
+using System.Security.Principal;
 using System.Windows.Forms;
+using System.Xml.Schema;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
     private Enemy enemy;
+    private AudioManager audioManager;
     private Player player;
 
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
+      audioManager = AudioManager.Instance;
+      audioManager.AddSound("final_battle", new SoundPlayer(Resources.final_battle));
+      audioManager.AddSound("battle_music", new SoundPlayer(Resources.battle_music));
+      audioManager.AddSound("overworld_music", new SoundPlayer(Resources.overworld_music));
     }
 
     public void Setup() {
+      audioManager.PlaySoundLoop("battle_music");
       // update for this enemy
       picEnemy.BackgroundImage = enemy.Img;
       picEnemy.Refresh();
@@ -35,11 +43,8 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Location = Point.Empty;
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
-
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-      simpleSound.Play();
-
       tmrFinalBattle.Enabled = true;
+      audioManager.PlaySound("battle_music");
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
@@ -73,12 +78,16 @@ namespace Fall2020_CSC403_Project {
       if (enemy.Health <= 0) {
         enemy.Die();
         instance = null;
+        audioManager.StopSound("battle_music");
         Close();
+        audioManager.PlaySoundLoop("overworld_music");
       }
       else if (player.Health <= 0) {
         player.Die();
         instance = null;
+        audioManager.StopSound("battle_music");
         Close();
+        audioManager.PlaySoundLoop("overworld_music");
       }
     }
 
