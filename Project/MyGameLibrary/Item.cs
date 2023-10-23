@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MyGameLibrary;
 using Fall2020_CSC403_Project.code;
+using System.Drawing;
 
 namespace MyGameLibrary
 {
@@ -13,7 +14,10 @@ namespace MyGameLibrary
         public int Stat { get; private set; }
         public ItemType Type { get; private set; }
 
-        public Item(int Stat, ItemType Type, string Name, Position initPos, Collider collider) : base(Name, initPos, collider)
+        public Color Color { get; set; }
+
+
+        public Item(string Name, int Stat, ItemType Type, Position initPos, Collider collider) : base(Name, initPos, collider)
         {
             this.Stat = Stat;
             this.Type = Type;

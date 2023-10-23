@@ -1,148 +1,206 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
-    private Player player;
+namespace Fall2020_CSC403_Project
+{
+	public partial class FrmLevel : Form
+	{
+		private Player player;
 
-    private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
-    private Enemy enemyCheeto;
-    private Entity[] walls;
-
-    private DateTime timeBegin;
-    private FrmBattle frmBattle;
-
-    public FrmLevel() {
-      InitializeComponent();
-    }
-
-    private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
-      const int NUM_WALLS = 13;
-
-      player = new Player("Peanut", CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+		private Enemy enemyPoisonPacket;
+		private Enemy bossKoolaid;
+		private Enemy enemyCheeto;
+		private Entity[] walls;
+		private Item[] items;
 
 
-      bossKoolaid = new Enemy("KoolAidman", CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy("Poison", CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy("CheetoKnives", CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+		private DateTime timeBegin;
+		private FrmBattle frmBattle;
 
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+		public FrmLevel()
+		{
+			InitializeComponent();
+		}
 
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+		private void FrmLevel_Load(object sender, EventArgs e)
+		{
+			const int PADDING = 7;
+			const int NUM_WALLS = 13;
+			const int NUM_ITEMS = 13;
 
-      walls = new Entity[NUM_WALLS];
-      for (int w = 0; w < NUM_WALLS; w++) {
-        PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Entity("wall", CreatePosition(pic), CreateCollider(pic, PADDING));
-      }
+			player = new Player("Peanut", CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 
-      Game.player = player;
-      timeBegin = DateTime.Now;
-    }
+			bossKoolaid = new Enemy("KoolAidman", CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+			enemyPoisonPacket = new Enemy("Poison", CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+			enemyCheeto = new Enemy("CheetoKnives", CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-    private Position CreatePosition(PictureBox pic) {
-      return new Position(pic.Location.X, pic.Location.Y);
-    }
+			bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+			enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+			enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
-    private Collider CreateCollider(PictureBox pic, int padding) {
-      Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-      return new Collider(rect);
-    }
+			bossKoolaid.Color = Color.Red;
+			enemyPoisonPacket.Color = Color.Green;
+			enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      player.ResetMoveSpeed();
-    }
+			walls = new Entity[NUM_WALLS];
+			for (int w = 0; w < NUM_WALLS; w++)
+			{
+				PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+				walls[w] = new Entity("wall", CreatePosition(pic), CreateCollider(pic, PADDING));
+			}
 
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
-    }
 
-    private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      // move player
-      player.Move();
+			Item start_sword = new Item("Sting", 10, Item.ItemType.Weapon, CreatePosition(picStartingSword), CreateCollider(picStartingSword, PADDING));
+			
 
-      // check collision with walls
-      if (HitAWall(player)) {
-        player.MoveBack();
-      }
+            items = new Item[NUM_ITEMS];
+            items[0] = start_sword;
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
-      }
+			Game.player = player;
+			timeBegin = DateTime.Now;
+		}
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-    }
+		private Position CreatePosition(PictureBox pic)
+		{
+			return new Position(pic.Location.X, pic.Location.Y);
+		}
 
-    private bool HitAWall(Entity c) {
-      bool hitAWall = false;
-      for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
-          hitAWall = true;
-          break;
-        }
-      }
-      return hitAWall;
-    }
+		private Collider CreateCollider(PictureBox pic, int padding)
+		{
+			Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+			return new Collider(rect);
+		}
 
-    private bool HitAChar(Entity you, Entity other) {
-      return you.Collider.Intersects(other.Collider);
-    }
+		private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+		{
+			player.ResetMoveSpeed();
+		}
 
-    private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
+		private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
+		{
+			TimeSpan span = DateTime.Now - timeBegin;
+			string time = span.ToString(@"hh\:mm\:ss");
+			lblInGameTime.Text = "Time: " + time.ToString();
+		}
 
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
+		private void tmrPlayerMove_Tick(object sender, EventArgs e)
+		{
+			// move player
+			player.Move();
 
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
+			// check collision with walls
+			if (HitAWall(player))
+			{
+				player.MoveBack();
+			}
 
-        case Keys.Right:
-          player.GoRight();
-          break;
+			// check collision with enemies
+			if (HitAChar(player, enemyPoisonPacket))
+			{
+				Fight(enemyPoisonPacket);
+			}
+			else if (HitAChar(player, enemyCheeto))
+			{
+				Fight(enemyCheeto);
+			}
+			else if (HitAChar(player, bossKoolaid))
+			{
+				Fight(bossKoolaid);
+			}
 
-        case Keys.Up:
-          player.GoUp();
-          break;
+			int x = HitAnItem(player);
+			if (x >= 0)
+			{
+				player.Inventory.AddToBackpack(items[x]);
+                
+            }
 
-        case Keys.Down:
-          player.GoDown();
-          break;
+			// update player's picture box
+			picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+		}
 
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
-    }
+		private bool HitAWall(Player c)
+		{
+			bool hitAWall = false;
+			for (int w = 0; w < walls.Length; w++)
+			{
+				if (c.Collider.Intersects(walls[w].Collider))
+				{
+					hitAWall = true;
+					break;
+				}
+			}
+			return hitAWall;
+		}
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+		private bool HitAChar(Player you, Entity other)
+		{
+			return you.Collider.Intersects(other.Collider);
+		}
 
-    }
-  }
+		private int HitAnItem(Player you)
+		{
+			int hitItem = -1;
+			for (int i = 0; i < items.Length; i++)
+			{
+				if (items[i] != null)
+				{
+                    if (you.Collider.Intersects(items[i].Collider))
+                    {
+                        hitItem = i;
+                        break;
+                    }
+                }
+			}
+			return hitItem;
+		}
+
+		private void Fight(Enemy enemy)
+		{
+			player.ResetMoveSpeed();
+			player.MoveBack();
+			frmBattle = FrmBattle.GetInstance(enemy);
+			frmBattle.Show();
+
+			if (enemy == bossKoolaid)
+			{
+				frmBattle.SetupForBossBattle();
+			}
+		}
+
+		private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+		{
+			switch (e.KeyCode)
+			{
+				case Keys.Left:
+					player.GoLeft();
+					break;
+
+				case Keys.Right:
+					player.GoRight();
+					break;
+
+				case Keys.Up:
+					player.GoUp();
+					break;
+
+				case Keys.Down:
+					player.GoDown();
+					break;
+
+				default:
+					player.ResetMoveSpeed();
+					break;
+			}
+		}
+
+		private void lblInGameTime_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }
