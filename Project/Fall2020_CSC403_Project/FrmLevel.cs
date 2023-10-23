@@ -17,6 +17,7 @@ namespace Fall2020_CSC403_Project {
 
     private DialogueBox dialogueBox;
     private Dialogue defaultDialog;
+    private Dialogue koolaidManDialogue;
 
     public FrmLevel() {
       InitializeComponent();
@@ -51,9 +52,9 @@ namespace Fall2020_CSC403_Project {
       int[] defaultLetterSpeeds = { 40, 10 };
       defaultDialog = new Dialogue(defaultLines, defaultLetterSpeeds);
 
-      String[] koolaidManLines = { "Test Line 1", "Test\nLine 2" };
-      int[] koolaidManSpeeds = { 40, 80 };
-      defaultDialog = new Dialogue(defaultLines, defaultLetterSpeeds);
+      String[] koolaidManLines = { "You hear a a slight rumble...", "Koolaid Man breaks through the wall", "\"OHH, YEAH\"" };
+      int[] koolaidManSpeeds = { 40, 40, 120 };
+      koolaidManDialogue = new Dialogue(koolaidManLines, koolaidManSpeeds);
 
             Game.player = player;
       timeBegin = DateTime.Now;
@@ -120,6 +121,9 @@ namespace Fall2020_CSC403_Project {
         Fight(enemyCheeto);
       }
       if (HitAChar(player, bossKoolaid)) {
+        dialogueBox.SetCurrentDialogue(koolaidManDialogue);
+        dialogueBox.ToggleBox();
+        // while (dialogueBox.IsShown) { ; }
         Fight(bossKoolaid);
       }
 
