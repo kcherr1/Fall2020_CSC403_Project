@@ -52,7 +52,7 @@ namespace Fall2020_CSC403_Project {
       return instance;
     }
 
-    private void UpdateHealthBars() {
+        private void UpdateHealthBars() {
       float playerHealthPer = player.Health / (float)player.MaxHealth;
       float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
@@ -71,10 +71,15 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (enemy.Health <= 0) {
         instance = null;
         Close();
-      }
+      } else if (player.Health == 0)
+            {
+                instance = null;
+                Close();
+                Application.Exit();
+            }
     }
 
     private void btnHeal_Click(object sender, EventArgs e)
