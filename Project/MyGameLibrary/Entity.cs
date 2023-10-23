@@ -4,12 +4,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project.code
 {
 	public class Entity
 	{
 		private const int GO_INC = 3;
+
+		public PictureBox pic;
 
 		public Position MoveSpeed { get; private set; }
 		public Position LastPosition { get; private set; }
@@ -20,9 +23,11 @@ namespace Fall2020_CSC403_Project.code
 		public Position Position { get; private set; }
 
 
-		public Entity(Position initPos, Collider collider)
+		public Entity(Position initPos, Collider collider, PictureBox picture)
 		{
+			pic = picture;
 			Position = initPos;
+			LastPosition = Position;
 			Collider = collider;
 		}
 
@@ -59,5 +64,19 @@ namespace Fall2020_CSC403_Project.code
 		{
 			MoveSpeed = new Position(0, 0);
 		}
+
+		public void RemoveEntity()
+		{
+			this.Position = new Position(-100, -100);
+            Collider.MovePosition((int)Position.x, (int)Position.y);
+			this.pic.Visible = false;
+        }
+
+		public void RestoreEntity()
+		{
+			this.Position = LastPosition;
+            Collider.MovePosition((int)Position.x, (int)Position.y);
+			this.pic.Visible = true;
+        }
 	}
 }
