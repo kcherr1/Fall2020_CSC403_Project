@@ -33,6 +33,8 @@
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+            this.btnHeal = new System.Windows.Forms.Button();
+            this.btnDeflect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -41,13 +43,36 @@
             // btnAttack
             // 
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttack.Location = new System.Drawing.Point(127, 422);
+            this.btnAttack.Location = new System.Drawing.Point(114, 386);
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(128, 43);
             this.btnAttack.TabIndex = 2;
             this.btnAttack.Text = "Attack";
             this.btnAttack.UseVisualStyleBackColor = true;
             this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
+            // 
+            // Heal Button
+            // 
+            this.btnHeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnHeal.Location = new System.Drawing.Point(114, 435);
+            this.btnHeal.Name = "btnHeal";
+            this.btnHeal.Size = new System.Drawing.Size(128, 47);
+            this.btnHeal.TabIndex = 8;
+            this.btnHeal.Text = "Heal";
+            this.btnHeal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnHeal.UseVisualStyleBackColor = true;
+            this.btnHeal.Click += new System.EventHandler(this.btnHeal_Click);
+            // 
+            // Deflect Button
+            // 
+            this.btnDeflect.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnDeflect.Location = new System.Drawing.Point(114, 488);
+            this.btnDeflect.Name = "btnDeflect";
+            this.btnDeflect.Size = new System.Drawing.Size(128, 46);
+            this.btnDeflect.TabIndex = 9;
+            this.btnDeflect.Text = "Deflect";
+            this.btnDeflect.UseVisualStyleBackColor = true;
+            this.btnDeflect.Click += new System.EventHandler(this.btnDeflect_Click);
             // 
             // lblPlayerHealthFull
             // 
@@ -140,6 +165,8 @@
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttack);
+            this.Controls.Add(this.btnDeflect);
+            this.Controls.Add(this.btnHeal);
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
@@ -158,6 +185,8 @@
         private System.Windows.Forms.PictureBox picPlayer;
         private System.Windows.Forms.PictureBox picEnemy;
         private System.Windows.Forms.Button btnAttack;
+        private System.Windows.Forms.Button btnHeal;
+        private System.Windows.Forms.Button btnDeflect;
         private System.Windows.Forms.Label lblPlayerHealthFull;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
