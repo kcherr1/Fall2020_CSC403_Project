@@ -15,6 +15,9 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
+      this.FormClosed += (s, args) => { instance = null; 
+                                        enemy.AttackEvent -= PlayerDamage;
+                                        player.AttackEvent -= EnemyDamage; };
     }
 
     public void Setup() {
@@ -77,6 +80,15 @@ namespace Fall2020_CSC403_Project {
         Close();
       }
     }
+
+    private void btnFlee_Click(object sender, EventArgs e)
+        {
+            //observers have to be cleared, otherwise other instances will do n*damage
+            enemy.AttackEvent -= PlayerDamage;
+            player.AttackEvent -= EnemyDamage;
+            instance = null;
+            Close();
+        }
 
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
