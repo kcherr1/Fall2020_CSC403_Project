@@ -23,7 +23,7 @@ namespace Fall2020_CSC403_Project {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      player = new Player(CreatePosition(mainCharacter), CreateCollider(mainCharacter, 0));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -39,9 +39,10 @@ namespace Fall2020_CSC403_Project {
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+        walls[w] = new Character(CreatePosition(pic), CreateWallCollider(pic, 0, mainCharacter.Size.Height));
       }
 
+       /*this.Transparent_images_Click();*/
       Game.player = player;
       timeBegin = DateTime.Now;
     }
@@ -54,8 +55,23 @@ namespace Fall2020_CSC403_Project {
       Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
       return new Collider(rect);
     }
+        // needed to create different size hitbox for walls
+        private Collider CreateWallCollider(PictureBox pic, int padding, int characterHeight)
+    {
+        Rectangle rect;
+        if (pic.Size.Width > pic.Size.Height)
+        {
+            rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, Convert.ToInt32(Math.Max(pic.Size.Height-characterHeight, pic.Size.Height*.1))));
+        } else
+        {
+            rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+        }
 
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
+        
+        return new Collider(rect);
+    }
+
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       player.ResetMoveSpeed();
     }
 
@@ -86,61 +102,64 @@ namespace Fall2020_CSC403_Project {
       }
 
       // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      mainCharacter.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
-    private bool HitAWall(Character c) {
-      bool hitAWall = false;
-      for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
-          hitAWall = true;
-          break;
+        private bool HitAWall(Character c) {
+          bool hitAWall = false;
+          for (int w = 0; w < walls.Length; w++) {
+            if (c.Collider.Intersects(walls[w].Collider)) {
+              hitAWall = true;
+              break;
+            }
+          }
+          return hitAWall;
         }
-      }
-      return hitAWall;
-    }
 
-    private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
-    }
+        private bool HitAChar(Character you, Character other) {
+          return you.Collider.Intersects(other.Collider);
+        }
 
-    private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
-
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
-
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
-
-        case Keys.Right:
-          player.GoRight();
-          break;
-
-        case Keys.Up:
-          player.GoUp();
-          break;
-
-        case Keys.Down:
-          player.GoDown();
-          break;
-
-        default:
+        private void Fight(Enemy enemy) {
           player.ResetMoveSpeed();
-          break;
-      }
-    }
+          player.MoveBack();
+          frmBattle = FrmBattle.GetInstance(enemy);
+          frmBattle.Show();
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+          if (enemy == bossKoolaid) {
+            frmBattle.SetupForBossBattle();
+          }
+        }
+
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+          mainCharacter.BringToFront();
+          switch (e.KeyCode) {
+            case Keys.Left:
+              player.GoLeft();
+              break;
+
+            case Keys.Right:
+              player.GoRight();
+              break;
+
+            case Keys.Up:
+              player.GoUp();
+              break;
+
+            case Keys.Down:
+              player.GoDown();
+              break;
+
+            default:
+              player.ResetMoveSpeed();
+              break;
+          }
+        }
+
+        private void lblInGameTime_Click(object sender, EventArgs e) {
+
+        }
+
 
     }
-  }
 }
