@@ -48,7 +48,8 @@ namespace Fall2020_CSC403_Project {
       Game.player = player;
       timeBegin = DateTime.Now;
       levelTheme.PlayLooping();
-    }
+      UpdateMapHealth();
+      }
 
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
@@ -63,35 +64,6 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
     }
 
-        private void FrmLevel_Load(object sender, EventArgs e)
-        {
-            const int PADDING = 7;
-            const int NUM_WALLS = 13;
-
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-
-            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-            enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-            enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-
-            bossKoolaid.Color = Color.Red;
-            enemyPoisonPacket.Color = Color.Green;
-            enemyCheeto.Color = Color.FromArgb(255, 245, 161);
-
-            walls = new Character[NUM_WALLS];
-            for (int w = 0; w < NUM_WALLS; w++)
-            {
-                PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
-            }
-
-            Game.player = player;
-            timeBegin = DateTime.Now;
-            UpdateMapHealth();
-        }
         private void UpdateMapHealth()
         {
             float playerHealth = player.Health / (float)player.MaxHealth;
@@ -101,10 +73,7 @@ namespace Fall2020_CSC403_Project {
         }
 
 
-        private Vector2 CreatePosition(PictureBox pic)
-        {
-            return new Vector2(pic.Location.X, pic.Location.Y);
-        }
+  
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
@@ -135,16 +104,9 @@ namespace Fall2020_CSC403_Project {
     }
 
 
-        private Collider CreateCollider(PictureBox pic, int padding)
-        {
-            Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-            return new Collider(rect);
-        }
+  
 
-        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
-        {
-            player.ResetMoveSpeed();
-        }
+
 
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
@@ -153,14 +115,20 @@ namespace Fall2020_CSC403_Project {
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
         }
-      private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
+        private void Fight(Enemy enemy)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
             this.Hide();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.FormClosed += (s, args) => this.Show();
-      frmBattle.Show();
+            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.FormClosed += (s, args) => this.Show();
+            frmBattle.Show();
 
+            if (enemy == bossKoolaid)
+            {
+                frmBattle.SetupForBossBattle();
+            }
+        }
 
 
         private bool HitAWall(Character c)
@@ -180,19 +148,6 @@ namespace Fall2020_CSC403_Project {
         private bool HitAChar(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
-        }
-
-        private void Fight(Enemy enemy)
-        {
-            player.ResetMoveSpeed();
-            player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
-            frmBattle.Show();
-
-            if (enemy == bossKoolaid)
-            {
-                frmBattle.SetupForBossBattle();
-            }
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
