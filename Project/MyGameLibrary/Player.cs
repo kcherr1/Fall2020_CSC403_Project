@@ -9,7 +9,7 @@ namespace Fall2020_CSC403_Project.code
 {
     public class Player : Character
     {
-        public Player(Position initPos, Collider collider, PictureBox pic, String name) : base(initPos, collider, pic, name)
+        public Player(Position initPos, Collider collider, PictureBox pic) : base(initPos, collider, pic)
         {
 
         }

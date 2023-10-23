@@ -9,7 +9,7 @@ namespace Fall2020_CSC403_Project.code
 {
     public class NPC : Character
     {
-        public NPC(Position initPos, Collider collider, PictureBox pic, String name) : base(initPos, collider, pic, name)
+        public NPC(Position initPos, Collider collider, PictureBox pic) : base(initPos, collider, pic)
         {
 
         }

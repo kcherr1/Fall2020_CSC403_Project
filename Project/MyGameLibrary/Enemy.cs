@@ -23,7 +23,7 @@ namespace Fall2020_CSC403_Project.code
         /// </summary>
         /// <param name="initPos">this is the initial position of the enemy</param>
         /// <param name="collider">this is the collider for the enemy</param>
-        public Enemy(Position initPos, Collider collider, PictureBox pic, string name) : base(initPos, collider, pic, name)
+        public Enemy(Position initPos, Collider collider, PictureBox pic) : base(initPos, collider, pic)
         {
 
         }
