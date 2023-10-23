@@ -70,7 +70,7 @@ namespace Fall2020_CSC403_Project {
         }
         private void defeatPlayer()
         {
-            #Iftesam
+            //Iftesam
         }
 
         private void btnAttack_Click(object sender, EventArgs e) {
