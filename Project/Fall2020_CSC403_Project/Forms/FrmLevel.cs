@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -120,46 +121,66 @@ namespace Fall2020_CSC403_Project {
           return you.Collider.Intersects(other.Collider);
         }
 
-        private void Fight(Enemy enemy) {
-          player.ResetMoveSpeed();
-          player.MoveBack();
-          frmBattle = FrmBattle.GetInstance(enemy);
-          frmBattle.Show();
+    private void Fight(Enemy enemy) {
+      player.ResetMoveSpeed();
+      player.MoveBack();
+      frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle.Show();
 
-          if (enemy == bossKoolaid) {
-            frmBattle.SetupForBossBattle();
-          }
+      if (enemy == bossKoolaid) {
+        frmBattle.SetupForBossBattle();
+      }
+    }
+
+    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      switch (e.KeyCode) {
+        case Keys.Left:
+          player.KeysPressed["left"] = new Vector2(-Player.GO_INC, 0);
+          break;
+
+        case Keys.Right:
+                    player.KeysPressed["right"] = new Vector2(Player.GO_INC, 0);
+                    break;
+
+        case Keys.Up:
+                    player.KeysPressed["up"] = new Vector2(0, -Player.GO_INC);
+                    break;
+
+        case Keys.Down:
+                    player.KeysPressed["down"] = new Vector2(0, Player.GO_INC);
+                    break;
+
+        default:
+          break;
+      }
+    }
+
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    player.KeysPressed.Remove("left");
+                    break;
+
+                case Keys.Right:
+                    player.KeysPressed.Remove("right");
+                    break;
+
+                case Keys.Up:
+                    player.KeysPressed.Remove("up");
+                    break;
+
+                case Keys.Down:
+                    player.KeysPressed.Remove("down");
+                    break;
+            }
+
         }
 
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-          mainCharacter.BringToFront();
-          switch (e.KeyCode) {
-            case Keys.Left:
-              player.GoLeft();
-              break;
 
-            case Keys.Right:
-              player.GoRight();
-              break;
-
-            case Keys.Up:
-              player.GoUp();
-              break;
-
-            case Keys.Down:
-              player.GoDown();
-              break;
-
-            default:
-              player.ResetMoveSpeed();
-              break;
-          }
-        }
 
         private void lblInGameTime_Click(object sender, EventArgs e) {
-
-        }
-
 
     }
 }
