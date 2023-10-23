@@ -15,9 +15,14 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
-      this.FormClosed += (s, args) => { instance = null; 
-                                        enemy.AttackEvent -= PlayerDamage;
-                                        player.AttackEvent -= EnemyDamage; };
+            this.FormClosed += (s, args) =>
+            {
+                instance = null;
+                enemy.AttackEvent -= PlayerDamage;
+                player.AttackEvent -= EnemyDamage;
+                player.HealEvent -= PlayerHeal;
+            };
+
     }
 
     public void Setup() {
@@ -31,6 +36,7 @@ namespace Fall2020_CSC403_Project {
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
+      player.HealEvent += PlayerHeal;
 
       // show health
       UpdateHealthBars();
@@ -56,7 +62,7 @@ namespace Fall2020_CSC403_Project {
       return instance;
     }
 
-    private void UpdateHealthBars() {
+        private void UpdateHealthBars() {
       float playerHealthPer = player.Health / (float)player.MaxHealth;
       float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
@@ -75,11 +81,46 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (enemy.Health <= 0) {
         instance = null;
         Close();
-      }
+      } else if (player.Health == 0)
+            {
+                instance = null;
+                Close();
+                Application.Exit();
+            }
     }
+
+
+    private void btnHeal_Click(object sender, EventArgs e)
+        {
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+            else
+            {
+
+                if ((player.Health + 8) > 20)
+                {
+                    player.OnHeal(20 - player.Health);
+                }
+                else
+                {
+                    player.OnHeal(8);
+                }
+
+
+                if (enemy.Health > 0)
+                {
+                    enemy.OnAttack(-2);
+                }
+
+                UpdateHealthBars();
+            }
+
 
     private void btnFlee_Click(object sender, EventArgs e)
         {
@@ -88,6 +129,7 @@ namespace Fall2020_CSC403_Project {
             player.AttackEvent -= EnemyDamage;
             instance = null;
             Close();
+
         }
 
     private void EnemyDamage(int amount) {
@@ -97,6 +139,11 @@ namespace Fall2020_CSC403_Project {
     private void PlayerDamage(int amount) {
       player.AlterHealth(amount);
     }
+
+    private void PlayerHeal(int amount)
+        {
+            player.AlterHealth(amount);
+        }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;

@@ -29,7 +29,11 @@ namespace Fall2020_CSC403_Project {
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.btnAttack = new System.Windows.Forms.Button();
+            this.btnHeal = new System.Windows.Forms.Button();
+
+  
             this.btnFlee = new System.Windows.Forms.Button();
+
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,6 +41,8 @@ namespace Fall2020_CSC403_Project {
             this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+
+
             this.battleTheme = new SoundPlayer("battle_theme.wav");
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
@@ -55,6 +61,18 @@ namespace Fall2020_CSC403_Project {
             this.btnAttack.UseVisualStyleBackColor = true;
             this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
             // 
+
+            // btnHeal
+            // 
+            this.btnHeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHeal.Location = new System.Drawing.Point(127, 461);
+            this.btnHeal.Name = "btnHeal";
+            this.btnHeal.Size = new System.Drawing.Size(128, 43);
+            this.btnHeal.TabIndex = 8;
+            this.btnHeal.Text = "Heal";
+            this.btnHeal.UseVisualStyleBackColor = true;
+            this.btnHeal.Click += new System.EventHandler(this.btnHeal_Click);
+
             // btnFlee
             // 
             this.btnFlee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)));
@@ -158,6 +176,10 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttack);
+
+            this.Controls.Add(this.picEnemy);
+            this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.btnHeal);
             this.Controls.Add(this.btnFlee);
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
@@ -177,6 +199,7 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
+    private System.Windows.Forms.Button btnHeal;
     private System.Windows.Forms.Button btnFlee;
     private System.Windows.Forms.Label lblPlayerHealthFull;
     private System.Windows.Forms.Label label1;
