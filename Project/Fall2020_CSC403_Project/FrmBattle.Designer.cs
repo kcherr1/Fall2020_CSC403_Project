@@ -15,6 +15,7 @@ namespace Fall2020_CSC403_Project {
       if (disposing && (components != null)) {
         components.Dispose();
         this.battleTheme.Stop();
+        this.levelTheme.PlayLooping();
       }
       base.Dispose(disposing);
     }
@@ -169,5 +170,7 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
     SoundPlayer battleTheme = new SoundPlayer("battle_theme.wav");
-  }
+    SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");
+
+    }
 }
