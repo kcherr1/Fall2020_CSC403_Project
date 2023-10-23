@@ -93,7 +93,7 @@ namespace Fall2020_CSC403_Project {
     }
 
 
-    private void btnHeal_Click(object sender, EventArgs e)
+        private void btnHeal_Click(object sender, EventArgs e)
         {
             if (player.Health <= 0 || enemy.Health <= 0)
             {
@@ -120,7 +120,7 @@ namespace Fall2020_CSC403_Project {
 
                 UpdateHealthBars();
             }
-
+        }
 
     private void btnFlee_Click(object sender, EventArgs e)
         {
