@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project {
     protected override void Dispose(bool disposing) {
       if (disposing && (components != null)) {
         components.Dispose();
+        this.levelTheme.Stop();
       }
       base.Dispose(disposing);
     }
