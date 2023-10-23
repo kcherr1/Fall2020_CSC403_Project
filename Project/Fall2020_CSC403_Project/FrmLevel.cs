@@ -189,9 +189,9 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(btnExit);
             btnExit.BringToFront();
 
-            // Create Restart button
+            // Create Main menu button
             Button btnRestart = new Button();
-            btnRestart.Text = "Restart";
+            btnRestart.Text = "Main Menu";
             btnRestart.Size = new Size(100, 50);
             btnRestart.Location = new Point(this.Width / 2 + 30, this.Height / 2); // Centered
             btnRestart.Font = new Font("Arial", 12, FontStyle.Bold);  // Change the font style

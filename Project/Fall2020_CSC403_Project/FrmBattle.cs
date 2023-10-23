@@ -85,7 +85,7 @@ namespace Fall2020_CSC403_Project {
         instance = null;
         Close();
       }
-      else if(enemy.Helth <= 0){
+      else if(enemy.Health <= 0){
             defeatEnemy();
             instance = null;
             Close();
