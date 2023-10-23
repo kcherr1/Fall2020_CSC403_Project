@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
+using MyGameLibrary;
 using System;
 using System.Drawing;
 using System.Media;
@@ -81,6 +82,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void PlayerDamage(int amount) {
+            MusicPlayer.PlayDamageSound();
       player.AlterHealth(amount);
     }
 

@@ -14,6 +14,7 @@ namespace MyGameLibrary
     {
         private static SoundPlayer footstepSound;
         private static SoundPlayer levelSound;
+        private static SoundPlayer attackSound;
         public static void PlayFootsteps()
         {
             footstepSound = new SoundPlayer(Resources.footsteps);
@@ -29,6 +30,12 @@ namespace MyGameLibrary
         public static void StopLevelMusic()
         {
             levelSound.Stop();
+        }
+
+        public static void PlayDamageSound()
+        {
+            attackSound = new SoundPlayer(Resources.oof);
+            attackSound.Play();
         }
     }
 
