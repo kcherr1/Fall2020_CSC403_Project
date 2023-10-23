@@ -43,7 +43,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(419, 90);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Game Title";
+            this.label1.Text = "Kool-aid Clash";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
