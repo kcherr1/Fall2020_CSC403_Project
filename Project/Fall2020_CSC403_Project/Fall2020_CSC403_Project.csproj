@@ -91,7 +91,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\final_battle.wav" />
+    <None Include="data\sounds\final_battle.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\player.png" />
@@ -113,13 +113,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\sounds\background.wav" />
+    <Content Include="data\sounds\battle-won.wav" />
+    <Content Include="data\sounds\attack.wav" />
+    <Content Include="data\sounds\footsteps.wav" />
+    <Content Include="data\sounds\game-over.wav" />
+    <Content Include="data\sounds\boss-battle.wav" />
+    <Content Include="data\sounds\battle.wav" />
+    <Content Include="data\sounds\title-music.wav" />
+    <None Include="Resources\515783__matrixxx__retro-footstep.wav" />
+    <None Include="Resources\669543__sintelv__jungle-level.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

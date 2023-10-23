@@ -1,6 +1,8 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -42,7 +44,10 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
-      Game.player = player;
+      SoundPlayer levelSound = new SoundPlayer(Resources.background);
+        levelSound.Play();
+
+            Game.player = player;
       timeBegin = DateTime.Now;
     }
 
