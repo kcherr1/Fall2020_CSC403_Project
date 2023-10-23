@@ -1,4 +1,6 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿using System.Media;
+
+namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
@@ -12,6 +14,7 @@
     protected override void Dispose(bool disposing) {
       if (disposing && (components != null)) {
         components.Dispose();
+        this.levelTheme.Stop();
       }
       base.Dispose(disposing);
     }
@@ -351,6 +354,8 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-  }
+    SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");
+
+    }
 }
 

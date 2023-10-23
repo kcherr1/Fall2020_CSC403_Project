@@ -1,4 +1,6 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿using System.Media;
+
+namespace Fall2020_CSC403_Project {
   partial class FrmBattle {
     /// <summary>
     /// Required designer variable.
@@ -12,6 +14,8 @@
     protected override void Dispose(bool disposing) {
       if (disposing && (components != null)) {
         components.Dispose();
+        this.battleTheme.Stop();
+        this.levelTheme.PlayLooping();
       }
       base.Dispose(disposing);
     }
@@ -33,6 +37,7 @@
             this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+            this.battleTheme = new SoundPlayer("battle_theme.wav");
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
@@ -179,5 +184,8 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
-  }
+    SoundPlayer battleTheme = new SoundPlayer("battle_theme.wav");
+    SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");
+
+    }
 }

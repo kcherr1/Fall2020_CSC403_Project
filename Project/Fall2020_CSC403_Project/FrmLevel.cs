@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -44,6 +45,7 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       timeBegin = DateTime.Now;
+      levelTheme.PlayLooping();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -76,12 +78,15 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
+        levelTheme.Stop();
         Fight(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
+        levelTheme.Stop();
         Fight(enemyCheeto);
       }
       if (HitAChar(player, bossKoolaid)) {
+        levelTheme.Stop();
         Fight(bossKoolaid);
       }
 
