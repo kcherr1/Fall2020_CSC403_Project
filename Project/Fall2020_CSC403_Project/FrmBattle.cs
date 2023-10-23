@@ -2,6 +2,7 @@
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Media;
 using System.Windows.Forms;
 
@@ -21,10 +22,12 @@ namespace Fall2020_CSC403_Project {
                 player.AttackEvent -= EnemyDamage;
                 player.HealEvent -= PlayerHeal;
             };
+
     }
 
     public void Setup() {
       // update for this enemy
+      battleTheme.PlayLooping();
       picEnemy.BackgroundImage = enemy.Img;
       picEnemy.Refresh();
       BackColor = enemy.Color;
@@ -43,9 +46,9 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Location = Point.Empty;
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
-
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-      simpleSound.Play();
+      //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+      //simpleSound.Play();
+      battleTheme.PlayLooping();
 
       tmrFinalBattle.Enabled = true;
     }
@@ -89,6 +92,7 @@ namespace Fall2020_CSC403_Project {
             }
     }
 
+
     private void btnHeal_Click(object sender, EventArgs e)
         {
             if (player.Health <= 0 || enemy.Health <= 0)
@@ -116,6 +120,15 @@ namespace Fall2020_CSC403_Project {
 
                 UpdateHealthBars();
             }
+
+
+    private void btnFlee_Click(object sender, EventArgs e)
+        {
+            //observers have to be cleared, otherwise other instances will do n*damage
+            enemy.AttackEvent -= PlayerDamage;
+            player.AttackEvent -= EnemyDamage;
+            instance = null;
+            Close();
 
         }
 

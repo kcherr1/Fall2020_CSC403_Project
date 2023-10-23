@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
     public partial class FrmLevel : Form
@@ -16,10 +17,51 @@ namespace Fall2020_CSC403_Project {
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
-        public FrmLevel()
-        {
-            InitializeComponent();
-        }
+
+    public FrmLevel() {
+      InitializeComponent();
+    }
+
+    private void FrmLevel_Load(object sender, EventArgs e) {
+      const int PADDING = 7;
+      const int NUM_WALLS = 13;
+
+      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
+      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+
+      bossKoolaid.Color = Color.Red;
+      enemyPoisonPacket.Color = Color.Green;
+      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+
+      walls = new Character[NUM_WALLS];
+      for (int w = 0; w < NUM_WALLS; w++) {
+        PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      }
+
+      Game.player = player;
+      timeBegin = DateTime.Now;
+      levelTheme.PlayLooping();
+    }
+
+    private Vector2 CreatePosition(PictureBox pic) {
+      return new Vector2(pic.Location.X, pic.Location.Y);
+    }
+
+    private Collider CreateCollider(PictureBox pic, int padding) {
+      Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+      return new Collider(rect);
+    }
+
+    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
+      player.ResetMoveSpeed();
+    }
 
         private void FrmLevel_Load(object sender, EventArgs e)
         {
@@ -58,10 +100,40 @@ namespace Fall2020_CSC403_Project {
             lblPlayerHealthMap.Text = player.Health.ToString();
         }
 
+
         private Vector2 CreatePosition(PictureBox pic)
         {
             return new Vector2(pic.Location.X, pic.Location.Y);
         }
+
+    private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+      // move player
+      player.Move();
+
+      // check collision with walls
+      if (HitAWall(player)) {
+        player.MoveBack();
+      }
+
+      // check collision with enemies
+      if (HitAChar(player, enemyPoisonPacket)) {
+        levelTheme.Stop();
+        Fight(enemyPoisonPacket);
+      }
+      else if (HitAChar(player, enemyCheeto)) {
+        levelTheme.Stop();
+        Fight(enemyCheeto);
+      }
+      if (HitAChar(player, bossKoolaid)) {
+        levelTheme.Stop();
+        Fight(bossKoolaid);
+      }
+
+      // update player's picture box
+      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      UpdateMapHealth();
+    }
+
 
         private Collider CreateCollider(PictureBox pic, int padding)
         {
@@ -74,42 +146,22 @@ namespace Fall2020_CSC403_Project {
             player.ResetMoveSpeed();
         }
 
+
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
         {
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
         }
+      private void Fight(Enemy enemy) {
+      player.ResetMoveSpeed();
+      player.MoveBack();
+            this.Hide();
+      frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle.FormClosed += (s, args) => this.Show();
+      frmBattle.Show();
 
-        private void tmrPlayerMove_Tick(object sender, EventArgs e)
-        {
-            // move player
-            player.Move();
 
-            // check collision with walls
-            if (HitAWall(player))
-            {
-                player.MoveBack();
-            }
-
-            // check collision with enemies
-            if (HitAChar(player, enemyPoisonPacket))
-            {
-                Fight(enemyPoisonPacket);
-            }
-            else if (HitAChar(player, enemyCheeto))
-            {
-                Fight(enemyCheeto);
-            }
-            if (HitAChar(player, bossKoolaid))
-            {
-                Fight(bossKoolaid);
-            }
-
-            // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-            UpdateMapHealth();
-        }
 
         private bool HitAWall(Character c)
         {
