@@ -1,6 +1,9 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
+using MyGameLibrary;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -42,7 +45,9 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
-      Game.player = player;
+      MusicPlayer.PlayLevelMusic();
+
+            Game.player = player;
       timeBegin = DateTime.Now;
     }
 
@@ -68,7 +73,6 @@ namespace Fall2020_CSC403_Project {
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
       player.Move();
-
       // check collision with walls
       if (HitAWall(player)) {
         player.MoveBack();
@@ -76,13 +80,16 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
+        MusicPlayer.StopLevelMusic();
         Fight(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
+                MusicPlayer.StopLevelMusic();
+                Fight(enemyCheeto);
       }
       if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+                MusicPlayer.StopLevelMusic();
+                Fight(bossKoolaid);
       }
 
       // update player's picture box
