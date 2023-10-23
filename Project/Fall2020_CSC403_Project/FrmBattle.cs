@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
+using System.ComponentModel.Design.Serialization;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
@@ -63,17 +64,32 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
-    private void btnAttack_Click(object sender, EventArgs e) {
+        private void defeatEnemy()
+        {
+
+        }
+        private void defeatPlayer()
+        {
+
+        }
+
+        private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (player.Health <= 0) {
+        defeatPlayer();
         instance = null;
         Close();
       }
+      else if(enemy.Helth <= 0){
+            defeatEnemy();
+            instance = null;
+            Close();
+        }
     }
 
     private void EnemyDamage(int amount) {
