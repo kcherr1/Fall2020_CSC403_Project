@@ -16,7 +16,7 @@ namespace Fall2020_CSC403_Project.code
 
         public event Action<int> AttackEvent;
 
-		public Inventory inventory { get; set; }
+		public Inventory Inventory { get; set; }
 
 		public String name { get; private set; }
 
@@ -39,6 +39,7 @@ namespace Fall2020_CSC403_Project.code
             this.defense = archetype.baseDefense;
             this.speed = archetype.baseSpeed;
             this.Health = MaxHealth;
+			this.Inventory = new Inventory();
 		}
 
 		public void setArchetype(PlayerArchetype newArchetype)

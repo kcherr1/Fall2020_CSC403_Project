@@ -46,10 +46,25 @@ namespace MyGameLibrary
             return this.Backpack[this.Backpack.Length - 1] != null;
         }
 
+        public void UnEquipWeapon(Position position, Facing facing)
+        {
+            EquipWeapon(null, position, facing);
+        }
+
+        public void UnEquipArmor(Position position, Facing facing)
+        {
+            EquipArmor(null, position, facing);
+        }
+
+        public void UnEquipUtility(Position position, Facing facing)
+        {
+            EquipUtility(null, position, facing);
+        }
+
         public void EquipWeapon(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Weapon;
-            if (item.Type == Item.ItemType.Weapon)
+            if (item.Type == Item.ItemType.Weapon || item == null)
             {
                 this.Weapon = item;
                 RemoveFromBackpack(item);
@@ -70,7 +85,7 @@ namespace MyGameLibrary
         public void EquipArmor(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Armor;
-            if (item.Type == Item.ItemType.Armor)
+            if (item.Type == Item.ItemType.Armor || item == null)
             {
                 this.Armor = item;
                 RemoveFromBackpack(item);
@@ -89,7 +104,7 @@ namespace MyGameLibrary
         public void EquipUtility(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Utility;
-            if (item.Type == Item.ItemType.Utility)
+            if (item.Type == Item.ItemType.Utility || item == null)
             {
                 this.Utility = item;
                 RemoveFromBackpack(item);
@@ -163,12 +178,41 @@ namespace MyGameLibrary
 
         public void DropItem(Item item, Position position, Facing facing)
         {
-
             Position new_position = new Position(position.x, position.y);
             new_position.x = facing == Facing.Left ? new_position.x - 40 : new_position.x + 40;
             item.SetEntityPosition(new_position);
-
         }
 
+        public void DropAll(Position position)
+        {
+            Random rnd = new Random();
+            Position new_position = position;
+            for (int i = 0; i < this.Backpack.Length; i++)
+                if (this.Backpack[i] != null)
+                {
+                    new_position.x = rnd.Next(-40, 40);
+                    new_position.y = rnd.Next(-40, 40);
+                    this.Backpack[i].SetEntityPosition(new_position);
+                    this.Backpack[i] = null;
+
+                }
+
+            new_position.x = rnd.Next(-40, 40);
+            new_position.y = rnd.Next(-40, 40);
+            this.Weapon.SetEntityPosition(new_position);
+            this.Weapon = null;
+
+            new_position.x = rnd.Next(-40, 40);
+            new_position.y = rnd.Next(-40, 40);
+            this.Armor.SetEntityPosition(new_position);
+            this.Armor = null;
+
+            new_position.x = rnd.Next(-40, 40);
+            new_position.y = rnd.Next(-40, 40);
+            this.Utility.SetEntityPosition(new_position);
+            this.Utility = null;
+
+        }
     }
+
 }
