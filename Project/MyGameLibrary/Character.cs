@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MyGameLibrary;
 
 #pragma warning disable 1591 // use this to disable comment warnings
@@ -21,7 +22,7 @@ namespace Fall2020_CSC403_Project.code {
         public int Health { get; private set; }
         public int MaxHealth { get; private set; }
 
-        public Character(string Name, Position initPos, Collider collider) : base(Name, initPos, collider) {
+        public Character(string Name, PictureBox Pic, Position initPos, Collider collider) : base(Name, Pic, initPos, collider) {
             // set archetype
             Inventory = new Inventory(); // fill in inventory based on archetype
 
@@ -31,7 +32,7 @@ namespace Fall2020_CSC403_Project.code {
             
         }
 
-        public Character(string Name) : base(Name) {
+        public Character(string Name, PictureBox Pic) : base(Name, Pic) {
             Inventory = new Inventory(); // fill in inventory based on archetype
 
             MaxHealth = 20; // get from archetype

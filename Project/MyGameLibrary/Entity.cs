@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project.code
 {
@@ -11,9 +12,11 @@ namespace Fall2020_CSC403_Project.code
     {
         private const int GO_INC = 3;
 
-        public Position MoveSpeed { get; private set; }
-        public Position LastPosition { get; private set; }
-        public Collider Collider { get; private set; }
+		public PictureBox Pic;
+
+		public Position MoveSpeed { get; private set; }
+		public Position LastPosition { get; private set; }
+		public Collider Collider { get; private set; }
 
 
         public Rectangle Size { get; private set; }
@@ -22,15 +25,17 @@ namespace Fall2020_CSC403_Project.code
         public string Name { get; private set; }
 
 
-        public Entity(string Name)
+        public Entity(string Name, PictureBox Pic)
         {
             this.Name = Name;
+            this.Pic = Pic;
         }
 
 
-        public Entity(string Name, Position initPos, Collider collider)
+        public Entity(string Name, PictureBox Pic, Position initPos, Collider collider)
         {
             this.Name = Name;
+            this.Pic = Pic;
             this.Position = initPos;
             this.Collider = collider;
         }
@@ -66,9 +71,23 @@ namespace Fall2020_CSC403_Project.code
             this.MoveSpeed = new Position(0, +GO_INC);
         }
 
-        public void ResetMoveSpeed()
-        {
-            this.MoveSpeed = new Position(0, 0);
+		public void ResetMoveSpeed()
+		{
+			MoveSpeed = new Position(0, 0);
+		}
+
+		public void RemoveEntity()
+		{
+			this.Position = new Position(-100, -100);
+            Collider.MovePosition((int)Position.x, (int)Position.y);
+			this.Pic.Visible = false;
         }
-    }
+
+		public void RestoreEntity()
+		{
+			this.Position = LastPosition;
+            Collider.MovePosition((int)Position.x, (int)Position.y);
+			this.Pic.Visible = true;
+        }
+	}
 }

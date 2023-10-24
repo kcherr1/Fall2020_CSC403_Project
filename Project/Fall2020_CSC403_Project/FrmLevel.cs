@@ -21,10 +21,11 @@ namespace Fall2020_CSC403_Project
 		private DateTime timeBegin;
 		private FrmBattle frmBattle;
 
-		public FrmLevel()
-		{
-			InitializeComponent();
-		}
+        public bool gameOver = false;
+
+        public FrmLevel() {
+            InitializeComponent();
+        }
 
 		private void FrmLevel_Load(object sender, EventArgs e)
 		{
@@ -32,11 +33,11 @@ namespace Fall2020_CSC403_Project
 			const int NUM_WALLS = 13;
 			const int NUM_ITEMS = 13;
 
-			player = new Player("Peanut", CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+			player = new Player("Peanut", picPlayer, CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
 
-			bossKoolaid = new Enemy("KoolAidman", CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-			enemyPoisonPacket = new Enemy("Poison", CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-			enemyCheeto = new Enemy("CheetoKnives", CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+			bossKoolaid = new Enemy("KoolAidman", picBossKoolAid, CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+			enemyPoisonPacket = new Enemy("Poison", picEnemyPoisonPacket, CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+			enemyCheeto = new Enemy("CheetoKnives", picEnemyCheeto, CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
 			bossKoolaid.Img = picBossKoolAid.BackgroundImage;
 			enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -50,11 +51,11 @@ namespace Fall2020_CSC403_Project
 			for (int w = 0; w < NUM_WALLS; w++)
 			{
 				PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-				walls[w] = new Entity("wall", CreatePosition(pic), CreateCollider(pic, PADDING));
+				walls[w] = new Entity("wall", pic, CreatePosition(pic), CreateCollider(pic, PADDING));
 			}
 
 
-			Item start_sword = new Item("Sting", 10, Item.ItemType.Weapon, CreatePosition(picStartingSword), CreateCollider(picStartingSword, PADDING));
+			Item start_sword = new Item("Sting", picStartingSword, 10, Item.ItemType.Weapon, CreatePosition(picStartingSword), CreateCollider(picStartingSword, PADDING));
 			
 
             items = new Item[NUM_ITEMS];
@@ -115,7 +116,9 @@ namespace Fall2020_CSC403_Project
 			int x = HitAnItem(player);
 			if (x >= 0)
 			{
+
 				player.Inventory.AddToBackpack(items[x]);
+				items[x].RemoveEntity();
                 
             }
 
@@ -166,11 +169,33 @@ namespace Fall2020_CSC403_Project
 			frmBattle = FrmBattle.GetInstance(enemy);
 			frmBattle.Show();
 
-			if (enemy == bossKoolaid)
-			{
-				frmBattle.SetupForBossBattle();
-			}
-		}
+            if (enemy == bossKoolaid)
+            {
+                frmBattle.SetupForBossBattle();
+            }
+        }
+
+        
+
+        private void LoadBattle(Enemy enemy)
+        {
+            ClearWindow();
+
+        }
+
+
+        private void ClearWindow()
+        {
+            //player.RemoveEntity();
+            bossKoolaid.RemoveEntity();
+            enemyCheeto.RemoveEntity();
+            enemyPoisonPacket.RemoveEntity();
+            for (int w = 0; w < walls.Length; w++)
+            {
+                walls[w].RemoveEntity();
+            }
+
+        }
 
 		private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
 		{
@@ -196,11 +221,6 @@ namespace Fall2020_CSC403_Project
 					player.ResetMoveSpeed();
 					break;
 			}
-		}
-
-		private void lblInGameTime_Click(object sender, EventArgs e)
-		{
-
 		}
 	}
 }

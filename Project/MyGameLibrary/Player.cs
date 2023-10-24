@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project.code {
   public class Player : Character {
-    public Player(string name, Position initPos, Collider collider) : base(name, initPos, collider) {
+    public Player(string Name, PictureBox Pic, Position initPos, Collider collider) : base(Name, Pic, initPos, collider) {
 
         }
     }
