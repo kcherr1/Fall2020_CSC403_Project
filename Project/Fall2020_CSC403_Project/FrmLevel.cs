@@ -65,8 +65,15 @@ namespace Fall2020_CSC403_Project
             }
             catch (Exception ex)
             { }
-        
-                
+
+            foreach (string itemname in player.inventory.itemstorage)
+            {
+                PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
+                inventoryItem.Hide();
+                // Sets inventory Item as child to always display item images on top of the inventory board.S
+                inventoryItem.Parent = this.inventoryboard;
+            }
+
             Game.player = player;
             timeBegin = DateTime.Now;
         }
@@ -201,6 +208,9 @@ namespace Fall2020_CSC403_Project
                 {
                     case Keys.I:
                         Inventory_Close();
+                        break;
+                    case Keys.U:
+                        // Determine selected item, use item, remove item from inventory
                         break;
                     default:
                         break;
