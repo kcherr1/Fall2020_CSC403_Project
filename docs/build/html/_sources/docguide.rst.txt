@@ -72,3 +72,11 @@ reference the existing documentation and this `syntax guide`_ for editing the do
 To write C# code blocks, reference this `csharp guide`_.
 
 .. _csharp guide: https://sphinxsharp-docs.readthedocs.io/en/latest/
+
+.. note::
+   When developing the documentation, there is a bug where light/dark mode 
+   inconsistency exists. If you switch one page to a specific mode from the 
+   default mode, the rest of the pages will still remain in the default mode.
+   You can switch the theme on every page for consistency or deal with the 
+   inconsistency until the documentation is built. The bug disappears
+   once the documentation is built.
