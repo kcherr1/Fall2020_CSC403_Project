@@ -297,6 +297,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.AutoSize = true;
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(3136, 1731);
@@ -320,6 +321,7 @@
       this.Controls.Add(this.picEnemyCheeto);
       this.DoubleBuffered = true;
       this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+      this.MinimumSize = new System.Drawing.Size(3168, 1819);
       this.Name = "FrmLevel";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "Explore";
