@@ -84,6 +84,20 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
+      
+      // check state of each enemy
+      if (!enemyPoisonPacket.IsAlive)
+      {
+        RemoveEnemy(enemyPoisonPacket, picEnemyPoisonPacket);
+      }
+      if (!enemyCheeto.IsAlive)
+      {
+        RemoveEnemy(enemyCheeto, picEnemyCheeto);
+      }
+      if (!bossKoolaid.IsAlive)
+      {
+        RemoveEnemy(bossKoolaid, picBossKoolAid);
+      }
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -141,6 +155,12 @@ namespace Fall2020_CSC403_Project {
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
+    }
+
+    private void RemoveEnemy(Enemy enemy, PictureBox picEnemy)
+    {
+      enemy.RemoveCollider();
+      picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
     }
   }
 }
