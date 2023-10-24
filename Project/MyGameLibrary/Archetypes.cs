@@ -1,57 +1,71 @@
+using System.Data;
 using System.Drawing;
+using System.Dynamic;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 
 namespace Fall2020_CSC403_Project.code
 {
-    interface PlayerArchetype
+    public interface PlayerArchetype
     {
-        private int maxHealth;
-        private int baseDefense;
-        private int baseDamage;
-        private int baseSpeed;
+        int baseMaxHealth { get; }
+        int baseDefense { get; }
+        int baseDamage { get; }
+        int baseSpeed { get; }
     }
 
-    class Tank : PlayerArchetype
+    public class Archetype
     {
-        private int maxHealth  { get; private set; }
-        private int baseDefense  { get; private set; }
-        private int baseDamage  { get; private set; }
-        private int baseSpeed  { get; private set; }
+        private PlayerArchetype archetype;
+
+        public Archetype(PlayerArchetype archetype)
+        {
+            this.archetype = archetype;
+        }
+    }
+
+    public class Tank : PlayerArchetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
 
         public Tank()
         {
-            maxHealth = 100;
+            baseMaxHealth = 100;
             baseDefense = 10;
             baseDamage = 5;
             baseSpeed = 0;
         }
     }
 
-    class Rogue : PlayerArchetype
+    public class Rogue : PlayerArchetype
     {
-        private int maxHealth { get; private set; }
-        private int baseDefense { get; private set; }
-        private int baseDamage { get; private set; }
-        private int baseSpeed { get; private set; }
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
 
         public Rogue()
         {
-            maxHealth = 20;
+            baseMaxHealth = 20;
             baseDefense = 2;
             baseDamage = 10;
             baseSpeed = 5;
         }
     }
 
-    class Swordsman : PlayerArchetype
+    public class Swordsman : PlayerArchetype
     {
-        private int maxHealth { get; private set; }
-        private int baseDefense { get; private set; }
-        private int baseDamage { get; private set; }
-        private int baseSpeed { get; private set; }
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
 
         public Swordsman()
         {
-            maxHealth = 50;
+            baseMaxHealth = 50;
             baseDefense = 5;
             baseDamage = 10;
             baseSpeed = 2;

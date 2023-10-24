@@ -14,24 +14,35 @@ namespace Fall2020_CSC403_Project.code
 		public event Action<int> AttackEvent;
 
 		public String name { get; private set; }
-		// archetype here
-		// touchness here
-		// damage here
-		private float strength; // replace with damage
-								// inventory here
+
+		public PlayerArchetype archetype;
+		
+		public int defense;
+
+		public int damage;
+
+		public int speed;
+
 		public int Health { get; private set; }
 		public int MaxHealth { get; private set; }
 
 		public Character(Position initPos, Collider collider) : base(initPos, collider)
 		{
-			MaxHealth = 20;
-			strength = 2;
+			MaxHealth = archetype.baseMaxHealth;
+			damage = archetype.baseDamage;
+			defense = archetype.baseDefense;
+			speed = archetype.baseSpeed;
 			Health = MaxHealth;
+		}
+
+		public void setArchetype(PlayerArchetype newArchetype)
+		{
+			this.archetype = newArchetype;
 		}
 		
 		public void OnAttack(int amount)
 		{
-			AttackEvent((int)(amount * strength));
+			AttackEvent((int)(amount * damage));
 		}
 
 		public void AlterHealth(int amount)
