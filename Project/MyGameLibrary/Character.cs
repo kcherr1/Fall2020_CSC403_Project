@@ -9,9 +9,11 @@ using MyGameLibrary;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
-namespace Fall2020_CSC403_Project.code {
-  public class Character : Entity {
-        
+namespace Fall2020_CSC403_Project.code
+{
+    public class Character : Entity
+    {
+
         public event Action<int> AttackEvent;
 
         // archetype here
@@ -22,17 +24,19 @@ namespace Fall2020_CSC403_Project.code {
         public int Health { get; private set; }
         public int MaxHealth { get; private set; }
 
-        public Character(string Name, PictureBox Pic, Position initPos, Collider collider) : base(Name, Pic, initPos, collider) {
+        public Character(string Name, PictureBox Pic, Position initPos, Collider collider) : base(Name, Pic, initPos, collider)
+        {
             // set archetype
             Inventory = new Inventory(); // fill in inventory based on archetype
 
             MaxHealth = 20; // get from archetype
             strength = 2; // get from archetype + weapon 
             Health = MaxHealth;
-            
+
         }
 
-        public Character(string Name, PictureBox Pic) : base(Name, Pic) {
+        public Character(string Name, PictureBox Pic) : base(Name, Pic)
+        {
             Inventory = new Inventory(); // fill in inventory based on archetype
 
             MaxHealth = 20; // get from archetype
@@ -40,13 +44,15 @@ namespace Fall2020_CSC403_Project.code {
             Health = MaxHealth;
         }
 
-        public void OnAttack(int amount) {
+        public void OnAttack(int amount)
+        {
             AttackEvent((int)(amount * strength));
         }
 
-        public void AlterHealth(int amount) {
+        public void AlterHealth(int amount)
+        {
             Health += amount;
         }
-        
+
     }
 }
