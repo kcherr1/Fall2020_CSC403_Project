@@ -25,8 +25,8 @@ namespace Fall2020_CSC403_Project
         {
             if (scrollPosition < maskedTextBox1.Text.Length)
             {
-                maskedTextBox1.Text = maskedTextBox1.Text.Substring(1) + maskedTextBox1.Text[0];
-                scrollPosition++;
+                //maskedTextBox1.Text = maskedTextBox1.Text.Substring(1) + maskedTextBox1.Text[0];
+                //scrollPosition++;
             }
             else
             {

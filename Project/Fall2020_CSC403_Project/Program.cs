@@ -16,8 +16,14 @@ namespace Fall2020_CSC403_Project {
         {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());
-                //Application.Run(new FrmLevel());
+                 Application.Run(new Form1());
+                Application.Run(new FrmLevel());
         }
     }
 }
+
+/* Reference Code Locations
+ * 1. (menu->storyWindow>game)c# windows form overlay and with button click: https://foxlearn.com/windows-forms/how-to-create-overlay-modal-popup-in-csharp-514.html
+ * 
+ * 
+ */
