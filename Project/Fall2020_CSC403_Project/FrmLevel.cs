@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Fall2020_CSC403_Project
 {
@@ -13,7 +14,7 @@ namespace Fall2020_CSC403_Project
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Character[] walls;
-        private Item[] itemsList;
+        private List<Item> itemsList;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -27,7 +28,6 @@ namespace Fall2020_CSC403_Project
         {
             const int PADDING = 7;
             const int NUM_WALLS = 13;
-            const int NUM_ITEMS = 1;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -51,15 +51,22 @@ namespace Fall2020_CSC403_Project
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
-            itemsList = new Item[NUM_ITEMS];
-            for (int i = 0; i < NUM_ITEMS; i++)
+            itemsList = new List<Item>();
+            try
             {
-                string itemname = "LVL1potion" + i.ToString();
-                PictureBox item = Controls.Find(itemname, true)[0] as PictureBox;
-                itemsList[i] = new HealthItem(CreatePosition(item), CreateCollider(item, PADDING), itemname);
+                int w = 0;
+                while(true)
+                {
+                    string itemname = "LVL1potion" + w.ToString();
+                    PictureBox item = Controls.Find(itemname, true)[0] as PictureBox;
+                    itemsList.Add(new HealthItem(CreatePosition(item), CreateCollider(item, PADDING), itemname));
+                    w = w + 1;
+                }
             }
-
-
+            catch (Exception ex)
+            { }
+        
+                
             Game.player = player;
             timeBegin = DateTime.Now;
         }
@@ -112,16 +119,16 @@ namespace Fall2020_CSC403_Project
                 Fight(bossKoolaid);
             }
 
-
-            
+            // check collision with item(s)
             if (HitAnItem(player))
             {
                 Item itemHit = null;
-                for (int w = 0; w < itemsList.Length; w++)
+                for (int w = 0; w < itemsList.Count; w++)
                 {
                     if (player.Collider.Intersects(itemsList[w].Collider))
                     {
                         itemHit = itemsList[w];
+                        itemsList.Remove(itemHit);
                         break;
                     }
                 }
@@ -149,7 +156,7 @@ namespace Fall2020_CSC403_Project
         private bool HitAnItem(Character c)
         {
             bool hitAnItem = false;
-            for (int w = 0; w < itemsList.Length; w++)
+            for (int w = 0; w < itemsList.Count; w++)
             {
                 if (c.Collider.Intersects(itemsList[w].Collider))
                 {
@@ -183,6 +190,7 @@ namespace Fall2020_CSC403_Project
             player.inventory.addItem(item);
             PictureBox pic = Controls.Find(item.NAME, true)[0] as PictureBox;
             pic.Hide();
+            pic.Parent = this.inventoryboard;
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
@@ -192,7 +200,7 @@ namespace Fall2020_CSC403_Project
                 switch (e.KeyCode)
                 {
                     case Keys.I:
-                        Inventory_Load();
+                        Inventory_Close();
                         break;
                     default:
                         break;
@@ -223,7 +231,7 @@ namespace Fall2020_CSC403_Project
                         break;
 
                     case Keys.I:
-                        Inventory_Load();
+                        Inventory_Open();
                         break;
 
                     default:
@@ -233,35 +241,38 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        public void Inventory_Load()
+        public void Inventory_Close()
         {
-            if (player.inventory.visible)
+            this.inventoryboard.Hide();
+            foreach (string itemname in player.inventory.itemstorage)
             {
-                this.inventoryboard.Hide();
-                foreach (string itemname in player.inventory.itemstorage)
-                {
-                    PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
-                    inventoryItem.Hide();
-                }
+                PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
+                inventoryItem.Hide();
             }
-            else
-            {
-                this.inventoryboard.Show();
 
-                int x_pos = inventoryboard.Location.X  + player.inventory.LEFTPAD;
-                int y_pos = inventoryboard.Location.Y + player.inventory.LEFTPAD;
-                foreach (string itemname in player.inventory.itemstorage)
+            player.inventory.setVisible(!player.inventory.visible);
+        }
+
+        public void Inventory_Open()
+        {
+            this.inventoryboard.Show();
+
+            int x_pos = player.inventory.PADDING;
+            int y_pos = player.inventory.PADDING;
+            foreach (string itemname in player.inventory.itemstorage)
+            {
+                PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
+                if ((inventoryItem.Width + x_pos) > (inventoryboard.Location.X + inventoryboard.Width - player.inventory.PADDING))
                 {
-                    PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
-                    if ((inventoryItem.Width + x_pos) > (inventoryboard.Location.X + inventoryboard.Width - player.inventory.RIGHTPAD))
-                    {
-                        x_pos = player.inventory.LEFTPAD;
-                        y_pos = y_pos + (inventoryboard.Height * (1 / 3));
-                    }
-                    inventoryItem.Location = new Point(x_pos, y_pos);
-                    inventoryItem.Show();
+                    x_pos = player.inventory.PADDING;
+                    y_pos = y_pos + (inventoryboard.Height * (1 / 3));
                 }
+                inventoryItem.Location = new Point(x_pos, y_pos);
+                inventoryItem.Show();
+
+                x_pos = x_pos + player.inventory.PADDING;
             }
+            
             player.inventory.setVisible(!player.inventory.visible);
         }
 

@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code
 {
-    public class Item : Character
+    public class Item
     {
         public string NAME;
-        public Item(Vector2 initPos, Collider collider, string name) : base(initPos, collider)
+        public Vector2 Position { get; set; }
+        public Collider Collider { get; set; }
+        public Item(Vector2 initPos, Collider collider, string name)
         {
+            Position = initPos;
+            Collider = collider;
             NAME = name;
         }
 

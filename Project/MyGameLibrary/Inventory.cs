@@ -11,18 +11,14 @@ namespace Fall2020_CSC403_Project.code
     {
         public List<string> itemstorage = new List<string>();
         public bool visible = false;
-        public const int leftPAD = 20;
-        public const int rightPAD = 20;
-        public const int imagePAD = 20;
+        private const int padding = 20;
 
         public Inventory()
         { }
 
         public Image image { get; set; }
 
-        public int LEFTPAD { get { return leftPAD; } }
-        public int RIGHTPAD { get { return rightPAD; } }
-        public int IMAGEPAD { get { return imagePAD; } }
+        public int PADDING { get { return padding; } }
 
         public void addItem(Item item)
         {
