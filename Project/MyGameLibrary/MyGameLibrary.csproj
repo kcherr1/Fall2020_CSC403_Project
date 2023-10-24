@@ -98,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleCharacter.cs" />
-    <Compile Include="CGPT.cs" />
+    <Compile Include="CgptController.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Collider.cs" />
     <Compile Include="Enemy.cs" />
