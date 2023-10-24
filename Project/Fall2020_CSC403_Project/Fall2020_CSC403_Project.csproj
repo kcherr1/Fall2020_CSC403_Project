@@ -124,5 +124,8 @@
   <ItemGroup>
     <None Include="data\inventoryboard.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\raw images\Potion.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,6 +28,8 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.LVL1potion0 = new System.Windows.Forms.PictureBox();
+            this.inventoryboard = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
@@ -45,7 +47,8 @@
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            this.inventoryboard = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -63,7 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -90,6 +92,26 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            // 
+            // LVL1potion0
+            // 
+            this.LVL1potion0.Image = global::Fall2020_CSC403_Project.Properties.Resources.Potion;
+            this.LVL1potion0.Location = new System.Drawing.Point(735, 89);
+            this.LVL1potion0.Name = "LVL1potion0";
+            this.LVL1potion0.Size = new System.Drawing.Size(92, 88);
+            this.LVL1potion0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LVL1potion0.TabIndex = 19;
+            this.LVL1potion0.TabStop = false;
+            // 
+            // inventoryboard
+            // 
+            this.inventoryboard.Image = global::Fall2020_CSC403_Project.Properties.Resources.inventoryboard;
+            this.inventoryboard.Location = new System.Drawing.Point(176, 113);
+            this.inventoryboard.Name = "inventoryboard";
+            this.inventoryboard.Size = new System.Drawing.Size(1183, 618);
+            this.inventoryboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.inventoryboard.TabIndex = 18;
+            this.inventoryboard.TabStop = false;
             // 
             // picWall11
             // 
@@ -295,16 +317,6 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
-            // inventoryboard
-            // 
-            this.inventoryboard.Image = global::Fall2020_CSC403_Project.Properties.Resources.inventoryboard;
-            this.inventoryboard.Location = new System.Drawing.Point(176, 113);
-            this.inventoryboard.Name = "inventoryboard";
-            this.inventoryboard.Size = new System.Drawing.Size(1183, 618);
-            this.inventoryboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.inventoryboard.TabIndex = 18;
-            this.inventoryboard.TabStop = false;
-            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,6 +324,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
+            this.Controls.Add(this.LVL1potion0);
             this.Controls.Add(this.inventoryboard);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
@@ -339,6 +352,8 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
@@ -356,7 +371,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,6 +399,7 @@
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
     private System.Windows.Forms.PictureBox inventoryboard;
+    private System.Windows.Forms.PictureBox LVL1potion0;
     }
 }
 
