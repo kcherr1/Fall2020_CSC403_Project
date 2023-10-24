@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Fall2020_CSC403_Project.code;
 using MyGameLibrary;
+using static Fall2020_CSC403_Project.code.Entity;
 
 namespace MyGameLibrary
 {
@@ -21,7 +22,7 @@ namespace MyGameLibrary
             this.Backpack = new Item[9];
         }
 
-        public Inventory(Item Weapon, Item Armor, Item tility, Item[] Backpack)
+        public Inventory(Item Weapon, Item Armor, Item Utility, Item[] Backpack)
         {
             this.Weapon = Weapon;
             this.Armor = Armor;
@@ -42,10 +43,10 @@ namespace MyGameLibrary
         }
 
         public bool BackpackIsFull(){
-            return this.Backpack[this.Backpack.Length - 1] == null;
+            return this.Backpack[this.Backpack.Length - 1] != null;
         }
 
-        public void EquipWeapon(Item item)
+        public void EquipWeapon(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Weapon;
             if (item.Type == Item.ItemType.Weapon)
@@ -54,7 +55,8 @@ namespace MyGameLibrary
                 RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    // Drop(currently_equipped, player position);
+                    DropItem(currently_equipped, position, facing);
+
                 } else
                 {
                     AddToBackpack(currently_equipped);
@@ -65,7 +67,7 @@ namespace MyGameLibrary
                 Console.Error.WriteLine("Not a weapon");
             }
         }
-        public void EquipArmor(Item item)
+        public void EquipArmor(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Armor;
             if (item.Type == Item.ItemType.Armor)
@@ -74,7 +76,7 @@ namespace MyGameLibrary
                 RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    // Drop(currently_equipped, player position)
+                    DropItem(currently_equipped, position, facing);
                 }
                 else
                 {
@@ -84,7 +86,7 @@ namespace MyGameLibrary
                 Console.Error.WriteLine("Not armor");
             }
         }
-        public void EquipUtility(Item item)
+        public void EquipUtility(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Utility;
             if (item.Type == Item.ItemType.Utility)
@@ -93,7 +95,7 @@ namespace MyGameLibrary
                 RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    // Drop(currently_equipped, player position)
+                    DropItem(currently_equipped, position, facing);
                 }
                 else
                 {
@@ -142,8 +144,6 @@ namespace MyGameLibrary
             if (index > 0)
             {
                 RemoveFromBackpack(index);
-            } else {
-                Console.Error.WriteLine("Item not in Backpack");
             }
         }
 
@@ -158,13 +158,17 @@ namespace MyGameLibrary
             {
                 this.Backpack[i] = this.Backpack[i + 1];
             }
+
         }
 
-        public void Drop(Item item, Position position)
+        public void DropItem(Item item, Position position, Facing facing)
         {
-            // todo, create item at player position outside of collision range
-        }
 
+            Position new_position = new Position(position.x, position.y);
+            new_position.x = facing == Facing.Left ? new_position.x - 40 : new_position.x + 40;
+            item.SetEntityPosition(new_position);
+
+        }
 
     }
 }

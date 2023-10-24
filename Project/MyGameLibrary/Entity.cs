@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MyGameLibrary;
 
 namespace Fall2020_CSC403_Project.code
 {
@@ -23,6 +24,16 @@ namespace Fall2020_CSC403_Project.code
         public Position Position { get; private set; }
 
         public string Name { get; private set; }
+
+        public Facing facing { get; set; }
+
+
+        public enum Facing
+        {
+            Left,
+            Right
+        }
+
 
 
         public Entity(string Name, PictureBox Pic)
@@ -57,10 +68,12 @@ namespace Fall2020_CSC403_Project.code
         public void GoLeft()
         {
             this.MoveSpeed = new Position(-GO_INC, 0);
+            this.facing = Facing.Left;
         }
         public void GoRight()
         {
             this.MoveSpeed = new Position(+GO_INC, 0);
+            this.facing = Facing.Right;
         }
         public void GoUp()
         {
@@ -89,5 +102,14 @@ namespace Fall2020_CSC403_Project.code
             Collider.MovePosition((int)Position.x, (int)Position.y);
 			this.Pic.Visible = true;
         }
-	}
+
+        public void SetEntityPosition(Position pos)
+        {
+            this.Position = pos;
+            Collider.MovePosition((int)pos.x, (int)pos.y);
+            this.Pic.Visible = true; // remove later
+        }
+
+
+    }
 }

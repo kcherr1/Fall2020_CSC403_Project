@@ -116,9 +116,11 @@ namespace Fall2020_CSC403_Project
 			int x = HitAnItem(player);
 			if (x >= 0)
 			{
-
-				player.Inventory.AddToBackpack(items[x]);
-				items[x].RemoveEntity();
+				if (!player.Inventory.BackpackIsFull())
+				{
+                    player.Inventory.AddToBackpack(items[x]);
+                    items[x].RemoveEntity();
+                }
                 
             }
 
