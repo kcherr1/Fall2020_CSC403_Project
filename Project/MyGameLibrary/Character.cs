@@ -43,6 +43,7 @@ namespace Fall2020_CSC403_Project.code {
     }
 
     public void ResetMoveSpeed() {
+            this.KeysPressed.Clear();
       MoveSpeed = new Vector2(0, 0);
     }
   }
