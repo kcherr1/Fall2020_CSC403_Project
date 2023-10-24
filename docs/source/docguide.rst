@@ -65,6 +65,10 @@ display the project's documentation.
 To make changes to the documentation you need to modify the individual files in
 .../docs/source/. The files are .rst (reStructuredText) files. For example, the 
 home page is the index.rst file while this page is the docguide.rst file. Please
-reference the existing documentation and this `guide`_ for editing the documentation.
+reference the existing documentation and this `syntax guide`_ for editing the documentation.
 
-.. _guide: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
+.. _syntax guide: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
+
+To write C# code blocks, reference this `csharp guide`_.
+
+.. _csharp guide: https://sphinxsharp-docs.readthedocs.io/en/latest/
