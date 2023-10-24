@@ -67,6 +67,7 @@ namespace Fall2020_CSC403_Project {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
+      btnHeavyAttack.Enabled = true;
       }
 
       UpdateHealthBars();
@@ -75,7 +76,20 @@ namespace Fall2020_CSC403_Project {
         Close();
       }
     }
+   private void btnHeavyAttack_Click(object sender, EventArgs e){
+      player.OnHeavyAttack(-4);
+      if (enemy.Health > 0){
+        enemy.OnAttack(-2);
+      btnHeavyAttack.Enabled = false;
+      }
 
+      UpdateHealthBars();
+      if (player.Health <= 0 || enemy.Health <= 0){
+        instance = null;
+        Close();
+      }
+
+    }
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
@@ -88,5 +102,11 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
+        }
+
+    }
 }
