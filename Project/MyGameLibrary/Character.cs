@@ -26,13 +26,14 @@ namespace Fall2020_CSC403_Project.code
 		public int Health { get; private set; }
 		public int MaxHealth { get; private set; }
 
-		public Character(Position initPos, Collider collider) : base(initPos, collider)
+		public Character(Position initPos, Collider collider, PlayerArchetype archetype) : base(initPos, collider)
 		{
-			MaxHealth = archetype.baseMaxHealth;
-			damage = archetype.baseDamage;
-			defense = archetype.baseDefense;
-			speed = archetype.baseSpeed;
-			Health = MaxHealth;
+			this.archetype = archetype;
+			this.MaxHealth = archetype.baseMaxHealth;
+            this.damage = archetype.baseDamage;
+            this.defense = archetype.baseDefense;
+            this.speed = archetype.baseSpeed;
+            this.Health = MaxHealth;
 		}
 
 		public void setArchetype(PlayerArchetype newArchetype)

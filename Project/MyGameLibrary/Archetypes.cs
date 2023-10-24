@@ -51,7 +51,7 @@ namespace Fall2020_CSC403_Project.code
         {
             baseMaxHealth = 20;
             baseDefense = 2;
-            baseDamage = 10;
+            baseDamage = 20;
             baseSpeed = 5;
         }
     }
@@ -67,7 +67,7 @@ namespace Fall2020_CSC403_Project.code
         {
             baseMaxHealth = 50;
             baseDefense = 5;
-            baseDamage = 10;
+            baseDamage = 8;
             baseSpeed = 2;
         }
     }
