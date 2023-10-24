@@ -33,11 +33,11 @@ namespace Fall2020_CSC403_Project
 			const int NUM_WALLS = 13;
 			const int NUM_ITEMS = 13;
 
-			player = new Player("Peanut", picPlayer, CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+			player = new Player("Peanut", picPlayer, CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), new Rogue());
 
-			bossKoolaid = new Enemy("KoolAidman", picBossKoolAid, CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-			enemyPoisonPacket = new Enemy("Poison", picEnemyPoisonPacket, CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-			enemyCheeto = new Enemy("CheetoKnives", picEnemyCheeto, CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+			bossKoolaid = new Enemy("KoolAidman", picBossKoolAid, CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), new Swordsman());
+			enemyPoisonPacket = new Enemy("Poison", picEnemyPoisonPacket, CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), new Swordsman());
+			enemyCheeto = new Enemy("CheetoKnives", picEnemyCheeto, CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), new Swordsman());
 
 			bossKoolaid.Img = picBossKoolAid.BackgroundImage;
 			enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;

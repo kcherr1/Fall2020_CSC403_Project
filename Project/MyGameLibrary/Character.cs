@@ -16,38 +16,40 @@ namespace Fall2020_CSC403_Project.code
 
         public event Action<int> AttackEvent;
 
-        // archetype here
-        // toughness here
-        private float strength; // replace with damage
-        public Inventory Inventory { get; set; }
+		public Inventory inventory { get; set; }
 
-        public int Health { get; private set; }
-        public int MaxHealth { get; private set; }
+		public String name { get; private set; }
 
-        public Character(string Name, PictureBox Pic, Position initPos, Collider collider) : base(Name, Pic, initPos, collider)
-        {
-            // set archetype
-            Inventory = new Inventory(); // fill in inventory based on archetype
+		public PlayerArchetype archetype;
+		
+		public int defense;
 
-            MaxHealth = 20; // get from archetype
-            strength = 2; // get from archetype + weapon 
-            Health = MaxHealth;
+		public int damage;
 
-        }
+		public int speed;
 
-        public Character(string Name, PictureBox Pic) : base(Name, Pic)
-        {
-            Inventory = new Inventory(); // fill in inventory based on archetype
+		public int Health { get; private set; }
+		public int MaxHealth { get; private set; }
 
-            MaxHealth = 20; // get from archetype
-            strength = 2; // get from archetype + weapon 
-            Health = MaxHealth;
-        }
+		public Character(string Name, PictureBox Pic, Position initPos, Collider collider, PlayerArchetype archetype) : base(Name, Pic, initPos, collider)
+		{
+			this.archetype = archetype;
+			this.MaxHealth = archetype.baseMaxHealth;
+            this.damage = archetype.baseDamage;
+            this.defense = archetype.baseDefense;
+            this.speed = archetype.baseSpeed;
+            this.Health = MaxHealth;
+		}
 
-        public void OnAttack(int amount)
-        {
-            AttackEvent((int)(amount * strength));
-        }
+		public void setArchetype(PlayerArchetype newArchetype)
+		{
+			this.archetype = newArchetype;
+		}
+		
+		public void OnAttack(int amount)
+		{
+			AttackEvent((int)(amount * damage));
+		}
 
         public void AlterHealth(int amount)
         {
