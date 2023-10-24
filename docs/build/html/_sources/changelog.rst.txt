@@ -1,6 +1,11 @@
 Changelog
 =========
 
+.. note::
+   Once you have completed your feature implementation and documentation, please update
+   the changelog according to the existing format (your user, user story/major task 
+   description, and pull request in each bullet point). 
+
 Version 0.1.0
 -------------
 **Date:** 24 October 2023

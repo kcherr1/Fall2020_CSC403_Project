@@ -80,3 +80,8 @@ To write C# code blocks, reference this `csharp guide`_.
    You can switch the theme on every page for consistency or deal with the 
    inconsistency until the documentation is built. The bug disappears
    once the documentation is built.
+
+.. note::
+   Once you have completed the feature implementation and documentation, please update
+   the changelog according to the existing format (your user, user story/ major task 
+   description, and pull request in each bullet point). 
