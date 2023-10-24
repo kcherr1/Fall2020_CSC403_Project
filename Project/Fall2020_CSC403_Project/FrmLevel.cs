@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
-    private Character[] walls;
+    private Entity[] walls;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -36,18 +36,18 @@ namespace Fall2020_CSC403_Project {
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
-      walls = new Character[NUM_WALLS];
+      walls = new Entity[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+        walls[w] = new Entity(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
       Game.player = player;
       timeBegin = DateTime.Now;
     }
 
-    private Vector2 CreatePosition(PictureBox pic) {
-      return new Vector2(pic.Location.X, pic.Location.Y);
+    private Position CreatePosition(PictureBox pic) {
+      return new Position(pic.Location.X, pic.Location.Y);
     }
 
     private Collider CreateCollider(PictureBox pic, int padding) {
@@ -89,7 +89,7 @@ namespace Fall2020_CSC403_Project {
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
-    private bool HitAWall(Character c) {
+    private bool HitAWall(Entity c) {
       bool hitAWall = false;
       for (int w = 0; w < walls.Length; w++) {
         if (c.Collider.Intersects(walls[w].Collider)) {
@@ -100,7 +100,7 @@ namespace Fall2020_CSC403_Project {
       return hitAWall;
     }
 
-    private bool HitAChar(Character you, Character other) {
+    private bool HitAChar(Entity you, Entity other) {
       return you.Collider.Intersects(other.Collider);
     }
 
