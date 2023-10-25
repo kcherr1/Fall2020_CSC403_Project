@@ -51,6 +51,7 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
+      // The default dialogue is for debugging 
       String[] defaultLines = { "Test Line 1", "Test\nLine 2" };
       int[] defaultLetterSpeeds = { 40, 10 };
       defaultDialog = new Dialogue(defaultLines, defaultLetterSpeeds, null);
@@ -139,6 +140,7 @@ namespace Fall2020_CSC403_Project {
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
+    // Starts the dialague for an enemy, which in turn will start the battle once it is over
     private void StartDialogueThenBattle(Dialogue d) {
             dialogueBox.SetCurrentDialogue(d);
             if (!dialogueBox.IsShown && !d.happened)
@@ -208,6 +210,7 @@ namespace Fall2020_CSC403_Project {
       player.SetCharacterMoving(characterMoving);
     }
 
+    // Used to recognize mouse1 clicks 
     private void lblInGameTime_Click(object sender, EventArgs e) {
     }
         private void picDialogueBox_Click(object sender, EventArgs e)
