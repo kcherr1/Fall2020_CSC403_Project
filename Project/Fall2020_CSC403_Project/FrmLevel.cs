@@ -133,6 +133,10 @@ namespace Fall2020_CSC403_Project {
                     player.GoDown();
                     break;
 
+                case Keys.Escape:
+                    player.OpenCharacterScreen();
+                    break;
+
                 default:
                     player.ResetMoveSpeed();
                     break;
@@ -144,7 +148,7 @@ namespace Fall2020_CSC403_Project {
         }
 
         // handles the button press to open the settings menu
-        private void button1_Click(object sender, EventArgs e)
+        private void settings_button_Click(object sender, EventArgs e)
         {
             // place opener for settings here.
         }

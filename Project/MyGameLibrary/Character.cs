@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Fall2020_CSC403_Project;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Fall2020_CSC403_Project.code {
     public class Character {
@@ -27,7 +29,6 @@ namespace Fall2020_CSC403_Project.code {
         public void MoveBack() {
             Position = LastPosition;
         }
-
         public void GoLeft() {
             MoveSpeed = new Vector2(-GO_INC, 0);
         }
@@ -40,7 +41,10 @@ namespace Fall2020_CSC403_Project.code {
         public void GoDown() {
             MoveSpeed = new Vector2(0, +GO_INC);
         }
-
+        public void OpenCharacterScreen()
+        {
+            
+        }
         public void ResetMoveSpeed() {
             MoveSpeed = new Vector2(0, 0);
         }
