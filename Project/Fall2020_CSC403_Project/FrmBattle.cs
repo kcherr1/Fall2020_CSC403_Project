@@ -62,13 +62,24 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
+
       player.OnAttack(-4);
+
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
       }
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
+        
+        //Didn't rearrange this code much, this was just a convenient
+        //way to add this experience gain;
+        //if the player dies, then the experience gain doesn't matter
+        if (enemy.Health <= 0)
+        {
+            player.EarnExperience(enemy.experience);
+        }
+
         instance = null;
         if (enemy.Health <= 0)
         {
