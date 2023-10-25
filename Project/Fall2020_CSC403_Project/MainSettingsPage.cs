@@ -23,5 +23,12 @@ namespace Fall2020_CSC403_Project
             mainMenu.Show();
             this.Hide();
         }
+
+        private void btnControls_Click(object sender, EventArgs e)
+        {
+            ControlsPage controlsPage = new ControlsPage();
+            controlsPage.Show();
+            this.Hide();
+        }
     }
 }
