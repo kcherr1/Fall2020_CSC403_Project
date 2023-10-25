@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +45,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FrmBattle.cs">
@@ -58,6 +60,18 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainSettingsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainSettingsPage.Designer.cs">
+      <DependentUpon>MainSettingsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
@@ -65,6 +79,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainSettingsPage.resx">
+      <DependentUpon>MainSettingsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -126,6 +146,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\raw images\Potion.png" />
+    <None Include="data\CatDisk.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\mainmenubackground.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

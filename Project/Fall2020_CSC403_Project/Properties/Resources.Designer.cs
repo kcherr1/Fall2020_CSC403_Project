@@ -71,6 +71,15 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream CatDisk {
+            get {
+                return ResourceManager.GetStream("CatDisk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap enemy_cheetos {
@@ -112,9 +121,15 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap inventoryboard {
             get {
                 object obj = ResourceManager.GetObject("inventoryboard", resourceCulture);
+
+        internal static System.Drawing.Bitmap mainmenubackground {
+            get {
+                object obj = ResourceManager.GetObject("mainmenubackground", resourceCulture);
+
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
