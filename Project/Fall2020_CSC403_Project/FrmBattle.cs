@@ -65,14 +65,97 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
+        private void AddWinOrLossControls(string message, Color backgroundColor, bool isDefeat)
+        {
+            // Create a panel to darken the background
+            Panel darkenPanel = new Panel();
+            darkenPanel.Size = this.ClientSize;
+            darkenPanel.BackColor = Color.FromArgb(128, 0, 0, 0);  // Semi-transparent black
+            this.Controls.Add(darkenPanel);
+            darkenPanel.BringToFront();
+
+            // Create a label to show the message
+            Label lblMessage = new Label();
+            lblMessage.Text = message;
+            lblMessage.Size = new Size(300, 50);
+            lblMessage.Location = new Point(this.Width / 2 - 150, this.Height / 2 - 75);
+            lblMessage.Font = new Font("Arial", 10, FontStyle.Bold);
+            lblMessage.ForeColor = Color.White;
+            lblMessage.BackColor = backgroundColor;
+            lblMessage.TextAlign = ContentAlignment.MiddleCenter;
+            darkenPanel.Controls.Add(lblMessage);
+
+            if (isDefeat)
+            {
+                // Create "Retry" button
+                Button btnRetry = new Button();
+                btnRetry.Text = "Retry";
+                btnRetry.Size = new Size(100, 50);
+                btnRetry.Location = new Point(this.Width / 2 - 110, this.Height / 2);
+                btnRetry.FlatStyle = FlatStyle.Flat;
+                btnRetry.ForeColor = Color.White;
+                btnRetry.BackColor = Color.Green;
+                btnRetry.Click += btnRetry_Click;
+                darkenPanel.Controls.Add(btnRetry);
+
+                // Create "Quit" button
+                Button btnQuit = new Button();
+                btnQuit.Text = "Quit";
+                btnQuit.Size = new Size(100, 50);
+                btnQuit.Location = new Point(this.Width / 2 + 10, this.Height / 2);
+                btnQuit.FlatStyle = FlatStyle.Flat;
+                btnQuit.ForeColor = Color.White;
+                btnQuit.BackColor = Color.Red;
+                btnQuit.Click += btnQuit_Click;
+                darkenPanel.Controls.Add(btnQuit);
+            }
+            else
+            {
+                // Create "Proceed" button
+                Button btnProceed = new Button();
+                btnProceed.Text = "Proceed";
+                btnProceed.Size = new Size(100, 50);
+                btnProceed.Location = new Point(this.Width / 2 - 50, this.Height / 2);
+                btnProceed.FlatStyle = FlatStyle.Flat;
+                btnProceed.ForeColor = Color.White;
+                btnProceed.BackColor = Color.Green;
+                btnProceed.Click += btnProceedForWin_Click;
+                darkenPanel.Controls.Add(btnProceed);
+            }
+        }
+
+
+        private void btnRetry_Click(object sender, EventArgs e)
+        {
+            // Code to restart the game (You'll have to implement this yourself)
+            // RestartGame(); 
+            Application.Restart();
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+        private void btnProceedForWin_Click(object sender, EventArgs e)
+        {
+            // Code to proceed after winning
+            this.Close();
+        }
+
+
         private void defeatEnemy()
         {
-
+            AddWinOrLossControls("Congrats! You defeated this opponent.", Color.Green, false);
         }
+
         private void defeatPlayer()
         {
-            //Iftesam
+            AddWinOrLossControls("Mr. Peanut died. You suck!", Color.Red, true);
         }
+
+
 
         private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
@@ -84,12 +167,12 @@ namespace Fall2020_CSC403_Project {
       if (player.Health <= 0) {
         defeatPlayer();
         instance = null;
-        Close();
+        //Close();
       }
       else if(enemy.Health <= 0){
             defeatEnemy();
             instance = null;
-            Close();
+            //Close();
         }
     }
 
