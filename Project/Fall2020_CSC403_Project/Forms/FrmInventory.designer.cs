@@ -40,7 +40,6 @@
             this.invSlot7 = new System.Windows.Forms.PictureBox();
             this.invSlot4 = new System.Windows.Forms.PictureBox();
             this.invSlot3 = new System.Windows.Forms.PictureBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.invSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invSlot6)).BeginInit();
@@ -164,21 +163,12 @@
             this.invSlot3.TabIndex = 6;
             this.invSlot3.TabStop = false;
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(657, 94);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(419, 483);
-            this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "";
-            // 
             // FrmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OliveDrab;
             this.ClientSize = new System.Drawing.Size(1111, 613);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.invSlot12);
             this.Controls.Add(this.invSlot11);
             this.Controls.Add(this.invSlot8);
@@ -224,6 +214,5 @@
         private System.Windows.Forms.PictureBox invSlot7;
         private System.Windows.Forms.PictureBox invSlot4;
         private System.Windows.Forms.PictureBox invSlot3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

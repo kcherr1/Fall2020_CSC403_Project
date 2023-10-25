@@ -26,6 +26,8 @@ namespace Fall2020_CSC403_Project
         public FrmInventory()
         {
             InitializeComponent();
+            this.KeyDown += FrmInventory_KeyDown;
+            this.KeyPreview = true;
         }
 
         private void FrmInventory_KeyDown(object sender, KeyEventArgs e)
