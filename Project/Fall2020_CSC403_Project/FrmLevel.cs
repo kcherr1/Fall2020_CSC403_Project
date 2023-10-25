@@ -2,18 +2,21 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
-    private Player player;
+    public partial class FrmLevel : Form
+    {
+        private Player player;
 
-    private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
-    private Enemy enemyCheeto;
-    private Character[] walls;
+        private Enemy enemyPoisonPacket;
+        private Enemy bossKoolaid;
+        private Enemy enemyCheeto;
+        private Character[] walls;
 
-    private DateTime timeBegin;
-    private FrmBattle frmBattle;
+        private DateTime timeBegin;
+        private FrmBattle frmBattle;
+
 
     public FrmLevel() {
       InitializeComponent();
@@ -44,7 +47,9 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       timeBegin = DateTime.Now;
-    }
+      levelTheme.PlayLooping();
+      UpdateMapHealth();
+      }
 
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
@@ -59,11 +64,16 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
     }
 
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
-    }
+        private void UpdateMapHealth()
+        {
+            float playerHealth = player.Health / (float)player.MaxHealth;
+            const int MAP_HEALTH_WIDTH = 226;
+            lblPlayerHealthMap.Width = (int)(MAP_HEALTH_WIDTH * playerHealth);
+            lblPlayerHealthMap.Text = player.Health.ToString();
+        }
+
+
+  
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
@@ -76,71 +86,95 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
+        levelTheme.Stop();
         Fight(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
+        levelTheme.Stop();
         Fight(enemyCheeto);
       }
       if (HitAChar(player, bossKoolaid)) {
+        levelTheme.Stop();
         Fight(bossKoolaid);
       }
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      UpdateMapHealth();
     }
 
-    private bool HitAWall(Character c) {
-      bool hitAWall = false;
-      for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
-          hitAWall = true;
-          break;
+
+  
+
+
+
+
+        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
+        {
+            TimeSpan span = DateTime.Now - timeBegin;
+            string time = span.ToString(@"hh\:mm\:ss");
+            lblInGameTime.Text = "Time: " + time.ToString();
         }
-      }
-      return hitAWall;
+        private void Fight(Enemy enemy)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            this.Hide();
+            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.FormClosed += (s, args) => this.Show();
+            frmBattle.Show();
+
+            if (enemy == bossKoolaid)
+            {
+                frmBattle.SetupForBossBattle();
+            }
+        }
+
+
+        private bool HitAWall(Character c)
+        {
+            bool hitAWall = false;
+            for (int w = 0; w < walls.Length; w++)
+            {
+                if (c.Collider.Intersects(walls[w].Collider))
+                {
+                    hitAWall = true;
+                    break;
+                }
+            }
+            return hitAWall;
+        }
+
+        private bool HitAChar(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    player.GoLeft();
+                    break;
+
+                case Keys.Right:
+                    player.GoRight();
+                    break;
+
+                case Keys.Up:
+                    player.GoUp();
+                    break;
+
+                case Keys.Down:
+                    player.GoDown();
+                    break;
+
+                default:
+                    player.ResetMoveSpeed();
+                    break;
+            }
+        }
+
     }
-
-    private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
     }
-
-    private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
-
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
-
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
-
-        case Keys.Right:
-          player.GoRight();
-          break;
-
-        case Keys.Up:
-          player.GoUp();
-          break;
-
-        case Keys.Down:
-          player.GoDown();
-          break;
-
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
-    }
-
-    private void lblInGameTime_Click(object sender, EventArgs e) {
-
-    }
-  }
-}
