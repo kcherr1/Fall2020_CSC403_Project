@@ -89,7 +89,6 @@ namespace Fall2020_CSC403_Project
             lblInGameTime.Text = "Time: " + time.ToString();
         }
 
-        private bool isWalking = false;
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
