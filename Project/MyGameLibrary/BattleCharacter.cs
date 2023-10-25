@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project.code {
     public int Health { get; private set; }
     public int MaxHealth { get; private set; }
     private float strength;
+    public int Score { get; private set; }
 
     public event Action<int> AttackEvent;
     public event Action<int> HealEvent;
@@ -19,6 +20,7 @@ namespace Fall2020_CSC403_Project.code {
       MaxHealth = 20;
       strength = 2;
       Health = MaxHealth;
+      Score = 0;
     }
 
     public void OnAttack(int amount) {
