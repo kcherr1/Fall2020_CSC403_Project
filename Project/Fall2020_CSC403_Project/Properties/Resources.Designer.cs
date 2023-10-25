@@ -73,9 +73,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enemy_cheetos {
+        internal static System.Drawing.Bitmap enemy_kitkat {
             get {
-                object obj = ResourceManager.GetObject("enemy_cheetos", resourceCulture);
+                object obj = ResourceManager.GetObject("enemy_kitkat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enemy_koolaid {
+        internal static System.Drawing.Bitmap enemy_hersheys {
             get {
-                object obj = ResourceManager.GetObject("enemy_koolaid", resourceCulture);
+                object obj = ResourceManager.GetObject("enemy_hersheys", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enemy_poisonpacket {
+        internal static System.Drawing.Bitmap enemy_reeses {
             get {
-                object obj = ResourceManager.GetObject("enemy_poisonpacket", resourceCulture);
+                object obj = ResourceManager.GetObject("enemy_reeses", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

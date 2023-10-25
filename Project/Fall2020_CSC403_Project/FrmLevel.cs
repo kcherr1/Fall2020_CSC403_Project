@@ -8,9 +8,9 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
     private bool isPaused = false;
-    private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
-    private Enemy enemyCheeto;
+    private Enemy enemyReeses;
+    private Enemy bossHersheys;
+    private Enemy enemyKitkat;
     private Character[] walls;
     private DateTime timeBegin;
     private TimeSpan totalTimePaused;
@@ -26,17 +26,17 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      bossHersheys = new Enemy(CreatePosition(picBossHersheys), CreateCollider(picBossHersheys, PADDING));
+      enemyReeses = new Enemy(CreatePosition(picEnemyReeses), CreateCollider(picEnemyReeses, PADDING));
+      enemyKitkat = new Enemy(CreatePosition(picEnemyKitkat), CreateCollider(picEnemyKitkat, PADDING));
 
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      bossHersheys.Img = picBossHersheys.BackgroundImage;
+      enemyReeses.Img = picEnemyReeses.BackgroundImage;
+      enemyKitkat.Img = picEnemyKitkat.BackgroundImage;
 
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      bossHersheys.Color = Color.Red;
+      enemyReeses.Color = Color.Green;
+      enemyKitkat.Color = Color.FromArgb(255, 245, 161);
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -84,14 +84,14 @@ namespace Fall2020_CSC403_Project {
       }
 
       // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+      if (HitAChar(player, enemyReeses)) {
+        Fight(enemyReeses);
       }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
+      else if (HitAChar(player, enemyKitkat)) {
+        Fight(enemyKitkat);
       }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+      if (HitAChar(player, bossHersheys)) {
+        Fight(bossHersheys);
       }
 
       // update player's picture box
@@ -120,7 +120,7 @@ namespace Fall2020_CSC403_Project {
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
 
-            if (enemy == bossKoolaid)
+            if (enemy == bossHersheys)
             {
                 frmBattle.SetupForBossBattle();
             }
