@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
-    private Character[] walls, fences, dialog;
+    private Character[] walls, fences, dialog, key;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -24,6 +24,7 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
       const int NUM_FENCES = 1;
       const int NUM_DIALOG = 1;
+      const int NUM_KEY = 1;
 
         
 
@@ -56,6 +57,13 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("picDialog" + w.ToString(), true)[0] as PictureBox;
         dialog[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
+      key = new Character[NUM_KEY];
+      for (int w = 0; w < NUM_KEY; w++) {
+        PictureBox pic = Controls.Find("picKey" + w.ToString(), true)[0] as PictureBox;
+        key[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      }
+      picDialog0.Visible = false;
+            picKey0.Visible = false;
 
       Game.player = player;
       timeBegin = DateTime.Now;
@@ -79,8 +87,9 @@ namespace Fall2020_CSC403_Project {
       string time = span.ToString(@"hh\:mm\:ss");
       lblInGameTime.Text = "Time: " + time.ToString();
     }
-
+    
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+            bool x,y,z;
       // move player
       player.Move();
 
@@ -96,18 +105,34 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+                x = ddddd(enemyPoisonPacket);
+                if(x == true) {Fight(enemyPoisonPacket); }
+        
       }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
+      else if (HitAChar(player, enemyCheeto)) { 
+                 y = ddddd(enemyCheeto);
+                if(y == true) { 
+        Fight(enemyCheeto);}
       }
       if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+                z = ddddd(enemyCheeto);
+                if(z == true) { 
+        Fight(bossKoolaid);}
       }
-
+         
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
+        private void AllSideEnemyDied(Character c) {
+            //bool allSideEnemyDied = false;
+            
+        if (ddddd(enemyPoisonPacket) == false && ddddd(enemyCheeto) == false)
+            {   
+                picKey0.Visible = true;
+            
+            }
+            
+        }
 
     private bool HitAWall(Character c) {
       bool hitAWall = false;
@@ -124,13 +149,25 @@ namespace Fall2020_CSC403_Project {
       for (int w = 0; w < fences.Length; w++) {
         if (c.Collider.Intersects(fences[w].Collider)) {
           hitAFence = true;
-          break;
+                    picDialog0.Visible = true;
+                    // Start a timer to hide picDialog0 after 2 seconds
+       Timer timer = new Timer();
+       timer.Interval = 2000; // 2 seconds (2000 milliseconds)
+       timer.Tick += (sender, e) => {
+         picDialog0.Visible = false;
+         timer.Stop(); // Stop the timer after 2 seconds
+         timer.Dispose(); // Dispose the timer to free up resources
+       };
+       timer.Start();
+       
+       break;
         }
       }
       return hitAFence;
     }
 
     private bool HitAChar(Character you, Character other) {
+            AllSideEnemyDied(other);
       return you.Collider.Intersects(other.Collider);
     }
 
@@ -139,6 +176,7 @@ namespace Fall2020_CSC403_Project {
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
+      
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
@@ -172,5 +210,41 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
+        public bool ddddd(Enemy enemy) { 
+
+          
+            if (enemy.Health <= 0)
+                {
+                Enemy x = enemy;
+      
+
+            if (x == enemyPoisonPacket )
+            {
+                 picEnemyPoisonPacket.Visible = false;
+                   
+            }
+              
+            if (x == bossKoolaid )
+            {
+                 picBossKoolAid.Visible = false;
+              
+            }
+             
+            if (x == enemyCheeto )
+            {
+                 picEnemyCheeto.Visible = false;
+                    
+                    
+            }
+            
+            return false;
+                }
+             else
+                {
+                    return true;
+                }
+            
+   }
+        
   }
 }
