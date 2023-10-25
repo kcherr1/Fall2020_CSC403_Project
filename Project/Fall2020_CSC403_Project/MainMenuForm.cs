@@ -13,9 +13,14 @@ namespace Fall2020_CSC403_Project
 {
     public partial class MainMenuForm : Form
     {
+
+        System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();  
+
         public MainMenuForm()
         {
             InitializeComponent();
+            soundPlayer.SoundLocation = "barbenheimer.wav";
+            soundPlayer.Play();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,14 +40,18 @@ namespace Fall2020_CSC403_Project
 
         private void Play_Click(object sender, EventArgs e)
         {
+            soundPlayer.Stop();
             this.Hide();
             FrmLevel Play = new FrmLevel();
             Play.Show();
+          /*  Play.ShowDialog();
+            Play = null;
+            this.Show();*/
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

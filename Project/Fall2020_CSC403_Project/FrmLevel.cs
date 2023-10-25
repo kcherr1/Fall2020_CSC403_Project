@@ -15,11 +15,32 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
-    public FrmLevel() {
-      InitializeComponent();
-    }
 
-    private void FrmLevel_Load(object sender, EventArgs e) {
+        System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
+        public FrmLevel() {
+          InitializeComponent();
+            soundPlayer.SoundLocation = "gamebgm.wav";
+            soundPlayer.Play();
+        }
+
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+           
+            if (keyData == Keys.Escape)
+            {
+                soundPlayer.Dispose();
+                this.Hide();
+                PauseMenu pause = new PauseMenu();
+                pause.ShowDialog();
+                pause = null;
+                this.Show();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+      private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
