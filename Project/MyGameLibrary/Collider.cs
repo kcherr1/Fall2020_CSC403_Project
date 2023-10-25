@@ -22,7 +22,7 @@ namespace Fall2020_CSC403_Project.code
             rect.X = x;
             rect.Y = y;
         }
-        
+
         public bool Intersects(Collider c)
         {
             return rect.IntersectsWith(c.rect);
