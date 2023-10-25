@@ -284,6 +284,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.AutoSize = true;
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1568, 894);
@@ -300,11 +301,11 @@
       this.Controls.Add(this.picWall12);
       this.Controls.Add(this.picWall4);
       this.Controls.Add(this.picWall5);
-      this.Controls.Add(this.picEnemyCheeto);
-      this.Controls.Add(this.picEnemyPoisonPacket);
       this.Controls.Add(this.picWall3);
-      this.Controls.Add(this.picBossKoolAid);
       this.Controls.Add(this.picPlayer);
+      this.Controls.Add(this.picEnemyPoisonPacket);
+      this.Controls.Add(this.picBossKoolAid);
+      this.Controls.Add(this.picEnemyCheeto);
       this.DoubleBuffered = true;
       this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
       this.Name = "FrmLevel";

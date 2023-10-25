@@ -122,6 +122,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\gravestone.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\gravestone.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="data\brick.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
