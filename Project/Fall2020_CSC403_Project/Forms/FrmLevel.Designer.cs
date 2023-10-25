@@ -295,7 +295,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
-            this.Controls.Add(this.picGun);
             this.Controls.Add(this.mainCharacter);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
@@ -314,6 +313,7 @@
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
+            this.Controls.Add(this.picGun);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
