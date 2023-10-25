@@ -3,10 +3,13 @@ using MyGameLibrary;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
-namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
-    private Player player;
+namespace Fall2020_CSC403_Project
+{
+    public partial class FrmLevel : Form
+    {
+        private Player player;
 
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
@@ -16,55 +19,82 @@ namespace Fall2020_CSC403_Project {
     public string playerDirection = "right";
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+        private List<Item> itemsList;
 
-    public FrmLevel() {
-      InitializeComponent();
-    }
+
+        public FrmLevel()
+        {
+            InitializeComponent();
+        }
+
 
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int ARROW_PADDING = 2;
       const int NUM_WALLS = 13;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
+
+
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
 
       // character projectile attack
       arrow = new Projectile(CreatePosition(picPlayer), CreateCollider(picArrow, ARROW_PADDING));
       picArrow.Hide();
-
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+            player.inventory.image = inventoryboard.BackgroundImage;
+            inventoryboard.Hide();
 
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
-      walls = new Character[NUM_WALLS];
-      for (int w = 0; w < NUM_WALLS; w++) {
-        PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
-      }
+            bossKoolaid.Color = Color.Red;
+            enemyPoisonPacket.Color = Color.Green;
+            enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
-      Game.player = player;
-      timeBegin = DateTime.Now;
-    }
+            walls = new Character[NUM_WALLS];
+            for (int w = 0; w < NUM_WALLS; w++)
+            {
+                PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+            }
 
-    private Vector2 CreatePosition(PictureBox pic) {
-      return new Vector2(pic.Location.X, pic.Location.Y);
-    }
+            itemsList = new List<Item>();
+            try
+            {
+                int w = 0;
+                while(true)
+                {
+                    string itemname = "LVL1potion" + w.ToString();
+                    PictureBox item = Controls.Find(itemname, true)[0] as PictureBox;
+                    itemsList.Add(new HealthItem(CreatePosition(item), CreateCollider(item, PADDING), itemname));
+                    w = w + 1;
+                }
+            }
+            catch (Exception ex)
+            { }
 
-    private Collider CreateCollider(PictureBox pic, int padding) {
-      Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-      return new Collider(rect);
-    }
+            foreach (string itemname in player.inventory.itemstorage)
+            {
+                PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
+                inventoryItem.Hide();
+                // Sets inventory Item as child to always display item images on top of the inventory board.S
+                inventoryItem.Parent = this.inventoryboard;
+            }
 
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      player.ResetMoveSpeed();
-    }
+            Game.player = player;
+            timeBegin = DateTime.Now;
+        }
+
+        private Vector2 CreatePosition(PictureBox pic)
+        {
+            return new Vector2(pic.Location.X, pic.Location.Y);
+        }
+
 
     private void tmrArrowMove_Tick(object sender, EventArgs e)
     {
@@ -115,19 +145,19 @@ namespace Fall2020_CSC403_Project {
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-
-        }
-
-    private bool HitAWall(Character c) {
-      bool hitAWall = false;
-      for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
-          hitAWall = true;
-          break;
-        }
       }
-      return hitAWall;
-    }
+
+    private Collider CreateCollider(PictureBox pic, int padding)
+        {
+            Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+            return new Collider(rect);
+        }
+
+    private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        {
+            player.ResetMoveSpeed();
+        }
+
     /// <summary>
     /// decides if arrow collides with a wall, return arrow to player
     /// </summary>
@@ -147,71 +177,186 @@ namespace Fall2020_CSC403_Project {
           return hitAWall;
       }
 
+        private bool HitAWall(Character c)
+        {
+            bool hitAWall = false;
+            for (int w = 0; w < walls.Length; w++)
+            {
+                if (c.Collider.Intersects(walls[w].Collider))
+                {
+                    hitAWall = true;
+                    break;
+                }
+            }
+            return hitAWall;
+        }
 
-    private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
-    }
+        private bool HitAnItem(Character c)
+        {
+            bool hitAnItem = false;
+            for (int w = 0; w < itemsList.Count; w++)
+            {
+                if (c.Collider.Intersects(itemsList[w].Collider))
+                {
+                    hitAnItem = true;
+                    break;
+                }
+            }
+            return hitAnItem;
+        }
 
-    private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
+        private bool HitAChar(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
 
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
+        private void Fight(Enemy enemy)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.Show();
 
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Space:
-          if (!arrow.inFlight)
-             {
-                picArrow.Show();
-                picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
-                arrow.Position = new Vector2(player.Position.x, player.Position.y);
-                arrow.arrowMove(playerDirection);
-                arrow.inFlight = true;
-              }
-          break;
+            if (enemy == bossKoolaid)
+            {
+                frmBattle.SetupForBossBattle();
+            }
+        }
 
-        case Keys.Left:
-          player.GoLeft();
-          if (!arrow.inFlight)
-               playerDirection = "left";
-                    //player.direction = "left";
-          break;
+        private void StoreItem(Item item)
+        {
+            player.inventory.addItem(item);
+            PictureBox pic = Controls.Find(item.NAME, true)[0] as PictureBox;
+            pic.Hide();
+            pic.Parent = this.inventoryboard;
+        }
 
-        case Keys.Right:
-          player.GoRight();
-             if(!arrow.inFlight)
-                playerDirection = "right";
-                    //player.direction = "right";
-          break;
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (player.inventory.visible)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.I:
+                        Inventory_Close();
+                        break;
+                    case Keys.U:
+                        // Determine selected item, use item, remove item from inventory
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Space:
+                      if (!arrow.inFlight)
+                        {
+                          picArrow.Show();
+                          picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                          arrow.Position = new Vector2(player.Position.x, player.Position.y);
+                          arrow.arrowMove(playerDirection);
+                          arrow.inFlight = true;
+                        }
+                      break;
+                      
+                    case Keys.Left:
+                    case Keys.A:
+                        player.GoLeft();
+                        if (!arrow.inFlight)
+                          playerDirection = "left";
+                        break;
 
-        case Keys.Up:
-          player.GoUp();
-            if (!arrow.inFlight)
-                playerDirection = "up";
-                    //player.direction = "up";
-          break;
+                    case Keys.Right:
+                    case Keys.D:
+                        player.GoRight();
+                        if (!arrow.inFlight)
+                          playerDirection = "left";
+                        break;
 
-        case Keys.Down:
-          player.GoDown();
-            if (!arrow.inFlight)
-                playerDirection = "down";
-                    //player.direction = "down";
-          break;
+                    case Keys.Up:
+                    case Keys.W:
+                        player.GoUp();
+                        if (!arrow.inFlight)
+                          playerDirection = "left";
+                        break;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
-    }
+                    case Keys.Down:
+                    case Keys.S:
+                        player.GoDown();
+                        if (!arrow.inFlight)
+                          playerDirection = "left";
+                        break;
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+                    case Keys.I:
+                        Inventory_Open();
+                        break;
 
+                    default:
+                        player.ResetMoveSpeed();
+                        break;
+                }
+                // check collision with item(s)
+            if (HitAnItem(player))
+            {
+                Item itemHit = null;
+                for (int w = 0; w < itemsList.Count; w++)
+                {
+                    if (player.Collider.Intersects(itemsList[w].Collider))
+                    {
+                        itemHit = itemsList[w];
+                        itemsList.Remove(itemHit);
+                        break;
+                    }
+                }
+                StoreItem(itemHit);
+            }
+            }
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+        }
+
+        public void Inventory_Close()
+        {
+            this.inventoryboard.Hide();
+            foreach (string itemname in player.inventory.itemstorage)
+            {
+                PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
+                inventoryItem.Hide();
+            }
+
+            player.inventory.setVisible(!player.inventory.visible);
+        }
+
+        public void Inventory_Open()
+        {
+            this.inventoryboard.Show();
+
+            int x_pos = player.inventory.PADDING;
+            int y_pos = player.inventory.PADDING;
+            foreach (string itemname in player.inventory.itemstorage)
+            {
+                PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
+                if ((inventoryItem.Width + x_pos) > (inventoryboard.Location.X + inventoryboard.Width - player.inventory.PADDING))
+                {
+                    x_pos = player.inventory.PADDING;
+                    y_pos = y_pos + (inventoryboard.Height * (1 / 3));
+                }
+                inventoryItem.Location = new Point(x_pos, y_pos);
+                inventoryItem.Show();
+
+                x_pos = x_pos + player.inventory.PADDING;
+            }
+            
+            player.inventory.setVisible(!player.inventory.visible);
+        }
+
+        private void lblInGameTime_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     /// <summary>
