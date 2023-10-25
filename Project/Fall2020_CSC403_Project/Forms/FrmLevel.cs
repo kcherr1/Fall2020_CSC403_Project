@@ -15,6 +15,9 @@ namespace Fall2020_CSC403_Project
         private Enemy enemyCheeto;
         private Character[] walls;
 
+        private Item gun;
+        private Inventory inventory;
+
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
@@ -27,6 +30,8 @@ namespace Fall2020_CSC403_Project
         {
             const int PADDING = 7;
             const int NUM_WALLS = 13;
+
+            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING), "Gun");
 
             player = new Player(CreatePosition(mainCharacter), CreateCollider(mainCharacter, 0));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -135,6 +140,17 @@ namespace Fall2020_CSC403_Project
             return you.Collider.Intersects(other.Collider);
         }
 
+        private bool HitAItem(Character you, Item item) {
+            if(item != null)
+            {
+                return you.Collider.Intersects(item.Collider);
+            } else
+            {
+
+                return false;
+            }
+        }
+
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
@@ -166,6 +182,15 @@ namespace Fall2020_CSC403_Project
 
                 case Keys.Down:
                     player.KeysPressed["down"] = new Vector2(0, Player.GO_INC);
+                    break;
+
+                case Keys.E:
+                    if(HitAItem(player, gun))
+                    {
+                        inventory.AddItem(gun);
+                        picGun.Dispose();
+                        gun = null;
+                    }
                     break;
 
                 default:
