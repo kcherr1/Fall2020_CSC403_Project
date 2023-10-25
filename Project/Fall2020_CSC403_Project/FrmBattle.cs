@@ -1,3 +1,4 @@
+
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
@@ -12,8 +13,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemy;
     private Player player;
 
-    public FrmBattle() {
-      this.ControlBox = false;
+    private FrmBattle() {
       InitializeComponent();
       player = Game.player;
     }
@@ -64,115 +64,87 @@ namespace Fall2020_CSC403_Project {
       lblPlayerHealthFull.Text = player.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
-
-        private void AddWinOrLossControls(string message, Color backgroundColor, bool isDefeat)
+        private int playerHitAmount()
         {
-            // Create a panel to darken the background
-            Panel darkenPanel = new Panel();
-            darkenPanel.Size = this.ClientSize;
-            darkenPanel.BackColor = Color.FromArgb(128, 0, 0, 0);  // Semi-transparent black
-            this.Controls.Add(darkenPanel);
-            darkenPanel.BringToFront();
+            Random rand = new Random();
 
-            // Create a label to show the message
-            Label lblMessage = new Label();
-            lblMessage.Text = message;
-            lblMessage.Size = new Size(300, 50);
-            lblMessage.Location = new Point(this.Width / 2 - 150, this.Height / 2 - 75);
-            lblMessage.Font = new Font("Arial", 10, FontStyle.Bold);
-            lblMessage.ForeColor = Color.White;
-            lblMessage.BackColor = backgroundColor;
-            lblMessage.TextAlign = ContentAlignment.MiddleCenter;
-            darkenPanel.Controls.Add(lblMessage);
+            uint num = (uint)rand.Next();
+            uint hit = num % 3;
 
-            if (isDefeat)
+            if(hit == 0)
             {
-                // Create "Retry" button
-                Button btnRetry = new Button();
-                btnRetry.Text = "Retry";
-                btnRetry.Size = new Size(100, 50);
-                btnRetry.Location = new Point(this.Width / 2 - 110, this.Height / 2);
-                btnRetry.FlatStyle = FlatStyle.Flat;
-                btnRetry.ForeColor = Color.White;
-                btnRetry.BackColor = Color.Green;
-                btnRetry.Click += btnRetry_Click;
-                darkenPanel.Controls.Add(btnRetry);
-
-                // Create "Quit" button
-                Button btnQuit = new Button();
-                btnQuit.Text = "Quit";
-                btnQuit.Size = new Size(100, 50);
-                btnQuit.Location = new Point(this.Width / 2 + 10, this.Height / 2);
-                btnQuit.FlatStyle = FlatStyle.Flat;
-                btnQuit.ForeColor = Color.White;
-                btnQuit.BackColor = Color.Red;
-                btnQuit.Click += btnQuit_Click;
-                darkenPanel.Controls.Add(btnQuit);
+                return -3;
+            }
+            if(hit == 1)
+            {
+                return -4;
+            }
+            if(hit == 2)
+            {
+                return -5;
             }
             else
             {
-                // Create "Proceed" button
-                Button btnProceed = new Button();
-                btnProceed.Text = "Proceed";
-                btnProceed.Size = new Size(100, 50);
-                btnProceed.Location = new Point(this.Width / 2 - 50, this.Height / 2);
-                btnProceed.FlatStyle = FlatStyle.Flat;
-                btnProceed.ForeColor = Color.White;
-                btnProceed.BackColor = Color.Green;
-                btnProceed.Click += btnProceedForWin_Click;
-                darkenPanel.Controls.Add(btnProceed);
+                return 0;
+            }
+        }
+        private int enemyHitAmount()
+        {
+            Random rand = new Random();
+
+            uint num = (uint)rand.Next();
+            uint hit = num % 3;
+
+            if (hit == 0)
+            {
+                return -2;
+            }
+            if (hit == 1)
+            {
+                return -3;
+            }
+            if (hit == 2)
+            {
+                return -4;
+            }
+            else
+            {
+                return 0;
             }
         }
 
-
-        private void btnRetry_Click(object sender, EventArgs e)
+        private void restoreHealth()
         {
-            // Code to restart the game (You'll have to implement this yourself)
-            // RestartGame(); 
-            Application.Restart();
+            int a = player.Health;
+            int healthToAdd = 20 - a;
+            player.AlterHealth(healthToAdd);
         }
-
-        private void btnQuit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-
-        private void btnProceedForWin_Click(object sender, EventArgs e)
-        {
-            // Code to proceed after winning
-            this.Close();
-        }
-
 
         private void defeatEnemy()
         {
-            AddWinOrLossControls("Congrats! You defeated this opponent.", Color.Green, false);
+            restoreHealth();
         }
-
         private void defeatPlayer()
         {
-            AddWinOrLossControls("Mr. Peanut died. You suck!", Color.Red, true);
+            //Iftesam
         }
 
-
-
         private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      player.OnAttack(playerHitAmount()); //range -3, -4, -5
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+                enemy.OnAttack(enemyHitAmount()); //range -2,-3,-4
       }
 
       UpdateHealthBars();
       if (player.Health <= 0) {
         defeatPlayer();
         instance = null;
-        //Close();
+        Close();
       }
       else if(enemy.Health <= 0){
             defeatEnemy();
             instance = null;
-            //Close();
+            Close();
         }
     }
 
@@ -183,18 +155,16 @@ namespace Fall2020_CSC403_Project {
     private void PlayerDamage(int amount) {
       player.AlterHealth(amount);
     }
-
+    
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
 
-    private void picEnemy_Click(object sender, EventArgs e) {}
+        private void picEnemy_Click(object sender, EventArgs e)
+        {
 
-    private void FrmBattle_FormClosing(object sender, FormClosingEventArgs e)
-    {
-        instance = null;
-        Hide();
+        }
     }
-  }
 }
+
