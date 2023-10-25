@@ -71,12 +71,12 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-            if (isPaused)
-            {
-                return; // Skip moving if the game is paused
-            }
-            // move player
-            player.Move();
+        if (isPaused)
+        {
+            return; // Skip moving if the game is paused
+        }
+        // move player
+        player.Move();
 
       // check collision with walls
       if (HitAWall(player)) {
@@ -113,18 +113,18 @@ namespace Fall2020_CSC403_Project {
       return you.Collider.Intersects(other.Collider);
         }
 
-        private void Fight(Enemy enemy)
-        {
-            player.ResetMoveSpeed();
-            player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
-            frmBattle.Show();
+    private void Fight(Enemy enemy)
+    {
+        player.ResetMoveSpeed();
+        player.MoveBack();
+        frmBattle = FrmBattle.GetInstance(enemy);
+        frmBattle.Show();
 
-            if (enemy == bossHersheys)
-            {
-                frmBattle.SetupForBossBattle();
-            }
+        if (enemy == bossHersheys)
+        {
+            frmBattle.SetupForBossBattle();
         }
+    }
 
         private Bitmap BlurImage(Bitmap image)
         {
