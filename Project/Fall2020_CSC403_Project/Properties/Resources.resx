@@ -148,4 +148,7 @@
   <data name="oof" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\47356__fotoshop__oof.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="title" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\460432__jay_you__music-elevator.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

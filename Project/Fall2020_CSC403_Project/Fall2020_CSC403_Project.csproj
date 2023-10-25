@@ -143,6 +143,7 @@
     <Content Include="data\sounds\boss-battle.wav" />
     <Content Include="data\sounds\battle.wav" />
     <Content Include="data\sounds\title-music.wav" />
+    <None Include="Resources\460432__jay_you__music-elevator.wav" />
     <None Include="Resources\47356__fotoshop__oof.wav" />
     <None Include="Resources\515783__matrixxx__retro-footstep.wav" />
     <None Include="Resources\669543__sintelv__jungle-level.wav" />

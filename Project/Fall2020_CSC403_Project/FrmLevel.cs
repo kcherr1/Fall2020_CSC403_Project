@@ -47,7 +47,7 @@ namespace Fall2020_CSC403_Project {
 
       MusicPlayer.PlayLevelMusic();
 
-            Game.player = player;
+     Game.player = player;
       timeBegin = DateTime.Now;
     }
 
@@ -73,6 +73,7 @@ namespace Fall2020_CSC403_Project {
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
       player.Move();
+        if(player.)
       // check collision with walls
       if (HitAWall(player)) {
         player.MoveBack();
