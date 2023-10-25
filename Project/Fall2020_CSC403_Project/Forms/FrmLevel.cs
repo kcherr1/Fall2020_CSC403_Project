@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -49,6 +50,7 @@ namespace Fall2020_CSC403_Project
             }
 
             /*this.Transparent_images_Click();*/
+            MusicPlayer.PlayLevelMusic();
             Game.player = player;
             timeBegin = DateTime.Now;
         }
@@ -86,6 +88,8 @@ namespace Fall2020_CSC403_Project
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
         }
+
+        private bool isWalking = false;
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
@@ -137,6 +141,7 @@ namespace Fall2020_CSC403_Project
 
         private void Fight(Enemy enemy)
         {
+            MusicPlayer.StopLevelMusic();
             player.ResetMoveSpeed();
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);

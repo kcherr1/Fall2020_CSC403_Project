@@ -12,19 +12,16 @@ namespace MyGameLibrary
 {
     public class MusicPlayer
     {
-        private static SoundPlayer footstepSound;
-        private static SoundPlayer levelSound;
-        private static SoundPlayer attackSound;
-        private static SoundPlayer titleSound;
-        public static void PlayFootsteps()
-        {
-            footstepSound = new SoundPlayer(Resources.footsteps);
-            footstepSound.Play();
-        }
+        private static SoundPlayer levelSound = new SoundPlayer(Resources.background);
+        private static SoundPlayer battleWinSound = new SoundPlayer(Resources.battle_won);
+        private static SoundPlayer gameOverSound = new SoundPlayer(Resources.game_over);
+        private static SoundPlayer attackSound = new SoundPlayer(Resources.oof);
+        private static SoundPlayer titleSound = new SoundPlayer(Resources.title);
+        private static SoundPlayer battleSound = new SoundPlayer(Resources.battle);
+        private static SoundPlayer bossBattleSound = new SoundPlayer(Resources.boss_battle);
 
         public static void PlayLevelMusic()
         {
-            levelSound = new SoundPlayer(Resources.background);
             levelSound.PlayLooping();
         }
 
@@ -35,13 +32,11 @@ namespace MyGameLibrary
 
         public static void PlayDamageSound()
         {
-            attackSound = new SoundPlayer(Resources.oof);
             attackSound.Play();
         }
 
         public static void PlayTitleSound()
         {
-            titleSound = new SoundPlayer(Resources.title);
             titleSound.PlayLooping();
         }
 
@@ -49,6 +44,38 @@ namespace MyGameLibrary
         {
             titleSound.Stop();
         }
+
+        public static void PlayBattleWinSound()
+        {
+            battleWinSound.Play();
+        }
+
+        public static void PlayGameOverSound()
+        {
+            gameOverSound.Play();
+        }
+
+        public static void PlayBattleSound()
+        {
+            battleSound.PlayLooping();
+        }
+
+        public static void StopBattleSound()
+        {
+            battleSound.Stop();
+        }
+
+        public static void PlayBossBattleSound()
+        {
+            bossBattleSound.PlayLooping();
+        }
+
+        public static void StopBossBattleSound()
+        {
+            bossBattleSound.Stop();
+        }
+
+
     }
 
     

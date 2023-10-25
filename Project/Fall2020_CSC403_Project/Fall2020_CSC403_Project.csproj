@@ -135,17 +135,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\sounds\background.wav" />
-    <Content Include="data\sounds\battle-won.wav" />
-    <Content Include="data\sounds\attack.wav" />
-    <Content Include="data\sounds\footsteps.wav" />
-    <Content Include="data\sounds\game-over.wav" />
     <Content Include="data\sounds\boss-battle.wav" />
     <Content Include="data\sounds\battle.wav" />
-    <Content Include="data\sounds\title-music.wav" />
+    <None Include="Resources\338817__sirkoto51__rpg-battle-loop-1.wav" />
+    <None Include="Resources\352171__sirkoto51__boss-battle-loop-1.wav" />
+    <None Include="Resources\365738__matrixxx__game-over-02.wav" />
+    <None Include="Resources\580310__colorscrimsontears__fanfare-2-rpg.wav" />
     <None Include="Resources\460432__jay_you__music-elevator.wav" />
     <None Include="Resources\47356__fotoshop__oof.wav" />
-    <None Include="Resources\515783__matrixxx__retro-footstep.wav" />
     <None Include="Resources\669543__sintelv__jungle-level.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

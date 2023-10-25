@@ -30,6 +30,7 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
+      MusicPlayer.PlayBattleSound();
     }
 
     public void SetupForBossBattle() {
@@ -65,14 +66,25 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+            MusicPlayer.PlayDamageSound();
+            player.OnAttack(-4);
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
       }
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
+                MusicPlayer.StopBattleSound();
+        if (player.Health > 0 && enemy.Health <= 0)
+            {
+                MusicPlayer.PlayBattleWinSound();
+            }
+        if(player.Health <= 0 && enemy.Health > 0)
+            {
+                MusicPlayer.PlayGameOverSound();
+            }
         instance = null;
+        MusicPlayer.PlayLevelMusic();
         Close();
       }
     }
@@ -82,7 +94,6 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void PlayerDamage(int amount) {
-            MusicPlayer.PlayDamageSound();
       player.AlterHealth(amount);
     }
 
