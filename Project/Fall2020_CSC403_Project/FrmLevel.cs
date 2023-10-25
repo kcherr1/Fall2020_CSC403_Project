@@ -12,6 +12,8 @@ namespace Fall2020_CSC403_Project {
         private Enemy enemyCheeto;
         private Character[] walls;
 
+        private Character pickup_gold_001;
+
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
@@ -27,6 +29,8 @@ namespace Fall2020_CSC403_Project {
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
+            pickup_gold_001 = new Character(CreatePosition(pickup_gold), CreateCollider(pickup_gold, PADDING));
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -73,6 +77,13 @@ namespace Fall2020_CSC403_Project {
             if (HitAWall(player)) {
                 player.MoveBack();
             }
+            // check collision with gold pick ups
+            if (HitAChar(player, pickup_gold_001))
+            {
+                pickUpGold(player); // updates gold counter
+                // need to hide image
+                pickup_gold_001; // need to destroy this item
+            }
 
             // check collision with enemies
             if (HitAChar(player, enemyPoisonPacket)) {
@@ -114,6 +125,9 @@ namespace Fall2020_CSC403_Project {
                 frmBattle.SetupForBossBattle();
             }
         }
+        private void pickUpGold(Character player) {
+            player.updateGold(5);
+        }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
             switch (e.KeyCode) {
@@ -140,6 +154,19 @@ namespace Fall2020_CSC403_Project {
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e) {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e) {
+
+        }
+
+        private void picEnemyPoisonPacket_Click(object sender, EventArgs e) {
 
         }
     }

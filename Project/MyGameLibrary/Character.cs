@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Fall2020_CSC403_Project.code {
     public class Character {
         private const int GO_INC = 3;
+        private int gold = 0;
 
         public Vector2 MoveSpeed { get; private set; }
         public Vector2 LastPosition { get; private set; }
@@ -16,6 +17,20 @@ namespace Fall2020_CSC403_Project.code {
         public Character(Vector2 initPos, Collider collider) {
             Position = initPos;
             Collider = collider;
+        }
+        // accepts an int and adds that to the players gold.
+        public void updateGold(int gUpdate) {
+            if (gUpdate == 0) return;
+
+            if (gUpdate < 0) {
+                if (Math.Abs(gUpdate) >= this.gold)
+                    this.gold = 0;
+                else 
+                    this.gold += gUpdate;
+            }
+            else 
+                this.gold += gUpdate;
+
         }
 
         public void Move() {
