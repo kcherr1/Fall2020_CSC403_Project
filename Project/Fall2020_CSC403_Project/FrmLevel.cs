@@ -50,11 +50,11 @@ namespace Fall2020_CSC403_Project {
 
       String[] defaultLines = { "Test Line 1", "Test\nLine 2" };
       int[] defaultLetterSpeeds = { 40, 10 };
-      defaultDialog = new Dialogue(defaultLines, defaultLetterSpeeds);
+      defaultDialog = new Dialogue(defaultLines, defaultLetterSpeeds, null);
 
       String[] koolaidManLines = { "You hear a a slight rumble...", "Koolaid Man breaks through the wall", "\"OHH, YEAH\"" };
       int[] koolaidManSpeeds = { 40, 40, 120 };
-      koolaidManDialogue = new Dialogue(koolaidManLines, koolaidManSpeeds);
+      koolaidManDialogue = new Dialogue(koolaidManLines, koolaidManSpeeds, bossKoolaid);
 
             Game.player = player;
       timeBegin = DateTime.Now;
@@ -122,9 +122,13 @@ namespace Fall2020_CSC403_Project {
       }
       if (HitAChar(player, bossKoolaid)) {
         dialogueBox.SetCurrentDialogue(koolaidManDialogue);
-        dialogueBox.ToggleBox();
+        if (!dialogueBox.IsShown)
+                {
+                    dialogueBox.ShowBox();
+                }
+        
         // while (dialogueBox.IsShown) { ; }
-        Fight(bossKoolaid);
+        // Fight(bossKoolaid);
       }
 
       // update player's picture box
@@ -199,6 +203,10 @@ namespace Fall2020_CSC403_Project {
             if (dialogueBox.IsLastLine())
             {
                 dialogueBox.HideBox();
+                Enemy dialogueEnemy = dialogueBox.getEnemy();
+                if (dialogueEnemy != null) {
+                    Fight(dialogueEnemy);
+                }
             }
             else
             {

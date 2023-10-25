@@ -31,6 +31,7 @@ namespace Fall2020_CSC403_Project.code {
         }
 
         public void ShowBox() {
+            TypeText(currentDialogue.GetNextLine());
             PictureBox.Location = new Point(shownPoint[0], shownPoint[1]);
             DialogueLabel.Location = new Point(labelShownPoint[0], labelShownPoint[1]);
             IsShown = true;
@@ -50,7 +51,6 @@ namespace Fall2020_CSC403_Project.code {
             }
             else {
                 ShowBox();
-                TypeText(currentDialogue.GetNextLine());
             }
         }
 
@@ -81,6 +81,11 @@ namespace Fall2020_CSC403_Project.code {
         public void GetNextText() {
             String text = currentDialogue.GetNextLine();
             TypeText(text);
+        }
+
+        public Enemy getEnemy()
+        {
+            return currentDialogue.enemy;
         }
     }
 }

@@ -11,11 +11,13 @@ namespace Fall2020_CSC403_Project.code
         private string[] lines;
         private int[] letterSpeeds;
         private int lineNumber = 0;
+        public Enemy enemy;
         // DialogueBox nextDialogueBox = null;
-        public Dialogue(string[] lines, int[] letterSpeeds) {
+        public Dialogue(string[] lines, int[] letterSpeeds, Enemy enemy)
+        {
             this.lines = lines;
             this.letterSpeeds = letterSpeeds;
-            
+            this.enemy = enemy;
         }
 
         public bool IsLastLine()
