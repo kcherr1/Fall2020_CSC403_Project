@@ -32,6 +32,10 @@ namespace Fall2020_CSC403_Project.code {
             HealEvent((int)(amount));
         }
 
+    public void AlterScore(int amount)
+        {
+            Score += amount;
+        }
     public void AlterHealth(int amount) {
       Health += amount;
     }

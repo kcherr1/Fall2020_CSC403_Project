@@ -217,7 +217,7 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
         private System.Windows.Forms.Label lblPlayerScore;
-    private System.Windows.Forms.Timer tmrFinalBattle;
+        private System.Windows.Forms.Timer tmrFinalBattle;
     SoundPlayer battleTheme = new SoundPlayer("battle_theme.wav");
     SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");
 

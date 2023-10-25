@@ -24,7 +24,7 @@ namespace Fall2020_CSC403_Project {
       };
 
     }
-
+    
     public void Setup() {
       // update for this enemy
       battleTheme.PlayLooping();
@@ -147,7 +147,7 @@ namespace Fall2020_CSC403_Project {
         lblPlayerScore.Text = "Score: " + player.Score.ToString();
         }
 
-    private void PlayerHeal(int amount)
+        private void PlayerHeal(int amount)
         {
             player.AlterHealth(amount);
         }
