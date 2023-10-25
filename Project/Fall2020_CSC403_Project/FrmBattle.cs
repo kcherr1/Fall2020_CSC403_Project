@@ -66,11 +66,33 @@ namespace Fall2020_CSC403_Project {
 
         private void defeatEnemy()
         {
-
+            // Display a message box with the win message
+            DialogResult dialogResult = MessageBox.Show("Congrats! You defeated the opponent.",
+                                                        "Victory!",
+                                                        MessageBoxButtons.OK);
+            if (dialogResult == DialogResult.OK)
+            {
+                // Close this form
+                this.Close();
+            }
         }
+
         private void defeatPlayer()
         {
-            //Iftesam
+            // Display a message box with the loss message and options to Restart or Quit
+            DialogResult dialogResult = MessageBox.Show("Mr. Peanut died. You suck!",
+                                                        "Game Over",
+                                                        MessageBoxButtons.RetryCancel);
+
+            if (dialogResult == DialogResult.Retry)
+            {
+                // Code to restart the game goes here
+            }
+            else if (dialogResult == DialogResult.Cancel)
+            {
+                // Code to quit the game goes here
+                Application.Exit();
+            }
         }
 
         private void btnAttack_Click(object sender, EventArgs e) {
