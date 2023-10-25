@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
+using System.ComponentModel.Design.Serialization;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
@@ -111,17 +112,32 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-      private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(playerHitAmount()); //range -3,-4,-5
+        private void defeatEnemy()
+        {
+
+        }
+        private void defeatPlayer()
+        {
+            //Iftesam
+        }
+
+        private void btnAttack_Click(object sender, EventArgs e) {
+      player.OnAttack(-4);
       if (enemy.Health > 0) {
                 enemy.OnAttack(enemyHitAmount()); //range -2,-3,-4
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (player.Health <= 0) {
+        defeatPlayer();
         instance = null;
         Close();
       }
+      else if(enemy.Health <= 0){
+            defeatEnemy();
+            instance = null;
+            Close();
+        }
     }
 
     private void EnemyDamage(int amount) {

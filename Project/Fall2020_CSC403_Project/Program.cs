@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +14,10 @@ namespace Fall2020_CSC403_Project {
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new FrmLevel());
+      // start program by opening menu
+      Menu menu = new Menu();
+      menu.Size = new Size(800, 450);
+      Application.Run(menu);
     }
   }
 }
