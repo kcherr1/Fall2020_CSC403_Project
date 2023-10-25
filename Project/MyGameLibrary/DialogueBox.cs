@@ -75,6 +75,7 @@ namespace Fall2020_CSC403_Project.code {
         }
 
         public bool IsLastLine() {
+            currentDialogue.happened = true;
             return currentDialogue.IsLastLine();
         }
 

@@ -18,6 +18,9 @@ namespace Fall2020_CSC403_Project {
     private DialogueBox dialogueBox;
     private Dialogue defaultDialog;
     private Dialogue koolaidManDialogue;
+    private Dialogue poisonKoolaidDialogue;
+    private Dialogue cheetoDialogue;
+        
 
     public FrmLevel() {
       InitializeComponent();
@@ -56,7 +59,15 @@ namespace Fall2020_CSC403_Project {
       int[] koolaidManSpeeds = { 40, 40, 120 };
       koolaidManDialogue = new Dialogue(koolaidManLines, koolaidManSpeeds, bossKoolaid);
 
-            Game.player = player;
+      String[] poisonKoolaidLines = { "neurotoxins" };
+      int[] poisonKoolaidSpeeds = { 40 };
+      poisonKoolaidDialogue = new Dialogue(poisonKoolaidLines, poisonKoolaidSpeeds, enemyPoisonPacket);
+
+      String[] cheetoLines = { "HOW DO YOU EXPECT TO FIGHT", "WHEN YOUR HANDS ARE COVERED IN CHEETO DUST!" };
+      int[] cheetoSpeeds = { 40, 50 };
+      cheetoDialogue = new Dialogue(cheetoLines, cheetoSpeeds, enemyCheeto);
+
+      Game.player = player;
       timeBegin = DateTime.Now;
     }
 
@@ -115,25 +126,26 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+        StartDialogueThenBattle(poisonKoolaidDialogue);
       }
       else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
+        StartDialogueThenBattle(cheetoDialogue);
       }
-      if (HitAChar(player, bossKoolaid)) {
-        dialogueBox.SetCurrentDialogue(koolaidManDialogue);
-        if (!dialogueBox.IsShown)
-                {
-                    dialogueBox.ShowBox();
-                }
-        
-        // while (dialogueBox.IsShown) { ; }
-        // Fight(bossKoolaid);
+      else if (HitAChar(player, bossKoolaid)) {
+        StartDialogueThenBattle(koolaidManDialogue);
       }
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
+
+    private void StartDialogueThenBattle(Dialogue d) {
+            dialogueBox.SetCurrentDialogue(d);
+            if (!dialogueBox.IsShown && !d.happened)
+            {
+                dialogueBox.ShowBox();
+            }
+        }
 
     private bool HitAWall(Character c) {
       bool hitAWall = false;
@@ -163,6 +175,11 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       bool characterMoving = false;
+      if (dialogueBox.IsShown)
+            {
+                player.ResetMoveSpeed();
+                return;
+            }
       switch (e.KeyCode) {
                 case Keys.Left:
                     player.GoLeft();
@@ -183,11 +200,6 @@ namespace Fall2020_CSC403_Project {
                     player.GoDown();
                     player._movementBools[3] = true;
                     break;
-
-                case Keys.X:
-                    dialogueBox.SetCurrentDialogue(defaultDialog);
-                    dialogueBox.ToggleBox();
-          break;
           
         default:
           player.ResetMoveSpeed();
