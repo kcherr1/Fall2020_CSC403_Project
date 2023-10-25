@@ -28,6 +28,7 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.picRareDagger = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
@@ -45,7 +46,9 @@
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            this.picStartingSword = new System.Windows.Forms.PictureBox();
+            this.picCommonArmor = new System.Windows.Forms.PictureBox();
+            this.picLesserHealthPotion = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picRareDagger)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -63,7 +66,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picStartingSword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCommonArmor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLesserHealthPotion)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -89,6 +93,16 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            // 
+            // picRareDagger
+            // 
+            this.picRareDagger.Image = global::Fall2020_CSC403_Project.Properties.Resources.rare_dagger;
+            this.picRareDagger.Location = new System.Drawing.Point(492, 628);
+            this.picRareDagger.Name = "picRareDagger";
+            this.picRareDagger.Size = new System.Drawing.Size(80, 80);
+            this.picRareDagger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picRareDagger.TabIndex = 18;
+            this.picRareDagger.TabStop = false;
             // 
             // picWall11
             // 
@@ -294,15 +308,25 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
-            // picStartingSword
+            // picCommonArmor
             // 
-            this.picStartingSword.Image = global::Fall2020_CSC403_Project.Properties.Resources.starting_sword;
-            this.picStartingSword.Location = new System.Drawing.Point(582, 665);
-            this.picStartingSword.Name = "picStartingSword";
-            this.picStartingSword.Size = new System.Drawing.Size(50, 50);
-            this.picStartingSword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picStartingSword.TabIndex = 18;
-            this.picStartingSword.TabStop = false;
+            this.picCommonArmor.Image = global::Fall2020_CSC403_Project.Properties.Resources.common_armor;
+            this.picCommonArmor.Location = new System.Drawing.Point(718, 209);
+            this.picCommonArmor.Name = "picCommonArmor";
+            this.picCommonArmor.Size = new System.Drawing.Size(100, 100);
+            this.picCommonArmor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCommonArmor.TabIndex = 19;
+            this.picCommonArmor.TabStop = false;
+            // 
+            // picLesserHealthPotion
+            // 
+            this.picLesserHealthPotion.Image = global::Fall2020_CSC403_Project.Properties.Resources.lesser_health_potion;
+            this.picLesserHealthPotion.Location = new System.Drawing.Point(990, 428);
+            this.picLesserHealthPotion.Name = "picLesserHealthPotion";
+            this.picLesserHealthPotion.Size = new System.Drawing.Size(90, 90);
+            this.picLesserHealthPotion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLesserHealthPotion.TabIndex = 20;
+            this.picLesserHealthPotion.TabStop = false;
             // 
             // FrmLevel
             // 
@@ -311,7 +335,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
-            this.Controls.Add(this.picStartingSword);
+            this.Controls.Add(this.picLesserHealthPotion);
+            this.Controls.Add(this.picCommonArmor);
+            this.Controls.Add(this.picRareDagger);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -338,6 +364,7 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picRareDagger)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
@@ -355,7 +382,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picStartingSword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCommonArmor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLesserHealthPotion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,7 +411,9 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-        private System.Windows.Forms.PictureBox picStartingSword;
+        private System.Windows.Forms.PictureBox picRareDagger;
+        private System.Windows.Forms.PictureBox picCommonArmor;
+        private System.Windows.Forms.PictureBox picLesserHealthPotion;
     }
 }
 

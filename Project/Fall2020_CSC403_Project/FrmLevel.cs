@@ -31,7 +31,7 @@ namespace Fall2020_CSC403_Project
 		{
 			const int PADDING = 7;
 			const int NUM_WALLS = 13;
-			const int NUM_ITEMS = 13;
+			const int NUM_ITEMS = 3;
 
 			player = new Player("Peanut", picPlayer, CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), new Rogue());
 
@@ -55,11 +55,14 @@ namespace Fall2020_CSC403_Project
 			}
 
 
-			Item start_sword = new Item("Sting", picStartingSword, 10, Item.ItemType.Weapon, CreatePosition(picStartingSword), CreateCollider(picStartingSword, PADDING));
-			
+			Item rare_dagger = new Item("Sting", picRareDagger, 10, Item.ItemType.Weapon, CreatePosition(picRareDagger), CreateCollider(picRareDagger, PADDING));
+			Item common_armor = new Item("Armor of Awesome", picCommonArmor, 10, Item.ItemType.Armor, CreatePosition(picCommonArmor), CreateCollider(picCommonArmor, PADDING));
+			Item lesser_heal = new Item("Lesser Health Potion", picLesserHealthPotion, 10, Item.ItemType.Utility, CreatePosition(picLesserHealthPotion), CreateCollider(picLesserHealthPotion, PADDING));
 
             items = new Item[NUM_ITEMS];
-            items[0] = start_sword;
+            items[0] = rare_dagger;
+			items[1] = common_armor;
+			items[2] = lesser_heal;
 
 			Game.player = player;
 			timeBegin = DateTime.Now;
