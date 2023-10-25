@@ -25,7 +25,6 @@
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.btnAttack = new System.Windows.Forms.Button();
-            this.lblHit = new System.Windows.Forms.Label();
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,6 +34,8 @@
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
             this.btnHeavyAttack = new System.Windows.Forms.Button();
+            this.lblHit = new System.Windows.Forms.Label();
+            this.lblDamage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -51,13 +52,6 @@
             this.btnAttack.Text = "Attack";
             this.btnAttack.UseVisualStyleBackColor = true;
             this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
-            // 
-            // lblHit
-            // 
-            this.lblHit.Location = new System.Drawing.Point(0, 0);
-            this.lblHit.Name = "lblHit";
-            this.lblHit.Size = new System.Drawing.Size(100, 23);
-            this.lblHit.TabIndex = 0;
             // 
             // lblPlayerHealthFull
             // 
@@ -144,17 +138,39 @@
             this.tmrFinalBattle.Interval = 5600;
             this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
             // 
-            // button1
+            // btnHeavyAttack
             // 
             this.btnHeavyAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHeavyAttack.Location = new System.Drawing.Point(169, 596);
             this.btnHeavyAttack.Margin = new System.Windows.Forms.Padding(4);
-            this.btnHeavyAttack.Name = "Heavy Attack";
+            this.btnHeavyAttack.Name = "btnHeavyAttack";
             this.btnHeavyAttack.Size = new System.Drawing.Size(171, 53);
             this.btnHeavyAttack.TabIndex = 8;
             this.btnHeavyAttack.Text = "Heavy Attack";
             this.btnHeavyAttack.UseVisualStyleBackColor = true;
             this.btnHeavyAttack.Click += new System.EventHandler(this.btnHeavyAttack_Click);
+            // 
+            // lblHit
+            // 
+            this.lblHit.BackColor = System.Drawing.Color.Red;
+            this.lblHit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHit.ForeColor = System.Drawing.Color.White;
+            this.lblHit.Location = new System.Drawing.Point(405, 205);
+            this.lblHit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHit.Name = "lblHit";
+            this.lblHit.Size = new System.Drawing.Size(274, 152);
+            this.lblHit.TabIndex = 9;
+            // 
+            // lblDamage
+            // 
+            this.lblDamage.BackColor = System.Drawing.Color.Red;
+            this.lblDamage.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDamage.ForeColor = System.Drawing.Color.White;
+            this.lblDamage.Location = new System.Drawing.Point(405, 370);
+            this.lblDamage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDamage.Name = "lblDamage";
+            this.lblDamage.Size = new System.Drawing.Size(274, 42);
+            this.lblDamage.TabIndex = 10;
             // 
             // FrmBattle
             // 
@@ -163,6 +179,8 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1096, 742);
+            this.Controls.Add(this.lblDamage);
+            this.Controls.Add(this.lblHit);
             this.Controls.Add(this.btnHeavyAttack);
             this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
@@ -190,7 +208,7 @@
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
-    private System.Windows.Forms.Label lblHit;
+    //private System.Windows.Forms.Label lblHit;
     private System.Windows.Forms.Label lblPlayerHealthFull;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
@@ -198,5 +216,7 @@
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
     private System.Windows.Forms.Button btnHeavyAttack;
+    private System.Windows.Forms.Label lblHit;
+    private System.Windows.Forms.Label lblDamage;
     }
 }
