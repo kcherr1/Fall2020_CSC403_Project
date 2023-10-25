@@ -112,9 +112,16 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
+        private void restoreHealth()
+        {
+            int a = player.Health;
+            int healthToAdd = 20 - a;
+            player.AlterHealth(healthToAdd);
+        }
+
         private void defeatEnemy()
         {
-
+            restoreHealth();
         }
         private void defeatPlayer()
         {
@@ -122,7 +129,7 @@ namespace Fall2020_CSC403_Project {
         }
 
         private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      player.OnAttack(playerHitAmount()); //range -3, -4, -5
       if (enemy.Health > 0) {
                 enemy.OnAttack(enemyHitAmount()); //range -2,-3,-4
       }
