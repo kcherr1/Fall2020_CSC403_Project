@@ -142,6 +142,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\inventoryboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\raw images\Potion.png" />
     <None Include="data\CatDisk.wav" />
   </ItemGroup>
   <ItemGroup>
