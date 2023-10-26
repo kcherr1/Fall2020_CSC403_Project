@@ -44,6 +44,7 @@ namespace Fall2020_CSC403_Project
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+
             player.inventory.image = inventoryboard.BackgroundImage;
             inventoryboard.Hide();
             selector.Parent = inventoryboard;
