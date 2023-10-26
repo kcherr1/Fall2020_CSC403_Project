@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
@@ -138,6 +137,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\brick.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nether_portal.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Nether_portal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

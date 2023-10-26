@@ -89,14 +89,14 @@ namespace Fall2020_CSC403_Project {
 
         instance = null;
         
-        //added this to display the win screen for this level
-        FrmWinLevel win_instance = FrmWinLevel.GetInstance();
-        win_instance.Show();
 
         //added this check to change the value in FrmLevel to true
         if (isBossBattle) {
             bossIsDefeatedReference.bossIsDefeated = true;
-        }
+            //added this to display the win screen for this level
+            FrmWinLevel win_instance = FrmWinLevel.GetInstance();
+            win_instance.Show();
+                }
         if (enemy.Health <= 0)
         {
           enemy.AlterIsAlive(false);

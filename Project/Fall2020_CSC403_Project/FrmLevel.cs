@@ -85,12 +85,17 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
       }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+
+      if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
+
+                this.Close();
       }
-      
-      // check state of each enemy
-      if (!enemyPoisonPacket.IsAlive)
+      else if (HitAChar(player, bossKoolaid)){
+            Fight(bossKoolaid);
+      }
+
+            // check state of each enemy
+            if (!enemyPoisonPacket.IsAlive)
       {
         RemoveEnemy(enemyPoisonPacket, picEnemyPoisonPacket);
       }
@@ -100,7 +105,7 @@ namespace Fall2020_CSC403_Project {
       }
       if (!bossKoolaid.IsAlive)
       {
-        RemoveEnemy(bossKoolaid, picBossKoolAid);
+        RemoveBoss(bossKoolaid, picBossKoolAid);
       }
 
       // update player's picture box
@@ -168,6 +173,14 @@ namespace Fall2020_CSC403_Project {
     {
       enemy.RemoveCollider();
       picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
+    }
+
+    private void RemoveBoss(Enemy enemy, PictureBox picEnemy)
+    {
+            //enemy.RemoveCollider();
+            picEnemy.BackgroundImage = null;
+            picEnemy.Image = global::Fall2020_CSC403_Project.Properties.Resources.Nether_portal1;
+            picEnemy.SizeMode = PictureBoxSizeMode.StretchImage;
     }
   }
 }

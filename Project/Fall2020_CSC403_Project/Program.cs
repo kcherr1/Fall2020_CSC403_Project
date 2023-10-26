@@ -13,7 +13,12 @@ namespace Fall2020_CSC403_Project {
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new FrmLevel());
-    }
+            //Application.Run(new FrmLevel());
+            //      Application.Run(new FrmLevel());
+            FrmLevel levelOne = new FrmLevel();
+            levelOne.ShowDialog();
+            FrmLevel levelTwo = new FrmLevel();
+            levelTwo.ShowDialog();
+        }
   }
 }
