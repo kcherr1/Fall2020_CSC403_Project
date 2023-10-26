@@ -109,14 +109,6 @@ namespace Fall2020_CSC403_Project {
         RemoveBoss(bossKoolaid, picBossKoolAid);
       }
 
-      // check state of player
-      if (!player.IsAlive)
-      {
-        //System.Diagnostics.Debug.WriteLine("player dead");
-        Application.Restart();
-        Environment.Exit(0);
-      }
-
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }

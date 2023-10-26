@@ -109,6 +109,11 @@ namespace Fall2020_CSC403_Project {
         {
           player.AlterIsAlive(false);
         }
+        if (!player.IsAlive)
+        {
+          FrmPlayerDeath playerDeathInstance = new FrmPlayerDeath();
+          playerDeathInstance.Show();
+        }
         Close();
       }
     }

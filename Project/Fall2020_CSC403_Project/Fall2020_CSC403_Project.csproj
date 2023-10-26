@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmPlayerDeath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPlayerDeath.Designer.cs">
+      <DependentUpon>FrmPlayerDeath.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmWinLevel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmPlayerDeath.resx">
+      <DependentUpon>FrmPlayerDeath.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmWinLevel.resx">
       <DependentUpon>FrmWinLevel.cs</DependentUpon>
     </EmbeddedResource>
