@@ -131,10 +131,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\Red_X.svg.png" />
+    <None Include="Resources\gravestone.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\Nether_portal.png" />
+    <None Include="data\gravestone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\brick.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
