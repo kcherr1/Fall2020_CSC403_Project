@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fall2020_CSC403_Project.code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,20 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmWinLevel : Form
     {
+        public static FrmWinLevel instance = null;
         public FrmWinLevel()
         {
             InitializeComponent();
+        }
+
+        public static FrmWinLevel GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new FrmWinLevel();
+                //instance.Setup();
+            }
+            return instance;
         }
 
         private void FrmWinLevel_Load(object sender, EventArgs e)
@@ -28,8 +40,10 @@ namespace Fall2020_CSC403_Project
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
-
+        {   
+            //this flips the visibility value for every tick of the timer;
+            //so the big red X flashes
+            pictureBox3.Visible = !pictureBox3.Visible;
         }
     }
 }

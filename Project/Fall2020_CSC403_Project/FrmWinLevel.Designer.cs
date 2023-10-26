@@ -41,7 +41,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(461, 502);
+            this.button1.Location = new System.Drawing.Point(434, 407);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 87);
@@ -52,13 +52,14 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid;
-            this.pictureBox2.Location = new System.Drawing.Point(688, 166);
+            this.pictureBox2.Location = new System.Drawing.Point(550, 84);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(361, 246);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -69,7 +70,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::Fall2020_CSC403_Project.Properties.Resources.Red_X_svg;
-            this.pictureBox3.Location = new System.Drawing.Point(677, 143);
+            this.pictureBox3.Location = new System.Drawing.Point(550, 69);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(372, 269);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -79,7 +80,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Fall2020_CSC403_Project.Properties.Resources.player;
-            this.pictureBox1.Location = new System.Drawing.Point(258, 131);
+            this.pictureBox1.Location = new System.Drawing.Point(263, 84);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(118, 254);
             this.pictureBox1.TabIndex = 4;
@@ -90,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(1154, 677);
+            this.ClientSize = new System.Drawing.Size(1075, 525);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox3);

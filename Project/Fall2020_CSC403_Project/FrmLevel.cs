@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -14,6 +15,9 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+
+    //added this to keep track of whether or not the boss is defeated
+    private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
     public FrmLevel() {
       InitializeComponent();
@@ -109,6 +113,9 @@ namespace Fall2020_CSC403_Project {
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
+
+        // this gives the frmBattle object a reference to this level's bossIsDefeated bool
+      frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
