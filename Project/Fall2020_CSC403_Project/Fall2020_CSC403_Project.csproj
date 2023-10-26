@@ -131,12 +131,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\cheap_armor.png" />
-    <Content Include="data\expensive_armor.png" />
-    <Content Include="data\expensive_sword.png" />
+    <Content Include="data\common_armor.png" />
+    <Content Include="data\common_axe.png" />
+    <Content Include="data\common_dagger.png" />
+    <Content Include="data\common_hammer.png" />
+    <Content Include="data\common_sword.png" />
+    <Content Include="data\rare_dagger.png" />
     <Content Include="data\greather_health_potion.png" />
     <Content Include="data\lesser_health_potion.png" />
-    <Content Include="data\starting_sword.png" />
+    <Content Include="data\rare_armor.png" />
+    <Content Include="data\rare_sword.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
