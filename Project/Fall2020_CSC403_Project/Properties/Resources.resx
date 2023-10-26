@@ -139,4 +139,34 @@
   <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="iamchatgpt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\iamchatgpt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="battle_screen_ramboVScgpt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\battle_screen_ramboVScgpt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cgptSingsWorldTakeover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\cgptSingsWorldTakeover.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Psychedelic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\Psychedelic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ramboPeanut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\ramboPeanut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="attack1SFX" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\attack1SFX.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cgptBossRapTakeoverwav" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\cgptBossRapTakeoverwav.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="congrats" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\congratulations-deep-voice-172193.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="enemyFightBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\enemyFightBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gamemusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\gamemusic.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
