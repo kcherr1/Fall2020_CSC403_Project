@@ -26,12 +26,31 @@ namespace Fall2020_CSC403_Project
 
         public void FormBattle_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // If the player closes the battle before it ends. Release the instance
+            // If the player's health reached 0 and the form closed, the player died
+            //  so exit the game.
+            if (player.Health <= 0)
+            {
+                // TODO: later call and show a game over screen like the battle screen
+                System.Windows.Forms.MessageBox.Show("Game Over");
+
+                Application.Exit();
+            }
+
+            // If the battle closes normally , release the instance for future fights
             //  so it does not lead to disposed exception.
-            instance = null;
-            // Better yet, make it so when the user closes the battle the game closes.
+            if (enemy.Health <= 0)
+            {
+                instance = null;
+            }
+            
+            
+            // If player/enemy health>0 and form closes, the user closed the window
             // You cannot run from battle by closing it!
-            Application.Exit();
+            if (player.Health > 0 && enemy.Health > 0) 
+            {
+                Application.Exit();
+            }
+            
         }
         public void Setup() 
         {
