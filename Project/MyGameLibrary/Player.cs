@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project.code
     {
         public Player(Position initPos, Collider collider, PlayerArchetype archetype) : base(initPos, collider, archetype)
         {
+            
         }
     }
 }

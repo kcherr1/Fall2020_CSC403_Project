@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project.code
         int baseDefense { get; }
         int baseDamage { get; }
         int baseSpeed { get; }
+        int archetypeDamage { get; }
     }
 
     public class Archetype
@@ -30,6 +31,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
+        public int archetypeDamage { get; }
 
         public Tank()
         {
@@ -37,6 +39,7 @@ namespace Fall2020_CSC403_Project.code
             baseDefense = 10;
             baseDamage = 5;
             baseSpeed = 0;
+            archetypeDamage = 5;
         }
     }
 
@@ -46,6 +49,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
+        public int archetypeDamage { get; }
 
         public Rogue()
         {
@@ -53,6 +57,7 @@ namespace Fall2020_CSC403_Project.code
             baseDefense = 2;
             baseDamage = 20;
             baseSpeed = 5;
+            archetypeDamage = 10;
         }
     }
 
@@ -62,6 +67,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
+        public int archetypeDamage { get; }
 
         public Swordsman()
         {
@@ -69,6 +75,7 @@ namespace Fall2020_CSC403_Project.code
             baseDefense = 5;
             baseDamage = 8;
             baseSpeed = 2;
+            archetypeDamage = 8;
         }
     }
     

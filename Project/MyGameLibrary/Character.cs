@@ -42,8 +42,9 @@ namespace Fall2020_CSC403_Project.code
 		}
 		
 		public void OnAttack(int amount)
-		{
-			AttackEvent((int)(amount * damage));
+		{	
+			Random rand = new Random();
+			AttackEvent((int)(amount * damage + rand.Next(1, archetype.baseDamage + 1)));
 		}
 
 		public void AlterHealth(int amount)
