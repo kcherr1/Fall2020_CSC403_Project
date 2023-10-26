@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
+using MyGameLibrary;
 using System;
 using System.Drawing;
 using System.Media;
@@ -10,6 +11,10 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+
+    //this helps keep track of whether or not this is a boss battle and if the boss is defeated
+    public BossDefeatedWrapper bossIsDefeatedReference;
+    private bool isBossBattle = false;
 
     private FrmBattle() {
       InitializeComponent();
@@ -40,6 +45,8 @@ namespace Fall2020_CSC403_Project {
       simpleSound.Play();
 
       tmrFinalBattle.Enabled = true;
+
+      isBossBattle = true;
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
@@ -81,6 +88,15 @@ namespace Fall2020_CSC403_Project {
         }
 
         instance = null;
+        
+
+        //added this check to change the value in FrmLevel to true
+        if (isBossBattle) {
+            bossIsDefeatedReference.bossIsDefeated = true;
+            //added this to display the win screen for this level
+            FrmWinLevel win_instance = FrmWinLevel.GetInstance();
+            win_instance.Show();
+                }
         if (enemy.Health <= 0)
         {
           enemy.AlterIsAlive(false);
