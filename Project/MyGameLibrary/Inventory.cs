@@ -18,6 +18,8 @@ namespace Fall2020_CSC403_Project.code
 
         public Image image { get; set; }
 
+        public int selectedItem { get; set; }
+
         public int PADDING { get { return padding; } }
 
         public void addItem(Item item)
@@ -41,5 +43,6 @@ namespace Fall2020_CSC403_Project.code
         {
             this.visible = visible;
         }
+
     }
 }
