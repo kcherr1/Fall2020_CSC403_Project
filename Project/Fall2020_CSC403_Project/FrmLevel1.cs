@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
+  public partial class FrmLevel1 : Form {
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -17,12 +17,11 @@ namespace Fall2020_CSC403_Project {
 
 
         System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
-        public FrmLevel() {
+        public FrmLevel1() {
           InitializeComponent();
             soundPlayer.SoundLocation = "gamebgm.wav";
             soundPlayer.Play();
         }
-
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -31,7 +30,7 @@ namespace Fall2020_CSC403_Project {
             {
                 soundPlayer.Dispose();
                 this.Hide();
-                PauseMenu pause = new PauseMenu();
+                FrmPauseMenu pause = new FrmPauseMenu();
                 pause.ShowDialog();
                 pause = null;
                 this.Show();

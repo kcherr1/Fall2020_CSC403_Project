@@ -20,7 +20,7 @@ namespace Fall2020_CSC403_Project
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            MainMenuForm mainMenu = new MainMenuForm();
+            FrmMainMenu mainMenu = new FrmMainMenu();
             mainMenu.Show();
 
         }
@@ -28,7 +28,7 @@ namespace Fall2020_CSC403_Project
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmLevel Play = new FrmLevel();
+            FrmLevel1 Play = new FrmLevel1();
             Play.Show();
         }
 

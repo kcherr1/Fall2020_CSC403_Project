@@ -1,6 +1,6 @@
 ﻿namespace Fall2020_CSC403_Project
 {
-    partial class FAQ
+    partial class FrmFAQ
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FAQ));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFAQ));
             this.panel1 = new System.Windows.Forms.Panel();
             this.Asix = new System.Windows.Forms.RichTextBox();
             this.Qsix = new System.Windows.Forms.Label();

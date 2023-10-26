@@ -1,6 +1,6 @@
 ﻿namespace Fall2020_CSC403_Project
 {
-    partial class MainMenuForm
+    partial class FrmPauseMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -19,7 +19,7 @@
             }
             base.Dispose(disposing);
         }
-
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,27 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
-            this.Play = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPauseMenu));
             this.BarbieHiemer = new System.Windows.Forms.Label();
-            this.Settings = new System.Windows.Forms.Button();
-            this.Faq = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
+            this.Settings = new System.Windows.Forms.Button();
+            this.Contnue = new System.Windows.Forms.Button();
+            this.Faq = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // Play
-            // 
-            this.Play.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Play.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Play.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Play.Location = new System.Drawing.Point(503, 308);
-            this.Play.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Play.Name = "Play";
-            this.Play.Size = new System.Drawing.Size(176, 47);
-            this.Play.TabIndex = 0;
-            this.Play.Text = "Play";
-            this.Play.UseVisualStyleBackColor = false;
-            this.Play.Click += new System.EventHandler(this.Play_Click);
             // 
             // BarbieHiemer
             // 
@@ -59,71 +45,79 @@
             this.BarbieHiemer.Font = new System.Drawing.Font("Magneto", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BarbieHiemer.Image = ((System.Drawing.Image)(resources.GetObject("BarbieHiemer.Image")));
             this.BarbieHiemer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BarbieHiemer.Location = new System.Drawing.Point(323, 195);
+            this.BarbieHiemer.Location = new System.Drawing.Point(332, 218);
             this.BarbieHiemer.Name = "BarbieHiemer";
-            this.BarbieHiemer.Size = new System.Drawing.Size(502, 75);
-            this.BarbieHiemer.TabIndex = 1;
+            this.BarbieHiemer.Size = new System.Drawing.Size(601, 88);
+            this.BarbieHiemer.TabIndex = 2;
             this.BarbieHiemer.Text = "BarbieHiemer";
             this.BarbieHiemer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BarbieHiemer.Click += new System.EventHandler(this.BarbieHiemer_Click);
-            // 
-            // Settings
-            // 
-            this.Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Settings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Settings.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings.Location = new System.Drawing.Point(503, 360);
-            this.Settings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(176, 47);
-            this.Settings.TabIndex = 2;
-            this.Settings.Text = "Settings";
-            this.Settings.UseVisualStyleBackColor = false;
-            // 
-            // Faq
-            // 
-            this.Faq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Faq.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Faq.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Faq.Location = new System.Drawing.Point(503, 419);
-            this.Faq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Faq.Name = "Faq";
-            this.Faq.Size = new System.Drawing.Size(176, 47);
-            this.Faq.TabIndex = 3;
-            this.Faq.Text = "Faq";
-            this.Faq.UseVisualStyleBackColor = false;
-            this.Faq.Click += new System.EventHandler(this.Faq_Click);
             // 
             // Exit
             // 
             this.Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit.Location = new System.Drawing.Point(503, 476);
-            this.Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Exit.Location = new System.Drawing.Point(513, 564);
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(176, 47);
-            this.Exit.TabIndex = 4;
+            this.Exit.Size = new System.Drawing.Size(198, 59);
+            this.Exit.TabIndex = 7;
             this.Exit.Text = "Exit";
             this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // MainMenuForm
+            // Settings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Settings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Settings.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Settings.Location = new System.Drawing.Point(513, 412);
+            this.Settings.Name = "Settings";
+            this.Settings.Size = new System.Drawing.Size(198, 59);
+            this.Settings.TabIndex = 6;
+            this.Settings.Text = "Settings";
+            this.Settings.UseVisualStyleBackColor = false;
+            this.Settings.Click += new System.EventHandler(this.Settings_Click);
+            // 
+            // Contnue
+            // 
+            this.Contnue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Contnue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Contnue.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Contnue.Location = new System.Drawing.Point(513, 331);
+            this.Contnue.Name = "Contnue";
+            this.Contnue.Size = new System.Drawing.Size(198, 59);
+            this.Contnue.TabIndex = 5;
+            this.Contnue.Text = "Continue";
+            this.Contnue.UseVisualStyleBackColor = false;
+            this.Contnue.Click += new System.EventHandler(this.Contnue_Click);
+            // 
+            // Faq
+            // 
+            this.Faq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Faq.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Faq.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Faq.Location = new System.Drawing.Point(513, 489);
+            this.Faq.Name = "Faq";
+            this.Faq.Size = new System.Drawing.Size(198, 59);
+            this.Faq.TabIndex = 8;
+            this.Faq.Text = "Faq";
+            this.Faq.UseVisualStyleBackColor = false;
+            // 
+            // PauseMenu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1197, 634);
-            this.Controls.Add(this.Exit);
+            this.ClientSize = new System.Drawing.Size(1264, 741);
             this.Controls.Add(this.Faq);
+            this.Controls.Add(this.Exit);
             this.Controls.Add(this.Settings);
+            this.Controls.Add(this.Contnue);
             this.Controls.Add(this.BarbieHiemer);
-            this.Controls.Add(this.Play);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "MainMenuForm";
-            this.Text = "MainMenuForm";
-            this.Load += new System.EventHandler(this.MainMenuForm_Load);
+            this.Name = "PauseMenu";
+            this.Text = "PauseMenu";
+            this.Load += new System.EventHandler(this.PauseMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,10 +125,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Play;
         private System.Windows.Forms.Label BarbieHiemer;
-        private System.Windows.Forms.Button Settings;
-        private System.Windows.Forms.Button Faq;
         private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.Button Settings;
+        private System.Windows.Forms.Button Contnue;
+        private System.Windows.Forms.Button Faq;
     }
 }

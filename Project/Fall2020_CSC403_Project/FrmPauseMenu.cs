@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
 {
-    public partial class PauseMenu : Form
+    public partial class FrmPauseMenu : Form
     {
 
         System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
    
-        public PauseMenu()
+        public FrmPauseMenu()
         {
             InitializeComponent();
             soundPlayer.SoundLocation = "barbenheimer.wav";

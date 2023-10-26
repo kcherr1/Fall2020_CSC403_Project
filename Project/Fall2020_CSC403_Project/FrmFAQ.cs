@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
 {
-    public partial class FAQ : Form
+    public partial class FrmFAQ : Form
     {
-        public FAQ()
+        public FrmFAQ()
         {
             InitializeComponent();
         }
@@ -66,7 +66,7 @@ namespace Fall2020_CSC403_Project
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            MainMenuForm mainMenuForm = new MainMenuForm();
+            FrmMainMenu mainMenuForm = new FrmMainMenu();
         }
     }
     
