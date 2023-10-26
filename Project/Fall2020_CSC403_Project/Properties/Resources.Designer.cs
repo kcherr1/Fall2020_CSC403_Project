@@ -127,6 +127,24 @@ namespace Fall2020_CSC403_Project.Properties {
                 object obj = ResourceManager.GetObject("wall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
+            }
+        internal static System.Drawing.Bitmap fence {
+            get {
+                object obj = ResourceManager.GetObject("fence", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap boss_dialog {
+            get {
+                object obj = ResourceManager.GetObject("boss_dialog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap key {
+            get {
+                object obj = ResourceManager.GetObject("key", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
         }
     }
 }

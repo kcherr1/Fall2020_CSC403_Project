@@ -46,6 +46,8 @@ namespace Fall2020_CSC403_Project {
       if (instance == null) {
         instance = new FrmBattle();
         instance.enemy = enemy;
+                
+        
         instance.Setup();
       }
       return instance;
@@ -71,10 +73,19 @@ namespace Fall2020_CSC403_Project {
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
-        instance = null;
-        Close();
+        instance = null;    
+        Close();          
+
       }
     }
+        /*
+        private Enemy EnemyHealthZero(Enemy enemy) {
+                if (enemy.Health <= 0)
+                {
+                    return enemy;
+	}
+         }
+        */
 
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
