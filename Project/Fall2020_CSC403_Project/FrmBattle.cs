@@ -71,6 +71,7 @@ namespace Fall2020_CSC403_Project {
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
+
         instance = null;
         Close();
       }
@@ -88,5 +89,11 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            string documentationUrl = "https://docs.google.com/document/d/158qKBqjiTSbWiRfbgNZ-8zu_gsyhuzam8IXES70mpeU/edit"; // link to google docs FAQ
+            System.Diagnostics.Process.Start(documentationUrl);
+        }
+    }
 }
