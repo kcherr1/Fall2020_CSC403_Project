@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fall2020_CSC403_Project.code
+namespace MyGameLibrary
 {   
     /*
      * So why does this exist? It seems like none of the Form entry and exit functions have
