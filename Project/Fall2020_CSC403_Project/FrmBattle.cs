@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project
         // This is the variable that controls our instance of the class FrmBattle. The active/inactive elements are tied to it.
         public static FrmBattle instance = null;
         public static SoundPlayer simpleSound;
+        public static SoundPlayer simpleSFX;
 
         private Enemy enemy;
         private Player player;
@@ -21,7 +22,9 @@ namespace Fall2020_CSC403_Project
         {
             InitializeComponent();
             player = Game.player;
-            
+            // TODO: use mplayer and pause game music while i attack, play sfx, then resume
+            simpleSFX = new SoundPlayer(Resources.attack1SFX);
+
         }
 
         public void FormBattle_FormClosed(object sender, FormClosedEventArgs e)
@@ -126,8 +129,7 @@ namespace Fall2020_CSC403_Project
         private async void btnAttack_Click(object sender, EventArgs e) 
         {
             player.OnAttack(-3);
-            SoundPlayer simpleSFX = new SoundPlayer(Resources.attack1SFX);
-            simpleSFX.Play();
+            
       
             if (enemy.Health > 0) 
             {
@@ -152,6 +154,8 @@ namespace Fall2020_CSC403_Project
                 else
                 {
                     enemy.OnAttack(-2);
+                    simpleSFX.PlaySync();
+                    simpleSound.Play();
                 }
 
 
