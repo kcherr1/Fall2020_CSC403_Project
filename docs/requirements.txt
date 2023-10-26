@@ -1,0 +1,2 @@
+sphinxsharp==1.0.2
+sphinx-wagtail-theme==6.1.1
