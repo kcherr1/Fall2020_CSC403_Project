@@ -1,5 +1,3 @@
-﻿using System.Drawing;
-
 namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
@@ -25,10 +23,11 @@ namespace Fall2020_CSC403_Project {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
-            this.tmrUpdateInGameTime = new System.Windows.Forms.Timer();
-            this.tmrPlayerMove = new System.Windows.Forms.Timer();
+            this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
+            this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
@@ -52,6 +51,8 @@ namespace Fall2020_CSC403_Project {
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.mainCharacter = new System.Windows.Forms.PictureBox();
+            this.picGun = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -70,6 +71,8 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainCharacter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picGun)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -382,16 +385,38 @@ namespace Fall2020_CSC403_Project {
             this.button1.Text = "Controls";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.showControls);
+            // mainCharacter
+            // 
+            this.mainCharacter.BackColor = System.Drawing.Color.Transparent;
+            this.mainCharacter.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+            this.mainCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mainCharacter.Location = new System.Drawing.Point(120, 495);
+            this.mainCharacter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainCharacter.Name = "mainCharacter";
+            this.mainCharacter.Size = new System.Drawing.Size(64, 107);
+            this.mainCharacter.TabIndex = 18;
+            this.mainCharacter.TabStop = false;
+            // 
+            // picGun
+            // 
+            this.picGun.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picGun.BackgroundImage")));
+            this.picGun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picGun.Location = new System.Drawing.Point(572, 301);
+            this.picGun.Name = "picGun";
+            this.picGun.Size = new System.Drawing.Size(73, 59);
+            this.picGun.TabIndex = 19;
+            this.picGun.TabStop = false;
             // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.panel1);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.mainCharacter);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -410,6 +435,7 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.picGun);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -436,6 +462,8 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainCharacter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picGun)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,6 +497,8 @@ namespace Fall2020_CSC403_Project {
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.RichTextBox richTextBox1;
+    private System.Windows.Forms.PictureBox mainCharacter;
+        private System.Windows.Forms.PictureBox picGun;
     }
 }
 

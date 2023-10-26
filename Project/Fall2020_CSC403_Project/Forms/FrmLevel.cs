@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -14,9 +15,11 @@ namespace Fall2020_CSC403_Project
         private Enemy enemyCheeto;
         private Character[] walls;
 
+        private Item gun;
+        private Inventory inventory;
+
         private DateTime timeBegin;
         private FrmBattle frmBattle;
-        
 
         public FrmLevel()
         {
@@ -29,7 +32,9 @@ namespace Fall2020_CSC403_Project
             const int PADDING = 7;
             const int NUM_WALLS = 13;
 
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING), "Gun");
+
+            player = new Player(CreatePosition(mainCharacter), CreateCollider(mainCharacter, 0));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -42,13 +47,16 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket.Color = Color.Green;
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
+            inventory = new Inventory();
+
             walls = new Character[NUM_WALLS];
             for (int w = 0; w < NUM_WALLS; w++)
             {
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+                walls[w] = new Character(CreatePosition(pic), CreateWallCollider(pic, 0, mainCharacter.Size.Height));
             }
 
+            /*this.Transparent_images_Click();*/
             Game.player = player;
             timeBegin = DateTime.Now;
         }
@@ -67,6 +75,22 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
             player.ResetMoveSpeed();
+        }
+        // needed to create different size hitbox for walls
+        private Collider CreateWallCollider(PictureBox pic, int padding, int characterHeight)
+        {
+            Rectangle rect;
+            if (pic.Size.Width > pic.Size.Height)
+            {
+                rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, Convert.ToInt32(Math.Max(pic.Size.Height - characterHeight, pic.Size.Height * .1))));
+            }
+            else
+            {
+                rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+            }
+
+
+            return new Collider(rect);
         }
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
@@ -102,7 +126,7 @@ namespace Fall2020_CSC403_Project
             }
 
             // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            mainCharacter.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
 
         private bool HitAWall(Character c)
@@ -122,6 +146,17 @@ namespace Fall2020_CSC403_Project
         private bool HitAChar(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
+        }
+
+        private bool HitAItem(Character you, Item item) {
+            if(item != null)
+            {
+                return you.Collider.Intersects(item.Collider);
+            } else
+            {
+
+                return false;
+            }
         }
 
         private void Fight(Enemy enemy)
@@ -144,19 +179,19 @@ namespace Fall2020_CSC403_Project
                 switch (e.KeyCode)
                 {
                     case Keys.Left:
-                        player.GoLeft();
+                        player.KeysPressed["left"] = new Vector2(-Player.GO_INC, 0);
                         break;
 
                     case Keys.Right:
-                        player.GoRight();
+                        player.KeysPressed["right"] = new Vector2(Player.GO_INC, 0);
                         break;
 
                     case Keys.Up:
-                        player.GoUp();
+                        player.KeysPressed["up"] = new Vector2(0, -Player.GO_INC);
                         break;
 
                     case Keys.Down:
-                        player.GoDown();
+                        player.KeysPressed["down"] = new Vector2(0, Player.GO_INC);
                         break;
 
                     case Keys.Escape:
@@ -169,6 +204,15 @@ namespace Fall2020_CSC403_Project
                             this.CloseOverlay();
                         }
                         break;
+
+                    case Keys.E:
+                        if(HitAItem(player, gun))
+                        {
+                            inventory.AddItem(gun);
+                            picGun.Dispose();
+                            gun = null;
+                        }
+                    break;
 
                     default:
                         player.ResetMoveSpeed();
@@ -190,6 +234,7 @@ namespace Fall2020_CSC403_Project
                             Console.WriteLine("here");
                         }
                         break;
+
 
                     default:
                         player.ResetMoveSpeed();
@@ -265,11 +310,37 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private void lblInGameTime_Click(object sender, EventArgs e)
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    player.KeysPressed.Remove("left");
+                    break;
+
+                case Keys.Right:
+                    player.KeysPressed.Remove("right");
+                    break;
+
+                case Keys.Up:
+                    player.KeysPressed.Remove("up");
+                    break;
+
+                case Keys.Down:
+                    player.KeysPressed.Remove("down");
+                    break;
+            }
+
+        }
+
+
+
+        private void lblInGameTime_Click(object sender, EventArgs e)
         {
 
         }
