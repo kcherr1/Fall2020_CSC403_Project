@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -10,23 +11,26 @@ namespace Fall2020_CSC403_Project
     {
         private Player player;
 
-        private Enemy enemyPoisonPacket;
-        private Enemy bossKoolaid;
-        private Enemy enemyCheeto;
-        private Character[] walls;
+    private Enemy enemyPoisonPacket;
+    private Enemy bossKoolaid;
+    private Enemy enemyCheeto;
+    private Projectile arrow;
+    private Character[] walls;
+    public string playerDirection = "right";
+    private DateTime timeBegin;
+    private FrmBattle frmBattle;
         private List<Item> itemsList;
 
-        private DateTime timeBegin;
-        private FrmBattle frmBattle;
 
         public FrmLevel()
         {
             InitializeComponent();
         }
 
-        private void FrmLevel_Load(object sender, EventArgs e)
-        {
+
+    private void FrmLevel_Load(object sender, EventArgs e) {
             const int PADDING = 7;
+            const int ARROW_PADDING = 2;
             const int NUM_WALLS = 13;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
@@ -34,6 +38,9 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
+            // character projectile attack
+            arrow = new Projectile(CreatePosition(picPlayer), CreateCollider(picArrow, ARROW_PADDING));
+            picArrow.Hide();
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -41,6 +48,7 @@ namespace Fall2020_CSC403_Project
             inventoryboard.Hide();
             selector.Parent = inventoryboard;
             selector.Hide();
+
 
             bossKoolaid.Color = Color.Red;
             enemyPoisonPacket.Color = Color.Green;
@@ -80,73 +88,96 @@ namespace Fall2020_CSC403_Project
             timeBegin = DateTime.Now;
         }
 
-        private Vector2 CreatePosition(PictureBox pic)
-        {
-            return new Vector2(pic.Location.X, pic.Location.Y);
-        }
+    private Vector2 CreatePosition(PictureBox pic)
+    {
+        return new Vector2(pic.Location.X, pic.Location.Y);
+    }
 
-        private Collider CreateCollider(PictureBox pic, int padding)
-        {
-            Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-            return new Collider(rect);
-        }
-
-        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
-        {
-            player.ResetMoveSpeed();
-        }
-
-        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
-        {
-            TimeSpan span = DateTime.Now - timeBegin;
-            string time = span.ToString(@"hh\:mm\:ss");
-            lblInGameTime.Text = "Time: " + time.ToString();
-        }
-
-        private void tmrPlayerMove_Tick(object sender, EventArgs e)
-        {
-            // move player
-            player.Move();
-
-            // check collision with walls
-            if (HitAWall(player))
+    /// <summary>
+    /// runs arrow picturebox on its own
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void tmrArrowMove_Tick(object sender, EventArgs e)
+    {
+            // check if projectile hits a wall
+            if (ArrowHitAWall(arrow))
             {
-                player.MoveBack();
+                arrow.inFlight = false;
+                picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                picArrow.Hide();
             }
+            // update position if object is inFlight
+            if (arrow.inFlight)
+            {
+                arrow.arrowMove(playerDirection);
+                picArrow.Location = new Point((int)arrow.Position.x, (int)arrow.Position.y);
+            }
+            else
+            {
+                picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            }
+    }
 
-            // check collision with enemies
-            if (HitAChar(player, enemyPoisonPacket))
-            {
-                Fight(enemyPoisonPacket);
-            }
-            else if (HitAChar(player, enemyCheeto))
-            {
-                Fight(enemyCheeto);
-            }
-            if (HitAChar(player, bossKoolaid))
-            {
-                Fight(bossKoolaid);
-            }
+    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
+      TimeSpan span = DateTime.Now - timeBegin;
+      string time = span.ToString(@"hh\:mm\:ss");
+      lblInGameTime.Text = "Time: " + time.ToString();
+    }
 
-            // check collision with item(s)
-            if (HitAnItem(player))
-            {
-                Item itemHit = null;
-                for (int w = 0; w < itemsList.Count; w++)
-                {
-                    if (player.Collider.Intersects(itemsList[w].Collider))
-                    {
-                        itemHit = itemsList[w];
-                        itemsList.Remove(itemHit);
-                        break;
-                    }
-                }
-                StoreItem(itemHit);
-            }
+    private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+      // move player
+      player.Move();
 
-            // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-        }
+      // check collision with walls
+      if (HitAWall(player)) {
+        player.MoveBack();
+      }
+
+      // check collision with enemies and projectiles
+      if (HitAChar(player, enemyPoisonPacket)) {
+        Fight(enemyPoisonPacket);
+      }
+      else if (HitAChar(player, enemyCheeto)) {
+        Fight(enemyCheeto);
+      }
+      if (HitAChar(player, bossKoolaid)) {
+        Fight(bossKoolaid);
+      }
+
+      // update player's picture box
+      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      }
+
+    private Collider CreateCollider(PictureBox pic, int padding)
+    {
+        Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+        return new Collider(rect);
+    }
+
+    private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+    {
+        player.ResetMoveSpeed();
+    }
+
+    /// <summary>
+    /// decides if arrow collides with a wall, return arrow to player
+    /// </summary>
+    /// <param name="p"></param>
+    /// <returns></returns>
+     private bool ArrowHitAWall(Projectile p)
+     {
+          bool hitAWall = false;
+          for (int w = 0; w < walls.Length; w++)
+          {
+              if (p.Collider.Intersects(walls[w].Collider))
+              {
+                  hitAWall = true;
+                  break;
+              }
+          }
+          return hitAWall;
+      }
 
         private bool HitAWall(Character c)
         {
@@ -242,24 +273,43 @@ namespace Fall2020_CSC403_Project
             {
                 switch (e.KeyCode)
                 {
+                    case Keys.Space:
+                      if (!arrow.inFlight)
+                        {
+                          picArrow.Show();
+                          picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                          arrow.Position = new Vector2(player.Position.x, player.Position.y);
+                          arrow.arrowMove(playerDirection);
+                          arrow.inFlight = true;
+                        }
+                      break;
+                      
                     case Keys.Left:
                     case Keys.A:
                         player.GoLeft();
+                        if (!arrow.inFlight)
+                          playerDirection = "left";
                         break;
 
                     case Keys.Right:
                     case Keys.D:
                         player.GoRight();
+                        if (!arrow.inFlight)
+                          playerDirection = "right";
                         break;
 
                     case Keys.Up:
                     case Keys.W:
                         player.GoUp();
+                        if (!arrow.inFlight)
+                          playerDirection = "up";
                         break;
 
                     case Keys.Down:
                     case Keys.S:
                         player.GoDown();
+                        if (!arrow.inFlight)
+                          playerDirection = "down";
                         break;
 
                     case Keys.I:
@@ -270,7 +320,24 @@ namespace Fall2020_CSC403_Project
                         player.ResetMoveSpeed();
                         break;
                 }
+                // check collision with item(s)
+            if (HitAnItem(player))
+            {
+                Item itemHit = null;
+                for (int w = 0; w < itemsList.Count; w++)
+                {
+                    if (player.Collider.Intersects(itemsList[w].Collider))
+                    {
+                        itemHit = itemsList[w];
+                        itemsList.Remove(itemHit);
+                        break;
+                    }
+                }
+                StoreItem(itemHit);
             }
+            }
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
 
         public void Inventory_Close()
@@ -330,7 +397,6 @@ namespace Fall2020_CSC403_Project
         {
 
         }
-
         /// <summary>
         /// Closes the application when FrmLevel is closed 
         /// </summary>
