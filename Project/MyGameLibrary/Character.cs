@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyGameLibrary;
+using System.Runtime.Remoting.Messaging;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
@@ -21,7 +22,6 @@ namespace Fall2020_CSC403_Project.code {
 
         public int Health { get; private set; }
         public int MaxHealth { get; private set; }
-
         public Character(string Name, PictureBox Pic, Position initPos, Collider collider) : base(Name, Pic, initPos, collider) {
             // set archetype
             Inventory = new Inventory(); // fill in inventory based on archetype
@@ -46,6 +46,16 @@ namespace Fall2020_CSC403_Project.code {
 
         public void AlterHealth(int amount) {
             Health += amount;
+        }
+
+        public void RestoreHealth()
+        {
+            this.Health = this.MaxHealth;
+        }
+
+        public void EmptyInventory()
+        {
+            this.Inventory = new Inventory();
         }
         
     }
