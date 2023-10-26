@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
@@ -10,6 +10,9 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+    private LoseScreen loseScreen;
+    private WinScreen winScreen;
+    bool bossFightStarted = false;
 
     private FrmBattle() {
       InitializeComponent();
@@ -40,6 +43,7 @@ namespace Fall2020_CSC403_Project {
       simpleSound.Play();
 
       tmrFinalBattle.Enabled = true;
+      bossFightStarted = true;
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
@@ -64,16 +68,33 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
-      if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
-      }
+        player.OnAttack(-4);
+        if (enemy.Health > 0) {
+            enemy.OnAttack(-2);
+        }
 
-      UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
-        instance = null;
-        Close();
-      }
+        UpdateHealthBars();
+
+        if (bossFightStarted == true) {
+             if (enemy.Health <= 0) {
+                  instance = null;
+                  Close();
+                  winScreen = new WinScreen();
+                  winScreen.Show();
+             }
+        }
+
+        if (enemy.Health <= 0) {
+            instance = null;
+            Close();
+        }
+
+        else if (player.Health <= 0) {
+            instance = null;
+            Close();
+            loseScreen = new LoseScreen();
+            loseScreen.Show();
+        }
     }
 
     private void EnemyDamage(int amount) {
@@ -88,5 +109,17 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Escape_Click(object sender, EventArgs e)
+        {
+            instance = null;
+            Close();
+        }
+    }
 }
+
