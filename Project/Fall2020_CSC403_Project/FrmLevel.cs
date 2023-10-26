@@ -6,6 +6,7 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
+    public bool playerHasKey = false;
 
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
@@ -14,6 +15,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+        private int keyHitCount = 0;
 
     public FrmLevel() {
       InitializeComponent();
@@ -103,21 +105,28 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
+      // check collision with key
+      if (HitAKey(player)) {
+        player.MoveBack();
+                
+                
+      }
+
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-                x = ddddd(enemyPoisonPacket);
+                x = IsEnemyDead(enemyPoisonPacket);
                 if(x == true) {Fight(enemyPoisonPacket); }
         
       }
       else if (HitAChar(player, enemyCheeto)) { 
-                 y = ddddd(enemyCheeto);
+                 y = IsEnemyDead(enemyCheeto);
                 if(y == true) { 
         Fight(enemyCheeto);}
       }
       if (HitAChar(player, bossKoolaid)) {
-                z = ddddd(enemyCheeto);
-                if(z == true) { 
-        Fight(bossKoolaid);}
+                 z = IsEnemyDead(bossKoolaid);
+                if(z == true) {Fight(bossKoolaid); }
+      
       }
          
       // update player's picture box
@@ -125,10 +134,20 @@ namespace Fall2020_CSC403_Project {
     }
         private void AllSideEnemyDied(Character c) {
             //bool allSideEnemyDied = false;
+            bool keyHit = HitAKey(player);
             
-        if (ddddd(enemyPoisonPacket) == false && ddddd(enemyCheeto) == false)
+            
+        if (IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false)
             {   
+                if(keyHit == true)
+                {
+                   
+                    picKey0.Visible = false;
+                   
+                }
+                else if (keyHit == false && keyHitCount ==0) { 
                 picKey0.Visible = true;
+                    }
             
             }
             
@@ -144,9 +163,28 @@ namespace Fall2020_CSC403_Project {
       }
       return hitAWall;
     }
+        private bool HitAKey(Character c) {
+      bool hitAKey = false;
+            if(playerHasKey == false) { 
+        for (int w = 0; w < key.Length; w++) {
+        if (c.Collider.Intersects(key[w].Collider)) {
+                    hitAKey = true;
+                    playerHasKey = true;
+                    keyHitCount ++;
+                    picKey0.Visible = false;
+                    break;
+                    }
+        }
+        }
+        return hitAKey;
+        
+        
+        }
+
         private bool HitAFence(Character c) {
       bool hitAFence = false;
       for (int w = 0; w < fences.Length; w++) {
+                if(playerHasKey == false) { 
         if (c.Collider.Intersects(fences[w].Collider)) {
           hitAFence = true;
                     picDialog0.Visible = true;
@@ -162,6 +200,12 @@ namespace Fall2020_CSC403_Project {
        
        break;
         }
+        }
+                else
+                {
+                    picDialog0.Visible = false;
+                    picFence0.Visible = false;
+                }
       }
       return hitAFence;
     }
@@ -204,13 +248,13 @@ namespace Fall2020_CSC403_Project {
         default:
           player.ResetMoveSpeed();
           break;
-      }
+      } 
     }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-        public bool ddddd(Enemy enemy) { 
+        public bool IsEnemyDead(Enemy enemy) { 
 
           
             if (enemy.Health <= 0)
