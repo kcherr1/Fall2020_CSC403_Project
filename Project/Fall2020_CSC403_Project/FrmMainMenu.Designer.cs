@@ -61,11 +61,7 @@
             this.BarbieHiemer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BarbieHiemer.Location = new System.Drawing.Point(323, 195);
             this.BarbieHiemer.Name = "BarbieHiemer";
-<<<<<<< HEAD:Project/Fall2020_CSC403_Project/MainMenuForm.Designer.cs
-            this.BarbieHiemer.Size = new System.Drawing.Size(401, 60);
-=======
             this.BarbieHiemer.Size = new System.Drawing.Size(502, 75);
->>>>>>> 8e1180d6acbced764a339d080c153a98127f8fad:Project/Fall2020_CSC403_Project/FrmMainMenu.Designer.cs
             this.BarbieHiemer.TabIndex = 1;
             this.BarbieHiemer.Text = "BarbieHiemer";
             this.BarbieHiemer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -125,11 +121,7 @@
             this.Controls.Add(this.Settings);
             this.Controls.Add(this.BarbieHiemer);
             this.Controls.Add(this.Play);
-<<<<<<< HEAD:Project/Fall2020_CSC403_Project/MainMenuForm.Designer.cs
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-=======
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
->>>>>>> 8e1180d6acbced764a339d080c153a98127f8fad:Project/Fall2020_CSC403_Project/FrmMainMenu.Designer.cs
             this.Name = "MainMenuForm";
             this.Text = "MainMenuForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
