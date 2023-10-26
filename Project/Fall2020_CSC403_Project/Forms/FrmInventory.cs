@@ -14,11 +14,12 @@ namespace Fall2020_CSC403_Project
     public partial class FrmInventory : Form
     {
         public static FrmInventory instance = null;
-        public static FrmInventory GetInstance()
+        public static FrmInventory GetInstance(Inventory inventory)
         {
             if (instance == null)
             {
                 instance = new FrmInventory();
+                instance.invSlot1.BackgroundImage = inventory.GetItems()[0].Img;
             }
             return instance;
         }

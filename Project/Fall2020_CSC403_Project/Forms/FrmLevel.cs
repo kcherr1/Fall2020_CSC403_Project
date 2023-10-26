@@ -34,6 +34,7 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 13;
 
             gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING), "Gun");
+            gun.Img = picGun.BackgroundImage;
 
             player = new Player(CreatePosition(mainCharacter), CreateCollider(mainCharacter, 0));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -169,7 +170,7 @@ namespace Fall2020_CSC403_Project
         }
 
         private void ShowInven() {
-            frmInventory = FrmInventory.GetInstance();
+            frmInventory = FrmInventory.GetInstance(inventory);
             frmInventory.Show();
             
         }
