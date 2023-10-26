@@ -141,6 +141,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LVL1potion0 {
+            get {
+                object obj = ResourceManager.GetObject("LVL1potion0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mainmenubackground {
             get {
                 object obj = ResourceManager.GetObject("mainmenubackground", resourceCulture);
@@ -161,9 +171,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Potion {
+        internal static System.Drawing.Bitmap selectorline {
             get {
-                object obj = ResourceManager.GetObject("Potion", resourceCulture);
+                object obj = ResourceManager.GetObject("selectorline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

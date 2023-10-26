@@ -28,13 +28,15 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
-            this.LVL1potion0 = new System.Windows.Forms.PictureBox();
             this.inventoryboard = new System.Windows.Forms.PictureBox();
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+            this.LVL1potion0 = new System.Windows.Forms.PictureBox();
+            this.LVL1potion1 = new System.Windows.Forms.PictureBox();
+            this.selector = new System.Windows.Forms.PictureBox();
             this.picWall5 = new System.Windows.Forms.PictureBox();
             this.picWall4 = new System.Windows.Forms.PictureBox();
             this.picWall12 = new System.Windows.Forms.PictureBox();
@@ -57,6 +59,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LVL1potion1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall12)).BeginInit();
@@ -322,12 +327,45 @@
             this.tmrArrowMove.Interval = 10;
             this.tmrArrowMove.Tick += new System.EventHandler(this.tmrArrowMove_Tick);
             // 
+            // LVL1potion0
+            // 
+            this.LVL1potion0.BackColor = System.Drawing.Color.Transparent;
+            this.LVL1potion0.Image = global::Fall2020_CSC403_Project.Properties.Resources.LVL1potion0;
+            this.LVL1potion0.Location = new System.Drawing.Point(735, 89);
+            this.LVL1potion0.Name = "LVL1potion0";
+            this.LVL1potion0.Size = new System.Drawing.Size(92, 88);
+            this.LVL1potion0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LVL1potion0.TabIndex = 19;
+            this.LVL1potion0.TabStop = false;
+            // 
+            // LVL1potion1
+            // 
+            this.LVL1potion1.BackColor = System.Drawing.Color.Transparent;
+            this.LVL1potion1.Image = global::Fall2020_CSC403_Project.Properties.Resources.LVL1potion0;
+            this.LVL1potion1.Location = new System.Drawing.Point(135, 358);
+            this.LVL1potion1.Name = "LVL1potion1";
+            this.LVL1potion1.Size = new System.Drawing.Size(86, 91);
+            this.LVL1potion1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LVL1potion1.TabIndex = 21;
+            this.LVL1potion1.TabStop = false;
+            // 
+            // selector
+            // 
+            this.selector.Image = global::Fall2020_CSC403_Project.Properties.Resources.selectorline;
+            this.selector.Location = new System.Drawing.Point(385, 188);
+            this.selector.Name = "selector";
+            this.selector.Size = new System.Drawing.Size(100, 50);
+            this.selector.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.selector.TabIndex = 22;
+            this.selector.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.selector);
             this.ClientSize = new System.Drawing.Size(1176, 726);
             this.Controls.Add(this.inventoryboard);
             this.Controls.Add(this.picWall11);
@@ -351,6 +389,7 @@
             this.Controls.Add(this.picArrow);
             this.DoubleBuffered = true;
             this.Controls.Add(this.LVL1potion0);
+            this.Controls.Add(this.LVL1potion1);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLevel";
@@ -359,7 +398,6 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
@@ -377,6 +415,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LVL1potion1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picArrow)).EndInit();
             this.ResumeLayout(false);
@@ -410,6 +451,8 @@
     private System.Windows.Forms.Timer tmrArrowMove;
     private System.Windows.Forms.PictureBox inventoryboard;
     private System.Windows.Forms.PictureBox LVL1potion0;
+        private System.Windows.Forms.PictureBox LVL1potion1;
+        private System.Windows.Forms.PictureBox selector;
     }
 }
 

@@ -46,6 +46,8 @@ namespace Fall2020_CSC403_Project
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
             player.inventory.image = inventoryboard.BackgroundImage;
             inventoryboard.Hide();
+            selector.Parent = inventoryboard;
+            selector.Hide();
 
 
             bossKoolaid.Color = Color.Red;
@@ -63,7 +65,7 @@ namespace Fall2020_CSC403_Project
             try
             {
                 int w = 0;
-                while(true)
+                while (true)
                 {
                     string itemname = "LVL1potion" + w.ToString();
                     PictureBox item = Controls.Find(itemname, true)[0] as PictureBox;
@@ -237,12 +239,32 @@ namespace Fall2020_CSC403_Project
             {
                 switch (e.KeyCode)
                 {
+                    case Keys.Left:
+                    case Keys.A:
+                        if(player.inventory.selectedItem > 0)
+                        {
+                            player.inventory.selectedItem -= 1;
+                            selectedItem();
+                        }
+                        break;
+
+                    case Keys.Right:
+                    case Keys.D:
+                        if(player.inventory.selectedItem < player.inventory.itemstorage.Count - 1)
+                        {
+                            player.inventory.selectedItem += 1;
+                            selectedItem();
+                        }
+                        break;
+
                     case Keys.I:
                         Inventory_Close();
                         break;
+
                     case Keys.U:
                         // Determine selected item, use item, remove item from inventory
                         break;
+
                     default:
                         break;
                 }
@@ -321,6 +343,7 @@ namespace Fall2020_CSC403_Project
         public void Inventory_Close()
         {
             this.inventoryboard.Hide();
+            selector.Hide();
             foreach (string itemname in player.inventory.itemstorage)
             {
                 PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
@@ -328,6 +351,7 @@ namespace Fall2020_CSC403_Project
             }
 
             player.inventory.setVisible(!player.inventory.visible);
+
         }
 
         public void Inventory_Open()
@@ -347,10 +371,26 @@ namespace Fall2020_CSC403_Project
                 inventoryItem.Location = new Point(x_pos, y_pos);
                 inventoryItem.Show();
 
-                x_pos = x_pos + player.inventory.PADDING;
+                x_pos = x_pos + player.inventory.PADDING + inventoryItem.Width;
             }
-            
+
             player.inventory.setVisible(!player.inventory.visible);
+            player.inventory.selectedItem = 0;
+            selectedItem();
+        }
+
+        public void selectedItem()
+        {
+            if(player.inventory.itemstorage.Count > 0)
+            {
+                selector.Show();
+                string itemname = player.inventory.itemstorage[player.inventory.selectedItem];
+                PictureBox item = Controls.Find(itemname, true)[0] as PictureBox;
+                selector.Location = new Point(item.Location.X, item.Location.Y + item.Height);
+                selector.Width = item.Width;
+                selector.Height = player.inventory.PADDING / 2;
+                //item.Parent = selector;
+            }
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
@@ -365,6 +405,4 @@ namespace Fall2020_CSC403_Project
             System.Windows.Forms.Application.Exit();
         }
     }
-    
-  }
-
+}

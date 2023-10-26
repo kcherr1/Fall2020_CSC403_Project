@@ -157,5 +157,11 @@
   <ItemGroup>
     <None Include="data\raw images\LVL1potion0.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\selector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\selectorline.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
