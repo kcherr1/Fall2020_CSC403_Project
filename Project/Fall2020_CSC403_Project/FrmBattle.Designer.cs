@@ -58,7 +58,7 @@
             this.btnHeal.Name = "btnHeal";
             this.btnHeal.Size = new System.Drawing.Size(128, 47);
             this.btnHeal.TabIndex = 8;
-            this.btnHeal.Text = "Heal";
+            this.btnHeal.Text = "Heal: 2";
             this.btnHeal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnHeal.UseVisualStyleBackColor = true;
             this.btnHeal.Click += new System.EventHandler(this.btnHeal_Click);

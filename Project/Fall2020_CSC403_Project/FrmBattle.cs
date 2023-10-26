@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project {
         private Enemy enemy;
         private Player player;
         int uses = new int();
+        int used = new int();
 
         private FrmBattle() {
             InitializeComponent();
@@ -24,9 +25,10 @@ namespace Fall2020_CSC403_Project {
             BackColor = enemy.BackgroundColor;
             picBossBattle.Visible = false;
 
-            // Observer pattern
+            // Observer pattern as well as making the used of the heal
             enemy.AttackEvent += PlayerDamage;
             player.AttackEvent += EnemyDamage;
+            used = 2;
 
             // show health
             UpdateHealthBars();
@@ -84,48 +86,58 @@ namespace Fall2020_CSC403_Project {
 
         //This is a button to heal for a random amount but can only be used a certain set number of times
         //It also stops the health at 20 if the heal would overflow
+        //Addeed extra functionality that shows the number of heals readily available
         private void btnHeal_Click(object sender, EventArgs e)
         {
-            if (uses < 2 && player.Health != 20)
+            if (player.Health > 0 && enemy.Health > 0)
             {
-                uses++;
-                var plyrChance = new Random();
-                player.AlterHealth(plyrChance.Next(5, 7));
-
-                if (enemy.Health != 20)
+                if (uses < 2 && player.Health != 20)
                 {
-                    enemy.AlterHealth(1);
+                    uses++;
+                    var plyrChance = new Random();
+                    player.AlterHealth(plyrChance.Next(5, 7));
 
-                    if (enemy.Health > 20)
+                    if (enemy.Health != 20)
                     {
-                        enemy.SetHealth(20);
-                    }
-                }
+                        enemy.AlterHealth(1);
 
-                if (player.Health > 20)
-                {
-                    player.SetHealth(20);
+                        if (enemy.Health > 20)
+                        {
+                            enemy.SetHealth(20);
+                        }
+                    }
+
+                    if (player.Health > 20)
+                    {
+                        player.SetHealth(20);
+                    }
+
+                    used -= 1;
+                    this.btnHeal.Text = "Heal: " + used;
+                    UpdateHealthBars();
                 }
-                UpdateHealthBars();
             }
         }
 
         //This is an infinite use button that has a chance to deflect the enemies attack back at them for damage
+        //Added extra functionality to show if succesful or not
         private void btnDeflect_Click(object sender, EventArgs e)
         {
             var chance = new Random();
             var percent = chance.Next(0, 4);
+
             if (enemy.Health > 0 && percent > 1)
             {
-
                 var nmyChance = new Random();
                 enemy.OnAttack(-(nmyChance.Next(2, 6)));
+                this.btnDeflect.Text = "Failed";
             }
 
             if (enemy.Health > 0 && percent <= 1)
             {
                 var plyrChance = new Random();
                 player.OnAttack(-(plyrChance.Next(5, 8)));
+                this.btnDeflect.Text = "Success";
             }
 
             UpdateHealthBars();
