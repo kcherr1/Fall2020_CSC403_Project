@@ -1,5 +1,4 @@
-﻿using Fall2020_CSC403_Project;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,10 +39,6 @@ namespace Fall2020_CSC403_Project.code {
         }
         public void GoDown() {
             MoveSpeed = new Vector2(0, +GO_INC);
-        }
-        public void OpenCharacterScreen()
-        {
-            
         }
         public void ResetMoveSpeed() {
             MoveSpeed = new Vector2(0, 0);

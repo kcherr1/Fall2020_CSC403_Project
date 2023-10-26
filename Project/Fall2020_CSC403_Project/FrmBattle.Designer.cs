@@ -51,7 +51,7 @@
             // 
             // lblPlayerHealthFull
             // 
-            this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
+            this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Red;
             this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
             this.lblPlayerHealthFull.Location = new System.Drawing.Point(71, 60);
@@ -79,7 +79,7 @@
             // 
             // lblEnemyHealthFull
             // 
-            this.lblEnemyHealthFull.BackColor = System.Drawing.Color.Blue;
+            this.lblEnemyHealthFull.BackColor = System.Drawing.Color.Red;
             this.lblEnemyHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnemyHealthFull.ForeColor = System.Drawing.Color.White;
             this.lblEnemyHealthFull.Location = new System.Drawing.Point(516, 60);
@@ -131,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
+            this.BackColor = System.Drawing.Color.Gray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
             this.Controls.Add(this.picBossBattle);

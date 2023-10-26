@@ -133,8 +133,10 @@ namespace Fall2020_CSC403_Project {
                     player.GoDown();
                     break;
 
+                // open the character screen when pressing escape key on keyboard.
                 case Keys.Escape:
-                    player.OpenCharacterScreen();
+                    CharacterScreen character = new CharacterScreen();
+                    character.Show();
                     break;
 
                 default:
