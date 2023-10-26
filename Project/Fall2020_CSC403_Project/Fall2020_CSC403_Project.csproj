@@ -151,5 +151,8 @@
   <ItemGroup>
     <None Include="data\mainmenubackground.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\arrow_100_40_horizontal.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
