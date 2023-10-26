@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,28 +35,20 @@ namespace Fall2020_CSC403_Project.code
             Right
         }
 
-
-
         public Entity(string Name, PictureBox Pic)
         {
             this.Name = Name;
             this.Pic = Pic;
+            
+            this.Position = new Position(this.Pic);
+            this.Collider = new Collider(this.Pic);
         }
-
-
-        public Entity(string Name, PictureBox Pic, Position initPos, Collider collider)
-        {
-            this.Name = Name;
-            this.Pic = Pic;
-            this.Position = initPos;
-            this.Collider = collider;
-        }
-
         
         public void Move()
         {
             this.LastPosition = Position;
             this.Position = new Position(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
+            this.Pic.Location = new Point((int)this.Position.x, (int)this.Position.y);
             this.Collider.MovePosition((int)Position.x, (int)Position.y);
         }
 

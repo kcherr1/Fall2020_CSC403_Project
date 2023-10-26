@@ -31,7 +31,8 @@ namespace Fall2020_CSC403_Project.code
 		public int Health { get; private set; }
 		public int MaxHealth { get; private set; }
 
-		public Character(string Name, PictureBox Pic, Position initPos, Collider collider, PlayerArchetype archetype) : base(Name, Pic, initPos, collider)
+
+		public Character(string Name, PictureBox Pic, PlayerArchetype archetype) : base(Name, Pic)
 		{
 			this.archetype = archetype;
 			this.MaxHealth = archetype.baseMaxHealth;
@@ -40,7 +41,9 @@ namespace Fall2020_CSC403_Project.code
             this.speed = archetype.baseSpeed;
             this.Health = MaxHealth;
 			this.Inventory = new Inventory();
-		}
+			Pic.Size = new Size(50, 100);
+        }
+
 
 		public void setArchetype(PlayerArchetype newArchetype)
 		{

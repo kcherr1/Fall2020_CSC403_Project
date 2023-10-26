@@ -173,6 +173,7 @@ namespace MyGameLibrary
             {
                 this.Backpack[i] = this.Backpack[i + 1];
             }
+            this.Backpack[this.Backpack.Length - 1] = null;
 
         }
 
