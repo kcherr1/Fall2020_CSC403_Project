@@ -293,6 +293,7 @@
       this.picFence0.Size = new System.Drawing.Size(20, 147); 
       this.picFence0.TabIndex = 17;
       this.picFence0.TabStop = false;
+       
       //
        // picDialog0
       // 
@@ -309,11 +310,11 @@
        // picKey0
       // 
       this.picKey0.BackColor = System.Drawing.Color.Transparent;
-      this.picKey0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.boss_dialog;
+      this.picKey0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.key;
       this.picKey0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picKey0.Location = new System.Drawing.Point(958, 540);
+      this.picKey0.Location = new System.Drawing.Point(962, 565);
       this.picKey0.Name = "picKey0";
-      this.picKey0.Size = new System.Drawing.Size(50, 50); 
+      this.picKey0.Size = new System.Drawing.Size(70, 50); 
       this.picKey0.TabIndex = 17;
       this.picKey0.TabStop = false;
 

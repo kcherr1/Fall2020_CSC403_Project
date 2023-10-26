@@ -27,6 +27,7 @@ namespace Fall2020_CSC403_Project {
       const int NUM_FENCES = 1;
       const int NUM_DIALOG = 1;
       const int NUM_KEY = 1;
+            
 
         
 
@@ -188,13 +189,12 @@ namespace Fall2020_CSC403_Project {
         if (c.Collider.Intersects(fences[w].Collider)) {
           hitAFence = true;
                     picDialog0.Visible = true;
-                    // Start a timer to hide picDialog0 after 2 seconds
        Timer timer = new Timer();
-       timer.Interval = 2000; // 2 seconds (2000 milliseconds)
+       timer.Interval = 1500;
        timer.Tick += (sender, e) => {
          picDialog0.Visible = false;
-         timer.Stop(); // Stop the timer after 2 seconds
-         timer.Dispose(); // Dispose the timer to free up resources
+         timer.Stop();
+         timer.Dispose();
        };
        timer.Start();
        
@@ -205,6 +205,8 @@ namespace Fall2020_CSC403_Project {
                 {
                     picDialog0.Visible = false;
                     picFence0.Visible = false;
+                    
+                  
                 }
       }
       return hitAFence;
