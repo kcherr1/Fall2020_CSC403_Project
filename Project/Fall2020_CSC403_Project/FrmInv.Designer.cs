@@ -42,9 +42,9 @@
             this.Inv4 = new System.Windows.Forms.PictureBox();
             this.Inv3 = new System.Windows.Forms.PictureBox();
             this.Inv2 = new System.Windows.Forms.PictureBox();
-            this.Equip3 = new System.Windows.Forms.PictureBox();
-            this.Equip2 = new System.Windows.Forms.PictureBox();
-            this.Equip1 = new System.Windows.Forms.PictureBox();
+            this.Utility = new System.Windows.Forms.PictureBox();
+            this.Armor = new System.Windows.Forms.PictureBox();
+            this.Weapon = new System.Windows.Forms.PictureBox();
             this.PlayerPic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Inv1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inv9)).BeginInit();
@@ -55,9 +55,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Inv4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inv3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inv2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Equip3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Equip2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Equip1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Utility)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Armor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Weapon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,13 +114,13 @@
             // Inv1
             // 
             this.Inv1.BackColor = System.Drawing.Color.DimGray;
-            this.Inv1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.cheap_armor;
             this.Inv1.Location = new System.Drawing.Point(123, 134);
             this.Inv1.Name = "Inv1";
             this.Inv1.Size = new System.Drawing.Size(76, 70);
             this.Inv1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Inv1.TabIndex = 11;
             this.Inv1.TabStop = false;
+            this.Inv1.Click += new System.EventHandler(this.Inv1_Click);
             // 
             // Inv9
             // 
@@ -131,6 +131,7 @@
             this.Inv9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Inv9.TabIndex = 12;
             this.Inv9.TabStop = false;
+            this.Inv9.Click += new System.EventHandler(this.Inv9_Click);
             // 
             // Inv8
             // 
@@ -141,6 +142,7 @@
             this.Inv8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Inv8.TabIndex = 13;
             this.Inv8.TabStop = false;
+            this.Inv8.Click += new System.EventHandler(this.Inv8_Click);
             // 
             // Inv7
             // 
@@ -151,6 +153,7 @@
             this.Inv7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Inv7.TabIndex = 14;
             this.Inv7.TabStop = false;
+            this.Inv7.Click += new System.EventHandler(this.Inv7_Click);
             // 
             // Inv6
             // 
@@ -161,6 +164,7 @@
             this.Inv6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Inv6.TabIndex = 15;
             this.Inv6.TabStop = false;
+            this.Inv6.Click += new System.EventHandler(this.Inv6_Click);
             // 
             // Inv5
             // 
@@ -171,6 +175,7 @@
             this.Inv5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Inv5.TabIndex = 16;
             this.Inv5.TabStop = false;
+            this.Inv5.Click += new System.EventHandler(this.Inv5_Click);
             // 
             // Inv4
             // 
@@ -181,6 +186,7 @@
             this.Inv4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Inv4.TabIndex = 17;
             this.Inv4.TabStop = false;
+            this.Inv4.Click += new System.EventHandler(this.Inv4_Click);
             // 
             // Inv3
             // 
@@ -191,6 +197,7 @@
             this.Inv3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Inv3.TabIndex = 18;
             this.Inv3.TabStop = false;
+            this.Inv3.Click += new System.EventHandler(this.Inv3_Click);
             // 
             // Inv2
             // 
@@ -201,36 +208,40 @@
             this.Inv2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Inv2.TabIndex = 19;
             this.Inv2.TabStop = false;
+            this.Inv2.Click += new System.EventHandler(this.Inv2_Click);
             // 
-            // Equip3
+            // Utility
             // 
-            this.Equip3.BackColor = System.Drawing.Color.DimGray;
-            this.Equip3.Location = new System.Drawing.Point(567, 286);
-            this.Equip3.Name = "Equip3";
-            this.Equip3.Size = new System.Drawing.Size(76, 70);
-            this.Equip3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Equip3.TabIndex = 20;
-            this.Equip3.TabStop = false;
+            this.Utility.BackColor = System.Drawing.Color.DimGray;
+            this.Utility.Location = new System.Drawing.Point(567, 286);
+            this.Utility.Name = "Utility";
+            this.Utility.Size = new System.Drawing.Size(76, 70);
+            this.Utility.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Utility.TabIndex = 20;
+            this.Utility.TabStop = false;
+            this.Utility.Click += new System.EventHandler(this.Utility_Click);
             // 
-            // Equip2
+            // Armor
             // 
-            this.Equip2.BackColor = System.Drawing.Color.DimGray;
-            this.Equip2.Location = new System.Drawing.Point(567, 210);
-            this.Equip2.Name = "Equip2";
-            this.Equip2.Size = new System.Drawing.Size(76, 70);
-            this.Equip2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Equip2.TabIndex = 21;
-            this.Equip2.TabStop = false;
+            this.Armor.BackColor = System.Drawing.Color.DimGray;
+            this.Armor.Location = new System.Drawing.Point(567, 210);
+            this.Armor.Name = "Armor";
+            this.Armor.Size = new System.Drawing.Size(76, 70);
+            this.Armor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Armor.TabIndex = 21;
+            this.Armor.TabStop = false;
+            this.Armor.Click += new System.EventHandler(this.Armor_Click);
             // 
-            // Equip1
+            // Weapon
             // 
-            this.Equip1.BackColor = System.Drawing.Color.DimGray;
-            this.Equip1.Location = new System.Drawing.Point(567, 134);
-            this.Equip1.Name = "Equip1";
-            this.Equip1.Size = new System.Drawing.Size(76, 70);
-            this.Equip1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Equip1.TabIndex = 22;
-            this.Equip1.TabStop = false;
+            this.Weapon.BackColor = System.Drawing.Color.DimGray;
+            this.Weapon.Location = new System.Drawing.Point(567, 134);
+            this.Weapon.Name = "Weapon";
+            this.Weapon.Size = new System.Drawing.Size(76, 70);
+            this.Weapon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Weapon.TabIndex = 22;
+            this.Weapon.TabStop = false;
+            this.Weapon.Click += new System.EventHandler(this.Weapon_Click);
             // 
             // PlayerPic
             // 
@@ -250,9 +261,9 @@
             this.ClientSize = new System.Drawing.Size(967, 522);
             this.ControlBox = false;
             this.Controls.Add(this.PlayerPic);
-            this.Controls.Add(this.Equip1);
-            this.Controls.Add(this.Equip2);
-            this.Controls.Add(this.Equip3);
+            this.Controls.Add(this.Weapon);
+            this.Controls.Add(this.Armor);
+            this.Controls.Add(this.Utility);
             this.Controls.Add(this.Inv2);
             this.Controls.Add(this.Inv3);
             this.Controls.Add(this.Inv4);
@@ -280,9 +291,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Inv4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inv3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inv2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Equip3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Equip2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Equip1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Utility)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Armor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Weapon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerPic)).EndInit();
             this.ResumeLayout(false);
 
@@ -303,9 +314,9 @@
         private System.Windows.Forms.PictureBox Inv4;
         private System.Windows.Forms.PictureBox Inv3;
         private System.Windows.Forms.PictureBox Inv2;
-        private System.Windows.Forms.PictureBox Equip3;
-        private System.Windows.Forms.PictureBox Equip2;
-        private System.Windows.Forms.PictureBox Equip1;
+        private System.Windows.Forms.PictureBox Utility;
+        private System.Windows.Forms.PictureBox Armor;
+        private System.Windows.Forms.PictureBox Weapon;
         private System.Windows.Forms.PictureBox PlayerPic;
     }
 }

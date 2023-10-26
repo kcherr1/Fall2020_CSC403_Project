@@ -228,7 +228,7 @@ namespace Fall2020_CSC403_Project
         private void Menu_Click(object sender, EventArgs e)
         {
             FrmInv frmInv = new FrmInv();
-			frmInv= FrmInv.GetInstance();
+			frmInv= FrmInv.GetInstance(player);
 			frmInv.WindowState = FormWindowState.Maximized;
             frmInv.Show();
         }
