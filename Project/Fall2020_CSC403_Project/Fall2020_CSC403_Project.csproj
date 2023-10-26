@@ -46,43 +46,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmFAQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFAQ.Designer.cs">
+      <DependentUpon>FrmFAQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeath.Designer.cs">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLevel.cs">
+    <Compile Include="FrmLevel1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLevel.Designer.cs">
-      <DependentUpon>FrmLevel.cs</DependentUpon>
+    <Compile Include="FrmLevel1.Designer.cs">
+      <DependentUpon>FrmLevel1.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForm.cs">
+    <Compile Include="FrmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForm.Designer.cs">
-      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    <Compile Include="FrmMainMenu.Designer.cs">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="PauseMenu.cs">
+    <Compile Include="FrmPauseMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PauseMenu.Designer.cs">
-      <DependentUpon>PauseMenu.cs</DependentUpon>
+    <Compile Include="FrmPauseMenu.Designer.cs">
+      <DependentUpon>FrmPauseMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmFAQ.resx">
+      <DependentUpon>FrmFAQ.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLevel.resx">
-      <DependentUpon>FrmLevel.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDeath.resx">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForm.resx">
-      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLevel1.resx">
+      <DependentUpon>FrmLevel1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PauseMenu.resx">
-      <DependentUpon>PauseMenu.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMainMenu.resx">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPauseMenu.resx">
+      <DependentUpon>FrmPauseMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

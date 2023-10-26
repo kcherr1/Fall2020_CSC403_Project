@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
 {
-    public partial class MainMenuForm : Form
+    public partial class FrmMainMenu : Form
     {
 
         System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();  
 
-        public MainMenuForm()
+        public FrmMainMenu()
         {
             InitializeComponent();
             soundPlayer.SoundLocation = "barbenheimer.wav";
@@ -48,7 +48,7 @@ namespace Fall2020_CSC403_Project
 
             soundPlayer.Stop();
             this.Hide();
-            FrmLevel Play = new FrmLevel();
+            FrmLevel1 Play = new FrmLevel1();
             Play.Show();
           /*  Play.ShowDialog();
             Play = null;
@@ -58,6 +58,13 @@ namespace Fall2020_CSC403_Project
         private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Faq_Click(object sender, EventArgs e)
+        {
+            FrmFAQ faq = new FrmFAQ();
+            faq.Show();
+
         }
     }
 }
