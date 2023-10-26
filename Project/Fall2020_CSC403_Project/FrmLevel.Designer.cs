@@ -204,7 +204,7 @@
             this.picWall6.TabStop = false;
             // LVL1potion0
             // 
-            this.LVL1potion0.Image = global::Fall2020_CSC403_Project.Properties.Resources.Potion;
+            this.LVL1potion0.Image = global::Fall2020_CSC403_Project.Properties.Resources.LVL1potion0;
             this.LVL1potion0.Location = new System.Drawing.Point(735, 89);
             this.LVL1potion0.Name = "LVL1potion0";
             this.LVL1potion0.Size = new System.Drawing.Size(92, 88);
