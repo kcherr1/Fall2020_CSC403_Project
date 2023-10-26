@@ -87,27 +87,65 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      // move player
-      player.Move();
+            // move player
+    if (player.Health == 0)
+    {
+        // Close the current form (FrmLevel)
+        this.Close();
 
-      // check collision with walls
-      if (HitAWall(player)) {
+        // Assuming your default form is named "FrmDefault"
+        MainMenuForm mainMenu = new MainMenuForm();
+        mainMenu.Show();
+    }
+
+    player.Move();
+
+    // check collision with walls
+    if (HitAWall(player))
+    {
         player.MoveBack();
-      }
+    }
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
-      }
+    // check collision with enemies
+    if (HitAChar(player, enemyPoisonPacket))
+    {
+        if (enemyPoisonPacket.Health > 0)
+        {
+            Fight(enemyPoisonPacket);
+        }
+        else
+        {
+            Controls.Remove(picEnemyPoisonPacket);
+            enemyPoisonPacket = null;
+        }
+    }
+    else if (HitAChar(player, enemyCheeto))
+    {
+        if (enemyCheeto.Health > 0)
+        {
+            Fight(enemyCheeto);
+        }
+        else
+        {
+            Controls.Remove(picEnemyCheeto);
+            enemyCheeto = null;
+        }
+    }
+    if (HitAChar(player, bossKoolaid))
+    {
+        if (bossKoolaid.Health > 0)
+        {
+            Fight(bossKoolaid);
+        }
+        else
+        {
+            Controls.Remove(picBossKoolAid);
+            bossKoolaid = null;
+        }
+    }
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
     private bool HitAWall(Character c) {
@@ -122,6 +160,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private bool HitAChar(Character you, Character other) {
+      if(other == null) return false;
       return you.Collider.Intersects(other.Collider);
     }
 
