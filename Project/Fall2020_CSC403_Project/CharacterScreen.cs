@@ -6,7 +6,13 @@ using System.Windows.Forms;
  * This file handles the creation of the character screen which is available to
  * the player via pressing the Escape key while exploring the game. The menu shows
  * the player's current and maximum health, the player's strength (which helps govern damage),
- * and the gold the player currently owns.
+ * the gold the player currently owns, and a settings button (see Settings.cs for info on that).
+ * 
+ * IMPORTANT NOTE: Running the designer for this file will not work while the code IS correct.
+ * The designer does not recognize player values as of right now because Game has not been
+ * initialized. If you want to use the designer to edit the screen, go and comment out
+ * the strings that use player.values located in the InitializeComponent() function and place a
+ * temporary string to let designer run properly.
  */
 
 namespace Fall2020_CSC403_Project
@@ -67,9 +73,9 @@ namespace Fall2020_CSC403_Project
             this.HealthTracker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.HealthTracker.Location = new System.Drawing.Point(33, 79);
             this.HealthTracker.Name = "HealthTracker";
-            this.HealthTracker.Size = new System.Drawing.Size(103, 22);
+            this.HealthTracker.Size = new System.Drawing.Size(0, 22);
             this.HealthTracker.TabIndex = 1;
-            this.HealthTracker.Text = "placeholder";
+            this.HealthTracker.Text = "" + player.Health + "/" + player.MaxHealth;
             // 
             // StrengthTitle
             // 
@@ -89,9 +95,9 @@ namespace Fall2020_CSC403_Project
             this.StrengthTracker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.StrengthTracker.Location = new System.Drawing.Point(33, 147);
             this.StrengthTracker.Name = "StrengthTracker";
-            this.StrengthTracker.Size = new System.Drawing.Size(101, 22);
+            this.StrengthTracker.Size = new System.Drawing.Size(0, 22);
             this.StrengthTracker.TabIndex = 3;
-            this.StrengthTracker.Text = "strengthVal";
+            this.StrengthTracker.Text = "" + player.getStrength();
             // 
             // GoldTitle
             // 
@@ -111,9 +117,9 @@ namespace Fall2020_CSC403_Project
             this.GoldCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.GoldCounter.Location = new System.Drawing.Point(33, 209);
             this.GoldCounter.Name = "GoldCounter";
-            this.GoldCounter.Size = new System.Drawing.Size(187, 22);
+            this.GoldCounter.Size = new System.Drawing.Size(167, 22);
             this.GoldCounter.TabIndex = 5;
-            this.GoldCounter.Text = "Put Gold Count Here#";
+            this.GoldCounter.Text = "Gold not added yet.";
             // 
             // MenuBackdrop
             // 
