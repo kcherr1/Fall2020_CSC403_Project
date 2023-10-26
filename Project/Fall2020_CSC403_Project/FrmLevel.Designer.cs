@@ -25,11 +25,10 @@ namespace Fall2020_CSC403_Project {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
-            this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
-            this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.tmrUpdateInGameTime = new System.Windows.Forms.Timer();
+            this.tmrPlayerMove = new System.Windows.Forms.Timer();
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
@@ -309,6 +308,7 @@ namespace Fall2020_CSC403_Project {
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBox1.Size = new System.Drawing.Size(541, 604);
             this.richTextBox1.TabIndex = 4;
+            this.richTextBox1.Text = "";
             this.richTextBox1.Visible = false;
             // 
             // button4
@@ -362,6 +362,7 @@ namespace Fall2020_CSC403_Project {
             this.button2.TabIndex = 1;
             this.button2.Text = "Full Screen";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.fullScreen);
             // 
             // button1
