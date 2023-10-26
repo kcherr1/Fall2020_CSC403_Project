@@ -66,7 +66,6 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-            MusicPlayer.PlayDamageSound();
             player.OnAttack(-4);
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
@@ -75,18 +74,20 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
                 MusicPlayer.StopBattleSound();
-        if (player.Health > 0 && enemy.Health <= 0)
-            {
-                MusicPlayer.PlayBattleWinSound();
-            }
+
         if(player.Health <= 0 && enemy.Health > 0)
             {
+                    MusicPlayer.StopLevelMusic();
                 MusicPlayer.PlayGameOverSound();
+            } else
+                {
+                    
+                    MusicPlayer.PlayLevelMusic();
+                    
+                }
+                instance = null;
+                Close();
             }
-        instance = null;
-        MusicPlayer.PlayLevelMusic();
-        Close();
-      }
     }
 
     private void EnemyDamage(int amount) {

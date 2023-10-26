@@ -13,9 +13,7 @@ namespace MyGameLibrary
     public class MusicPlayer
     {
         private static SoundPlayer levelSound = new SoundPlayer(Resources.background);
-        private static SoundPlayer battleWinSound = new SoundPlayer(Resources.battle_won);
         private static SoundPlayer gameOverSound = new SoundPlayer(Resources.game_over);
-        private static SoundPlayer attackSound = new SoundPlayer(Resources.oof);
         private static SoundPlayer titleSound = new SoundPlayer(Resources.title);
         private static SoundPlayer battleSound = new SoundPlayer(Resources.battle);
         private static SoundPlayer bossBattleSound = new SoundPlayer(Resources.boss_battle);
@@ -30,11 +28,6 @@ namespace MyGameLibrary
             levelSound.Stop();
         }
 
-        public static void PlayDamageSound()
-        {
-            attackSound.Play();
-        }
-
         public static void PlayTitleSound()
         {
             titleSound.PlayLooping();
@@ -43,11 +36,6 @@ namespace MyGameLibrary
         public static void StopTitleSound()
         {
             titleSound.Stop();
-        }
-
-        public static void PlayBattleWinSound()
-        {
-            battleWinSound.Play();
         }
 
         public static void PlayGameOverSound()
@@ -65,15 +53,6 @@ namespace MyGameLibrary
             battleSound.Stop();
         }
 
-        public static void PlayBossBattleSound()
-        {
-            bossBattleSound.PlayLooping();
-        }
-
-        public static void StopBossBattleSound()
-        {
-            bossBattleSound.Stop();
-        }
 
 
     }
