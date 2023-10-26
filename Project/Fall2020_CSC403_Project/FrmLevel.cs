@@ -114,10 +114,10 @@ namespace Fall2020_CSC403_Project {
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
 
-        // this gives the frmBattle object a reference to this level's bossIsDefeated bool
-      frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
-
       if (enemy == bossKoolaid) {
+
+        // this gives the frmBattle object a reference to this level's bossIsDefeated bool
+        frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
         frmBattle.SetupForBossBattle();
       }
     }

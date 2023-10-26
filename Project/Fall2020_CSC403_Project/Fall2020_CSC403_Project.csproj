@@ -133,5 +133,8 @@
   <ItemGroup>
     <None Include="data\Red_X.svg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Nether_portal.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
