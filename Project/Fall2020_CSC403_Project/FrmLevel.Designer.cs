@@ -79,7 +79,6 @@ namespace Fall2020_CSC403_Project {
             this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
             this.lblInGameTime.TabIndex = 2;
             this.lblInGameTime.Text = "label1";
-            this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
             // 
             // tmrUpdateInGameTime
             // 
@@ -377,6 +376,6 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-  }
+    }
 }
 

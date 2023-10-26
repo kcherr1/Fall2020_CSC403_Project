@@ -15,49 +15,57 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    public Panel uiPanel;
 
 
-    public FrmLevel() {
+    public FrmLevel() 
+        {
       InitializeComponent();
-    }
+        }
 
-    private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
-      const int NUM_WALLS = 13;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      //bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      bossChatgpt = new Enemy(CreatePosition(picBossChatgpt), CreateCollider(picBossChatgpt, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      private void FrmLevel_Load(object sender, EventArgs e) 
+      {
+            
 
-      //bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      bossChatgpt.Img = picBossChatgpt.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+          const int PADDING = 7;
+          const int NUM_WALLS = 13;
 
-      
+          player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+          //bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+          bossChatgpt = new Enemy(CreatePosition(picBossChatgpt), CreateCollider(picBossChatgpt, PADDING));
+          enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+          enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-      //bossKoolaid.Color = Color.Red;
-      bossChatgpt.Color = Color.Green;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
-
-      bossChatgpt.Name = "boss";
-      enemyPoisonPacket.Name = "poisonPacket";
-      enemyCheeto.Name = "cheeto";
+          //bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+          bossChatgpt.Img = picBossChatgpt.BackgroundImage;
+          enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+          enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
       
 
-      walls = new Character[NUM_WALLS];
-      for (int w = 0; w < NUM_WALLS; w++) {
-        PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+          //bossKoolaid.Color = Color.Red;
+          bossChatgpt.Color = Color.Green;
+          enemyPoisonPacket.Color = Color.Green;
+          enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+
+          bossChatgpt.Name = "boss";
+          enemyPoisonPacket.Name = "poisonPacket";
+          enemyCheeto.Name = "cheeto";
+
+          picPlayer.Focus();
+
+      
+
+          walls = new Character[NUM_WALLS];
+          for (int w = 0; w < NUM_WALLS; w++) {
+            PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+            walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+          }
+
+          Game.player = player;
+          timeBegin = DateTime.Now;
       }
-
-      Game.player = player;
-      timeBegin = DateTime.Now;
-    }
 
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
@@ -79,7 +87,8 @@ namespace Fall2020_CSC403_Project {
       lblInGameTime.Text = "Time: " + time.ToString();
     }
 
-    private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+    private void tmrPlayerMove_Tick(object sender, EventArgs e) 
+    {
       // move player
       player.Move();
 
@@ -111,6 +120,7 @@ namespace Fall2020_CSC403_Project {
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+
     }
 
     private bool HitAWall(Character c) {
@@ -172,11 +182,10 @@ namespace Fall2020_CSC403_Project {
         default:
           player.ResetMoveSpeed();
           break;
+
+        
       }
     }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
-
     }
-  }
 }
