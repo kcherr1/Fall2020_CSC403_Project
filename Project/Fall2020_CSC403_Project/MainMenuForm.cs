@@ -58,6 +58,7 @@ namespace Fall2020_CSC403_Project
         {
             FAQ faq = new FAQ();
             faq.Show();
+
         }
     }
 }

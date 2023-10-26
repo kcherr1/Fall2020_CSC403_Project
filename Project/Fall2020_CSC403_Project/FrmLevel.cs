@@ -94,8 +94,8 @@ namespace Fall2020_CSC403_Project {
         this.Close();
 
         // Assuming your default form is named "FrmDefault"
-        MainMenuForm mainMenu = new MainMenuForm();
-        mainMenu.Show();
+        FrmDeath formDeath = new FrmDeath();
+        formDeath.Show();
     }
 
     player.Move();
@@ -202,5 +202,10 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+
+        private void picEnemyPoisonPacket_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

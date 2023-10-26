@@ -62,6 +62,12 @@ namespace Fall2020_CSC403_Project
         {
             Asix.Visible = !Asix.Visible;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainMenuForm mainMenuForm = new MainMenuForm();
+        }
     }
     
 }
