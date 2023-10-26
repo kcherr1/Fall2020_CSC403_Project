@@ -23,7 +23,7 @@ namespace Fall2020_CSC403_Project
         }
 
 
-        public static FrmInv GetInstance()
+        public static FrmInv GetInstance(Player player)
         {
             instance = new FrmInv();
             return instance;
@@ -34,17 +34,28 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SettingButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void UnequipButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void EquipButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DropButton_Click(object sender, EventArgs e)
         {
 
         }
