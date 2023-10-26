@@ -93,9 +93,13 @@ namespace Fall2020_CSC403_Project {
         //added this check to change the value in FrmLevel to true
         if (isBossBattle) {
             bossIsDefeatedReference.bossIsDefeated = true;
-            //added this to display the win screen for this level
-            FrmWinLevel win_instance = FrmWinLevel.GetInstance();
-            win_instance.Show();
+                    //added this to display the win screen for this level
+                    //FrmWinLevel win_instance = FrmWinLevel.GetInstance();
+                    if (player.Health > 0)
+                    {
+                        FrmWinLevel win_instance = new FrmWinLevel();
+                        win_instance.Show();
+                    }
                 }
         if (enemy.Health <= 0)
         {
