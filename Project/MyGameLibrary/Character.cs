@@ -15,7 +15,7 @@ namespace Fall2020_CSC403_Project.code
 
 		public String name { get; private set; }
 
-		public PlayerArchetype archetype;
+		public Archetype archetype;
 		
 		public int defense;
 
@@ -26,7 +26,7 @@ namespace Fall2020_CSC403_Project.code
 		public int Health { get; private set; }
 		public int MaxHealth { get; private set; }
 
-		public Character(Position initPos, Collider collider, PlayerArchetype archetype) : base(initPos, collider)
+		public Character(Position initPos, Collider collider, Archetype archetype) : base(initPos, collider)
 		{
 			this.archetype = archetype;
 			this.MaxHealth = archetype.baseMaxHealth;
@@ -36,18 +36,23 @@ namespace Fall2020_CSC403_Project.code
             this.Health = MaxHealth;
 		}
 
-		public void setArchetype(PlayerArchetype newArchetype)
+		public void setArchetype(Archetype newArchetype)
 		{
 			this.archetype = newArchetype;
 		}
 		
-		public void OnAttack(int amount)
+		public void OnAttack()
 		{	
 			Random rand = new Random();
-			AttackEvent((int)(amount * damage + rand.Next(1, archetype.baseDamage + 1)));
+			AttackEvent(damage + rand.Next(1, archetype.baseDamage + 1));
 		}
 
-		public void AlterHealth(int amount)
+		public void TakeDamage(int amount)
+		{
+			Health -= amount;
+		}
+
+		public void GiveHealth(int amount)
 		{
 			Health += amount;
 		}

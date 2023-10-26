@@ -3,35 +3,38 @@ using System.Drawing;
 using System.Dynamic;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project.code
 {
-    public interface PlayerArchetype
+    public interface Archetype
     {
         int baseMaxHealth { get; }
         int baseDefense { get; }
         int baseDamage { get; }
         int baseSpeed { get; }
         int archetypeDamage { get; }
+        PictureBox image { get; }
     }
 
-    public class Archetype
+    public class ArchetypeHandler
     {
-        private PlayerArchetype archetype;
+        private Archetype archetype;
 
-        public Archetype(PlayerArchetype archetype)
+        public ArchetypeHandler(Archetype archetype)
         {
             this.archetype = archetype;
         }
     }
 
-    public class Tank : PlayerArchetype
+    public class Tank : Archetype
     {
         public int baseMaxHealth { get; }
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
         public int archetypeDamage { get; }
+        public PictureBox image { get; }
 
         public Tank()
         {
@@ -43,31 +46,33 @@ namespace Fall2020_CSC403_Project.code
         }
     }
 
-    public class Rogue : PlayerArchetype
+    public class Rogue : Archetype
     {
         public int baseMaxHealth { get; }
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
         public int archetypeDamage { get; }
+        public PictureBox image { get; }
 
         public Rogue()
         {
             baseMaxHealth = 20;
             baseDefense = 2;
-            baseDamage = 20;
+            baseDamage = 10;
             baseSpeed = 5;
             archetypeDamage = 10;
         }
     }
 
-    public class Swordsman : PlayerArchetype
+    public class Swordsman : Archetype
     {
         public int baseMaxHealth { get; }
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
         public int archetypeDamage { get; }
+        public PictureBox image { get; }
 
         public Swordsman()
         {
@@ -76,6 +81,24 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 8;
             baseSpeed = 2;
             archetypeDamage = 8;
+        }
+    }
+
+    public class Minion : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int archetypeDamage { get; }
+        public PictureBox image { get; }
+        public Minion()
+        {
+            baseMaxHealth = 20;
+            baseDefense = 0;
+            baseDamage = 5;
+            baseSpeed = 2;
+            archetypeDamage = 0;
         }
     }
     

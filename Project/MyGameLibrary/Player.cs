@@ -8,9 +8,8 @@ namespace Fall2020_CSC403_Project.code
 {
     public class Player : Character
     {
-        public Player(Position initPos, Collider collider, PlayerArchetype archetype) : base(initPos, collider, archetype)
+        public Player(Position initPos, Collider collider, Archetype archetype) : base(initPos, collider, archetype)
         {
-            
         }
     }
 }
