@@ -29,25 +29,21 @@ namespace Fall2020_CSC403_Project
 
 
     private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
-      const int ARROW_PADDING = 2;
-      const int NUM_WALLS = 13;
-
-
-
+            const int PADDING = 7;
+            const int ARROW_PADDING = 2;
+            const int NUM_WALLS = 13;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-
-      // character projectile attack
-      arrow = new Projectile(CreatePosition(picPlayer), CreateCollider(picArrow, ARROW_PADDING));
-      picArrow.Hide();
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+            // character projectile attack
+            arrow = new Projectile(CreatePosition(picPlayer), CreateCollider(picArrow, ARROW_PADDING));
+            picArrow.Hide();
+            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+            enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+            enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
             player.inventory.image = inventoryboard.BackgroundImage;
             inventoryboard.Hide();
 
@@ -90,12 +86,16 @@ namespace Fall2020_CSC403_Project
             timeBegin = DateTime.Now;
         }
 
-        private Vector2 CreatePosition(PictureBox pic)
-        {
-            return new Vector2(pic.Location.X, pic.Location.Y);
-        }
+    private Vector2 CreatePosition(PictureBox pic)
+    {
+        return new Vector2(pic.Location.X, pic.Location.Y);
+    }
 
-
+    /// <summary>
+    /// runs arrow picturebox on its own
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void tmrArrowMove_Tick(object sender, EventArgs e)
     {
             // check if projectile hits a wall
@@ -148,15 +148,15 @@ namespace Fall2020_CSC403_Project
       }
 
     private Collider CreateCollider(PictureBox pic, int padding)
-        {
-            Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-            return new Collider(rect);
-        }
+    {
+        Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+        return new Collider(rect);
+    }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
-        {
-            player.ResetMoveSpeed();
-        }
+    {
+        player.ResetMoveSpeed();
+    }
 
     /// <summary>
     /// decides if arrow collides with a wall, return arrow to player
@@ -273,21 +273,21 @@ namespace Fall2020_CSC403_Project
                     case Keys.D:
                         player.GoRight();
                         if (!arrow.inFlight)
-                          playerDirection = "left";
+                          playerDirection = "right";
                         break;
 
                     case Keys.Up:
                     case Keys.W:
                         player.GoUp();
                         if (!arrow.inFlight)
-                          playerDirection = "left";
+                          playerDirection = "up";
                         break;
 
                     case Keys.Down:
                     case Keys.S:
                         player.GoDown();
                         if (!arrow.inFlight)
-                          playerDirection = "left";
+                          playerDirection = "down";
                         break;
 
                     case Keys.I:
@@ -357,15 +357,14 @@ namespace Fall2020_CSC403_Project
         {
 
         }
-    }
-
-    /// <summary>
-    /// Closes the application when FrmLevel is closed 
-    /// </summary>
-    public void onFormClosed(object sender, FormClosedEventArgs e)
-        {            
+        /// <summary>
+        /// Closes the application when FrmLevel is closed 
+        /// </summary>
+        public void onFormClosed(object sender, FormClosedEventArgs e)
+        {
             System.Windows.Forms.Application.Exit();
         }
+    }
     
   }
-}
+
