@@ -139,22 +139,34 @@
   <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="starting_sword" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\starting_sword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cheap_armor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\cheap_armor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="expensive_armor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\expensive_armor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="expensive_sword" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\expensive_sword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="greather_health_potion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\greather_health_potion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lesser_health_potion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\lesser_health_potion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="common_armor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\common_armor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="common_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\common_axe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="common_dagger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\common_dagger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="common_hammer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\common_hammer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="common_sword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\common_sword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rare_armor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\rare_armor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rare_sword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\rare_sword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rare_dagger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\rare_dagger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

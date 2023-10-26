@@ -31,13 +31,13 @@ namespace Fall2020_CSC403_Project
 		{
 			const int PADDING = 7;
 			const int NUM_WALLS = 13;
-			const int NUM_ITEMS = 13;
+			const int NUM_ITEMS = 3;
 
-			player = new Player("Peanut", picPlayer, CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+			player = new Player("Peanut", picPlayer, CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), new Rogue());
 
-			bossKoolaid = new Enemy("KoolAidman", picBossKoolAid, CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-			enemyPoisonPacket = new Enemy("Poison", picEnemyPoisonPacket, CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-			enemyCheeto = new Enemy("CheetoKnives", picEnemyCheeto, CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+			bossKoolaid = new Enemy("KoolAidman", picBossKoolAid, CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), new Swordsman());
+			enemyPoisonPacket = new Enemy("Poison", picEnemyPoisonPacket, CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), new Swordsman());
+			enemyCheeto = new Enemy("CheetoKnives", picEnemyCheeto, CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), new Swordsman());
 
 			bossKoolaid.Img = picBossKoolAid.BackgroundImage;
 			enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -55,11 +55,14 @@ namespace Fall2020_CSC403_Project
 			}
 
 
-			Item start_sword = new Item("Sting", picStartingSword, 10, Item.ItemType.Weapon, CreatePosition(picStartingSword), CreateCollider(picStartingSword, PADDING));
-			
+			Item rare_dagger = new Item("Sting", picRareDagger, 10, Item.ItemType.Weapon, CreatePosition(picRareDagger), CreateCollider(picRareDagger, PADDING));
+			Item common_armor = new Item("Armor of Awesome", picCommonArmor, 10, Item.ItemType.Armor, CreatePosition(picCommonArmor), CreateCollider(picCommonArmor, PADDING));
+			Item lesser_heal = new Item("Lesser Health Potion", picLesserHealthPotion, 10, Item.ItemType.Utility, CreatePosition(picLesserHealthPotion), CreateCollider(picLesserHealthPotion, PADDING));
 
             items = new Item[NUM_ITEMS];
-            items[0] = start_sword;
+            items[0] = rare_dagger;
+			items[1] = common_armor;
+			items[2] = lesser_heal;
 
 			Game.player = player;
 			timeBegin = DateTime.Now;
@@ -116,9 +119,11 @@ namespace Fall2020_CSC403_Project
 			int x = HitAnItem(player);
 			if (x >= 0)
 			{
-
-				player.Inventory.AddToBackpack(items[x]);
-				items[x].RemoveEntity();
+				if (!player.Inventory.BackpackIsFull())
+				{
+                    player.Inventory.AddToBackpack(items[x]);
+                    items[x].RemoveEntity();
+                }
                 
             }
 
