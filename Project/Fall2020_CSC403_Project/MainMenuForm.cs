@@ -53,5 +53,11 @@ namespace Fall2020_CSC403_Project
         {
             Application.Exit();
         }
+
+        private void Faq_Click(object sender, EventArgs e)
+        {
+            FAQ faq = new FAQ();
+            faq.Show();
+        }
     }
 }
