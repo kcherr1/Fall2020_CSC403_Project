@@ -60,7 +60,7 @@
             this.BarbieHiemer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BarbieHiemer.Location = new System.Drawing.Point(363, 244);
             this.BarbieHiemer.Name = "BarbieHiemer";
-            this.BarbieHiemer.Size = new System.Drawing.Size(601, 88);
+            this.BarbieHiemer.Size = new System.Drawing.Size(401, 60);
             this.BarbieHiemer.TabIndex = 1;
             this.BarbieHiemer.Text = "BarbieHiemer";
             this.BarbieHiemer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -107,6 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1347, 793);
@@ -115,8 +116,10 @@
             this.Controls.Add(this.Settings);
             this.Controls.Add(this.BarbieHiemer);
             this.Controls.Add(this.Play);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainMenuForm";
             this.Text = "MainMenuForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainMenuForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

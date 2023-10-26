@@ -35,11 +35,17 @@ namespace Fall2020_CSC403_Project
 
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
-
+           
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+            TopMost = false;
+            
         }
 
         private void Play_Click(object sender, EventArgs e)
         {
+          
+
             soundPlayer.Stop();
             this.Hide();
             FrmLevel Play = new FrmLevel();
