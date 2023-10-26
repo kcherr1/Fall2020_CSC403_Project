@@ -46,6 +46,7 @@
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picStartingSword = new System.Windows.Forms.PictureBox();
+            this.MenuButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -75,7 +76,7 @@
             this.lblInGameTime.Location = new System.Drawing.Point(16, 11);
             this.lblInGameTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInGameTime.Name = "lblInGameTime";
-            this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
+            this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
             this.lblInGameTime.TabIndex = 2;
             this.lblInGameTime.Text = "label1";
             // 
@@ -304,6 +305,16 @@
             this.picStartingSword.TabIndex = 18;
             this.picStartingSword.TabStop = false;
             // 
+            // MenuButton
+            // 
+            this.MenuButton.Location = new System.Drawing.Point(12, 52);
+            this.MenuButton.Name = "MenuButton";
+            this.MenuButton.Size = new System.Drawing.Size(85, 31);
+            this.MenuButton.TabIndex = 19;
+            this.MenuButton.Text = "Menu";
+            this.MenuButton.UseVisualStyleBackColor = true;
+            this.MenuButton.Click += new System.EventHandler(this.Menu_Click);
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -311,6 +322,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
+            this.Controls.Add(this.MenuButton);
             this.Controls.Add(this.picStartingSword);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
@@ -331,6 +343,7 @@
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -384,6 +397,7 @@
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
         private System.Windows.Forms.PictureBox picStartingSword;
+        private System.Windows.Forms.Button MenuButton;
     }
 }
 

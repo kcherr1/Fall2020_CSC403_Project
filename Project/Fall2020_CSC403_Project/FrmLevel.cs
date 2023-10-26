@@ -20,11 +20,13 @@ namespace Fall2020_CSC403_Project
 
 		private DateTime timeBegin;
 		private FrmBattle frmBattle;
+		private FrmInv frmInv;
 
         public bool gameOver = false;
 
         public FrmLevel() {
             InitializeComponent();
+			this.WindowState = FormWindowState.Maximized;
         }
 
 		private void FrmLevel_Load(object sender, EventArgs e)
@@ -75,7 +77,7 @@ namespace Fall2020_CSC403_Project
 			Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
 			return new Collider(rect);
 		}
-
+		
 		private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
 		{
 			player.ResetMoveSpeed();
@@ -201,19 +203,19 @@ namespace Fall2020_CSC403_Project
 		{
 			switch (e.KeyCode)
 			{
-				case Keys.Left:
+				case Keys.A:
 					player.GoLeft();
 					break;
 
-				case Keys.Right:
+				case Keys.D:
 					player.GoRight();
 					break;
 
-				case Keys.Up:
+				case Keys.W:
 					player.GoUp();
 					break;
 
-				case Keys.Down:
+				case Keys.S:
 					player.GoDown();
 					break;
 
@@ -222,5 +224,13 @@ namespace Fall2020_CSC403_Project
 					break;
 			}
 		}
-	}
+
+        private void Menu_Click(object sender, EventArgs e)
+        {
+            FrmInv frmInv = new FrmInv();
+			frmInv= FrmInv.GetInstance();
+			frmInv.WindowState = FormWindowState.Maximized;
+            frmInv.Show();
+        }
+    }
 }
