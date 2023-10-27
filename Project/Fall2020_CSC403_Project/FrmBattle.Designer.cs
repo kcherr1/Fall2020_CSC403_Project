@@ -15,7 +15,10 @@ namespace Fall2020_CSC403_Project {
       if (disposing && (components != null)) {
         components.Dispose();
         this.battleTheme.Stop();
+        if(player.Health != 0)
+        {
         this.levelTheme.PlayLooping();
+        }
       }
       base.Dispose(disposing);
     }
