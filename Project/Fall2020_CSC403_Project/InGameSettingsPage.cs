@@ -17,9 +17,16 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnCloseSettings_Click(object sender, EventArgs e)
         {   
-            Hide();
+            this.Hide();
+        }
+
+        private void btnControls_Click(object sender, EventArgs e)
+        {
+            InGameControlsPage inGameControlsPage = new InGameControlsPage();
+            inGameControlsPage.Show();
+            this.Hide();
         }
     }
 }
