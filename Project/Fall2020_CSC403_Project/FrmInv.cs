@@ -139,21 +139,21 @@ namespace Fall2020_CSC403_Project
             {
                 player.Inventory.UnEquipWeapon(player.Position, player.facing);
                 RefreshInvImages();
-                PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             else if (selected == 11)
             {
                 player.Inventory.UnEquipArmor(player.Position, player.facing);
                 RefreshInvImages();
-                PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             else if (selected == 12)
             {
                 player.Inventory.UnEquipUtility(player.Position, player.facing);
                 RefreshInvImages();
-                PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             else { }
+            PictureBoxes[selected - 1].BackColor = Color.DimGray;
+            selected = 0;
+
         }
 
         // moves a item from a backback slot to an equip slot
@@ -166,6 +166,7 @@ namespace Fall2020_CSC403_Project
                     player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                     player.Inventory.RemoveFromBackpack(selected - 1);
                     RefreshInvImages();
+                 
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Armor)
                 {
@@ -182,6 +183,7 @@ namespace Fall2020_CSC403_Project
                 else { }
 
                 PictureBoxes[selected - 1].BackColor = Color.DimGray;
+                selected = 0;
 
             }
         }
@@ -192,8 +194,9 @@ namespace Fall2020_CSC403_Project
             if (selected > 0 && selected < 10) { 
                 player.Inventory.DropItem(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                 player.Inventory.RemoveFromBackpack(selected - 1);
-                PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
+            PictureBoxes[selected - 1].BackColor = Color.DimGray;
+            selected = 0;
             RefreshInvImages();
         }
 
