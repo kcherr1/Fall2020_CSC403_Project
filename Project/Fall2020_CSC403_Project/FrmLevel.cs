@@ -82,7 +82,11 @@ namespace Fall2020_CSC403_Project {
             {
                 pickUpGold(player); // updates gold counter
                 // need to hide image
-                pickup_gold_001; // need to destroy this item
+                pickup_gold.Dispose();
+
+
+                // need to destroy this item
+                this.pickup_gold_001.Collider.MovePosition(0, 0);
             }
 
             // check collision with enemies
@@ -125,8 +129,9 @@ namespace Fall2020_CSC403_Project {
                 frmBattle.SetupForBossBattle();
             }
         }
-        private void pickUpGold(Character player) {
+        private void pickUpGold(Player player) {
             player.updateGold(5);
+            this.goldDisplay.Text = player.gold.ToString();
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {

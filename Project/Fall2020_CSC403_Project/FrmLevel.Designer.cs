@@ -28,7 +28,7 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.goldDisplay = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
@@ -93,19 +93,19 @@
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
-            // label1
+            // goldDisplay
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Gold;
-            this.label1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Fall2020_CSC403_Project.Properties.Settings.Default, "Gold", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.label1.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(551, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 31);
-            this.label1.TabIndex = 18;
-            this.label1.Text = global::Fall2020_CSC403_Project.Properties.Settings.Default.Gold;
-            this.label1.UseCompatibleTextRendering = true;
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
+            this.goldDisplay.AutoSize = true;
+            this.goldDisplay.BackColor = System.Drawing.Color.Gold;
+            this.goldDisplay.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Fall2020_CSC403_Project.Properties.Settings.Default, "Gold", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.goldDisplay.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goldDisplay.Location = new System.Drawing.Point(551, 9);
+            this.goldDisplay.Name = "goldDisplay";
+            this.goldDisplay.Size = new System.Drawing.Size(0, 28);
+            this.goldDisplay.TabIndex = 18;
+            this.goldDisplay.Text = global::Fall2020_CSC403_Project.Properties.Settings.Default.Gold;
+            this.goldDisplay.UseCompatibleTextRendering = true;
+            this.goldDisplay.Click += new System.EventHandler(this.Label1_Click);
             // 
             // pictureBox1
             // 
@@ -326,7 +326,7 @@
             this.ClientSize = new System.Drawing.Size(1176, 726);
             this.Controls.Add(this.pickup_gold);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.goldDisplay);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -398,7 +398,7 @@
         private System.Windows.Forms.PictureBox picWall1;
         private System.Windows.Forms.PictureBox picWall2;
         private System.Windows.Forms.PictureBox picWall11;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label goldDisplay;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pickup_gold;
     }

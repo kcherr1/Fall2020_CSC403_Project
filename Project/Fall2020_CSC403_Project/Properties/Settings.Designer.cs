@@ -25,7 +25,7 @@ namespace Fall2020_CSC403_Project.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Gold: ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Gold {
             get {
                 return ((string)(this["Gold"]));

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Gold" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Gold: </Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
