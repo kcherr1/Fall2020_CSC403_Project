@@ -1,6 +1,7 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -14,10 +15,12 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+        private SoundPlayer backgroundMusic;
 
     public FrmLevel() {
       InitializeComponent();
-    }
+      backgroundMusic = new SoundPlayer("data/Bg.wav");
+        }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
@@ -35,7 +38,7 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
-
+      backgroundMusic.PlayLooping();
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
@@ -46,7 +49,12 @@ namespace Fall2020_CSC403_Project {
       timeBegin = DateTime.Now;
     }
 
-    private Vector2 CreatePosition(PictureBox pic) {
+        public void StartBackgroundMusic()
+        {
+            backgroundMusic.PlayLooping();
+        }
+
+        private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
     }
 
@@ -68,21 +76,42 @@ namespace Fall2020_CSC403_Project {
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
       player.Move();
+            if (enemyPoisonPacket.Health < 0)
+            {
+                Controls.Remove(picEnemyPoisonPacket);
+                picEnemyPoisonPacket = null;
+            }
+            if (enemyCheeto.Health < 0)
+            {
+                Controls.Remove(picEnemyCheeto);
+                picEnemyCheeto = null;
+            }
+            if (bossKoolaid.Health < 0)
+            {
+                Controls.Remove(picBossKoolAid);
+                picBossKoolAid = null;
+            }
 
-      // check collision with walls
-      if (HitAWall(player)) {
+            // check collision with walls
+            if (HitAWall(player)) {
         player.MoveBack();
       }
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+        if(picEnemyPoisonPacket != null) { 
+            Fight(enemyPoisonPacket);
+        }
       }
       else if (HitAChar(player, enemyCheeto)) {
+                if(picEnemyCheeto != null) { 
         Fight(enemyCheeto);
+            }
       }
       if (HitAChar(player, bossKoolaid)) {
+                if(picBossKoolAid != null) {
         Fight(bossKoolaid);
+                    }
       }
 
       // update player's picture box
@@ -113,7 +142,10 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
+      
     }
+        
+
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
@@ -142,5 +174,9 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
