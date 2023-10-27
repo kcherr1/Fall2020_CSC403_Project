@@ -17,6 +17,8 @@ namespace Fall2020_CSC403_Project {
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
+        public Boolean win = false;
+        public Boolean lose = false;
 
     public FrmLevel() {
       InitializeComponent();
@@ -121,7 +123,19 @@ namespace Fall2020_CSC403_Project {
             player.MoveBack();
             this.Hide();
             frmBattle = FrmBattle.GetInstance(enemy);
-            frmBattle.FormClosed += (s, args) => this.Show();
+            frmBattle.FormClosed += (s, args) => {
+                
+                if(player.Health <= 0)
+                {
+                    this.lose = true;
+                    this.levelTheme.Stop();
+                    this.Close();
+                }
+                else if(player.Health > 0)
+                {
+                    this.Show();
+                    levelTheme.PlayLooping();
+                } };
             frmBattle.Show();
 
             if (enemy == bossKoolaid)

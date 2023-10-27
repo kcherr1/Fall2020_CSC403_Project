@@ -82,15 +82,15 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (enemy.Health <= 0) {
+        if (enemy.Health <= 0) {
         instance = null;
         Close();
-      } else if (player.Health == 0)
-            {
-                instance = null;
-                Close();
-                Application.Exit();
-            }
+        } 
+        else if (player.Health == 0)
+        {
+            instance = null;
+            Close();
+        }
     }
 
     private void btnHeal_Click(object sender, EventArgs e)

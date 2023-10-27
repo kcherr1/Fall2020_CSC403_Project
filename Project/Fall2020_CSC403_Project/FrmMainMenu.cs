@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Fall2020_CSC403_Project
 {
@@ -20,6 +21,8 @@ namespace Fall2020_CSC403_Project
         {
             InitializeComponent();
             menuTheme.PlayLooping();
+            this.FormClosed += (s, args) => Application.Exit();
+            
         }
 
         private void btnStartGame_Click(object sender, EventArgs e)
@@ -28,7 +31,21 @@ namespace Fall2020_CSC403_Project
             menuTheme.Stop();
 
             frmLevel = new FrmLevel();
-            frmLevel.Closed += (s, args) => this.Show();
+            frmLevel.Closed += (s, args) =>
+            {
+                if (frmLevel.win == true)
+                {
+                    //open win screen
+                }
+                else if (frmLevel.lose == true)
+                {
+                    this.Show();
+                }
+                else
+                {
+                    this.Show();
+                }
+            };
             frmLevel.Show();
 
             instance = null;
