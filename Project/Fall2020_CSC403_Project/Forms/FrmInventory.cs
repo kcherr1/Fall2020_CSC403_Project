@@ -66,11 +66,101 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+        // Dont touch anything below this! Its the click event for inventory slots, there has
+        // to be one for every slot.
         private void invSlot1_Click(object sender, EventArgs e)
         {
             if(invSlot1.Tag != null)
             {
                 nameBox.Text = invSlot1.Tag.ToString();
+            }
+        }
+
+        private void invSlot2_Click(object sender, EventArgs e)
+        {
+            if (invSlot2.Tag != null)
+            {
+                nameBox.Text = invSlot1.Tag.ToString();
+            }
+        }
+
+        private void invSlot3_Click(object sender, EventArgs e)
+        {
+            if (invSlot3.Tag != null)
+            {
+                nameBox.Text = invSlot1.Tag.ToString();
+            }
+        }
+
+        private void invSlot4_Click(object sender, EventArgs e)
+        {
+            if (invSlot4.Tag != null)
+            {
+                nameBox.Text = invSlot1.Tag.ToString();
+            }
+        }
+
+        private void invSlot5_Click(object sender, EventArgs e)
+        {
+            if (invSlot5.Tag != null)
+            {
+                nameBox.Text = invSlot5.Tag.ToString();
+            }
+        }
+
+        private void invSlot6_Click(object sender, EventArgs e)
+        {
+            if(invSlot6.Tag != null)
+            {
+                nameBox.Text = invSlot6.Tag.ToString();
+            }
+        }
+
+        private void invSlot7_Click(object sender, EventArgs e)
+        {
+            if(invSlot7.Tag != null)
+            {
+                nameBox.Text = invSlot7.Tag.ToString();
+            }
+        }
+
+        private void invSlot8_Click(object sender, EventArgs e)
+        {
+            if (invSlot8.Tag != null)
+            {
+                nameBox.Text = invSlot8.Tag.ToString();
+            }
+        }
+
+        private void invSlot9_Click(object sender, EventArgs e)
+        {
+            if(invSlot9.Tag != null)
+            {
+                nameBox.Text = invSlot9.Tag.ToString();
+            }
+        }
+
+        private void invSlot10_Click(object sender, EventArgs e)
+        {
+            if(invSlot10.Tag != null)
+            {
+                nameBox.Text = invSlot10.Tag.ToString();
+            }
+        }
+
+        private void invSlot11_Click(object sender, EventArgs e)
+        {
+            if(invSlot11.Tag != null)
+            {
+                nameBox.Text = invSlot11.Tag.ToString();
+            }
+        }
+
+        private void invSlot12_Click(object sender, EventArgs e)
+        {
+            if(invSlot12.Tag != null)
+            {
+                nameBox.Tag = invSlot12.Tag.ToString();
             }
         }
     }

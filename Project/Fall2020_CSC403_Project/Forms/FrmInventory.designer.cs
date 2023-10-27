@@ -75,6 +75,7 @@
             this.invSlot2.Size = new System.Drawing.Size(111, 111);
             this.invSlot2.TabIndex = 1;
             this.invSlot2.TabStop = false;
+            this.invSlot2.Click += new System.EventHandler(this.invSlot2_Click);
             // 
             // invSlot6
             // 
@@ -164,6 +165,7 @@
             this.invSlot4.Size = new System.Drawing.Size(111, 111);
             this.invSlot4.TabIndex = 7;
             this.invSlot4.TabStop = false;
+            this.invSlot4.Click += new System.EventHandler(this.invSlot4_Click);
             // 
             // invSlot3
             // 
@@ -173,6 +175,7 @@
             this.invSlot3.Size = new System.Drawing.Size(111, 111);
             this.invSlot3.TabIndex = 6;
             this.invSlot3.TabStop = false;
+            this.invSlot3.Click += new System.EventHandler(this.invSlot3_Click);
             // 
             // nameBox
             // 
