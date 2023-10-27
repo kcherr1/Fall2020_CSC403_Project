@@ -123,6 +123,8 @@
   <ItemGroup>
     <Content Include="data\dialogueBox.jpg" />
     <None Include="Resources\dialogue_box.bmp" />
+    <Content Include="data\battle_music.wav" />
+    <Content Include="data\overworld_music.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

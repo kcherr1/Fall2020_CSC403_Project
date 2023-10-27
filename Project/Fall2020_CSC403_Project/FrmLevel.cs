@@ -1,6 +1,8 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -11,6 +13,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    private AudioManager audioManager;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -34,7 +37,12 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), picBossKoolAid);
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), picEnemyPoisonPacket);
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), picEnemyCheeto);
+
       dialogueBox = new DialogueBox(CreatePosition(picDialogueBox), CreateCollider(picDialogueBox, PADDING), picDialogueBox, dialogLabel);
+      audioManager = AudioManager.Instance;
+      audioManager.AddSound("overworld_music", new SoundPlayer(Resources.overworld_music));
+      audioManager.AddSound("final_battle", new SoundPlayer(Resources.final_battle));
+      audioManager.PlaySoundLoop("overworld_music");
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -138,6 +146,13 @@ namespace Fall2020_CSC403_Project {
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+
+      // update player's main screen health bar
+      float playerHealthPer = player.Health / (float)player.MaxHealth;
+            
+      const int MAX_HEALTHBAR_WIDTH = 226;
+      permLblPlayerHealth.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+      permLblPlayerHealth.Text = "HP: " + player.Health.ToString();
     }
 
     // Starts the dialague for an enemy, which in turn will start the battle once it is over
@@ -173,11 +188,13 @@ namespace Fall2020_CSC403_Project {
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
+      audioManager.PlaySound("final_battle");
+      frmBattle.SetupForBossBattle();
       }
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+
       bool characterMoving = false;
             if (dialogueBox.IsShown)
             {
@@ -195,23 +212,24 @@ namespace Fall2020_CSC403_Project {
                 return;
             }
       switch (e.KeyCode) {
-                case Keys.Left:
-                    player.GoLeft();
+        case Keys.Left:
+          player.GoLeft();
                     player._movementBools[0] = true;
-                    break;
+          break;
 
-                case Keys.Right:
-                    player.GoRight();
+        case Keys.Right:
+          player.GoRight();
                     player._movementBools[1] = true;
                     break;
 
-                case Keys.Up:
-                    player.GoUp();
+        case Keys.Up:
+          player.GoUp();
                     player._movementBools[2] = true;
                     break;
 
-                case Keys.Down:
-                    player.GoDown();
+        case Keys.Down:
+          player.GoDown();
+
                     player._movementBools[3] = true;
                     break;
 
@@ -223,7 +241,6 @@ namespace Fall2020_CSC403_Project {
           player.ResetMoveSpeed();
           break;
       }
-      player.SetCharacterMoving(characterMoving);
     }
 
     private void ContinueDialogue()

@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BattleCharacter.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="AudioManager.cs" />
     <Compile Include="Collider.cs" />
     <Compile Include="Dialogue.cs" />
     <Compile Include="DialogueBox.cs" />
