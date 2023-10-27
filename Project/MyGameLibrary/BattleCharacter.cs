@@ -27,11 +27,12 @@ namespace Fall2020_CSC403_Project.code {
         public void AlterHealth(int amount) {
             Health += amount;
         }
-        
+
         // gets strength value from player for display in CharacterScreen.cs
         public float getStrength()
         {
             return strength;
+        }
           
         //added a set health function that sets the health of the character chosen to a specific integer
         public void SetHealth(int amount)
