@@ -68,6 +68,31 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        public void RefreshInvImages()
+        {
+            PictureBox[] show_inventory = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9 };
+            for (int i = 0; i < player.Inventory.Backpack.Length; i++)
+            {
+                if (player.Inventory.Backpack[i] != null)
+                {
+                    show_inventory[i].Image = player.Inventory.Backpack[i].Pic.Image;
+                }
+            }
+            if (player.Inventory.Weapon != null)
+            {
+                Weapon.Image = player.Inventory.Weapon.Pic.Image;
+            }
+            if (player.Inventory.Armor != null)
+            {
+                Armor.Image = player.Inventory.Weapon.Pic.Image;
+            }
+            if (player.Inventory.Utility != null)
+            {
+                Utility.Image = player.Inventory.Weapon.Pic.Image;
+            }
+
+        }
+
         private void FrmInv_Load(object sender, EventArgs e)
         {
 
@@ -91,16 +116,38 @@ namespace Fall2020_CSC403_Project
 
         private void EquipButton_Click(object sender, EventArgs e)
         {
+            if (selected > 0 && selected < 10)
+            {
+                if (player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Weapon)
+                {
+                    player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                    player.Inventory.RemoveFromBackpack(selected - 1);
+                    RefreshInvImages();
+                }
+                else if  (player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Armor)
+                {
+                    player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                    player.Inventory.RemoveFromBackpack(selected - 1);
+                    RefreshInvImages();
+                }
+                else if (player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Utility)
+                {
+                    player.Inventory.EquipUtility(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                    player.Inventory.RemoveFromBackpack(selected - 1);
+                    RefreshInvImages();
+                }
+                
 
+            }
         }
 
         private void DropButton_Click(object sender, EventArgs e) 
         { 
-            if(selected > 0) { 
+            if(selected > 0 && selected < 10) { 
                 player.Inventory.DropItem(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                 player.Inventory.RemoveFromBackpack(selected - 1);
             }
-            this.Refresh();
+            RefreshInvImages();
         }
         private void Inv1_Click(object sender, EventArgs e)
         {
@@ -148,17 +195,17 @@ namespace Fall2020_CSC403_Project
 
         private void Weapon_Click(object sender, EventArgs e)
         {
-           
+            selected = 10;
         }
 
         private void Armor_Click(object sender, EventArgs e)
         {
-
+            selected = 11;
         }
 
         private void Utility_Click(object sender, EventArgs e)
         {
-
+            selected = 12;
         }
     }
 }

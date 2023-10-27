@@ -46,6 +46,9 @@
             this.Armor = new System.Windows.Forms.PictureBox();
             this.Weapon = new System.Windows.Forms.PictureBox();
             this.PlayerPic = new System.Windows.Forms.PictureBox();
+            this.WeaponLabel = new System.Windows.Forms.Label();
+            this.ArmorLabel = new System.Windows.Forms.Label();
+            this.UtilityLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Inv1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inv9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inv8)).BeginInit();
@@ -253,6 +256,36 @@
             this.PlayerPic.TabIndex = 23;
             this.PlayerPic.TabStop = false;
             // 
+            // WeaponLabel
+            // 
+            this.WeaponLabel.AutoSize = true;
+            this.WeaponLabel.BackColor = System.Drawing.Color.Transparent;
+            this.WeaponLabel.Location = new System.Drawing.Point(513, 162);
+            this.WeaponLabel.Name = "WeaponLabel";
+            this.WeaponLabel.Size = new System.Drawing.Size(48, 13);
+            this.WeaponLabel.TabIndex = 24;
+            this.WeaponLabel.Text = "Weapon";
+            // 
+            // ArmorLabel
+            // 
+            this.ArmorLabel.AutoSize = true;
+            this.ArmorLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ArmorLabel.Location = new System.Drawing.Point(527, 238);
+            this.ArmorLabel.Name = "ArmorLabel";
+            this.ArmorLabel.Size = new System.Drawing.Size(34, 13);
+            this.ArmorLabel.TabIndex = 25;
+            this.ArmorLabel.Text = "Armor";
+            // 
+            // UtilityLabel
+            // 
+            this.UtilityLabel.AutoSize = true;
+            this.UtilityLabel.BackColor = System.Drawing.Color.Transparent;
+            this.UtilityLabel.Location = new System.Drawing.Point(529, 314);
+            this.UtilityLabel.Name = "UtilityLabel";
+            this.UtilityLabel.Size = new System.Drawing.Size(32, 13);
+            this.UtilityLabel.TabIndex = 26;
+            this.UtilityLabel.Text = "Utility";
+            // 
             // FrmInv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +293,9 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(967, 522);
             this.ControlBox = false;
+            this.Controls.Add(this.UtilityLabel);
+            this.Controls.Add(this.ArmorLabel);
+            this.Controls.Add(this.WeaponLabel);
             this.Controls.Add(this.PlayerPic);
             this.Controls.Add(this.Weapon);
             this.Controls.Add(this.Armor);
@@ -296,6 +332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Weapon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerPic)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -318,5 +355,8 @@
         private System.Windows.Forms.PictureBox Armor;
         private System.Windows.Forms.PictureBox Weapon;
         private System.Windows.Forms.PictureBox PlayerPic;
+        private System.Windows.Forms.Label WeaponLabel;
+        private System.Windows.Forms.Label ArmorLabel;
+        private System.Windows.Forms.Label UtilityLabel;
     }
 }
