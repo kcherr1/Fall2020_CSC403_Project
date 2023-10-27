@@ -142,6 +142,8 @@ namespace Fall2020_CSC403_Project {
 
     // Starts the dialague for an enemy, which in turn will start the battle once it is over
     private void StartDialogueThenBattle(Dialogue d) {
+            player.ResetMoveSpeed();
+            player.MoveBack();
             dialogueBox.SetCurrentDialogue(d);
             if (!dialogueBox.IsShown && !d.happened)
             {
@@ -165,8 +167,8 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
+      // player.ResetMoveSpeed();
+      // player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
 
