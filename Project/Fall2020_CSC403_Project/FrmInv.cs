@@ -17,7 +17,6 @@ namespace Fall2020_CSC403_Project
     {
         public static FrmInv instance = null;
         public PictureBox[] InvSlots = new PictureBox[9];
-        private Enemy enemy;
         private Player player;
         public int selected;
         public PictureBox[] PictureBoxes;

@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
@@ -136,11 +135,13 @@
     <Content Include="data\common_dagger.png" />
     <Content Include="data\common_hammer.png" />
     <Content Include="data\common_sword.png" />
+    <None Include="data\InvButton.png" />
     <Content Include="data\rare_dagger.png" />
     <Content Include="data\greather_health_potion.png" />
     <Content Include="data\lesser_health_potion.png" />
     <Content Include="data\rare_armor.png" />
     <Content Include="data\rare_sword.png" />
+    <None Include="Resources\InvButton.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
