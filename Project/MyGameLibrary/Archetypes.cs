@@ -3,7 +3,9 @@ using System.Drawing;
 using System.Dynamic;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
+using Fall2020_CSC403_Project;
 
 namespace Fall2020_CSC403_Project.code
 {
@@ -43,6 +45,12 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 5;
             baseSpeed = 0;
             archetypeDamage = 5;
+            //image = new PictureBox
+            //{
+            //    Size = new Size(50, 50),
+            //    Location = new Point(0, 0),
+            //    SizeMode = PictureBoxSizeMode.StretchImage,
+            //};
         }
     }
 
