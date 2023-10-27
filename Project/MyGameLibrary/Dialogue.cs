@@ -32,7 +32,6 @@ namespace Fall2020_CSC403_Project.code
         }
 
         public String GetNextLine () {
-            Console.WriteLine(lineNumber);
             String lineToReturn = lines[lineNumber];
             lineNumber++;
             return lineToReturn;

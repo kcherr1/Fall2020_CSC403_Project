@@ -179,8 +179,18 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       bool characterMoving = false;
-      if (dialogueBox.IsShown)
+            if (dialogueBox.IsShown)
             {
+                switch (e.KeyCode)
+                {
+                    case Keys.Space:
+                        ContinueDialogue();
+                        break;
+
+                    default:
+                        player.ResetMoveSpeed();
+                        break;
+                }
                 player.ResetMoveSpeed();
                 return;
             }
@@ -204,6 +214,10 @@ namespace Fall2020_CSC403_Project {
                     player.GoDown();
                     player._movementBools[3] = true;
                     break;
+
+                case Keys.Space:
+                    ContinueDialogue();
+                    break;
           
         default:
           player.ResetMoveSpeed();
@@ -212,10 +226,7 @@ namespace Fall2020_CSC403_Project {
       player.SetCharacterMoving(characterMoving);
     }
 
-    // Used to recognize mouse1 clicks 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
-    }
-        private void picDialogueBox_Click(object sender, EventArgs e)
+    private void ContinueDialogue()
         {
             // this first if statement prevents the player from spamming the dialogue box, 
             // meaning the current line has to end before going to the next line
@@ -227,7 +238,8 @@ namespace Fall2020_CSC403_Project {
             {
                 dialogueBox.HideBox();
                 Enemy dialogueEnemy = dialogueBox.getEnemy();
-                if (dialogueEnemy != null) {
+                if (dialogueEnemy != null)
+                {
                     Fight(dialogueEnemy);
                 }
             }
@@ -235,6 +247,19 @@ namespace Fall2020_CSC403_Project {
             {
                 dialogueBox.GetNextText();
             }
+        }
+
+    // Used to recognize mouse1 clicks 
+    private void lblInGameTime_Click(object sender, EventArgs e) {
+    }
+        private void picDialogueBox_Click(object sender, EventArgs e)
+        {
+            ContinueDialogue();
+        }
+
+        private void dialogLabel_Click(object sender, EventArgs e)
+        {
+            ContinueDialogue();
         }
     }
 }

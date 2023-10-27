@@ -319,9 +319,10 @@
             this.dialogLabel.Location = new System.Drawing.Point(220, 718);
             this.dialogLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dialogLabel.Name = "dialogLabel";
-            this.dialogLabel.Size = new System.Drawing.Size(107, 24);
+            this.dialogLabel.Size = new System.Drawing.Size(152, 31);
             this.dialogLabel.TabIndex = 19;
             this.dialogLabel.Text = "dialogLabel";
+            this.dialogLabel.Click += new System.EventHandler(this.dialogLabel_Click);
             // 
             // FrmLevel
             // 
