@@ -49,6 +49,7 @@ namespace Fall2020_CSC403_Project.code
             this.Name = Name;
             this.Pic = Pic;
             this.Position = initPos;
+            this.LastPosition = Position;
             this.Collider = collider;
             this.LastPosition = Position;
         }
@@ -111,7 +112,6 @@ namespace Fall2020_CSC403_Project.code
 
         public void SetEntityPosition(Position pos)
         {
-            Debug.WriteLine(pos.x + " " + pos.y);
             this.Position = pos;
             Collider.MovePosition((int)pos.x, (int)pos.y);
             this.Pic.Visible = true; // remove later

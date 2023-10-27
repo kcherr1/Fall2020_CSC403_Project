@@ -194,20 +194,24 @@ namespace Fall2020_CSC403_Project
 			BlackSquare.Visible = true;
 			BlackSquare.BringToFront();
 
-			int centerText = (this.Width / 2) - (GameOverText.Width / 2);
+			// find the x-coordinate to perfectly center the GameOverText
+			int centerGameOverText = (this.Width / 2) - (GameOverText.Width / 2);
 
-            GameOverText.Location = new Point(centerText, 100);
+            GameOverText.Location = new Point(centerGameOverText, 100);
             GameOverText.Visible = true;
 			GameOverText.BringToFront();
 
+			// find the x-coordinate to offset the RestartButton from the center so that it's symmetrical
 			int centerRestartButton = (this.Width / 2) - (RestartButton.Width / 2);
 
+			
 			RestartButton.Enabled = true;
 			RestartButton.Location = new Point(centerRestartButton - 150, 400);
 			RestartButton.Size = new Size(100, 30);
             RestartButton.Visible = true;
 			RestartButton.BringToFront();
 
+            // find the x-coordinate to offset the ExitButton from the center so that it's symmetrical
             int centerExitButton = (this.Width / 2) - (ExitButton.Width / 2);
 
             ExitButton.Enabled = true;
@@ -264,6 +268,7 @@ namespace Fall2020_CSC403_Project
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
+			// Most of this function will contain functions for levels that Carter will be making.
 			foreach (Control ctrl in this.Controls)
 			{
 				ctrl.Visible = true;
@@ -282,8 +287,15 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket.RestoreHealth();
             player.RestoreHealth();
 
-			player.SetEntityPosition(new Position(178, 500));
-			player.EmptyInventory();
+			
+            player = new Player("Peanut", picPlayer, CreatePosition(picPlayer), CreateCollider(picPlayer, 7), new Rogue());
+            player.SetEntityPosition(new Position(178, 500));
+			Game.player = player;
+
+			for (int i = 0; i < items.Length; i++)
+			{
+				items[i].RestoreEntity();
+			}
 
 			timeBegin = DateTime.Now;
         }
