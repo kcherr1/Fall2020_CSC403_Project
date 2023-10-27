@@ -48,6 +48,7 @@ namespace Fall2020_CSC403_Project.code
             this.Name = Name;
             this.Pic = Pic;
             this.Position = initPos;
+            this.LastPosition = Position;
             this.Collider = collider;
         }
 
@@ -91,6 +92,7 @@ namespace Fall2020_CSC403_Project.code
 
 		public void RemoveEntity()
 		{
+            this.LastPosition = Position;
 			this.Position = new Position(-100, -100);
             Collider.MovePosition((int)Position.x, (int)Position.y);
 			this.Pic.Visible = false;
