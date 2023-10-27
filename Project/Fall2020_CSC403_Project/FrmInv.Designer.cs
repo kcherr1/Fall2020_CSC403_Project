@@ -316,7 +316,9 @@
             this.Controls.Add(this.Exit_Inventory);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmInv";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmInv_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Inv1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inv9)).EndInit();

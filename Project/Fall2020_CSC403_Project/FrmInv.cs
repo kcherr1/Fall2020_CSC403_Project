@@ -120,6 +120,8 @@ namespace Fall2020_CSC403_Project
 
         }
 
+
+
         // closes inv
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -151,7 +153,10 @@ namespace Fall2020_CSC403_Project
                 RefreshInvImages();
             }
             else { }
-            PictureBoxes[selected - 1].BackColor = Color.DimGray;
+            if (selected > 0)
+            {
+                PictureBoxes[selected - 1].BackColor = Color.DimGray;
+            }
             selected = 0;
 
         }
@@ -182,7 +187,10 @@ namespace Fall2020_CSC403_Project
                 }
                 else { }
 
-                PictureBoxes[selected - 1].BackColor = Color.DimGray;
+                if (selected > 0)
+                {
+                    PictureBoxes[selected - 1].BackColor = Color.DimGray;
+                }
                 selected = 0;
 
             }
@@ -195,7 +203,10 @@ namespace Fall2020_CSC403_Project
                 player.Inventory.DropItem(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                 player.Inventory.RemoveFromBackpack(selected - 1);
             }
-            PictureBoxes[selected - 1].BackColor = Color.DimGray;
+            if (selected > 0)
+            {
+                PictureBoxes[selected - 1].BackColor = Color.DimGray;
+            }
             selected = 0;
             RefreshInvImages();
         }
