@@ -1,0 +1,21 @@
+version: 2
+
+# Build environment
+build:
+  image: latest
+
+# Specify your projects
+project:
+  - name: Fall2020_CSC403_Project
+    path: ./Fall2020_CSC403_Project
+    version: latest
+    language: csharp
+    installer: windows
+    system_packages: true
+
+  - name: MyGameLibrary
+    path: ./MyGameLibrary
+    version: latest
+    language: csharp
+    installer: windows
+    system_packages: true
