@@ -116,6 +116,9 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="item-system\interfaces\IItem.cs" />
+    <Compile Include="item-system\ItemFactory.cs" />
+    <Compile Include="item-system\Items.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
