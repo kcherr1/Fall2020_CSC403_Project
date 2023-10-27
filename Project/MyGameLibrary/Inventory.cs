@@ -179,7 +179,7 @@ namespace MyGameLibrary
         public void DropItem(Item item, Position position, Facing facing)
         {
             Position new_position = new Position(position.x, position.y);
-            new_position.x = facing == Facing.Left ? new_position.x - 40 : new_position.x + 40;
+            new_position.x = facing == Facing.Left ? new_position.x - 200 : new_position.x + 200;
             item.SetEntityPosition(new_position);
         }
 
@@ -190,20 +190,20 @@ namespace MyGameLibrary
             for (int i = 0; i < this.Backpack.Length; i++)
                 if (this.Backpack[i] != null)
                 {
-                    new_position.x = rnd.Next(-40, 40);
-                    new_position.y = rnd.Next(-40, 40);
+                    new_position.x = rnd.Next(-200, 200);
+                    new_position.y = rnd.Next(-200, 200);
                     this.Backpack[i].SetEntityPosition(new_position);
                     this.Backpack[i] = null;
 
                 }
 
-            new_position.x = rnd.Next(-40, 40);
-            new_position.y = rnd.Next(-40, 40);
+            new_position.x = rnd.Next(-200, 200);
+            new_position.y = rnd.Next(-200, 200);
             this.Weapon.SetEntityPosition(new_position);
             this.Weapon = null;
 
-            new_position.x = rnd.Next(-40, 40);
-            new_position.y = rnd.Next(-40, 40);
+            new_position.x = rnd.Next(-200, 200);
+            new_position.y = rnd.Next(-200, 200);
             this.Armor.SetEntityPosition(new_position);
             this.Armor = null;
 

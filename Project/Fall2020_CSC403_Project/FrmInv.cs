@@ -36,8 +36,9 @@ namespace Fall2020_CSC403_Project
 
         public void Setup(Player player)
         {
-            
+
             // update for this Player
+            this.player = player;
             PlayerPic.Image = Fall2020_CSC403_Project.Properties.Resources.player;
             PlayerPic.Refresh();
             PictureBox[] show_inventory = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9 };
@@ -63,7 +64,7 @@ namespace Fall2020_CSC403_Project
                 Utility.Image = player.Inventory.Weapon.Pic.Image;
             }
 
-            
+
 
         }
 
@@ -93,9 +94,13 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void DropButton_Click(object sender, EventArgs e)
-        {
-
+        private void DropButton_Click(object sender, EventArgs e) 
+        { 
+            if(selected > 0) { 
+                player.Inventory.DropItem(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                player.Inventory.RemoveFromBackpack(selected - 1);
+            }
+            this.Refresh();
         }
         private void Inv1_Click(object sender, EventArgs e)
         {

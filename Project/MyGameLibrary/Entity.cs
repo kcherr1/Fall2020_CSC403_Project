@@ -49,6 +49,7 @@ namespace Fall2020_CSC403_Project.code
             this.Pic = Pic;
             this.Position = initPos;
             this.Collider = collider;
+            this.LastPosition = Position;
         }
 
         
@@ -91,7 +92,8 @@ namespace Fall2020_CSC403_Project.code
 
 		public void RemoveEntity()
 		{
-			this.Position = new Position(-100, -100);
+            this.LastPosition = Position;
+            this.Position = new Position(-100, -100);
             Collider.MovePosition((int)Position.x, (int)Position.y);
 			this.Pic.Visible = false;
         }
@@ -99,6 +101,7 @@ namespace Fall2020_CSC403_Project.code
 		public void RestoreEntity()
 		{
 			this.Position = LastPosition;
+            this.LastPosition = Position;
             Collider.MovePosition((int)Position.x, (int)Position.y);
 			this.Pic.Visible = true;
         }
