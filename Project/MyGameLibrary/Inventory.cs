@@ -180,6 +180,10 @@ namespace MyGameLibrary
 
         public void DropItem(Item item, Position position, Facing facing)
         {
+            if (item == null)
+            {
+                return;
+            }
             Position new_position = new Position(position.x, position.y);
             new_position.x = facing == Facing.Left ? new_position.x - item.Pic.Size.Width - 10 : new_position.x + item.Pic.Size.Width + 10;
             item.SetEntityPosition(new_position);
