@@ -1,4 +1,6 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿using System;
+
+namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
@@ -27,6 +29,11 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.GameOverText = new System.Windows.Forms.Label();
+            this.RestartButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.BlackSquare = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.BlackSquare)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -53,13 +60,75 @@
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
+            // GameOverText
+            // 
+            this.GameOverText.AutoSize = true;
+            this.GameOverText.BackColor = System.Drawing.Color.Black;
+            this.GameOverText.Font = new System.Drawing.Font("Algerian", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GameOverText.ForeColor = System.Drawing.Color.Red;
+            this.GameOverText.Location = new System.Drawing.Point(465, 88);
+            this.GameOverText.Name = "GameOverText";
+            this.GameOverText.Size = new System.Drawing.Size(568, 134);
+            this.GameOverText.TabIndex = 21;
+            this.GameOverText.Text = "You Died";
+            this.GameOverText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GameOverText.Visible = false;
+            // 
+            // RestartButton
+            // 
+            this.RestartButton.BackColor = System.Drawing.Color.DarkGray;
+            this.RestartButton.Enabled = false;
+            this.RestartButton.FlatAppearance.BorderSize = 0;
+            this.RestartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RestartButton.Location = new System.Drawing.Point(1099, 740);
+            this.RestartButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RestartButton.Name = "RestartButton";
+            this.RestartButton.Size = new System.Drawing.Size(89, 24);
+            this.RestartButton.TabIndex = 22;
+            this.RestartButton.Text = "Restart";
+            this.RestartButton.UseVisualStyleBackColor = false;
+            this.RestartButton.Visible = false;
+            this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.BackColor = System.Drawing.Color.DarkGray;
+            this.ExitButton.Enabled = false;
+            this.ExitButton.FlatAppearance.BorderSize = 0;
+            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitButton.Location = new System.Drawing.Point(1246, 749);
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(89, 24);
+            this.ExitButton.TabIndex = 23;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = false;
+            this.ExitButton.Visible = false;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
+            // BlackSquare
+            // 
+            this.BlackSquare.Image = global::Fall2020_CSC403_Project.Properties.Resources.tile_void;
+            this.BlackSquare.Location = new System.Drawing.Point(174, 98);
+            this.BlackSquare.Margin = new System.Windows.Forms.Padding(0);
+            this.BlackSquare.Name = "BlackSquare";
+            this.BlackSquare.Size = new System.Drawing.Size(100, 50);
+            this.BlackSquare.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BlackSquare.TabIndex = 24;
+            this.BlackSquare.TabStop = false;
+            this.BlackSquare.Visible = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1568, 894);
+            this.ClientSize = new System.Drawing.Size(1574, 821);
+            this.Controls.Add(this.BlackSquare);
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.RestartButton);
+            this.Controls.Add(this.GameOverText);
             this.Controls.Add(this.lblInGameTime);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -69,6 +138,7 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.BlackSquare)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,6 +148,10 @@
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
+        private System.Windows.Forms.Label GameOverText;
+        private System.Windows.Forms.Button RestartButton;
+        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.PictureBox BlackSquare;
     }
 }
 

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyGameLibrary;
+using System.Runtime.Remoting.Messaging;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
@@ -59,5 +60,15 @@ namespace Fall2020_CSC403_Project.code
             Health += amount;
         }
 
+        public void RestoreHealth()
+        {
+            this.Health = this.MaxHealth;
+        }
+
+        public void EmptyInventory()
+        {
+            this.Inventory = new Inventory();
+        }
+        
     }
 }

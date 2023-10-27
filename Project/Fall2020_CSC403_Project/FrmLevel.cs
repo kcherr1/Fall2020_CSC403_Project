@@ -5,8 +5,10 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Threading;
 
 namespace Fall2020_CSC403_Project
 {
@@ -25,6 +27,7 @@ namespace Fall2020_CSC403_Project
 
         public FrmLevel() {
             this.WindowState = FormWindowState.Maximized;
+            this.Level = 1;
             InitializeComponent();
 
         }
@@ -86,12 +89,9 @@ namespace Fall2020_CSC403_Project
             terrain = new Terrain();
             enemies = new List<Enemy> { };
 
-			
+            this.player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
+            LevelSelect();
 
-
-
-
-            Level1();
 
             InitializeLevel();
             Game.player = player;
@@ -117,7 +117,34 @@ namespace Fall2020_CSC403_Project
 			player.ResetMoveSpeed();
 		}
 
-		private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.A:
+                    player.GoLeft();
+                    break;
+
+                case Keys.D:
+                    player.GoRight();
+                    break;
+
+                case Keys.W:
+                    player.GoUp();
+                    break;
+
+                case Keys.S:
+                    player.GoDown();
+                    break;
+
+                default:
+                    player.ResetMoveSpeed();
+                    break;
+            }
+        }
+
+
+        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
 		{
 			TimeSpan span = DateTime.Now - timeBegin;
 			string time = span.ToString(@"hh\:mm\:ss");
@@ -130,7 +157,7 @@ namespace Fall2020_CSC403_Project
 			player.Move();
 
 			// check collision with walls
-			if (false && HitAWall(player))
+			if (HitAWall(player))
 			{
 				player.MoveBack();
 			}
@@ -155,6 +182,7 @@ namespace Fall2020_CSC403_Project
             }
 
             x = InATile(player);
+            Debug.WriteLine(x);
             if (x >= 0)
             {
                 player.SPEED = (int)terrain.Tiles[x].Effect;
@@ -221,22 +249,19 @@ namespace Fall2020_CSC403_Project
 
         public int InATile(Player you)
         {
-            int InTile = -1;
-            for (int i = 0; i < terrain.Tiles.Count; i++)
-            {
-                if (terrain.Tiles[i].ContainsCharacter(you))
-                {
-                    InTile = i;
-                }
-            }
-            return InTile;
+            int x = ((int)you.Position.x + you.Pic.Width / 2) / 50;
+            int y = ((int)you.Position.y + you.Pic.Height) / 50;
+
+
+
+            return (x) + (y * this.Width / 50);
         }
 
 		private void Fight(Enemy enemy)
 		{
 			player.ResetMoveSpeed();
 			player.MoveBack();
-			frmBattle = FrmBattle.GetInstance(enemy);
+			frmBattle = FrmBattle.GetInstance(this, enemy);
 			frmBattle.Show();
 
             if (enemy.name == "BossKoolAid")
@@ -245,57 +270,54 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        
+		public void GameOver()
+		{
+			ClearWindow();
 
-        private void LoadBattle(Enemy enemy)
-        {
-            ClearWindow();
+			// set the location and size of the square 
+			// to the location and size of the form
+			BlackSquare.Location = this.Location;
+			BlackSquare.Size = this.Size;
 
+			BlackSquare.Visible = true;
+			BlackSquare.BringToFront();
+
+			// find the x-coordinate to perfectly center the GameOverText
+			int centerGameOverText = (this.Width / 2) - (GameOverText.Width / 2);
+
+            GameOverText.Location = new Point(centerGameOverText, 100);
+            GameOverText.Visible = true;
+			GameOverText.BringToFront();
+
+			// find the x-coordinate to offset the RestartButton from the center so that it's symmetrical
+			int centerRestartButton = (this.Width / 2) - (RestartButton.Width / 2);
+
+			
+			RestartButton.Enabled = true;
+			RestartButton.Location = new Point(centerRestartButton - 150, 400);
+			RestartButton.Size = new Size(100, 30);
+            RestartButton.Visible = true;
+			RestartButton.BringToFront();
+
+            // find the x-coordinate to offset the ExitButton from the center so that it's symmetrical
+            int centerExitButton = (this.Width / 2) - (ExitButton.Width / 2);
+
+            ExitButton.Enabled = true;
+            ExitButton.Location = new Point(centerExitButton + 150, 400);
+            ExitButton.Size = new Size(100, 30);
+            ExitButton.Visible = true;
+			ExitButton.BringToFront();
         }
 
 
         private void ClearWindow()
         {
-            //player.RemoveEntity();
-            
-			for (int e = 0; 0 < enemies.Count; e++) { }
-            for (int w = 0; w < terrain.Walls.Count; w++)
-            {
-                terrain.Walls[w].RemoveWall();
-            }
-			for (int t = 0; t < terrain.Tiles.Count; t++)
+			// iterate through the controls and make them invisible
+			foreach (Control ctrl in this.Controls)
 			{
-				terrain.Tiles[t].RemoveTile();
+				ctrl.Visible = false;
 			}
-
-        }
-
-
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.A:
-                    player.GoLeft();
-                    break;
-
-                case Keys.D:
-                    player.GoRight();
-                    break;
-
-                case Keys.W:
-                    player.GoUp();
-                    break;
-
-                case Keys.S:
-                    player.GoDown();
-                    break;
-
-                default:
-                    player.ResetMoveSpeed();
-                    break;
-            }
-        }
+		}
 
 
         private void AddEnemy(Enemy enemy)
@@ -303,17 +325,73 @@ namespace Fall2020_CSC403_Project
             enemies.Add(enemy);
         }
 
+        
+
+
+        private void RestartButton_Click(object sender, EventArgs e)
+        {
+
+            foreach (Control ctrl in this.Controls)
+            {
+                ctrl.Visible = true;
+            }
+
+            BlackSquare.Visible = false;
+            GameOverText.Visible = false;
+            RestartButton.Visible = false;
+            ExitButton.Visible = false;
+
+            RestartButton.Enabled = false;
+            ExitButton.Enabled = false;
+
+            player.RestoreHealth();
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                enemies[i].RestoreHealth();
+            }
+            for (int i = 0; i < terrain.Items.Count; i++)
+            {
+                terrain.Items[i].RestoreEntity();
+            }
+            for (int i = 0; i < terrain.Walls.Count; i++)
+            {
+                terrain.Walls[i].RestoreWall();
+            }
+
+            this.Level = 1;
+            LevelSelect();
+            InitializeLevel();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+			this.Close();
+        }
+
+        private void LevelSelect()
+        {
+            switch(this.Level)
+            {
+                case 1:
+                    Level1();
+                    break;
+                default:
+                    Level1();
+                    break;
+            }
+        }
+
         private void Level1()
         {
+            player.SetEntityPosition(new Position(100, this.Height - 200));
+
             int grid_width = this.Width / 50;
             int grid_height = this.Height / 50;
 
             terrain.GenerateTerrain(grid_height, grid_width, 1);
 
+
             terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), new Size(50, 50)), 5, Item.ItemType.Weapon));
-
-            this.player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
-
 
             AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Swordsman()));
             AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Rogue()));

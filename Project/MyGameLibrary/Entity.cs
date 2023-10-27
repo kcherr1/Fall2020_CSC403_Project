@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Resources;
@@ -63,6 +64,7 @@ namespace Fall2020_CSC403_Project.code
         {
             this.MoveSpeed = new Position(-SPEED, 0);
             this.facing = Facing.Left;
+
         }
         public void GoRight()
         {
@@ -85,6 +87,7 @@ namespace Fall2020_CSC403_Project.code
 
 		public void RemoveEntity()
 		{
+            this.LastPosition = Position;
 			this.Position = new Position(-100, -100);
             Collider.MovePosition((int)Position.x, (int)Position.y);
 			this.Pic.Visible = false;

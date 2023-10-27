@@ -18,13 +18,6 @@ namespace Fall2020_CSC403_Project.code
         public List<Tile> Tiles { get; set; }
 
 
-        public Terrain(Item[] items, Wall[] walls, Tile[] tiles)
-        {
-            this.Items = items.ToList();
-            this.Walls = walls.ToList();
-            this.Tiles = tiles.ToList();
-        }
-
         public Terrain ()
         {
             this.Items = new List<Item>();
@@ -51,6 +44,7 @@ namespace Fall2020_CSC403_Project.code
 
         public void GenerateTerrain(int height, int width, int seed, double amplification = 0)
         {
+            Tiles = new List<Tile> {};
             Random random = new Random(seed);
             double[][] tiles = new double[height][];
             for (int i = 0; i < height; i++)
