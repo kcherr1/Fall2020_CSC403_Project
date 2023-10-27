@@ -20,6 +20,7 @@ namespace Fall2020_CSC403_Project
     private DateTime timeBegin;
     private FrmBattle frmBattle;
         private List<Item> itemsList;
+        private int rng;
 
 
         public FrmLevel()
@@ -108,6 +109,27 @@ namespace Fall2020_CSC403_Project
                 picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                 picArrow.Hide();
             }
+
+            //check if projectile hits an enemy
+            if (ProjHitAEnemy(arrow, enemyPoisonPacket))
+            {
+                enemyPoisonPacket.AlterHealth(arrow.Damage);
+                picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                picArrow.Hide();
+            }
+            else if (ProjHitAEnemy(arrow, enemyCheeto))
+            {
+                enemyCheeto.AlterHealth(arrow.Damage);
+                picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                picArrow.Hide();
+            }
+            else if (ProjHitAEnemy(arrow, bossKoolaid))
+            {
+                bossKoolaid.AlterHealth(arrow.Damage);
+                picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                picArrow.Hide();
+            }
+
             // update position if object is inFlight
             if (arrow.inFlight)
             {
@@ -211,6 +233,11 @@ namespace Fall2020_CSC403_Project
         private bool HitAChar(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
+        }
+
+        private bool ProjHitAEnemy(Projectile p, Character other)
+        {
+            return p.Collider.Intersects(other.Collider);
         }
 
         private void Fight(Enemy enemy)
@@ -404,6 +431,87 @@ namespace Fall2020_CSC403_Project
         public void onFormClosed(object sender, FormClosedEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void tmrCheetoMove_Tick(object sender, EventArgs e)
+        {
+            if (enemyCheeto.Health > 0)
+            {
+                enemyCheeto.Move();
+
+                if (HitAWall(enemyCheeto))
+                {
+                    enemyCheeto.MoveBack();
+                }
+                else
+                {
+                    Random rnd = new Random();
+                    rng = rnd.Next(4);
+
+                    switch (rng)
+                    {
+                        case 0:
+                            enemyCheeto.GoLeft();
+                            break;
+
+                        case 1:
+                            enemyCheeto.GoRight();
+                            break;
+
+                        case 2:
+                            enemyCheeto.GoUp();
+                            break;
+
+                        case 3:
+                            enemyCheeto.GoDown();
+                            break;
+
+                    }
+
+                }
+                picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
+            }
+        }
+
+        private void tmrPoisonMove_Tick(object sender, EventArgs e)
+        {
+            if (enemyPoisonPacket.Health > 0)
+            {
+                enemyPoisonPacket.Move();
+
+                if (HitAWall(enemyPoisonPacket))
+                {
+                    enemyPoisonPacket.MoveBack();
+                }
+                else
+                {
+                    Random rnd = new Random();
+                    rng = rnd.Next(4);
+
+                    switch (rng)
+                    {
+                        case 0:
+                            enemyPoisonPacket.GoLeft();
+                            break;
+
+                        case 1:
+                            enemyPoisonPacket.GoRight();
+                            break;
+
+                        case 2:
+                            enemyPoisonPacket.GoUp();
+                            break;
+
+                        case 3:
+                            enemyPoisonPacket.GoDown();
+                            break;
+
+                    }
+
+                }
+                
+                picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
+            }
         }
     }
 }

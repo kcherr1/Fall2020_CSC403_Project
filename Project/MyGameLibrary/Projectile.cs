@@ -12,7 +12,7 @@ namespace MyGameLibrary
         public bool inFlight = false;
         private const int GO_INC = 6;
 
-        public int Damage = 4;
+        public int Damage = -1;
         public Vector2 Position { get; set; }
         public Collider Collider { get; private set; }
         public Projectile(Vector2 initPos, Collider collider)
@@ -20,7 +20,7 @@ namespace MyGameLibrary
             Position = initPos;
             Collider = collider;
         }
-
+        // Calculates which direction to shoot the arrow
         public void arrowMove(string direction)
         {
             int xPos = 0;
