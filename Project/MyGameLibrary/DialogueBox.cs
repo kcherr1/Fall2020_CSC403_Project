@@ -12,6 +12,8 @@ namespace Fall2020_CSC403_Project.code {
         public Label DialogueLabel { get; set; }
 
         public bool IsShown = true;
+        public bool IsTyping = false;
+
         string defaultText = "default line";
 
         int[] shownPoint = { 149, 567 };
@@ -64,6 +66,7 @@ namespace Fall2020_CSC403_Project.code {
 
         public async void TypeText(String givenLine) {
             String text = "";
+            IsTyping = true;
             for (int i = 0; i < givenLine.Length; i++) {
                 text = text + givenLine[i];
                 DialogueLabel.Text = text;
@@ -72,6 +75,7 @@ namespace Fall2020_CSC403_Project.code {
                  */
                 await TextDelay(currentDialogue.GetLineSpeed());
             }
+            IsTyping = false;
         }
 
         public bool IsLastLine() {

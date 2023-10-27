@@ -215,7 +215,13 @@ namespace Fall2020_CSC403_Project {
     }
         private void picDialogueBox_Click(object sender, EventArgs e)
         {
-            if (dialogueBox.IsLastLine())
+            // this first if statement prevents the player from spamming the dialogue box, 
+            // meaning the current line has to end before going to the next line
+            if (dialogueBox.IsTyping)
+            {
+                ;
+            }
+            else if (dialogueBox.IsLastLine())
             {
                 dialogueBox.HideBox();
                 Enemy dialogueEnemy = dialogueBox.getEnemy();
