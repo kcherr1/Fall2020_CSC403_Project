@@ -102,9 +102,10 @@ namespace Fall2020_CSC403_Project.code
 
         public void SetEntityPosition(Position pos)
         {
-            this.Position = pos;
-            Collider.MovePosition((int)pos.x, (int)pos.y);
-            this.Pic.Visible = true; // remove later
+            this.LastPosition = Position;
+            this.Position = pos; ;
+            Collider.MovePosition((int)Position.x, (int)Position.y);
+            this.Pic.Visible = false;
         }
 
 

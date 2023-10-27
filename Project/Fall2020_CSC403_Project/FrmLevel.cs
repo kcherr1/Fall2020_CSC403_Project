@@ -12,49 +12,70 @@ using System.Threading;
 
 namespace Fall2020_CSC403_Project
 {
-	public partial class FrmLevel : Form
-	{
-		private Player player;
-		private List<Enemy> enemies;
+    public partial class FrmLevel : Form
+    {
+        private Player player;
+        private List<Enemy> enemies;
         private Terrain terrain;
 
         public int Level { get; set; }
-        public bool gameOver = false;
+
+        public bool gameOver { get; set; }
 
 
         private DateTime timeBegin;
-		private FrmBattle frmBattle;
+        private FrmBattle frmBattle;
 
-        public FrmLevel() {
+        public FrmLevel()
+        {
+            this.gameOver = false;
             this.WindowState = FormWindowState.Maximized;
             this.Level = 1;
             InitializeComponent();
 
         }
 
-		private void InitializeLevel()
-		{
 
-			if (terrain != null)
-			{
-				if (terrain.Tiles != null)
-				{
+        private void FrmLevel_Load(object sender, EventArgs e)
+        {
+
+            terrain = new Terrain();
+            enemies = new List<Enemy> { };
+
+            this.player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
+            LevelSelect();
+
+
+            InitializeLevelLayout();
+            Game.player = player;
+            timeBegin = DateTime.Now;
+
+
+        }
+
+        private void InitializeLevelLayout()
+        {
+
+            if (terrain != null)
+            {
+                if (terrain.Tiles != null)
+                {
                     for (int i = 0; i < terrain.Tiles.Count; i++)
                     {
                         this.Controls.Add(terrain.Tiles[i].Pic);
                         terrain.Tiles[i].Pic.SendToBack();
                     }
                 }
-				if (terrain.Walls != null)
-				{
+                if (terrain.Walls != null)
+                {
                     for (int i = 0; i < terrain.Walls.Count; i++)
                     {
                         this.Controls.Add(terrain.Walls[i].Pic);
                         terrain.Walls[i].Pic.BringToFront();
                     }
                 }
-				if (terrain.Items != null)
-				{
+                if (terrain.Items != null)
+                {
                     for (int i = 0; i < terrain.Items.Count; i++)
                     {
                         this.Controls.Add(terrain.Items[i].Pic);
@@ -64,8 +85,8 @@ namespace Fall2020_CSC403_Project
             }
 
 
-			if (enemies != null)
-			{
+            if (enemies != null)
+            {
                 for (int i = 0; i < enemies.Count; i++)
                 {
                     this.Controls.Add(enemies[i].Pic);
@@ -82,24 +103,6 @@ namespace Fall2020_CSC403_Project
 
         }
 
-
-		private void FrmLevel_Load(object sender, EventArgs e)
-		{
-			
-            terrain = new Terrain();
-            enemies = new List<Enemy> { };
-
-            this.player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
-            LevelSelect();
-
-
-            InitializeLevel();
-            Game.player = player;
-            timeBegin = DateTime.Now;
-
-
-        }
-
         public PictureBox MakePictureBox(Bitmap pic, Point location, Size Size)
         {
             return new PictureBox
@@ -113,9 +116,9 @@ namespace Fall2020_CSC403_Project
         }
 
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
-		{
-			player.ResetMoveSpeed();
-		}
+        {
+            player.ResetMoveSpeed();
+        }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
@@ -145,72 +148,75 @@ namespace Fall2020_CSC403_Project
 
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
-		{
-			TimeSpan span = DateTime.Now - timeBegin;
-			string time = span.ToString(@"hh\:mm\:ss");
-			lblInGameTime.Text = "Time: " + time.ToString();
-		}
+        {
+            TimeSpan span = DateTime.Now - timeBegin;
+            string time = span.ToString(@"hh\:mm\:ss");
+            lblInGameTime.Text = "Time: " + time.ToString();
+        }
 
-		private void tmrPlayerMove_Tick(object sender, EventArgs e)
-		{
-			// move player
-			player.Move();
+        private void tmrPlayerMove_Tick(object sender, EventArgs e)
+        {
+            if (gameOver)
+            {
+                return;
+            }
 
-			// check collision with walls
-			if (HitAWall(player))
-			{
-				player.MoveBack();
-			}
+            // move player
+            player.Move();
 
-			// check collision with enemies
-			int x = HitAChar(player);
-			if (x >= 0)
-			{
-				Fight(enemies[x]);
-			}
+            // check collision with walls
+            if (HitAWall(player))
+            {
+                player.MoveBack();
+            }
+
+            // check collision with enemies
+            int x = HitAChar(player);
+            if (x >= 0)
+            {
+                Fight(enemies[x]);
+            }
 
 
-			x = HitAnItem(player);
-			if (x >= 0)
-			{
-				if (!player.Inventory.BackpackIsFull())
-				{
+            x = HitAnItem(player);
+            if (x >= 0)
+            {
+                if (!player.Inventory.BackpackIsFull())
+                {
                     player.Inventory.AddToBackpack(terrain.Items[x]);
                     terrain.Items[x].RemoveEntity();
                 }
-                
+
             }
 
             x = InATile(player);
-            Debug.WriteLine(x);
             if (x >= 0)
             {
                 player.SPEED = (int)terrain.Tiles[x].Effect;
-            } 
+            }
 
-            
-		}
+        }
 
-		private bool HitAWall(Player c)
-		{
-			bool hitAWall = false;
-			for (int w = 0; w < terrain.Walls.Count; w++)
-			{
-				if (c.Collider.Intersects(terrain.Walls[w].Collider))
-				{
-					hitAWall = true;
-					break;
-				}
-			}
-			return hitAWall;
-		}
+        private bool HitAWall(Player c)
+        {
+            bool hitAWall = false;
+            for (int w = 0; w < terrain.Walls.Count; w++)
+            {
+                if (c.Collider.Intersects(terrain.Walls[w].Collider))
+                {
+                    hitAWall = true;
+                    break;
+                }
+            }
+            return hitAWall;
+        }
 
-		private int HitAChar(Player you)
-		{
-			if (enemies == null)
-			{
-				return -1;
-			}
+        private int HitAChar(Player you)
+        {
+            if (enemies == null)
+            {
+                return -1;
+            }
             int hitChar = -1;
             for (int i = 0; i < enemies.Count; i++)
             {
@@ -226,26 +232,26 @@ namespace Fall2020_CSC403_Project
             return hitChar;
         }
 
-		private int HitAnItem(Player you)
-		{
+        private int HitAnItem(Player you)
+        {
             if (terrain.Items == null)
             {
                 return -1;
             }
             int hitItem = -1;
-			for (int i = 0; i < terrain.Items.Count; i++)
-			{
-				if (terrain.Items[i] != null)
-				{
+            for (int i = 0; i < terrain.Items.Count; i++)
+            {
+                if (terrain.Items[i] != null)
+                {
                     if (you.Collider.Intersects(terrain.Items[i].Collider))
                     {
                         hitItem = i;
                         break;
                     }
                 }
-			}
-			return hitItem;
-		}
+            }
+            return hitItem;
+        }
 
         public int InATile(Player you)
         {
@@ -257,12 +263,12 @@ namespace Fall2020_CSC403_Project
             return (x) + (y * this.Width / 50);
         }
 
-		private void Fight(Enemy enemy)
-		{
-			player.ResetMoveSpeed();
-			player.MoveBack();
-			frmBattle = FrmBattle.GetInstance(this, enemy);
-			frmBattle.Show();
+        private void Fight(Enemy enemy)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmBattle = FrmBattle.GetInstance(this, enemy);
+            frmBattle.Show();
 
             if (enemy.name == "BossKoolAid")
             {
@@ -270,34 +276,38 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-		public void GameOver()
-		{
-			ClearWindow();
+        public void GameOver()
+        {
+            this.gameOver = true;
+            //this.player.RemoveEntity();
+            this.player.SetEntityPosition(new Position(-100, -100));
+            DisposeLevel();
 
-			// set the location and size of the square 
-			// to the location and size of the form
-			BlackSquare.Location = this.Location;
-			BlackSquare.Size = this.Size;
 
-			BlackSquare.Visible = true;
-			BlackSquare.BringToFront();
+            // set the location and size of the square 
+            // to the location and size of the form
+            BlackSquare.Location = this.Location;
+            BlackSquare.Size = this.Size;
 
-			// find the x-coordinate to perfectly center the GameOverText
-			int centerGameOverText = (this.Width / 2) - (GameOverText.Width / 2);
+            BlackSquare.Visible = true;
+            BlackSquare.BringToFront();
+
+            // find the x-coordinate to perfectly center the GameOverText
+            int centerGameOverText = (this.Width / 2) - (GameOverText.Width / 2);
 
             GameOverText.Location = new Point(centerGameOverText, 100);
             GameOverText.Visible = true;
-			GameOverText.BringToFront();
+            GameOverText.BringToFront();
 
-			// find the x-coordinate to offset the RestartButton from the center so that it's symmetrical
-			int centerRestartButton = (this.Width / 2) - (RestartButton.Width / 2);
+            // find the x-coordinate to offset the RestartButton from the center so that it's symmetrical
+            int centerRestartButton = (this.Width / 2) - (RestartButton.Width / 2);
 
-			
-			RestartButton.Enabled = true;
-			RestartButton.Location = new Point(centerRestartButton - 150, 400);
-			RestartButton.Size = new Size(100, 30);
+
+            RestartButton.Enabled = true;
+            RestartButton.Location = new Point(centerRestartButton - 150, 400);
+            RestartButton.Size = new Size(100, 30);
             RestartButton.Visible = true;
-			RestartButton.BringToFront();
+            RestartButton.BringToFront();
 
             // find the x-coordinate to offset the ExitButton from the center so that it's symmetrical
             int centerExitButton = (this.Width / 2) - (ExitButton.Width / 2);
@@ -306,18 +316,39 @@ namespace Fall2020_CSC403_Project
             ExitButton.Location = new Point(centerExitButton + 150, 400);
             ExitButton.Size = new Size(100, 30);
             ExitButton.Visible = true;
-			ExitButton.BringToFront();
+            ExitButton.BringToFront();
         }
 
 
-        private void ClearWindow()
+        private void DisposeLevel()
         {
-			// iterate through the controls and make them invisible
-			foreach (Control ctrl in this.Controls)
-			{
-				ctrl.Visible = false;
-			}
-		}
+            // iterate through the controls and make them invisible
+
+            for (int i = 0; i < this.enemies.Count; i++)
+            {
+                this.Controls.Remove(this.enemies[i].Pic);
+            }
+            this.enemies = new List<Enemy> { };
+
+
+            for (int i = 0; i < this.terrain.Tiles.Count; i++)
+            {
+                this.Controls.Remove(this.terrain.Tiles[i].Pic);
+            }
+            this.terrain.Tiles.Clear();
+            for (int i = 0; i < this.terrain.Items.Count; i++)
+            {
+                this.Controls.Remove(this.terrain.Items[i].Pic);
+            }
+            this.terrain.Items.Clear();
+            for (int i = 0; i < this.terrain.Walls.Count; i++)
+            {
+                this.Controls.Remove(this.terrain.Walls[i].Pic);
+            }
+            this.terrain.Walls.Clear();
+
+
+        }
 
 
         private void AddEnemy(Enemy enemy)
@@ -325,16 +356,15 @@ namespace Fall2020_CSC403_Project
             enemies.Add(enemy);
         }
 
-        
+
 
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
 
-            foreach (Control ctrl in this.Controls)
-            {
-                ctrl.Visible = true;
-            }
+
+            this.gameOver = false;
+            this.player.RestoreHealth();
 
             BlackSquare.Visible = false;
             GameOverText.Visible = false;
@@ -344,23 +374,19 @@ namespace Fall2020_CSC403_Project
             RestartButton.Enabled = false;
             ExitButton.Enabled = false;
 
-            terrain = new Terrain();
-            this.enemies.Clear();
-            player = new Player(player.Name, player.Pic, player.archetype);
-
             this.Level = 1;
             LevelSelect();
-            InitializeLevel();
+            InitializeLevelLayout();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-			this.Close();
+            this.Close();
         }
 
         private void LevelSelect()
         {
-            switch(this.Level)
+            switch (this.Level)
             {
                 case 1:
                     Level1();
@@ -373,20 +399,20 @@ namespace Fall2020_CSC403_Project
 
         private void Level1()
         {
-            player.SetEntityPosition(new Position(100, this.Height - 200));
+            player.SetEntityPosition(new Position(100, 700));
+            player.Pic.Visible = true;
 
             int grid_width = this.Width / 50;
             int grid_height = this.Height / 50;
 
             terrain.GenerateTerrain(grid_height, grid_width, 1);
 
-
             terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), new Size(50, 50)), 5, Item.ItemType.Weapon));
             terrain.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), new Size(50, 50)), 5, Item.ItemType.Utility));
 
             AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Swordsman()));
             AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Rogue()));
-            AddEnemy(new Enemy("KoolAidMan", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Tank()));
+            AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Tank()));
 
         }
     }
