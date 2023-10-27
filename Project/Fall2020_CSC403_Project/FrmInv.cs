@@ -211,6 +211,25 @@ namespace Fall2020_CSC403_Project
             RefreshInvImages();
         }
 
+        // not functional, will let you use utility later
+        private void UseItem_Click(object sender, EventArgs e)
+        {
+            if (selected == 12)
+            {
+               //use utility player.Inventory.Utility.
+            }
+            else
+            {
+
+            }
+
+            if (selected > 0)
+            {
+                PictureBoxes[selected - 1].BackColor = Color.DimGray;
+            }
+            selected = 0;
+        }
+
 
         // everything below here is just handling what happens when a user selects an item (color and recolor of background)
         private void Inv1_Click(object sender, EventArgs e)
@@ -331,5 +350,7 @@ namespace Fall2020_CSC403_Project
             selected = 12;
             Utility.BackColor = Color.WhiteSmoke;
         }
+
+
     }
 }

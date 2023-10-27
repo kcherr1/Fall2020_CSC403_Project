@@ -49,6 +49,7 @@
             this.WeaponLabel = new System.Windows.Forms.Label();
             this.ArmorLabel = new System.Windows.Forms.Label();
             this.UtilityLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Inv1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inv9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Inv8)).BeginInit();
@@ -286,6 +287,16 @@
             this.UtilityLabel.TabIndex = 26;
             this.UtilityLabel.Text = "Utility";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(649, 417);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 45);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Use Item";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.UseItem_Click);
+            // 
             // FrmInv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,6 +304,7 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(967, 522);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.UtilityLabel);
             this.Controls.Add(this.ArmorLabel);
             this.Controls.Add(this.WeaponLabel);
@@ -360,5 +372,6 @@
         private System.Windows.Forms.Label WeaponLabel;
         private System.Windows.Forms.Label ArmorLabel;
         private System.Windows.Forms.Label UtilityLabel;
+        private System.Windows.Forms.Button button1;
     }
 }
