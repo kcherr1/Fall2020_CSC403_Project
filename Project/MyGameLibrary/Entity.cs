@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -92,15 +93,17 @@ namespace Fall2020_CSC403_Project.code
 
 		public void RemoveEntity()
 		{
-            this.LastPosition = Position;
+            this.LastPosition = Position;;
             this.Position = new Position(-100, -100);
             Collider.MovePosition((int)Position.x, (int)Position.y);
 			this.Pic.Visible = false;
+            this.Pic.Location = new Point((int)Position.x, (int)Position.y);
         }
 
 		public void RestoreEntity()
 		{
 			this.Position = LastPosition;
+            this.Pic.Location = new Point((int)Position.x, (int)Position.y);
             this.LastPosition = Position;
             Collider.MovePosition((int)Position.x, (int)Position.y);
 			this.Pic.Visible = true;
@@ -108,9 +111,11 @@ namespace Fall2020_CSC403_Project.code
 
         public void SetEntityPosition(Position pos)
         {
+            Debug.WriteLine(pos.x + " " + pos.y);
             this.Position = pos;
             Collider.MovePosition((int)pos.x, (int)pos.y);
             this.Pic.Visible = true; // remove later
+            this.Pic.Location = new Point((int)Position.x, (int)Position.y);
         }
 
 
