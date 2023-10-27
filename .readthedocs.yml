@@ -3,7 +3,7 @@ version: 2
 # Build environment
 build:
   image: latest
-  os: windows-11
+  os: ubuntu-22.04
 
 # Specify your projects
 project:
