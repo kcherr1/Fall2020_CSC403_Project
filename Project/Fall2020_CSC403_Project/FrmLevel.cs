@@ -241,17 +241,6 @@ namespace Fall2020_CSC403_Project
         }
 
 
-        case Keys.P:
-          InGameSettingsPage inGameSettingsPage = new InGameSettingsPage();
-          inGameSettingsPage.Show();
-          break;
-
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
-    }
-
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
@@ -264,10 +253,7 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForBossBattle();
             }
-        }
-
-
-    }          
+        }         
 
         private void StoreItem(HealthItem item)
         {
@@ -301,9 +287,14 @@ namespace Fall2020_CSC403_Project
                         }
                         break;
 
+                    case Keys.P:
+                        InGameSettingsPage inGameSettingsPage = new InGameSettingsPage();
+                        inGameSettingsPage.Show();
+                        break;                  
+
                     case Keys.I:
-                        Inventory_Close();
-                        break;
+                         Inventory_Close();
+                         break;
 
                     case Keys.U:
                         string itemToUseName = player.inventory.itemstorage[player.inventory.selectedItem];
@@ -322,6 +313,7 @@ namespace Fall2020_CSC403_Project
                         break;
 
                     default:
+                        player.ResetMoveSpeed();
                         break;
                 }
             }
@@ -366,6 +358,11 @@ namespace Fall2020_CSC403_Project
                         player.GoDown();
                         if (!arrow.inFlight)
                           playerDirection = "down";
+                        break;
+
+                    case Keys.P:
+                        InGameSettingsPage inGameSettingsPage = new InGameSettingsPage();
+                        inGameSettingsPage.Show();
                         break;
 
                     case Keys.I:
