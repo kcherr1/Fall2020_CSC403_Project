@@ -64,7 +64,7 @@ namespace MyGameLibrary
         public void EquipWeapon(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Weapon;
-            if (item.Type == Item.ItemType.Weapon || item == null)
+            if (item == null || item.Type == Item.ItemType.Weapon)
             {
                 this.Weapon = item;
                 RemoveFromBackpack(item);
@@ -85,7 +85,7 @@ namespace MyGameLibrary
         public void EquipArmor(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Armor;
-            if (item.Type == Item.ItemType.Armor || item == null)
+            if (item == null || item.Type == Item.ItemType.Armor)
             {
                 this.Armor = item;
                 RemoveFromBackpack(item);
@@ -104,7 +104,7 @@ namespace MyGameLibrary
         public void EquipUtility(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Utility;
-            if (item.Type == Item.ItemType.Utility || item == null)
+            if (item == null || item.Type == Item.ItemType.Utility)
             {
                 this.Utility = item;
                 RemoveFromBackpack(item);
