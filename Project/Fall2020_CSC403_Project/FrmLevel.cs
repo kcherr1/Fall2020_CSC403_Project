@@ -3,7 +3,9 @@ using MyGameLibrary;
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Fall2020_CSC403_Project
 {
@@ -20,8 +22,6 @@ namespace Fall2020_CSC403_Project
 
 		private DateTime timeBegin;
 		private FrmBattle frmBattle;
-
-        public bool gameOver = false;
 
         public FrmLevel() {
             InitializeComponent();
@@ -171,7 +171,7 @@ namespace Fall2020_CSC403_Project
 		{
 			player.ResetMoveSpeed();
 			player.MoveBack();
-			frmBattle = FrmBattle.GetInstance(enemy);
+			frmBattle = FrmBattle.GetInstance(this, enemy);
 			frmBattle.Show();
 
             if (enemy == bossKoolaid)
@@ -180,27 +180,50 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        
+		public void GameOver()
+		{
+			ClearWindow();
 
-        private void LoadBattle(Enemy enemy)
-        {
-            ClearWindow();
+			// set the location and size of the square 
+			// to the location and size of the form
+			BlackSquare.Location = this.Location;
+			BlackSquare.Size = this.Size;
 
+			BlackSquare.Visible = true;
+			BlackSquare.BringToFront();
+
+			int centerText = (this.Width / 2) - (GameOverText.Width / 2);
+
+            GameOverText.Location = new Point(centerText, 100);
+            GameOverText.Visible = true;
+			GameOverText.BringToFront();
+
+			int centerRestartButton = (this.Width / 2) - (RestartButton.Width / 2);
+
+			RestartButton.Enabled = true;
+			RestartButton.Location = new Point(centerRestartButton - 150, 400);
+			RestartButton.Size = new Size(100, 30);
+            RestartButton.Visible = true;
+			RestartButton.BringToFront();
+
+            int centerExitButton = (this.Width / 2) - (ExitButton.Width / 2);
+
+            ExitButton.Enabled = true;
+            ExitButton.Location = new Point(centerExitButton + 150, 400);
+            ExitButton.Size = new Size(100, 30);
+            ExitButton.Visible = true;
+			ExitButton.BringToFront();
         }
 
 
         private void ClearWindow()
         {
-            //player.RemoveEntity();
-            bossKoolaid.RemoveEntity();
-            enemyCheeto.RemoveEntity();
-            enemyPoisonPacket.RemoveEntity();
-            for (int w = 0; w < walls.Length; w++)
-            {
-                walls[w].RemoveEntity();
-            }
-
-        }
+			// iterate through the controls and make them invisible
+			foreach (Control ctrl in this.Controls)
+			{
+				ctrl.Visible = false;
+			}
+		}
 
 		private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
 		{
@@ -227,5 +250,36 @@ namespace Fall2020_CSC403_Project
 					break;
 			}
 		}
-	}
+
+        private void RestartButton_Click(object sender, EventArgs e)
+        {
+			foreach (Control ctrl in this.Controls)
+			{
+				ctrl.Visible = true;
+			}
+
+			BlackSquare.Visible = false;
+			GameOverText.Visible = false;
+			RestartButton.Visible = false;
+			ExitButton.Visible = false;
+
+			RestartButton.Enabled = false;
+			ExitButton.Enabled = false;
+
+            bossKoolaid.RestoreHealth();
+            enemyCheeto.RestoreHealth();
+            enemyPoisonPacket.RestoreHealth();
+            player.RestoreHealth();
+
+			player.SetEntityPosition(new Position(178, 500));
+			player.EmptyInventory();
+
+			timeBegin = DateTime.Now;
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+			this.Close();
+        }
+    }
 }
