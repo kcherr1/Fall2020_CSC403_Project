@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -170,9 +171,8 @@ namespace Fall2020_CSC403_Project
         }
 
         private void ShowInven() {
-            frmInventory = FrmInventory.GetInstance(inventory);
+            frmInventory = new FrmInventory(inventory);
             frmInventory.Show();
-            
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
