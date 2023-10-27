@@ -119,9 +119,14 @@ namespace Fall2020_CSC403_Project {
             player.AlterHealth(healthToAdd);
         }
 
+        private void enemyEaten()
+        {
+            //Display enemy eaten notification
+        }
         private void defeatEnemy()
         {
             restoreHealth();
+            enemyEaten();
         }
         private void defeatPlayer()
         {
