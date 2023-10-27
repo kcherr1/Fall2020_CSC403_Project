@@ -9,14 +9,9 @@ namespace Fall2020_CSC403_Project {
     /// Clean up any resources being used.
     /// </summary>
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-      if (disposing && (components != null)) {
-        components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
 
-    #region Windows Form Designer generated code
+
+    //region Windows Form Designer generated code
 
     /// <summary>
     /// Required method for Designer support - do not modify
@@ -469,7 +464,7 @@ namespace Fall2020_CSC403_Project {
 
     }
 
-    #endregion
+
 
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picBossKoolAid;

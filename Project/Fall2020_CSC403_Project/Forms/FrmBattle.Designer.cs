@@ -1,28 +1,29 @@
 ﻿namespace Fall2020_CSC403_Project {
-  partial class FrmBattle {
-    /// <summary>
-    /// Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
+    partial class FrmBattle {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-      if (disposing && (components != null)) {
-        components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-    #region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent() {
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             this.btnAttack = new System.Windows.Forms.Button();
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
@@ -200,24 +201,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             this.ResumeLayout(false);
+        }
 
-    }
 
-    #endregion
-
-    private System.Windows.Forms.PictureBox picPlayer;
-    private System.Windows.Forms.PictureBox picEnemy;
-    private System.Windows.Forms.Button btnAttack;
-    //private System.Windows.Forms.Label lblHit;
-    private System.Windows.Forms.Label lblPlayerHealthFull;
-    private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.Label label2;
-    private System.Windows.Forms.Label lblEnemyHealthFull;
-    private System.Windows.Forms.PictureBox picBossBattle;
-    private System.Windows.Forms.Timer tmrFinalBattle;
-  }
+        private System.Windows.Forms.PictureBox picPlayer;
+        private System.Windows.Forms.PictureBox picEnemy;
+        private System.Windows.Forms.Button btnAttack;
+        private System.Windows.Forms.Label lblHit;
+        private System.Windows.Forms.Label lblPlayerHealthFull;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblEnemyHealthFull;
+        private System.Windows.Forms.PictureBox picBossBattle;
+        private System.Windows.Forms.Timer tmrFinalBattle;
+    
     private System.Windows.Forms.Button btnHeavyAttack;
-    private System.Windows.Forms.Label lblHit;
     private System.Windows.Forms.Label lblDamage;
-  
+}
 }
