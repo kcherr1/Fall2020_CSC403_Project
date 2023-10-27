@@ -344,19 +344,9 @@ namespace Fall2020_CSC403_Project
             RestartButton.Enabled = false;
             ExitButton.Enabled = false;
 
-            player.RestoreHealth();
-            for (int i = 0; i < enemies.Count; i++)
-            {
-                enemies[i].RestoreHealth();
-            }
-            for (int i = 0; i < terrain.Items.Count; i++)
-            {
-                terrain.Items[i].RestoreEntity();
-            }
-            for (int i = 0; i < terrain.Walls.Count; i++)
-            {
-                terrain.Walls[i].RestoreWall();
-            }
+            terrain = new Terrain();
+            this.enemies.Clear();
+            player = new Player(player.Name, player.Pic, player.archetype);
 
             this.Level = 1;
             LevelSelect();

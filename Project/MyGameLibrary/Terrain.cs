@@ -44,7 +44,7 @@ namespace Fall2020_CSC403_Project.code
 
         public void GenerateTerrain(int height, int width, int seed, double amplification = 0)
         {
-            Tiles = new List<Tile> {};
+
             Random random = new Random(seed);
             double[][] tiles = new double[height][];
             for (int i = 0; i < height; i++)
