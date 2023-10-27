@@ -93,7 +93,7 @@
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyCheeto.Location = new System.Drawing.Point(838, 540);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(998, 534);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
             this.picEnemyCheeto.TabIndex = 5;
@@ -192,7 +192,7 @@
             this.picWall9.BackColor = System.Drawing.Color.Transparent;
             this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall9.Location = new System.Drawing.Point(266, 154);
+            this.picWall9.Location = new System.Drawing.Point(251, 169);
             this.picWall9.Name = "picWall9";
             this.picWall9.Size = new System.Drawing.Size(197, 118);
             this.picWall9.TabIndex = 10;
@@ -203,7 +203,7 @@
             this.picWall10.BackColor = System.Drawing.Color.Transparent;
             this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall10.Location = new System.Drawing.Point(653, 89);
+            this.picWall10.Location = new System.Drawing.Point(578, 76);
             this.picWall10.Name = "picWall10";
             this.picWall10.Size = new System.Drawing.Size(228, 162);
             this.picWall10.TabIndex = 11;

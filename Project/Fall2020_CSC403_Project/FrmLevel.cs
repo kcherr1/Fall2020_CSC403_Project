@@ -113,6 +113,7 @@ namespace Fall2020_CSC403_Project {
             if (enemy == bossKoolaid) {
                 frmBattle.SetupForBossBattle();
             }
+
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
