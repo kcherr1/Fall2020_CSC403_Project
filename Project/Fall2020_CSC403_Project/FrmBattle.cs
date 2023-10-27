@@ -12,7 +12,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
-    public bool Blocking;
+    private bool Blocking = false;
 
     private FrmBattle() {
       InitializeComponent();
@@ -80,14 +80,14 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void EnemyDamage(int amount) {
-            if (Blocking != true)
-            { enemy.AlterHealth(amount); }
-            else
-            { Blocking = false; }
-    }
+            enemy.AlterHealth(amount);
+        }
 
     private void PlayerDamage(int amount) {
-            enemy.AlterHealth(amount);
+            if (Blocking != true)
+            { player.AlterHealth(amount); }
+            else
+            { Blocking = false; }
         }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
