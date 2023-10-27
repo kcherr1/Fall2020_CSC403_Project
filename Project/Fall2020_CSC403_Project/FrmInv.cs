@@ -77,19 +77,36 @@ namespace Fall2020_CSC403_Project
                 {
                     show_inventory[i].Image = player.Inventory.Backpack[i].Pic.Image;
                 }
+                else
+                {
+                    show_inventory[i].Image = null;
+                }
             }
             if (player.Inventory.Weapon != null)
             {
                 Weapon.Image = player.Inventory.Weapon.Pic.Image;
             }
+            else
+            {
+                Weapon.Image = null;
+            }
             if (player.Inventory.Armor != null)
             {
                 Armor.Image = player.Inventory.Weapon.Pic.Image;
+            }
+            else
+            {
+                Armor.Image = null;
             }
             if (player.Inventory.Utility != null)
             {
                 Utility.Image = player.Inventory.Weapon.Pic.Image;
             }
+            else
+            {
+                Utility.Image = null;
+            }
+            this.Refresh();
 
         }
 
@@ -111,7 +128,22 @@ namespace Fall2020_CSC403_Project
 
         private void UnequipButton_Click(object sender, EventArgs e)
         {
-
+            if (selected == 10)
+            {
+                player.Inventory.UnEquipWeapon(player.Position, player.facing);
+                RefreshInvImages();
+            }
+            else if (selected == 11)
+            {
+                player.Inventory.UnEquipArmor(player.Position, player.facing);
+                RefreshInvImages();
+            }
+            else if (selected == 12)
+            {
+                player.Inventory.UnEquipUtility(player.Position, player.facing);
+                RefreshInvImages();
+            }
+            else { }
         }
 
         private void EquipButton_Click(object sender, EventArgs e)
@@ -124,7 +156,7 @@ namespace Fall2020_CSC403_Project
                     player.Inventory.RemoveFromBackpack(selected - 1);
                     RefreshInvImages();
                 }
-                else if  (player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Armor)
+                else if (player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Armor)
                 {
                     player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                     player.Inventory.RemoveFromBackpack(selected - 1);
@@ -136,6 +168,7 @@ namespace Fall2020_CSC403_Project
                     player.Inventory.RemoveFromBackpack(selected - 1);
                     RefreshInvImages();
                 }
+                else { }
                 
 
             }
