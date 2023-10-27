@@ -314,7 +314,7 @@
             // 
             this.dialogLabel.AutoSize = true;
             this.dialogLabel.BackColor = System.Drawing.Color.Black;
-            this.dialogLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dialogLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dialogLabel.ForeColor = System.Drawing.Color.White;
             this.dialogLabel.Location = new System.Drawing.Point(220, 718);
             this.dialogLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
