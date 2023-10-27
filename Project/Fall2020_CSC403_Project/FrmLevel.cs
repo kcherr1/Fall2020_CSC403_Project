@@ -19,7 +19,7 @@ namespace Fall2020_CSC403_Project
     public string playerDirection = "right";
     private DateTime timeBegin;
     private FrmBattle frmBattle;
-        private List<Item> itemsList;
+        private List<HealthItem> itemsListHealth;
         private int rng;
 
 
@@ -63,7 +63,7 @@ namespace Fall2020_CSC403_Project
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
-            itemsList = new List<Item>();
+            itemsListHealth = new List<HealthItem>();
             try
             {
                 int w = 0;
@@ -71,7 +71,7 @@ namespace Fall2020_CSC403_Project
                 {
                     string itemname = "LVL1potion" + w.ToString();
                     PictureBox item = Controls.Find(itemname, true)[0] as PictureBox;
-                    itemsList.Add(new HealthItem(CreatePosition(item), CreateCollider(item, PADDING), itemname));
+                    itemsListHealth.Add(new HealthItem(CreatePosition(item), CreateCollider(item, PADDING), itemname));
                     w = w + 1;
                 }
             }
@@ -219,9 +219,9 @@ namespace Fall2020_CSC403_Project
         private bool HitAnItem(Character c)
         {
             bool hitAnItem = false;
-            for (int w = 0; w < itemsList.Count; w++)
+            for (int w = 0; w < itemsListHealth.Count; w++)
             {
-                if (c.Collider.Intersects(itemsList[w].Collider))
+                if (c.Collider.Intersects(itemsListHealth[w].Collider))
                 {
                     hitAnItem = true;
                     break;
@@ -253,9 +253,9 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private void StoreItem(Item item)
+        private void StoreItem(HealthItem item)
         {
-            player.inventory.addItem(item);
+            player.inventory.addHealthItem(item);
             PictureBox pic = Controls.Find(item.NAME, true)[0] as PictureBox;
             pic.Hide();
             pic.Parent = this.inventoryboard;
@@ -290,7 +290,19 @@ namespace Fall2020_CSC403_Project
                         break;
 
                     case Keys.U:
-                        // Determine selected item, use item, remove item from inventory
+                        string itemToUseName = player.inventory.itemstorage[player.inventory.selectedItem];
+                        PictureBox itempic = Controls.Find(itemToUseName, true)[0] as PictureBox;
+
+                        player.inventory.itemDictionary[itemToUseName].useItem(player);
+                        player.inventory.itemstorage.Remove(itemToUseName);
+                        itempic.Dispose();
+
+                        if (player.inventory.selectedItem > 0)
+                        {
+                            player.inventory.selectedItem -= 1;
+                            selectedItem();
+                        }
+                        Inventory_Open();
                         break;
 
                     default:
@@ -351,13 +363,13 @@ namespace Fall2020_CSC403_Project
                 // check collision with item(s)
             if (HitAnItem(player))
             {
-                Item itemHit = null;
-                for (int w = 0; w < itemsList.Count; w++)
+                HealthItem itemHit = null;
+                for (int w = 0; w < itemsListHealth.Count; w++)
                 {
-                    if (player.Collider.Intersects(itemsList[w].Collider))
+                    if (player.Collider.Intersects(itemsListHealth[w].Collider))
                     {
-                        itemHit = itemsList[w];
-                        itemsList.Remove(itemHit);
+                        itemHit = itemsListHealth[w];
+                        itemsListHealth.Remove(itemHit);
                         break;
                     }
                 }
@@ -417,7 +429,6 @@ namespace Fall2020_CSC403_Project
                 selector.Location = new Point(item.Location.X, item.Location.Y + item.Height);
                 selector.Width = item.Width;
                 selector.Height = player.inventory.PADDING / 2;
-                //item.Parent = selector;
             }
         }
 
