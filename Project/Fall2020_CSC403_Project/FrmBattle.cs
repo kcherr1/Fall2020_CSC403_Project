@@ -3,6 +3,7 @@ using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
 using System.Media;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 
@@ -13,11 +14,12 @@ namespace Fall2020_CSC403_Project
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
+        private FrmLevel form;
 
-        private FrmBattle()
-        {
+        private FrmBattle(FrmLevel level) {
             InitializeComponent();
             player = Game.player;
+            form = level;
         }
 
         public void Setup()
@@ -48,11 +50,9 @@ namespace Fall2020_CSC403_Project
             tmrFinalBattle.Enabled = true;
         }
 
-        public static FrmBattle GetInstance(Enemy enemy)
-        {
-            if (instance == null)
-            {
-                instance = new FrmBattle();
+        public static FrmBattle GetInstance(FrmLevel level, Enemy enemy) {
+            if (instance == null) {
+                instance = new FrmBattle(level);
                 instance.enemy = enemy;
                 instance.Setup();
             }
@@ -96,6 +96,7 @@ namespace Fall2020_CSC403_Project
             {
                 instance = null;
                 Close();
+                form.GameOver();
             }
         }
 
