@@ -150,19 +150,19 @@ namespace Fall2020_CSC403_Project
         {
             if (selected > 0 && selected < 10)
             {
-                if (player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Weapon)
+                if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Weapon)
                 {
                     player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                     player.Inventory.RemoveFromBackpack(selected - 1);
                     RefreshInvImages();
                 }
-                else if (player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Armor)
+                else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Armor)
                 {
                     player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                     player.Inventory.RemoveFromBackpack(selected - 1);
                     RefreshInvImages();
                 }
-                else if (player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Utility)
+                else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Utility)
                 {
                     player.Inventory.EquipUtility(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                     player.Inventory.RemoveFromBackpack(selected - 1);
