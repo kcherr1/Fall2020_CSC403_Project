@@ -19,14 +19,16 @@ namespace Fall2020_CSC403_Project
         public FrmMainMenu()
         {
             InitializeComponent();
+            menuTheme.PlayLooping();
         }
 
         private void btnStartGame_Click(object sender, EventArgs e)
         {
             this.Hide();
+            menuTheme.Stop();
 
             frmLevel = new FrmLevel();
-            frmLevel.Closed += (s, args) => this.Close();
+            frmLevel.Closed += (s, args) => this.Show();
             frmLevel.Show();
 
             instance = null;
