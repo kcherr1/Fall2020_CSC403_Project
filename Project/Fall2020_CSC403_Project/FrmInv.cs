@@ -43,7 +43,7 @@ namespace Fall2020_CSC403_Project
 
             // update for this Player
             this.player = player;
-            PlayerPic.Image = Fall2020_CSC403_Project.Properties.Resources.player;          // subject to change when new player types are added
+            PlayerPic.Image = player.Pic.Image;          // subject to change when new player types are added
             PlayerPic.Refresh();
             PictureBox[] show_inventory = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9 };
             for (int i = 0; i < player.Inventory.Backpack.Length; i++)
@@ -72,6 +72,7 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        // since c# doesn't allow you to just refresh all picboxes, same as above
         public void RefreshInvImages()
         {
             PictureBox[] show_inventory = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9 };
@@ -119,17 +120,19 @@ namespace Fall2020_CSC403_Project
 
         }
 
-
+        // closes inv
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // will be settings, incomplete
         private void SettingButton_Click(object sender, EventArgs e)
         {
 
         }
 
+        // removes a selected item from the character if it exists
         private void UnequipButton_Click(object sender, EventArgs e)
         {
             if (selected == 10)
@@ -153,6 +156,7 @@ namespace Fall2020_CSC403_Project
             else { }
         }
 
+        // moves a item from a backback slot to an equip slot
         private void EquipButton_Click(object sender, EventArgs e)
         {
             if (selected > 0 && selected < 10)
@@ -182,6 +186,7 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+        // drops selected item
         private void DropButton_Click(object sender, EventArgs e) 
         {
             if (selected > 0 && selected < 10) { 
@@ -191,6 +196,9 @@ namespace Fall2020_CSC403_Project
             }
             RefreshInvImages();
         }
+
+
+        // everything below here is just handling what happens when a user selects an item (color and recolor of background)
         private void Inv1_Click(object sender, EventArgs e)
         {
             if (selected > 0)
