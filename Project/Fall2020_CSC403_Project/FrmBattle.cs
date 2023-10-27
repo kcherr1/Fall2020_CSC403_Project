@@ -97,6 +97,7 @@ namespace Fall2020_CSC403_Project
                 instance = null;
                 Close();
                 form.GameOver();
+
             } else if (enemy.Health <= 0)
             {
                 instance = null;
