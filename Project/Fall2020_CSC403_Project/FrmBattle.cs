@@ -92,11 +92,16 @@ namespace Fall2020_CSC403_Project
             }
 
             UpdateHealthBars();
-            if (player.Health <= 0 || enemy.Health <= 0)
+            if (player.Health <= 0)
             {
                 instance = null;
                 Close();
                 form.GameOver();
+
+            } else if (enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
             }
         }
 

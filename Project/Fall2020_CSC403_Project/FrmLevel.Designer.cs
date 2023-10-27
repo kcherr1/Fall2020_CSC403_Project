@@ -72,6 +72,7 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlackSquare)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCommonArmor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLesserHealthPotion)).BeginInit();
             this.SuspendLayout();
@@ -103,7 +104,7 @@ namespace Fall2020_CSC403_Project {
             // picRareDagger
             // 
             this.picRareDagger.Image = global::Fall2020_CSC403_Project.Properties.Resources.rare_dagger;
-            this.picRareDagger.Location = new System.Drawing.Point(492, 628);
+            this.picRareDagger.Location = new System.Drawing.Point(586, 796);
             this.picRareDagger.Name = "picRareDagger";
             this.picRareDagger.Size = new System.Drawing.Size(80, 80);
             this.picRareDagger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -314,26 +315,6 @@ namespace Fall2020_CSC403_Project {
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
-            // picCommonArmor
-            // 
-            this.picCommonArmor.Image = global::Fall2020_CSC403_Project.Properties.Resources.common_armor;
-            this.picCommonArmor.Location = new System.Drawing.Point(718, 209);
-            this.picCommonArmor.Name = "picCommonArmor";
-            this.picCommonArmor.Size = new System.Drawing.Size(100, 100);
-            this.picCommonArmor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picCommonArmor.TabIndex = 19;
-            this.picCommonArmor.TabStop = false;
-            // 
-            // picLesserHealthPotion
-            // 
-            this.picLesserHealthPotion.Image = global::Fall2020_CSC403_Project.Properties.Resources.lesser_health_potion;
-            this.picLesserHealthPotion.Location = new System.Drawing.Point(990, 428);
-            this.picLesserHealthPotion.Name = "picLesserHealthPotion";
-            this.picLesserHealthPotion.Size = new System.Drawing.Size(90, 90);
-            this.picLesserHealthPotion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLesserHealthPotion.TabIndex = 20;
-            this.picLesserHealthPotion.TabStop = false;
-            // 
             // BlackSquare
             // 
             this.BlackSquare.Image = ((System.Drawing.Image)(resources.GetObject("BlackSquare.Image")));
@@ -390,18 +371,36 @@ namespace Fall2020_CSC403_Project {
             this.ExitButton.Visible = false;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
+            // picCommonArmor
+            // 
+            this.picCommonArmor.Image = global::Fall2020_CSC403_Project.Properties.Resources.common_armor;
+            this.picCommonArmor.Location = new System.Drawing.Point(718, 209);
+            this.picCommonArmor.Name = "picCommonArmor";
+            this.picCommonArmor.Size = new System.Drawing.Size(100, 100);
+            this.picCommonArmor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCommonArmor.TabIndex = 19;
+            this.picCommonArmor.TabStop = false;
+            // 
+            // picLesserHealthPotion
+            // 
+            this.picLesserHealthPotion.Image = global::Fall2020_CSC403_Project.Properties.Resources.lesser_health_potion;
+            this.picLesserHealthPotion.Location = new System.Drawing.Point(990, 428);
+            this.picLesserHealthPotion.Name = "picLesserHealthPotion";
+            this.picLesserHealthPotion.Size = new System.Drawing.Size(90, 90);
+            this.picLesserHealthPotion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLesserHealthPotion.TabIndex = 20;
+            this.picLesserHealthPotion.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1697, 1028);
+            this.ClientSize = new System.Drawing.Size(1568, 1026);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.RestartButton);
             this.Controls.Add(this.GameOverText);
-            this.Controls.Add(this.picStartingSword);
-            this.ClientSize = new System.Drawing.Size(1568, 894);
             this.Controls.Add(this.picLesserHealthPotion);
             this.Controls.Add(this.picCommonArmor);
             this.Controls.Add(this.picRareDagger);
@@ -450,7 +449,6 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picStartingSword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlackSquare)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCommonArmor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLesserHealthPotion)).EndInit();
@@ -481,7 +479,6 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-        private System.Windows.Forms.PictureBox picStartingSword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox BlackSquare;
         private System.Windows.Forms.Label GameOverText;
