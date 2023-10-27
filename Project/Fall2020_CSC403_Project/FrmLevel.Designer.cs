@@ -411,7 +411,6 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.RestartButton);
             this.Controls.Add(this.GameOverText);
-            this.Controls.Add(this.picStartingSword);
             this.ClientSize = new System.Drawing.Size(1568, 894);
             this.Controls.Add(this.MenuButton);
             this.Controls.Add(this.picLesserHealthPotion);
@@ -493,7 +492,6 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-        private System.Windows.Forms.PictureBox picStartingSword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox BlackSquare;
         private System.Windows.Forms.Label GameOverText;
