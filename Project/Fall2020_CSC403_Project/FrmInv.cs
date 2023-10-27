@@ -57,11 +57,11 @@ namespace Fall2020_CSC403_Project
             }
             if (player.Inventory.Armor != null)
             {
-                Armor.Image = player.Inventory.Weapon.Pic.Image;
+                Armor.Image = player.Inventory.Armor.Pic.Image;
             }
             if (player.Inventory.Utility != null)
             {
-                Utility.Image = player.Inventory.Weapon.Pic.Image;
+                Utility.Image = player.Inventory.Utility.Pic.Image;
             }
 
 
