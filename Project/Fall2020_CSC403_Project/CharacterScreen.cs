@@ -39,6 +39,7 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
         }
         // Bulk of this function is auto-generated, please use visual designer to edit.
+        // Only edit the lable text for the player health, strength, and gold manually.
         private void InitializeComponent()
         {
             this.PlayerHealth = new System.Windows.Forms.Label();
