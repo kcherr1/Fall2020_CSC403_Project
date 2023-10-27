@@ -145,7 +145,7 @@ namespace Fall2020_CSC403_Project {
             player.ResetMoveSpeed();
             player.MoveBack();
             dialogueBox.SetCurrentDialogue(d);
-            if (!dialogueBox.IsShown && !d.happened)
+            if (!dialogueBox.IsShown)
             {
                 dialogueBox.ShowBox();
             }
