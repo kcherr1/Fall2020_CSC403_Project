@@ -28,7 +28,7 @@ namespace Fall2020_CSC403_Project
                 Item item = items[i];
 
                 slot.BackgroundImage = item.Img; 
-                slot.Text = item.Name;
+                slot.Tag = item.Name.ToString();
                 
             }
         }
@@ -63,6 +63,14 @@ namespace Fall2020_CSC403_Project
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void invSlot1_Click(object sender, EventArgs e)
+        {
+            if(invSlot1.Tag != null)
+            {
+                nameBox.Text = invSlot1.Tag.ToString();
             }
         }
     }
