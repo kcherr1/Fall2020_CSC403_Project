@@ -24,6 +24,7 @@ namespace Fall2020_CSC403_Project
 		private FrmBattle frmBattle;
 
         public FrmLevel() {
+            this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
 
         }
@@ -82,7 +83,7 @@ namespace Fall2020_CSC403_Project
 
 
 
-
+            Level1();
 
             InitializeLevel();
             Game.player = player;
@@ -267,6 +268,9 @@ namespace Fall2020_CSC403_Project
 
         private void Level1 ()
         {
+            int grid_width = this.Width / 50;
+            int grid_height = this.Height / 50;
+
 
         }
     }
