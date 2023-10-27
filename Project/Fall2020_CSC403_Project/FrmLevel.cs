@@ -240,6 +240,18 @@ namespace Fall2020_CSC403_Project
             return p.Collider.Intersects(other.Collider);
         }
 
+
+        case Keys.P:
+          InGameSettingsPage inGameSettingsPage = new InGameSettingsPage();
+          inGameSettingsPage.Show();
+          break;
+
+        default:
+          player.ResetMoveSpeed();
+          break;
+      }
+    }
+
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
@@ -247,11 +259,15 @@ namespace Fall2020_CSC403_Project
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
 
+
             if (enemy == bossKoolaid)
             {
                 frmBattle.SetupForBossBattle();
             }
         }
+
+
+    }          
 
         private void StoreItem(HealthItem item)
         {
@@ -441,6 +457,7 @@ namespace Fall2020_CSC403_Project
         /// </summary>
         public void onFormClosed(object sender, FormClosedEventArgs e)
         {
+
             System.Windows.Forms.Application.Exit();
         }
 

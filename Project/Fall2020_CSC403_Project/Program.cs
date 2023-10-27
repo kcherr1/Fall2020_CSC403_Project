@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project {
         //Application.Run(new FrmLevel());
         Application.Run(new MainMenu()); 
         //Application.Run(new MainSettingsPage());
+
         }
   }
 }
