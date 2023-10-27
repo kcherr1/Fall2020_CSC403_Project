@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project.code
     public class Inventory
     {
         public List<string> itemstorage = new List<string>();
+        public Dictionary<string, HealthItem> itemDictionary = new Dictionary<string, HealthItem>();
         public bool visible = false;
         private const int padding = 20;
 
@@ -22,11 +23,12 @@ namespace Fall2020_CSC403_Project.code
 
         public int PADDING { get { return padding; } }
 
-        public void addItem(Item item)
+        public void addHealthItem(HealthItem item)
         {
             if (!itemstorage.Contains(item.NAME))
             {
                 itemstorage.Add(item.NAME);
+                itemDictionary.Add(item.NAME, item);
             }
             
         }
@@ -36,6 +38,7 @@ namespace Fall2020_CSC403_Project.code
             if (itemstorage.Contains(item.NAME))
             {
                 itemstorage.Remove(item.NAME);
+                itemDictionary.Remove(item.NAME);
             }
         }
 
