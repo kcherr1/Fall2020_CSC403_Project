@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using System.Windows.Input;
 
 namespace Fall2020_CSC403_Project
 {
@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project
 	{
 		private Player player;
 		private List<Enemy> enemies;
+        private Terrain terrain;
 
         public int Level { get; set; }
         public bool gameOver = false;
@@ -21,8 +22,6 @@ namespace Fall2020_CSC403_Project
 
         private DateTime timeBegin;
 		private FrmBattle frmBattle;
-
-		private Terrain terrain;
 
         public FrmLevel() {
             InitializeComponent();
@@ -240,33 +239,29 @@ namespace Fall2020_CSC403_Project
         }
 
 
-
 		private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
 		{
-			switch (e.KeyCode)
+			int SPEED = 3;
+			int x = 0;
+			int y = 0;
+            
+            if (e.KeyCode == Keys.Left)
 			{
-				case Keys.Left:
-					player.GoLeft();
-					break;
-
-				case Keys.Right:
-					player.GoRight();
-					break;
-
-				case Keys.Up:
-					player.GoUp();
-					break;
-
-				case Keys.Down:
-					player.GoDown();
-					break;
-
-                default:
-					player.ResetMoveSpeed();
-					break;
-
-
+				x -= SPEED;
 			}
+			if (e.KeyCode == Keys.Right)
+			{
+				x += SPEED;
+			}
+			if (e.KeyCode == Keys.Up)
+			{
+				y += SPEED;
+			}
+			if (e.KeyCode == Keys.Down)
+			{
+				y -= SPEED;
+			}
+			//new Position = (x, y);
 
         }
     }
