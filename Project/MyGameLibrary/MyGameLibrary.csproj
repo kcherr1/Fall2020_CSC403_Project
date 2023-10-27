@@ -57,9 +57,50 @@
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Position.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Terrain.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="Wall.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_bricks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_cobblestone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_cobblestone_mossy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_dirt_path.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_grass_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_grass_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_sand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_stonebrick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_water_clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_water_grassy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

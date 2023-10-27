@@ -34,14 +34,13 @@ namespace Fall2020_CSC403_Project.code
 
 		public Character(string Name, PictureBox Pic, PlayerArchetype archetype) : base(Name, Pic)
 		{
-			this.archetype = archetype;
+            this.archetype = archetype;
 			this.MaxHealth = archetype.baseMaxHealth;
             this.damage = archetype.baseDamage;
             this.defense = archetype.baseDefense;
             this.speed = archetype.baseSpeed;
             this.Health = MaxHealth;
 			this.Inventory = new Inventory();
-			Pic.Size = new Size(50, 100);
         }
 
 

@@ -39,6 +39,7 @@ namespace Fall2020_CSC403_Project
                     for (int i = 0; i < terrain.Tiles.Count; i++)
                     {
                         this.Controls.Add(terrain.Tiles[i].Pic);
+                        terrain.Tiles[i].Pic.SendToBack();
                     }
                 }
 				if (terrain.Walls != null)
@@ -46,6 +47,7 @@ namespace Fall2020_CSC403_Project
                     for (int i = 0; i < terrain.Walls.Count; i++)
                     {
                         this.Controls.Add(terrain.Walls[i].Pic);
+                        terrain.Walls[i].Pic.BringToFront();
                     }
                 }
 				if (terrain.Items != null)
@@ -53,32 +55,38 @@ namespace Fall2020_CSC403_Project
                     for (int i = 0; i < terrain.Items.Count; i++)
                     {
                         this.Controls.Add(terrain.Items[i].Pic);
+                        terrain.Items[i].Pic.BringToFront();
                     }
                 }
             }
 
-            if (player != null)
-			{
-				this.Controls.Add(player.Pic);
-			}
 
 			if (enemies != null)
 			{
                 for (int i = 0; i < enemies.Count; i++)
                 {
                     this.Controls.Add(enemies[i].Pic);
+                    enemies[i].Pic.BringToFront();
                 }
             }
 
-		}
+
+            if (player != null)
+            {
+                this.Controls.Add(player.Pic);
+            }
+            player.Pic.BringToFront();
+
+        }
 
 
 		private void FrmLevel_Load(object sender, EventArgs e)
 		{
 			
-			player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, 600)), new Rogue());
+            terrain = new Terrain();
+            enemies = new List<Enemy> { };
 
-			terrain = new Terrain();
+			
 
 
 
@@ -92,13 +100,15 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        public PictureBox MakePictureBox(Bitmap pic, Point location)
+        public PictureBox MakePictureBox(Bitmap pic, Point location, Size Size)
         {
             return new PictureBox
             {
+                Size = Size,
                 Location = location,
                 Image = pic,
-                SizeMode = PictureBoxSizeMode.StretchImage
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.Transparent
             };
         }
 
@@ -143,6 +153,14 @@ namespace Fall2020_CSC403_Project
                 }
                 
             }
+
+            x = InATile(player);
+            if (x >= 0)
+            {
+                player.SPEED = (int)terrain.Tiles[x].Effect;
+            } 
+
+            
 		}
 
 		private bool HitAWall(Player c)
@@ -200,6 +218,19 @@ namespace Fall2020_CSC403_Project
 			}
 			return hitItem;
 		}
+
+        public int InATile(Player you)
+        {
+            int InTile = -1;
+            for (int i = 0; i < terrain.Tiles.Count; i++)
+            {
+                if (terrain.Tiles[i].ContainsCharacter(you))
+                {
+                    InTile = i;
+                }
+            }
+            return InTile;
+        }
 
 		private void Fight(Enemy enemy)
 		{
@@ -266,11 +297,27 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private void Level1 ()
+
+        private void AddEnemy(Enemy enemy)
+        {
+            enemies.Add(enemy);
+        }
+
+        private void Level1()
         {
             int grid_width = this.Width / 50;
             int grid_height = this.Height / 50;
 
+            terrain.GenerateTerrain(grid_height, grid_width, 1);
+
+            terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), new Size(50, 50)), 5, Item.ItemType.Weapon));
+
+            this.player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
+
+
+            AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Swordsman()));
+            AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Rogue()));
+            AddEnemy(new Enemy("KoolAidMan", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Tank()));
 
         }
     }

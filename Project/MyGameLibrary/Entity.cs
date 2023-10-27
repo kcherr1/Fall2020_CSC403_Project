@@ -12,7 +12,7 @@ namespace Fall2020_CSC403_Project.code
 {
     public class Entity
     {
-        private const int GO_INC = 3;
+        public int SPEED { get; set; }
 
 		public PictureBox Pic;
 
@@ -39,6 +39,7 @@ namespace Fall2020_CSC403_Project.code
         {
             this.Name = Name;
             this.Pic = Pic;
+            this.SPEED = 3;
             
             this.Position = new Position(this.Pic);
             this.Collider = new Collider(this.Pic);
@@ -60,21 +61,21 @@ namespace Fall2020_CSC403_Project.code
 
         public void GoLeft()
         {
-            this.MoveSpeed = new Position(-GO_INC, 0);
+            this.MoveSpeed = new Position(-SPEED, 0);
             this.facing = Facing.Left;
         }
         public void GoRight()
         {
-            this.MoveSpeed = new Position(+GO_INC, 0);
+            this.MoveSpeed = new Position(+SPEED, 0);
             this.facing = Facing.Right;
         }
         public void GoUp()
         {
-            this.MoveSpeed = new Position(0, -GO_INC);
+            this.MoveSpeed = new Position(0, -SPEED);
         }
         public void GoDown()
         {
-            this.MoveSpeed = new Position(0, +GO_INC);
+            this.MoveSpeed = new Position(0, +SPEED);
         }
 
 		public void ResetMoveSpeed()
