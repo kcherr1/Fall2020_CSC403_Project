@@ -128,20 +128,24 @@ namespace Fall2020_CSC403_Project
 
         private void UnequipButton_Click(object sender, EventArgs e)
         {
+            PictureBox[] PictureBoxes = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9, Weapon, Armor, Utility };
             if (selected == 10)
             {
                 player.Inventory.UnEquipWeapon(player.Position, player.facing);
                 RefreshInvImages();
+                PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             else if (selected == 11)
             {
                 player.Inventory.UnEquipArmor(player.Position, player.facing);
                 RefreshInvImages();
+                PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             else if (selected == 12)
             {
                 player.Inventory.UnEquipUtility(player.Position, player.facing);
                 RefreshInvImages();
+                PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             else { }
         }
@@ -169,76 +173,92 @@ namespace Fall2020_CSC403_Project
                     RefreshInvImages();
                 }
                 else { }
-                
+
+                PictureBox[] PictureBoxes = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9, Weapon, Armor, Utility };
+                PictureBoxes[selected - 1].BackColor = Color.DimGray;
 
             }
         }
 
         private void DropButton_Click(object sender, EventArgs e) 
-        { 
-            if(selected > 0 && selected < 10) { 
+        {
+            PictureBox[] PictureBoxes = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9, Weapon, Armor, Utility };
+            if (selected > 0 && selected < 10) { 
                 player.Inventory.DropItem(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                 player.Inventory.RemoveFromBackpack(selected - 1);
+                PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             RefreshInvImages();
         }
         private void Inv1_Click(object sender, EventArgs e)
         {
             selected = 1;
+            Inv1.BackColor = Color.WhiteSmoke;
         }
         private void Inv2_Click(object sender, EventArgs e)
         {
             selected = 2;
+            Inv2.BackColor = Color.WhiteSmoke;
         }
 
         private void Inv3_Click(object sender, EventArgs e)
         {
             selected = 3;
+            Inv3.BackColor = Color.WhiteSmoke;
         }
 
         private void Inv4_Click(object sender, EventArgs e)
         {
             selected = 4;
+            Inv4.BackColor = Color.WhiteSmoke;
         }
 
         private void Inv5_Click(object sender, EventArgs e)
         {
             selected = 5;
+            Inv5.BackColor = Color.WhiteSmoke   ;
         }
 
         private void Inv6_Click(object sender, EventArgs e)
         {
             selected = 6;
+            Inv6.BackColor = Color.WhiteSmoke;
         }
 
         private void Inv7_Click(object sender, EventArgs e)
         {
             selected = 7;
+            Inv7.BackColor = Color.WhiteSmoke;
         }
 
         private void Inv8_Click(object sender, EventArgs e)
         {
             selected = 8;
+            Inv8.BackColor = Color.WhiteSmoke;
         }
 
         private void Inv9_Click(object sender, EventArgs e)
         {
-            selected = 9; 
+            selected = 9;
+            Inv9.BackColor = Color.WhiteSmoke;
         }
 
         private void Weapon_Click(object sender, EventArgs e)
         {
             selected = 10;
+            Weapon.BackColor = Color.WhiteSmoke;
         }
 
         private void Armor_Click(object sender, EventArgs e)
         {
             selected = 11;
+            Armor.BackColor = Color.WhiteSmoke;
         }
 
         private void Utility_Click(object sender, EventArgs e)
         {
             selected = 12;
+            Utility.BackColor = Color.WhiteSmoke;
         }
     }
 }
