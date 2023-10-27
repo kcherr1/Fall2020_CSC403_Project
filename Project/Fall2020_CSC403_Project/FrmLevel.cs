@@ -382,6 +382,7 @@ namespace Fall2020_CSC403_Project
 
 
             terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), new Size(50, 50)), 5, Item.ItemType.Weapon));
+            terrain.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), new Size(50, 50)), 5, Item.ItemType.Utility));
 
             AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Swordsman()));
             AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Rogue()));
