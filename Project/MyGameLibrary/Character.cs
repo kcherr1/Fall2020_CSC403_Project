@@ -13,6 +13,8 @@ namespace Fall2020_CSC403_Project.code {
     public Vector2 Position { get; private set; }
     public Collider Collider { get; private set; }
 
+    public bool IsMoving { get; set; }
+
     public Character(Vector2 initPos, Collider collider) {
       Position = initPos;
       Collider = collider;
@@ -43,6 +45,21 @@ namespace Fall2020_CSC403_Project.code {
 
     public void ResetMoveSpeed() {
       MoveSpeed = new Vector2(0, 0);
+    }
+
+    public void DisableCollider()
+    {
+        Collider.RemoveCollider();
+    }
+
+    public bool CharacterIsMoving()
+    {
+        return IsMoving;
+    }
+
+    public void SetCharacterMoving(bool moving)
+    {
+       IsMoving = moving;
     }
   }
 }
