@@ -2,7 +2,6 @@ version: 2
 
 # Build environment
 build:
-  image: latest
   os: ubuntu-22.04
   tools:
     python: "3.12"
