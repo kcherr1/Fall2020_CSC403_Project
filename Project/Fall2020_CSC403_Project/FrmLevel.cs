@@ -239,30 +239,30 @@ namespace Fall2020_CSC403_Project
         }
 
 
-		private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
-		{
-			int SPEED = 3;
-			int x = 0;
-			int y = 0;
-            
-            if (e.KeyCode == Keys.Left)
-			{
-				x -= SPEED;
-			}
-			if (e.KeyCode == Keys.Right)
-			{
-				x += SPEED;
-			}
-			if (e.KeyCode == Keys.Up)
-			{
-				y += SPEED;
-			}
-			if (e.KeyCode == Keys.Down)
-			{
-				y -= SPEED;
-			}
-			//new Position = (x, y);
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.A:
+                    player.GoLeft();
+                    break;
 
+                case Keys.D:
+                    player.GoRight();
+                    break;
+
+                case Keys.W:
+                    player.GoUp();
+                    break;
+
+                case Keys.S:
+                    player.GoDown();
+                    break;
+
+                default:
+                    player.ResetMoveSpeed();
+                    break;
+            }
         }
     }
 }
