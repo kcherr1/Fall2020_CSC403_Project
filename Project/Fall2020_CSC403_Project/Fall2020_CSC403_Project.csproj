@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCharacterSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCharacterSelect.Designer.cs">
+      <DependentUpon>FrmCharacterSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeath.Designer.cs">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,11 +78,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCharacterSelect.resx">
+      <DependentUpon>FrmCharacterSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDeath.resx">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,6 +148,25 @@
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+<<<<<<< HEAD
+    <None Include="data\potion.png" />
+=======
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Mrs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\baby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\squonk_cage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\rip.png" />
+>>>>>>> 9a002a9a36abae29cdf7f1ef25e92cb8bd7c92ab
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
