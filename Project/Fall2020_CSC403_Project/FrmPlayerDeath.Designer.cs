@@ -89,7 +89,9 @@
       this.Controls.Add(this.label1);
       this.Controls.Add(this.button2);
       this.Controls.Add(this.button1);
+      this.DoubleBuffered = true;
       this.Name = "FrmPlayerDeath";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "You Died :(";
       this.ResumeLayout(false);
       this.PerformLayout();
