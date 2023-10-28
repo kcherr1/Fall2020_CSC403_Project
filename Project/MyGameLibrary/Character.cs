@@ -43,12 +43,6 @@ namespace Fall2020_CSC403_Project.code
             this.Health = MaxHealth;
 			this.Inventory = new Inventory();
         }
-
-
-		public void setArchetype(PlayerArchetype newArchetype)
-		{
-			this.archetype = newArchetype;
-		}
 		
 		public void OnAttack(int amount)
 		{
@@ -64,12 +58,6 @@ namespace Fall2020_CSC403_Project.code
         {
             this.Health = this.MaxHealth;
         }
-
-        public void EmptyInventory()
-        {
-            this.Inventory = new Inventory();
-        }
-
         
     }
 }

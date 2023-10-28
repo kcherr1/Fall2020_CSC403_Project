@@ -13,7 +13,6 @@ namespace Fall2020_CSC403_Project.code
         public Collider Collider { get; set; }
 
         public Position Position { get; set; }
-        public Position LastPosition { get; set; }
 
         public Wall(PictureBox Pic)
         {
@@ -22,18 +21,5 @@ namespace Fall2020_CSC403_Project.code
             this.Position = new Position(Pic);
         }
 
-        public void RemoveWall()
-        {
-            this.Position = new Position(-100, -100);
-            Collider.MovePosition((int)Position.x, (int)Position.y);
-            this.Pic.Visible = false;
-        }
-
-        public void RestoreWall()
-        {
-            this.Position = LastPosition;
-            Collider.MovePosition((int)Position.x, (int)Position.y);
-            this.Pic.Visible = true;
-        }
     }
 }

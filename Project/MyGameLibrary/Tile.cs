@@ -14,7 +14,6 @@ namespace Fall2020_CSC403_Project.code
         public PictureBox Pic { get; set; }
         public Collider Collider { get; set; }
         public Position Position { get; set; }
-        public Position LastPosition { get; set; }
 
         public Tile(PictureBox Pic, EffectType Effect)
         {
@@ -34,8 +33,8 @@ namespace Fall2020_CSC403_Project.code
             this.Collider = new Collider(Pic);
             this.Position = new Position(Pic);
             this.Effect = EffectType.None;
-
         }
+
         public enum EffectType
         {
             SuperSlowness = 1,
@@ -44,23 +43,5 @@ namespace Fall2020_CSC403_Project.code
             Speed = 4
         }
 
-        public bool ContainsCharacter(Character c)
-        {
-            return this.Collider.ContainsEntity(c);
-        }
-
-        public void RemoveTile()
-        {
-            this.Position = new Position(-100, -100);
-            Collider.MovePosition((int)Position.x, (int)Position.y);
-            this.Pic.Visible = false;
-        }
-
-        public void RestoreTile()
-        {
-            this.Position = LastPosition;
-            Collider.MovePosition((int)Position.x, (int)Position.y);
-            this.Pic.Visible = true;
-        }
     }
 }
