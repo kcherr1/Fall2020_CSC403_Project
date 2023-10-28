@@ -120,7 +120,7 @@ namespace Fall2020_CSC403_Project
             this.GoldCounter.Name = "GoldCounter";
             this.GoldCounter.Size = new System.Drawing.Size(167, 22);
             this.GoldCounter.TabIndex = 5;
-            this.GoldCounter.Text = "Gold not added yet.";
+            this.GoldCounter.Text = player.gold.ToString();
             // 
             // MenuBackdrop
             // 
