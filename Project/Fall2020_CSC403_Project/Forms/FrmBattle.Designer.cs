@@ -36,6 +36,7 @@
             this.btnHeavyAttack = new System.Windows.Forms.Button();
             this.lblHit = new System.Windows.Forms.Label();
             this.lblDamage = new System.Windows.Forms.Label();
+            this.btnHeal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -172,6 +173,18 @@
             this.lblDamage.Size = new System.Drawing.Size(274, 42);
             this.lblDamage.TabIndex = 10;
             // 
+            // btnHeal
+            // 
+            this.btnHeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHeal.Location = new System.Drawing.Point(169, 674);
+            this.btnHeal.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHeal.Name = "btnHeal";
+            this.btnHeal.Size = new System.Drawing.Size(171, 53);
+            this.btnHeal.TabIndex = 11;
+            this.btnHeal.Text = "Heal";
+            this.btnHeal.UseVisualStyleBackColor = true;
+            this.btnHeal.Click += new System.EventHandler(this.btnHeal_Click);
+            // 
             // FrmBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -179,6 +192,7 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1096, 742);
+            this.Controls.Add(this.btnHeal);
             this.Controls.Add(this.lblDamage);
             this.Controls.Add(this.lblHit);
             this.Controls.Add(this.btnHeavyAttack);
@@ -218,5 +232,6 @@
     private System.Windows.Forms.Button btnHeavyAttack;
     private System.Windows.Forms.Label lblHit;
     private System.Windows.Forms.Label lblDamage;
+    private System.Windows.Forms.Button btnHeal;
     }
 }

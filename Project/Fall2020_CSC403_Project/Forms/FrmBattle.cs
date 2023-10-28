@@ -40,6 +40,7 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
       btnHeavyAttack.SendToBack();
+      btnHeal.SendToBack();
 
       SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
       simpleSound.Play();
@@ -107,6 +108,12 @@ namespace Fall2020_CSC403_Project {
       }
 
     }
+    private void btnHeal_Click(object sender, EventArgs e)
+    {
+      player.AlterHealth(4);
+      UpdateHealthBars();  
+      btnHeal.Enabled = false;
+    }
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
@@ -149,6 +156,7 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
+
 
     }
 }
