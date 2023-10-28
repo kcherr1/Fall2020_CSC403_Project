@@ -16,7 +16,6 @@ namespace Fall2020_CSC403_Project
     {
         public static FrmInventory instance = null;
         public static PictureBox[] pictureBoxArray;
-        private Inventory inventory;
 
         public void DisplayInventory(Inventory inventory)
         {
@@ -41,9 +40,10 @@ namespace Fall2020_CSC403_Project
             this.KeyPreview = true;
 
             // Add all PictureBox controls on the form to the pictureBoxSlots list
-            pictureBoxArray = Controls.OfType<PictureBox>().ToArray();
+            pictureBoxArray = Controls.OfType<PictureBox>()
+                .Where(pictureBox => pictureBox.Name.StartsWith("invSlot"))
+                .ToArray();
 
-            this.inventory = inventory;
             DisplayInventory(inventory);
         }
 
@@ -56,10 +56,6 @@ namespace Fall2020_CSC403_Project
                     break;
                 case Keys.Escape:
                     Close();
-
-                    break;
-                case Keys.V:
-                    invSlot1.BackgroundImage = this.inventory.GetItems()[0].Img;
                     break;
                 default:
                     break;
