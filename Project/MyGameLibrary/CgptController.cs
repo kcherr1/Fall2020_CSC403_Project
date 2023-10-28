@@ -42,16 +42,14 @@ namespace Fall2020_CSC403_Project
 
         public async Task<string> GetBossIntroStatement()
         {
-            // TODO: Make inputPrompt
-            string inputPrompt = "";
-            int maxTokens = 20;
+            string inputPrompt = "You are the final boss of a game. Mr. Peanut has gotten the key, opened the gate, and destoryed your lackeys. Wittily inform Mr. Peanut of the critical mistake he has made in 40 words of less.";
+            int maxTokens = 40;
             var result = await ReturnCgptResponse(Environment.GetEnvironmentVariable("OPENAI_API_KEY"), inputPrompt, maxTokens); // dont use .Result
             return result.ToString();
         }
 
         public async Task<string> GetBossMidBattleCommentWinning()
         {
-            // TODO: Make inputPrompt
             string inputPrompt = "You are the final boss of a game. You have taken half of Mr. Peanut's health. Say something witty, funny, and communicates your upcoming victory.";
             int maxTokens = 40;
             var result = await ReturnCgptResponse(Environment.GetEnvironmentVariable("OPENAI_API_KEY"), inputPrompt, maxTokens); // dont use .Result
@@ -60,7 +58,6 @@ namespace Fall2020_CSC403_Project
 
         public async Task<string> GetBossMidBattleCommentDying()
         {
-            // TODO: Make inputPrompt
             string inputPrompt = "You are the final boss of a game. Mr. Peanut has taken half your health. Say something witty, funny, and communicates the end is near in 1 to two short sentences.";
             int maxTokens = 40;
             var result = await ReturnCgptResponse(Environment.GetEnvironmentVariable("OPENAI_API_KEY"), inputPrompt, maxTokens); // dont use .Result
@@ -69,16 +66,3 @@ namespace Fall2020_CSC403_Project
         
     }
 }
-
-// TODO:
-/*
- * 1. clean up commented code
- * 2. extend the size of "label3" so that all of CGPT's text fits the screen
- * 3. Make battle sound effects for when attack/heal happens.. a xing sound when both attack etc.
- * 4. update my spreadsheet with the user story to reflect what I actually did and features I added.
- *  one feature per branch, etc.
- * 5. commit, push, and sync everything to the repo BUT MAKE SURE YOU HAVE A LOCAL COPY OF THE FILES.
- *   THE FILES GET WIPED AND REMOVED AUTOMATICALLY WHENEVER YOU CHANGE SOMETHING HERE. DO NOT EXPECT
- *   LOCAL FILES WILL BE UNTOUCHED IF YOU MESS WITH FILES HERE!
- */
-

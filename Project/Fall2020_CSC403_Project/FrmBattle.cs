@@ -87,10 +87,8 @@ namespace Fall2020_CSC403_Project
             picEpicBossBattle.Visible = true;
             label3.Visible = true;
 
-            //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
             simpleSound.Stop();
             simpleSound = new SoundPlayer(Resources.cgptBossRapTakeoverwav);
-            //simpleSound.Play();
             simpleSound.PlayLooping();
 
             tmrFinalBattle.Enabled = true;
@@ -100,7 +98,6 @@ namespace Fall2020_CSC403_Project
         // Or FrmBattle.attribute to access tha attribute if its public.
         // Although, the instance of FrmBattle is tied to the enemy thats fighting the player in the said frmbattle.
         // and everytime the instance is called, the frmbattle map is setup.
-        // I may need to go back and turn all the "this" stuff back on for label3 which is tied to instance.
         public static FrmBattle GetInstance(Enemy enemy) 
         {
 
@@ -162,27 +159,37 @@ namespace Fall2020_CSC403_Project
             }
 
             UpdateHealthBars();
-            if (player.Health <= 0 || enemy.Health <= 0) 
+            if (player.Health <= 0)
             {
-                if (enemy.Name == "boss")
+                // Play loss sound
+                instance = null;
+                Close();
+            }
+
+            if (enemy.Health <= 0)
+            {
+                if (enemy.Name == "boss" && player.Health > 0)
                 {
+                    // for the boss, after battle play win sound and display win message
                     simpleSound.Stop();
                     simpleSound = new SoundPlayer(Resources.congrats);
                     simpleSound.Play();
+                    System.Windows.Forms.MessageBox.Show("You Win!");
                 }
                 else
                 {
                     // for all other enemies, after battle play another sound
                 }
-                // for all enemies, after battle close instance
-                instance = null;
+
+                if (player.Health <= 0 || enemy.Health > 0)
+                    // after battle condition (player or health at 0), close instance
+                    instance = null;
                 Close();
             }
-            if (player.Health <= player.MaxHealth/2 || enemy.Health <= enemy.MaxHealth / 2) 
+            if (player.Health <= player.MaxHealth / 2 || enemy.Health <= enemy.MaxHealth / 2)
             {
                 CGPT cgpt = new CGPT();
                 label3.Text = await cgpt.GetBossMidBattleCommentDying();
-                //label3.Text = "Someone's health is below half, oh no!";
             }
         }
 
@@ -199,7 +206,6 @@ namespace Fall2020_CSC403_Project
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e) 
         {
-            //picBossBattle.Visible = false;
             picEpicBossBattle.Visible = false;
             tmrFinalBattle.Enabled = false;
         }

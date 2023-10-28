@@ -99,13 +99,9 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-        //frmBattle = Fall2020_CSC403_Project.FrmBattle.GetInstance(enemyPoisonPacket);
-        //frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemyFightBG;
         Fight(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
-        //frmBattle = Fall2020_CSC403_Project.FrmBattle.GetInstance(enemyCheeto);
-        //frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemyFightBG;
         Fight(enemyCheeto);
       }
       //if (HitAChar(player, bossKoolaid)) {
@@ -113,8 +109,6 @@ namespace Fall2020_CSC403_Project {
       //}
       if (HitAChar(player, bossChatgpt))
       {
-        //frmBattle = Fall2020_CSC403_Project.FrmBattle.GetInstance(bossChatgpt);
-        //frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Psychedelic;
         Fight(bossChatgpt);
       }
 
