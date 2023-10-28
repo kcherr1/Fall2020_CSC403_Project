@@ -8,7 +8,6 @@ namespace Fall2020_CSC403_Project {
     private Player player;
 
     private Enemy enemyPoisonPacket;
-    //private Enemy bossKoolaid;
     private Enemy bossChatgpt;
     private Enemy enemyCheeto;
     private Character[] walls;
@@ -32,19 +31,16 @@ namespace Fall2020_CSC403_Project {
           const int NUM_WALLS = 13;
 
           player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-          //bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
           bossChatgpt = new Enemy(CreatePosition(picBossChatgpt), CreateCollider(picBossChatgpt, PADDING));
           enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
           enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-          //bossKoolaid.Img = picBossKoolAid.BackgroundImage;
           bossChatgpt.Img = picBossChatgpt.BackgroundImage;
           enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
           enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
       
 
-          //bossKoolaid.Color = Color.Red;
           bossChatgpt.Color = Color.Green;
           enemyPoisonPacket.Color = Color.Green;
           enemyCheeto.Color = Color.FromArgb(255, 245, 161);
@@ -99,22 +95,13 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-        //frmBattle = Fall2020_CSC403_Project.FrmBattle.GetInstance(enemyPoisonPacket);
-        //frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemyFightBG;
         Fight(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
-        //frmBattle = Fall2020_CSC403_Project.FrmBattle.GetInstance(enemyCheeto);
-        //frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemyFightBG;
         Fight(enemyCheeto);
       }
-      //if (HitAChar(player, bossKoolaid)) {
-        //Fight(bossKoolaid);
-      //}
       if (HitAChar(player, bossChatgpt))
       {
-        //frmBattle = Fall2020_CSC403_Project.FrmBattle.GetInstance(bossChatgpt);
-        //frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Psychedelic;
         Fight(bossChatgpt);
       }
 
@@ -152,9 +139,6 @@ namespace Fall2020_CSC403_Project {
       }
       frmBattle.Show();
 
-      //if (enemy == bossKoolaid) {
-        //frmBattle.SetupForBossBattle();
-      //}
       if (enemy == bossChatgpt)
       {
           frmBattle.SetupForBossBattle();

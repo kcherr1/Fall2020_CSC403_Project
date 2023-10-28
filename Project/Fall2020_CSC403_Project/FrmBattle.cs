@@ -33,7 +33,6 @@ namespace Fall2020_CSC403_Project
             //  so exit the game.
             if (player.Health <= 0)
             {
-                // TODO: later call and show a game over screen like the battle screen
                 System.Windows.Forms.MessageBox.Show("Game Over");
 
                 Application.Exit();
@@ -55,13 +54,12 @@ namespace Fall2020_CSC403_Project
             }
             
         }
-        public void Setup() 
+        public async void Setup() 
         {
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
             BackColor = enemy.Color;
-            //picBossBattle.Visible = false;
             picEpicBossBattle.Visible = false;
             label3.Visible = false;
 
@@ -72,25 +70,23 @@ namespace Fall2020_CSC403_Project
 
             // show health
             UpdateHealthBars();
-            label3.Text = "ChatGPT: \r\nYou'll never win human!";
+
+            // Update text box the boss's intro statement
+            CGPT cgpt = new CGPT();
+            label3.Text = await cgpt.GetBossIntroStatement();
 
         }
 
         public void SetupForBossBattle() 
         {
-            //picBossBattle.Location = Point.Empty;
-            //picBossBattle.Size = ClientSize;
-            //picBossBattle.Visible = true;
             picEpicBossBattle.Location = Point.Empty;
             picEpicBossBattle.Size = ClientSize;
 
             picEpicBossBattle.Visible = true;
             label3.Visible = true;
 
-            //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
             simpleSound.Stop();
             simpleSound = new SoundPlayer(Resources.cgptBossRapTakeoverwav);
-            //simpleSound.Play();
             simpleSound.PlayLooping();
 
             tmrFinalBattle.Enabled = true;
@@ -100,7 +96,6 @@ namespace Fall2020_CSC403_Project
         // Or FrmBattle.attribute to access tha attribute if its public.
         // Although, the instance of FrmBattle is tied to the enemy thats fighting the player in the said frmbattle.
         // and everytime the instance is called, the frmbattle map is setup.
-        // I may need to go back and turn all the "this" stuff back on for label3 which is tied to instance.
         public static FrmBattle GetInstance(Enemy enemy) 
         {
 
@@ -160,21 +155,34 @@ namespace Fall2020_CSC403_Project
 
 
             }
-
-            UpdateHealthBars();
-            if (player.Health <= 0 || enemy.Health <= 0) 
+            else if (enemy.Health <= 0)
             {
                 if (enemy.Name == "boss")
                 {
                     simpleSound.Stop();
                     simpleSound = new SoundPlayer(Resources.congrats);
                     simpleSound.Play();
+                    System.Windows.Forms.MessageBox.Show("~~~ You Win! ~~~");
+
+                    // Close the window and send to formclosed event
+                    instance = null;
+                    Close();
                 }
                 else
                 {
                     // for all other enemies, after battle play another sound
+
+                    // Close the window and send to formclosed event
+                    instance = null;
+                    Close();
                 }
-                // for all enemies, after battle close instance
+            }
+
+            UpdateHealthBars();
+
+            if (player.Health <= 0) 
+            {
+                // Close the window and send to formclosed event
                 instance = null;
                 Close();
             }
@@ -182,7 +190,6 @@ namespace Fall2020_CSC403_Project
             {
                 CGPT cgpt = new CGPT();
                 label3.Text = await cgpt.GetBossMidBattleCommentDying();
-                //label3.Text = "Someone's health is below half, oh no!";
             }
         }
 
@@ -199,7 +206,6 @@ namespace Fall2020_CSC403_Project
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e) 
         {
-            //picBossBattle.Visible = false;
             picEpicBossBattle.Visible = false;
             tmrFinalBattle.Enabled = false;
         }

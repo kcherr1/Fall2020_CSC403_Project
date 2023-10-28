@@ -88,7 +88,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(689, 453);
             this.label3.MaximumSize = new System.Drawing.Size(50, 50);
-            this.label3.MinimumSize = new System.Drawing.Size(300, 80);
+            this.label3.MinimumSize = new System.Drawing.Size(300, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(300, 80);
             this.label3.TabIndex = 8;
@@ -183,13 +183,12 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox picPlayer;
+    private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Label lblPlayerHealthFull;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label lblEnemyHealthFull;
-    //private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.PictureBox picEpicBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
     public System.Windows.Forms.PictureBox picEnemy;

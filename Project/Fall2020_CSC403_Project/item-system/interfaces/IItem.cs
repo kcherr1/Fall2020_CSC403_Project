@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
     public interface IItem
     {
         string Name { get; }
-        void ExecuteEffect(Player player, Enemy enemy, List<Wall> walls);
+        //void ExecuteEffect(Player player, Enemy enemy, List<Wall> walls);
 
         void RandomlyMove();
         // make the item randomly move
