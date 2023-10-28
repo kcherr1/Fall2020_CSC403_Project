@@ -8,6 +8,7 @@ namespace Fall2020_CSC403_Project.code {
     /// <summary>
     /// THis is the image for an enemy
     /// </summary>
+    public int Counter = 0;
     public Image Img { get; set; }
 
     /// <summary>

@@ -13,7 +13,13 @@ namespace Fall2020_CSC403_Project.code {
       this.rect = rect;
     }
 
-    public void MovePosition(int x, int y) {
+        public void DeleteCollider()
+        {
+            rect.X = 0;
+            rect.Y = 0;
+        }
+
+        public void MovePosition(int x, int y) {
       rect.X = x;
       rect.Y = y;
     }
