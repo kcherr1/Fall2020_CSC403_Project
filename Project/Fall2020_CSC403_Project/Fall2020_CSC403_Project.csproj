@@ -133,6 +133,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\coins-pile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coins.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\settings_pic.png" />
   </ItemGroup>
   <ItemGroup>
