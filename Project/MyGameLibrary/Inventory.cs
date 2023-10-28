@@ -64,7 +64,7 @@ namespace MyGameLibrary
         public void EquipWeapon(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Weapon;
-            if (item.Type == Item.ItemType.Weapon || item == null)
+            if (item == null || item.Type == Item.ItemType.Weapon)
             {
                 this.Weapon = item;
                 RemoveFromBackpack(item);
@@ -85,7 +85,7 @@ namespace MyGameLibrary
         public void EquipArmor(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Armor;
-            if (item.Type == Item.ItemType.Armor || item == null)
+            if (item == null || item.Type == Item.ItemType.Armor)
             {
                 this.Armor = item;
                 RemoveFromBackpack(item);
@@ -104,7 +104,7 @@ namespace MyGameLibrary
         public void EquipUtility(Item item, Position position, Facing facing)
         {
             Item currently_equipped = this.Utility;
-            if (item.Type == Item.ItemType.Utility || item == null)
+            if (item == null || item.Type == Item.ItemType.Utility)
             {
                 this.Utility = item;
                 RemoveFromBackpack(item);
@@ -175,12 +175,18 @@ namespace MyGameLibrary
             }
             this.Backpack[this.Backpack.Length - 1] = null;
 
+            this.Backpack[this.Backpack.Length - 1] = null;
+
         }
 
         public void DropItem(Item item, Position position, Facing facing)
         {
+            if (item == null)
+            {
+                return;
+            }
             Position new_position = new Position(position.x, position.y);
-            new_position.x = facing == Facing.Left ? new_position.x - 40 : new_position.x + 40;
+            new_position.x = facing == Facing.Left ? new_position.x - item.Pic.Size.Width - 10 : new_position.x + item.Pic.Size.Width + 10;
             item.SetEntityPosition(new_position);
         }
 
@@ -191,25 +197,25 @@ namespace MyGameLibrary
             for (int i = 0; i < this.Backpack.Length; i++)
                 if (this.Backpack[i] != null)
                 {
-                    new_position.x = rnd.Next(-40, 40);
-                    new_position.y = rnd.Next(-40, 40);
+                    new_position.x = rnd.Next(-this.Backpack[i].Pic.Size.Width - 20, this.Backpack[i].Pic.Size.Width + 20);
+                    new_position.y = rnd.Next(-this.Backpack[i].Pic.Size.Width - 20, this.Backpack[i].Pic.Size.Width + 20);
                     this.Backpack[i].SetEntityPosition(new_position);
                     this.Backpack[i] = null;
 
                 }
 
-            new_position.x = rnd.Next(-40, 40);
-            new_position.y = rnd.Next(-40, 40);
+            new_position.x = rnd.Next(- this.Weapon.Pic.Size.Width - 20, this.Weapon.Pic.Size.Width  + 20);
+            new_position.y = rnd.Next(-this.Weapon.Pic.Size.Width - 20, this.Weapon.Pic.Size.Width + 20);
             this.Weapon.SetEntityPosition(new_position);
             this.Weapon = null;
 
-            new_position.x = rnd.Next(-40, 40);
-            new_position.y = rnd.Next(-40, 40);
+            new_position.x = rnd.Next(-this.Armor.Pic.Size.Width - 20, this.Armor.Pic.Size.Width + 20);
+            new_position.y = rnd.Next(-this.Armor.Pic.Size.Width - 20, this.Armor.Pic.Size.Width + 20);
             this.Armor.SetEntityPosition(new_position);
             this.Armor = null;
 
-            new_position.x = rnd.Next(-40, 40);
-            new_position.y = rnd.Next(-40, 40);
+            new_position.x = rnd.Next(-this.Utility.Pic.Size.Width - 20, this.Utility.Pic.Size.Width + 20);
+            new_position.y = rnd.Next(-this.Utility.Pic.Size.Width - 20, this.Utility.Pic.Size.Width + 20);
             this.Utility.SetEntityPosition(new_position);
             this.Utility = null;
 

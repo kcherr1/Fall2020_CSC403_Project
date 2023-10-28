@@ -22,9 +22,9 @@ namespace Fall2020_CSC403_Project
 
         public bool gameOver { get; set; }
 
-
-        private DateTime timeBegin;
-        private FrmBattle frmBattle;
+		private DateTime timeBegin;
+		private FrmBattle frmBattle;
+		private FrmInv frmInv;
 
         public FrmLevel()
         {
@@ -190,7 +190,7 @@ namespace Fall2020_CSC403_Project
             }
 
             x = InATile(player);
-            if (x >= 0)
+            if (x >= 0 && x < terrain.Tiles.Count)
             {
                 player.SPEED = (int)terrain.Tiles[x].Effect;
             }
@@ -354,6 +354,13 @@ namespace Fall2020_CSC403_Project
         private void AddEnemy(Enemy enemy)
         {
             enemies.Add(enemy);
+        }
+
+        private void Menu_Click(object sender, EventArgs e)
+        {
+            frmInv = FrmInv.GetInstance(player);
+            frmInv.WindowState = FormWindowState.Maximized;
+            frmInv.Show();
         }
 
 

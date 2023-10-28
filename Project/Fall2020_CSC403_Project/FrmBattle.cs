@@ -25,7 +25,7 @@ namespace Fall2020_CSC403_Project
         public void Setup()
         {
             // update for this enemy
-            picEnemy.BackgroundImage = enemy.Img;
+            picEnemy.Image = enemy.Img;
             picEnemy.Refresh();
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
