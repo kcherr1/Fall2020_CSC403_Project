@@ -128,6 +128,7 @@ namespace Fall2020_CSC403_Project {
             if (enemy == bossKoolaid) {
                 frmBattle.SetupForBossBattle();
             }
+
         }
         private void pickUpGold(Player player) {
             player.updateGold(5);
@@ -155,6 +156,12 @@ namespace Fall2020_CSC403_Project {
                     player.GoDown();
                     break;
 
+                // open the character screen when pressing escape key on keyboard.
+                case Keys.Escape:
+                    CharacterScreen character = new CharacterScreen();
+                    character.Show();
+                    break;
+
                 default:
                     player.ResetMoveSpeed();
                     break;
@@ -176,6 +183,12 @@ namespace Fall2020_CSC403_Project {
 
         private void picEnemyPoisonPacket_Click(object sender, EventArgs e) {
 
+        }
+
+        // handles the button press to open the settings menu
+        private void settings_button_Click(object sender, EventArgs e)
+        {
+            // place opener for settings here.
         }
     }
 }
