@@ -46,6 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControl1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl1.Designer.cs">
+      <DependentUpon>CustomControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHelp.Designer.cs">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCharacterSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCharacterSelect.Designer.cs">
+      <DependentUpon>FrmCharacterSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeath.Designer.cs">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,13 +88,52 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPause.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPause.Designer.cs">
+      <DependentUpon>FrmPause.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWin.Designer.cs">
+      <DependentUpon>FrmWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPBDeath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPBDeath.Designer.cs">
+      <DependentUpon>FrmPBDeath.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmHelp.resx">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCharacterSelect.resx">
+      <DependentUpon>FrmCharacterSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDeath.resx">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPause.resx">
+      <DependentUpon>FrmPause.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWin.resx">
+      <DependentUpon>FrmWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPBDeath.resx">
+      <DependentUpon>FrmPBDeath.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,6 +189,84 @@
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Mrs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\baby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\squonk_cage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\rip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Backgrounds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\helpScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\keys.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\ctrl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\charge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\peanut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\crackedPeanut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\cracked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\nutt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\back.png" />
+    <Content Include="data\black.png" />
+    <None Include="data\winScreen.png" />
+    <None Include="data\bossFight.jpg" />
+    <None Include="data\p.png" />
+    <Content Include="data\mushy.png" />
+    <Content Include="data\pb2.png" />
+    <Content Include="data\peanut butter.png" />
+    <None Include="data\peanutbutter.png" />
+    <Content Include="data\pit.png" />
+    <Content Include="data\pit2.png" />
+    <Content Include="data\potion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
