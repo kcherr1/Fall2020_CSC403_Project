@@ -16,7 +16,6 @@ namespace Fall2020_CSC403_Project {
         {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                //Application.Run(new Form1());
                 Application.Run(new FrmLevel());
         }
     }

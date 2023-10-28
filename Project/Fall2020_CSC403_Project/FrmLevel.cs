@@ -8,7 +8,6 @@ namespace Fall2020_CSC403_Project {
     private Player player;
 
     private Enemy enemyPoisonPacket;
-    //private Enemy bossKoolaid;
     private Enemy bossChatgpt;
     private Enemy enemyCheeto;
     private Character[] walls;
@@ -32,19 +31,14 @@ namespace Fall2020_CSC403_Project {
           const int NUM_WALLS = 13;
 
           player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-          //bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
           bossChatgpt = new Enemy(CreatePosition(picBossChatgpt), CreateCollider(picBossChatgpt, PADDING));
           enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
           enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-          //bossKoolaid.Img = picBossKoolAid.BackgroundImage;
           bossChatgpt.Img = picBossChatgpt.BackgroundImage;
           enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
           enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
-      
-
-          //bossKoolaid.Color = Color.Red;
           bossChatgpt.Color = Color.Green;
           enemyPoisonPacket.Color = Color.Green;
           enemyCheeto.Color = Color.FromArgb(255, 245, 161);
@@ -54,7 +48,6 @@ namespace Fall2020_CSC403_Project {
           enemyCheeto.Name = "cheeto";
 
           picPlayer.Focus();
-
       
 
           walls = new Character[NUM_WALLS];
@@ -104,16 +97,14 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
       }
-      //if (HitAChar(player, bossKoolaid)) {
-        //Fight(bossKoolaid);
-      //}
+
       if (HitAChar(player, bossChatgpt))
       {
         Fight(bossChatgpt);
       }
 
-            // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      // update player's picture box
+      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
     }
 
@@ -146,9 +137,7 @@ namespace Fall2020_CSC403_Project {
       }
       frmBattle.Show();
 
-      //if (enemy == bossKoolaid) {
-        //frmBattle.SetupForBossBattle();
-      //}
+
       if (enemy == bossChatgpt)
       {
           frmBattle.SetupForBossBattle();

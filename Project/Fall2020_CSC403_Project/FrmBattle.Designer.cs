@@ -82,7 +82,7 @@
             this.label2.Size = new System.Drawing.Size(305, 28);
             this.label2.TabIndex = 5;
             // 
-            // label3
+            // label3 // The label for cgpt and battle dialogue.
             // 
             this.label3.BackColor = System.Drawing.Color.Silver;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

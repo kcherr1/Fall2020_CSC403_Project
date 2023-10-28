@@ -15,6 +15,9 @@ namespace Fall2020_CSC403_Project.code {
     /// </summary>
     public Color Color { get; set; }
 
+    /// <summary>
+    /// This is the Name of the enemy.
+    /// </summary>
     public string Name { get; set; }
 
     /// <summary>

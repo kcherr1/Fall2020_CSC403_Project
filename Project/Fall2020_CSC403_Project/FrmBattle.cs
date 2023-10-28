@@ -61,7 +61,6 @@ namespace Fall2020_CSC403_Project
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
             BackColor = enemy.Color;
-            //picBossBattle.Visible = false;
             picEpicBossBattle.Visible = false;
             label3.Visible = false;
 
@@ -81,9 +80,6 @@ namespace Fall2020_CSC403_Project
 
         public void SetupForBossBattle() 
         {
-            //picBossBattle.Location = Point.Empty;
-            //picBossBattle.Size = ClientSize;
-            //picBossBattle.Visible = true;
             picEpicBossBattle.Location = Point.Empty;
             picEpicBossBattle.Size = ClientSize;
 
