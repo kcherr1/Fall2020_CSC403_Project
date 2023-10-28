@@ -15,6 +15,8 @@ namespace Fall2020_CSC403_Project.code {
     /// </summary>
     public Color Color { get; set; }
 
+    public string Name { get; set; }
+
     /// <summary>
     /// 
     /// </summary>
