@@ -7,7 +7,7 @@
     <ProjectGuid>{9CAA1122-EBFE-4338-99A6-898C493450DF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Fall2020_CSC403_Project</RootNamespace>
-    <AssemblyName>Fall2020_CSC403_Project</AssemblyName>
+    <AssemblyName>`</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,19 +52,46 @@
     <Compile Include="FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCharacter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCharacter.Designer.cs">
+      <DependentUpon>FrmCharacter.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLevel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStart.Designer.cs">
+      <DependentUpon>FrmStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWeapon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWeapon.Designer.cs">
+      <DependentUpon>FrmWeapon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCharacter.resx">
+      <DependentUpon>FrmCharacter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStart.resx">
+      <DependentUpon>FrmStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWeapon.resx">
+      <DependentUpon>FrmWeapon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -76,6 +103,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\CharacterStatus.cs" />
+    <Compile Include="Properties\ChosenWeapon.cs" />
+    <Compile Include="Properties\ChosenCharacter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,6 +150,33 @@
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\backgroundMusic.wav" />
+    <Content Include="data\battle.png" />
+    <Content Include="data\bomb.png" />
+    <Content Include="data\throw.wav" />
+    <Content Include="data\character.png" />
+    <Content Include="data\close.png" />
+    <Content Include="data\enemy_devil.png" />
+    <Content Include="data\fight.wav" />
+    <Content Include="data\flying_turtle.gif" />
+    <Content Include="data\game_over.png" />
+    <Content Include="data\hand.png" />
+    <Content Include="data\life.gif" />
+    <Content Include="data\mr-peanut.gif" />
+    <Content Include="data\punch.wav" />
+    <Content Include="data\restart.png" />
+    <Content Include="data\restart_game.png" />
+    <Content Include="data\shoot.wav" />
+    <Content Include="data\super.png" />
+    <Content Include="data\sword.png" />
+    <Content Include="data\swing.wav" />
+    <Content Include="data\tecna.gif" />
+    <Content Include="data\turtle.gif" />
+    <Content Include="data\weapon.png" />
+    <Content Include="data\you_lose.png" />
+    <Content Include="data\you_win.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
