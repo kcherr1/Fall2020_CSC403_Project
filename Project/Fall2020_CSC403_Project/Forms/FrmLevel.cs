@@ -2,6 +2,7 @@
 using MyGameLibrary;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -22,6 +23,8 @@ namespace Fall2020_CSC403_Project
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
+        private FrmInventory frmInventory;
+
         public FrmLevel()
         {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 13;
 
             gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING), "Gun");
+            gun.Img = picGun.BackgroundImage;
 
             player = new Player(CreatePosition(mainCharacter), CreateCollider(mainCharacter, 0));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -170,6 +174,11 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+        private void ShowInven() {
+            frmInventory = new FrmInventory(inventory);
+            frmInventory.Show();
+        }
+
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -188,6 +197,9 @@ namespace Fall2020_CSC403_Project
 
                 case Keys.Down:
                     player.KeysPressed["down"] = new Vector2(0, Player.GO_INC);
+                    break;
+                case Keys.I:
+                    ShowInven();
                     break;
 
                 case Keys.E:
