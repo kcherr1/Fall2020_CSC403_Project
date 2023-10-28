@@ -55,7 +55,7 @@ namespace Fall2020_CSC403_Project
             }
             
         }
-        public void Setup() 
+        public async void Setup() 
         {
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
@@ -72,7 +72,10 @@ namespace Fall2020_CSC403_Project
 
             // show health
             UpdateHealthBars();
-            label3.Text = "ChatGPT: \r\nYou'll never win human!";
+            CGPT cgpt = new CGPT();
+            label3.Text = await cgpt.GetBossIntroStatement();
+
+
 
         }
 

@@ -42,7 +42,7 @@ namespace Fall2020_CSC403_Project
 
         public async Task<string> GetBossIntroStatement()
         {
-            string inputPrompt = "You are the final boss of a game. Mr. Peanut has gotten the key, opened the gate, and destoryed your lackeys. Wittily inform Mr. Peanut of the critical mistake he has made in 40 words of less.";
+            string inputPrompt = "You are the final boss of a game. Mr. Peanut has gotten the key, opened the gate, and destroyed your lackeys. Wittily inform Mr. Peanut of the critical mistake he has made in 30 words of less.";
             int maxTokens = 40;
             var result = await ReturnCgptResponse(Environment.GetEnvironmentVariable("OPENAI_API_KEY"), inputPrompt, maxTokens); // dont use .Result
             return result.ToString();
