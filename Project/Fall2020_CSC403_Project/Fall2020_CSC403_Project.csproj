@@ -136,6 +136,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
+    <Folder Include="Fonts\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">

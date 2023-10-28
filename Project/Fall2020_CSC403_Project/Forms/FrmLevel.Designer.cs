@@ -1,4 +1,4 @@
-﻿namespace Fall2020_CSC403_Project {
+namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
@@ -9,14 +9,9 @@
     /// Clean up any resources being used.
     /// </summary>
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-      if (disposing && (components != null)) {
-        components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
 
-    #region Windows Form Designer generated code
+
+    //region Windows Form Designer generated code
 
     /// <summary>
     /// Required method for Designer support - do not modify
@@ -44,6 +39,12 @@
             this.picWall1 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.mainCharacter = new System.Windows.Forms.PictureBox();
             this.picGun = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
@@ -62,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainCharacter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGun)).BeginInit();
             this.SuspendLayout();
@@ -133,6 +135,7 @@
             this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
             this.picBossKoolAid.TabIndex = 1;
             this.picBossKoolAid.TabStop = false;
+
             // 
             // picWall5
             // 
@@ -266,6 +269,105 @@
             this.picWall11.TabIndex = 17;
             this.picWall11.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1176, 726);
+            this.panel1.TabIndex = 18;
+            this.panel1.Visible = false;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.richTextBox1.Location = new System.Drawing.Point(605, 73);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBox1.Size = new System.Drawing.Size(541, 604);
+            this.richTextBox1.TabIndex = 4;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(139)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.button4.FlatAppearance.BorderSize = 100;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Magenta;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button4.Location = new System.Drawing.Point(65, 621);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(136, 56);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Back";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.backToGame);
+            // 
+            // button3
+            // 
+            this.button3.AutoSize = true;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(139)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.button3.FlatAppearance.BorderSize = 100;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Magenta;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button3.Location = new System.Drawing.Point(520, 349);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(136, 56);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Quit game";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.exit_Click);
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(139)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.button2.FlatAppearance.BorderSize = 100;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Magenta;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button2.Location = new System.Drawing.Point(520, 243);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(136, 56);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Full Screen";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.fullScreen);
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(139)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.button1.FlatAppearance.BorderSize = 100;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Magenta;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.Location = new System.Drawing.Point(520, 137);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 56);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Controls";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.showControls);
             // mainCharacter
             // 
             this.mainCharacter.BackColor = System.Drawing.Color.Transparent;
@@ -292,6 +394,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.Controls.Add(this.panel1);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
@@ -337,6 +441,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainCharacter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGun)).EndInit();
             this.ResumeLayout(false);
@@ -344,7 +450,7 @@
 
     }
 
-    #endregion
+
 
     private System.Windows.Forms.PictureBox picBossKoolAid;
     private System.Windows.Forms.Label lblInGameTime;
@@ -365,6 +471,12 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
+    private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     private System.Windows.Forms.PictureBox mainCharacter;
         private System.Windows.Forms.PictureBox picGun;
     }

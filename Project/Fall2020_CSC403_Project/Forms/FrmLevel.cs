@@ -28,6 +28,7 @@ namespace Fall2020_CSC403_Project
         public FrmLevel()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -76,6 +77,8 @@ namespace Fall2020_CSC403_Project
             Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
             return new Collider(rect);
         }
+
+
         // needed to create different size hitbox for walls
         private Collider CreateWallCollider(PictureBox pic, int padding, int characterHeight)
         {
@@ -181,39 +184,148 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            if (panel1.Visible == false)
             {
-                case Keys.Left:
-                    player.KeysPressed["left"] = new Vector2(-Player.GO_INC, 0);
-                    break;
+                switch (e.KeyCode)
+                {
+                    case Keys.Left:
+                        player.KeysPressed["left"] = new Vector2(-Player.GO_INC, 0);
+                        break;
 
-                case Keys.Right:
-                    player.KeysPressed["right"] = new Vector2(Player.GO_INC, 0);
-                    break;
+                    case Keys.Right:
+                        player.KeysPressed["right"] = new Vector2(Player.GO_INC, 0);
+                        break;
 
-                case Keys.Up:
-                    player.KeysPressed["up"] = new Vector2(0, -Player.GO_INC);
-                    break;
+                    case Keys.Up:
+                        player.KeysPressed["up"] = new Vector2(0, -Player.GO_INC);
+                        break;
 
-                case Keys.Down:
-                    player.KeysPressed["down"] = new Vector2(0, Player.GO_INC);
-                    break;
-                case Keys.I:
-                    ShowInven();
-                    break;
+                    case Keys.Down:
+                        player.KeysPressed["down"] = new Vector2(0, Player.GO_INC);
+                        break;
 
-                case Keys.E:
-                    if(HitAItem(player, gun))
-                    {
-                        inventory.AddItem(gun);
-                        picGun.Dispose();
-                        gun = null;
-                    }
-                    break;
+                    case Keys.Escape:
+                        if (panel1.Visible == false)
+                        {
+                            this.ShowOverlay();
+                        }
+                        else
+                        {
+                            this.CloseOverlay();
+                        }
+                        break;
 
-                default:
+                    case Keys.E:
+                        if(HitAItem(player, gun))
+                        {
+                            inventory.AddItem(gun);
+                            picGun.Dispose();
+                            gun = null;
+                        }
                     break;
+                    
+                    case Keys.I:
+                        ShowInven();
+                        break;
+
+                    default:
+                        player.ResetMoveSpeed();
+                        break;
+                }
             }
+            else
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Escape:
+                        if (panel1.Visible == false)
+                        {
+                            this.ShowOverlay();
+                        }
+                        else
+                        {
+                            this.CloseOverlay();
+                            Console.WriteLine("here");
+                        }
+                        break;
+
+
+                    default:
+                        player.ResetMoveSpeed();
+                        break;
+
+                }
+            }
+        }
+
+        private void ShowOverlay()
+        {
+            button1.Location = new Point(520, 137);
+            button2.Location = new Point(520, 243);
+            button3.Location = new Point(520, 349);
+
+            panel1.Visible = true;
+            richTextBox1.Visible = false;
+        }
+
+        private void CloseOverlay()
+        {
+            panel1.Visible = false;
+ 
+        }
+        private void backToGame(object sender, EventArgs e)
+        {
+            CloseOverlay();
+            this.Focus();
+
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fullScreen(object sender, EventArgs e)
+        {
+            if (this.FormBorderStyle == FormBorderStyle.Sizable)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+            }
+        }
+
+        private void showControls(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(richTextBox1.Text))
+            {
+                richTextBox1.SelectionFont = new Font("Arial", 24, FontStyle.Bold);
+                richTextBox1.AppendText("Controls\n\n");
+                richTextBox1.SelectionFont = new Font("Times New Roman", 14, FontStyle.Italic);
+                richTextBox1.AppendText(" E\t\t\tPick up item\n\n I\t\t\tShow Inventory\n\n \u2191\t\t\tMove up\n\n \u2193\t\t\tMove down\n\n \u2190\t\t\tMove left\n\n \u2192\t\t\tMove right\n\n Esc\t\t\tOpen Menu");
+            }
+            if (button1.Location.X > 200)
+            {
+                button1.Left -= 400;
+                button2.Left -= 400;
+                button3.Left -= 400;
+                richTextBox1.Visible = true;
+            }
+            else
+            {
+                button1.Left += 400;
+                button2.Left += 400;
+                button3.Left += 400;
+                richTextBox1.Visible = false;
+            }
+        }
+
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
         }
 
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
