@@ -71,6 +71,7 @@ namespace Fall2020_CSC403_Project {
 
             UpdateHealthBars();
             if (player.Health <= 0 || enemy.Health <= 0) {
+                player.updateGold(10); // player gets gold for winning (and losing because you're worth it mr peanut)
                 instance = null;
                 Close();
             }

@@ -101,7 +101,7 @@
             this.goldDisplay.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goldDisplay.Location = new System.Drawing.Point(551, 9);
             this.goldDisplay.Name = "goldDisplay";
-            this.goldDisplay.Size = new System.Drawing.Size(0, 28);
+            this.goldDisplay.Size = new System.Drawing.Size(16, 31);
             this.goldDisplay.TabIndex = 18;
             this.goldDisplay.Text = global::Fall2020_CSC403_Project.Properties.Settings.Default.Gold;
             this.goldDisplay.UseCompatibleTextRendering = true;
@@ -324,9 +324,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.goldDisplay);
             this.Controls.Add(this.pickup_gold);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.goldDisplay);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);

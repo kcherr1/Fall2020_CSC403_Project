@@ -84,7 +84,6 @@ namespace Fall2020_CSC403_Project {
                 // need to hide image
                 pickup_gold.Dispose();
 
-
                 // need to destroy this item
                 this.pickup_gold_001.Collider.MovePosition(0, 0);
             }
@@ -102,6 +101,7 @@ namespace Fall2020_CSC403_Project {
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            updateOnGoldDisplay();
         }
 
         private bool HitAWall(Character c) {
@@ -131,6 +131,9 @@ namespace Fall2020_CSC403_Project {
         }
         private void pickUpGold(Player player) {
             player.updateGold(5);
+            this.goldDisplay.Text = player.gold.ToString();
+        }
+        public void updateOnGoldDisplay() {
             this.goldDisplay.Text = player.gold.ToString();
         }
 
