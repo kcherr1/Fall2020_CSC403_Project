@@ -64,6 +64,7 @@
     <Compile Include="Forms\FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="MusicPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FrmBattle.resx">
@@ -104,7 +105,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\final_battle.wav" />
+    <None Include="data\sounds\final_battle.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\player.png" />
@@ -126,13 +127,23 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\sounds\boss-battle.wav" />
+    <Content Include="data\sounds\battle.wav" />
+    <None Include="Resources\338817__sirkoto51__rpg-battle-loop-1.wav" />
+    <None Include="Resources\352171__sirkoto51__boss-battle-loop-1.wav" />
+    <None Include="Resources\365738__matrixxx__game-over-02.wav" />
+    <None Include="Resources\580310__colorscrimsontears__fanfare-2-rpg.wav" />
+    <None Include="Resources\460432__jay_you__music-elevator.wav" />
+    <None Include="Resources\47356__fotoshop__oof.wav" />
+    <None Include="Resources\669543__sintelv__jungle-level.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
