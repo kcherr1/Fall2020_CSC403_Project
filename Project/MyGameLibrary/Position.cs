@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code
 {
-	public static class Game
+	public struct Position
 	{
-		public static Player player = null;
+		public float x;
+		public float y;
 
+		public Position(float x, float y)
+		{
+			this.x = x;
+			this.y = y;
+		}
 	}
 }

@@ -2,47 +2,72 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using MyGameLibrary;
+using System.Runtime.Remoting.Messaging;
 
-namespace Fall2020_CSC403_Project.code {
-  public class Character {
-    private const int GO_INC = 3;
+#pragma warning disable 1591 // use this to disable comment warnings
 
-    public Vector2 MoveSpeed { get; private set; }
-    public Vector2 LastPosition { get; private set; }
-    public Vector2 Position { get; private set; }
-    public Collider Collider { get; private set; }
+namespace Fall2020_CSC403_Project.code
+{
+    public class Character : Entity
+    {
 
-    public Character(Vector2 initPos, Collider collider) {
-      Position = initPos;
-      Collider = collider;
-    }
+        public event Action<int> AttackEvent;
 
-    public void Move() {
-      LastPosition = Position;
-      Position = new Vector2(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
-      Collider.MovePosition((int)Position.x, (int)Position.y);
-    }
+		public Inventory Inventory { get; set; }
 
-    public void MoveBack() {
-      Position = LastPosition;
-    }
+		public String name { get; private set; }
 
-    public void GoLeft() {
-      MoveSpeed = new Vector2(-GO_INC, 0);
-    }
-    public void GoRight() {
-      MoveSpeed = new Vector2(+GO_INC, 0);
-    }
-    public void GoUp() {
-      MoveSpeed = new Vector2(0, -GO_INC);
-    }
-    public void GoDown() {
-      MoveSpeed = new Vector2(0, +GO_INC);
-    }
+		public PlayerArchetype archetype;
+		
+		public int defense;
 
-    public void ResetMoveSpeed() {
-      MoveSpeed = new Vector2(0, 0);
+		public int damage;
+
+		public int speed;
+
+		public int Health { get; private set; }
+		public int MaxHealth { get; private set; }
+
+		public Character(string Name, PictureBox Pic, Position initPos, Collider collider, PlayerArchetype archetype) : base(Name, Pic, initPos, collider)
+		{
+			this.archetype = archetype;
+			this.MaxHealth = archetype.baseMaxHealth;
+            this.damage = archetype.baseDamage;
+            this.defense = archetype.baseDefense;
+            this.speed = archetype.baseSpeed;
+            this.Health = MaxHealth;
+			this.Inventory = new Inventory();
+		}
+
+		public void setArchetype(PlayerArchetype newArchetype)
+		{
+			this.archetype = newArchetype;
+		}
+		
+		public void OnAttack(int amount)
+		{
+			AttackEvent((int)(amount * damage));
+		}
+
+        public void AlterHealth(int amount)
+        {
+            Health += amount;
+        }
+
+        public void RestoreHealth()
+        {
+            this.Health = this.MaxHealth;
+        }
+
+        public void EmptyInventory()
+        {
+            this.Inventory = new Inventory();
+        }
+
+        
     }
-  }
 }
