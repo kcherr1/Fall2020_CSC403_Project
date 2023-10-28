@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
+using MyGameLibrary;
 using System;
 using System.Drawing;
 using System.Media;
@@ -33,6 +34,7 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
+      MusicPlayer.PlayBattleSound();
     }
 
     public void SetupForBossBattle() {
@@ -40,6 +42,7 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Size = ClientSize;
       picBossBattle.Visible = true;
       btnHeavyAttack.SendToBack();
+      btnHeal.SendToBack();
 
       SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
       simpleSound.Play();
@@ -83,9 +86,21 @@ namespace Fall2020_CSC403_Project {
       DmgGivenDisplay();
       btnHeavyAttack.Enabled = true;
       if (player.Health <= 0 || enemy.Health <= 0) {
-        instance = null;
-        Close();
-      }
+                MusicPlayer.StopBattleSound();
+
+        if(player.Health <= 0 && enemy.Health > 0)
+            {
+                    MusicPlayer.StopLevelMusic();
+                MusicPlayer.PlayGameOverSound();
+            } else
+                {
+                    
+                    MusicPlayer.PlayLevelMusic();
+                    
+                }
+                instance = null;
+                Close();
+            }
     }
    private async void btnHeavyAttack_Click(object sender, EventArgs e){
       lblDamage.Text = "  Dealt 16 damage!";
@@ -106,6 +121,12 @@ namespace Fall2020_CSC403_Project {
         Close();
       }
 
+    }
+    private void btnHeal_Click(object sender, EventArgs e)
+    {
+      player.AlterHealth(4);
+      UpdateHealthBars();  
+      btnHeal.Enabled = false;
     }
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
@@ -149,6 +170,7 @@ namespace Fall2020_CSC403_Project {
         {
 
         }
+
 
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -21,6 +23,8 @@ namespace Fall2020_CSC403_Project
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
+        private FrmInventory frmInventory;
+
         public FrmLevel()
         {
             InitializeComponent();
@@ -33,6 +37,7 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 13;
 
             gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING), "Gun");
+            gun.Img = picGun.BackgroundImage;
 
             player = new Player(CreatePosition(mainCharacter), CreateCollider(mainCharacter, 0));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -57,6 +62,7 @@ namespace Fall2020_CSC403_Project
             }
 
             /*this.Transparent_images_Click();*/
+            MusicPlayer.PlayLevelMusic();
             Game.player = player;
             timeBegin = DateTime.Now;
         }
@@ -96,6 +102,7 @@ namespace Fall2020_CSC403_Project
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
         }
+
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
@@ -158,6 +165,7 @@ namespace Fall2020_CSC403_Project
 
         private void Fight(Enemy enemy)
         {
+            MusicPlayer.StopLevelMusic();
             player.ResetMoveSpeed();
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
@@ -167,6 +175,11 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForBossBattle();
             }
+        }
+
+        private void ShowInven() {
+            frmInventory = new FrmInventory(inventory);
+            frmInventory.Show();
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
@@ -210,6 +223,10 @@ namespace Fall2020_CSC403_Project
                             gun = null;
                         }
                     break;
+                    
+                    case Keys.I:
+                        ShowInven();
+                        break;
 
                     default:
                         player.ResetMoveSpeed();
@@ -240,7 +257,6 @@ namespace Fall2020_CSC403_Project
                 }
             }
         }
-
 
         private void ShowOverlay()
         {

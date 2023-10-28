@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyGameLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,7 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
             InitializeFonts();
             InitializeUI();
+            MusicPlayer.PlayTitleSound();
             this.SizeChanged += TitleScreen_SizeChanged;
         }
 
@@ -92,7 +94,7 @@ namespace Fall2020_CSC403_Project
         // Leave empty, needed to render the button
         private void button1_Click(object sender, EventArgs e)
         {
-
+            MusicPlayer.StopTitleSound();
             this.Hide();
             var FrmLevel = new FrmLevel();
             FrmLevel.Closed += (s, args) => this.Close();
