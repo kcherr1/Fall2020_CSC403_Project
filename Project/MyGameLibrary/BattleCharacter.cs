@@ -13,6 +13,9 @@ namespace Fall2020_CSC403_Project.code {
     public float strength { get; protected set; }
     public bool IsAlive { get; private set; }
     public int experience { get; protected set; }
+    public int HealthPackCount { get; private set; }
+    public int WeaponStrength;
+    public Boolean WeaponEquiped;
 
     public event Action<int> AttackEvent;
 
@@ -22,15 +25,22 @@ namespace Fall2020_CSC403_Project.code {
       experience = 10;
       Health = MaxHealth;
       IsAlive = true;
+      HealthPackCount = 3;
+      WeaponStrength = 0;
+      WeaponEquiped = false;
     }
 
     //amount should be a negative number, so subtract strength
     public void OnAttack(int amount) {
-      AttackEvent((int)(amount - strength));
+      AttackEvent((int)(amount - strength) - WeaponStrength);
     }
 
     public void AlterHealth(int amount) {
       Health += amount;
+    }
+
+    public void UseHealthPack() {
+      HealthPackCount--;
     }
 
     public void AlterIsAlive(bool state)
