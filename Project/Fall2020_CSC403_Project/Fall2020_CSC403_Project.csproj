@@ -46,32 +46,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmBattle.cs">
+    <Compile Include="Forms\FrmInventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBattle.Designer.cs">
+    <Compile Include="Forms\FrmInventory.designer.cs">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TitleScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TitleScreen.Designer.cs">
+      <DependentUpon>TitleScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmBattle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLevel.cs">
+    <Compile Include="Forms\FrmLevel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLevel.Designer.cs">
+    <Compile Include="Forms\FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="MusicPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmBattle.resx">
+    <EmbeddedResource Include="Forms\FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLevel.resx">
+    <EmbeddedResource Include="Forms\FrmInventory.resx">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TitleScreen.resx">
+      <DependentUpon>TitleScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="Fonts\pixelated.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,7 +114,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\final_battle.wav" />
+    <None Include="data\sounds\final_battle.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\player.png" />
@@ -113,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
+    <Folder Include="Fonts\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +144,17 @@
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\sounds\boss-battle.wav" />
+    <Content Include="data\sounds\battle.wav" />
+    <None Include="Resources\338817__sirkoto51__rpg-battle-loop-1.wav" />
+    <None Include="Resources\352171__sirkoto51__boss-battle-loop-1.wav" />
+    <None Include="Resources\365738__matrixxx__game-over-02.wav" />
+    <None Include="Resources\580310__colorscrimsontears__fanfare-2-rpg.wav" />
+    <None Include="Resources\460432__jay_you__music-elevator.wav" />
+    <None Include="Resources\47356__fotoshop__oof.wav" />
+    <None Include="Resources\669543__sintelv__jungle-level.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
