@@ -5,32 +5,47 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
-    private Player player;
-
+  public partial class FrmLevel : Level {
+    public Player player;
+    public GameState gameState { get; private set; }
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
 
-    private DateTime timeBegin;
+    public DateTime timeStart;
     private FrmBattle frmBattle;
 
     //added this to keep track of whether or not the boss is defeated
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
-    public FrmLevel() {
+    public FrmLevel() : base() {
+
       InitializeComponent();
     }
-
+  
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 0;
       const int NUM_WALLS = 13;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      player = new Player(
+        base.CreatePosition(picPlayer), 
+        base.CreateCollider(picPlayer, PADDING)
+      );
+      bossKoolaid = new Enemy(
+        base.CreatePosition(picBossKoolAid), 
+        base.CreateCollider(picBossKoolAid, PADDING)
+      );
+      enemyPoisonPacket = new Enemy(
+        base.CreatePosition(picEnemyPoisonPacket), 
+        base.CreateCollider(picEnemyPoisonPacket, PADDING)
+      );
+      enemyCheeto = new Enemy(
+        base.CreatePosition(picEnemyCheeto), 
+        base.CreateCollider(picEnemyCheeto, PADDING)
+      );
+      timeStart = DateTime.Now;
+      gameState = new GameState(player, timeStart);
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -47,24 +62,23 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
-      timeBegin = DateTime.Now;
     }
 
-    private Vector2 CreatePosition(PictureBox pic) {
-      return new Vector2(pic.Location.X, pic.Location.Y);
-    }
+    //private Vector2 CreatePosition(PictureBox pic) {
+    //  return new Vector2(pic.Location.X, pic.Location.Y);
+    //}
 
-    private Collider CreateCollider(PictureBox pic, int padding) {
-      Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-      return new Collider(rect);
-    }
+    //private Collider CreateCollider(PictureBox pic, int padding) {
+    //  Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+    //  return new Collider(rect);
+    //}
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       player.ResetMoveSpeed();
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
+      TimeSpan span = DateTime.Now - timeStart;
       string time = span.ToString(@"hh\:mm\:ss");
       lblInGameTime.Text = "Time: " + time.ToString();
     }

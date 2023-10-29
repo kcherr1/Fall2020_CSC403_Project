@@ -64,6 +64,9 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Level.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmWinLevel.resx">
@@ -139,6 +142,7 @@
     <None Include="data\brick.jpeg" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="Resources\nether_portal.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +150,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\enemy_koolaid_xded.png" />
+</ItemGroup>
+<ItemGroup>
+    <None Include="data\grass.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\hedge.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\gravel.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\gravestone2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

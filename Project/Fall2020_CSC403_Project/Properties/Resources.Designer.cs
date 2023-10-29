@@ -132,6 +132,26 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap grass {
+            get {
+                object obj = ResourceManager.GetObject("grass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gravel {
+            get {
+                object obj = ResourceManager.GetObject("gravel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gravestone {
             get {
                 object obj = ResourceManager.GetObject("gravestone", resourceCulture);
@@ -145,6 +165,23 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap Nether_portal1 {
             get {
                 object obj = ResourceManager.GetObject("Nether_portal1", resourceCulture);
+		 return ((System.Drawing.Bitmap)(obj));
+            }
+	}		
+
+        internal static System.Drawing.Bitmap gravestone2 {
+            get {
+                object obj = ResourceManager.GetObject("gravestone2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hedge {
+            get {
+                object obj = ResourceManager.GetObject("hedge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
