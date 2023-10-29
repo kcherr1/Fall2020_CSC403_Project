@@ -6,10 +6,13 @@ namespace Fall2020_CSC403_Project.code {
     public DateTime timeStart { get; private set; }
     //public Enemy[] enemies { get; set; }
 
+    public bool isLevelOneCompleted { get; set; }
+
     public GameState(Player player, DateTime timeStart) {
       this.player = player;
       this.timeStart = timeStart;
       //this.enemies = enemies;
+      this.isLevelOneCompleted = false;
     }
   }
 }

@@ -103,6 +103,7 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
 
                 //this closes the current form and returns to main
+                this.gameState.isLevelOneCompleted = true;
                 this.Close();
       }
       else if (HitAChar(player, bossKoolaid)){
