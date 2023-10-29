@@ -34,12 +34,12 @@ namespace Fall2020_CSC403_Project {
         public void SetupForBossBattle() {
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
-            //picBossBattle.Visible = true;
+            picBossBattle.Visible = true;
 
-            //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-            //simpleSound.Play();
+            SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+            simpleSound.Play();
 
-            //tmrFinalBattle.Enabled = true;
+            tmrFinalBattle.Enabled = true;
         }
 
         public static FrmBattle GetInstance(Enemy enemy) {
@@ -76,6 +76,7 @@ namespace Fall2020_CSC403_Project {
                 DialogResult gotoHomeDialogue = MessageBox.Show("You lose!!! Want to play again?", "YOU LOSE!!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (gotoHomeDialogue == DialogResult.Yes)
                 {
+                    FrmHome.gameplayForm.Close();
                     FrmHome homeForm = new FrmHome();
                     homeForm.Show();
                     this.Close();
@@ -88,7 +89,26 @@ namespace Fall2020_CSC403_Project {
             if (enemy.Health <= 0)
             {
                 instance = null;
-                this.Close();
+                if(enemy == FrmHome.gameplayForm.bossKoolaid)
+                {
+                    DialogResult gotoHomeDialogue = MessageBox.Show("You win!!! Want to play again?", "YOU WIN!!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (gotoHomeDialogue == DialogResult.Yes)
+                    {
+                        FrmHome.gameplayForm.Close();
+                        FrmHome homeForm = new FrmHome();
+                        homeForm.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+                }
+                else
+                {
+                    Close();
+                }
+
             }
         }
 

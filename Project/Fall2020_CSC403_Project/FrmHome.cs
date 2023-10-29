@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmHome : Form
     {
+        public static FrmLevel gameplayForm = null;
         public FrmHome()
         {
             InitializeComponent();
@@ -22,9 +23,9 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void playBtn_Click(object sender, EventArgs e)
+        public void playBtn_Click(object sender, EventArgs e)
         {
-            FrmLevel gameplayForm = new FrmLevel();
+            gameplayForm = new FrmLevel();
             gameplayForm.Show();
             this.Hide();
         }

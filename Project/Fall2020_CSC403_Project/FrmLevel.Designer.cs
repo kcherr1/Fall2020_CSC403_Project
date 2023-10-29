@@ -1,5 +1,5 @@
 ﻿namespace Fall2020_CSC403_Project {
-  partial class FrmLevel {
+  public partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
     /// </summary>
