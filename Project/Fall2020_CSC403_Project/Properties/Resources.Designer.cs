@@ -83,6 +83,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brick {
+            get {
+                object obj = ResourceManager.GetObject("brick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enemy_cheetos {
             get {
                 object obj = ResourceManager.GetObject("enemy_cheetos", resourceCulture);
@@ -126,6 +136,11 @@ namespace Fall2020_CSC403_Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("gunfireBlast", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+
+        internal static System.Drawing.Bitmap gravestone {
+            get {
+                object obj = ResourceManager.GetObject("gravestone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -136,6 +151,11 @@ namespace Fall2020_CSC403_Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("health_pack", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+
+        internal static System.Drawing.Bitmap Nether_portal1 {
+            get {
+                object obj = ResourceManager.GetObject("Nether_portal1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -145,6 +165,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap player {
             get {
                 object obj = ResourceManager.GetObject("player", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Red_X_svg {
+            get {
+                object obj = ResourceManager.GetObject("Red_X.svg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

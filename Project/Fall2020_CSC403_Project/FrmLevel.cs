@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -17,12 +18,15 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
+    //added this to keep track of whether or not the boss is defeated
+    private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
+
     public FrmLevel() {
       InitializeComponent();
     }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
+      const int PADDING = 0;
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
@@ -86,13 +90,33 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
       }
-      else if (HitAChar(player, ak)){
+      if (HitAChar(player, ak)){
         player.WeaponStrength = ak.getStrength();
         player.WeaponEquiped = true;
         weapon1.Visible = false;
       }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+
+      if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
+
+                //this closes the current form and returns to main
+                this.Close();
+      }
+      else if (HitAChar(player, bossKoolaid)){
+            Fight(bossKoolaid);
+      }
+
+            // check state of each enemy
+            if (!enemyPoisonPacket.IsAlive)
+      {
+        RemoveEnemy(enemyPoisonPacket, picEnemyPoisonPacket);
+      }
+      if (!enemyCheeto.IsAlive)
+      {
+        RemoveEnemy(enemyCheeto, picEnemyCheeto);
+      }
+      if (!bossKoolaid.IsAlive)
+      {
+        RemoveBoss(bossKoolaid, picBossKoolAid);
       }
 
       // update player's picture box
@@ -121,6 +145,9 @@ namespace Fall2020_CSC403_Project {
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
+
+        // this gives the frmBattle object a reference to this level's bossIsDefeated bool
+        frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
         frmBattle.SetupForBossBattle();
       }
     }
@@ -153,5 +180,18 @@ namespace Fall2020_CSC403_Project {
 
     }
 
+    private void RemoveEnemy(Enemy enemy, PictureBox picEnemy)
+    {
+      enemy.RemoveCollider();
+      picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
+    }
+
+    private void RemoveBoss(Enemy enemy, PictureBox picEnemy)
+    {
+            //enemy.RemoveCollider();
+            picEnemy.BackgroundImage = null;
+            picEnemy.Image = global::Fall2020_CSC403_Project.Properties.Resources.Nether_portal1;
+            picEnemy.SizeMode = PictureBoxSizeMode.StretchImage;
+    }
   }
 }
