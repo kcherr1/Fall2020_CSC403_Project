@@ -122,11 +122,36 @@
 <p class="admonition-title">Note</p>
 <p>This page is in development.</p>
 </div>
+<p><strong>Overview</strong></p>
+<p>Weapons can be found on the ground within the level and can be picked up by touching the weapon.
+When the weapon is equipped, the weapon will appear beside the “ATTACK” button when the player goes
+into a battle, and will add additional strength to the player’s attack power based on the strength of
+the weapon. When the player selects the “ATTACK” button, a short animation will happen where it will
+appear that the weapon (in this exmample case being a firearm) is firing and will show a short burst of
+ammunition fire from the gun before inflicting the attack on the enemy.</p>
+<p><strong>Techical Information</strong></p>
+<p>A class called “Weapon” was created with the following class structure:</p>
 <dl class="csharp">
-<dt class="sig sig-object sphinxsharp" id="type-Weapons">
-<span class="pre">public</span>  <span class="pre">class</span> <span class="sig-name descname"><span class="pre">Weapons</span></span><a class="headerlink" href="#type-Weapons" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object sphinxsharp" id="type-Weapon">
+<span class="pre">public</span>  <span class="pre">class</span> <span class="sig-name descname"><span class="pre">Weapon</span></span><a class="headerlink" href="#type-Weapon" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<p><em>Class Variables</em></p>
+<ul class="simple">
+<li><p><em>private int strength</em> - defines the weapons strength (defaults to 0 if not defined in initialization)</p></li>
+</ul>
+<p>The only methods in this class are a getter and setter for the strength variable.</p>
+<p><strong>Changes to the Code Base</strong></p>
+<p>The changes to the code for weapons are as follows:</p>
+<ul class="simple">
+<li><p>Added the <em>Weapon Class</em> to the code base</p></li>
+<li><p>Added the class variables WeaponStrength and WeaponEquipped variables to the BattleCharacter class</p></li>
+<li><p>Added picture of weapon to the FrmBattle when the player has a weapon equipped</p></li>
+<li><p>Added a gunfire animation to FrmBattle when the player clicks “ATTACK” and a weapon is equipped</p></li>
+<li><p>Added the WeaponStrength variable to the AttackEvent in the BattleCharacter class</p></li>
+<li><p>Created the weapon in the FrmLevel</p></li>
+<li><p>Added checks within the FrmLevel code to check and see if the player has collided with the weapon object</p></li>
+</ul>
 </section>
 
 </main>
@@ -180,7 +205,7 @@
                 </nav>
             
             <div class="text-center">
-                <p>Last updated: 06:38 PM 20 Oct 2023</p>
+                <p>Last updated: 04:29 PM 29 Oct 2023</p>
                 <p style="display: none">
                     <a class="text-light" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
                         Wagtail Sphinx Theme 6.1.1

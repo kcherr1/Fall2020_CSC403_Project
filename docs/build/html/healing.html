@@ -122,11 +122,22 @@
 <p class="admonition-title">Note</p>
 <p>This page is in development.</p>
 </div>
-<dl class="csharp">
-<dt class="sig sig-object sphinxsharp" id="type-Healing">
-<span class="pre">public</span>  <span class="pre">class</span> <span class="sig-name descname"><span class="pre">Healing</span></span><a class="headerlink" href="#type-Healing" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<p><strong>Overview</strong></p>
+<p>At the beginning of the game, the player has 3 healing items. A button that says “HEAL” as well as a
+counter for how many healing potions the player has will be displayed on the battle screen. When the
+player uses a healing potion, it will heal the player <em>+10</em> health up to but not exceeding the player’s
+max health.</p>
+<p><strong>Technical Information/Changes</strong></p>
+<p>The changes to the code for healing are as follows:</p>
+<ul class="simple">
+<li><p>Added a HealthPackCount variable which is initialized within the constructor of the BattleCharacter
+class.</p></li>
+<li><p>Added a <em>useHealthPack()</em> class method to the BattleCharacter class that will decrement the
+HealthPackCount by one every time that it is used.</p></li>
+<li><p>A “HEAL” button (and the related code to its function), an image of a health pack beside the “HEAL”
+button, and a counter that pulls from HealthPackCount (which is updated every time the health bars
+are updated) were added to the FrmBattle class and Designer files.</p></li>
+</ul>
 </section>
 
 </main>
@@ -180,7 +191,7 @@
                 </nav>
             
             <div class="text-center">
-                <p>Last updated: 06:38 PM 20 Oct 2023</p>
+                <p>Last updated: 04:02 PM 29 Oct 2023</p>
                 <p style="display: none">
                     <a class="text-light" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
                         Wagtail Sphinx Theme 6.1.1
