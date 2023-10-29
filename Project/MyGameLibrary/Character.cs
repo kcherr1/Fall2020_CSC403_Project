@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using MyGameLibrary;
+using System.Runtime.Remoting.Messaging;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
 namespace Fall2020_CSC403_Project.code
 {
-	public class Character : Entity
-	{
+    public class Character : Entity
+    {
 
-		public event Action<int> AttackEvent;
+        public event Action<int> AttackEvent;
 
-		public String name { get; private set; }
+		public Inventory Inventory { get; set; }
 
 		public Archetype archetype;
 		
@@ -26,20 +30,17 @@ namespace Fall2020_CSC403_Project.code
 		public int Health { get; private set; }
 		public int MaxHealth { get; private set; }
 
-		public Character(Position initPos, Collider collider, Archetype archetype) : base(initPos, collider)
+
+		public Character(string Name, PictureBox Pic, Archetype archetype) : base(Name, Pic)
 		{
-			this.archetype = archetype;
+            this.archetype = archetype;
 			this.MaxHealth = archetype.baseMaxHealth;
             this.damage = archetype.baseDamage;
             this.defense = archetype.baseDefense;
             this.speed = archetype.baseSpeed;
             this.Health = MaxHealth;
-		}
-
-		public void setArchetype(Archetype newArchetype)
-		{
-			this.archetype = newArchetype;
-		}
+			this.Inventory = new Inventory();
+        }
 		
 		public void OnAttack()
 		{	
@@ -47,14 +48,20 @@ namespace Fall2020_CSC403_Project.code
 			AttackEvent(damage + rand.Next(1, archetype.archetypeDamage + 1));
 		}
 
-		public void TakeDamage(int amount)
+        public void TakeDamage(int amount)
 		{
 			Health -= amount;
 		}
 
 		public void GiveHealth(int amount)
-		{
-			Health += amount;
-		}
-	}
+        {
+            Health += amount;
+        }
+
+        public void RestoreHealth()
+        {
+            this.Health = this.MaxHealth;
+        }
+        
+    }
 }

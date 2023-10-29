@@ -3,6 +3,8 @@ using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
 using System.Media;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
@@ -12,20 +14,24 @@ namespace Fall2020_CSC403_Project
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
+        private FrmLevel form;
 
-        private FrmBattle()
-        {
+        private FrmBattle(FrmLevel level) {
             InitializeComponent();
             player = Game.player;
+            form = level;
         }
 
         public void Setup()
         {
             // update for this enemy
-            picEnemy.BackgroundImage = enemy.Img;
+            picEnemy.BackgroundImage = enemy.Pic.Image;
             picEnemy.Refresh();
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
+
+            picPlayer.BackgroundImage = player.Pic.Image;
+            picPlayer.Refresh();
 
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
@@ -47,11 +53,9 @@ namespace Fall2020_CSC403_Project
             tmrFinalBattle.Enabled = true;
         }
 
-        public static FrmBattle GetInstance(Enemy enemy)
-        {
-            if (instance == null)
-            {
-                instance = new FrmBattle();
+        public static FrmBattle GetInstance(FrmLevel level, Enemy enemy) {
+            if (instance == null) {
+                instance = new FrmBattle(level);
                 instance.enemy = enemy;
                 instance.Setup();
             }
@@ -91,7 +95,13 @@ namespace Fall2020_CSC403_Project
             }
 
             UpdateHealthBars();
-            if (player.Health <= 0 || enemy.Health <= 0)
+            if (player.Health <= 0)
+            {
+                instance = null;
+                Close();
+                form.GameOver();
+
+            } else if (enemy.Health <= 0)
             {
                 instance = null;
                 Close();

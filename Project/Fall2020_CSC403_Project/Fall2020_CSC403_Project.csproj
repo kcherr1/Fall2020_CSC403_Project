@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmInv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInv.Designer.cs">
+      <DependentUpon>FrmInv.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInv.resx">
+      <DependentUpon>FrmInv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
@@ -122,6 +131,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\common_armor.png" />
+    <Content Include="data\common_axe.png" />
+    <Content Include="data\common_dagger.png" />
+    <Content Include="data\common_hammer.png" />
+    <Content Include="data\common_sword.png" />
+    <None Include="data\InvButton.png" />
+    <Content Include="data\rare_dagger.png" />
+    <Content Include="data\greather_health_potion.png" />
+    <Content Include="data\lesser_health_potion.png" />
+    <Content Include="data\rare_armor.png" />
+    <Content Include="data\rare_sword.png" />
+    <Content Include="data\tile_bricks.png" />
+    <Content Include="data\tile_cobblestone.png" />
+    <Content Include="data\tile_cobblestone_mossy.png" />
+    <Content Include="data\tile_dirt_path.png" />
+    <Content Include="data\tile_grass_dark.png" />
+    <Content Include="data\tile_grass_light.png" />
+    <Content Include="data\tile_sand.png" />
+    <Content Include="data\tile_stonebrick.png" />
+    <Content Include="data\tile_water_clear.png" />
+    <Content Include="data\tile_water_grassy.png" />
+    <Content Include="data\void.png" />
     <Content Include="data\rogue.png" />
     <Content Include="data\Swordsman.png" />
     <Content Include="data\Tank.png" />
