@@ -44,7 +44,7 @@ namespace Fall2020_CSC403_Project.code
 		public void OnAttack()
 		{	
 			Random rand = new Random();
-			AttackEvent(damage + rand.Next(1, archetype.baseDamage + 1));
+			AttackEvent(damage + rand.Next(1, archetype.archetypeDamage + 1));
 		}
 
 		public void TakeDamage(int amount)
