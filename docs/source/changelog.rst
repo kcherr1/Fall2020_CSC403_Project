@@ -18,10 +18,10 @@ Version 0.1.0
 	- Player scales in health and strength as they level up
 	- Added experience and level interface
 
-- `@Kennedy`_: Added weapons system (#?)
+- 
 - `@Luke`_: Added player lose condition when player dies (#?)
 - `@Jonah`_: Added player win condition when boss is defeated (#?)
-- `@Kennedy`_: Added healing system (#?)
+- `@Kennedy`_: Added healing system and weapons system (`#3 <https://github.com/briannaosms/Food-Fight/pull/3>`_)
 - `@Brianna`_: Added documentation configuration files (`#4 <https://github.com/briannaosms/Food-Fight/pull/4>`_)
 
 **Bug Fixes:**
