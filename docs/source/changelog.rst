@@ -12,7 +12,7 @@ Version 0.1.0
 
 **Features:**
 
-- `@Jonah`_: Added experience system (#?)
+- `@Jonah`_: Added experience system (`#2 <https://github.com/briannaosms/Food-Fight/pull/2>`_)
 
 	- Enemies give player experience
 	- Player scales in health and strength as they level up
@@ -25,7 +25,12 @@ Version 0.1.0
 	- When "Yes" button is clicked, application restarts
 	- When "No" button is clicked, environment is closed
 
-- `@Jonah`_: Added player win condition when boss is defeated (#?)
+- `@Jonah`_: Added player win condition when boss is defeated (`#11 <https://github.com/briannaosms/Food-Fight/pull/11>`_)
+	
+	- A level win screen is displayed upon defeating the level boss
+	- The boss is replaced with a portal to the next level after the boss's defeat
+	- Player cannot move to next level without beating the current level's boss
+
 - `@Kennedy`_: Added healing system (#?)
 - `@Brianna`_: Added documentation configuration files (`#4 <https://github.com/briannaosms/Food-Fight/pull/4>`_)
 

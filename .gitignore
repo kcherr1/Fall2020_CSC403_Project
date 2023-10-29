@@ -351,3 +351,6 @@ MigrationBackup/
 
 # python virtual envs
 env/
+
+#Sphinx Build
+docs/build/
