@@ -15,7 +15,8 @@ namespace Fall2020_CSC403_Project {
     public DateTime timeStart;
     private FrmBattle frmBattle;
 
-    public FrmLevel() : base() {
+    public FrmLevel(GameState gameState) : base() {
+      this.gameState = gameState;
       InitializeComponent();
     }
   
@@ -45,7 +46,7 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-
+      
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
