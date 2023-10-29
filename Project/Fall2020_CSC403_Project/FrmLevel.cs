@@ -1,44 +1,65 @@
 ﻿using Fall2020_CSC403_Project.code;
 using MyGameLibrary;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
-    private Player player;
-
+  public partial class FrmLevel : Level {
+    public Player player;
+    public GameState gameState { get; private set; }
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
 
-    private DateTime timeBegin;
-    private FrmBattle frmBattle;
+    private Weapon ak;
 
-    //added this to keep track of whether or not the boss is defeated
+    private DateTime timeStart;
+    private FrmBattle frmBattle;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
-    public FrmLevel() {
+    public FrmLevel(GameState gameState) : base() {
+      this.gameState = gameState;
+    //added this to keep track of whether or not the boss is defeated
       InitializeComponent();
     }
-
+  
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 0;
       const int NUM_WALLS = 13;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      player = new Player(
+        base.CreatePosition(picPlayer), 
+        base.CreateCollider(picPlayer, PADDING)
+      );
+      bossKoolaid = new Enemy(
+        base.CreatePosition(picBossKoolAid), 
+        base.CreateCollider(picBossKoolAid, PADDING)
+      );
+      enemyPoisonPacket = new Enemy(
+        base.CreatePosition(picEnemyPoisonPacket), 
+        base.CreateCollider(picEnemyPoisonPacket, PADDING)
+      );
+      enemyCheeto = new Enemy(
+        base.CreatePosition(picEnemyCheeto), 
+        base.CreateCollider(picEnemyCheeto, PADDING)
+      );
+      timeStart = DateTime.Now;
+      //gameState = new GameState(player, timeStart);
+      new GameState(player, timeStart);
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-
+      
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+
+      ak = new Weapon(CreatePosition(weapon1), CreateCollider(weapon1, PADDING));
+      ak.setStrength(4);
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -47,24 +68,23 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
-      timeBegin = DateTime.Now;
     }
 
-    private Vector2 CreatePosition(PictureBox pic) {
-      return new Vector2(pic.Location.X, pic.Location.Y);
-    }
+    //private Vector2 CreatePosition(PictureBox pic) {
+    //  return new Vector2(pic.Location.X, pic.Location.Y);
+    //}
 
-    private Collider CreateCollider(PictureBox pic, int padding) {
-      Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-      return new Collider(rect);
-    }
+    //private Collider CreateCollider(PictureBox pic, int padding) {
+    //  Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+    //  return new Collider(rect);
+    //}
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       player.ResetMoveSpeed();
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
+      TimeSpan span = DateTime.Now - timeStart;
       string time = span.ToString(@"hh\:mm\:ss");
       lblInGameTime.Text = "Time: " + time.ToString();
     }
@@ -85,10 +105,18 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
       }
+      if (HitAChar(player, ak)){
+        player.WeaponStrength = ak.getStrength();
+        player.WeaponEquiped = true;
+        weapon1.Visible = false;
+      }
 
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
 
-                //this closes the current form and returns to main
+        Debug.WriteLine("this");
+        Debug.WriteLine(this.gameState == null);
+        //this closes the current form and returns to main
+        GameState.isLevelOneCompleted = true;
                 this.Close();
       }
       else if (HitAChar(player, bossKoolaid)){
