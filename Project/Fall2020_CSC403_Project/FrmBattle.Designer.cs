@@ -38,6 +38,7 @@
       this.picBossBattle = new System.Windows.Forms.PictureBox();
       this.picEnemy = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
+      this.PlayerLevel = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.gunfireBlast)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.weapon)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -200,6 +201,20 @@
       this.picPlayer.TabIndex = 0;
       this.picPlayer.TabStop = false;
       // 
+      // PlayerLevel
+      // 
+      this.PlayerLevel.AutoSize = true;
+      this.PlayerLevel.BackColor = System.Drawing.Color.DarkOrange;
+      this.PlayerLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.PlayerLevel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.PlayerLevel.Location = new System.Drawing.Point(172, 44);
+      this.PlayerLevel.Name = "PlayerLevel";
+      this.PlayerLevel.Size = new System.Drawing.Size(237, 35);
+      this.PlayerLevel.TabIndex = 13;
+      this.PlayerLevel.Text = "Level: 0 Exp: 0/20";
+      this.PlayerLevel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+      this.PlayerLevel.Click += new System.EventHandler(this.PlayerLevel_Click);
+      // 
       // FrmBattle
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -207,6 +222,7 @@
       this.BackColor = System.Drawing.Color.Green;
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1182, 905);
+      this.Controls.Add(this.PlayerLevel);
       this.Controls.Add(this.gunfireBlast);
       this.Controls.Add(this.weapon);
       this.Controls.Add(this.HealthPackCountLabel);
@@ -252,5 +268,6 @@
     private System.Windows.Forms.Label HealthPackCountLabel;
     private System.Windows.Forms.PictureBox weapon;
     private System.Windows.Forms.PictureBox gunfireBlast;
+    private System.Windows.Forms.Label PlayerLevel;
   }
 }
