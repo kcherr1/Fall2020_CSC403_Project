@@ -110,24 +110,6 @@ namespace Fall2020_CSC403_Project
         }
 
 
-        private void btnAttack_Click(object sender, EventArgs e) {
-            var plyrChance = new Random();
-            player.OnAttack(-(plyrChance.Next(2, 10)));
-
-            if (enemy.Health > 0) {
-
-                var nmyChance = new Random();
-                enemy.OnAttack(-(nmyChance.Next(3, 9)));
-            }
-
-            UpdateHealthBars();
-            if (player.Health <= 0 || enemy.Health <= 0) {
-                player.updateGold(10); // player gets gold for winning (and losing because you're worth it mr peanut)
-                instance = null;
-                Close();
-            }
-        }
-
         //This is a button that makes the player and enemy both attack for random amounts of damage
         private void btnAttack_Click(object sender, EventArgs e) {
             var plyrChance = new Random();
@@ -146,6 +128,7 @@ namespace Fall2020_CSC403_Project
                 Close();
             }
         }
+
 
         //This is a button to heal for a random amount but can only be used a certain set number of times
         //It also stops the health at 20 if the heal would overflow
