@@ -19,7 +19,12 @@ Version 0.1.0
 	- Added experience and level interface
 
 - `@Kennedy`_: Added weapons system (#?)
-- `@Luke`_: Added player lose condition when player dies (#?)
+- `@Luke`_: Added player lose condition when player dies (`#10 <https://github.com/briannaosms/Food-Fight/pull/10>`_)
+
+	- Designed Restart screen for when IsAlive is false
+	- When "Yes" button is clicked, application restarts
+	- When "No" button is clicked, environment is closed
+
 - `@Jonah`_: Added player win condition when boss is defeated (#?)
 - `@Kennedy`_: Added healing system (#?)
 - `@Brianna`_: Added documentation configuration files (`#4 <https://github.com/briannaosms/Food-Fight/pull/4>`_)
@@ -27,7 +32,12 @@ Version 0.1.0
 **Bug Fixes:**
 
 - `@Brianna`_: Fixed level textures scaling (#?)
-- `@Luke`_: Enemies disappear after defeat (#?)
+- `@Luke`_: Enemies disappear after defeat (`#7 <https://github.com/briannaosms/Food-Fight/pull/7>`_)
+	
+	- Added "IsAlive" variable to character class
+	- Added gravestone.png to project resources
+	- Added function that turns enemy pictures to gravestone when IsAlive is false
+
 - `@Brianna`_: Fixed crash when battle window closes (`#1 <https://github.com/briannaosms/Food-Fight/pull/1>`_)
 
 .. _@Brianna: https://github.com/briannaosms
