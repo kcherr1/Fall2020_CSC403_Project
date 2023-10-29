@@ -4,21 +4,53 @@ using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using NAudio.Wave;
 
-namespace Fall2020_CSC403_Project {
-    public partial class FrmBattle : Form {
+namespace Fall2020_CSC403_Project
+{
+    public partial class FrmBattle : Form
+    {
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
+
+        private WaveOutEvent waveOut;
+        private AudioFileReader audioFile;
+        
         int uses = new int();
         int used = new int();
 
-        private FrmBattle() {
+        private FrmBattle()
+        {
             InitializeComponent();
             player = Game.player;
+            PlayAudio("data/backgroundMusicPlayer.wav");
         }
 
-        public void Setup() {
+        private void PlayAudio(string filePath)
+        {
+            waveOut = new WaveOutEvent();
+            audioFile = new AudioFileReader(filePath);
+            waveOut.Init(audioFile);
+            waveOut.Play();
+        }
+
+        private void SetVolume(float volume)
+        {
+            if (waveOut != null)
+            {
+                waveOut.Volume = volume;
+            }
+        }
+
+        private void trackBarVolume_Scroll(object sender, EventArgs e)
+        {
+            TrackBar trackBar = (TrackBar)sender;
+            float volume = trackBar.Value / 100f; // Convert to a scale of 0 to 1
+            SetVolume(volume);
+        }
+        public void Setup()
+        {
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
@@ -34,7 +66,8 @@ namespace Fall2020_CSC403_Project {
             UpdateHealthBars();
         }
 
-        public void SetupForBossBattle() {
+        public void SetupForBossBattle()
+        {
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
             picBossBattle.Visible = true;
@@ -42,11 +75,20 @@ namespace Fall2020_CSC403_Project {
             SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
             simpleSound.Play();
 
+            string audioFilePath = "data/backgroundMusicPLayer.wav";
+            waveOut = new WaveOutEvent();
+            audioFile = new AudioFileReader(audioFilePath); 
+            waveOut.Init(audioFile); 
+            waveOut.Play();
             tmrFinalBattle.Enabled = true;
+
+
         }
 
-        public static FrmBattle GetInstance(Enemy enemy) {
-            if (instance == null) {
+        public static FrmBattle GetInstance(Enemy enemy)
+        {
+            if (instance == null)
+            {
                 instance = new FrmBattle();
                 instance.enemy = enemy;
                 instance.Setup();
@@ -54,7 +96,8 @@ namespace Fall2020_CSC403_Project {
             return instance;
         }
 
-        private void UpdateHealthBars() {
+        private void UpdateHealthBars()
+        {
             float playerHealthPer = player.Health / (float)player.MaxHealth;
             float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
@@ -64,6 +107,25 @@ namespace Fall2020_CSC403_Project {
 
             lblPlayerHealthFull.Text = player.Health.ToString();
             lblEnemyHealthFull.Text = enemy.Health.ToString();
+        }
+
+
+        private void btnAttack_Click(object sender, EventArgs e) {
+            var plyrChance = new Random();
+            player.OnAttack(-(plyrChance.Next(2, 10)));
+
+            if (enemy.Health > 0) {
+
+                var nmyChance = new Random();
+                enemy.OnAttack(-(nmyChance.Next(3, 9)));
+            }
+
+            UpdateHealthBars();
+            if (player.Health <= 0 || enemy.Health <= 0) {
+                player.updateGold(10); // player gets gold for winning (and losing because you're worth it mr peanut)
+                instance = null;
+                Close();
+            }
         }
 
         //This is a button that makes the player and enemy both attack for random amounts of damage
@@ -142,6 +204,7 @@ namespace Fall2020_CSC403_Project {
             }
 
             UpdateHealthBars();
+            
             if (player.Health <= 0 || enemy.Health <= 0)
             {
                 instance = null;
@@ -149,15 +212,18 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-        private void EnemyDamage(int amount) {
+        private void EnemyDamage(int amount)
+        {
             enemy.AlterHealth(amount);
         }
 
-        private void PlayerDamage(int amount) {
+        private void PlayerDamage(int amount)
+        {
             player.AlterHealth(amount);
         }
 
-        private void tmrFinalBattle_Tick(object sender, EventArgs e) {
+        private void tmrFinalBattle_Tick(object sender, EventArgs e)
+        {
             picBossBattle.Visible = false;
             tmrFinalBattle.Enabled = false;
         }
