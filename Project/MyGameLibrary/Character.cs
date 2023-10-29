@@ -19,8 +19,6 @@ namespace Fall2020_CSC403_Project.code
 
 		public Inventory Inventory { get; set; }
 
-		public String name { get; private set; }
-
 		public PlayerArchetype archetype;
 		
 		public int defense;
@@ -32,21 +30,17 @@ namespace Fall2020_CSC403_Project.code
 		public int Health { get; private set; }
 		public int MaxHealth { get; private set; }
 
-		public Character(string Name, PictureBox Pic, Position initPos, Collider collider, PlayerArchetype archetype) : base(Name, Pic, initPos, collider)
+
+		public Character(string Name, PictureBox Pic, PlayerArchetype archetype) : base(Name, Pic)
 		{
-			this.archetype = archetype;
+            this.archetype = archetype;
 			this.MaxHealth = archetype.baseMaxHealth;
             this.damage = archetype.baseDamage;
             this.defense = archetype.baseDefense;
             this.speed = archetype.baseSpeed;
             this.Health = MaxHealth;
 			this.Inventory = new Inventory();
-		}
-
-		public void setArchetype(PlayerArchetype newArchetype)
-		{
-			this.archetype = newArchetype;
-		}
+        }
 		
 		public void OnAttack(int amount)
 		{
@@ -61,11 +55,6 @@ namespace Fall2020_CSC403_Project.code
         public void RestoreHealth()
         {
             this.Health = this.MaxHealth;
-        }
-
-        public void EmptyInventory()
-        {
-            this.Inventory = new Inventory();
         }
         
     }

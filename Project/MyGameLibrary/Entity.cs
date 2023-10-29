@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,7 +13,7 @@ namespace Fall2020_CSC403_Project.code
 {
     public class Entity
     {
-        private const int GO_INC = 3;
+        public int SPEED { get; set; }
 
 		public PictureBox Pic;
 
@@ -34,29 +36,20 @@ namespace Fall2020_CSC403_Project.code
             Right
         }
 
-
-
         public Entity(string Name, PictureBox Pic)
         {
+            this.SPEED = 3;
             this.Name = Name;
             this.Pic = Pic;
+            this.Position = new Position(this.Pic);
+            this.Collider = new Collider(this.Pic);
         }
-
-
-        public Entity(string Name, PictureBox Pic, Position initPos, Collider collider)
-        {
-            this.Name = Name;
-            this.Pic = Pic;
-            this.Position = initPos;
-            this.LastPosition = Position;
-            this.Collider = collider;
-        }
-
         
         public void Move()
         {
             this.LastPosition = Position;
             this.Position = new Position(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
+            this.Pic.Location = new Point((int)this.Position.x, (int)this.Position.y);
             this.Collider.MovePosition((int)Position.x, (int)Position.y);
         }
 
@@ -68,21 +61,22 @@ namespace Fall2020_CSC403_Project.code
 
         public void GoLeft()
         {
-            this.MoveSpeed = new Position(-GO_INC, 0);
+            this.MoveSpeed = new Position(-SPEED, 0);
             this.facing = Facing.Left;
+
         }
         public void GoRight()
         {
-            this.MoveSpeed = new Position(+GO_INC, 0);
+            this.MoveSpeed = new Position(+SPEED, 0);
             this.facing = Facing.Right;
         }
         public void GoUp()
         {
-            this.MoveSpeed = new Position(0, -GO_INC);
+            this.MoveSpeed = new Position(0, -SPEED);
         }
         public void GoDown()
         {
-            this.MoveSpeed = new Position(0, +GO_INC);
+            this.MoveSpeed = new Position(0, +SPEED);
         }
 
 		public void ResetMoveSpeed()
@@ -92,24 +86,29 @@ namespace Fall2020_CSC403_Project.code
 
 		public void RemoveEntity()
 		{
-            this.LastPosition = Position;
-			this.Position = new Position(-100, -100);
+            this.LastPosition = Position;;
+            this.Position = new Position(-100, -100);
             Collider.MovePosition((int)Position.x, (int)Position.y);
 			this.Pic.Visible = false;
+            this.Pic.Location = new Point((int)Position.x, (int)Position.y);
         }
 
 		public void RestoreEntity()
 		{
 			this.Position = LastPosition;
+            this.Pic.Location = new Point((int)Position.x, (int)Position.y);
+            this.LastPosition = Position;
             Collider.MovePosition((int)Position.x, (int)Position.y);
 			this.Pic.Visible = true;
         }
 
         public void SetEntityPosition(Position pos)
         {
+            this.LastPosition = Position;
             this.Position = pos;
-            Collider.MovePosition((int)pos.x, (int)pos.y);
-            this.Pic.Visible = true; // remove later
+            Collider.MovePosition((int)Position.x, (int)Position.y);
+            this.Pic.Visible = true;
+            this.Pic.Location = new Point((int)Position.x, (int)Position.y);
         }
 
 

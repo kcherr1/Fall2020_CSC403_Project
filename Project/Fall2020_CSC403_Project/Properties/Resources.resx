@@ -169,4 +169,40 @@
   <data name="rare_dagger" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\rare_dagger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tile_void" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\void.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_bricks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tile_bricks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_cobblestone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tile_cobblestone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_cobblestone_mossy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tile_cobblestone_mossy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_dirt_path" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tile_dirt_path.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_grass_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tile_grass_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_grass_light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tile_grass_light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_sand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tile_sand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_stonebrick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tile_stonebrick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_water_clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tile_water_clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_water_grassy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tile_water_grassy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InvButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\InvButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
