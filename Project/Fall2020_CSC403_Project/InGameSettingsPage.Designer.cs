@@ -39,11 +39,10 @@
             // 
             this.btnClose.Location = new System.Drawing.Point(316, 77);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Text = "Close";
             this.btnClose.Size = new System.Drawing.Size(136, 52);
             this.btnClose.TabIndex = 0;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-
+            this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnCloseSettings_Click);
             // 
             // lblSettings
             // 
@@ -84,6 +83,13 @@
             this.btnVolume.Click += new System.EventHandler(this.btnVolume_Click);
             // 
             // InGameSettingsPage
+            this.lblVolume.Location = new System.Drawing.Point(332, 226);
+            this.lblVolume.Name = "lblVolume";
+            this.lblVolume.Size = new System.Drawing.Size(104, 20);
+            this.lblVolume.TabIndex = 5;
+            this.lblVolume.Text = "Volume Level";
+            // 
+            // MainSettingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -107,5 +113,6 @@
         private System.Windows.Forms.Button btnControls;
         private System.Windows.Forms.Label lblVolume;
         private System.Windows.Forms.Button btnVolume;
+
     }
 }

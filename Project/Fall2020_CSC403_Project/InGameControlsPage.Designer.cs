@@ -70,8 +70,8 @@
             this.lblControl3.Size = new System.Drawing.Size(455, 20);
             this.lblControl3.TabIndex = 3;
             this.lblControl3.Text = "SpaceBar: Shoots a projectile in the direction of last movement.";
-            // 
-            // InGameControlsPage
+            //
+            // ControlsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
