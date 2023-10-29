@@ -2,11 +2,18 @@
 
 Added Features:
 
-- Main Menu
+- MainMenu Class:
+	From the main menu, users have the ability to start or stop the game and visit the settings page.
+	A sound track plays in the background while users are on the main menu.
 
-- Player shoots a projectile
+- Projectile Class
+	Each projectile has 5 attributes: speed, damage, positon, collider, and an inFlight state.
+	The arrowMove method determine which way the arrow should fly based on the last key the user pressed and updates the position and collider of the arrow.
 
-- Music
+- Sound Class
+	The play method starts the song on a loop.
+	The stop method stops the song (this is not a pause) and disposes of the resources that were allocated.
+	The SetVolume method is under current production.
 
 - Settings
 
