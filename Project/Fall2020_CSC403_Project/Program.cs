@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Fall2020_CSC403_Project.code;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,12 +15,18 @@ namespace Fall2020_CSC403_Project {
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
+      GameState gameState = null;
+      
+      FrmLevel levelOne = new FrmLevel(gameState);
+      levelOne.ShowDialog();
 
-            FrmLevel levelOne = new FrmLevel();
-            levelOne.ShowDialog();
+      if (GameState.isLevelOneCompleted)
+      {
+          FrmLevel2 levelTwo = new FrmLevel2(gameState);
+          levelTwo.ShowDialog();
+      }
 
-            FrmLevel levelTwo = new FrmLevel();
-            levelTwo.ShowDialog();
-        }
+      GC.KeepAlive(gameState);
+    }
   }
 }

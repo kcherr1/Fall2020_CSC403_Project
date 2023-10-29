@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using MyGameLibrary;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -15,12 +16,11 @@ namespace Fall2020_CSC403_Project {
 
     public DateTime timeStart;
     private FrmBattle frmBattle;
-
-    //added this to keep track of whether or not the boss is defeated
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
-    public FrmLevel() : base() {
-
+    public FrmLevel(GameState gameState) : base() {
+      this.gameState = gameState;
+    //added this to keep track of whether or not the boss is defeated
       InitializeComponent();
     }
   
@@ -45,12 +45,13 @@ namespace Fall2020_CSC403_Project {
         base.CreateCollider(picEnemyCheeto, PADDING)
       );
       timeStart = DateTime.Now;
-      gameState = new GameState(player, timeStart);
+      //gameState = new GameState(player, timeStart);
+      new GameState(player, timeStart);
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-
+      
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
@@ -102,8 +103,10 @@ namespace Fall2020_CSC403_Project {
 
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
 
-                //this closes the current form and returns to main
-                this.gameState.isLevelOneCompleted = true;
+        Debug.WriteLine("this");
+        Debug.WriteLine(this.gameState == null);
+        //this closes the current form and returns to main
+        GameState.isLevelOneCompleted = true;
                 this.Close();
       }
       else if (HitAChar(player, bossKoolaid)){

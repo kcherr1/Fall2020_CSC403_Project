@@ -1,4 +1,7 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿using System;
+using System.Diagnostics;
+
+namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
