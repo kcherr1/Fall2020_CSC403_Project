@@ -33,7 +33,9 @@ namespace Fall2020_CSC403_Project {
             this.RestartButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.BlackSquare = new System.Windows.Forms.PictureBox();
+            this.InvPicButton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.BlackSquare)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InvPicButton)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -117,6 +119,17 @@ namespace Fall2020_CSC403_Project {
             this.BlackSquare.TabStop = false;
             this.BlackSquare.Visible = false;
             // 
+            // InvPicButton
+            // 
+            this.InvPicButton.Image = global::Fall2020_CSC403_Project.Properties.Resources.InvButton;
+            this.InvPicButton.Location = new System.Drawing.Point(12, 51);
+            this.InvPicButton.Name = "InvPicButton";
+            this.InvPicButton.Size = new System.Drawing.Size(98, 117);
+            this.InvPicButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.InvPicButton.TabIndex = 26;
+            this.InvPicButton.TabStop = false;
+            this.InvPicButton.Click += new System.EventHandler(this.Menu_Click);
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -124,6 +137,7 @@ namespace Fall2020_CSC403_Project {
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1395, 715);
+            this.Controls.Add(this.InvPicButton);
             this.Controls.Add(this.BlackSquare);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.RestartButton);
@@ -139,6 +153,7 @@ namespace Fall2020_CSC403_Project {
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.BlackSquare)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InvPicButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,6 +167,7 @@ namespace Fall2020_CSC403_Project {
         private System.Windows.Forms.Button RestartButton;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.PictureBox BlackSquare;
+        private System.Windows.Forms.PictureBox InvPicButton;
     }
 }
 
