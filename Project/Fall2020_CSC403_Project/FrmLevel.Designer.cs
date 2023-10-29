@@ -1,4 +1,7 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿using System;
+using System.Diagnostics;
+
+namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
@@ -250,7 +253,7 @@
       // picWall3
       // 
       this.picWall3.BackColor = System.Drawing.Color.Transparent;
-      this.picWall3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picWall3.BackgroundImage")));
+      this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.brick;
       this.picWall3.Location = new System.Drawing.Point(3, 478);
       this.picWall3.Margin = new System.Windows.Forms.Padding(4);
       this.picWall3.Name = "picWall3";
@@ -298,6 +301,7 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoSize = true;
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+      this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravel;
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1568, 894);
       this.Controls.Add(this.picWall11);

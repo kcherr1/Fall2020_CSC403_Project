@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,6 +45,11 @@ namespace Fall2020_CSC403_Project
             //this flips the visibility value for every tick of the timer;
             //so the big red X flashes
             pictureBox3.Visible = !pictureBox3.Visible;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

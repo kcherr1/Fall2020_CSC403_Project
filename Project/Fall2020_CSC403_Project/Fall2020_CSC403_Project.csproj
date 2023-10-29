@@ -64,6 +64,15 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLevel2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevel2.Designer.cs">
+      <DependentUpon>FrmLevel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Level.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmWinLevel.resx">
@@ -74,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLevel2.resx">
+      <DependentUpon>FrmLevel2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -149,6 +161,61 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\Nether_portal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_koolaid_xded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\grass.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\hedge.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\gravel.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\gravestone2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\tree1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\tree2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\tree3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\pond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\goose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\squirrel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\flowers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\bush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\rock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\pond2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\squirrel2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\cave_portal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\alligator.png" />
+    <Content Include="data\squirrel3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
