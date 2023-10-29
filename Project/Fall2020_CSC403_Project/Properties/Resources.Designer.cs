@@ -103,6 +103,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap enemy_koolaid_xded {
+            get {
+                object obj = ResourceManager.GetObject("enemy_koolaid_xded", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enemy_poisonpacket {
             get {
                 object obj = ResourceManager.GetObject("enemy_poisonpacket", resourceCulture);

@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project {
 
             FrmLevel levelOne = new FrmLevel();
             levelOne.ShowDialog();
+
             FrmLevel levelTwo = new FrmLevel();
             levelTwo.ShowDialog();
         }

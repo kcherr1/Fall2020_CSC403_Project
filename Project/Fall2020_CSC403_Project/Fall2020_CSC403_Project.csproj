@@ -144,5 +144,8 @@
   <ItemGroup>
     <None Include="data\Nether_portal.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_koolaid_xded.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
