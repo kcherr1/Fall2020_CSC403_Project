@@ -2,9 +2,12 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
 
-namespace Fall2020_CSC403_Project {
-    public partial class FrmLevel : Form {
+namespace Fall2020_CSC403_Project
+{
+    public partial class FrmLevel : Form
+    {
         private Player player;
 
         private Enemy enemyPoisonPacket;
@@ -14,12 +17,16 @@ namespace Fall2020_CSC403_Project {
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
+        private SoundPlayer backgroundMusic;
 
-        public FrmLevel() {
+        public FrmLevel()
+        {
             InitializeComponent();
+            backgroundMusic = new SoundPlayer("data/backgroundMusicPlayer.wav");
         }
 
-        private void FrmLevel_Load(object sender, EventArgs e) {
+        private void FrmLevel_Load(object sender, EventArgs e)
+        {
             const int PADDING = 7;
             const int NUM_WALLS = 13;
 
@@ -32,12 +39,15 @@ namespace Fall2020_CSC403_Project {
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
+            StartBackgroundMusic();
+
             bossKoolaid.BackgroundColor = Color.Red;
             enemyPoisonPacket.BackgroundColor = Color.Green;
             enemyCheeto.BackgroundColor = Color.FromArgb(255, 245, 161);
 
             walls = new Character[NUM_WALLS];
-            for (int w = 0; w < NUM_WALLS; w++) {
+            for (int w = 0; w < NUM_WALLS; w++)
+            {
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
@@ -46,42 +56,56 @@ namespace Fall2020_CSC403_Project {
             timeBegin = DateTime.Now;
         }
 
-        private Vector2 CreatePosition(PictureBox pic) {
+        public void StartBackgroundMusic()
+        {
+            backgroundMusic.PlayLooping();
+        }
+
+        private Vector2 CreatePosition(PictureBox pic)
+        {
             return new Vector2(pic.Location.X, pic.Location.Y);
         }
 
-        private Collider CreateCollider(PictureBox pic, int padding) {
+        private Collider CreateCollider(PictureBox pic, int padding)
+        {
             Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
             return new Collider(rect);
         }
 
-        private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        {
             player.ResetMoveSpeed();
         }
 
-        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
+        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
+        {
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
         }
 
-        private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+        private void tmrPlayerMove_Tick(object sender, EventArgs e)
+        {
             // move player
             player.Move();
 
             // check collision with walls
-            if (HitAWall(player)) {
+            if (HitAWall(player))
+            {
                 player.MoveBack();
             }
 
             // check collision with enemies
-            if (HitAChar(player, enemyPoisonPacket)) {
+            if (HitAChar(player, enemyPoisonPacket))
+            {
                 Fight(enemyPoisonPacket);
             }
-            else if (HitAChar(player, enemyCheeto)) {
+            else if (HitAChar(player, enemyCheeto))
+            {
                 Fight(enemyCheeto);
             }
-            if (HitAChar(player, bossKoolaid)) {
+            if (HitAChar(player, bossKoolaid))
+            {
                 Fight(bossKoolaid);
             }
 
@@ -89,10 +113,13 @@ namespace Fall2020_CSC403_Project {
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
 
-        private bool HitAWall(Character c) {
+        private bool HitAWall(Character c)
+        {
             bool hitAWall = false;
-            for (int w = 0; w < walls.Length; w++) {
-                if (c.Collider.Intersects(walls[w].Collider)) {
+            for (int w = 0; w < walls.Length; w++)
+            {
+                if (c.Collider.Intersects(walls[w].Collider))
+                {
                     hitAWall = true;
                     break;
                 }
@@ -100,23 +127,28 @@ namespace Fall2020_CSC403_Project {
             return hitAWall;
         }
 
-        private bool HitAChar(Character you, Character other) {
+        private bool HitAChar(Character you, Character other)
+        {
             return you.Collider.Intersects(other.Collider);
         }
 
-        private void Fight(Enemy enemy) {
+        private void Fight(Enemy enemy)
+        {
             player.ResetMoveSpeed();
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
 
-            if (enemy == bossKoolaid) {
+            if (enemy == bossKoolaid)
+            {
                 frmBattle.SetupForBossBattle();
             }
         }
 
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-            switch (e.KeyCode) {
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
                 case Keys.Left:
                     player.GoLeft();
                     break;
@@ -139,7 +171,8 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
-        private void lblInGameTime_Click(object sender, EventArgs e) {
+        private void lblInGameTime_Click(object sender, EventArgs e)
+        {
 
         }
     }
