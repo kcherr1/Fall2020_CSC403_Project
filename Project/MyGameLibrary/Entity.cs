@@ -38,10 +38,9 @@ namespace Fall2020_CSC403_Project.code
 
         public Entity(string Name, PictureBox Pic)
         {
+            this.SPEED = 3;
             this.Name = Name;
             this.Pic = Pic;
-            this.SPEED = 3;
-            
             this.Position = new Position(this.Pic);
             this.Collider = new Collider(this.Pic);
         }

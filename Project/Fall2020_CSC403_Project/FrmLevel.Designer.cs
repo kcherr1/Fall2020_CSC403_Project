@@ -32,13 +32,7 @@ namespace Fall2020_CSC403_Project {
             this.GameOverText = new System.Windows.Forms.Label();
             this.RestartButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
-            this.picCommonArmor = new System.Windows.Forms.PictureBox();
-            this.picLesserHealthPotion = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.BlackSquare = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picCommonArmor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLesserHealthPotion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlackSquare)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,35 +106,6 @@ namespace Fall2020_CSC403_Project {
             this.ExitButton.Visible = false;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // picCommonArmor
-            // 
-            this.picCommonArmor.Location = new System.Drawing.Point(0, 0);
-            this.picCommonArmor.Name = "picCommonArmor";
-            this.picCommonArmor.Size = new System.Drawing.Size(100, 50);
-            this.picCommonArmor.TabIndex = 0;
-            this.picCommonArmor.TabStop = false;
-            // 
-            // picLesserHealthPotion
-            // 
-            this.picLesserHealthPotion.Location = new System.Drawing.Point(0, 0);
-            this.picLesserHealthPotion.Name = "picLesserHealthPotion";
-            this.picLesserHealthPotion.Size = new System.Drawing.Size(100, 50);
-            this.picLesserHealthPotion.TabIndex = 0;
-            this.picLesserHealthPotion.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::Fall2020_CSC403_Project.Properties.Resources.InvButton;
-            this.pictureBox2.Location = new System.Drawing.Point(13, 55);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(88, 96);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.Menu_Click);
-            // 
             // BlackSquare
             // 
             this.BlackSquare.Image = global::Fall2020_CSC403_Project.Properties.Resources.tile_void;
@@ -160,7 +125,6 @@ namespace Fall2020_CSC403_Project {
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1395, 715);
             this.Controls.Add(this.BlackSquare);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.RestartButton);
             this.Controls.Add(this.GameOverText);
@@ -174,9 +138,6 @@ namespace Fall2020_CSC403_Project {
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.picCommonArmor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLesserHealthPotion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlackSquare)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,10 +151,6 @@ namespace Fall2020_CSC403_Project {
         private System.Windows.Forms.Label GameOverText;
         private System.Windows.Forms.Button RestartButton;
         private System.Windows.Forms.Button ExitButton;
-        private System.Windows.Forms.PictureBox picRareDagger;
-        private System.Windows.Forms.PictureBox picCommonArmor;
-        private System.Windows.Forms.PictureBox picLesserHealthPotion;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox BlackSquare;
     }
 }

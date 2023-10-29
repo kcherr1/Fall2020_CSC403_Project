@@ -25,10 +25,13 @@ namespace Fall2020_CSC403_Project
         public void Setup()
         {
             // update for this enemy
-            picEnemy.Image = enemy.Img;
+            picEnemy.BackgroundImage = enemy.Pic.Image;
             picEnemy.Refresh();
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
+
+            picPlayer.BackgroundImage = player.Pic.Image;
+            picPlayer.Refresh();
 
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;

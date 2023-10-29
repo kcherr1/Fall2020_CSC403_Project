@@ -19,8 +19,6 @@ namespace Fall2020_CSC403_Project.code
 
 		public Inventory Inventory { get; set; }
 
-		public String name { get; private set; }
-
 		public PlayerArchetype archetype;
 		
 		public int defense;

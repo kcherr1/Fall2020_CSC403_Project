@@ -174,9 +174,10 @@ namespace Fall2020_CSC403_Project
             int x = HitAChar(player);
             if (x >= 0)
             {
+                Console.WriteLine(enemies[x].Name);
+                Debug.WriteLine(enemies[x].Name);
                 Fight(enemies[x]);
             }
-
 
             x = HitAnItem(player);
             if (x >= 0)
@@ -270,7 +271,8 @@ namespace Fall2020_CSC403_Project
             frmBattle = FrmBattle.GetInstance(this, enemy);
             frmBattle.Show();
 
-            if (enemy.name == "BossKoolAid")
+            Debug.WriteLine(enemy.Name);
+            if (enemy.Name == "BossKoolAid")
             {
                 frmBattle.SetupForBossBattle();
             }
