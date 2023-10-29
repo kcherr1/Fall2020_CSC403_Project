@@ -76,7 +76,7 @@
       this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
       this.lblInGameTime.TabIndex = 2;
       this.lblInGameTime.Text = "label1";
-      this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
+      //this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
       // 
       // tmrUpdateInGameTime
       // 

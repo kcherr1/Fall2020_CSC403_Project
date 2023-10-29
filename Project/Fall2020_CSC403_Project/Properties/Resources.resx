@@ -124,8 +124,8 @@
   <data name="gravestone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\gravestone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="angy_squirrel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\angy_squirrel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="squirrel3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\squirrel3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\brick.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,8 +151,8 @@
   <data name="flowers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\flowers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="alli" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\alli.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="alligator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\alligator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\wall.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -180,9 +180,6 @@
   </data>
   <data name="gravestone2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\gravestone2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="tree1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\tree1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\tree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

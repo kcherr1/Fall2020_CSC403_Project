@@ -63,19 +63,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap alli {
+        internal static System.Drawing.Bitmap alligator {
             get {
-                object obj = ResourceManager.GetObject("alli", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap angy_squirrel {
-            get {
-                object obj = ResourceManager.GetObject("angy_squirrel", resourceCulture);
+                object obj = ResourceManager.GetObject("alligator", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -292,9 +282,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tree1 {
+        internal static System.Drawing.Bitmap squirrel3 {
             get {
-                object obj = ResourceManager.GetObject("tree1", resourceCulture);
+                object obj = ResourceManager.GetObject("squirrel3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
