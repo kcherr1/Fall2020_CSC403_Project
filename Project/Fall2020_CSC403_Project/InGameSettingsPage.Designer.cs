@@ -83,23 +83,6 @@
             this.btnVolume.Click += new System.EventHandler(this.btnVolume_Click);
             // 
             // InGameSettingsPage
-            this.lblVolume.Location = new System.Drawing.Point(332, 226);
-            this.lblVolume.Name = "lblVolume";
-            this.lblVolume.Size = new System.Drawing.Size(104, 20);
-            this.lblVolume.TabIndex = 5;
-            this.lblVolume.Text = "Volume (On/Off):";
-            // 
-            // btnVolume
-            // 
-            this.btnVolume.Location = new System.Drawing.Point(386, 223);
-            this.btnVolume.Name = "btnVolume";
-            this.btnVolume.Size = new System.Drawing.Size(85, 31);
-            this.btnVolume.TabIndex = 7;
-            this.btnVolume.Text = "Volume";
-            this.btnVolume.UseVisualStyleBackColor = true;
-            this.btnVolume.Click += new System.EventHandler(this.btnVolume_Click);
-            // 
-            // InGameSettingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
