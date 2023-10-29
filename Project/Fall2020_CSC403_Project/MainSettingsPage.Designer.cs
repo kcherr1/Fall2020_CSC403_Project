@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.btnClose = new System.Windows.Forms.Button();
-            this.soundBar = new System.Windows.Forms.TrackBar();
             this.lblSettings = new System.Windows.Forms.Label();
             this.btnControls = new System.Windows.Forms.Button();
             this.lblVolume = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.soundBar)).BeginInit();
+            this.btnVolume = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -44,13 +43,6 @@
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // soundBar
-            // 
-            this.soundBar.Location = new System.Drawing.Point(211, 264);
-            this.soundBar.Name = "soundBar";
-            this.soundBar.Size = new System.Drawing.Size(350, 69);
-            this.soundBar.TabIndex = 3;
             // 
             // lblSettings
             // 
@@ -74,25 +66,34 @@
             // lblVolume
             // 
             this.lblVolume.AutoSize = true;
-            this.lblVolume.Location = new System.Drawing.Point(332, 226);
+            this.lblVolume.Location = new System.Drawing.Point(252, 228);
             this.lblVolume.Name = "lblVolume";
-            this.lblVolume.Size = new System.Drawing.Size(104, 20);
+            this.lblVolume.Size = new System.Drawing.Size(128, 20);
             this.lblVolume.TabIndex = 5;
-            this.lblVolume.Text = "Volume Level";
+            this.lblVolume.Text = "Volume (On/Off):";
+            // 
+            // btnVolume
+            // 
+            this.btnVolume.Location = new System.Drawing.Point(386, 223);
+            this.btnVolume.Name = "btnVolume";
+            this.btnVolume.Size = new System.Drawing.Size(85, 31);
+            this.btnVolume.TabIndex = 7;
+            this.btnVolume.Text = "Volume";
+            this.btnVolume.UseVisualStyleBackColor = true;
+            this.btnVolume.Click += new System.EventHandler(this.btnVolume_Click);
             // 
             // MainSettingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVolume);
             this.Controls.Add(this.lblVolume);
             this.Controls.Add(this.btnControls);
             this.Controls.Add(this.lblSettings);
-            this.Controls.Add(this.soundBar);
             this.Controls.Add(this.btnClose);
             this.Name = "MainSettingsPage";
             this.Text = "MainSettingsPage";
-            ((System.ComponentModel.ISupportInitialize)(this.soundBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,8 +103,8 @@
 
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblSettings;
-        private System.Windows.Forms.TrackBar soundBar;
         private System.Windows.Forms.Button btnControls;
         private System.Windows.Forms.Label lblVolume;
+        private System.Windows.Forms.Button btnVolume;
     }
 }

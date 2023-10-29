@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AudioSwitcher.AudioApi.CoreAudio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,30 @@ namespace Fall2020_CSC403_Project
             InGameControlsPage inGameControlsPage = new InGameControlsPage();
             inGameControlsPage.Show();
             this.Hide();
+        }
+
+        private bool isVolumeMuted = false;
+
+        private void ToggleVolume()
+        {
+            var controller = new CoreAudioController();
+            var defaultPlaybackDevice = controller.DefaultPlaybackDevice;
+
+
+            if (isVolumeMuted)
+            {
+                defaultPlaybackDevice.Mute(false);
+            }
+            else
+            {
+                defaultPlaybackDevice.Mute(true);
+            }
+            isVolumeMuted = !isVolumeMuted;
+        }
+
+        private void btnVolume_Click(object sender, EventArgs e)
+        {
+            ToggleVolume();
         }
     }
 }
