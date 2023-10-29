@@ -48,6 +48,7 @@ namespace Fall2020_CSC403_Project {
       this.picWall3 = new System.Windows.Forms.PictureBox();
       this.picBossKoolAid = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
+      this.weapon1 = new System.Windows.Forms.PictureBox();
       ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -65,6 +66,7 @@ namespace Fall2020_CSC403_Project {
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.weapon1)).BeginInit();
       this.SuspendLayout();
       // 
       // lblInGameTime
@@ -283,6 +285,16 @@ namespace Fall2020_CSC403_Project {
       this.picPlayer.TabIndex = 0;
       this.picPlayer.TabStop = false;
       // 
+      // weapon1
+      // 
+      this.weapon1.Image = global::Fall2020_CSC403_Project.Properties.Resources.weapon1;
+      this.weapon1.Location = new System.Drawing.Point(1267, 697);
+      this.weapon1.Name = "weapon1";
+      this.weapon1.Size = new System.Drawing.Size(145, 52);
+      this.weapon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.weapon1.TabIndex = 18;
+      this.weapon1.TabStop = false;
+      // 
       // FrmLevel
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -310,6 +322,7 @@ namespace Fall2020_CSC403_Project {
       this.Controls.Add(this.picEnemyPoisonPacket);
       this.Controls.Add(this.picBossKoolAid);
       this.Controls.Add(this.picEnemyCheeto);
+      this.Controls.Add(this.weapon1);
       this.DoubleBuffered = true;
       this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "FrmLevel";
@@ -335,13 +348,13 @@ namespace Fall2020_CSC403_Project {
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.weapon1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
     }
 
     #endregion
-
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picBossKoolAid;
     private System.Windows.Forms.Label lblInGameTime;
@@ -362,7 +375,8 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-        private System.Windows.Forms.PictureBox picNetherPortal;
-    }
+    private System.Windows.Forms.PictureBox weapon1;
+    private System.Windows.Forms.PictureBox picNetherPortal;
+  }
 }
 
