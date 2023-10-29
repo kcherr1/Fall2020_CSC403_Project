@@ -51,6 +51,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlsPage.cs">
@@ -164,6 +165,28 @@
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\inventoryboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\raw images\Potion.png" />
+    <None Include="data\CatDisk.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\mainmenubackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\arrow_100_40_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\raw images\LVL1potion0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\selector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\selectorline.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

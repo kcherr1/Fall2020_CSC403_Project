@@ -6,15 +6,25 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Resources;
+using System.Media;
 using System.Windows.Forms;
+using Fall2020_CSC403_Project;
+using MyGameLibrary;
+using Fall2020_CSC403_Project.Properties;
 
 namespace Fall2020_CSC403_Project
 {
     public partial class MainMenu : Form
     {
+        private Sound music;
         public MainMenu()
         {
             InitializeComponent();
+            // initalize Sound and start the music
+            // WARNING VOLUME IS LOUD
+            music = new Sound();
+            music.Play(Resources.CatDisk);
         }
         
         /// <summary>
@@ -27,6 +37,7 @@ namespace Fall2020_CSC403_Project
             frm.Show();
             // Whenever FrmLevel is closed, execute onFormClosed method
             frm.FormClosed += frm.onFormClosed;
+            music.Stop();
             Hide();
 
         }
@@ -45,6 +56,18 @@ namespace Fall2020_CSC403_Project
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void OnFormClosed(object sender, FormClosedEventArgs e)
+        {
+            music.Stop();
+            System.Windows.Forms.Application.Exit();
+
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
         {
 
         }
