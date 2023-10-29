@@ -64,15 +64,19 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+            SoundPlayer attack_audio = new SoundPlayer(Resources.boom);
+            //attack_audio.Play();
+            player.OnAttack(-4);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+                attack_audio.Play();
+                enemy.OnAttack(-2);
       }
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
         Close();
+                attack_audio.Stop();
       }
     }
 
