@@ -10,9 +10,9 @@ using System.Windows.Forms;
  * 
  * IMPORTANT NOTE: Running the designer for this file will not work while the code IS correct.
  * The designer does not recognize player values as of right now because Game has not been
- * initialized. If you want to use the designer to edit the screen, go and comment out
- * the strings that use player.values located in the InitializeComponent() function and place a
- * temporary string to let designer run properly.
+ * initialized. If you want to use the visual studio designer to edit the screen, go and 
+ * comment out the strings that use player.values located in the InitializeComponent() function 
+ * and place a temporary string there to let designer run properly.
  */
 
 namespace Fall2020_CSC403_Project
@@ -28,8 +28,6 @@ namespace Fall2020_CSC403_Project
         private Label MenuBackdrop;
         private Label MenuBackdrop2;
         private Button SettingsButton;
-        private Label Options;
-        private Label Stats;
         private Player player;
 
         public CharacterScreen()
@@ -51,8 +49,6 @@ namespace Fall2020_CSC403_Project
             this.MenuBackdrop = new System.Windows.Forms.Label();
             this.MenuBackdrop2 = new System.Windows.Forms.Label();
             this.SettingsButton = new System.Windows.Forms.Button();
-            this.Options = new System.Windows.Forms.Label();
-            this.Stats = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PlayerHealth
@@ -118,27 +114,31 @@ namespace Fall2020_CSC403_Project
             this.GoldCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.GoldCounter.Location = new System.Drawing.Point(33, 209);
             this.GoldCounter.Name = "GoldCounter";
-            this.GoldCounter.Size = new System.Drawing.Size(167, 22);
+            this.GoldCounter.Size = new System.Drawing.Size(0, 22);
             this.GoldCounter.TabIndex = 5;
             this.GoldCounter.Text = player.gold.ToString();
             // 
             // MenuBackdrop
             // 
             this.MenuBackdrop.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.MenuBackdrop.Location = new System.Drawing.Point(11, 37);
+            this.MenuBackdrop.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.MenuBackdrop.Location = new System.Drawing.Point(11, 9);
             this.MenuBackdrop.Name = "MenuBackdrop";
-            this.MenuBackdrop.Size = new System.Drawing.Size(237, 225);
+            this.MenuBackdrop.Size = new System.Drawing.Size(237, 253);
             this.MenuBackdrop.TabIndex = 6;
-            this.MenuBackdrop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MenuBackdrop.Text = "Stats";
+            this.MenuBackdrop.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // MenuBackdrop2
             // 
             this.MenuBackdrop2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.MenuBackdrop2.Location = new System.Drawing.Point(285, 37);
+            this.MenuBackdrop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.MenuBackdrop2.Location = new System.Drawing.Point(285, 9);
             this.MenuBackdrop2.Name = "MenuBackdrop2";
-            this.MenuBackdrop2.Size = new System.Drawing.Size(237, 225);
+            this.MenuBackdrop2.Size = new System.Drawing.Size(237, 253);
             this.MenuBackdrop2.TabIndex = 7;
-            this.MenuBackdrop2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MenuBackdrop2.Text = "Options";
+            this.MenuBackdrop2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // SettingsButton
             // 
@@ -152,34 +152,10 @@ namespace Fall2020_CSC403_Project
             this.SettingsButton.UseVisualStyleBackColor = true;
             this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
             // 
-            // Options
-            // 
-            this.Options.AutoSize = true;
-            this.Options.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.Options.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Options.Location = new System.Drawing.Point(355, 8);
-            this.Options.Name = "Options";
-            this.Options.Size = new System.Drawing.Size(97, 29);
-            this.Options.TabIndex = 9;
-            this.Options.Text = "Options";
-            // 
-            // Stats
-            // 
-            this.Stats.AutoSize = true;
-            this.Stats.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.Stats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Stats.Location = new System.Drawing.Point(96, 8);
-            this.Stats.Name = "Stats";
-            this.Stats.Size = new System.Drawing.Size(66, 29);
-            this.Stats.TabIndex = 10;
-            this.Stats.Text = "Stats";
-            // 
             // CharacterScreen
             // 
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(534, 272);
-            this.Controls.Add(this.Stats);
-            this.Controls.Add(this.Options);
             this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.GoldCounter);
             this.Controls.Add(this.GoldTitle);
