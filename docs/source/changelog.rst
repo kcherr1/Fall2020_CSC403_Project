@@ -18,7 +18,6 @@ Version 0.1.0
 	- Player scales in health and strength as they level up
 	- Added experience and level interface
 
-- `@Kennedy`_: Added weapons system (#?)
 - `@Luke`_: Added player lose condition when player dies (`#10 <https://github.com/briannaosms/Food-Fight/pull/10>`_)
 
 	- Designed Restart screen for when IsAlive is false
@@ -31,7 +30,7 @@ Version 0.1.0
 	- The boss is replaced with a portal to the next level after the boss's defeat
 	- Player cannot move to next level without beating the current level's boss
 
-- `@Kennedy`_: Added healing system (#?)
+- `@Kennedy`_: Added healing system and weapons system (`#3 <https://github.com/briannaosms/Food-Fight/pull/3>`_)
 - `@Brianna`_: Added documentation configuration files (`#4 <https://github.com/briannaosms/Food-Fight/pull/4>`_)
 
 **Bug Fixes:**
