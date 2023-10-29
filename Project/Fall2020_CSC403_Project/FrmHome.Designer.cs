@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.playBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.labelHome = new System.Windows.Forms.Label();
             this.labelMenu = new System.Windows.Forms.Label();
@@ -50,19 +50,19 @@
             this.playBtn.UseVisualStyleBackColor = false;
             this.playBtn.Click += new System.EventHandler(this.playBtn_Click);
             // 
-            // button1
+            // exitBtn
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Font = new System.Drawing.Font("Microsoft Tai Le", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(385, 363);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(207, 58);
-            this.button1.TabIndex = 1;
-            this.button1.TabStop = false;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.exitBtn_Click);
+            this.exitBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.exitBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitBtn.ForeColor = System.Drawing.Color.White;
+            this.exitBtn.Location = new System.Drawing.Point(385, 363);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(207, 58);
+            this.exitBtn.TabIndex = 1;
+            this.exitBtn.TabStop = false;
+            this.exitBtn.Text = "Exit";
+            this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // contextMenuStrip1
             // 
@@ -81,7 +81,6 @@
             this.labelHome.Size = new System.Drawing.Size(418, 101);
             this.labelHome.TabIndex = 4;
             this.labelHome.Text = "Welcome!";
-            this.labelHome.Click += new System.EventHandler(this.labelHome_Click);
             // 
             // labelMenu
             // 
@@ -95,20 +94,21 @@
             this.labelMenu.Size = new System.Drawing.Size(236, 81);
             this.labelMenu.TabIndex = 5;
             this.labelMenu.Text = "MENU";
-            this.labelMenu.Click += new System.EventHandler(this.labelMenu_Click);
             // 
             // FrmHome
             // 
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmHome_KeyDown);
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.home;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 547);
             this.Controls.Add(this.labelMenu);
             this.Controls.Add(this.labelHome);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.playBtn);
+            this.KeyPreview = true;
             this.Name = "FrmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
@@ -121,7 +121,7 @@
         #endregion
 
         private System.Windows.Forms.Button playBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label labelHome;
         private System.Windows.Forms.Label labelMenu;

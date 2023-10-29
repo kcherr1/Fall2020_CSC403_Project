@@ -34,14 +34,23 @@ namespace Fall2020_CSC403_Project
             Application.Exit();
         }
 
-        private void labelMenu_Click(object sender, EventArgs e)
+        private void FrmHome_KeyDown(object sender, KeyEventArgs e)
         {
-
-        }
-
-        private void labelHome_Click(object sender, EventArgs e)
-        {
-
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        Application.Exit();
+                    }
+                    break;
+                case Keys.S:
+                    FrmLevel gameplayForm = new FrmLevel();
+                    gameplayForm.Show();
+                    this.Hide();
+                    break;
+            }
         }
     }
 }

@@ -44,8 +44,8 @@
             this.picWall1 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblInGameTime = new System.Windows.Forms.Label();
+            this.goToHome = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -280,20 +280,6 @@
             this.picWall11.TabIndex = 17;
             this.picWall11.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(664, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 35);
-            this.button1.TabIndex = 18;
-            this.button1.TabStop = false;
-            this.button1.Text = "Go To Home";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // lblInGameTime
             // 
             this.lblInGameTime.AutoSize = true;
@@ -308,6 +294,20 @@
             this.lblInGameTime.Text = "label1";
             this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
             // 
+            // goToHome
+            // 
+            this.goToHome.AutoSize = true;
+            this.goToHome.BackColor = System.Drawing.Color.Lavender;
+            this.goToHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.goToHome.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goToHome.ForeColor = System.Drawing.Color.Black;
+            this.goToHome.Location = new System.Drawing.Point(690, 16);
+            this.goToHome.Name = "goToHome";
+            this.goToHome.Size = new System.Drawing.Size(97, 19);
+            this.goToHome.TabIndex = 18;
+            this.goToHome.Text = "Go To Home";
+            this.goToHome.Click += new System.EventHandler(this.goToHome_Click);
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -315,7 +315,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.goToHome);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -335,6 +335,7 @@
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -385,8 +386,8 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblInGameTime;
+        private System.Windows.Forms.Label goToHome;
     }
 }
 
