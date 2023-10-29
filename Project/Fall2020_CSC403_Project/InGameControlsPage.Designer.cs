@@ -1,6 +1,6 @@
 ﻿namespace Fall2020_CSC403_Project
 {
-    partial class ControlsPage
+    partial class InGameControlsPage
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             // lblControl1
             // 
             this.lblControl1.AutoSize = true;
-            this.lblControl1.Location = new System.Drawing.Point(188, 136);
+            this.lblControl1.Location = new System.Drawing.Point(188, 142);
             this.lblControl1.Name = "lblControl1";
             this.lblControl1.Size = new System.Drawing.Size(229, 20);
             this.lblControl1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // lblControl2
             // 
             this.lblControl2.AutoSize = true;
-            this.lblControl2.Location = new System.Drawing.Point(188, 91);
+            this.lblControl2.Location = new System.Drawing.Point(188, 98);
             this.lblControl2.Name = "lblControl2";
             this.lblControl2.Size = new System.Drawing.Size(162, 20);
             this.lblControl2.TabIndex = 2;
@@ -71,7 +71,7 @@
             this.lblControl3.TabIndex = 3;
             this.lblControl3.Text = "SpaceBar: Shoots a projectile in the direction of last movement.";
             // 
-            // ControlsPage
+            // InGameControlsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,7 +80,7 @@
             this.Controls.Add(this.lblControl2);
             this.Controls.Add(this.btnCloseControls);
             this.Controls.Add(this.lblControl1);
-            this.Name = "ControlsPage";
+            this.Name = "InGameControlsPage";
             this.Text = "Controls Page";
             this.ResumeLayout(false);
             this.PerformLayout();

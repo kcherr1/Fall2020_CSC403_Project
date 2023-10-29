@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AudioSwitcher.AudioApi.CoreAudio;
 
 namespace Fall2020_CSC403_Project
 {
@@ -29,6 +30,30 @@ namespace Fall2020_CSC403_Project
             ControlsPage controlsPage = new ControlsPage();
             controlsPage.Show();
             this.Hide();
+        }
+
+        private bool isVolumeMuted = false;
+
+        private void ToggleVolume()
+        {
+            var controller = new CoreAudioController();
+            var defaultPlaybackDevice = controller.DefaultPlaybackDevice;
+
+
+            if (isVolumeMuted)
+            {
+                defaultPlaybackDevice.Mute(false);
+            }
+            else
+            {
+                defaultPlaybackDevice.Mute(true);
+            }
+            isVolumeMuted = !isVolumeMuted;
+        }
+
+        private void btnVolume_Click(object sender, EventArgs e)
+        {
+            ToggleVolume();
         }
     }
 }
