@@ -142,7 +142,6 @@
     <None Include="data\brick.jpeg" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <None Include="Resources\nether_portal.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,8 +149,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\enemy_koolaid_xded.png" />
-</ItemGroup>
-<ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="data\grass.jpeg" />
   </ItemGroup>
   <ItemGroup>
