@@ -133,9 +133,11 @@ namespace Fall2020_CSC403_Project.Properties {
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap gunfireBlast {
-            get {
-                object obj = ResourceManager.GetObject("gunfireBlast", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+          get {
+            object obj = ResourceManager.GetObject("gunfireBlast", resourceCulture);
+            return ((System.Drawing.Bitmap)(obj));
+          }
+        }
 
         internal static System.Drawing.Bitmap gravestone {
             get {
@@ -149,8 +151,10 @@ namespace Fall2020_CSC403_Project.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap health_pack {
             get {
-                object obj = ResourceManager.GetObject("health_pack", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+              object obj = ResourceManager.GetObject("health_pack", resourceCulture);
+              return ((System.Drawing.Bitmap)(obj));
+            }
+          }
 
         internal static System.Drawing.Bitmap Nether_portal1 {
             get {

@@ -63,6 +63,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.weapon1)).BeginInit();
       this.SuspendLayout();
       // 
       // lblInGameTime
@@ -284,7 +285,7 @@
       // weapon1
       // 
       this.weapon1.Image = global::Fall2020_CSC403_Project.Properties.Resources.weapon1;
-      this.weapon1.Location = new System.Drawing.Point(1113, 698);
+      this.weapon1.Location = new System.Drawing.Point(1267, 697);
       this.weapon1.Name = "weapon1";
       this.weapon1.Size = new System.Drawing.Size(145, 52);
       this.weapon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -299,7 +300,6 @@
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1568, 894);
-      this.Controls.Add(this.weapon1);
       this.Controls.Add(this.picWall11);
       this.Controls.Add(this.picWall2);
       this.Controls.Add(this.picWall8);
@@ -318,8 +318,9 @@
       this.Controls.Add(this.picEnemyPoisonPacket);
       this.Controls.Add(this.picBossKoolAid);
       this.Controls.Add(this.picEnemyCheeto);
+      this.Controls.Add(this.weapon1);
       this.DoubleBuffered = true;
-      this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "FrmLevel";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "Explore";
@@ -343,8 +344,10 @@
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.weapon1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
+
     }
 
     #endregion
