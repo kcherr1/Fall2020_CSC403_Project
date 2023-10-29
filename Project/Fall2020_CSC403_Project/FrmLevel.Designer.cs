@@ -1,4 +1,4 @@
-﻿using System.Media;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
@@ -24,7 +24,7 @@ namespace Fall2020_CSC403_Project {
     /// Required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
-    private void InitializeComponent() {
+    public void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
@@ -48,6 +48,19 @@ namespace Fall2020_CSC403_Project {
             this.picWall1 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
+            this.picWall13 = new System.Windows.Forms.PictureBox();
+            this.picWall14 = new System.Windows.Forms.PictureBox();
+            this.picWall15 = new System.Windows.Forms.PictureBox();
+            this.picWall16 = new System.Windows.Forms.PictureBox();
+            this.picWall17 = new System.Windows.Forms.PictureBox();
+            this.picWall18 = new System.Windows.Forms.PictureBox();
+            this.picWall19 = new System.Windows.Forms.PictureBox();
+            this.picWall20 = new System.Windows.Forms.PictureBox();
+            this.picWall21 = new System.Windows.Forms.PictureBox();
+            this.picWall22 = new System.Windows.Forms.PictureBox();
+            this.picWall23 = new System.Windows.Forms.PictureBox();
+            this.picWall24 = new System.Windows.Forms.PictureBox();
+            this.picAreaDoor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -65,6 +78,19 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAreaDoor)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -138,7 +164,7 @@ namespace Fall2020_CSC403_Project {
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
             this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(971, 74);
+            this.picBossKoolAid.Location = new System.Drawing.Point(900, 74);
             this.picBossKoolAid.Name = "picBossKoolAid";
             this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
             this.picBossKoolAid.TabIndex = 1;
@@ -272,7 +298,7 @@ namespace Fall2020_CSC403_Project {
             this.picWall2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picWall2.Location = new System.Drawing.Point(551, 1);
             this.picWall2.Name = "picWall2";
-            this.picWall2.Size = new System.Drawing.Size(469, 67);
+            this.picWall2.Size = new System.Drawing.Size(650, 67);
             this.picWall2.TabIndex = 16;
             this.picWall2.TabStop = false;
             // 
@@ -286,6 +312,131 @@ namespace Fall2020_CSC403_Project {
             this.picWall11.Size = new System.Drawing.Size(164, 232);
             this.picWall11.TabIndex = 17;
             this.picWall11.TabStop = false;
+            //
+            // these walls will be displaced and replaced when world two is needed
+            // (picWall13-picWall19)
+            // picWall 13
+            this.picWall13.BackColor = System.Drawing.Color.Transparent;
+            this.picWall13.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall13.Location = new System.Drawing.Point(80, 400);
+            this.picWall13.Name = "picWall13";
+            this.picWall13.Size = new System.Drawing.Size(382, 67);
+            this.picWall13.TabIndex = 17;
+            this.picWall13.TabStop = false;
+            // picWall 14
+            this.picWall14.BackColor = System.Drawing.Color.Transparent;
+            this.picWall14.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall14.Location = new System.Drawing.Point(0, 660);
+            this.picWall14.Name = "picWall14";
+            this.picWall14.Size = new System.Drawing.Size(560, 67);
+            this.picWall14.TabIndex = 17;
+            this.picWall14.TabStop = false;
+            // picWall 15
+            this.picWall15.BackColor = System.Drawing.Color.Transparent;
+            this.picWall15.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall15.Location = new System.Drawing.Point(0, 0);
+            this.picWall15.Name = "picWall15";
+            this.picWall15.Size = new System.Drawing.Size(82, 467);
+            this.picWall15.TabIndex = 17;
+            this.picWall15.TabStop = false;
+            // picWall 16
+            this.picWall16.BackColor = System.Drawing.Color.Transparent;
+            this.picWall16.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall16.Location = new System.Drawing.Point(1095, 0);
+            this.picWall16.Name = "picWall16";
+            this.picWall16.Size = new System.Drawing.Size(82, 725);
+            this.picWall16.TabIndex = 17;
+            this.picWall16.TabStop = false;
+            // picWall 17
+            this.picWall17.BackColor = System.Drawing.Color.Transparent;
+            this.picWall17.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall17.Location = new System.Drawing.Point(560, 660);
+            this.picWall17.Name = "picWall17";
+            this.picWall17.Size = new System.Drawing.Size(535, 67);
+            this.picWall17.TabIndex = 17;
+            this.picWall17.TabStop = false;
+            // picWall 18
+            this.picWall18.BackColor = System.Drawing.Color.Transparent;
+            this.picWall18.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall18.Location = new System.Drawing.Point(0, 0);
+            this.picWall18.Name = "picWall18";
+            this.picWall18.Size = new System.Drawing.Size(1100, 67);
+            this.picWall18.TabIndex = 17;
+            this.picWall18.TabStop = false;
+            // picWall 19
+            this.picWall19.BackColor = System.Drawing.Color.Transparent;
+            this.picWall19.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall19.Location = new System.Drawing.Point(714, 400);
+            this.picWall19.Name = "picWall19";
+            this.picWall19.Size = new System.Drawing.Size(382, 67);
+            this.picWall19.TabIndex = 17;
+            this.picWall19.TabStop = false;
+            //
+            // these walls will be displaced and replaced when the secret world is needed
+            // (picWall20-picWall24)
+            // picWall 20
+            this.picWall20.BackColor = System.Drawing.Color.Transparent;
+            this.picWall20.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall20.Location = new System.Drawing.Point(80, 675);
+            this.picWall20.Name = "picWall20";
+            this.picWall20.Size = new System.Drawing.Size(1040, 67);
+            this.picWall20.TabIndex = 17;
+            this.picWall20.TabStop = false;
+            // picWall 21
+            this.picWall21.BackColor = System.Drawing.Color.Transparent;
+            this.picWall21.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall21.Location = new System.Drawing.Point(0, 0);
+            this.picWall21.Name = "picWall21";
+            this.picWall21.Size = new System.Drawing.Size(82, 725);
+            this.picWall21.TabIndex = 17;
+            this.picWall21.TabStop = false;
+            // picWall 22
+            this.picWall22.BackColor = System.Drawing.Color.Transparent;
+            this.picWall22.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall22.Location = new System.Drawing.Point(1095, 0);
+            this.picWall22.Name = "picWall22";
+            this.picWall22.Size = new System.Drawing.Size(82, 725);
+            this.picWall22.TabIndex = 17;
+            this.picWall22.TabStop = false;
+            // picWall 23
+            this.picWall23.BackColor = System.Drawing.Color.Transparent;
+            this.picWall23.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall23.Location = new System.Drawing.Point(0, 0);
+            this.picWall23.Name = "picWall23";
+            this.picWall23.Size = new System.Drawing.Size(1100, 67);
+            this.picWall23.TabIndex = 17;
+            this.picWall23.TabStop = false;
+            // picWall 24
+            this.picWall24.BackColor = System.Drawing.Color.Transparent;
+            this.picWall24.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall24.Location = new System.Drawing.Point(80, 675);
+            this.picWall24.Name = "picWall24";
+            this.picWall24.Size = new System.Drawing.Size(1000, 67);
+            this.picWall24.TabIndex = 17;
+            this.picWall24.TabStop = false;
+            //
+            // the area door which changes the structure of the world upon player interaction
+            //
+            this.picAreaDoor.BackColor = System.Drawing.Color.Transparent;
+            this.picAreaDoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picAreaDoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picAreaDoor.Location = new System.Drawing.Point(100, 200); // 1140, 67 (original coordinates) 100 200 (Test coordinates)
+            this.picAreaDoor.Name = "picAreaDoor";
+            this.picAreaDoor.Size = new System.Drawing.Size(50, 220);
+            this.picAreaDoor.TabIndex = 17;
+            this.picAreaDoor.TabStop = false;
             // 
             // FrmLevel
             // 
@@ -313,6 +464,19 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.picWall13);
+            this.Controls.Add(this.picWall14);
+            this.Controls.Add(this.picWall15);
+            this.Controls.Add(this.picWall16);
+            this.Controls.Add(this.picWall17);
+            this.Controls.Add(this.picWall18);
+            this.Controls.Add(this.picWall19);
+            this.Controls.Add(this.picWall20);
+            this.Controls.Add(this.picWall21);
+            this.Controls.Add(this.picWall22);
+            this.Controls.Add(this.picWall23);
+            this.Controls.Add(this.picWall24);
+            this.Controls.Add(this.picAreaDoor);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -337,6 +501,19 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAreaDoor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,27 +521,40 @@ namespace Fall2020_CSC403_Project {
 
     #endregion
 
-    private System.Windows.Forms.PictureBox picPlayer;
-    private System.Windows.Forms.PictureBox picBossKoolAid;
-    private System.Windows.Forms.Label lblInGameTime;
-    private System.Windows.Forms.Timer tmrUpdateInGameTime;
-    private System.Windows.Forms.Timer tmrPlayerMove;
-    private System.Windows.Forms.PictureBox picWall3;
-    private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
-    private System.Windows.Forms.PictureBox picEnemyCheeto;
-    private System.Windows.Forms.Label lblPlayerHealthMap;
-    private System.Windows.Forms.PictureBox picWall5;
-    private System.Windows.Forms.PictureBox picWall4;
-    private System.Windows.Forms.PictureBox picWall12;
-    private System.Windows.Forms.PictureBox picWall6;
-    private System.Windows.Forms.PictureBox picWall9;
-    private System.Windows.Forms.PictureBox picWall10;
-    private System.Windows.Forms.PictureBox picWall0;
-    private System.Windows.Forms.PictureBox picWall7;
-    private System.Windows.Forms.PictureBox picWall8;
-    private System.Windows.Forms.PictureBox picWall1;
-    private System.Windows.Forms.PictureBox picWall2;
-    private System.Windows.Forms.PictureBox picWall11;
+    public System.Windows.Forms.PictureBox picPlayer;
+        public System.Windows.Forms.PictureBox picBossKoolAid;
+        public System.Windows.Forms.Label lblInGameTime;
+        public System.Windows.Forms.Timer tmrUpdateInGameTime;
+        public System.Windows.Forms.Timer tmrPlayerMove;
+        public System.Windows.Forms.PictureBox picWall3;
+        public System.Windows.Forms.PictureBox picEnemyPoisonPacket;
+        public System.Windows.Forms.PictureBox picEnemyCheeto;
+        public System.Windows.Forms.Label lblPlayerHealthMap;
+        public System.Windows.Forms.PictureBox picWall5;
+        public System.Windows.Forms.PictureBox picWall4;
+        public System.Windows.Forms.PictureBox picWall12;
+        public System.Windows.Forms.PictureBox picWall6;
+        public System.Windows.Forms.PictureBox picWall9;
+        public System.Windows.Forms.PictureBox picWall10;
+        public System.Windows.Forms.PictureBox picWall0;
+        public System.Windows.Forms.PictureBox picWall7;
+        public System.Windows.Forms.PictureBox picWall8;
+        public System.Windows.Forms.PictureBox picWall1;
+        public System.Windows.Forms.PictureBox picWall2;
+        public System.Windows.Forms.PictureBox picWall11;
+        public System.Windows.Forms.PictureBox picWall13;
+        public System.Windows.Forms.PictureBox picWall14;
+        public System.Windows.Forms.PictureBox picWall15;
+        public System.Windows.Forms.PictureBox picWall16;
+        public System.Windows.Forms.PictureBox picWall17;
+        public System.Windows.Forms.PictureBox picWall18;
+        public System.Windows.Forms.PictureBox picWall19;
+        public System.Windows.Forms.PictureBox picWall20;
+        public System.Windows.Forms.PictureBox picWall21;
+        public System.Windows.Forms.PictureBox picWall22;
+        public System.Windows.Forms.PictureBox picWall23;
+        public System.Windows.Forms.PictureBox picWall24;
+        public System.Windows.Forms.PictureBox picAreaDoor;
     SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");
 
     }
