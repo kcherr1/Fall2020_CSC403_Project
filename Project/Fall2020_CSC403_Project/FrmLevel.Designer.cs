@@ -28,51 +28,56 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.goldDisplay = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picWall11 = new System.Windows.Forms.PictureBox();
+            this.picWall2 = new System.Windows.Forms.PictureBox();
+            this.picWall8 = new System.Windows.Forms.PictureBox();
+            this.picWall7 = new System.Windows.Forms.PictureBox();
+            this.picWall1 = new System.Windows.Forms.PictureBox();
+            this.picWall0 = new System.Windows.Forms.PictureBox();
+            this.picWall10 = new System.Windows.Forms.PictureBox();
+            this.picWall9 = new System.Windows.Forms.PictureBox();
+            this.picWall6 = new System.Windows.Forms.PictureBox();
+            this.picWall12 = new System.Windows.Forms.PictureBox();
+            this.picWall4 = new System.Windows.Forms.PictureBox();
+            this.picWall5 = new System.Windows.Forms.PictureBox();
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            this.picWall5 = new System.Windows.Forms.PictureBox();
-            this.picWall4 = new System.Windows.Forms.PictureBox();
-            this.picWall12 = new System.Windows.Forms.PictureBox();
-            this.picWall6 = new System.Windows.Forms.PictureBox();
-            this.picWall9 = new System.Windows.Forms.PictureBox();
-            this.picWall10 = new System.Windows.Forms.PictureBox();
-            this.picWall0 = new System.Windows.Forms.PictureBox();
-            this.picWall7 = new System.Windows.Forms.PictureBox();
-            this.picWall8 = new System.Windows.Forms.PictureBox();
-            this.picWall1 = new System.Windows.Forms.PictureBox();
-            this.picWall2 = new System.Windows.Forms.PictureBox();
-            this.picWall11 = new System.Windows.Forms.PictureBox();
+            this.pickup_gold = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall0)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pickup_gold)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
             // 
             this.lblInGameTime.AutoSize = true;
             this.lblInGameTime.BackColor = System.Drawing.Color.Black;
-            this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInGameTime.ForeColor = System.Drawing.Color.White;
             this.lblInGameTime.Location = new System.Drawing.Point(12, 9);
             this.lblInGameTime.Name = "lblInGameTime";
-            this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
+            this.lblInGameTime.Size = new System.Drawing.Size(51, 20);
             this.lblInGameTime.TabIndex = 2;
             this.lblInGameTime.Text = "label1";
             this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
@@ -88,12 +93,37 @@
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
+            // goldDisplay
+            // 
+            this.goldDisplay.AutoSize = true;
+            this.goldDisplay.BackColor = System.Drawing.Color.Gold;
+            this.goldDisplay.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Fall2020_CSC403_Project.Properties.Settings.Default, "Gold", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.goldDisplay.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goldDisplay.Location = new System.Drawing.Point(551, 9);
+            this.goldDisplay.Name = "goldDisplay";
+            this.goldDisplay.Size = new System.Drawing.Size(16, 31);
+            this.goldDisplay.TabIndex = 18;
+            this.goldDisplay.Text = global::Fall2020_CSC403_Project.Properties.Settings.Default.Gold;
+            this.goldDisplay.UseCompatibleTextRendering = true;
+            this.goldDisplay.Click += new System.EventHandler(this.Label1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Fall2020_CSC403_Project.Properties.Resources.coins_pile;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(489, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 59);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
             // picEnemyCheeto
             // 
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyCheeto.Location = new System.Drawing.Point(838, 540);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(998, 534);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
             this.picEnemyCheeto.TabIndex = 5;
@@ -109,6 +139,7 @@
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
             this.picEnemyPoisonPacket.TabIndex = 4;
             this.picEnemyPoisonPacket.TabStop = false;
+            this.picEnemyPoisonPacket.Click += new System.EventHandler(this.picEnemyPoisonPacket_Click);
             // 
             // picWall3
             // 
@@ -143,6 +174,17 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
+            // pickup_gold
+            // 
+            this.pickup_gold.Image = global::Fall2020_CSC403_Project.Properties.Resources.coins;
+            this.pickup_gold.Location = new System.Drawing.Point(576, 124);
+            this.pickup_gold.Name = "pickup_gold";
+            this.pickup_gold.Size = new System.Drawing.Size(51, 51);
+            this.pickup_gold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pickup_gold.TabIndex = 20;
+            this.pickup_gold.TabStop = false;
+            this.pickup_gold.Click += new System.EventHandler(this.pictureBox2_Click);
+            //
             // picWall5
             // 
             this.picWall5.BackColor = System.Drawing.Color.Transparent;
@@ -192,7 +234,7 @@
             this.picWall9.BackColor = System.Drawing.Color.Transparent;
             this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall9.Location = new System.Drawing.Point(266, 154);
+            this.picWall9.Location = new System.Drawing.Point(251, 169);
             this.picWall9.Name = "picWall9";
             this.picWall9.Size = new System.Drawing.Size(197, 118);
             this.picWall9.TabIndex = 10;
@@ -203,7 +245,7 @@
             this.picWall10.BackColor = System.Drawing.Color.Transparent;
             this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall10.Location = new System.Drawing.Point(653, 89);
+            this.picWall10.Location = new System.Drawing.Point(578, 76);
             this.picWall10.Name = "picWall10";
             this.picWall10.Size = new System.Drawing.Size(228, 162);
             this.picWall10.TabIndex = 11;
@@ -281,7 +323,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.ClientSize = new System.Drawing.Size(1069, 666);
+            this.Controls.Add(this.goldDisplay);
+            this.Controls.Add(this.pickup_gold);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -301,29 +346,32 @@
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall0)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pickup_gold)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,6 +399,9 @@
         private System.Windows.Forms.PictureBox picWall1;
         private System.Windows.Forms.PictureBox picWall2;
         private System.Windows.Forms.PictureBox picWall11;
+        private System.Windows.Forms.Label goldDisplay;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pickup_gold;
     }
 }
 

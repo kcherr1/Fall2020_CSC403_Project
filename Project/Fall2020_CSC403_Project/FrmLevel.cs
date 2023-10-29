@@ -15,6 +15,8 @@ namespace Fall2020_CSC403_Project
         private Enemy enemyCheeto;
         private Character[] walls;
 
+        private Character pickup_gold_001;
+
         private DateTime timeBegin;
         private FrmBattle frmBattle;
         private SoundPlayer backgroundMusic;
@@ -34,6 +36,8 @@ namespace Fall2020_CSC403_Project
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
+            pickup_gold_001 = new Character(CreatePosition(pickup_gold), CreateCollider(pickup_gold, PADDING));
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -94,6 +98,16 @@ namespace Fall2020_CSC403_Project
             {
                 player.MoveBack();
             }
+            // check collision with gold pick ups
+            if (HitAChar(player, pickup_gold_001))
+            {
+                pickUpGold(player); // updates gold counter
+                // need to hide image
+                pickup_gold.Dispose();
+
+                // need to destroy this item
+                this.pickup_gold_001.Collider.MovePosition(0, 0);
+            }
 
             // check collision with enemies
             if (HitAChar(player, enemyPoisonPacket))
@@ -111,6 +125,7 @@ namespace Fall2020_CSC403_Project
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            updateOnGoldDisplay();
         }
 
         private bool HitAWall(Character c)
@@ -143,6 +158,14 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForBossBattle();
             }
+
+        }
+        private void pickUpGold(Player player) {
+            player.updateGold(5);
+            this.goldDisplay.Text = player.gold.ToString();
+        }
+        public void updateOnGoldDisplay() {
+            this.goldDisplay.Text = player.gold.ToString();
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
@@ -165,6 +188,12 @@ namespace Fall2020_CSC403_Project
                     player.GoDown();
                     break;
 
+                // open the character screen when pressing escape key on keyboard.
+                case Keys.Escape:
+                    CharacterScreen character = new CharacterScreen();
+                    character.Show();
+                    break;
+
                 default:
                     player.ResetMoveSpeed();
                     break;
@@ -174,6 +203,25 @@ namespace Fall2020_CSC403_Project
         private void lblInGameTime_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e) {
+
+        }
+
+        private void picEnemyPoisonPacket_Click(object sender, EventArgs e) {
+
+        }
+
+        // handles the button press to open the settings menu
+        private void settings_button_Click(object sender, EventArgs e)
+        {
+            // place opener for settings here.
         }
     }
 }
