@@ -131,7 +131,7 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
-            Enemy_vanishing(enemy);
+            CheckResult(enemy);
         }
         public void CheckResult(Enemy enemy)
         {
