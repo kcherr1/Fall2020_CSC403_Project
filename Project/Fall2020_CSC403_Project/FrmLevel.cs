@@ -30,8 +30,9 @@ namespace Fall2020_CSC403_Project
 
         private Size itemSize = new Size(50, 50);
 
-        public FrmLevel(Form previousForm)
+        public FrmLevel(Form previousForm, Player player)
         {
+            this.player = player;
             this.gameOver = false;
             this.WindowState = FormWindowState.Maximized;
             this.Level = 1;
@@ -50,7 +51,6 @@ namespace Fall2020_CSC403_Project
             this.terrain = new Terrain(grid_width, grid_height, TileSize);
             enemies = new List<Enemy> { };
 
-            this.player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
             LevelSelect();
 
 
