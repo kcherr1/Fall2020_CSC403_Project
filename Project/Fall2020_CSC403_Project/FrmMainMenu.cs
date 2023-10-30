@@ -16,6 +16,8 @@ namespace Fall2020_CSC403_Project
         public static FrmMainMenu instance = null;
 
         private FrmLevel frmLevel;
+        private FrmWinScreen frmWin;
+        private FrmEndScreen frmEnd;
 
         public FrmMainMenu()
         {
@@ -35,15 +37,20 @@ namespace Fall2020_CSC403_Project
             {
                 if (frmLevel.win == true)
                 {
-                    //open win screen
+                    frmWin = new FrmWinScreen();
+                    frmWin.Show();
+                    frmWin.FormClosed += (x, t) => this.Show();
                 }
                 else if (frmLevel.lose == true)
                 {
-                    this.Show();
+                    frmEnd = new FrmEndScreen();
+                    frmEnd.Show();
+                    frmEnd.FormClosed += (x, t) => this.Show();
                 }
                 else
                 {
                     this.Show();
+                    menuTheme.PlayLooping();
                 }
             };
             frmLevel.Show();
