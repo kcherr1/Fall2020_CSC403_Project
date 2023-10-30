@@ -23,12 +23,9 @@ namespace Fall2020_CSC403_Project
         private PictureBox RoguePic;
         private PictureBox SwordsmanPic;
         private Form MainMenu;
-        
-
-        public FrmPlayerSelect(Form MainMenu)
         private Label InstructionLabel;
 
-        public FrmPlayerSelect()
+        public FrmPlayerSelect(Form MainMenu)
         {
             this.MainMenu = MainMenu;
             this.WindowState = FormWindowState.Maximized;
