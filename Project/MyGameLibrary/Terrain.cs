@@ -164,7 +164,8 @@ namespace Fall2020_CSC403_Project.code
                 Location = location,
                 Image = pic,
                 Size = this.TileSize,
-                SizeMode = PictureBoxSizeMode.StretchImage,
+                SizeMode = PictureBoxSizeMode.AutoSize,
+                Padding = new Padding(0),
             };
         }
     }
