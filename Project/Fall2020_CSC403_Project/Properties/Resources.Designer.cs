@@ -202,15 +202,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-<<<<<<< HEAD
-        internal static System.Drawing.Bitmap rogue {
-            get {
-                object obj = ResourceManager.GetObject("rogue", resourceCulture);
-=======
         internal static System.Drawing.Bitmap rare_armor {
             get {
                 object obj = ResourceManager.GetObject("rare_armor", resourceCulture);
->>>>>>> 5722addd37d37069511f017a653933271f10762f
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -218,15 +212,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-<<<<<<< HEAD
-        internal static System.Drawing.Bitmap swordsman {
-            get {
-                object obj = ResourceManager.GetObject("swordsman", resourceCulture);
-=======
         internal static System.Drawing.Bitmap rare_dagger {
             get {
                 object obj = ResourceManager.GetObject("rare_dagger", resourceCulture);
->>>>>>> 5722addd37d37069511f017a653933271f10762f
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -234,14 +222,39 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-<<<<<<< HEAD
-        internal static System.Drawing.Bitmap tank {
-            get {
-                object obj = ResourceManager.GetObject("tank", resourceCulture);
-=======
         internal static System.Drawing.Bitmap rare_sword {
             get {
                 object obj = ResourceManager.GetObject("rare_sword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rogue {
+            get {
+                object obj = ResourceManager.GetObject("rogue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap swordsman {
+            get {
+                object obj = ResourceManager.GetObject("swordsman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tank {
+            get {
+                object obj = ResourceManager.GetObject("tank", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -352,7 +365,6 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap tile_water_grassy {
             get {
                 object obj = ResourceManager.GetObject("tile_water_grassy", resourceCulture);
->>>>>>> 5722addd37d37069511f017a653933271f10762f
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
