@@ -190,6 +190,8 @@ namespace Fall2020_CSC403_Project
                 }
                 selected = 0;
 
+                player.UpdateStats();
+
             }
         }
 
@@ -213,7 +215,9 @@ namespace Fall2020_CSC403_Project
         {
             if (selected == 12)
             {
-               //use utility player.Inventory.Utility.
+                player.ApplyEffect(player.Inventory.Utility.Potion, player.Inventory.Utility.Stat);
+                player.Inventory.UseItem();
+                RefreshInvImages();
             }
             else
             {

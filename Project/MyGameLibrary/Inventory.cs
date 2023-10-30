@@ -220,6 +220,11 @@ namespace MyGameLibrary
             this.Utility = null;
 
         }
+
+        public void UseItem()
+        {
+            this.Utility = null;
+        }
     }
 
 }

@@ -26,6 +26,8 @@ namespace Fall2020_CSC403_Project
 		private FrmBattle frmBattle;
 		private FrmInv frmInv;
 
+        private Size itemSize = new Size(50, 50);
+
         public FrmLevel()
         {
             this.gameOver = false;
@@ -38,8 +40,12 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_Load(object sender, EventArgs e)
         {
+            Size TileSize = new Size(this.Width / 30, this.Width / 30);
+            int grid_width = this.Width / TileSize.Width;
+            int grid_height = this.Height / TileSize.Width;
+            
 
-            terrain = new Terrain();
+            this.terrain = new Terrain(grid_width, grid_height, TileSize);
             enemies = new List<Enemy> { };
 
             this.player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
@@ -56,30 +62,30 @@ namespace Fall2020_CSC403_Project
         private void InitializeLevelLayout()
         {
 
-            if (terrain != null)
+            if (this.terrain != null)
             {
-                if (terrain.Tiles != null)
+                if (this.terrain.Tiles != null)
                 {
-                    for (int i = 0; i < terrain.Tiles.Count; i++)
+                    for (int i = 0; i < this.terrain.Tiles.Count; i++)
                     {
-                        this.Controls.Add(terrain.Tiles[i].Pic);
-                        terrain.Tiles[i].Pic.SendToBack();
+                        this.Controls.Add(this.terrain.Tiles[i].Pic);
+                        this.terrain.Tiles[i].Pic.SendToBack();
                     }
                 }
-                if (terrain.Walls != null)
+                if (this.terrain.Walls != null)
                 {
-                    for (int i = 0; i < terrain.Walls.Count; i++)
+                    for (int i = 0; i < this.terrain.Walls.Count; i++)
                     {
-                        this.Controls.Add(terrain.Walls[i].Pic);
-                        terrain.Walls[i].Pic.BringToFront();
+                        this.Controls.Add(this.terrain.Walls[i].Pic);
+                        this.terrain.Walls[i].Pic.BringToFront();
                     }
                 }
-                if (terrain.Items != null)
+                if (this.terrain.Items != null)
                 {
-                    for (int i = 0; i < terrain.Items.Count; i++)
+                    for (int i = 0; i < this.terrain.Items.Count; i++)
                     {
-                        this.Controls.Add(terrain.Items[i].Pic);
-                        terrain.Items[i].Pic.BringToFront();
+                        this.Controls.Add(this.terrain.Items[i].Pic);
+                        this.terrain.Items[i].Pic.BringToFront();
                     }
                 }
             }
@@ -175,7 +181,6 @@ namespace Fall2020_CSC403_Project
             if (x >= 0)
             {
                 Console.WriteLine(enemies[x].Name);
-                Debug.WriteLine(enemies[x].Name);
                 Fight(enemies[x]);
             }
 
@@ -184,16 +189,16 @@ namespace Fall2020_CSC403_Project
             {
                 if (!player.Inventory.BackpackIsFull())
                 {
-                    player.Inventory.AddToBackpack(terrain.Items[x]);
-                    terrain.Items[x].RemoveEntity();
+                    player.Inventory.AddToBackpack(this.terrain.Items[x]);
+                    this.terrain.Items[x].RemoveEntity();
                 }
 
             }
 
             x = InATile(player);
-            if (x >= 0 && x < terrain.Tiles.Count)
+            if (x >= 0 && x < this.terrain.Tiles.Count)
             {
-                player.SPEED = (int)terrain.Tiles[x].Effect;
+                player.SPEED = (int)this.terrain.Tiles[x].Effect;
             }
 
         }
@@ -201,9 +206,9 @@ namespace Fall2020_CSC403_Project
         private bool HitAWall(Player c)
         {
             bool hitAWall = false;
-            for (int w = 0; w < terrain.Walls.Count; w++)
+            for (int w = 0; w < this.terrain.Walls.Count; w++)
             {
-                if (c.Collider.Intersects(terrain.Walls[w].Collider))
+                if (c.Collider.Intersects(this.terrain.Walls[w].Collider))
                 {
                     hitAWall = true;
                     break;
@@ -235,16 +240,16 @@ namespace Fall2020_CSC403_Project
 
         private int HitAnItem(Player you)
         {
-            if (terrain.Items == null)
+            if (this.terrain.Items == null)
             {
                 return -1;
             }
             int hitItem = -1;
-            for (int i = 0; i < terrain.Items.Count; i++)
+            for (int i = 0; i < this.terrain.Items.Count; i++)
             {
-                if (terrain.Items[i] != null)
+                if (this.terrain.Items[i] != null)
                 {
-                    if (you.Collider.Intersects(terrain.Items[i].Collider))
+                    if (you.Collider.Intersects(this.terrain.Items[i].Collider))
                     {
                         hitItem = i;
                         break;
@@ -256,12 +261,13 @@ namespace Fall2020_CSC403_Project
 
         public int InATile(Player you)
         {
-            int x = ((int)you.Position.x + you.Pic.Width / 2) / 50;
-            int y = ((int)you.Position.y + you.Pic.Height) / 50;
+            int x = ((int)you.Position.x + you.Pic.Width / 2) / this.terrain.TileSize.Width;
+            int y = ((int)you.Position.y + you.Pic.Height) / this.terrain.TileSize.Width;
 
+            int a = (int)((x) + Math.Floor((double)y * this.terrain.GridWidth));
+            Debug.WriteLine(x + ", " + y + ":  " + a);
 
-
-            return (x) + (y * this.Width / 50);
+            return a;
         }
 
         private void Fight(Enemy enemy)
@@ -271,7 +277,6 @@ namespace Fall2020_CSC403_Project
             frmBattle = FrmBattle.GetInstance(this, enemy);
             frmBattle.Show();
 
-            Debug.WriteLine(enemy.Name);
             if (enemy.Name == "BossKoolAid")
             {
                 frmBattle.SetupForBossBattle();
@@ -408,17 +413,16 @@ namespace Fall2020_CSC403_Project
 
         private void Level1()
         {
+            
             player.SetEntityPosition(new Position(100, 700));
             player.Pic.Visible = true;
 
-            int grid_width = this.Width / 50;
-            int grid_height = this.Height / 50;
 
-            terrain.GenerateTerrain(grid_height, grid_width, 1);
+            this.terrain.GenerateTerrain(2);
 
-            terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), new Size(50, 50)), 5, Item.ItemType.Weapon));
-            terrain.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), new Size(50, 50)), 5, Item.ItemType.Utility));
-            terrain.AddItem(new Item("Armor of Noob", MakePictureBox(Resources.common_armor, new Point(880, 800), new Size(50, 50)), 5, Item.ItemType.Armor));
+            this.terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), itemSize), 5, Item.ItemType.Weapon));
+            this.terrain.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), itemSize), 5, Item.ItemType.Utility));
+            this.terrain.AddItem(new Item("Armor of Noob", MakePictureBox(Resources.common_armor, new Point(880, 800), itemSize), 5, Item.ItemType.Armor));
 
             AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Swordsman()));
             AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Rogue()));
