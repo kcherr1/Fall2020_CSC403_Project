@@ -42,10 +42,10 @@ namespace Fall2020_CSC403_Project.code
         public Tank(Point location, Size size)
         {
             baseMaxHealth = 100;
-            baseDefense = 18;
-            baseDamage = 5;
+            baseDefense = 10;
+            baseDamage = 2;
             baseSpeed = 0;
-            hitMod = 5;
+            hitMod = 2;
             image = new PictureBox
             {
                 Location = location,
@@ -71,7 +71,7 @@ namespace Fall2020_CSC403_Project.code
             baseDefense = 10;
             baseDamage = 10;
             baseSpeed = 5;
-            hitMod = 2;
+            hitMod = 5;
             image = new PictureBox
             {
                 Location = location,
@@ -94,7 +94,7 @@ namespace Fall2020_CSC403_Project.code
         public Swordsman(Point location, Size size)
         {
             baseMaxHealth = 50;
-            baseDefense = 12;
+            baseDefense = 10;
             baseDamage = 8;
             baseSpeed = 2;
             hitMod = 3;
@@ -116,10 +116,11 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; }
         public PictureBox image { get; }
+
         public Minion(Point location, Size size)
         {
             baseMaxHealth = 20;
-            baseDefense = 0;
+            baseDefense = 10;
             baseDamage = 5;
             baseSpeed = 2;
             hitMod = 0;
@@ -131,6 +132,32 @@ namespace Fall2020_CSC403_Project.code
                 SizeMode = PictureBoxSizeMode.StretchImage,
             };
         }
+    }
+
+    public class Boss : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+        public PictureBox image { get; }
+
+        public Boss(Point location, Size size)
+        {
+            baseMaxHealth = 100;
+            baseDefense = 18;
+            baseDamage = 10;
+            hitMod = 10;
+            image = new PictureBox
+            {
+                Location = location,
+                Image = Resources.minion,
+                Size = size,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+            };
+        }
+
     }
     
 }
