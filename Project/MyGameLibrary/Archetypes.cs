@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project;
+using MyGameLibrary.Properties;
 
 namespace Fall2020_CSC403_Project.code
 {
@@ -38,19 +39,20 @@ namespace Fall2020_CSC403_Project.code
         public int archetypeDamage { get; }
         public PictureBox image { get; }
 
-        public Tank()
+        public Tank(Point location, Size size)
         {
             baseMaxHealth = 100;
             baseDefense = 10;
             baseDamage = 5;
             baseSpeed = 0;
             archetypeDamage = 5;
-            //image = new PictureBox
-            //{
-            //    Size = new Size(50, 50),
-            //    Location = new Point(0, 0),
-            //    SizeMode = PictureBoxSizeMode.StretchImage,
-            //};
+            image = new PictureBox
+            {
+                Location = location,
+                Image = Resources.Tank,
+                Size = size,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+            };
         }
     }
 
@@ -63,13 +65,20 @@ namespace Fall2020_CSC403_Project.code
         public int archetypeDamage { get; }
         public PictureBox image { get; }
 
-        public Rogue()
+        public Rogue(Point location, Size size)
         {
             baseMaxHealth = 20;
             baseDefense = 2;
             baseDamage = 10;
             baseSpeed = 5;
             archetypeDamage = 10;
+            image = new PictureBox
+            {
+                Location = location,
+                Image = Resources.rogue,
+                Size = size,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+            };
         }
     }
 
@@ -82,13 +91,20 @@ namespace Fall2020_CSC403_Project.code
         public int archetypeDamage { get; }
         public PictureBox image { get; }
 
-        public Swordsman()
+        public Swordsman(Point location, Size size)
         {
             baseMaxHealth = 50;
             baseDefense = 5;
             baseDamage = 8;
             baseSpeed = 2;
             archetypeDamage = 8;
+            image = new PictureBox
+            {
+                Location = location,
+                Image = Resources.Swordsman,
+                Size = size,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+            };
         }
     }
 
@@ -100,13 +116,20 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int archetypeDamage { get; }
         public PictureBox image { get; }
-        public Minion()
+        public Minion(Point location, Size size)
         {
             baseMaxHealth = 20;
             baseDefense = 0;
             baseDamage = 5;
             baseSpeed = 2;
             archetypeDamage = 0;
+            image = new PictureBox
+            {
+                Location = location,
+                Image = Resources.minion,
+                Size = size,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+            };
         }
     }
     
