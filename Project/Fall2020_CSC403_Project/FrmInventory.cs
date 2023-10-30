@@ -243,7 +243,7 @@ namespace Fall2020_CSC403_Project
             AttackStat.Size = new Size(Inv1.Width, Inv1.Height / 3);
             AttackStat.AutoSize = false;
             AttackStat.Parent = this;
-            AttackStat.Location = new Point(Inv6.Location.X + 7 * Inv6.Width / 6, Inv6.Location.Y + Inv6.Height / 2);
+            AttackStat.Location = new Point(PlayerPic.Location.X + PlayerPic.Width + width / 32, Weapon.Location.Y + Weapon.Height / 3);
             AttackStat.TextAlign = ContentAlignment.MiddleLeft;
             AttackStat.Font = new Font("NSimSun", AttackStat.Size.Height / 4);
 
@@ -251,7 +251,7 @@ namespace Fall2020_CSC403_Project
             DefStat.Size = new Size(Inv1.Width, Inv1.Height / 3);
             DefStat.AutoSize = false;
             DefStat.Parent = this;
-            DefStat.Location = new Point(Inv6.Location.X + 7 * Inv6.Width / 6, Inv6.Location.Y + Inv6.Height / 2);
+            DefStat.Location = new Point(PlayerPic.Location.X + PlayerPic.Width + width/32, Armor.Location.Y + Armor.Height/3);
             DefStat.TextAlign = ContentAlignment.MiddleLeft;
             DefStat.Font = new Font("NSimSun", DefStat.Size.Height / 4);
 
@@ -259,7 +259,7 @@ namespace Fall2020_CSC403_Project
             SpeedStat.Size = new Size(Inv1.Width, Inv1.Height / 3);
             SpeedStat.AutoSize = false;
             SpeedStat.Parent = this;
-            SpeedStat.Location = new Point(Inv6.Location.X + 7 * Inv6.Width / 6, Inv6.Location.Y + Inv6.Height / 2);
+            SpeedStat.Location = new Point(PlayerPic.Location.X + PlayerPic.Width + width / 32, Utility.Location.Y + Utility.Height / 3);
             SpeedStat.TextAlign = ContentAlignment.MiddleLeft;
             SpeedStat.Font = new Font("NSimSun", SpeedStat.Size.Height / 4);
 
@@ -272,9 +272,9 @@ namespace Fall2020_CSC403_Project
 
         private void UpdateStats()
         {
-            SpeedStat.Text = player.speed.ToString();
-            DefStat.Text = player.defense.ToString();
-            AttackStat.Text = player.damage.ToString();
+            SpeedStat.Text = "Speed: "+player.speed.ToString();
+            DefStat.Text = "Defense: "+player.defense.ToString();
+            AttackStat.Text = "Attack: "+player.damage.ToString();
         }
 
         private void UpdateHealthBars()
@@ -373,18 +373,15 @@ namespace Fall2020_CSC403_Project
                 if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Weapon)
                 {
                     player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
-                    RefreshInv();
 
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Armor)
                 {
                     player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
-                    RefreshInv();
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Utility)
                 {
                     player.Inventory.EquipUtility(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
-                    RefreshInv();
                 }
                 else { }
 
@@ -395,6 +392,8 @@ namespace Fall2020_CSC403_Project
                 selected = 0;
 
                 player.UpdateStats();
+                RefreshInv();
+
 
             }
         }
