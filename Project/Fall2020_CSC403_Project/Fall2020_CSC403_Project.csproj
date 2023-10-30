@@ -153,6 +153,9 @@
     <Content Include="data\tile_water_clear.png" />
     <Content Include="data\tile_water_grassy.png" />
     <Content Include="data\void.png" />
+    <Content Include="data\rogue.png" />
+    <Content Include="data\Swordsman.png" />
+    <Content Include="data\Tank.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

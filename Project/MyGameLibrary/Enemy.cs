@@ -9,7 +9,7 @@ namespace Fall2020_CSC403_Project.code
 		public Color Color { get; set; }
         public Image Img { get; set; }
 
-        public Enemy(string Name, PictureBox Pic, PlayerArchetype archetype) : base(Name, Pic, archetype)
+        public Enemy(string Name, PictureBox Pic, Archetype archetype) : base(Name, Pic, archetype)
 		{
 
 		}
