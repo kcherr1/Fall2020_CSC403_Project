@@ -76,8 +76,14 @@ namespace Fall2020_CSC403_Project {
         Close();
       }
     }
+        private void btnEscape_Click(object sender, EventArgs e)
+        {
+            instance = null;
+            Close();
 
-    private void EnemyDamage(int amount) {
+        }
+
+        private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
 
