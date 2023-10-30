@@ -29,72 +29,76 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDeath));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BtnRetry = new System.Windows.Forms.Button();
+            this.BtnMainMenu = new System.Windows.Forms.Button();
+            this.BtnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // BtnRetry
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic);
-            this.button1.Location = new System.Drawing.Point(320, 179);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 53);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Retry";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnRetry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnRetry.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic);
+            this.BtnRetry.Location = new System.Drawing.Point(240, 145);
+            this.BtnRetry.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnRetry.Name = "BtnRetry";
+            this.BtnRetry.Size = new System.Drawing.Size(148, 43);
+            this.BtnRetry.TabIndex = 0;
+            this.BtnRetry.Text = "Retry";
+            this.BtnRetry.UseVisualStyleBackColor = false;
+            this.BtnRetry.Click += new System.EventHandler(this.BtnRetry_Click);
             // 
-            // button2
+            // BtnMainMenu
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic);
-            this.button2.Location = new System.Drawing.Point(317, 271);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(197, 52);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Main Menu";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.BtnMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnMainMenu.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic);
+            this.BtnMainMenu.Location = new System.Drawing.Point(238, 220);
+            this.BtnMainMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnMainMenu.Name = "BtnMainMenu";
+            this.BtnMainMenu.Size = new System.Drawing.Size(148, 42);
+            this.BtnMainMenu.TabIndex = 1;
+            this.BtnMainMenu.Text = "Main Menu";
+            this.BtnMainMenu.UseVisualStyleBackColor = false;
+            this.BtnMainMenu.Click += new System.EventHandler(this.BtnMainMenu_Click);
             // 
-            // button3
+            // BtnExit
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button3.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic);
-            this.button3.Location = new System.Drawing.Point(318, 358);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(197, 51);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Exit";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.BtnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnExit.Font = new System.Drawing.Font("Mistral", 24F, System.Drawing.FontStyle.Italic);
+            this.BtnExit.Location = new System.Drawing.Point(238, 291);
+            this.BtnExit.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(148, 41);
+            this.BtnExit.TabIndex = 2;
+            this.BtnExit.Text = "Exit";
+            this.BtnExit.UseVisualStyleBackColor = false;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Magneto", 36F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(159, 68);
+            this.label1.Location = new System.Drawing.Point(119, 55);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(533, 73);
+            this.label1.Size = new System.Drawing.Size(423, 58);
             this.label1.TabIndex = 3;
             this.label1.Text = "You Are Dead!";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FrmDeath
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnExit);
+            this.Controls.Add(this.BtnMainMenu);
+            this.Controls.Add(this.BtnRetry);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmDeath";
-            this.Text = "Form1";
+            this.Text = "Death Menu";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,9 +106,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BtnRetry;
+        private System.Windows.Forms.Button BtnMainMenu;
+        private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Label label1;
     }
 }

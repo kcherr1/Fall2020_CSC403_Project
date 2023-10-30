@@ -201,10 +201,5 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-
-        private void picEnemyPoisonPacket_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

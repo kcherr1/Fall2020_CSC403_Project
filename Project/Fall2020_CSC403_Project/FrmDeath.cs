@@ -17,7 +17,7 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnMainMenu_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmMainMenu mainMenu = new FrmMainMenu();
@@ -25,21 +25,16 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnRetry_Click(object sender, EventArgs e)
         {
             this.Hide();
             FrmLevel1 Play = new FrmLevel1();
             Play.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
     }
