@@ -30,10 +30,12 @@ namespace Fall2020_CSC403_Project
 
         public FrmLevel()
         {
+            this.KeyPreview = true;
+            this.DoubleBuffered = true;
+
             this.gameOver = false;
             this.WindowState = FormWindowState.Maximized;
             this.Level = 1;
-            //this.DoubleBuffered = true;
             InitializeComponent();
 
         }
@@ -145,6 +147,13 @@ namespace Fall2020_CSC403_Project
 
                 case Keys.S:
                     player.GoDown();
+                    break;
+
+                case Keys.E:
+                    player.ResetMoveSpeed();
+                    frmInv = FrmInv.GetInstance(player);
+                    frmInv.WindowState = FormWindowState.Maximized;
+                    frmInv.Show();
                     break;
 
                 default:
