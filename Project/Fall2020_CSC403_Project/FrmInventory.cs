@@ -31,6 +31,8 @@ namespace Fall2020_CSC403_Project
         private PictureBox Weapon;
         private PictureBox Armor;
         private PictureBox Utility;
+        private Label HealthMax;
+        private Label CurrentHealth;
 
 
         public FrmInventory()
@@ -173,7 +175,68 @@ namespace Fall2020_CSC403_Project
             SettingsButton.SizeMode = PictureBoxSizeMode.StretchImage;
             SettingsButton.Click += SettingsButton_Click;
 
+            // Labels for armor, weapon, utility
+            Label WeaponLabel = new Label();
+            Label ArmorLabel = new Label();
+            Label UtilityLabel = new Label();
+
+            // Weapon Label
+            WeaponLabel.Size = new Size(Inv1.Width, Inv1.Height / 3);
+            WeaponLabel.Parent = this;
+            WeaponLabel.Location = new Point(Inv3.Location.X + 7 *Inv3.Width/6, Inv3.Location.Y + Inv3.Height/2);
+            WeaponLabel.TextAlign = ContentAlignment.MiddleRight;
+            WeaponLabel.Text = "Weapon\nIncreases Damage";
+            WeaponLabel.Font = new Font("NSimSun", WeaponLabel.Size.Height / 4);
+
+            // Armor Label
+            ArmorLabel.Size = new Size(Inv1.Width, Inv1.Height / 3);
+            ArmorLabel.Parent = this;
+            ArmorLabel.Location = new Point(Inv6.Location.X + 7 * Inv6.Width / 6, Inv6.Location.Y + Inv6.Height / 2);
+            ArmorLabel.TextAlign = ContentAlignment.MiddleRight;
+            ArmorLabel.Text = "Armor\nIncreases Defense";
+            ArmorLabel.Font = new Font("NSimSun", ArmorLabel.Size.Height / 4);
+
+            // Utility Label
+            UtilityLabel.Size = new Size(Inv1.Width, Inv1.Height / 3);
+            UtilityLabel.Parent = this;
+            UtilityLabel.Location = new Point(Inv9.Location.X + 7 * Inv9.Width / 6, Inv9.Location.Y + Inv9.Height / 2);
+            UtilityLabel.TextAlign = ContentAlignment.MiddleRight;
+            UtilityLabel.Text = "Utility\nCauses an Effect";
+            UtilityLabel.Font = new Font("NSimSun", UtilityLabel.Size.Height / 4);
+
+            // Health Bar
+
+            HealthMax = new Label(); 
+            CurrentHealth = new Label();
+
+            CurrentHealth.Size = new Size(PlayerPic.Width, height / 32);
+            CurrentHealth.Parent = this;
+            CurrentHealth.Location = new Point(PlayerPic.Location.X, PlayerPic.Location.Y - 3 * height / 64);
+            CurrentHealth.Font = new Font("NSimSun", WeaponLabel.Size.Height / 3);
+            CurrentHealth.TextAlign = ContentAlignment.MiddleCenter;
+            CurrentHealth.BackColor = Color.Green;
+            CurrentHealth.AutoSize = false;
+
+            HealthMax.Size = new Size(PlayerPic.Width, height/32);
+            HealthMax.Parent = this;
+            HealthMax.Location = new Point(PlayerPic.Location.X, PlayerPic.Location.Y - 3*height/64);
+            HealthMax.Font = new Font("NSimSun", WeaponLabel.Size.Height / 2);
+            HealthMax.BackColor = Color.Red;
+            HealthMax.AutoSize = false;
+
+            UpdateHealthBars();
+
         }
+
+        private void UpdateHealthBars()
+        {
+            float playerHealthPer = player.Health / (float)player.MaxHealth;
+            int MAX_HEALTHBAR_WIDTH = HealthMax.Width;
+            CurrentHealth.BackColor = Color.Green;
+            CurrentHealth.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+            CurrentHealth.Text = player.Health.ToString();
+        }
+
         private void SettingsButton_Click(object sender, EventArgs e)
         {
             FrmSettings frmsettings = new FrmSettings(this);
