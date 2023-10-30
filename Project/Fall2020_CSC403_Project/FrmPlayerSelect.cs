@@ -135,8 +135,8 @@ namespace Fall2020_CSC403_Project
             InstructionLabel.ForeColor = Color.Red;
             InstructionLabel.Parent = this;
             InstructionLabel.Text = "Choose a class by clicking the image, and enter a name";
-            InstructionLabel.Size = new Size(width, height / 20);
-            InstructionLabel.Font = new Font("NSimSun", TankLabel.Height / 2);
+            InstructionLabel.Size = new Size(width, height / 32);
+            InstructionLabel.Font = new Font("NSimSun", InstructionLabel.Height / 2);
             InstructionLabel.Location = new Point(0,115*height/128);
 
 
