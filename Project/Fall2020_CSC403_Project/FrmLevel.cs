@@ -37,12 +37,12 @@ namespace Fall2020_CSC403_Project
 
         }
 
-
+        
         private void FrmLevel_Load(object sender, EventArgs e)
         {
-            Size TileSize = new Size(this.Width / 30, this.Width / 30);
-            int grid_width = this.Width / TileSize.Width;
-            int grid_height = this.Height / TileSize.Width;
+            Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Height / 20, Screen.PrimaryScreen.Bounds.Width / 20);
+            int grid_width = Screen.PrimaryScreen.Bounds.Width / TileSize.Width;
+            int grid_height = Screen.PrimaryScreen.Bounds.Height / TileSize.Width;
             
 
             this.terrain = new Terrain(grid_width, grid_height, TileSize);
@@ -265,7 +265,8 @@ namespace Fall2020_CSC403_Project
             int y = ((int)you.Position.y + you.Pic.Height) / this.terrain.TileSize.Width;
 
             int a = (int)((x) + Math.Floor((double)y * this.terrain.GridWidth));
-            Debug.WriteLine(x + ", " + y + ":  " + a);
+
+            Debug.WriteLine(x + ", " + y  + ":   " + a);
 
             return a;
         }
