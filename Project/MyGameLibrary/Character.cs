@@ -25,6 +25,12 @@ namespace Fall2020_CSC403_Project.code {
       Collider.MovePosition((int)Position.x, (int)Position.y);
     }
 
+    public void MoveTo(float x, float y) {
+      LastPosition = Position;
+      Position = new Vector2(x, y);
+      Collider.MovePosition((int) x, (int) y);
+    }
+
     public void MoveBack() {
       Position = LastPosition;
     }

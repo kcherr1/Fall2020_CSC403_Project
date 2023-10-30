@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmWinLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWinLevel.Designer.cs">
+      <DependentUpon>FrmWinLevel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmWinLevel.resx">
+      <DependentUpon>FrmWinLevel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +142,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\ammo.png" />
+    <Content Include="data\gunfireBlast.png" />
+    <Content Include="data\health_pack.png" />
+    <Content Include="data\weapon1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\gravestone.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +155,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\brick.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nether_portal.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Nether_portal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_koolaid_xded.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\grass.jpeg" />

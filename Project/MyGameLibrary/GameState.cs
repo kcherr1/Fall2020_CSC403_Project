@@ -2,13 +2,16 @@
 
 namespace Fall2020_CSC403_Project.code {
   public class GameState {
-    public Player player { get; private set; }
-    public DateTime timeStart { get; private set; }
+    public static Player player { get; private set; }
+    public static DateTime timeStart { get; private set; }
     //public Enemy[] enemies { get; set; }
 
+    public static bool isLevelOneCompleted = false;
+    public static bool isLevelTwoCompleted = false;
+
     public GameState(Player player, DateTime timeStart) {
-      this.player = player;
-      this.timeStart = timeStart;
+      GameState.player = player;
+      GameState.timeStart = timeStart;
       //this.enemies = enemies;
     }
   }

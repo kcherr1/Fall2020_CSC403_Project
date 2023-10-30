@@ -1,9 +1,11 @@
 ﻿using Fall2020_CSC403_Project.code;
 using Microsoft.CSharp.RuntimeBinder;
+using MyGameLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel2 : Level {
-    public GameState gameState { get; private set; }
+    //public GameState gameState { get; private set; }
     private Player player;
     private Enemy goose;
     private Enemy alligator;
@@ -22,9 +24,11 @@ namespace Fall2020_CSC403_Project {
     private Character[] obstacles;
     private FrmBattle frmBattle;
     private DateTime timeStart;
-    
-    public FrmLevel2(GameState gameState) : base() {
-      this.gameState = gameState;
+    private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
+
+    public FrmLevel2() : base() {
+      this.player = GameState.player;
+      this.player.MoveTo(100, 500);
       InitializeComponent();
     }
 
@@ -45,8 +49,8 @@ namespace Fall2020_CSC403_Project {
         base.CreatePosition(picSquirrel3),
         base.CreateCollider(picSquirrel3, PADDING)
       );
-      timeStart = gameState.timeStart;
-      player = gameState.player;
+      timeStart = GameState.timeStart;
+      player = GameState.player;
 
       goose.Img = picGoose.BackgroundImage;
       alligator.Img = picAlligator.BackgroundImage;
@@ -57,35 +61,34 @@ namespace Fall2020_CSC403_Project {
       bossSquirrels.Color = Color.Brown;
 
       walls = new Character[WALL_COUNT];
-      for (int w = 0; w < WALL_COUNT; w++) {
+      for (int w = 1; w <= WALL_COUNT; w++) {
         PictureBox pic = Controls.Find("wall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+        walls[w-1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
       obstacles = new Character[OBSTACLE_COUNT];
-      for (int w = 0; w < OBSTACLE_COUNT; w++) {
-        PictureBox pic = Controls.Find("obstacle" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      for (int o = 1; o <= OBSTACLE_COUNT; o++) {
+        PictureBox pic = Controls.Find("obstacle" + o.ToString(), true)[0] as PictureBox;
+        obstacles[o - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
       hedges = new Character[HEDGE_COUNT];
-      for (int w = 0; w < HEDGE_COUNT; w++) {
-        PictureBox pic = Controls.Find("hedge" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      for (int h = 1; h <= HEDGE_COUNT; h++) {
+        PictureBox pic = Controls.Find("hedge" + h.ToString(), true)[0] as PictureBox;
+        hedges[h - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
-
-      Game.player = gameState.player;
+      Game.player = GameState.player;
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
       player.ResetMoveSpeed();
     }
 
-    //private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-    //  TimeSpan span = DateTime.Now - timeStart;
-    //  string time = span.ToString(@"hh\:mm\:ss");
-    //  lblInGameTime.Text = "Time: " + time.ToString();
-    //}
+    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
+      TimeSpan span = DateTime.Now - timeStart;
+      string time = span.ToString(@"hh\:mm\:ss");
+      lblInGameTime.Text = "Time: " + time.ToString();
+    }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
@@ -94,6 +97,17 @@ namespace Fall2020_CSC403_Project {
       // check collision with walls
       if (HitAWall(player)) {
         player.MoveBack();
+        //Debug.WriteLine("hit a wall!");
+      }
+
+      if (HitAHedge(player)) {
+        player.MoveBack();
+        //Debug.WriteLine("hit a hedge!");
+      }
+
+      if (HitAnObstacle(player)) {
+        player.MoveBack();
+        //Debug.WriteLine("hit a obstacle!");
       }
 
       // check collision with enemies
@@ -103,7 +117,15 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, alligator)) {
         Fight(alligator);
       }
-      if (HitAChar(player, bossSquirrels)) {
+
+      if (HitAChar(player, bossSquirrels) && bossIsDefeated.bossIsDefeated) {
+        // this closes the current form and returns to main
+        GameState.isLevelTwoCompleted = true;
+        FrmWinLevel win_instance = new FrmWinLevel();
+        win_instance.Show();
+        this.Close();
+      }
+      else if (HitAChar(player, bossSquirrels)) {
         Fight(bossSquirrels);
       }
 
@@ -133,6 +155,28 @@ namespace Fall2020_CSC403_Project {
       return hitAWall;
     }
 
+    private bool HitAnObstacle(Character c) {
+      bool hitAnObstacle = false;
+      for (int o = 0; o < obstacles.Length; o++) {
+        if (c.Collider.Intersects(obstacles[o].Collider)) {
+          hitAnObstacle = true;
+          break;
+        }
+      }
+      return hitAnObstacle;
+    }
+
+    private bool HitAHedge(Character c) {
+      bool hitAHedge = false;
+      for (int h = 0; h < hedges.Length; h++) {
+        if (c.Collider.Intersects(hedges[h].Collider)) {
+          hitAHedge = true;
+          break;
+        }
+      }
+      return hitAHedge;
+    }
+
     private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
     }
@@ -144,6 +188,7 @@ namespace Fall2020_CSC403_Project {
       frmBattle.Show();
 
       if (enemy == bossSquirrels) {
+        frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
         frmBattle.SetupForBossBattle();
       }
     }

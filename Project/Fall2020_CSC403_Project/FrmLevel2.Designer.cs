@@ -23,8 +23,10 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-      this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
-      this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+      this.components = new System.ComponentModel.Container();
+      this.lblInGameTime = new System.Windows.Forms.Label();
+      this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
+      this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
       this.wall1 = new System.Windows.Forms.PictureBox();
       this.wall2 = new System.Windows.Forms.PictureBox();
       this.wall3 = new System.Windows.Forms.PictureBox();
@@ -210,6 +212,30 @@
       ((System.ComponentModel.ISupportInitialize)(this.portal)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
       this.SuspendLayout();
+      // 
+      // lblInGameTime
+      // 
+      this.lblInGameTime.AutoSize = true;
+      this.lblInGameTime.BackColor = System.Drawing.Color.Black;
+      this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblInGameTime.ForeColor = System.Drawing.Color.White;
+      this.lblInGameTime.Location = new System.Drawing.Point(16, 11);
+      this.lblInGameTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+      this.lblInGameTime.Name = "lblInGameTime";
+      this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
+      this.lblInGameTime.TabIndex = 2;
+      this.lblInGameTime.Text = "label1";
+      // 
+      // tmrUpdateInGameTime
+      // 
+      this.tmrUpdateInGameTime.Enabled = true;
+      this.tmrUpdateInGameTime.Tick += new System.EventHandler(this.tmrUpdateInGameTime_Tick);
+      // 
+      // tmrPlayerMove
+      // 
+      this.tmrPlayerMove.Enabled = true;
+      this.tmrPlayerMove.Interval = 10;
+      this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
       // 
       // wall1
       // 
@@ -815,7 +841,7 @@
       this.hedge4.BackColor = System.Drawing.Color.Transparent;
       this.hedge4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.hedge;
       this.hedge4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.hedge4.Location = new System.Drawing.Point(300, 701);
+      this.hedge4.Location = new System.Drawing.Point(300, 700);
       this.hedge4.Margin = new System.Windows.Forms.Padding(0);
       this.hedge4.Name = "hedge4";
       this.hedge4.Size = new System.Drawing.Size(100, 100);
@@ -863,7 +889,7 @@
       this.hedge3.BackColor = System.Drawing.Color.Transparent;
       this.hedge3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.hedge;
       this.hedge3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.hedge3.Location = new System.Drawing.Point(100, 395);
+      this.hedge3.Location = new System.Drawing.Point(100, 400);
       this.hedge3.Margin = new System.Windows.Forms.Padding(0);
       this.hedge3.Name = "hedge3";
       this.hedge3.Size = new System.Drawing.Size(100, 100);
@@ -1307,7 +1333,7 @@
       this.picPlayer.BackColor = System.Drawing.Color.Transparent;
       this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
       this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picPlayer.Location = new System.Drawing.Point(137, 628);
+      this.picPlayer.Location = new System.Drawing.Point(100, 500);
       this.picPlayer.Margin = new System.Windows.Forms.Padding(4);
       this.picPlayer.Name = "picPlayer";
       this.picPlayer.Size = new System.Drawing.Size(72, 130);
@@ -1323,6 +1349,7 @@
       this.BackColor = System.Drawing.Color.Black;
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass;
       this.ClientSize = new System.Drawing.Size(1610, 881);
+      this.Controls.Add(this.lblInGameTime);
       this.Controls.Add(this.picPlayer);
       this.Controls.Add(this.portal);
       this.Controls.Add(this.picSquirrel3);
@@ -1415,10 +1442,16 @@
       this.Controls.Add(this.wall3);
       this.Controls.Add(this.wall2);
       this.Controls.Add(this.wall1);
+      this.DoubleBuffered = true;
+      this.Margin = new System.Windows.Forms.Padding(4);
       this.MaximumSize = new System.Drawing.Size(1628, 928);
       this.MinimumSize = new System.Drawing.Size(1628, 928);
       this.Name = "FrmLevel2";
-      this.Text = "FrmLevel2";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+      this.Text = "Explore";
+      this.Load += new System.EventHandler(this.LoadLevel);
+      this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
+      this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
       ((System.ComponentModel.ISupportInitialize)(this.wall1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall3)).EndInit();
@@ -1512,11 +1545,14 @@
       ((System.ComponentModel.ISupportInitialize)(this.portal)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
       this.ResumeLayout(false);
+      this.PerformLayout();
 
     }
 
     #endregion
-
+    private System.Windows.Forms.Label lblInGameTime;
+    private System.Windows.Forms.Timer tmrUpdateInGameTime;
+    private System.Windows.Forms.Timer tmrPlayerMove;
     private System.Windows.Forms.PictureBox wall1;
     private System.Windows.Forms.PictureBox wall2;
     private System.Windows.Forms.PictureBox wall3;

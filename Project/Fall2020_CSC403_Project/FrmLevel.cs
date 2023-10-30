@@ -1,22 +1,26 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Level {
     public Player player;
-    public GameState gameState { get; private set; }
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
 
-    public DateTime timeStart;
-    private FrmBattle frmBattle;
+    private Weapon ak;
 
-    public FrmLevel(GameState gameState) : base() {
-      this.gameState = gameState;
+    private DateTime timeStart;
+    private FrmBattle frmBattle;
+    private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
+
+    public FrmLevel() : base() {
+    //added this to keep track of whether or not the boss is defeated
       InitializeComponent();
     }
   
@@ -41,7 +45,8 @@ namespace Fall2020_CSC403_Project {
         base.CreateCollider(picEnemyCheeto, PADDING)
       );
       timeStart = DateTime.Now;
-      gameState = new GameState(player, timeStart);
+      //gameState = new GameState(player, timeStart);
+      new GameState(player, timeStart);
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -50,6 +55,9 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+
+      ak = new Weapon(CreatePosition(weapon1), CreateCollider(weapon1, PADDING));
+      ak.setStrength(4);
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -95,10 +103,21 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
       }
-      if (HitAChar(player, bossKoolaid)) {
+      if (HitAChar(player, ak)){
+        player.WeaponStrength = ak.getStrength();
+        player.WeaponEquiped = true;
+        weapon1.Visible = false;
+      }
+
+      if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
+        //this closes the current form and returns to main
+        GameState.isLevelOneCompleted = true;
+        this.Close();
+      }
+      else if (HitAChar(player, bossKoolaid)){
         Fight(bossKoolaid);
       }
-      
+
       // check state of each enemy
       if (!enemyPoisonPacket.IsAlive)
       {
@@ -110,7 +129,7 @@ namespace Fall2020_CSC403_Project {
       }
       if (!bossKoolaid.IsAlive)
       {
-        RemoveEnemy(bossKoolaid, picBossKoolAid);
+        RemoveBoss(bossKoolaid, picBossKoolAid);
       }
 
       // update player's picture box
@@ -139,6 +158,9 @@ namespace Fall2020_CSC403_Project {
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
+
+        // this gives the frmBattle object a reference to this level's bossIsDefeated bool
+        frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
         frmBattle.SetupForBossBattle();
       }
     }
@@ -173,6 +195,14 @@ namespace Fall2020_CSC403_Project {
     {
       enemy.RemoveCollider();
       picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
+    }
+
+    private void RemoveBoss(Enemy enemy, PictureBox picEnemy)
+    {
+            //enemy.RemoveCollider();
+            picEnemy.BackgroundImage = null;
+            picEnemy.Image = global::Fall2020_CSC403_Project.Properties.Resources.Nether_portal1;
+            picEnemy.SizeMode = PictureBoxSizeMode.StretchImage;
     }
   }
 }
