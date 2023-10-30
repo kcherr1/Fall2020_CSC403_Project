@@ -74,7 +74,6 @@ namespace Fall2020_CSC403_Project {
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
-                /// Death ///
         instance = null;
         Close();
       }
@@ -97,10 +96,9 @@ namespace Fall2020_CSC403_Project {
     }
 
         /// flee button click
-        private void BtnFlee_Click(object sender, EventArgs e){
+        private void BtnFlee_Click(object sender, EventArgs e){ 
             instance = null;
-            this.Hide(); 
-        }
+            this.Hide(); }
 
         /// Defend Button click
         private void BtnDefend_Click(object sender, EventArgs e){ Blocking = true;}
