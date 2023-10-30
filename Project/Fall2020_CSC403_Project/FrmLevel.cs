@@ -297,7 +297,6 @@ namespace Fall2020_CSC403_Project
         public void GameOver()
         {
             this.gameOver = true;
-            //this.player.RemoveEntity();
             this.player.SetEntityPosition(new Position(-100, -100));
             DisposeLevel();
 
@@ -391,11 +390,8 @@ namespace Fall2020_CSC403_Project
         }
 
 
-
-
         private void RestartButton_Click(object sender, EventArgs e)
         {
-
 
             this.gameOver = false;
             this.player.RestoreHealth();
@@ -417,6 +413,8 @@ namespace Fall2020_CSC403_Project
 
         private void MainMenuButton_Click(object sender, EventArgs e)
         {
+            Game.player = null;
+            this.player = null;
             previousForm.Show();
             this.Hide();
         }
