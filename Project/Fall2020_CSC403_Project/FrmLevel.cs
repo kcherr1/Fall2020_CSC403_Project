@@ -133,6 +133,14 @@ namespace Fall2020_CSC403_Project {
       }
             Enemy_vanishing(enemy);
         }
+        public void CheckResult(Enemy enemy)
+        {
+            bool checkdeath = FrmBattle.Death;
+            if (checkdeath)
+            {
+                Enemy_vanishing(enemy);
+            }
+        }
         private void Enemy_vanishing(Enemy enemy)
         {
             if (enemy == enemyPoisonPacket)

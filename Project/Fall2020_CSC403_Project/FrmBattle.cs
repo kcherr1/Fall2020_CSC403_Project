@@ -62,8 +62,8 @@ namespace Fall2020_CSC403_Project {
       lblPlayerHealthFull.Text = player.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
-
-    private void btnAttack_Click(object sender, EventArgs e) {
+        public static bool Death = false;
+        private void btnAttack_Click(object sender, EventArgs e) {
             SoundPlayer attack_audio = new SoundPlayer(Resources.boom);
             bool checkweapon = FrmLevel.haveAWeapon;
             if (checkweapon)
@@ -83,6 +83,7 @@ namespace Fall2020_CSC403_Project {
       if (player.Health <= 0 || enemy.Health <= 0) {
 
         instance = null;
+        Death = true;
         Close();
       }
     }
