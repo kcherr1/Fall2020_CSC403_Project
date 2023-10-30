@@ -156,7 +156,7 @@ namespace MyGameLibrary
                     }
                 }
             }
-            if (index > 0)
+            if (index >= 0)
             {
                 RemoveFromBackpack(index);
             }

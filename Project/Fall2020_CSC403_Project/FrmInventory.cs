@@ -19,6 +19,8 @@ namespace Fall2020_CSC403_Project
         private Player player;
         public int selected;
         public PictureBox[] PictureBoxes;
+
+        // Pic Declarations for showing inventory
         private PictureBox Inv1;
         private PictureBox Inv2;
         private PictureBox Inv3;
@@ -31,14 +33,22 @@ namespace Fall2020_CSC403_Project
         private PictureBox Weapon;
         private PictureBox Armor;
         private PictureBox Utility;
+
+        // label declarations for showing health
         private Label HealthMax;
         private Label CurrentHealth;
+
+        // label declarations for showing stats
+        private Label AttackStat;
+        private Label DefStat;
+        private Label SpeedStat;
 
 
         public FrmInventory()
         {
             this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         public static FrmInventory GetInstance(Player player)
@@ -53,6 +63,7 @@ namespace Fall2020_CSC403_Project
             int height = Screen.PrimaryScreen.Bounds.Height;
             int width = Screen.PrimaryScreen.Bounds.Width;
 
+            this.KeyDown += FrmInventory_KeyDown;
             this.BackColor = Color.DarkSlateGray;
 
             // create inv screen containers
@@ -115,9 +126,6 @@ namespace Fall2020_CSC403_Project
             Weapon.Click += Weapon_Click;
             Utility.Click += Utility_Click;
             Armor.Click += Armor_Click;
-
-            // get inv images
-            RefreshInv();
 
             // add buttons for Drop, equip, use, unequp, settings, and return
             Button UseButton = new Button();
@@ -226,6 +234,47 @@ namespace Fall2020_CSC403_Project
 
             UpdateHealthBars();
 
+            // Labels for stats
+            AttackStat = new Label();
+            DefStat = new Label();
+            SpeedStat = new Label();
+
+            // Attack Stat Label
+            AttackStat.Size = new Size(Inv1.Width, Inv1.Height / 3);
+            AttackStat.AutoSize = false;
+            AttackStat.Parent = this;
+            AttackStat.Location = new Point(Inv6.Location.X + 7 * Inv6.Width / 6, Inv6.Location.Y + Inv6.Height / 2);
+            AttackStat.TextAlign = ContentAlignment.MiddleLeft;
+            AttackStat.Font = new Font("NSimSun", AttackStat.Size.Height / 4);
+
+            // Defense Stat Label
+            DefStat.Size = new Size(Inv1.Width, Inv1.Height / 3);
+            DefStat.AutoSize = false;
+            DefStat.Parent = this;
+            DefStat.Location = new Point(Inv6.Location.X + 7 * Inv6.Width / 6, Inv6.Location.Y + Inv6.Height / 2);
+            DefStat.TextAlign = ContentAlignment.MiddleLeft;
+            DefStat.Font = new Font("NSimSun", DefStat.Size.Height / 4);
+
+            // Speed Stat Label
+            SpeedStat.Size = new Size(Inv1.Width, Inv1.Height / 3);
+            SpeedStat.AutoSize = false;
+            SpeedStat.Parent = this;
+            SpeedStat.Location = new Point(Inv6.Location.X + 7 * Inv6.Width / 6, Inv6.Location.Y + Inv6.Height / 2);
+            SpeedStat.TextAlign = ContentAlignment.MiddleLeft;
+            SpeedStat.Font = new Font("NSimSun", SpeedStat.Size.Height / 4);
+
+            UpdateStats();
+
+
+            RefreshInv();
+
+        }
+
+        private void UpdateStats()
+        {
+            SpeedStat.Text = player.speed.ToString();
+            DefStat.Text = player.defense.ToString();
+            AttackStat.Text = player.damage.ToString();
         }
 
         private void UpdateHealthBars()
@@ -248,6 +297,27 @@ namespace Fall2020_CSC403_Project
         private void ReturnButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmInventory_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+
+                case Keys.E:
+                    this.Close();
+                    break;
+
+                case Keys.Escape:
+                    FrmSettings frmsettings = new FrmSettings(this);
+                    frmsettings.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+                    frmsettings.Show();
+                    this.Hide();
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void UnequipButton_Click(object sender, EventArgs e)
@@ -303,20 +373,17 @@ namespace Fall2020_CSC403_Project
                 if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Weapon)
                 {
                     player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
-                    player.Inventory.RemoveFromBackpack(selected - 1);
                     RefreshInv();
 
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Armor)
                 {
                     player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
-                    player.Inventory.RemoveFromBackpack(selected - 1);
                     RefreshInv();
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Utility)
                 {
                     player.Inventory.EquipUtility(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
-                    player.Inventory.RemoveFromBackpack(selected - 1);
                     RefreshInv();
                 }
                 else { }
@@ -399,7 +466,8 @@ namespace Fall2020_CSC403_Project
             }
 
 
-            //UpdateHealthBars();
+            UpdateHealthBars();
+            UpdateStats();
             this.Refresh();
 
         }
