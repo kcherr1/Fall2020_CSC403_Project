@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project
         private List<Enemy> enemies;
         private Terrain terrain;
 
-        private Form previousForm;
+        private Form MainMenu;
 
         public int Level { get; set; }
 
@@ -30,7 +30,7 @@ namespace Fall2020_CSC403_Project
 
         private Size itemSize = new Size(50, 50);
 
-        public FrmLevel(Form previousForm, Player player)
+        public FrmLevel(Form MainMenu, Player player)
         {
             this.KeyPreview = true;
             this.DoubleBuffered = true;
@@ -40,7 +40,7 @@ namespace Fall2020_CSC403_Project
             this.WindowState = FormWindowState.Maximized;
             this.Level = 1;
             InitializeComponent();
-            this.previousForm = previousForm;
+            this.MainMenu = MainMenu;
         }
 
         
@@ -420,7 +420,7 @@ namespace Fall2020_CSC403_Project
         {
             Game.player = null;
             this.player = null;
-            previousForm.Show();
+            MainMenu.Show();
             this.Hide();
         }
 
