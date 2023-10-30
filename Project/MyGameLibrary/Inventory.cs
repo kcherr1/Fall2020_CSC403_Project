@@ -225,6 +225,14 @@ namespace MyGameLibrary
         {
             this.Utility = null;
         }
+
+        public void ClearInventory()
+        {
+            this.Weapon = null;
+            this.Utility = null;
+            this.Armor = null;
+            this.Backpack = new Item[9];
+        }
     }
 
 }

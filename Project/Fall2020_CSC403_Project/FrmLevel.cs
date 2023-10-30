@@ -375,7 +375,7 @@ namespace Fall2020_CSC403_Project
             this.terrain.Walls.Clear();
 
 
-            //this.player.Inventory = new Inventory();
+
 
 
         }
@@ -398,7 +398,8 @@ namespace Fall2020_CSC403_Project
         {
 
             this.gameOver = false;
-            this.player.RestoreHealth();
+            this.player = new Player(player.Name, player.Pic, player.archetype);
+            Game.player = this.player;
 
             BlackSquare.Visible = false;
             GameOverText.Visible = false;
