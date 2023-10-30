@@ -24,7 +24,6 @@ namespace Fall2020_CSC403_Project
         private PictureBox SwordsmanPic;
         private Form MainMenu;
         private Label InstructionLabel;
-        private Form MainMenu;
 
         public FrmPlayerSelect(Form MainMenu)
         {
