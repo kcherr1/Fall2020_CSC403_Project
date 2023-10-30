@@ -139,7 +139,10 @@ namespace Fall2020_CSC403_Project
         // will be settings, incomplete
         private void SettingButton_Click(object sender, EventArgs e)
         {
-
+            FrmSettings frmsettings = new FrmSettings(this);
+            frmsettings.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+            frmsettings.Show();
+            this.Hide(); // Hide the FrmMain form
         }
 
         // removes a selected item from the character if it exists

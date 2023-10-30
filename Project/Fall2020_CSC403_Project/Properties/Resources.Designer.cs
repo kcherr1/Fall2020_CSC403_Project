@@ -192,6 +192,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Instrucitons {
+            get {
+                object obj = ResourceManager.GetObject("Instrucitons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap InvButton {
             get {
                 object obj = ResourceManager.GetObject("InvButton", resourceCulture);
@@ -395,6 +405,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap tile_water_grassy {
             get {
                 object obj = ResourceManager.GetObject("tile_water_grassy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Title {
+            get {
+                object obj = ResourceManager.GetObject("Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

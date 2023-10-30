@@ -55,15 +55,50 @@ namespace Fall2020_CSC403_Project
             SettingsButton.Font = new Font("NSimSun", SettingsButton.Size.Height / 2);
             ExitButton.Font = new Font("NSimSun", ExitButton.Size.Height / 2);
 
-            StartButton.Click += StartButton_click;
+            StartButton.Click += StartButton_Click;
+            SettingsButton.Click += SettingsButton_Click;
+            ExitButton.Click += ExitButton_Click;
+
+            // Add Title
+            PictureBox TitleImage = new PictureBox();
+            TitleImage.Image = Properties.Resources.Title;
+            TitleImage.Parent = BackgroundImg;
+            TitleImage.Size = new Size(width / 3, height / 3);
+            TitleImage.Location = new Point(0 + (width / 18), 0 + (height / 8));
+            TitleImage.BackColor = Color.Transparent;
+
+            // Add Instructions
+            PictureBox InstructionImage = new PictureBox();
+            InstructionImage.Image = Properties.Resources.Instrucitons;
+            InstructionImage.Parent = BackgroundImg;
+            InstructionImage.Size = new Size(width/3, (6*height)/8);
+            InstructionImage.Location = new Point(0+(width/2), 0+(height/8));
+            InstructionImage.BackColor = Color.Transparent;
+            InstructionImage.SizeMode = PictureBoxSizeMode.StretchImage;
+
 
         }
 
-        private void StartButton_click(object sender, EventArgs e)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
-            FrmLevel frmlevel = new FrmLevel();
-            frmlevel.Show();
             this.Close();
         }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            FrmSettings frmsettings = new FrmSettings(this);
+            frmsettings.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+            frmsettings.Show();
+            this.Hide(); // Hide the FrmMain form
+        }
+
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            FrmLevel frmlevel = new FrmLevel();
+            frmlevel.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+            frmlevel.Show();
+            this.Hide(); // Hide the FrmMain form
+        }
+
     }
 }

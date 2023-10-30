@@ -180,7 +180,6 @@ namespace Fall2020_CSC403_Project
             int x = HitAChar(player);
             if (x >= 0)
             {
-                Console.WriteLine(enemies[x].Name);
                 Fight(enemies[x]);
             }
 
@@ -265,7 +264,7 @@ namespace Fall2020_CSC403_Project
             int y = ((int)you.Position.y + you.Pic.Height) / this.terrain.TileSize.Width;
 
             int a = (int)((x) + Math.Floor((double)y * this.terrain.GridWidth));
-            Debug.WriteLine(x + ", " + y + ":  " + a);
+
 
             return a;
         }
