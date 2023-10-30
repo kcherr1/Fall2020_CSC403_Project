@@ -42,6 +42,7 @@ namespace Fall2020_CSC403_Project
             this.player = player;
             PlayerPic.Image = player.Pic.Image;          // subject to change when new player types are added
             PlayerPic.Refresh();
+            UpdateHealthBars();
             PictureBox[] show_inventory = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9 };
             for (int i = 0; i < player.Inventory.Backpack.Length; i++)
             {
@@ -108,6 +109,7 @@ namespace Fall2020_CSC403_Project
             {
                 Utility.Image = null;
             }
+            UpdateHealthBars();
             this.Refresh();
 
         }
@@ -115,6 +117,15 @@ namespace Fall2020_CSC403_Project
         private void FrmInv_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void UpdateHealthBars()
+        {
+            float playerHealthPer = player.Health / (float)player.MaxHealth;
+            const int MAX_HEALTHBAR_WIDTH = 100;
+            PlayerCurrentHealth.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+            PlayerCurrentHealth.Text = player.Health.ToString();
         }
 
 
@@ -347,7 +358,6 @@ namespace Fall2020_CSC403_Project
             selected = 12;
             Utility.BackColor = Color.WhiteSmoke;
         }
-
 
     }
 }
