@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project.code {
   public class Player : Character {
         
-    public Player(string Name, PictureBox Pic, PlayerArchetype archetype) : base(Name, Pic, archetype) {
+    public Player(string Name, PictureBox Pic, Archetype archetype) : base(Name, Pic, archetype) {
 
         }
     }

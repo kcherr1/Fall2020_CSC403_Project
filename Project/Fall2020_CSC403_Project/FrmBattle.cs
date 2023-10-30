@@ -77,21 +77,21 @@ namespace Fall2020_CSC403_Project
 
         private void btnAttack_Click(object sender, EventArgs e)
         {
-            if (player.speed > enemy.speed)
+            if (player.speed >= enemy.speed)
             {
-                player.OnAttack(-1);
+                player.OnAttack();
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack(-1);
+                    enemy.OnAttack();
                 }
             }
             else
             {
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack(-1);
+                    enemy.OnAttack();
                 }
-                player.OnAttack(-1);
+                player.OnAttack();
             }
 
             UpdateHealthBars();
@@ -110,12 +110,18 @@ namespace Fall2020_CSC403_Project
 
         private void EnemyDamage(int amount)
         {
-            enemy.AlterHealth(amount);
+           if (amount >= enemy.defense)
+           {
+               enemy.TakeDamage(amount);
+           }
         }
 
         private void PlayerDamage(int amount)
         {
-            player.AlterHealth(amount);
+            if (amount >= player.defense)
+            {
+                player.TakeDamage(amount);
+            }
         }
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e)

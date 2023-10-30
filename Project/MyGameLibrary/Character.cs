@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyGameLibrary;
 using System.Runtime.Remoting.Messaging;
+using static MyGameLibrary.Item;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
@@ -19,7 +20,7 @@ namespace Fall2020_CSC403_Project.code
 
 		public Inventory Inventory { get; set; }
 
-		public PlayerArchetype archetype;
+		public Archetype archetype;
 		
 		public int defense;
 
@@ -31,7 +32,7 @@ namespace Fall2020_CSC403_Project.code
 		public int MaxHealth { get; private set; }
 
 
-		public Character(string Name, PictureBox Pic, PlayerArchetype archetype) : base(Name, Pic)
+		public Character(string Name, PictureBox Pic, Archetype archetype) : base(Name, Pic)
 		{
             this.archetype = archetype;
 			this.MaxHealth = archetype.baseMaxHealth;
@@ -42,12 +43,18 @@ namespace Fall2020_CSC403_Project.code
 			this.Inventory = new Inventory();
         }
 		
-		public void OnAttack(int amount)
-		{
-			AttackEvent((int)(amount * damage));
+		public void OnAttack()
+		{	
+			Random rand = new Random();
+			AttackEvent(damage + rand.Next(1, archetype.archetypeDamage + 1));
 		}
 
-        public void AlterHealth(int amount)
+        public void TakeDamage(int amount)
+		{
+			Health -= amount;
+		}
+
+		public void GiveHealth(int amount)
         {
             Health += amount;
         }
@@ -56,6 +63,49 @@ namespace Fall2020_CSC403_Project.code
         {
             this.Health = this.MaxHealth;
         }
+
+		public void UpdateStats()
+		{
+			if (this.Inventory.Armor != null)
+			{
+                this.defense = this.archetype.baseDefense + this.Inventory.Armor.Stat;
+
+            }
+			if (this.Inventory.Weapon != null)
+			{
+                this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat;
+
+            }
+        }
+
+		public void ApplyEffect(PotionTypes Potion, int stat)
+		{
+			switch (Potion)
+			{
+				case PotionTypes.Healing:
+					this.Health += stat;
+					if (this.Health > this.MaxHealth)
+					{
+						this.Health = this.MaxHealth;
+					}
+					break;
+				case PotionTypes.Strength:
+					this.damage += stat;
+					break;
+				case PotionTypes.Speed:
+					this.speed += stat;
+					break;
+
+				default:
+					break;
+			}
+		}
+
+		public void RemoveEffect()
+		{
+			this.damage = this.archetype.baseDamage;
+			this.speed = this.archetype.baseSpeed;
+		}
         
     }
 }
