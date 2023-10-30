@@ -64,6 +64,8 @@ namespace Fall2020_CSC403_Project
             TitleImage.Image = Properties.Resources.Title;
             TitleImage.Parent = BackgroundImg;
             TitleImage.Size = new Size(width / 3, height / 3);
+            TitleImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            TitleImage.SizeMode = PictureBoxSizeMode.StretchImage;
             TitleImage.Location = new Point(0 + (width / 18), 0 + (height / 8));
             TitleImage.BackColor = Color.Transparent;
 
