@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
-    public bool Death = false;
+
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -115,10 +115,7 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
-      //Has the enemy been beaten
-      if (enemy.Health <= 0){
-          enemy.Death();
-        }
+      //Has the enemy been beate
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
