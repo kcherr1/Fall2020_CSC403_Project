@@ -81,7 +81,6 @@ namespace Fall2020_CSC403_Project {
       this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
       this.lblInGameTime.TabIndex = 2;
       this.lblInGameTime.Text = "label1";
-      //this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
       // 
       // tmrUpdateInGameTime
       // 
@@ -287,6 +286,7 @@ namespace Fall2020_CSC403_Project {
       // 
       // weapon1
       // 
+      this.weapon1.BackColor = System.Drawing.Color.Transparent;
       this.weapon1.Image = global::Fall2020_CSC403_Project.Properties.Resources.weapon1;
       this.weapon1.Location = new System.Drawing.Point(1267, 697);
       this.weapon1.Name = "weapon1";
