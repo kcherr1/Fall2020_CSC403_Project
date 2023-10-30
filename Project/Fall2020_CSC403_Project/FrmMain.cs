@@ -96,10 +96,12 @@ namespace Fall2020_CSC403_Project
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            //FrmLevel frmlevel = new FrmLevel();
-            FrmPlayerSelect frmplayerselect = new FrmPlayerSelect();
-            frmplayerselect.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
-            frmplayerselect.Show();
+            FrmLevel frmlevel = new FrmLevel(this);
+            frmlevel.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+            frmlevel.Show();
+            //FrmPlayerSelect frmplayerselect = new FrmPlayerSelect();
+            //frmplayerselect.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+            //frmplayerselect.Show();
             this.Hide(); // Hide the FrmMain form
         }
 
