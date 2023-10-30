@@ -913,19 +913,20 @@
       this.hedge13.BackColor = System.Drawing.Color.Transparent;
       this.hedge13.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.hedge;
       this.hedge13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.hedge13.Location = new System.Drawing.Point(1200, 400);
+      this.hedge13.Location = new System.Drawing.Point(1200, 500);
       this.hedge13.Margin = new System.Windows.Forms.Padding(0);
       this.hedge13.Name = "hedge13";
       this.hedge13.Size = new System.Drawing.Size(100, 100);
       this.hedge13.TabIndex = 54;
       this.hedge13.TabStop = false;
+      this.hedge13.Click += new System.EventHandler(this.hedge13_Click);
       // 
       // hedge12
       // 
       this.hedge12.BackColor = System.Drawing.Color.Transparent;
       this.hedge12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.hedge;
       this.hedge12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.hedge12.Location = new System.Drawing.Point(1200, 300);
+      this.hedge12.Location = new System.Drawing.Point(1200, 400);
       this.hedge12.Margin = new System.Windows.Forms.Padding(0);
       this.hedge12.Name = "hedge12";
       this.hedge12.Size = new System.Drawing.Size(100, 100);
@@ -973,7 +974,7 @@
       this.hedge11.BackColor = System.Drawing.Color.Transparent;
       this.hedge11.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.hedge;
       this.hedge11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.hedge11.Location = new System.Drawing.Point(1300, 400);
+      this.hedge11.Location = new System.Drawing.Point(1200, 300);
       this.hedge11.Margin = new System.Windows.Forms.Padding(0);
       this.hedge11.Name = "hedge11";
       this.hedge11.Size = new System.Drawing.Size(100, 100);
@@ -1081,7 +1082,7 @@
       this.hedge14.BackColor = System.Drawing.Color.Transparent;
       this.hedge14.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.hedge;
       this.hedge14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.hedge14.Location = new System.Drawing.Point(1200, 500);
+      this.hedge14.Location = new System.Drawing.Point(1300, 300);
       this.hedge14.Margin = new System.Windows.Forms.Padding(0);
       this.hedge14.Name = "hedge14";
       this.hedge14.Size = new System.Drawing.Size(100, 100);
@@ -1333,7 +1334,7 @@
       this.picPlayer.BackColor = System.Drawing.Color.Transparent;
       this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
       this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picPlayer.Location = new System.Drawing.Point(100, 500);
+      this.picPlayer.Location = new System.Drawing.Point(159, 628);
       this.picPlayer.Margin = new System.Windows.Forms.Padding(4);
       this.picPlayer.Name = "picPlayer";
       this.picPlayer.Size = new System.Drawing.Size(72, 130);
