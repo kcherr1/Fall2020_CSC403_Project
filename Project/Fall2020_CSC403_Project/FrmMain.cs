@@ -64,6 +64,8 @@ namespace Fall2020_CSC403_Project
             TitleImage.Image = Properties.Resources.Title;
             TitleImage.Parent = BackgroundImg;
             TitleImage.Size = new Size(width / 3, height / 3);
+            TitleImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            TitleImage.SizeMode = PictureBoxSizeMode.StretchImage;
             TitleImage.Location = new Point(0 + (width / 18), 0 + (height / 8));
             TitleImage.BackColor = Color.Transparent;
 
@@ -94,9 +96,10 @@ namespace Fall2020_CSC403_Project
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            FrmLevel frmlevel = new FrmLevel();
-            frmlevel.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
-            frmlevel.Show();
+            //FrmLevel frmlevel = new FrmLevel();
+            FrmPlayerSelect frmplayerselect = new FrmPlayerSelect();
+            frmplayerselect.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+            frmplayerselect.Show();
             this.Hide(); // Hide the FrmMain form
         }
 

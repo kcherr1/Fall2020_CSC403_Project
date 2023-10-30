@@ -18,6 +18,8 @@ namespace Fall2020_CSC403_Project
         private List<Enemy> enemies;
         private Terrain terrain;
 
+        private Form previousForm;
+
         public int Level { get; set; }
 
         public bool gameOver { get; set; }
@@ -28,7 +30,7 @@ namespace Fall2020_CSC403_Project
 
         private Size itemSize = new Size(50, 50);
 
-        public FrmLevel()
+        public FrmLevel(Form previousForm)
         {
             this.KeyPreview = true;
             this.DoubleBuffered = true;
@@ -37,7 +39,7 @@ namespace Fall2020_CSC403_Project
             this.WindowState = FormWindowState.Maximized;
             this.Level = 1;
             InitializeComponent();
-
+            this.previousForm = previousForm;
         }
 
         
@@ -333,6 +335,15 @@ namespace Fall2020_CSC403_Project
             ExitButton.Size = new Size(100, 30);
             ExitButton.Visible = true;
             ExitButton.BringToFront();
+
+            // find the x-coordinate to put the MainMenuButton in the center
+            int centerMainMenuButton = (this.Width / 2) - (MainMenuButton.Width / 2);
+
+            MainMenuButton.Enabled = true;
+            MainMenuButton.Location = new Point(centerMainMenuButton, 400);
+            MainMenuButton.Size = new Size(100, 30);
+            MainMenuButton.Visible = true;
+            MainMenuButton.BringToFront();
         }
 
 
@@ -393,13 +404,21 @@ namespace Fall2020_CSC403_Project
             GameOverText.Visible = false;
             RestartButton.Visible = false;
             ExitButton.Visible = false;
+            MainMenuButton.Visible = false;
 
             RestartButton.Enabled = false;
             ExitButton.Enabled = false;
+            MainMenuButton.Enabled = false;
 
             this.Level = 1;
             LevelSelect();
             InitializeLevelLayout();
+        }
+
+        private void MainMenuButton_Click(object sender, EventArgs e)
+        {
+            previousForm.Show();
+            this.Hide();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
