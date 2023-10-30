@@ -266,7 +266,6 @@ namespace Fall2020_CSC403_Project
 
             int a = (int)((x) + Math.Floor((double)y * this.terrain.GridWidth));
 
-            Debug.WriteLine(x + ", " + y  + ":   " + a);
 
             return a;
         }

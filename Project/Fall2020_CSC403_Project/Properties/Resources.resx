@@ -145,9 +145,9 @@
   <data name="swordsman" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\swordsman.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-	<data name="tank" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\data\tank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-	</data>
+  <data name="tank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\tank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="greather_health_potion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\greather_health_potion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -213,5 +213,20 @@
   </data>
   <data name="InvButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\InvButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\Cog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Return" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\Return.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BackgroundForRPG3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\BackgroundForRPG3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Title" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\Title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Instrucitons" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\Instrucitons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

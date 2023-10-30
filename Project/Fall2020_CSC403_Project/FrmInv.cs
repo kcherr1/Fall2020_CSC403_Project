@@ -21,6 +21,8 @@ namespace Fall2020_CSC403_Project
         public int selected;
         public PictureBox[] PictureBoxes;
 
+        
+
         public FrmInv()
         {
             InitializeComponent();
@@ -34,6 +36,8 @@ namespace Fall2020_CSC403_Project
             return instance;
         }
 
+       
+
         // set up for the inventory screen that places images in the correct place based on player inventory
         public void Setup(Player player)
         {
@@ -42,6 +46,10 @@ namespace Fall2020_CSC403_Project
             this.player = player;
             PlayerPic.Image = player.Pic.Image;          // subject to change when new player types are added
             PlayerPic.Refresh();
+            PlayerCurrentHealth.AutoSize = false;
+            PlayerCurrentHealth.Height = playerHealthMax.Height;
+            PlayerCurrentHealth.Location = playerHealthMax.Location;
+            UpdateHealthBars();
             PictureBox[] show_inventory = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9 };
             for (int i = 0; i < player.Inventory.Backpack.Length; i++)
             {
@@ -66,11 +74,37 @@ namespace Fall2020_CSC403_Project
             }
 
 
+            // Sets up player stat locations
+
+
+            Label AttackStat = new Label();
+            Label DefStat = new Label();
+            Label SpeedStat = new Label();
+
+            AttackStat.Parent = this;
+            DefStat.Parent = this;
+            SpeedStat.Parent = this;
+
+            AttackStat.BackColor = Color.Transparent;
+            DefStat.BackColor = Color.Transparent;
+            SpeedStat.BackColor = Color.Transparent;
+
+            AttackStat.Text = ("Attack Stat = " + player.damage.ToString());
+            DefStat.Text = ("Toughness Stat = " + player.defense.ToString());
+            SpeedStat.Text = ("Speed Stat = " + player.SPEED.ToString());
+
+            AttackStat.Location = new Point(Weapon.Location.X + 2 * PlayerPic.Width, Weapon.Location.Y + (Weapon.Height/2));
+            DefStat.Location = new Point(Armor.Location.X + 2 * PlayerPic.Width, Armor.Location.Y + (Armor.Height / 2));
+            SpeedStat.Location = new Point(Utility.Location.X + 2 * PlayerPic.Width, Utility.Location.Y + (Utility.Height / 2));
+
+
+
+
 
         }
 
         // since c# doesn't allow you to just refresh all picboxes, same as above
-        public void RefreshInvImages()
+        public void RefreshInv()
         {
             PictureBox[] show_inventory = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9 };
             for (int i = 0; i < player.Inventory.Backpack.Length; i++)
@@ -108,6 +142,10 @@ namespace Fall2020_CSC403_Project
             {
                 Utility.Image = null;
             }
+
+
+
+            UpdateHealthBars();
             this.Refresh();
 
         }
@@ -115,6 +153,16 @@ namespace Fall2020_CSC403_Project
         private void FrmInv_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void UpdateHealthBars()
+        {
+            float playerHealthPer = player.Health / (float)player.MaxHealth;
+            int MAX_HEALTHBAR_WIDTH = playerHealthMax.Width;
+            PlayerCurrentHealth.BackColor = Color.Green;
+            PlayerCurrentHealth.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+            PlayerCurrentHealth.Text = player.Health.ToString();
         }
 
 
@@ -128,7 +176,10 @@ namespace Fall2020_CSC403_Project
         // will be settings, incomplete
         private void SettingButton_Click(object sender, EventArgs e)
         {
-
+            FrmSettings frmsettings = new FrmSettings(this);
+            frmsettings.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+            frmsettings.Show();
+            this.Hide(); // Hide the FrmMain form
         }
 
         // removes a selected item from the character if it exists
@@ -137,17 +188,17 @@ namespace Fall2020_CSC403_Project
             if (selected == 10)
             {
                 player.Inventory.UnEquipWeapon(player.Position, player.facing);
-                RefreshInvImages();
+                RefreshInv();
             }
             else if (selected == 11)
             {
                 player.Inventory.UnEquipArmor(player.Position, player.facing);
-                RefreshInvImages();
+                RefreshInv();
             }
             else if (selected == 12)
             {
                 player.Inventory.UnEquipUtility(player.Position, player.facing);
-                RefreshInvImages();
+                RefreshInv();
             }
             else { }
             if (selected > 0)
@@ -167,20 +218,20 @@ namespace Fall2020_CSC403_Project
                 {
                     player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                     player.Inventory.RemoveFromBackpack(selected - 1);
-                    RefreshInvImages();
+                    RefreshInv();
                  
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Armor)
                 {
                     player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                     player.Inventory.RemoveFromBackpack(selected - 1);
-                    RefreshInvImages();
+                    RefreshInv();
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Utility)
                 {
                     player.Inventory.EquipUtility(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
                     player.Inventory.RemoveFromBackpack(selected - 1);
-                    RefreshInvImages();
+                    RefreshInv();
                 }
                 else { }
 
@@ -207,7 +258,7 @@ namespace Fall2020_CSC403_Project
                 PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             selected = 0;
-            RefreshInvImages();
+            RefreshInv();
         }
 
         // not functional, will let you use utility later
@@ -217,7 +268,7 @@ namespace Fall2020_CSC403_Project
             {
                 player.ApplyEffect(player.Inventory.Utility.Potion, player.Inventory.Utility.Stat);
                 player.Inventory.UseItem();
-                RefreshInvImages();
+                RefreshInv();
             }
             else
             {
@@ -351,7 +402,6 @@ namespace Fall2020_CSC403_Project
             selected = 12;
             Utility.BackColor = Color.WhiteSmoke;
         }
-
 
     }
 }
