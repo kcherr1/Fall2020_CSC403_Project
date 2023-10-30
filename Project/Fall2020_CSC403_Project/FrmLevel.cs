@@ -33,6 +33,7 @@ namespace Fall2020_CSC403_Project
             this.gameOver = false;
             this.WindowState = FormWindowState.Maximized;
             this.Level = 1;
+            //this.DoubleBuffered = true;
             InitializeComponent();
 
         }
@@ -167,7 +168,7 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            // move player
+            // move playerd
             player.Move();
 
             // check collision with walls
@@ -180,7 +181,6 @@ namespace Fall2020_CSC403_Project
             int x = HitAChar(player);
             if (x >= 0)
             {
-                Console.WriteLine(enemies[x].Name);
                 Fight(enemies[x]);
             }
 
