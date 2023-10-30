@@ -35,6 +35,8 @@ namespace Fall2020_CSC403_Project
 
         private void setup()
         {
+            this.KeyPreview = true;
+            this.KeyDown += FrmPlayerSelect_KeyDown;
             this.BackColor = Color.DimGray;
 
             int height = Screen.PrimaryScreen.Bounds.Height;
@@ -142,6 +144,63 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        private void FrmPlayerSelect_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+
+                case Keys.Enter:
+                    string playerName = playerNameTextBox.Text.Trim(); // Get the input from the TextBox
+
+                    if (selected == 0)
+                    {
+                        InstructionLabel.Text = "I said pick a class and choose a name.";
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(playerName) || playerName == "Enter your name")
+                    {
+                        InstructionLabel.Text = "I said pick a class and choose a name.";
+                        return;
+                    }
+
+                    PictureBox img = null;
+                    switch (selected)
+                    {
+                        case 1:
+                            img = MakePictureBox(Properties.Resources.tank, new Point(100, this.Height - 200), new Size(50, 100));
+                            this.player = new Player(playerName, img, new Tank());
+                            break;
+                        case 2:
+                            img = MakePictureBox(Properties.Resources.rogue, new Point(100, this.Height - 200), new Size(50, 100));
+                            this.player = new Player(playerName, img, new Rogue());
+                            break;
+                        case 3:
+                            img = MakePictureBox(Properties.Resources.swordsman, new Point(100, this.Height - 200), new Size(50, 100));
+                            this.player = new Player(playerName, img, new Swordsman());
+                            break;
+                    }
+
+                    if (this.player != null)
+                    {
+                        FrmLevel frmlevel = new FrmLevel(this, player);
+                        frmlevel.FormClosed += (s, args) => this.Close();
+                        frmlevel.Show();
+                        this.Hide();
+                    }
+                    break;
+
+                case Keys.Escape:
+                    FrmSettings frmsettings = new FrmSettings(this);
+                    frmsettings.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+                    frmsettings.Show();
+                    this.Hide();
+                    break;
+
+                default:
+                    break;
+            }
+        }
         private void StartGame_Button_Click(object sender, EventArgs e)
         {
             string playerName = playerNameTextBox.Text.Trim(); // Get the input from the TextBox

@@ -13,8 +13,6 @@ namespace Fall2020_CSC403_Project
     public partial class FrmSettings : Form
     {
         private Form previousForm;
-        private TrackBar audioTrackBar;
-        private bool isMuted = false;
 
 
         public FrmSettings(Form previous)

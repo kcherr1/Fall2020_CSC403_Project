@@ -26,7 +26,7 @@ namespace Fall2020_CSC403_Project
 
 		private DateTime timeBegin;
 		private FrmBattle frmBattle;
-		private FrmInv frmInv;
+        private FrmInventory frminventory;
 
         private Size itemSize = new Size(50, 50);
 
@@ -153,9 +153,15 @@ namespace Fall2020_CSC403_Project
 
                 case Keys.E:
                     player.ResetMoveSpeed();
-                    frmInv = FrmInv.GetInstance(player);
-                    frmInv.WindowState = FormWindowState.Maximized;
-                    frmInv.Show();
+                    frminventory = FrmInventory.GetInstance(player);
+                    frminventory.Show();
+                    break;
+
+                case Keys.Escape:
+                    FrmSettings frmsettings = new FrmSettings(this);
+                    frmsettings.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+                    frmsettings.Show();
+                    this.Hide();
                     break;
 
                 default:
@@ -388,9 +394,8 @@ namespace Fall2020_CSC403_Project
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            frmInv = FrmInv.GetInstance(player);
-            frmInv.WindowState = FormWindowState.Maximized;
-            frmInv.Show();
+            frminventory = FrmInventory.GetInstance(player);
+            frminventory.Show();
         }
 
 
