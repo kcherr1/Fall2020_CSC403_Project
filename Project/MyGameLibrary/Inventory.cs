@@ -156,7 +156,7 @@ namespace MyGameLibrary
                     }
                 }
             }
-            if (index > 0)
+            if (index >= 0)
             {
                 RemoveFromBackpack(index);
             }
@@ -219,6 +219,11 @@ namespace MyGameLibrary
             this.Utility.SetEntityPosition(new_position);
             this.Utility = null;
 
+        }
+
+        public void UseItem()
+        {
+            this.Utility = null;
         }
     }
 

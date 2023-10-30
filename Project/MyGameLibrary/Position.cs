@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,5 +24,13 @@ namespace Fall2020_CSC403_Project.code
 			this.x = pic.Location.X;
 			this.y = pic.Location.Y;
         }
+
+		public Position(Point point)
+		{
+			this.x = point.X;
+			this.y = point.Y;
+		}
+
+
 	}
 }

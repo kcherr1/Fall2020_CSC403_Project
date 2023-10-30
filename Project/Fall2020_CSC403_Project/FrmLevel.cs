@@ -18,31 +18,42 @@ namespace Fall2020_CSC403_Project
         private List<Enemy> enemies;
         private Terrain terrain;
 
+        private Form previousForm;
+
         public int Level { get; set; }
 
         public bool gameOver { get; set; }
 
 		private DateTime timeBegin;
 		private FrmBattle frmBattle;
-		private FrmInv frmInv;
+        private FrmInventory frminventory;
 
-        public FrmLevel()
+        private Size itemSize = new Size(50, 50);
+
+        public FrmLevel(Form previousForm, Player player)
         {
+            this.KeyPreview = true;
+            this.DoubleBuffered = true;
+
+            this.player = player;
             this.gameOver = false;
             this.WindowState = FormWindowState.Maximized;
             this.Level = 1;
             InitializeComponent();
-
+            this.previousForm = previousForm;
         }
 
-
+        
         private void FrmLevel_Load(object sender, EventArgs e)
         {
+            Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Height / 20, Screen.PrimaryScreen.Bounds.Width / 20);
+            int grid_width = Screen.PrimaryScreen.Bounds.Width / TileSize.Width;
+            int grid_height = Screen.PrimaryScreen.Bounds.Height / TileSize.Width;
+            
 
-            terrain = new Terrain();
+            this.terrain = new Terrain(grid_width, grid_height, TileSize);
             enemies = new List<Enemy> { };
 
-            this.player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
             LevelSelect();
 
 
@@ -56,30 +67,30 @@ namespace Fall2020_CSC403_Project
         private void InitializeLevelLayout()
         {
 
-            if (terrain != null)
+            if (this.terrain != null)
             {
-                if (terrain.Tiles != null)
+                if (this.terrain.Tiles != null)
                 {
-                    for (int i = 0; i < terrain.Tiles.Count; i++)
+                    for (int i = 0; i < this.terrain.Tiles.Count; i++)
                     {
-                        this.Controls.Add(terrain.Tiles[i].Pic);
-                        terrain.Tiles[i].Pic.SendToBack();
+                        this.Controls.Add(this.terrain.Tiles[i].Pic);
+                        this.terrain.Tiles[i].Pic.SendToBack();
                     }
                 }
-                if (terrain.Walls != null)
+                if (this.terrain.Walls != null)
                 {
-                    for (int i = 0; i < terrain.Walls.Count; i++)
+                    for (int i = 0; i < this.terrain.Walls.Count; i++)
                     {
-                        this.Controls.Add(terrain.Walls[i].Pic);
-                        terrain.Walls[i].Pic.BringToFront();
+                        this.Controls.Add(this.terrain.Walls[i].Pic);
+                        this.terrain.Walls[i].Pic.BringToFront();
                     }
                 }
-                if (terrain.Items != null)
+                if (this.terrain.Items != null)
                 {
-                    for (int i = 0; i < terrain.Items.Count; i++)
+                    for (int i = 0; i < this.terrain.Items.Count; i++)
                     {
-                        this.Controls.Add(terrain.Items[i].Pic);
-                        terrain.Items[i].Pic.BringToFront();
+                        this.Controls.Add(this.terrain.Items[i].Pic);
+                        this.terrain.Items[i].Pic.BringToFront();
                     }
                 }
             }
@@ -140,6 +151,19 @@ namespace Fall2020_CSC403_Project
                     player.GoDown();
                     break;
 
+                case Keys.E:
+                    player.ResetMoveSpeed();
+                    frminventory = FrmInventory.GetInstance(player);
+                    frminventory.Show();
+                    break;
+
+                case Keys.Escape:
+                    FrmSettings frmsettings = new FrmSettings(this);
+                    frmsettings.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLevel to close the application
+                    frmsettings.Show();
+                    this.Hide();
+                    break;
+
                 default:
                     player.ResetMoveSpeed();
                     break;
@@ -161,7 +185,7 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            // move player
+            // move playerd
             player.Move();
 
             // check collision with walls
@@ -174,8 +198,6 @@ namespace Fall2020_CSC403_Project
             int x = HitAChar(player);
             if (x >= 0)
             {
-                Console.WriteLine(enemies[x].Name);
-                Debug.WriteLine(enemies[x].Name);
                 Fight(enemies[x]);
             }
 
@@ -184,16 +206,16 @@ namespace Fall2020_CSC403_Project
             {
                 if (!player.Inventory.BackpackIsFull())
                 {
-                    player.Inventory.AddToBackpack(terrain.Items[x]);
-                    terrain.Items[x].RemoveEntity();
+                    player.Inventory.AddToBackpack(this.terrain.Items[x]);
+                    this.terrain.Items[x].RemoveEntity();
                 }
 
             }
 
             x = InATile(player);
-            if (x >= 0 && x < terrain.Tiles.Count)
+            if (x >= 0 && x < this.terrain.Tiles.Count)
             {
-                player.SPEED = (int)terrain.Tiles[x].Effect;
+                player.SPEED = (int)this.terrain.Tiles[x].Effect;
             }
 
         }
@@ -201,9 +223,9 @@ namespace Fall2020_CSC403_Project
         private bool HitAWall(Player c)
         {
             bool hitAWall = false;
-            for (int w = 0; w < terrain.Walls.Count; w++)
+            for (int w = 0; w < this.terrain.Walls.Count; w++)
             {
-                if (c.Collider.Intersects(terrain.Walls[w].Collider))
+                if (c.Collider.Intersects(this.terrain.Walls[w].Collider))
                 {
                     hitAWall = true;
                     break;
@@ -235,16 +257,16 @@ namespace Fall2020_CSC403_Project
 
         private int HitAnItem(Player you)
         {
-            if (terrain.Items == null)
+            if (this.terrain.Items == null)
             {
                 return -1;
             }
             int hitItem = -1;
-            for (int i = 0; i < terrain.Items.Count; i++)
+            for (int i = 0; i < this.terrain.Items.Count; i++)
             {
-                if (terrain.Items[i] != null)
+                if (this.terrain.Items[i] != null)
                 {
-                    if (you.Collider.Intersects(terrain.Items[i].Collider))
+                    if (you.Collider.Intersects(this.terrain.Items[i].Collider))
                     {
                         hitItem = i;
                         break;
@@ -256,12 +278,13 @@ namespace Fall2020_CSC403_Project
 
         public int InATile(Player you)
         {
-            int x = ((int)you.Position.x + you.Pic.Width / 2) / 50;
-            int y = ((int)you.Position.y + you.Pic.Height) / 50;
+            int x = ((int)you.Position.x + you.Pic.Width / 2) / this.terrain.TileSize.Width;
+            int y = ((int)you.Position.y + you.Pic.Height) / this.terrain.TileSize.Width;
+
+            int a = (int)((x) + Math.Floor((double)y * this.terrain.GridWidth));
 
 
-
-            return (x) + (y * this.Width / 50);
+            return a;
         }
 
         private void Fight(Enemy enemy)
@@ -271,7 +294,6 @@ namespace Fall2020_CSC403_Project
             frmBattle = FrmBattle.GetInstance(this, enemy);
             frmBattle.Show();
 
-            Debug.WriteLine(enemy.Name);
             if (enemy.Name == "BossKoolAid")
             {
                 frmBattle.SetupForBossBattle();
@@ -281,7 +303,6 @@ namespace Fall2020_CSC403_Project
         public void GameOver()
         {
             this.gameOver = true;
-            //this.player.RemoveEntity();
             this.player.SetEntityPosition(new Position(-100, -100));
             DisposeLevel();
 
@@ -319,6 +340,15 @@ namespace Fall2020_CSC403_Project
             ExitButton.Size = new Size(100, 30);
             ExitButton.Visible = true;
             ExitButton.BringToFront();
+
+            // find the x-coordinate to put the MainMenuButton in the center
+            int centerMainMenuButton = (this.Width / 2) - (MainMenuButton.Width / 2);
+
+            MainMenuButton.Enabled = true;
+            MainMenuButton.Location = new Point(centerMainMenuButton, 400);
+            MainMenuButton.Size = new Size(100, 30);
+            MainMenuButton.Visible = true;
+            MainMenuButton.BringToFront();
         }
 
 
@@ -360,17 +390,13 @@ namespace Fall2020_CSC403_Project
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            frmInv = FrmInv.GetInstance(player);
-            frmInv.WindowState = FormWindowState.Maximized;
-            frmInv.Show();
+            frminventory = FrmInventory.GetInstance(player);
+            frminventory.Show();
         }
-
-
 
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
-
 
             this.gameOver = false;
             this.player.RestoreHealth();
@@ -379,13 +405,23 @@ namespace Fall2020_CSC403_Project
             GameOverText.Visible = false;
             RestartButton.Visible = false;
             ExitButton.Visible = false;
+            MainMenuButton.Visible = false;
 
             RestartButton.Enabled = false;
             ExitButton.Enabled = false;
+            MainMenuButton.Enabled = false;
 
             this.Level = 1;
             LevelSelect();
             InitializeLevelLayout();
+        }
+
+        private void MainMenuButton_Click(object sender, EventArgs e)
+        {
+            Game.player = null;
+            this.player = null;
+            previousForm.Show();
+            this.Hide();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -408,17 +444,16 @@ namespace Fall2020_CSC403_Project
 
         private void Level1()
         {
+            
             player.SetEntityPosition(new Position(100, 700));
             player.Pic.Visible = true;
 
-            int grid_width = this.Width / 50;
-            int grid_height = this.Height / 50;
 
-            terrain.GenerateTerrain(grid_height, grid_width, 1);
+            this.terrain.GenerateTerrain(2);
 
-            terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), new Size(50, 50)), 5, Item.ItemType.Weapon));
-            terrain.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), new Size(50, 50)), 5, Item.ItemType.Utility));
-            terrain.AddItem(new Item("Armor of Noob", MakePictureBox(Resources.common_armor, new Point(880, 800), new Size(50, 50)), 5, Item.ItemType.Armor));
+            this.terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), itemSize), 5, Item.ItemType.Weapon));
+            this.terrain.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), itemSize), 5, Item.ItemType.Utility));
+            this.terrain.AddItem(new Item("Armor of Noob", MakePictureBox(Resources.common_armor, new Point(880, 800), itemSize), 5, Item.ItemType.Armor));
 
             AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Swordsman()));
             AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Rogue()));

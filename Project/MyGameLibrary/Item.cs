@@ -15,11 +15,21 @@ namespace MyGameLibrary
         public int Stat { get; private set; }
         public ItemType Type { get; private set; }
 
+        public PotionTypes Potion { get; private set; }
+
 
         public Item(string Name, PictureBox Pic, int Stat, ItemType Type) : base(Name, Pic)
         {
             this.Stat = Stat;
             this.Type = Type;
+            Pic.Size = new Size(50, 50);
+        }
+
+        public Item(string Name, PictureBox Pic, int Stat, ItemType Type, PotionTypes Potion) : base(Name, Pic)
+        {
+            this.Stat = Stat;
+            this.Type = Type;
+            this.Potion = Potion;
             Pic.Size = new Size(50, 50);
         }
 
@@ -30,6 +40,14 @@ namespace MyGameLibrary
             Armor,
             Utility
         }
+
+        public enum PotionTypes
+        {
+            Healing,
+            Speed,
+            Strength
+        }
+
     }
 
 

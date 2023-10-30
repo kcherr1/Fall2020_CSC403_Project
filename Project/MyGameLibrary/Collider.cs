@@ -23,6 +23,11 @@ namespace Fall2020_CSC403_Project.code
             this.rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
         }
 
+        public Collider(Point point, Size size)
+        {
+            this.rect = new Rectangle(point, size);
+        }
+
 
 
 
