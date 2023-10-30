@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using MyGameLibrary;
 using System.Runtime.Remoting.Messaging;
 using static MyGameLibrary.Item;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
@@ -41,14 +43,14 @@ namespace Fall2020_CSC403_Project.code
             this.speed = archetype.baseSpeed;
             this.Health = MaxHealth;
 			this.Inventory = new Inventory();
-        }
+		}
 		
 		public void OnAttack(int defense)
-		{	
-			Random rand = new Random();
-			if (rand.Next(1, 21) + archetype.archetypeHit >= defense)
+		{
+            Random rand = new Random();
+            if (rand.Next(1, 21) + archetype.hitMod >= defense)
 			{
-                AttackEvent(damage + rand.Next(1, archetype.archetypeDamage + 1));
+                AttackEvent(damage + rand.Next(1, archetype.baseDamage + 1));
             }
 		}
 

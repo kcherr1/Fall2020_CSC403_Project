@@ -15,6 +15,7 @@ namespace Fall2020_CSC403_Project.code
         public Collider Collider { get; set; }
         public Position Position { get; set; }
 
+
         public Tile(PictureBox Pic, EffectType Effect)
         {
             this.Pic = Pic;

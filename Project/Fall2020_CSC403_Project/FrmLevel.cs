@@ -46,7 +46,7 @@ namespace Fall2020_CSC403_Project
         
         private void FrmLevel_Load(object sender, EventArgs e)
         {
-            Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Height / 20, Screen.PrimaryScreen.Bounds.Width / 20);
+            Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Width / 15, Screen.PrimaryScreen.Bounds.Width / 15);
             int grid_width = Screen.PrimaryScreen.Bounds.Width / TileSize.Width;
             int grid_height = Screen.PrimaryScreen.Bounds.Height / TileSize.Width;
             
@@ -304,6 +304,7 @@ namespace Fall2020_CSC403_Project
         {
             this.gameOver = true;
             this.player.SetEntityPosition(new Position(-100, -100));
+
             DisposeLevel();
 
 
@@ -354,7 +355,7 @@ namespace Fall2020_CSC403_Project
 
         private void DisposeLevel()
         {
-            // iterate through the controls and make them invisible
+            // iterate through the controls and remove them from control
 
             for (int i = 0; i < this.enemies.Count; i++)
             {
@@ -380,6 +381,9 @@ namespace Fall2020_CSC403_Project
             this.terrain.Walls.Clear();
 
 
+
+
+
         }
 
 
@@ -399,7 +403,8 @@ namespace Fall2020_CSC403_Project
         {
 
             this.gameOver = false;
-            this.player.RestoreHealth();
+            this.player = new Player(player.Name, player.Pic, player.archetype);
+            Game.player = this.player;
 
             BlackSquare.Visible = false;
             GameOverText.Visible = false;
@@ -452,12 +457,13 @@ namespace Fall2020_CSC403_Project
             this.terrain.GenerateTerrain(2);
 
             this.terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), itemSize), 5, Item.ItemType.Weapon));
-            this.terrain.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), itemSize), 5, Item.ItemType.Utility));
+            this.terrain.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), itemSize), 5, Item.ItemType.Utility, Item.PotionTypes.Healing));
             this.terrain.AddItem(new Item("Armor of Noob", MakePictureBox(Resources.common_armor, new Point(880, 800), itemSize), 5, Item.ItemType.Armor));
+            this.terrain.AddItem(new Item("Potion of Speed", MakePictureBox(Resources.speed_potion, new Point(20, 400), itemSize), 10, Item.ItemType.Utility, Item.PotionTypes.Speed));
 
-            AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Swordsman()));
-            AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Rogue()));
-            AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Tank()));
+            AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Minion()));
+            AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
+            AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
 
         }
 

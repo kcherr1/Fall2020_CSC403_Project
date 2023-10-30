@@ -82,14 +82,14 @@ namespace Fall2020_CSC403_Project
                 player.OnAttack(enemy.defense);
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack(enemy.defense);
+                    enemy.OnAttack(player.defense);
                 }
             }
             else
             {
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack(enemy.defense);
+                    enemy.OnAttack(player.defense);
                 }
                 player.OnAttack(enemy.defense);
             }

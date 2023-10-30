@@ -354,10 +354,7 @@ namespace Fall2020_CSC403_Project
                 player.Inventory.UseItem();
                 RefreshInv();
             }
-            else
-            {
 
-            }
 
             if (selected > 0)
             {
