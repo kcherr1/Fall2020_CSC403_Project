@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmBattle.cs">
+    <Compile Include="..\..\..\..\..\..\..\Desktop\GameOver.cs">
       <SubType>Form</SubType>
+      <Link>GameOver.cs</Link>
     </Compile>
-    <Compile Include="FrmBattle.Designer.cs">
+    <Compile Include="..\..\..\..\..\..\..\Desktop\FrmBattle.cs">
+      <SubType>Form</SubType>
+      <Link>FrmBattle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\..\..\..\Desktop\FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
+      <Link>FrmBattle.Designer.cs</Link>
     </Compile>
     <Compile Include="FrmLevel.cs">
       <SubType>Form</SubType>
@@ -60,8 +66,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmBattle.resx">
+    <EmbeddedResource Include="..\..\..\..\..\..\..\Desktop\GameOver.resx">
+      <DependentUpon>GameOver.cs</DependentUpon>
+      <Link>GameOver.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\..\..\..\..\..\Desktop\FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
+      <Link>FrmBattle.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
@@ -71,6 +82,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="..\..\..\..\..\..\..\Desktop\GameOver.Designer">
+      <SubType>Form</SubType>
+    </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
