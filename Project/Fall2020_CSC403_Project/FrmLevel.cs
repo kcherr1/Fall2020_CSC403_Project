@@ -113,9 +113,27 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
-    }
+            RemoveEnemy(enemy);
+        }
+        private void RemoveEnemy(Enemy enemy)
+        {
+            if (enemy == enemyPoisonPacket)
+            {
+                picEnemyPoisonPacket.Visible = false;
+            }
+            else if (enemy == bossKoolaid && enemy.Health == 0)
+            {
+                picBossKoolAid.Visible = false;
+            }
+            else if (enemy == enemyCheeto)
+            {
+                picEnemyCheeto.Visible = false;
+            }
 
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+        }
+
+
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
