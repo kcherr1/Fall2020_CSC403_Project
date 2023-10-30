@@ -65,7 +65,6 @@ namespace Fall2020_CSC403_Project {
 
     private void btnAttack_Click(object sender, EventArgs e) {
             SoundPlayer attack_audio = new SoundPlayer(Resources.boom);
-            //attack_audio.Play();
             player.OnAttack(-4);
       if (enemy.Health > 0) {
                 attack_audio.Play();
@@ -77,7 +76,6 @@ namespace Fall2020_CSC403_Project {
 
         instance = null;
         Close();
-                attack_audio.Stop();
       }
     }
 
