@@ -298,6 +298,7 @@ namespace Fall2020_CSC403_Project
         {
             this.gameOver = true;
             this.player.SetEntityPosition(new Position(-100, -100));
+
             DisposeLevel();
 
 
@@ -348,7 +349,7 @@ namespace Fall2020_CSC403_Project
 
         private void DisposeLevel()
         {
-            // iterate through the controls and make them invisible
+            // iterate through the controls and remove them from control
 
             for (int i = 0; i < this.enemies.Count; i++)
             {
@@ -372,6 +373,9 @@ namespace Fall2020_CSC403_Project
                 this.Controls.Remove(this.terrain.Walls[i].Pic);
             }
             this.terrain.Walls.Clear();
+
+
+            //this.player.Inventory = new Inventory();
 
 
         }
@@ -449,6 +453,7 @@ namespace Fall2020_CSC403_Project
             this.terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), itemSize), 5, Item.ItemType.Weapon));
             this.terrain.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), itemSize), 5, Item.ItemType.Utility));
             this.terrain.AddItem(new Item("Armor of Noob", MakePictureBox(Resources.common_armor, new Point(880, 800), itemSize), 5, Item.ItemType.Armor));
+            //this.terrain.AddItem(new Item("Potion of Strength", MakePictureBox(re)))
 
             AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Swordsman()));
             AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Rogue()));
