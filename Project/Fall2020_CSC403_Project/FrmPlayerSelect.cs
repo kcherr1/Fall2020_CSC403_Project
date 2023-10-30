@@ -21,10 +21,12 @@ namespace Fall2020_CSC403_Project
         private PictureBox TankPic;
         private PictureBox RoguePic;
         private PictureBox SwordsmanPic;
+        private Form MainMenu;
         
 
-        public FrmPlayerSelect()
+        public FrmPlayerSelect(Form MainMenu)
         {
+            this.MainMenu = MainMenu;
             this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
             this.setup();
@@ -176,7 +178,7 @@ namespace Fall2020_CSC403_Project
 
 
 
-            FrmLevel frmlevel = new FrmLevel(this, player);
+            FrmLevel frmlevel = new FrmLevel(MainMenu, player);
             frmlevel.FormClosed += (s, args) => this.Close();
             frmlevel.Show();
             this.Hide();
