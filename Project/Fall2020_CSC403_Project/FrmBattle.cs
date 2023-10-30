@@ -65,8 +65,16 @@ namespace Fall2020_CSC403_Project {
 
     private void btnAttack_Click(object sender, EventArgs e) {
             SoundPlayer attack_audio = new SoundPlayer(Resources.boom);
-            player.OnAttack(-4);
-      if (enemy.Health > 0) {
+            bool checkweapon = FrmLevel.haveAWeapon;
+            if (checkweapon)
+            {
+                player.OnAttack(-8);
+            }
+            else
+            {
+                player.OnAttack(-4);
+            }
+            if (enemy.Health > 0) {
                 attack_audio.Play();
                 enemy.OnAttack(-2);
       }
