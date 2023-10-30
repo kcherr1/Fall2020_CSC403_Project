@@ -46,7 +46,7 @@ namespace Fall2020_CSC403_Project
         
         private void FrmLevel_Load(object sender, EventArgs e)
         {
-            Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Height / 20, Screen.PrimaryScreen.Bounds.Width / 20);
+            Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Height / 10, Screen.PrimaryScreen.Bounds.Width / 10);
             int grid_width = Screen.PrimaryScreen.Bounds.Width / TileSize.Width;
             int grid_height = Screen.PrimaryScreen.Bounds.Height / TileSize.Width;
             
