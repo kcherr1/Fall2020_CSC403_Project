@@ -48,7 +48,7 @@ namespace Fall2020_CSC403_Project.code
 		public void OnAttack(int defense)
 		{
             Random rand = new Random();
-            if (rand.Next(1, archetype.hitMod + 1) >= defense)
+            if (rand.Next(1, 21) + archetype.hitMod >= defense)
 			{
                 AttackEvent(damage + rand.Next(1, archetype.baseDamage + 1));
             }
