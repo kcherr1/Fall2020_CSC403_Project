@@ -79,19 +79,19 @@ namespace Fall2020_CSC403_Project
         {
             if (player.speed >= enemy.speed)
             {
-                player.OnAttack();
+                player.OnAttack(enemy.defense);
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack();
+                    enemy.OnAttack(enemy.defense);
                 }
             }
             else
             {
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack();
+                    enemy.OnAttack(enemy.defense);
                 }
-                player.OnAttack();
+                player.OnAttack(enemy.defense);
             }
 
             UpdateHealthBars();

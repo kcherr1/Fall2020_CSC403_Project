@@ -32,6 +32,9 @@ namespace Fall2020_CSC403_Project
 
         public FrmLevel(Form previousForm, Player player)
         {
+            this.KeyPreview = true;
+            this.DoubleBuffered = true;
+
             this.player = player;
             this.gameOver = false;
             this.WindowState = FormWindowState.Maximized;
@@ -40,12 +43,12 @@ namespace Fall2020_CSC403_Project
             this.previousForm = previousForm;
         }
 
-
+        
         private void FrmLevel_Load(object sender, EventArgs e)
         {
-            Size TileSize = new Size(this.Width / 30, this.Width / 30);
-            int grid_width = this.Width / TileSize.Width;
-            int grid_height = this.Height / TileSize.Width;
+            Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Height / 20, Screen.PrimaryScreen.Bounds.Width / 20);
+            int grid_width = Screen.PrimaryScreen.Bounds.Width / TileSize.Width;
+            int grid_height = Screen.PrimaryScreen.Bounds.Height / TileSize.Width;
             
 
             this.terrain = new Terrain(grid_width, grid_height, TileSize);
@@ -148,6 +151,13 @@ namespace Fall2020_CSC403_Project
                     player.GoDown();
                     break;
 
+                case Keys.E:
+                    player.ResetMoveSpeed();
+                    frmInv = FrmInv.GetInstance(player);
+                    frmInv.WindowState = FormWindowState.Maximized;
+                    frmInv.Show();
+                    break;
+
                 default:
                     player.ResetMoveSpeed();
                     break;
@@ -169,7 +179,7 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            // move player
+            // move playerd
             player.Move();
 
             // check collision with walls
@@ -287,7 +297,6 @@ namespace Fall2020_CSC403_Project
         public void GameOver()
         {
             this.gameOver = true;
-            //this.player.RemoveEntity();
             this.player.SetEntityPosition(new Position(-100, -100));
             DisposeLevel();
 
@@ -381,11 +390,8 @@ namespace Fall2020_CSC403_Project
         }
 
 
-
-
         private void RestartButton_Click(object sender, EventArgs e)
         {
-
 
             this.gameOver = false;
             this.player.RestoreHealth();
@@ -407,6 +413,8 @@ namespace Fall2020_CSC403_Project
 
         private void MainMenuButton_Click(object sender, EventArgs e)
         {
+            Game.player = null;
+            this.player = null;
             previousForm.Show();
             this.Hide();
         }

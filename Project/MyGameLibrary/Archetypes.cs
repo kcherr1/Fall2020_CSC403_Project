@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project.code
         int baseDamage { get; }
         int baseSpeed { get; }
         int archetypeDamage { get; }
+        int archetypeHit { get; }
         PictureBox image { get; }
     }
 
@@ -36,6 +37,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseDamage { get; }
         public int baseSpeed { get; }
         public int archetypeDamage { get; }
+        public int archetypeHit { get; }
         public PictureBox image { get; }
 
         public Tank()
@@ -45,6 +47,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 5;
             baseSpeed = 0;
             archetypeDamage = 5;
+            archetypeHit = 4;
             //image = new PictureBox
             //{
             //    Size = new Size(50, 50),
@@ -61,6 +64,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseDamage { get; }
         public int baseSpeed { get; }
         public int archetypeDamage { get; }
+        public int archetypeHit { get; }
         public PictureBox image { get; }
 
         public Rogue()
@@ -70,6 +74,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 10;
             baseSpeed = 5;
             archetypeDamage = 10;
+            archetypeHit = 4;
         }
     }
 
@@ -80,6 +85,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseDamage { get; }
         public int baseSpeed { get; }
         public int archetypeDamage { get; }
+        public int archetypeHit { get; }
         public PictureBox image { get; }
 
         public Swordsman()
@@ -89,6 +95,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 8;
             baseSpeed = 2;
             archetypeDamage = 8;
+            archetypeHit = 4;
         }
     }
 
@@ -99,6 +106,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseDamage { get; }
         public int baseSpeed { get; }
         public int archetypeDamage { get; }
+        public int archetypeHit { get; }
         public PictureBox image { get; }
         public Minion()
         {
@@ -107,6 +115,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 5;
             baseSpeed = 2;
             archetypeDamage = 0;
+            archetypeHit = 0;
         }
     }
     

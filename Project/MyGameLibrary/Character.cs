@@ -43,10 +43,13 @@ namespace Fall2020_CSC403_Project.code
 			this.Inventory = new Inventory();
         }
 		
-		public void OnAttack()
+		public void OnAttack(int defense)
 		{	
 			Random rand = new Random();
-			AttackEvent(damage + rand.Next(1, archetype.archetypeDamage + 1));
+			if (rand.Next(1, 21) + archetype.archetypeHit >= defense)
+			{
+                AttackEvent(damage + rand.Next(1, archetype.archetypeDamage + 1));
+            }
 		}
 
         public void TakeDamage(int amount)
