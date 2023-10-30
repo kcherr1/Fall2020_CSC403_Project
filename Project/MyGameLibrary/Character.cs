@@ -104,7 +104,7 @@ namespace Fall2020_CSC403_Project.code
 			}
 		}
 
-		public void RemoveEffects()
+		public void RemoveEffect()
 		{
 			this.damage = this.archetype.baseDamage;
 			this.speed = this.archetype.baseSpeed;
