@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -17,7 +18,7 @@ namespace Fall2020_CSC403_Project
     {
         private Player player;
         private TextBox playerNameTextBox;
-        int selected;
+        int selected = 0;
         private PictureBox TankPic;
         private PictureBox RoguePic;
         private PictureBox SwordsmanPic;
@@ -25,6 +26,9 @@ namespace Fall2020_CSC403_Project
         
 
         public FrmPlayerSelect(Form MainMenu)
+        private Label InstructionLabel;
+
+        public FrmPlayerSelect()
         {
             this.MainMenu = MainMenu;
             this.WindowState = FormWindowState.Maximized;
@@ -126,6 +130,17 @@ namespace Fall2020_CSC403_Project
             playerNameTextBox.Text = "Enter your name"; // Set initial text
             playerNameTextBox.Click += playerNameTextBox_Click;
 
+            // Add instructions
+            InstructionLabel = new Label();
+            InstructionLabel.AutoSize = false;
+            InstructionLabel.TextAlign = ContentAlignment.MiddleCenter;
+            InstructionLabel.BackColor = Color.Black;
+            InstructionLabel.ForeColor = Color.Red;
+            InstructionLabel.Parent = this;
+            InstructionLabel.Text = "Choose a class by clicking the image, and enter a name";
+            InstructionLabel.Size = new Size(width, height / 20);
+            InstructionLabel.Font = new Font("NSimSun", TankLabel.Height / 2);
+            InstructionLabel.Location = new Point(0,115*height/128);
 
 
         }
@@ -133,55 +148,43 @@ namespace Fall2020_CSC403_Project
         private void StartGame_Button_Click(object sender, EventArgs e)
         {
             string playerName = playerNameTextBox.Text.Trim(); // Get the input from the TextBox
-            if (selected == 1)
+
+            if (selected == 0)
             {
-                PictureBox img = MakePictureBox(Properties.Resources.tank, new Point(100, this.Height - 200), new Size(50, 100));
-                if (!string.IsNullOrWhiteSpace(playerName))
-                {
+                InstructionLabel.Text = "I said pick a class and choose a name.";
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(playerName) || playerName == "Enter your name")
+            {
+                InstructionLabel.Text = "I said pick a class and choose a name.";
+                return;
+            }
+
+            PictureBox img = null;
+            switch (selected)
+            {
+                case 1:
+                    img = MakePictureBox(Properties.Resources.tank, new Point(100, this.Height - 200), new Size(50, 100));
                     this.player = new Player(playerName, img, new Tank());
-                }
-                else
-                {
-                    this.player = new Player("No Name", img, new Tank());
-                }
-                
-            }
-            else if (selected == 2)
-            {
-                PictureBox img = MakePictureBox(Properties.Resources.rogue, new Point(100, this.Height - 200), new Size(50, 100));
-                if (!string.IsNullOrWhiteSpace(playerName))
-                {
+                    break;
+                case 2:
+                    img = MakePictureBox(Properties.Resources.rogue, new Point(100, this.Height - 200), new Size(50, 100));
                     this.player = new Player(playerName, img, new Rogue());
-                }
-                else
-                {
-                    this.player = new Player("No Name", img, new Rogue());
-                }
-
-            }
-            else if (selected == 3)
-            {
-                PictureBox img = MakePictureBox(Properties.Resources.swordsman, new Point(100, this.Height - 200), new Size(50, 100));
-                if (!string.IsNullOrWhiteSpace(playerName))
-                {
+                    break;
+                case 3:
+                    img = MakePictureBox(Properties.Resources.swordsman, new Point(100, this.Height - 200), new Size(50, 100));
                     this.player = new Player(playerName, img, new Swordsman());
-                }
-                else
-                {
-                    this.player = new Player("No Name", img, new Swordsman());
-                }
+                    break;
             }
-            else
+
+            if (this.player != null)
             {
-                this.player = new Player("Peanut", MakePictureBox(Properties.Resources.rogue, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
+                FrmLevel frmlevel = new FrmLevel(MainMenu, player);
+                frmlevel.FormClosed += (s, args) => this.Close();
+                frmlevel.Show();
+                this.Hide();
             }
-
-
-
-            FrmLevel frmlevel = new FrmLevel(MainMenu, player);
-            frmlevel.FormClosed += (s, args) => this.Close();
-            frmlevel.Show();
-            this.Hide();
         }
 
         private void playerNameTextBox_Click(object sender, EventArgs e)
