@@ -13,6 +13,9 @@ namespace Fall2020_CSC403_Project
     public partial class FrmSettings : Form
     {
         private Form previousForm;
+        private TrackBar audioTrackBar;
+        private bool isMuted = false;
+
 
         public FrmSettings(Form previous)
         {
@@ -33,8 +36,8 @@ namespace Fall2020_CSC403_Project
             Button ReturnButton = new Button();
             Button ExitButton = new Button();
 
-            ReturnButton.Location = new Point(0 + (width / 3), 0 + (height / 8));
-            ExitButton.Location = new Point(0 + (width / 3), 0 + (2 * height / 8));
+            ReturnButton.Location = new Point((width / 3), (height / 8));
+            ExitButton.Location = new Point((width / 3), (2 * height / 8));
 
             ReturnButton.Size = new Size(width / 3, height / 10);
             ExitButton.Size = new Size(width / 3, height / 10);
@@ -51,7 +54,10 @@ namespace Fall2020_CSC403_Project
             ReturnButton.Click += ReturnButton_Click;
             ExitButton.Click += ExitButton_Click;
 
+
+
         }
+
 
         private void ExitButton_Click(object sender, EventArgs e)
         {

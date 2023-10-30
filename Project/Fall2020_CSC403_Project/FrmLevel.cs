@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project
         private List<Enemy> enemies;
         private Terrain terrain;
 
-        private Form previousForm;
+        private Form MainMenu;
 
         public int Level { get; set; }
 
@@ -30,16 +30,17 @@ namespace Fall2020_CSC403_Project
 
         private Size itemSize = new Size(50, 50);
 
-        public FrmLevel(Form previousForm)
+        public FrmLevel(Form MainMenu, Player player)
         {
             this.KeyPreview = true;
             this.DoubleBuffered = true;
 
+            this.player = player;
             this.gameOver = false;
             this.WindowState = FormWindowState.Maximized;
             this.Level = 1;
             InitializeComponent();
-            this.previousForm = previousForm;
+            this.MainMenu = MainMenu;
         }
 
         
@@ -53,7 +54,6 @@ namespace Fall2020_CSC403_Project
             this.terrain = new Terrain(grid_width, grid_height, TileSize);
             enemies = new List<Enemy> { };
 
-            this.player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
             LevelSelect();
 
 
@@ -419,7 +419,7 @@ namespace Fall2020_CSC403_Project
         {
             Game.player = null;
             this.player = null;
-            previousForm.Show();
+            MainMenu.Show();
             this.Hide();
         }
 
