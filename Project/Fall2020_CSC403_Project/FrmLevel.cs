@@ -14,10 +14,37 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+        // Button for Quitting the Game.
+        private Button quitButton;
 
-    public FrmLevel() {
-      InitializeComponent();
-    }
+
+        // Start of the game code.
+        public FrmLevel()
+        {
+            InitializeComponent();
+            InitializeTheQuitButton();
+            this.KeyPreview = true;
+        }
+        // Code to Initialize the Quit button in the FrmLevel Code.
+        private void InitializeTheQuitButton()
+        {
+            quitButton = new Button();
+            quitButton.Text = "Quit";
+            //Adding the quit functionality to the button.
+            quitButton.Click += (sender, e) => this.Close();
+            // Code to remove the focus from the quit button. This enables the movement of Mr.Peanut.
+            quitButton.TabStop = false;
+
+            // Setting the size and position of the button in the application.
+            quitButton.Size = new Size(60, 30);
+            quitButton.Location = new Point(this.ClientSize.Width - quitButton.Width - 10, 10);
+            // The code to make sure that the button remains in right corner of the top margin.
+            this.Resize += (sender, e) => {
+                quitButton.Location = new Point(this.ClientSize.Width - quitButton.Width - 10, quitButton.Location.Y);
+            };
+            this.Controls.Add(quitButton);
+        }
+
 
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
@@ -113,9 +140,27 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
-    }
+            RemoveEnemy(enemy);
+        }
+        private void RemoveEnemy(Enemy enemy)
+        {
+            if (enemy == enemyPoisonPacket)
+            {
+                picEnemyPoisonPacket.Visible = false;
+            }
+            else if (enemy == bossKoolaid && enemy.Health == 0)
+            {
+                picBossKoolAid.Visible = false;
+            }
+            else if (enemy == enemyCheeto)
+            {
+                picEnemyCheeto.Visible = false;
+            }
 
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+        }
+
+
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
@@ -144,3 +189,4 @@ namespace Fall2020_CSC403_Project {
     }
   }
 }
+
