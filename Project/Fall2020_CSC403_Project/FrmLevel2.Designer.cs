@@ -1447,7 +1447,7 @@
       this.MaximumSize = new System.Drawing.Size(1628, 928);
       this.MinimumSize = new System.Drawing.Size(1628, 928);
       this.Name = "FrmLevel2";
-      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Explore";
       this.Load += new System.EventHandler(this.LoadLevel);
       this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);

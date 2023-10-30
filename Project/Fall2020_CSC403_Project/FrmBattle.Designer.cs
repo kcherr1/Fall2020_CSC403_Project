@@ -223,7 +223,7 @@
       this.DoubleBuffered = true;
       this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
       this.Name = "FrmBattle";
-      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Fight!";
       ((System.ComponentModel.ISupportInitialize)(this.gunfireBlast)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.weapon)).EndInit();
