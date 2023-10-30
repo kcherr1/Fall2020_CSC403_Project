@@ -50,6 +50,17 @@ namespace Fall2020_CSC403_Project.code
             this.Tiles.Add(tile);
         }
 
+        private static Image water_grass = Resources.tile_water_grassy;
+        private static Image water_clear = Resources.tile_water_clear;
+        private static Image sand = Resources.tile_sand;
+        private static Image dirt_path = Resources.tile_dirt_path;
+        private static Image grass_light = Resources.tile_grass_light;
+        private static Image grass_dark = Resources.tile_grass_dark;
+        private static Image cobble_moss = Resources.tile_cobblestone_mossy;
+        private static Image cobblestone = Resources.tile_cobblestone;
+        private static Image stone_bricks = Resources.tile_stonebrick;
+        private static Image bricks = Resources.tile_bricks;
+
         public void GenerateTerrain(int seed, double amplification = 0)
         {
 
@@ -104,49 +115,49 @@ namespace Fall2020_CSC403_Project.code
                 {
                     if (tiles[y][x] < 0.4)
                     {
-                        this.AddTile(new Tile(MakePictureBox(Resources.tile_water_grassy, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.SuperSlowness));
+                        this.AddTile(new Tile(MakePictureBox(water_grass, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.SuperSlowness));
                     }
                     else if (tiles[y][x] < 0.45)
                     {
-                        this.AddTile(new Tile(MakePictureBox(Resources.tile_water_clear, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.SuperSlowness));
+                        this.AddTile(new Tile(MakePictureBox(water_clear, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.SuperSlowness));
                     }
                     else if (tiles[y][x] < 0.47)
                     {
-                        this.AddTile(new Tile(MakePictureBox(Resources.tile_sand, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.Slowness));
+                        this.AddTile(new Tile(MakePictureBox(sand, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.Slowness));
                     }
                     else if (tiles[y][x] < 0.5)
                     {
-                        this.AddTile(new Tile(MakePictureBox(Resources.tile_dirt_path, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
+                        this.AddTile(new Tile(MakePictureBox(dirt_path, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
                     }
                     else if (tiles[y][x] < 0.55)
                     {
-                        this.AddTile(new Tile(MakePictureBox(Resources.tile_grass_light, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
+                        this.AddTile(new Tile(MakePictureBox(grass_light, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
                     }
                     else if (tiles[y][x] < 0.65)
                     {
-                        this.AddTile(new Tile(MakePictureBox(Resources.tile_grass_dark, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
+                        this.AddTile(new Tile(MakePictureBox(grass_dark, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
                     }
                     else if (tiles[y][x] < 0.7)
                     {
-                        this.AddTile(new Tile(MakePictureBox(Resources.tile_cobblestone_mossy, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
+                        this.AddTile(new Tile(MakePictureBox(cobble_moss, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
                     }
                     else if (tiles[y][x] < 0.72)
                     {
-                        this.AddTile(new Tile(MakePictureBox(Resources.tile_cobblestone, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
+                        this.AddTile(new Tile(MakePictureBox(cobblestone, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
                     }
                     else if (tiles[y][x] < 75)
                     {
-                        this.AddTile(new Tile(MakePictureBox(Resources.tile_stonebrick, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.Speed));
+                        this.AddTile(new Tile(MakePictureBox(stone_bricks, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.Speed));
                     }
                     else
                     {
-                        this.AddTile(new Tile(MakePictureBox(Resources.tile_bricks, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.Speed));
+                        this.AddTile(new Tile(MakePictureBox(bricks, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.Speed));
                     }
                 }
             }
         }
 
-        private PictureBox MakePictureBox(Bitmap pic, Point location)
+        private PictureBox MakePictureBox(Image pic, Point location)
         {
             return new PictureBox
             {

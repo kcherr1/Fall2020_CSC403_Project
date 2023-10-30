@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project
         private List<Enemy> enemies;
         private Terrain terrain;
 
-        private Form previousForm;
+        private Form MainMenu;
 
         public int Level { get; set; }
 
@@ -30,27 +30,30 @@ namespace Fall2020_CSC403_Project
 
         private Size itemSize = new Size(50, 50);
 
-        public FrmLevel(Form previousForm)
+        public FrmLevel(Form MainMenu, Player player)
         {
+            this.KeyPreview = true;
+            this.DoubleBuffered = true;
+
+            this.player = player;
             this.gameOver = false;
             this.WindowState = FormWindowState.Maximized;
             this.Level = 1;
             InitializeComponent();
-            this.previousForm = previousForm;
+            this.MainMenu = MainMenu;
         }
 
-
+        
         private void FrmLevel_Load(object sender, EventArgs e)
         {
-            Size TileSize = new Size(this.Width / 30, this.Width / 30);
-            int grid_width = this.Width / TileSize.Width;
-            int grid_height = this.Height / TileSize.Width;
+            Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Height / 20, Screen.PrimaryScreen.Bounds.Width / 20);
+            int grid_width = Screen.PrimaryScreen.Bounds.Width / TileSize.Width;
+            int grid_height = Screen.PrimaryScreen.Bounds.Height / TileSize.Width;
             
 
             this.terrain = new Terrain(grid_width, grid_height, TileSize);
             enemies = new List<Enemy> { };
 
-            this.player = new Player("Peanut", MakePictureBox(Resources.player, new Point(100, this.Height - 200), new Size(50, 100)), new Rogue());
             LevelSelect();
 
 
@@ -148,6 +151,13 @@ namespace Fall2020_CSC403_Project
                     player.GoDown();
                     break;
 
+                case Keys.E:
+                    player.ResetMoveSpeed();
+                    frmInv = FrmInv.GetInstance(player);
+                    frmInv.WindowState = FormWindowState.Maximized;
+                    frmInv.Show();
+                    break;
+
                 default:
                     player.ResetMoveSpeed();
                     break;
@@ -169,7 +179,7 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            // move player
+            // move playerd
             player.Move();
 
             // check collision with walls
@@ -287,7 +297,6 @@ namespace Fall2020_CSC403_Project
         public void GameOver()
         {
             this.gameOver = true;
-            //this.player.RemoveEntity();
             this.player.SetEntityPosition(new Position(-100, -100));
             DisposeLevel();
 
@@ -381,11 +390,8 @@ namespace Fall2020_CSC403_Project
         }
 
 
-
-
         private void RestartButton_Click(object sender, EventArgs e)
         {
-
 
             this.gameOver = false;
             this.player.RestoreHealth();
@@ -407,7 +413,9 @@ namespace Fall2020_CSC403_Project
 
         private void MainMenuButton_Click(object sender, EventArgs e)
         {
-            previousForm.Show();
+            Game.player = null;
+            this.player = null;
+            MainMenu.Show();
             this.Hide();
         }
 
