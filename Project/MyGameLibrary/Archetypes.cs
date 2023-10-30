@@ -16,7 +16,7 @@ namespace Fall2020_CSC403_Project.code
         int baseDefense { get; }
         int baseDamage { get; }
         int baseSpeed { get; }
-        int archetypeDamage { get; }
+        int hitMod { get; }
         PictureBox image { get; }
     }
 
@@ -36,16 +36,16 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
-        public int archetypeDamage { get; }
+        public int hitMod { get; }
         public PictureBox image { get; }
 
         public Tank(Point location, Size size)
         {
             baseMaxHealth = 100;
-            baseDefense = 10;
+            baseDefense = 18;
             baseDamage = 5;
             baseSpeed = 0;
-            archetypeDamage = 5;
+            hitMod = 5;
             image = new PictureBox
             {
                 Location = location,
@@ -62,16 +62,16 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
-        public int archetypeDamage { get; }
+        public int hitMod { get; }
         public PictureBox image { get; }
 
         public Rogue(Point location, Size size)
         {
             baseMaxHealth = 20;
-            baseDefense = 2;
+            baseDefense = 10;
             baseDamage = 10;
             baseSpeed = 5;
-            archetypeDamage = 10;
+            hitMod = 2;
             image = new PictureBox
             {
                 Location = location,
@@ -88,16 +88,16 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
-        public int archetypeDamage { get; }
+        public int hitMod { get; }
         public PictureBox image { get; }
 
         public Swordsman(Point location, Size size)
         {
             baseMaxHealth = 50;
-            baseDefense = 5;
+            baseDefense = 12;
             baseDamage = 8;
             baseSpeed = 2;
-            archetypeDamage = 8;
+            hitMod = 3;
             image = new PictureBox
             {
                 Location = location,
@@ -114,7 +114,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
-        public int archetypeDamage { get; }
+        public int hitMod { get; }
         public PictureBox image { get; }
         public Minion(Point location, Size size)
         {
@@ -122,7 +122,7 @@ namespace Fall2020_CSC403_Project.code
             baseDefense = 0;
             baseDamage = 5;
             baseSpeed = 2;
-            archetypeDamage = 0;
+            hitMod = 0;
             image = new PictureBox
             {
                 Location = location,
