@@ -115,9 +115,10 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
-      ///delete
-      //
-
+      //Has the enemy been beaten
+      if (enemy.Health <= 0){
+          enemy.Death();
+        }
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {

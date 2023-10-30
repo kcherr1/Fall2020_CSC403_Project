@@ -1,10 +1,12 @@
 ﻿using System.Drawing;
+using System.Runtime.CompilerServices;
 
 namespace Fall2020_CSC403_Project.code {
   /// <summary>
   /// This is the class for an enemy
   /// </summary>
   public class Enemy : BattleCharacter {
+    public bool IsDefeated { get; private set; }
     /// <summary>
     /// THis is the image for an enemy
     /// </summary>
@@ -21,6 +23,12 @@ namespace Fall2020_CSC403_Project.code {
     /// <param name="initPos">this is the initial position of the enemy</param>
     /// <param name="collider">this is the collider for the enemy</param>
     public Enemy(Vector2 initPos, Collider collider) : base(initPos, collider) {
-    }
+            IsDefeated = false;
+        }
+
+    public void Death(){
+
+            IsDefeated = true;
+        }
   }
 }
