@@ -178,7 +178,23 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForBossBattle();
             }
+			enemyDisappear(enemy);
         }
+		private void enemyDisappear(Enemy enemy)
+		{
+			if (enemy == enemyPoisonPacket)
+			{
+				picEnemyPoisonPacket.Visible = false;
+			}
+			else if (enemy == enemyCheeto)
+			{
+				picEnemyCheeto.Visible = false;
+			}
+			else if (enemy == bossKoolaid & enemy.Health == 0)
+			{
+				picBossKoolAid.Visible = false;
+			}
+		}
 
         
 

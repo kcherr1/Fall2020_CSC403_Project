@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Media;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
@@ -57,6 +58,16 @@ namespace Fall2020_CSC403_Project
                 instance.Setup();
             }
             return instance;
+        }
+
+        private async Task reducePlayerHealthAsync()
+        {
+            while (true)
+            {
+                await Task.Delay(5000); // Enemy will attack for every 5 seconds
+                enemy.OnAttack(-1);
+                UpdateHealthBars();
+            }
         }
 
         private void UpdateHealthBars()

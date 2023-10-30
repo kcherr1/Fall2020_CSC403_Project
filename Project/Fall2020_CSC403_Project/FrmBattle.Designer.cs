@@ -48,10 +48,11 @@
       this.btnAttack.Text = "Attack";
       this.btnAttack.UseVisualStyleBackColor = true;
       this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
-      // 
-      // lblPlayerHealthFull
-      // 
-      this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
+            reducePlayerHealthAsync();
+            // 
+            // lblPlayerHealthFull
+            // 
+            this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
       this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
       this.lblPlayerHealthFull.Location = new System.Drawing.Point(71, 60);
