@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyGameLibrary;
+using System.Runtime.Remoting.Messaging;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
@@ -18,9 +19,7 @@ namespace Fall2020_CSC403_Project.code
 
 		public Inventory Inventory { get; set; }
 
-		public String name { get; private set; }
-
-		public PlayerArchetype archetype;
+		public Archetype archetype;
 		
 		public int defense;
 
@@ -31,31 +30,41 @@ namespace Fall2020_CSC403_Project.code
 		public int Health { get; private set; }
 		public int MaxHealth { get; private set; }
 
-		public Character(string Name, PictureBox Pic, Position initPos, Collider collider, PlayerArchetype archetype) : base(Name, Pic, initPos, collider)
+
+		public Character(string Name, PictureBox Pic, Archetype archetype) : base(Name, Pic)
 		{
-			this.archetype = archetype;
+            this.archetype = archetype;
 			this.MaxHealth = archetype.baseMaxHealth;
             this.damage = archetype.baseDamage;
             this.defense = archetype.baseDefense;
             this.speed = archetype.baseSpeed;
             this.Health = MaxHealth;
 			this.Inventory = new Inventory();
-		}
-
-		public void setArchetype(PlayerArchetype newArchetype)
-		{
-			this.archetype = newArchetype;
-		}
+        }
 		
-		public void OnAttack(int amount)
-		{
-			AttackEvent((int)(amount * damage));
+		public void OnAttack(int defense)
+		{	
+			Random rand = new Random();
+			if (rand.Next(1, 21) + archetype.archetypeHit >= defense)
+			{
+                AttackEvent(damage + rand.Next(1, archetype.archetypeDamage + 1));
+            }
 		}
 
-        public void AlterHealth(int amount)
+        public void TakeDamage(int amount)
+		{
+			Health -= amount;
+		}
+
+		public void GiveHealth(int amount)
         {
             Health += amount;
         }
 
+        public void RestoreHealth()
+        {
+            this.Health = this.MaxHealth;
+        }
+        
     }
 }
