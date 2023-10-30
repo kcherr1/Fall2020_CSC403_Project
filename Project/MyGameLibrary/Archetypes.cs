@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project;
+using MyGameLibrary.Properties;
 
 namespace Fall2020_CSC403_Project.code
 {
@@ -15,9 +16,7 @@ namespace Fall2020_CSC403_Project.code
         int baseDefense { get; }
         int baseDamage { get; }
         int baseSpeed { get; }
-        int archetypeDamage { get; }
-        int archetypeHit { get; }
-        PictureBox image { get; }
+        int hitMod { get; }
     }
 
     public class ArchetypeHandler
@@ -36,24 +35,15 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
-        public int archetypeDamage { get; }
-        public int archetypeHit { get; }
-        public PictureBox image { get; }
+        public int hitMod { get; }
 
         public Tank()
         {
             baseMaxHealth = 100;
             baseDefense = 10;
-            baseDamage = 5;
+            baseDamage = 2;
             baseSpeed = 0;
-            archetypeDamage = 5;
-            archetypeHit = 4;
-            //image = new PictureBox
-            //{
-            //    Size = new Size(50, 50),
-            //    Location = new Point(0, 0),
-            //    SizeMode = PictureBoxSizeMode.StretchImage,
-            //};
+            hitMod = 2;
         }
     }
 
@@ -63,18 +53,15 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
-        public int archetypeDamage { get; }
-        public int archetypeHit { get; }
-        public PictureBox image { get; }
+        public int hitMod { get; }
 
         public Rogue()
         {
             baseMaxHealth = 20;
-            baseDefense = 2;
+            baseDefense = 10;
             baseDamage = 10;
             baseSpeed = 5;
-            archetypeDamage = 10;
-            archetypeHit = 4;
+            hitMod = 5;
         }
     }
 
@@ -84,18 +71,15 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
-        public int archetypeDamage { get; }
-        public int archetypeHit { get; }
-        public PictureBox image { get; }
+        public int hitMod { get; }
 
         public Swordsman()
         {
             baseMaxHealth = 50;
-            baseDefense = 5;
+            baseDefense = 10;
             baseDamage = 8;
             baseSpeed = 2;
-            archetypeDamage = 8;
-            archetypeHit = 4;
+            hitMod = 3;
         }
     }
 
@@ -105,18 +89,35 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
-        public int archetypeDamage { get; }
-        public int archetypeHit { get; }
-        public PictureBox image { get; }
+        public int hitMod { get; }
+
         public Minion()
         {
             baseMaxHealth = 20;
-            baseDefense = 0;
+            baseDefense = 10;
             baseDamage = 5;
             baseSpeed = 2;
-            archetypeDamage = 0;
-            archetypeHit = 0;
+            hitMod = 0;
         }
+    }
+
+    public class Boss : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+
+        public Boss()
+        {
+            baseMaxHealth = 100;
+            baseDefense = 18;
+            baseDamage = 10;
+            baseSpeed = 5;
+            hitMod = 10;
+        }
+
     }
     
 }
