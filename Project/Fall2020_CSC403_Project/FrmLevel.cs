@@ -1,10 +1,12 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
+    public bool Death = false;
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -113,6 +115,9 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
+      ///delete
+      //
+
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {

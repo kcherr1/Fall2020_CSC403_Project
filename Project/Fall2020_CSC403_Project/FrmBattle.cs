@@ -96,7 +96,9 @@ namespace Fall2020_CSC403_Project {
     }
 
         /// flee button click
-        private void BtnFlee_Click(object sender, EventArgs e){ this.Hide(); }
+        private void BtnFlee_Click(object sender, EventArgs e){
+            instance = null;
+            this.Hide(); }
 
         /// Defend Button click
         private void BtnDefend_Click(object sender, EventArgs e){ Blocking = true;}
