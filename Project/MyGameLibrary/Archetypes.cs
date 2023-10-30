@@ -99,7 +99,7 @@ namespace Fall2020_CSC403_Project.code
         }
     }
 
-    public class Minion : Archetype
+    public class Octopus : Archetype
     {
         public int baseMaxHealth { get; }
         public int baseDefense { get; }
@@ -108,7 +108,7 @@ namespace Fall2020_CSC403_Project.code
         public int archetypeDamage { get; }
         public int archetypeHit { get; }
         public PictureBox image { get; }
-        public Minion()
+        public Octopus()
         {
             baseMaxHealth = 20;
             baseDefense = 0;
