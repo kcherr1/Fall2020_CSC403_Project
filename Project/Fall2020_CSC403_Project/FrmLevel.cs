@@ -27,6 +27,7 @@ namespace Fall2020_CSC403_Project
 		private DateTime timeBegin;
 		private FrmBattle frmBattle;
 		private FrmInv frmInv;
+        private FrmInventory frminventory;
 
         private Size itemSize = new Size(50, 50);
 
@@ -384,9 +385,8 @@ namespace Fall2020_CSC403_Project
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            frmInv = FrmInv.GetInstance(player);
-            frmInv.WindowState = FormWindowState.Maximized;
-            frmInv.Show();
+            frminventory = FrmInventory.GetInstance(player);
+            frminventory.Show();
         }
 
 
