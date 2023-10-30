@@ -313,7 +313,7 @@
             // playerHealthMax
             // 
             this.playerHealthMax.AutoSize = true;
-            this.playerHealthMax.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.playerHealthMax.BackColor = System.Drawing.Color.Red;
             this.playerHealthMax.Location = new System.Drawing.Point(660, 101);
             this.playerHealthMax.MinimumSize = new System.Drawing.Size(158, 20);
             this.playerHealthMax.Name = "playerHealthMax";
@@ -326,9 +326,8 @@
             this.PlayerCurrentHealth.BackColor = System.Drawing.Color.Red;
             this.PlayerCurrentHealth.Font = new System.Drawing.Font("NSimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayerCurrentHealth.Location = new System.Drawing.Point(660, 101);
-            this.PlayerCurrentHealth.MinimumSize = new System.Drawing.Size(158, 20);
             this.PlayerCurrentHealth.Name = "PlayerCurrentHealth";
-            this.PlayerCurrentHealth.Size = new System.Drawing.Size(158, 20);
+            this.PlayerCurrentHealth.Size = new System.Drawing.Size(0, 19);
             this.PlayerCurrentHealth.TabIndex = 31;
             this.PlayerCurrentHealth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

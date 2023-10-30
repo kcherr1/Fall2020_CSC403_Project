@@ -42,6 +42,9 @@ namespace Fall2020_CSC403_Project
             this.player = player;
             PlayerPic.Image = player.Pic.Image;          // subject to change when new player types are added
             PlayerPic.Refresh();
+            PlayerCurrentHealth.AutoSize = false;
+            PlayerCurrentHealth.Height = playerHealthMax.Height;
+            PlayerCurrentHealth.Location = playerHealthMax.Location;
             UpdateHealthBars();
             PictureBox[] show_inventory = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9 };
             for (int i = 0; i < player.Inventory.Backpack.Length; i++)
@@ -123,7 +126,8 @@ namespace Fall2020_CSC403_Project
         private void UpdateHealthBars()
         {
             float playerHealthPer = player.Health / (float)player.MaxHealth;
-            const int MAX_HEALTHBAR_WIDTH = 100;
+            int MAX_HEALTHBAR_WIDTH = playerHealthMax.Width;
+            PlayerCurrentHealth.BackColor = Color.Green;
             PlayerCurrentHealth.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
             PlayerCurrentHealth.Text = player.Health.ToString();
         }
