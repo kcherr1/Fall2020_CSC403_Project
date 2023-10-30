@@ -91,7 +91,7 @@ namespace Fall2020_CSC403_Project
 
             AttackStat.Text = ("Attack Stat = " + player.damage.ToString());
             DefStat.Text = ("Toughness Stat = " + player.defense.ToString());
-            SpeedStat.Text = ("Speed Stat = " + player.SPEED.ToString());
+            SpeedStat.Text = ("Speed Stat = " + player.speed.ToString());
 
             AttackStat.Location = new Point(Weapon.Location.X + 2 * PlayerPic.Width, Weapon.Location.Y + (Weapon.Height/2));
             DefStat.Location = new Point(Armor.Location.X + 2 * PlayerPic.Width, Armor.Location.Y + (Armor.Height / 2));
@@ -200,7 +200,8 @@ namespace Fall2020_CSC403_Project
                 player.Inventory.UnEquipUtility(player.Position, player.facing);
                 RefreshInv();
             }
-            else { }
+            
+
             if (selected > 0)
             {
                 PictureBoxes[selected - 1].BackColor = Color.DimGray;
@@ -217,20 +218,20 @@ namespace Fall2020_CSC403_Project
                 if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Weapon)
                 {
                     player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
-                    player.Inventory.RemoveFromBackpack(selected - 1);
+                    player.UpdateStats();
                     RefreshInv();
                  
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Armor)
                 {
                     player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
-                    player.Inventory.RemoveFromBackpack(selected - 1);
+                    player.UpdateStats();
                     RefreshInv();
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == Item.ItemType.Utility)
                 {
                     player.Inventory.EquipUtility(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
-                    player.Inventory.RemoveFromBackpack(selected - 1);
+                    player.UpdateStats();
                     RefreshInv();
                 }
                 else { }
@@ -241,7 +242,6 @@ namespace Fall2020_CSC403_Project
                 }
                 selected = 0;
 
-                player.UpdateStats();
 
             }
         }
