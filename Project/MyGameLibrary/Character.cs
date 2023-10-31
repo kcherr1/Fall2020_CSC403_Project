@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace Fall2020_CSC403_Project.code {
   public class Character {
@@ -23,6 +24,12 @@ namespace Fall2020_CSC403_Project.code {
       LastPosition = Position;
       Position = new Vector2(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
       Collider.MovePosition((int)Position.x, (int)Position.y);
+    }
+
+    public void MoveTo(float x, float y) {
+      LastPosition = Position;
+      Position = new Vector2(x, y);
+      Collider.MovePosition((int) x, (int) y);
     }
 
     public void MoveBack() {

@@ -122,11 +122,19 @@
 <p class="admonition-title">Note</p>
 <p>This page is in development.</p>
 </div>
-<dl class="csharp">
-<dt class="sig sig-object sphinxsharp" id="type-Experience">
-<span class="pre">public</span>  <span class="pre">class</span> <span class="sig-name descname"><span class="pre">Experience</span></span><a class="headerlink" href="#type-Experience" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>Players gain experience after defeating enemies and level up after gaining a certain amount of experience.
+Players also gain a strength bonus and heal a small amount after leveling up. The current iteration
+of the experience system has these specific characteristics:</p>
+<ul class="simple">
+<li><p>Gain 10 experience points per defeated enemy</p></li>
+<li><p>Gain 1 level after earning 20 experience points</p></li>
+<li><p>Increase base damage dealt per attack by 2</p></li>
+<li><p>Increase the player’s maximum health by 5</p></li>
+<li><p>Heal the player by 5 points</p></li>
+</ul>
+</section>
 </section>
 
 </main>
@@ -139,6 +147,19 @@
     </a>
 </nav>
                     </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Experience</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
                     
                 </div>
             </div>
@@ -180,7 +201,7 @@
                 </nav>
             
             <div class="text-center">
-                <p>Last updated: 06:38 PM 20 Oct 2023</p>
+                <p>Last updated: 11:23 PM 30 Oct 2023</p>
                 <p style="display: none">
                     <a class="text-light" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
                         Wagtail Sphinx Theme 6.1.1

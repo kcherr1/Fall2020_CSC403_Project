@@ -17,6 +17,9 @@ namespace Fall2020_CSC403_Project {
     public BossDefeatedWrapper bossIsDefeatedReference;
     private bool isBossBattle = false;
 
+    //just used to keep track of which level this is on
+    private int level;
+
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -46,11 +49,23 @@ namespace Fall2020_CSC403_Project {
       
     }
 
-    public void SetupForBossBattle() {
-      picBossBattle.Location = Point.Empty;
-      picBossBattle.Size = ClientSize;
-      picBossBattle.Visible = true;
-      picBossBattle.BringToFront();
+    public void SetupForBossBattle(int level) {
+      PictureBox bossBattle = null;
+      switch(level) {
+        // kool-aid man
+        case 1:
+          bossBattle = picBossBattle;
+          break;
+        case 2:
+          // rough rodents
+          bossBattle = picBossBattleSquirrels;
+          break;
+      }
+
+      bossBattle.Location = Point.Empty;
+      bossBattle.Size = ClientSize;
+      bossBattle.Visible = true;
+      bossBattle.BringToFront();
 
       SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
       simpleSound.Play();
@@ -60,9 +75,10 @@ namespace Fall2020_CSC403_Project {
       isBossBattle = true;
     }
 
-    public static FrmBattle GetInstance(Enemy enemy) {
+    public static FrmBattle GetInstance(Enemy enemy, int level) {
       instance = new FrmBattle();
       instance.enemy = enemy;
+      instance.level = level;
       instance.Setup();
       return instance;
     }
@@ -86,8 +102,12 @@ namespace Fall2020_CSC403_Project {
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
       }
-
-      if (player.WeaponEquiped){
+      
+      /*if (player.WeaponEquiped){
+        gunfireBlast.Visible = true;
+        wait(50);
+        gunfireBlast.Visible = false;
+        wait(50);
         gunfireBlast.Visible = true;
         wait(100);
         gunfireBlast.Visible = false;
@@ -95,11 +115,7 @@ namespace Fall2020_CSC403_Project {
         gunfireBlast.Visible = true;
         wait(100);
         gunfireBlast.Visible = false;
-        wait(100);
-        gunfireBlast.Visible = true;
-        wait(100);
-        gunfireBlast.Visible = false;
-      }
+      }*/
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
@@ -117,15 +133,27 @@ namespace Fall2020_CSC403_Project {
 
         //added this check to change the value in FrmLevel to true
         if (isBossBattle) {
-            bossIsDefeatedReference.bossIsDefeated = true;
-                    //added this to display the win screen for this level
-                    //FrmWinLevel win_instance = FrmWinLevel.GetInstance();
-                    if (player.Health > 0)
-                    {
-                        FrmWinLevel win_instance = new FrmWinLevel();
-                        win_instance.Show();
-                    }
-                }
+          bossIsDefeatedReference.bossIsDefeated = true;
+          //added this to display the win screen for this level
+          //FrmWinLevel win_instance = FrmWinLevel.GetInstance();
+          if (player.Health > 0)
+          {
+            Form win_instance;
+            switch (this.level)
+            {
+              case 1:
+                win_instance = new FrmWinLevel();
+                break;
+              case 2:
+                win_instance = new FrmWinLevelTwo();
+                break;
+              default:
+                win_instance = new FrmWinLevel();
+                break;
+            }
+            win_instance.Show();
+          }
+        }
         if (enemy.Health <= 0)
         {
           enemy.AlterIsAlive(false);
@@ -153,6 +181,7 @@ namespace Fall2020_CSC403_Project {
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
+      picBossBattleSquirrels.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
 
