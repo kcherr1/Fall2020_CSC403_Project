@@ -31,10 +31,14 @@ namespace Fall2020_CSC403_Project
 
         private Size itemSize = new Size(50, 50);
 
+        public SoundPlayer gameAudio;
+
         public FrmLevel(Form MainMenu, Player player)
         {
             this.KeyPreview = true;
             this.DoubleBuffered = true;
+
+            this.gameAudio = new SoundPlayer(Resources.Game_audio);
 
             this.player = player;
             this.gameOver = false;
@@ -62,9 +66,7 @@ namespace Fall2020_CSC403_Project
             Game.player = player;
             timeBegin = DateTime.Now;
             
-            //Adding gameAudio here
-            SoundPlayer gameAudio = new SoundPlayer(Resources.Game_audio);
-            gameAudio.PlayLooping();
+            
 
             //Adding stop condition to mainMenu_music here
             FrmMain mainMenuPlayer = Application.OpenForms["FrmMain"] as FrmMain;
@@ -72,9 +74,11 @@ namespace Fall2020_CSC403_Project
             if (mainMenu != null && mainMenu.mainMenuPlayer != null)
             {
                 mainMenu.mainMenuPlayer.Stop();
-                mainMenu.mainMenuPlayer.Dispose(); // Dispose of the SoundPlayer
+                mainMenu.mainMenuPlayer.Dispose();
             }
 
+            //Adding gameAudio here
+            this.gameAudio.PlayLooping();
         }
 
         private void InitializeLevelLayout()
@@ -366,6 +370,8 @@ namespace Fall2020_CSC403_Project
             MainMenuButton.Size = new Size(100, 30);
             MainMenuButton.Visible = true;
             MainMenuButton.BringToFront();
+
+            gameAudio.Stop();
         }
 
 
@@ -395,11 +401,6 @@ namespace Fall2020_CSC403_Project
                 this.Controls.Remove(this.terrain.Walls[i].Pic);
             }
             this.terrain.Walls.Clear();
-
-
-
-
-
         }
 
 
@@ -417,6 +418,7 @@ namespace Fall2020_CSC403_Project
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
+            gameAudio.PlayLooping();
 
             this.gameOver = false;
             this.player = new Player(player.Name, player.Pic, player.archetype);
@@ -442,6 +444,10 @@ namespace Fall2020_CSC403_Project
             Game.player = null;
             this.player = null;
             MainMenu.Show();
+            FrmMain mainMenu = Application.OpenForms["FrmMain"] as FrmMain;
+            mainMenu.mainMenuPlayer = new SoundPlayer(Resources.Mainmenu_audio);
+            mainMenu.mainMenuPlayer.PlayLooping();
+            this.gameAudio.Dispose();
             this.Hide();
         }
 
@@ -480,8 +486,6 @@ namespace Fall2020_CSC403_Project
             AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Minion()));
             AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
             AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
-
         }
-
     }
 }
