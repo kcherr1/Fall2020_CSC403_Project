@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,7 +48,9 @@
     <Compile Include="BattleCharacter.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Collider.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="NPC.cs" />
     <Compile Include="Player.cs" />

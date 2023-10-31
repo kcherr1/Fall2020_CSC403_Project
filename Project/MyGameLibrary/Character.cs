@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project.code {
     public Vector2 LastPosition { get; private set; }
     public Vector2 Position { get; private set; }
     public Collider Collider { get; private set; }
+    public List<Item> Inventory = new List<Item>();
 
     public Character(Vector2 initPos, Collider collider) {
       Position = initPos;
@@ -43,6 +44,16 @@ namespace Fall2020_CSC403_Project.code {
 
     public void ResetMoveSpeed() {
       MoveSpeed = new Vector2(0, 0);
+    }
+
+    public void InventoryAdd(Item item) {
+      Inventory.Add(item);
+    }
+    public void InventoryRemove(Item toRemove) {
+      Inventory.Remove(toRemove);
+    }
+    public int InventorySize() {
+      return Inventory.Count;
     }
   }
 }
