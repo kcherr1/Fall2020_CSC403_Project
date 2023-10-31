@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Threading;
+using System.Media;
 
 namespace Fall2020_CSC403_Project
 {
@@ -60,7 +61,19 @@ namespace Fall2020_CSC403_Project
             InitializeLevelLayout();
             Game.player = player;
             timeBegin = DateTime.Now;
+            
+            //Adding gameAudio here
+            SoundPlayer gameAudio = new SoundPlayer(Resources.Game_audio);
+            gameAudio.PlayLooping();
 
+            //Adding stop condition to mainMenu_music here
+            FrmMain mainMenuPlayer = Application.OpenForms["FrmMain"] as FrmMain;
+            FrmMain mainMenu = Application.OpenForms["FrmMain"] as FrmMain;
+            if (mainMenu != null && mainMenu.mainMenuPlayer != null)
+            {
+                mainMenu.mainMenuPlayer.Stop();
+                mainMenu.mainMenuPlayer.Dispose(); // Dispose of the SoundPlayer
+            }
 
         }
 
