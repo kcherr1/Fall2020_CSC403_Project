@@ -3,13 +3,15 @@
 Documentation Link : https://docs.google.com/document/d/168AByPug7SHCo47bungkyI_wyicKut3g2WnMNUoNTeA/edit
 
 Team Name: Null Ninjas
+
 Team Members:
 Prathyusha Valasa
 Hrushikesh Reddy Madugula
 Vamsi Krishna Alla
 Radha Krishna Nimmala
+
 Sprint Planning (Google Sheet):  https://docs.google.com/spreadsheets/d/1bGAUT7hW5qLWWIr-rsyuhKZuAEFbsOuR0vUkyvzdtO4/edit?exids=71471475,71471470#gid=0
-GitHub: https://github.com/prathyusha-la/Fall2020_CSC403_Project_Null-Ninjas.git
+
 Features:
 As a user, if the hero has died during this game, there should be an option to restart the game
 As a user, I should have the ability to collect health potions on the screen. Upon consumption, these potions should boost my health.
