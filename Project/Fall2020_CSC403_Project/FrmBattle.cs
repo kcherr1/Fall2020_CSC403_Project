@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+        private GameOver gameover;
 
     private FrmBattle() {
       InitializeComponent();
@@ -62,21 +63,53 @@ namespace Fall2020_CSC403_Project {
       lblPlayerHealthFull.Text = player.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
-
-    private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
-      if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        public static bool Death = false;
+        public static int KillEnemy = 0;
+        private void btnAttack_Click(object sender, EventArgs e) {
+            SoundPlayer attack_audio = new SoundPlayer(Resources.boom);
+            bool checkweapon = FrmLevel.haveAWeapon;
+            if (checkweapon)
+            {
+                player.OnAttack(-8);
+            }
+            else
+            {
+                player.OnAttack(-4);
+            }
+            if (enemy.Health > 0) {
+                attack_audio.Play();
+                enemy.OnAttack(-2);
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (enemy.Health <= 0)
+      {
         instance = null;
+                KillEnemy++;
+        Death = true;
         Close();
+                if (KillEnemy == 3)
+                {
+                    gameover = GameOver.GetInstance();
+                    gameover.Show();
+                }
       }
+      if (player.Health <= 0)
+            {
+                instance = null;
+                Close();
+                gameover = GameOver.GetInstance();
+                gameover.Show();
+            }
     }
+        private void btnEscape_Click(object sender, EventArgs e)
+        {
+            instance = null;
+            Close();
 
-    private void EnemyDamage(int amount) {
+        }
+
+        private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
 
@@ -88,5 +121,11 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            string documentationUrl = "https://docs.google.com/document/d/158qKBqjiTSbWiRfbgNZ-8zu_gsyhuzam8IXES70mpeU/edit"; // link to google docs FAQ
+            System.Diagnostics.Process.Start(documentationUrl);
+        }
+    }
 }

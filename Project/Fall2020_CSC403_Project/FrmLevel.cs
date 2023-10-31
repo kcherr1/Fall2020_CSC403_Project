@@ -11,6 +11,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    public Weapon weapon;
+    public static bool haveAWeapon;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -20,13 +22,14 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
+      const int PADDING = 8;
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      weapon = new Weapon(CreatePosition(knife), CreateCollider(knife, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -87,7 +90,12 @@ namespace Fall2020_CSC403_Project {
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-    }
+            if (HitAWeapon(player))
+            {
+                knife.Visible = false;
+                haveAWeapon = true;
+            }
+        }
 
     private bool HitAWall(Character c) {
       bool hitAWall = false;
@@ -104,7 +112,17 @@ namespace Fall2020_CSC403_Project {
       return you.Collider.Intersects(other.Collider);
     }
 
-    private void Fight(Enemy enemy) {
+        private bool HitAWeapon(Character c)
+        {
+            bool hitAWeapon = false;
+            if (c.Collider.Intersects(weapon.Collider))
+            {
+                hitAWeapon = true;
+
+            }
+            return hitAWeapon;
+        }
+        private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
@@ -113,9 +131,32 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
-    }
-
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+            CheckResult(enemy);
+        }
+        public void CheckResult(Enemy enemy)
+        {
+            bool checkdeath = FrmBattle.Death;
+            if (checkdeath)
+            {
+                Enemy_vanishing(enemy);
+            }
+        }
+        private void Enemy_vanishing(Enemy enemy)
+        {
+            if (enemy == enemyPoisonPacket)
+            {
+                picEnemyPoisonPacket.Visible = false;
+            }
+            else if (enemy == bossKoolaid && enemy.Health == 0)
+            {
+                picBossKoolAid.Visible = false;
+            }
+            else if (enemy == enemyCheeto)
+            {
+                picEnemyCheeto.Visible = false;
+            }
+        }
+            private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
