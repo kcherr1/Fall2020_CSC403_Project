@@ -117,10 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>135, 17</value>
-  </metadata>
-  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Objective: Your objective is to embark on an epic adventure, overcome challenges, and complete quests to achieve your goals. 
+Explore a rich and immersive world filled with mysteries, treasures, and dangers. Your choices will shape the outcome of the story.
+
+Basic Controls:
+
+1. Movement: Use the arrow keys (or WASD) to move your character around the game world.
+
+2. Interaction: Approach objects or characters and press the "Spacebar" or "E" key to interact with them.
+
+3. Inventory: Press "I" to open your inventory. You can use items or equip equipment from here.
+
+4. Quests: Check your quest log by pressing "Q." It will provide information about your current objectives and quests.
+
+5. Map: Press "M" to access your map. It will help you navigate the game world.
+</value>
+  </data>
 </root>
