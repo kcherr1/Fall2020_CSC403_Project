@@ -42,6 +42,11 @@ namespace Fall2020_CSC403_Project {
       // show health and health packs
       UpdateHealthBars();
       HealthPackCountLabel.Text = player.HealthPackCount.ToString();
+
+      PlayerLevel.Text = "Level " + GameState.player.level.ToString()
+        + " Exp: " + GameState.player.experience.ToString()
+        + "/" + GameState.player.experiencePerLevel.ToString();
+      
     }
 
     public void SetupForBossBattle(int level) {
@@ -216,6 +221,11 @@ namespace Fall2020_CSC403_Project {
       {
         Application.DoEvents();
       }
+    }
+
+    private void PlayerLevel_Click(object sender, EventArgs e)
+    {
+
     }
   }
 }
