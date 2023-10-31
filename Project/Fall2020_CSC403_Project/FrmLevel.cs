@@ -9,7 +9,7 @@ namespace Fall2020_CSC403_Project {
     public bool playerHasKey = false;
 
     private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
+    public Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls, fences, dialog, key;
 
@@ -247,6 +247,24 @@ namespace Fall2020_CSC403_Project {
           player.GoDown();
           break;
 
+        case Keys.Escape:
+          DialogResult exitDialogue = MessageBox.Show("Are you sure you want to exit?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+          if (exitDialogue == DialogResult.Yes)
+          {
+              Application.Exit();
+          }
+          break;
+
+        case Keys.Q:
+          DialogResult gotoHomeDialogue = MessageBox.Show("Are you sure you want to go to home and lose all progress?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+          if (gotoHomeDialogue == DialogResult.Yes)
+          {
+                FrmHome homeForm = new FrmHome();
+                homeForm.Show();
+                this.Close();
+          }
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;
@@ -256,6 +274,19 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
+
+        private void goToHome_Click(object sender, EventArgs e)
+        {
+            DialogResult gotoHomeDialogue = MessageBox.Show("Are you sure you want to go to home and lose all progress?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (gotoHomeDialogue == DialogResult.Yes)
+            {
+                FrmHome homeForm = new FrmHome();
+                homeForm.Show();
+                this.Close();
+            }
+        }
+    }
+}
         public bool IsEnemyDead(Enemy enemy) { 
 
           

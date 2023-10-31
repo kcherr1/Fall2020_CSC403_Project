@@ -1,5 +1,5 @@
 ﻿namespace Fall2020_CSC403_Project {
-  partial class FrmLevel {
+  public partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -71,19 +71,6 @@
 
 
       this.SuspendLayout();
-      // 
-      // lblInGameTime
-      // 
-      this.lblInGameTime.AutoSize = true;
-      this.lblInGameTime.BackColor = System.Drawing.Color.Black;
-      this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblInGameTime.ForeColor = System.Drawing.Color.White;
-      this.lblInGameTime.Location = new System.Drawing.Point(12, 9);
-      this.lblInGameTime.Name = "lblInGameTime";
-      this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
-      this.lblInGameTime.TabIndex = 2;
-      this.lblInGameTime.Text = "label1";
-      this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
       // 
       // tmrUpdateInGameTime
       // 
@@ -317,7 +304,34 @@
       this.picKey0.Size = new System.Drawing.Size(70, 50); 
       this.picKey0.TabIndex = 17;
       this.picKey0.TabStop = false;
-
+            // 
+            // lblInGameTime
+            // 
+            this.lblInGameTime.AutoSize = true;
+            this.lblInGameTime.BackColor = System.Drawing.Color.Black;
+            this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInGameTime.ForeColor = System.Drawing.Color.White;
+            this.lblInGameTime.Location = new System.Drawing.Point(16, 11);
+            this.lblInGameTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInGameTime.Name = "lblInGameTime";
+            this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
+            this.lblInGameTime.TabIndex = 2;
+            this.lblInGameTime.Text = "label1";
+            this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
+            // 
+            // goToHome
+            // 
+            this.goToHome.AutoSize = true;
+            this.goToHome.BackColor = System.Drawing.Color.Lavender;
+            this.goToHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.goToHome.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goToHome.ForeColor = System.Drawing.Color.Black;
+            this.goToHome.Location = new System.Drawing.Point(690, 16);
+            this.goToHome.Name = "goToHome";
+            this.goToHome.Size = new System.Drawing.Size(97, 19);
+            this.goToHome.TabIndex = 18;
+            this.goToHome.Text = "Go To Home";
+            this.goToHome.Click += new System.EventHandler(this.goToHome_Click);
       // FrmLevel
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,7 +396,6 @@
 
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picBossKoolAid;
-    private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
     private System.Windows.Forms.PictureBox picWall3;
@@ -400,6 +413,8 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
+        private System.Windows.Forms.Label lblInGameTime;
+        private System.Windows.Forms.Label goToHome;
     private System.Windows.Forms.PictureBox picFence0;
     private System.Windows.Forms.PictureBox picDialog0;
         private System.Windows.Forms.PictureBox picKey0;
