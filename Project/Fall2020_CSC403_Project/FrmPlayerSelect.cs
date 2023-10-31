@@ -183,7 +183,7 @@ namespace Fall2020_CSC403_Project
 
                     if (this.player != null)
                     {
-                        FrmLevel frmlevel = new FrmLevel(this, player);
+                        FrmLevel frmlevel = new FrmLevel(MainMenu, player);
                         frmlevel.FormClosed += (s, args) => this.Close();
                         frmlevel.Show();
                         this.Hide();
