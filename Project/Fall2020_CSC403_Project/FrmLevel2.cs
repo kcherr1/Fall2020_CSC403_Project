@@ -37,7 +37,7 @@ namespace Fall2020_CSC403_Project {
     private void LoadLevel(object send, EventArgs e) {
       const int WALL_COUNT = 46;
       const int HEDGE_COUNT = 23;
-      const int OBSTACLE_COUNT = 14;
+      const int OBSTACLE_COUNT = 16;
       const int PADDING = 0;
       goose = new Enemy(
       base.CreatePosition(picGoose),
