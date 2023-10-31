@@ -464,7 +464,7 @@ namespace Fall2020_CSC403_Project
             AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Minion()));
             AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
             AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
-
+            AddEnemy(new Enemy("octopus", MakePictureBox(Resources.octopus, new Point(600, 450), new Size(100, 100)), new Octopus()));
         }
 
     }
