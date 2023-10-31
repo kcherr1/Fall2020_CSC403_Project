@@ -48,9 +48,6 @@ namespace Fall2020_CSC403_Project
             picBossBattle.Size = ClientSize;
             picBossBattle.Visible = true;
 
-            SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-            simpleSound.Play();
-
             tmrFinalBattle.Enabled = true;
         }
 
@@ -110,13 +107,13 @@ namespace Fall2020_CSC403_Project
             }
 
             //Adding attack sound here
-            Thread attackThread = new Thread(() =>
-            {
-                SoundPlayer attackAudio = new SoundPlayer(Resources.punch_1);
-                attackAudio.PlaySync(); // Play the attack sound synchronously
-            });
+            //Thread attackThread = new Thread(() =>
+            //{
+            //    SoundPlayer attackAudio = new SoundPlayer(Resources.punch_1);
+            //    attackAudio.PlaySync(); // Play the attack sound synchronously
+            //});
 
-            attackThread.Start(); // Start the attack sound thread
+            //attackThread.Start(); // Start the attack sound thread
         }
 
         private void EnemyDamage(int amount)
