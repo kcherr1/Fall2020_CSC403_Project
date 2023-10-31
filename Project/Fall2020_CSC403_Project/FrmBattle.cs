@@ -17,6 +17,9 @@ namespace Fall2020_CSC403_Project {
     public BossDefeatedWrapper bossIsDefeatedReference;
     private bool isBossBattle = false;
 
+    //just used to keep track of which level this is on
+    private int level;
+
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -55,9 +58,10 @@ namespace Fall2020_CSC403_Project {
       isBossBattle = true;
     }
 
-    public static FrmBattle GetInstance(Enemy enemy) {
+    public static FrmBattle GetInstance(Enemy enemy, int level) {
       instance = new FrmBattle();
       instance.enemy = enemy;
+      instance.level = level;
       instance.Setup();
       return instance;
     }
@@ -117,7 +121,19 @@ namespace Fall2020_CSC403_Project {
           //FrmWinLevel win_instance = FrmWinLevel.GetInstance();
           if (player.Health > 0)
           {
-            FrmWinLevel win_instance = new FrmWinLevel();
+            Form win_instance;
+            switch (this.level)
+            {
+              case 1:
+                win_instance = new FrmWinLevel();
+                break;
+              case 2:
+                win_instance = new FrmWinLevelTwo();
+                break;
+              default:
+                win_instance = new FrmWinLevel();
+                break;
+            }
             win_instance.Show();
           }
         }

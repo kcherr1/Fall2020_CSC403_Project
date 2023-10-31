@@ -63,6 +63,7 @@
       this.label1.Size = new System.Drawing.Size(474, 29);
       this.label1.TabIndex = 6;
       this.label1.Text = "Hooray! You killed three squirrels! That\'s nuts!\r\n";
+      this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       this.label1.Click += new System.EventHandler(this.label1_Click);
       // 
       // pictureBox3

@@ -122,9 +122,6 @@ namespace Fall2020_CSC403_Project {
 
       if (HitAChar(player, bossSquirrels) && bossIsDefeated.bossIsDefeated) {
         // this closes the current form and returns to main
-        GameState.isLevelTwoCompleted = true;
-        FrmWinLevelTwo win_instance = new FrmWinLevelTwo();
-        win_instance.Show();
         this.Close();
       }
       else if (HitAChar(player, bossSquirrels)) {
@@ -183,13 +180,15 @@ namespace Fall2020_CSC403_Project {
       return you.Collider.Intersects(other.Collider);
     }
 
-    private void Fight(Enemy enemy) {
+    private void Fight(Enemy enemy)
+    {
       player.ResetMoveSpeed();
       player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle = FrmBattle.GetInstance(enemy, 2);
       frmBattle.Show();
 
-      if (enemy == bossSquirrels) {
+      if (enemy == bossSquirrels)
+      {
         frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
         frmBattle.SetupForBossBattle();
       }
