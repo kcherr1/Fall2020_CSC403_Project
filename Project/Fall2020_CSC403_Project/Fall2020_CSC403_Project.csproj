@@ -52,9 +52,7 @@
     <Compile Include="FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLevel.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmLevel.cs" />
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
