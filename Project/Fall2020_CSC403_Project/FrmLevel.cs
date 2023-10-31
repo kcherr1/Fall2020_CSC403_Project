@@ -271,7 +271,7 @@ namespace Fall2020_CSC403_Project {
       } 
     }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+        private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
 
@@ -285,8 +285,6 @@ namespace Fall2020_CSC403_Project {
                 this.Close();
             }
         }
-    }
-}
         public bool IsEnemyDead(Enemy enemy) { 
 
           
