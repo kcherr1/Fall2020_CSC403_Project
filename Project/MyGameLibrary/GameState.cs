@@ -7,12 +7,12 @@ namespace Fall2020_CSC403_Project.code {
     //public Enemy[] enemies { get; set; }
 
     public static bool isLevelOneCompleted = false;
-   
+    public static bool isLevelTwoCompleted = false;
+
     public GameState(Player player, DateTime timeStart) {
       GameState.player = player;
       GameState.timeStart = timeStart;
       //this.enemies = enemies;
     }
-
   }
 }

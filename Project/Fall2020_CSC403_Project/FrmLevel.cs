@@ -8,7 +8,6 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Level {
     public Player player;
-    public GameState gameState { get; private set; }
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
@@ -20,8 +19,7 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
-    public FrmLevel(GameState gameState) : base() {
-      this.gameState = gameState;
+    public FrmLevel() : base() {
     //added this to keep track of whether or not the boss is defeated
       InitializeComponent();
     }
@@ -36,7 +34,8 @@ namespace Fall2020_CSC403_Project {
       );
       bossKoolaid = new Enemy(
         base.CreatePosition(picBossKoolAid), 
-        base.CreateCollider(picBossKoolAid, PADDING)
+        base.CreateCollider(picBossKoolAid, PADDING),
+        70
       );
       enemyPoisonPacket = new Enemy(
         base.CreatePosition(picEnemyPoisonPacket), 
@@ -44,7 +43,8 @@ namespace Fall2020_CSC403_Project {
       );
       enemyCheeto = new Enemy(
         base.CreatePosition(picEnemyCheeto), 
-        base.CreateCollider(picEnemyCheeto, PADDING)
+        base.CreateCollider(picEnemyCheeto, PADDING),
+        30
       );
       timeStart = DateTime.Now;
       //gameState = new GameState(player, timeStart);
@@ -112,19 +112,16 @@ namespace Fall2020_CSC403_Project {
       }
 
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
-
-        Debug.WriteLine("this");
-        Debug.WriteLine(this.gameState == null);
         //this closes the current form and returns to main
         GameState.isLevelOneCompleted = true;
-                this.Close();
+        this.Close();
       }
       else if (HitAChar(player, bossKoolaid)){
-            Fight(bossKoolaid);
+        Fight(bossKoolaid);
       }
 
-            // check state of each enemy
-            if (!enemyPoisonPacket.IsAlive)
+      // check state of each enemy
+      if (!enemyPoisonPacket.IsAlive)
       {
         RemoveEnemy(enemyPoisonPacket, picEnemyPoisonPacket);
       }
@@ -159,14 +156,14 @@ namespace Fall2020_CSC403_Project {
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle = FrmBattle.GetInstance(enemy, 1);
       frmBattle.Show();
 
       if (enemy == bossKoolaid) {
 
         // this gives the frmBattle object a reference to this level's bossIsDefeated bool
         frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
-        frmBattle.SetupForBossBattle();
+        frmBattle.SetupForBossBattle(1);
       }
     }
 
@@ -194,9 +191,7 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
 
-    }
 
     private void RemoveEnemy(Enemy enemy, PictureBox picEnemy)
     {
@@ -209,7 +204,7 @@ namespace Fall2020_CSC403_Project {
             //enemy.RemoveCollider();
             picEnemy.BackgroundImage = null;
             picEnemy.Image = global::Fall2020_CSC403_Project.Properties.Resources.Nether_portal1;
-            picEnemy.SizeMode = PictureBoxSizeMode.StretchImage;
+            picEnemy.SizeMode = PictureBoxSizeMode.Zoom;
     }
   }
 }

@@ -52,6 +52,12 @@
     <Compile Include="FrmPlayerDeath.Designer.cs">
       <DependentUpon>FrmPlayerDeath.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmWinLevelTwo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWinLevelTwo.Designer.cs">
+      <DependentUpon>FrmWinLevelTwo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmWinLevel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmPlayerDeath.resx">
       <DependentUpon>FrmPlayerDeath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWinLevelTwo.resx">
+      <DependentUpon>FrmWinLevelTwo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWinLevel.resx">
       <DependentUpon>FrmWinLevel.cs</DependentUpon>
@@ -152,8 +161,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\ammo.png" />
+    <None Include="data\battle_screen_squirrels.png" />
+    <None Include="data\angy_squirrels.png" />
     <Content Include="data\gunfireBlast.png" />
     <Content Include="data\health_pack.png" />
+    <None Include="data\squirrel_dead.png" />
+    <None Include="data\squirrel2_dead.png" />
+    <None Include="data\squirrel3_dead.png" />
     <Content Include="data\weapon1.png" />
   </ItemGroup>
   <ItemGroup>
