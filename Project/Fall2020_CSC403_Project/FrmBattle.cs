@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+        private GameOver gameover;
 
     private FrmBattle() {
       InitializeComponent();
@@ -63,6 +64,7 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
         public static bool Death = false;
+        public static int KillEnemy = 0;
         private void btnAttack_Click(object sender, EventArgs e) {
             SoundPlayer attack_audio = new SoundPlayer(Resources.boom);
             bool checkweapon = FrmLevel.haveAWeapon;
@@ -80,12 +82,25 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
-
+      if (enemy.Health <= 0)
+      {
         instance = null;
+                KillEnemy++;
         Death = true;
         Close();
+                if (KillEnemy == 3)
+                {
+                    gameover = GameOver.GetInstance();
+                    gameover.Show();
+                }
       }
+      if (player.Health <= 0)
+            {
+                instance = null;
+                Close();
+                gameover = GameOver.GetInstance();
+                gameover.Show();
+            }
     }
         private void btnEscape_Click(object sender, EventArgs e)
         {
