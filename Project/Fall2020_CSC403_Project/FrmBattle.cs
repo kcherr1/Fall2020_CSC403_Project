@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Media;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
@@ -106,6 +107,15 @@ namespace Fall2020_CSC403_Project
                 instance = null;
                 Close();
             }
+
+            //Adding attack sound here
+            Thread attackThread = new Thread(() =>
+            {
+                SoundPlayer attackAudio = new SoundPlayer(Resources.punch_1);
+                attackAudio.PlaySync(); // Play the attack sound synchronously
+            });
+
+            attackThread.Start(); // Start the attack sound thread
         }
 
         private void EnemyDamage(int amount)
