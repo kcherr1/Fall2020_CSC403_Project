@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Fall2020_CSC403_Project.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
+using System.Media;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +16,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmMain : Form
     {
+        public SoundPlayer mainMenuPlayer;
         public FrmMain()
         {
             this.WindowState = FormWindowState.Maximized;
@@ -35,15 +40,15 @@ namespace Fall2020_CSC403_Project
             Button SettingsButton = new Button();
             Button ExitButton = new Button();
 
-            StartButton.Location = new Point(0+(width/18), 0+(height / 2));
-            SettingsButton.Location = new Point(0+(width/18), 0 + ((5*height)/8));
-            ExitButton.Location = new Point(0+(width/18), 0 + (6*height / 8));
+            StartButton.Location = new Point(0 + (width / 18), 0 + (height / 2));
+            SettingsButton.Location = new Point(0 + (width / 18), 0 + ((5 * height) / 8));
+            ExitButton.Location = new Point(0 + (width / 18), 0 + (6 * height / 8));
 
             StartButton.Parent = BackgroundImg;
             SettingsButton.Parent = BackgroundImg;
             ExitButton.Parent = BackgroundImg;
 
-            StartButton.Size = new Size(width/3, height/10);
+            StartButton.Size = new Size(width / 3, height / 10);
             SettingsButton.Size = new Size(width / 3, height / 10);
             ExitButton.Size = new Size(width / 3, height / 10);
 
@@ -51,7 +56,7 @@ namespace Fall2020_CSC403_Project
             SettingsButton.Text = ("Settings");
             ExitButton.Text = ("Quit Game");
 
-            StartButton.Font = new Font("NSimSun", StartButton.Size.Height/2);
+            StartButton.Font = new Font("NSimSun", StartButton.Size.Height / 2);
             SettingsButton.Font = new Font("NSimSun", SettingsButton.Size.Height / 2);
             ExitButton.Font = new Font("NSimSun", ExitButton.Size.Height / 2);
 
@@ -73,14 +78,16 @@ namespace Fall2020_CSC403_Project
             PictureBox InstructionImage = new PictureBox();
             InstructionImage.Image = Properties.Resources.Instrucitons;
             InstructionImage.Parent = BackgroundImg;
-            InstructionImage.Size = new Size(width/3, (6*height)/8);
-            InstructionImage.Location = new Point(0+(width/2), 0+(height/8));
+            InstructionImage.Size = new Size(width / 3, (6 * height) / 8);
+            InstructionImage.Location = new Point(0 + (width / 2), 0 + (height / 8));
             InstructionImage.BackColor = Color.Transparent;
             InstructionImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
-
+            //Playing Mainmenu_audio here
+            SoundPlayer mainMenuPlayer = new SoundPlayer(Resources.Mainmenu_audio);
+            mainMenuPlayer.PlayLooping();
         }
-
+        
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();

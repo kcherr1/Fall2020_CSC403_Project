@@ -160,6 +160,7 @@
   <ItemGroup>
     <None Include="data\Cog.png" />
     <None Include="data\BackgroundForRPG3.png" />
+    <None Include="data\boss_attack.wav" />
     <Content Include="data\common_armor.png" />
     <Content Include="data\common_axe.png" />
     <Content Include="data\common_dagger.png" />
@@ -167,6 +168,10 @@
     <Content Include="data\common_sword.png" />
     <None Include="data\InvButton.png" />
     <None Include="data\Instrucitons.png" />
+    <None Include="data\Game_audio.wav" />
+    <None Include="data\Mainmenu_audio.wav" />
+    <None Include="data\punch_1.wav" />
+    <None Include="data\punch_breaking.wav" />
     <Content Include="data\rare_dagger.png" />
     <Content Include="data\greather_health_potion.png" />
     <Content Include="data\lesser_health_potion.png" />

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Media;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
@@ -104,24 +105,28 @@ namespace Fall2020_CSC403_Project
             } else if (enemy.Health <= 0)
             {
                 instance = null;
+                player.RemoveEffect();
                 Close();
             }
+
+            //Adding attack sound here
+            Thread attackThread = new Thread(() =>
+            {
+                SoundPlayer attackAudio = new SoundPlayer(Resources.punch_1);
+                attackAudio.PlaySync(); // Play the attack sound synchronously
+            });
+
+            attackThread.Start(); // Start the attack sound thread
         }
 
         private void EnemyDamage(int amount)
         {
-           if (amount >= enemy.defense)
-           {
-               enemy.TakeDamage(amount);
-           }
+            enemy.TakeDamage(amount);
         }
 
         private void PlayerDamage(int amount)
-        {
-            if (amount >= player.defense)
-            {
-                player.TakeDamage(amount);
-            }
+        { 
+            player.TakeDamage(amount); 
         }
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e)
