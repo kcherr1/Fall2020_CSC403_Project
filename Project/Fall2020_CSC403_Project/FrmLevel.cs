@@ -202,7 +202,7 @@ namespace Fall2020_CSC403_Project {
             //enemy.RemoveCollider();
             picEnemy.BackgroundImage = null;
             picEnemy.Image = global::Fall2020_CSC403_Project.Properties.Resources.Nether_portal1;
-            picEnemy.SizeMode = PictureBoxSizeMode.StretchImage;
+            picEnemy.SizeMode = PictureBoxSizeMode.Zoom;
     }
   }
 }

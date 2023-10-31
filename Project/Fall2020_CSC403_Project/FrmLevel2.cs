@@ -123,7 +123,7 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossSquirrels) && bossIsDefeated.bossIsDefeated) {
         // this closes the current form and returns to main
         GameState.isLevelTwoCompleted = true;
-        FrmWinLevel win_instance = new FrmWinLevel();
+        FrmWinLevelTwo win_instance = new FrmWinLevelTwo();
         win_instance.Show();
         this.Close();
       }
