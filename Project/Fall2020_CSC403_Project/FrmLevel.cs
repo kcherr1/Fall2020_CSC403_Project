@@ -212,6 +212,9 @@ namespace Fall2020_CSC403_Project
             if (x >= 0)
             {
                 Fight(enemies[x]);
+                Controls.Remove(enemies[x].Pic);
+                enemies.Remove(enemies[x]);
+
             }
 
             x = HitAnItem(player);

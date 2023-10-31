@@ -88,7 +88,7 @@ namespace Fall2020_CSC403_Project
             mainMenuPlayer.PlayLooping();
         }
         
-            private void ExitButton_Click(object sender, EventArgs e)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
