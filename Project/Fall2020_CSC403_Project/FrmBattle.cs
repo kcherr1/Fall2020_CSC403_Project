@@ -85,8 +85,12 @@ namespace Fall2020_CSC403_Project {
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
       }
-
-      if (player.WeaponEquiped){
+      
+      /*if (player.WeaponEquiped){
+        gunfireBlast.Visible = true;
+        wait(50);
+        gunfireBlast.Visible = false;
+        wait(50);
         gunfireBlast.Visible = true;
         wait(100);
         gunfireBlast.Visible = false;
@@ -94,11 +98,7 @@ namespace Fall2020_CSC403_Project {
         gunfireBlast.Visible = true;
         wait(100);
         gunfireBlast.Visible = false;
-        wait(100);
-        gunfireBlast.Visible = true;
-        wait(100);
-        gunfireBlast.Visible = false;
-      }
+      }*/
 
       UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {

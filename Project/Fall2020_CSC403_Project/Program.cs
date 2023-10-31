@@ -15,19 +15,21 @@ namespace Fall2020_CSC403_Project {
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      GameState gameState = null;
+      //GameState gameState = null;
       
       FrmLevel levelOne = new FrmLevel();
       levelOne.ShowDialog();
 
+      //levelOne = null;
+      //GC.Collect();
       if (GameState.isLevelOneCompleted)
       {
-          levelOne.Close();
+          levelOne.Dispose();
           FrmLevel2 levelTwo = new FrmLevel2();
           levelTwo.ShowDialog();
       }
 
-      GC.KeepAlive(gameState);
+      //GC.KeepAlive(gameState);
     }
   }
 }

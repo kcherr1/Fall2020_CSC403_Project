@@ -45,11 +45,13 @@ namespace Fall2020_CSC403_Project {
       );
       alligator = new Enemy(
         base.CreatePosition(picAlligator),
-        base.CreateCollider(picAlligator, PADDING)
+        base.CreateCollider(picAlligator, PADDING),
+        50
       );
       bossSquirrels = new Enemy(
         base.CreatePosition(picSquirrel3),
-        base.CreateCollider(picSquirrel3, PADDING)
+        base.CreateCollider(picSquirrel3, PADDING),
+        100
       );
       timeStart = GameState.timeStart;
       player = GameState.player;

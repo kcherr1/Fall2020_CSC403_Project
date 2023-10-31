@@ -34,7 +34,8 @@ namespace Fall2020_CSC403_Project {
       );
       bossKoolaid = new Enemy(
         base.CreatePosition(picBossKoolAid), 
-        base.CreateCollider(picBossKoolAid, PADDING)
+        base.CreateCollider(picBossKoolAid, PADDING),
+        70
       );
       enemyPoisonPacket = new Enemy(
         base.CreatePosition(picEnemyPoisonPacket), 
@@ -42,7 +43,8 @@ namespace Fall2020_CSC403_Project {
       );
       enemyCheeto = new Enemy(
         base.CreatePosition(picEnemyCheeto), 
-        base.CreateCollider(picEnemyCheeto, PADDING)
+        base.CreateCollider(picEnemyCheeto, PADDING),
+        30
       );
       timeStart = DateTime.Now;
       //gameState = new GameState(player, timeStart);
