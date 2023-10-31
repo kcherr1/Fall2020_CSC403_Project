@@ -119,5 +119,22 @@ namespace Fall2020_CSC403_Project.code
         }
 
     }
-    
+    public class Octopus : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+
+        public Octopus()
+        {
+            baseMaxHealth = 15;
+            baseDefense = 20;
+            baseDamage = 5;
+            baseSpeed = 3;
+            hitMod = 0;
+        }
+    }
+
 }
