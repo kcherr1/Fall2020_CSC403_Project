@@ -30,6 +30,8 @@ namespace Fall2020_CSC403_Project.code
 
 		public int speed;
 
+		public Random dice;
+
 		public int Health { get; private set; }
 		public int MaxHealth { get; private set; }
 
@@ -43,14 +45,23 @@ namespace Fall2020_CSC403_Project.code
             this.speed = archetype.baseSpeed;
             this.Health = MaxHealth;
 			this.Inventory = new Inventory();
+			this.dice = new Random();
 		}
 		
 		public void OnAttack(int defense)
 		{
-            Random rand = new Random();
-            if (rand.Next(1, 21) + archetype.hitMod >= defense)
+            int hit = this.dice.Next(1, 21);
+            Console.WriteLine(this.Name + " hit : " + hit);
+            if (hit == 20)
 			{
-                AttackEvent(damage + rand.Next(1, archetype.baseDamage + 1));
+				Console.WriteLine(this.Name + " criticaly hit!");
+				AttackEvent(this.damage * 2 + this.dice.Next(1, this.archetype.baseDamage + 1));
+				return;
+			}
+            else if (hit + this.archetype.hitMod >= defense)
+			{
+                Console.WriteLine(this.Name + " hits for: " + (hit+this.archetype.hitMod));
+                AttackEvent(this.damage + this.dice.Next(1, this.archetype.baseDamage + 1));
             }
 		}
 

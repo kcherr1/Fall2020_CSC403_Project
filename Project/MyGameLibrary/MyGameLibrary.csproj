@@ -102,5 +102,17 @@
   <ItemGroup>
     <None Include="Resources\tile_water_grassy.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rogue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Swordsman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minion.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

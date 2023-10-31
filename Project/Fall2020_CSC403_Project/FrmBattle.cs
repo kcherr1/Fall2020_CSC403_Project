@@ -120,18 +120,12 @@ namespace Fall2020_CSC403_Project
 
         private void EnemyDamage(int amount)
         {
-           if (amount >= enemy.defense)
-           {
-               enemy.TakeDamage(amount);
-           }
+            enemy.TakeDamage(amount);
         }
 
         private void PlayerDamage(int amount)
-        {
-            if (amount >= player.defense)
-            {
-                player.TakeDamage(amount);
-            }
+        { 
+            player.TakeDamage(amount); 
         }
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e)
