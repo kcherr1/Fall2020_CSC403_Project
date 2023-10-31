@@ -112,6 +112,7 @@ namespace Fall2020_CSC403_Project {
             }
         }
 
+
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
@@ -125,9 +126,5 @@ namespace Fall2020_CSC403_Project {
       tmrFinalBattle.Enabled = false;
     }
 
-        private void FrmBattle_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+  }
 }
