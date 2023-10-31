@@ -44,11 +44,23 @@ namespace Fall2020_CSC403_Project {
       HealthPackCountLabel.Text = player.HealthPackCount.ToString();
     }
 
-    public void SetupForBossBattle() {
-      picBossBattle.Location = Point.Empty;
-      picBossBattle.Size = ClientSize;
-      picBossBattle.Visible = true;
-      picBossBattle.BringToFront();
+    public void SetupForBossBattle(int level) {
+      PictureBox bossBattle = null;
+      switch(level) {
+        // kool-aid man
+        case 1:
+          bossBattle = picBossBattle;
+          break;
+        case 2:
+          // rough rodents
+          bossBattle = picBossBattleSquirrels;
+          break;
+      }
+
+      bossBattle.Location = Point.Empty;
+      bossBattle.Size = ClientSize;
+      bossBattle.Visible = true;
+      bossBattle.BringToFront();
 
       SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
       simpleSound.Play();
@@ -164,6 +176,7 @@ namespace Fall2020_CSC403_Project {
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
+      picBossBattleSquirrels.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
 

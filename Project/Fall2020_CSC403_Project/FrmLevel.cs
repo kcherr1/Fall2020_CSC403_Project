@@ -163,7 +163,7 @@ namespace Fall2020_CSC403_Project {
 
         // this gives the frmBattle object a reference to this level's bossIsDefeated bool
         frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
-        frmBattle.SetupForBossBattle();
+        frmBattle.SetupForBossBattle(1);
       }
     }
 
