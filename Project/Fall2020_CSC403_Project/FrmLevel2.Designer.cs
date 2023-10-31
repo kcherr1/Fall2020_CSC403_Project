@@ -100,7 +100,6 @@
       this.hedge14 = new System.Windows.Forms.PictureBox();
       this.hedge10 = new System.Windows.Forms.PictureBox();
       this.picGoose = new System.Windows.Forms.PictureBox();
-      this.picSquirrel1 = new System.Windows.Forms.PictureBox();
       this.pond1 = new System.Windows.Forms.PictureBox();
       this.obstacle5 = new System.Windows.Forms.PictureBox();
       this.obstacle1 = new System.Windows.Forms.PictureBox();
@@ -115,10 +114,11 @@
       this.obstacle12 = new System.Windows.Forms.PictureBox();
       this.obstacle11 = new System.Windows.Forms.PictureBox();
       this.obstacle14 = new System.Windows.Forms.PictureBox();
-      this.picSquirrel2 = new System.Windows.Forms.PictureBox();
       this.picSquirrel3 = new System.Windows.Forms.PictureBox();
       this.portal = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
+      this.obstacle15 = new System.Windows.Forms.PictureBox();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
       ((System.ComponentModel.ISupportInitialize)(this.wall1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall3)).BeginInit();
@@ -192,7 +192,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.hedge14)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.hedge10)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picGoose)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picSquirrel1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pond1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle5)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle1)).BeginInit();
@@ -207,10 +206,11 @@
       ((System.ComponentModel.ISupportInitialize)(this.obstacle12)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle11)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle14)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picSquirrel2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picSquirrel3)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.portal)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.obstacle15)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
       // lblInGameTime
@@ -793,7 +793,7 @@
       this.obstacle13.BackColor = System.Drawing.Color.Transparent;
       this.obstacle13.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.tree11;
       this.obstacle13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.obstacle13.Location = new System.Drawing.Point(843, 192);
+      this.obstacle13.Location = new System.Drawing.Point(820, 187);
       this.obstacle13.Margin = new System.Windows.Forms.Padding(0);
       this.obstacle13.Name = "obstacle13";
       this.obstacle13.Size = new System.Drawing.Size(125, 115);
@@ -1113,18 +1113,6 @@
       this.picGoose.TabIndex = 70;
       this.picGoose.TabStop = false;
       // 
-      // picSquirrel1
-      // 
-      this.picSquirrel1.BackColor = System.Drawing.Color.Transparent;
-      this.picSquirrel1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.squirrel;
-      this.picSquirrel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picSquirrel1.Location = new System.Drawing.Point(1362, 137);
-      this.picSquirrel1.Margin = new System.Windows.Forms.Padding(0);
-      this.picSquirrel1.Name = "picSquirrel1";
-      this.picSquirrel1.Size = new System.Drawing.Size(100, 125);
-      this.picSquirrel1.TabIndex = 71;
-      this.picSquirrel1.TabStop = false;
-      // 
       // pond1
       // 
       this.pond1.BackColor = System.Drawing.Color.Transparent;
@@ -1274,7 +1262,7 @@
       this.obstacle11.BackColor = System.Drawing.Color.Transparent;
       this.obstacle11.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.rock;
       this.obstacle11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.obstacle11.Location = new System.Drawing.Point(745, 234);
+      this.obstacle11.Location = new System.Drawing.Point(710, 234);
       this.obstacle11.Margin = new System.Windows.Forms.Padding(0);
       this.obstacle11.Name = "obstacle11";
       this.obstacle11.Size = new System.Drawing.Size(75, 50);
@@ -1293,27 +1281,15 @@
       this.obstacle14.TabIndex = 85;
       this.obstacle14.TabStop = false;
       // 
-      // picSquirrel2
-      // 
-      this.picSquirrel2.BackColor = System.Drawing.Color.Transparent;
-      this.picSquirrel2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.squirrel2;
-      this.picSquirrel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picSquirrel2.Location = new System.Drawing.Point(1273, 112);
-      this.picSquirrel2.Margin = new System.Windows.Forms.Padding(0);
-      this.picSquirrel2.Name = "picSquirrel2";
-      this.picSquirrel2.Size = new System.Drawing.Size(75, 125);
-      this.picSquirrel2.TabIndex = 86;
-      this.picSquirrel2.TabStop = false;
-      // 
       // picSquirrel3
       // 
       this.picSquirrel3.BackColor = System.Drawing.Color.Transparent;
-      this.picSquirrel3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.squirrel3;
+      this.picSquirrel3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.angy_squirrels;
       this.picSquirrel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picSquirrel3.Location = new System.Drawing.Point(1129, 162);
+      this.picSquirrel3.Location = new System.Drawing.Point(1180, 183);
       this.picSquirrel3.Margin = new System.Windows.Forms.Padding(0);
       this.picSquirrel3.Name = "picSquirrel3";
-      this.picSquirrel3.Size = new System.Drawing.Size(125, 100);
+      this.picSquirrel3.Size = new System.Drawing.Size(131, 101);
       this.picSquirrel3.TabIndex = 87;
       this.picSquirrel3.TabStop = false;
       // 
@@ -1341,6 +1317,30 @@
       this.picPlayer.TabIndex = 89;
       this.picPlayer.TabStop = false;
       // 
+      // obstacle15
+      // 
+      this.obstacle15.BackColor = System.Drawing.Color.Transparent;
+      this.obstacle15.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.rock;
+      this.obstacle15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.obstacle15.Location = new System.Drawing.Point(962, 217);
+      this.obstacle15.Margin = new System.Windows.Forms.Padding(0);
+      this.obstacle15.Name = "obstacle15";
+      this.obstacle15.Size = new System.Drawing.Size(57, 67);
+      this.obstacle15.TabIndex = 90;
+      this.obstacle15.TabStop = false;
+      // 
+      // pictureBox1
+      // 
+      this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+      this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.tree11;
+      this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.pictureBox1.Location = new System.Drawing.Point(1109, 112);
+      this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(90, 70);
+      this.pictureBox1.TabIndex = 91;
+      this.pictureBox1.TabStop = false;
+      // 
       // FrmLevel2
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1350,11 +1350,12 @@
       this.BackColor = System.Drawing.Color.Black;
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass;
       this.ClientSize = new System.Drawing.Size(1610, 881);
+      this.Controls.Add(this.pictureBox1);
+      this.Controls.Add(this.obstacle15);
       this.Controls.Add(this.lblInGameTime);
       this.Controls.Add(this.picPlayer);
       this.Controls.Add(this.portal);
       this.Controls.Add(this.picSquirrel3);
-      this.Controls.Add(this.picSquirrel2);
       this.Controls.Add(this.obstacle14);
       this.Controls.Add(this.obstacle11);
       this.Controls.Add(this.obstacle12);
@@ -1369,7 +1370,6 @@
       this.Controls.Add(this.obstacle1);
       this.Controls.Add(this.obstacle5);
       this.Controls.Add(this.pond1);
-      this.Controls.Add(this.picSquirrel1);
       this.Controls.Add(this.picGoose);
       this.Controls.Add(this.hedge10);
       this.Controls.Add(this.hedge14);
@@ -1526,7 +1526,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.hedge14)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.hedge10)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picGoose)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picSquirrel1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pond1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle5)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle1)).EndInit();
@@ -1541,10 +1540,11 @@
       ((System.ComponentModel.ISupportInitialize)(this.obstacle12)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle11)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle14)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picSquirrel2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picSquirrel3)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.portal)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.obstacle15)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -1627,7 +1627,6 @@
     private System.Windows.Forms.PictureBox hedge14;
     private System.Windows.Forms.PictureBox hedge10;
     private System.Windows.Forms.PictureBox picGoose;
-    private System.Windows.Forms.PictureBox picSquirrel1;
     private System.Windows.Forms.PictureBox pond1;
     private System.Windows.Forms.PictureBox obstacle5;
     private System.Windows.Forms.PictureBox obstacle1;
@@ -1642,9 +1641,10 @@
     private System.Windows.Forms.PictureBox obstacle12;
     private System.Windows.Forms.PictureBox obstacle11;
     private System.Windows.Forms.PictureBox obstacle14;
-    private System.Windows.Forms.PictureBox picSquirrel2;
     private System.Windows.Forms.PictureBox picSquirrel3;
     private System.Windows.Forms.PictureBox portal;
     private System.Windows.Forms.PictureBox picPlayer;
+    private System.Windows.Forms.PictureBox obstacle15;
+    private System.Windows.Forms.PictureBox pictureBox1;
   }
 }

@@ -58,9 +58,9 @@ namespace Fall2020_CSC403_Project {
       alligator.Img = picAlligator.BackgroundImage;
       bossSquirrels.Img = picSquirrel3.BackgroundImage;
 
-      goose.Color = Color.White;
-      alligator.Color = Color.Green;
-      bossSquirrels.Color = Color.Brown;
+      goose.Color = Color.LightGray;
+      alligator.Color = Color.DarkOliveGreen;
+      bossSquirrels.Color = Color.SaddleBrown;
 
       walls = new Character[WALL_COUNT];
       for (int w = 1; w <= WALL_COUNT; w++) {
@@ -191,7 +191,7 @@ namespace Fall2020_CSC403_Project {
 
       if (enemy == bossSquirrels) {
         frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
-        frmBattle.SetupForBossBattle();
+        frmBattle.SetupForBossBattle(2);
       }
     }
 
