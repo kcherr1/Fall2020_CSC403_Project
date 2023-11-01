@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -12,7 +12,10 @@ namespace Fall2020_CSC403_Project {
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
+        private Enemy nextAreaDoor;
         private Character[] walls;
+        public Boolean worldSelect = false;
+        public Boolean bossDeath = false;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -26,26 +29,35 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
-      const int NUM_WALLS = 13;
+      const int NUM_WALLS = 25;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      nextAreaDoor = new Enemy(CreatePosition(picAreaDoor), CreateCollider(picAreaDoor, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      nextAreaDoor.Img = picAreaDoor.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      nextAreaDoor.Color = Color.Green;
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+                if (w >= 13)
+                {
+                    pic.Location = new System.Drawing.Point(pic.Location.X + 1500 , pic.Location.Y + 1500);
+                    walls[w].Displace();
+                }
       }
+
 
       Game.player = player;
       timeBegin = DateTime.Now;
@@ -99,6 +111,84 @@ namespace Fall2020_CSC403_Project {
         levelTheme.Stop();
         Fight(bossKoolaid);
       }
+
+            // check collision with the door character and change the world as necessary
+            if (HitAChar(player, nextAreaDoor)) {
+                player.MoveBack();
+                if (bossKoolaid.Health <= 0 && bossDeath == false)
+                {
+                    // the first boss is defeated, load world 2 upon door interaction
+                    bossDeath = true;
+                    if (worldSelect == false)
+                    {
+
+                        for (int w = 0; w < 13; w++)
+                        {
+                            walls[w].Displace();
+                            PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X + 1500, pic.Location.Y + 1500);
+                        }
+                        for (int i = 13; i < 20; i++)
+                        {
+                            walls[i].Replace();
+                            PictureBox pic = Controls.Find("picWall" + i.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X - 1500,pic.Location.Y - 1500);
+                        }
+
+                        picAreaDoor.Location = new Point(400, 400);
+                        nextAreaDoor.Collider.MovePosition(400,400);
+                    }
+                    
+
+                }
+                else if (bossDeath == true) {
+                    // switch between the secret and second worlds upon interaction with the door
+                    if (worldSelect == false)
+                    {
+                        // switch from world 2 to secret world
+                        for (int j = 13; j < 20; j++)
+                        {
+                            walls[j].Displace();
+                            PictureBox pic = Controls.Find("picWall" + j.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X + 1500, pic.Location.Y + 1500);
+
+
+                        }
+                        for (int k = 20; k < 25; k++)
+                        {
+                            walls[k].Replace();
+                            PictureBox pic = Controls.Find("picWall" + k.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X - 1500, pic.Location.Y - 1500);
+                        }
+
+                        picAreaDoor.Location = new Point(500, 400);
+                        nextAreaDoor.Collider.MovePosition(500, 400);
+
+                        worldSelect = true;
+                    }
+                    else {
+                        worldSelect = false;
+                        // switch form secret world to world 2
+                        for (int t = 20; t < 25; t++)
+                        {
+                            walls[t].Displace();
+                            PictureBox pic = Controls.Find("picWall" + t.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X + 1500, pic.Location.Y + 1500);
+                        }
+                        for (int r = 13; r < 20; r++)
+                        {
+                            walls[r].Replace();
+                            PictureBox pic = Controls.Find("picWall" + r.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X - 1500, pic.Location.Y - 1500);
+                        }
+
+                        picAreaDoor.Location = new Point(400, 400);
+                        nextAreaDoor.Collider.MovePosition(400, 400);
+
+                        worldSelect = false;
+                    }
+                }
+            }
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);

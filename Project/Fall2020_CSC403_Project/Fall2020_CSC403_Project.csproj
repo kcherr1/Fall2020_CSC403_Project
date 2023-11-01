@@ -159,6 +159,7 @@
     </Content>
     <None Include="data\peanut_end.jpg" />
     <None Include="data\peanut_victory.jpg" />
+    <None Include="data\deadenemy_poisonpacket.fw.png" />
     <Content Include="level_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
