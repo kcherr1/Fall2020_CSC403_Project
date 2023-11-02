@@ -285,8 +285,6 @@ namespace Fall2020_CSC403_Project {
                 this.Close();
             }
         }
-    }
-}
         public bool IsEnemyDead(Enemy enemy) { 
 
           

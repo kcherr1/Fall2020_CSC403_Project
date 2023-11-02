@@ -321,17 +321,17 @@
             // 
             // goToHome
             // 
-            this.goToHome.AutoSize = true;
-            this.goToHome.BackColor = System.Drawing.Color.Lavender;
-            this.goToHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.goToHome.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goToHome.ForeColor = System.Drawing.Color.Black;
-            this.goToHome.Location = new System.Drawing.Point(690, 16);
-            this.goToHome.Name = "goToHome";
-            this.goToHome.Size = new System.Drawing.Size(97, 19);
-            this.goToHome.TabIndex = 18;
-            this.goToHome.Text = "Go To Home";
-            this.goToHome.Click += new System.EventHandler(this.goToHome_Click);
+            //this.goToHome.AutoSize = true;
+            //this.goToHome.BackColor = System.Drawing.Color.Lavender;
+            //this.goToHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            //this.goToHome.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.goToHome.ForeColor = System.Drawing.Color.Black;
+            //this.goToHome.Location = new System.Drawing.Point(690, 16);
+            //this.goToHome.Name = "goToHome";
+            //this.goToHome.Size = new System.Drawing.Size(97, 19);
+            //this.goToHome.TabIndex = 18;
+            //this.goToHome.Text = "Go To Home";
+            //this.goToHome.Click += new System.EventHandler(this.goToHome_Click);
       // FrmLevel
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
