@@ -26,7 +26,7 @@ namespace Fall2020_CSC403_Project
         public bool gameOver { get; set; }
 
 		private DateTime timeBegin;
-		private FrmBattle frmBattle;
+		private FrmBattleScreen frmBattleScreen;
         private FrmInventory frminventory;
 
         private Size itemSize = new Size(50, 50);
@@ -311,13 +311,13 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(this, enemy);
-            frmBattle.Show();
+            frmBattleScreen = FrmBattleScreen.GetInstance(this, enemy);
+            frmBattleScreen.Show();
 
-            if (enemy.Name == "BossKoolAid")
+/*            if (enemy.Name == "BossKoolAid")
             {
-                frmBattle.SetupForBossBattle();
-            }
+                frmBattleScreen.SetupForBossBattle();
+            }*/
         }
 
         public void GameOver()
