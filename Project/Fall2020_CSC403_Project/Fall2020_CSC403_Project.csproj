@@ -130,9 +130,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\final_battle.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="data\player.png" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +160,7 @@
     <Content Include="data\ammo.png" />
     <None Include="data\battle_screen_squirrels.png" />
     <None Include="data\angy_squirrels.png" />
+    <Content Include="data\final_battle.wav" />
     <Content Include="data\gunfireBlast.png" />
     <Content Include="data\health_pack.png" />
     <None Include="data\squirrel_dead.png" />
