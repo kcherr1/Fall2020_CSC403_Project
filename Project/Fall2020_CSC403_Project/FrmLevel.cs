@@ -316,6 +316,7 @@ namespace Fall2020_CSC403_Project
         {
             this.gameOver = true;
             this.player.SetEntityPosition(new Position(-100, -100));
+            
 
             DisposeLevel();
 
@@ -393,6 +394,9 @@ namespace Fall2020_CSC403_Project
                 this.Controls.Remove(this.Areas[Area].Walls[i].Pic);
             }
             this.Areas[Area].Walls.Clear();
+
+            this.Areas = new Area[10];
+            GC.Collect();
         }
 
 
@@ -426,7 +430,7 @@ namespace Fall2020_CSC403_Project
             ExitButton.Enabled = false;
             MainMenuButton.Enabled = false;
 
-            this.Area = 1;
+            this.Area = 4;
             AreaSelect();
             InitializeAreaLayout();
         }
@@ -452,17 +456,68 @@ namespace Fall2020_CSC403_Project
         {
             switch (this.Area)
             {
+                case 0:
+                    Area0();
+                    break;
                 case 1:
+                    Area1();
+                    break;
+                case 2:
+                    Area2();
+                    break;
+                case 3:
+                    Area3();
+                    break;
+                case 4:
+                    Area4();
+                    break;
+                case 5:
                     Area5();
                     break;
+                case 6:
+                    Area6();
+                    break;
+                case 7:
+                    Area7();
+                    break;
+                case 8:
+                    Area8();
+                    break;
+                case 9:
+                    AreaBoss();
+                    break;
                 default:
-                    Area5();
+                    Area4();
                     break;
             }
         }
 
+        private void AreaBoss()
+        {
+            throw new NotImplementedException();
+        }
 
+        private void Area8()
+        {
+            throw new NotImplementedException();
+        }
 
+        private void Area7()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Area6()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Area5()
+        {
+            throw new NotImplementedException();
+        }
+
+        
 
         private void Area4()
         {
@@ -473,7 +528,7 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[4] = new Area(5, 0.05);
+            this.Areas[4] = new Area(0000, 0.05);
 
             this.Areas[4].SetAdjacentArea(Direction.Left, Areas[3]);
             this.Areas[4].SetAdjacentArea(Direction.Right, Areas[5]);
@@ -527,5 +582,19 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        private void Area2()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Area1()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Area0()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
