@@ -153,9 +153,7 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 2;
             hitMod = 1;
         }
-    }
-
-    public class 
+    } 
 
     public class Mage : Archetype
     {
