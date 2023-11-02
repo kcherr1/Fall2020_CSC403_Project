@@ -230,5 +230,10 @@ namespace Fall2020_CSC403_Project {
     private void hedge13_Click(object sender, EventArgs e) {
 
     }
+
+    private void MenuButton_Click(object sender, EventArgs e)
+    {
+      FrmStartScreen.displayStartScreen();
+    }
   }
 }

@@ -25,6 +25,7 @@ namespace Fall2020_CSC403_Project {
     }
   
     private void FrmLevel_Load(object sender, EventArgs e) {
+
       const int PADDING = 0;
       const int NUM_WALLS = 13;
 
@@ -84,12 +85,18 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeStart;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
+      if (!GameState.isGamePaused)
+      {
+      //GameState.totalPausedTime acts as a correcting factor for when
+      //players pause the game
+      TimeSpan span = DateTime.Now - timeStart - GameState.totalPausedTime;
+        string time = span.ToString(@"hh\:mm\:ss");
+        lblInGameTime.Text = "Time: " + time.ToString();
+      }
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+
       // move player
       player.Move();
 
@@ -185,13 +192,15 @@ namespace Fall2020_CSC403_Project {
           player.GoDown();
           break;
 
+        case Keys.Escape:
+          FrmStartScreen.displayStartScreen();
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;
       }
     }
-
-
 
     private void RemoveEnemy(Enemy enemy, PictureBox picEnemy)
     {
@@ -207,11 +216,5 @@ namespace Fall2020_CSC403_Project {
             picEnemy.SizeMode = PictureBoxSizeMode.Zoom;
     }
 
-    private void button1_Click(object sender, EventArgs e)
-    {
-      FrmStartScreen pauseScreen = new FrmStartScreen();
-      pauseScreen.setContinueButtonText("Continue");
-      pauseScreen.ShowDialog();
-    }
   }
 }

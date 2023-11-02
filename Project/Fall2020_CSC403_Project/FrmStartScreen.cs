@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fall2020_CSC403_Project.code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace Fall2020_CSC403_Project
 
     private void button1_Click(object sender, EventArgs e)
     {
+      GameState.startGame = true;
       this.Close();
     }
 
@@ -30,6 +32,31 @@ namespace Fall2020_CSC403_Project
     public void setContinueButtonText(string text)
     {
       this.button1.Text = text;
+    }
+
+    //easy way to create a new pause screen
+    public static void displayStartScreen()
+    {
+      FrmStartScreen pauseScreen = new FrmStartScreen();
+      pauseScreen.setContinueButtonText("Continue");
+      GameState.isGamePaused = true;
+      DateTime pauseStartTime = DateTime.Now;
+      pauseScreen.ShowDialog();
+
+      //this generates a corrective factor to simulate pausing the timer in the FrmLevel;
+      //this makes the time pause
+      GameState.totalPausedTime = DateTime.Now - pauseStartTime;
+      GameState.isGamePaused = false;
+    }
+
+    private void Controls_Click(object sender, EventArgs e)
+    {
+      this.label2.Visible = !this.label2.Visible;
+    }
+
+    private void button3_Click(object sender, EventArgs e)
+    {
+      this.label1.Visible = !this.label1.Visible;
     }
   }
 }
