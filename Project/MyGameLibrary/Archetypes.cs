@@ -17,6 +17,8 @@ namespace Fall2020_CSC403_Project.code
         int baseDamage { get; }
         int baseSpeed { get; }
         int hitMod { get; }
+
+        void specialMove();
     }
 
     public class ArchetypeHandler
@@ -45,6 +47,8 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 0;
             hitMod = 2;
         }
+
+        public void specialMove() {}
     }
 
     public class Rogue : Archetype
@@ -63,6 +67,8 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 5;
             hitMod = 5;
         }
+
+        public void specialMove() { }
     }
 
     public class Swordsman : Archetype
@@ -81,6 +87,8 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 2;
             hitMod = 3;
         }
+
+        public void specialMove() { }
     }
 
     public class Healer : Archetype
@@ -99,6 +107,8 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 2;
             hitMod = 3;
         }
+
+        public void specialMove() { }
     }
 
     public class Minion : Archetype
@@ -117,6 +127,8 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 2;
             hitMod = 0;
         }
+
+        public void specialMove() { }
     }
 
     public class Brute : Archetype
@@ -135,6 +147,8 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 1;
             hitMod = 1;
         }
+
+        public void specialMove() { }
     }
 
     public class Zombie : Archetype
@@ -153,6 +167,8 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 2;
             hitMod = 1;
         }
+
+        public void specialMove() { }
     } 
 
     public class Mage : Archetype
@@ -171,6 +187,8 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 3;
             hitMod = 3;
         }
+
+        public void specialMove() { }
     }
 
     public class Boss : Archetype
@@ -189,6 +207,8 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 5;
             hitMod = 6;
         }
+
+        public void specialMove() { }
     }
 
     public class Dragon : Archetype
@@ -207,5 +227,7 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 2;
             hitMod = 10;
         }
+
+        public void specialMove() { }
     }
 }
