@@ -13,10 +13,13 @@ namespace Fall2020_CSC403_Project
     public partial class FrmLeaderboard : Form
     {
         public Form PreviousForm;
+
+        public int[] TopScores;
         public FrmLeaderboard(Form PreviousForm)
         {
             this.WindowState = FormWindowState.Maximized;
             this.PreviousForm = PreviousForm;
+            this.TopScores = new int[10];
             InitializeComponent();
             this.Setup();
         }
@@ -45,12 +48,13 @@ namespace Fall2020_CSC403_Project
 
 
             // Add Title
-            TextBox Title = new TextBox();
+            Label Title = new Label();
             Title.Text = "Leaderboard";
-            Title.Font = new Font("NSimSun", Title.Size.Height / 2);
             Title.Parent = BackgroundImg;
-            Title.Size = new Size(width / 3, height / 3);
-            Title.Location = new Point(0 + (width / 18), 0 + (height / 8));
+            Title.Size = new Size(width, height / 5);
+            Title.Font = new Font("NSimSun", Title.Size.Height / 2);
+            Title.BackColor = Color.Transparent;
+            Title.Location = new Point(0 + (width / 6), 0 + (height / 12));
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

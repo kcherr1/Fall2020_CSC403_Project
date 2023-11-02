@@ -35,7 +35,6 @@ namespace Fall2020_CSC403_Project {
             this.BlackSquare = new System.Windows.Forms.PictureBox();
             this.InvPicButton = new System.Windows.Forms.PictureBox();
             this.MainMenuButton = new System.Windows.Forms.Button();
-            this.ScoreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BlackSquare)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvPicButton)).BeginInit();
             this.SuspendLayout();
@@ -44,12 +43,12 @@ namespace Fall2020_CSC403_Project {
             // 
             this.lblInGameTime.AutoSize = true;
             this.lblInGameTime.BackColor = System.Drawing.Color.Black;
-            this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInGameTime.ForeColor = System.Drawing.Color.White;
             this.lblInGameTime.Location = new System.Drawing.Point(20, 15);
             this.lblInGameTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInGameTime.Name = "lblInGameTime";
-            this.lblInGameTime.Size = new System.Drawing.Size(79, 29);
+            this.lblInGameTime.Size = new System.Drawing.Size(70, 26);
             this.lblInGameTime.TabIndex = 2;
             this.lblInGameTime.Text = "label1";
             // 
@@ -149,18 +148,6 @@ namespace Fall2020_CSC403_Project {
             this.MainMenuButton.Visible = false;
             this.MainMenuButton.Click += new System.EventHandler(this.MainMenuButton_Click);
             // 
-            // ScoreLabel
-            // 
-            this.ScoreLabel.AutoSize = true;
-            this.ScoreLabel.BackColor = System.Drawing.Color.Black;
-            this.ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScoreLabel.ForeColor = System.Drawing.Color.White;
-            this.ScoreLabel.Location = new System.Drawing.Point(877, 15);
-            this.ScoreLabel.Name = "ScoreLabel";
-            this.ScoreLabel.Size = new System.Drawing.Size(79, 29);
-            this.ScoreLabel.TabIndex = 28;
-            this.ScoreLabel.Text = "label1";
-            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -168,7 +155,6 @@ namespace Fall2020_CSC403_Project {
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1569, 1050);
-            this.Controls.Add(this.ScoreLabel);
             this.Controls.Add(this.MainMenuButton);
             this.Controls.Add(this.InvPicButton);
             this.Controls.Add(this.BlackSquare);
@@ -202,7 +188,6 @@ namespace Fall2020_CSC403_Project {
         private System.Windows.Forms.PictureBox BlackSquare;
         private System.Windows.Forms.PictureBox InvPicButton;
         private System.Windows.Forms.Button MainMenuButton;
-        private System.Windows.Forms.Label ScoreLabel;
     }
 }
 

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Threading;
 using System.Media;
+using System.Text.Json;
+using System.IO;
 
 namespace Fall2020_CSC403_Project
 {
@@ -34,10 +36,14 @@ namespace Fall2020_CSC403_Project
 
         public SoundPlayer gameAudio;
 
+        public Label ScoreLabel;
+
         public FrmLevel(Form MainMenu, Player player)
         {
             this.KeyPreview = true;
             this.DoubleBuffered = true;
+
+            this.ScoreLabel = null;
 
             this.score = 0;
 
@@ -54,9 +60,12 @@ namespace Fall2020_CSC403_Project
         
         private void FrmLevel_Load(object sender, EventArgs e)
         {
-            Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Width / 15, Screen.PrimaryScreen.Bounds.Width / 15);
-            int grid_width = Screen.PrimaryScreen.Bounds.Width / TileSize.Width;
-            int grid_height = Screen.PrimaryScreen.Bounds.Height / TileSize.Width;
+            int width = Screen.PrimaryScreen.Bounds.Width;
+            int height = Screen.PrimaryScreen.Bounds.Height;
+            Size TileSize = new Size(width / 15, width / 15);
+            int grid_width = width / TileSize.Width;
+            int grid_height = height / TileSize.Width;
+
             
 
             this.terrain = new Terrain(grid_width, grid_height, TileSize);
@@ -69,8 +78,15 @@ namespace Fall2020_CSC403_Project
             Game.player = player;
             timeBegin = DateTime.Now;
 
+            this.ScoreLabel = new Label();
+            this.Controls.Add(ScoreLabel);
+            ScoreLabel.BackColor = Color.Black;
+            ScoreLabel.ForeColor = Color.White;
             ScoreLabel.Text = "Score: " + score.ToString();
-            ScoreLabel.Location = new Point(this.Width - 100, 15);
+            ScoreLabel.Location = new Point(width - ScoreLabel.Width - 20, 15);
+            ScoreLabel.Font = new Font("Microsoft Sans Serif", 11);
+            ScoreLabel.Visible = true;
+            ScoreLabel.BringToFront();
             
             
             
@@ -383,7 +399,25 @@ namespace Fall2020_CSC403_Project
             MainMenuButton.Visible = true;
             MainMenuButton.BringToFront();
 
+            RecordData();
+
             gameAudio.Stop();
+        }
+
+        private void RecordData()
+        {
+            int[] TopScores = new int[10];
+            for (int i = 0; i < TopScores.Length; i++)
+            {
+                if(score > TopScores[i])
+                {
+                    TopScores[i] = score;
+                    break;
+                }
+            }
+            string filepath = "../../data/GameData.json";
+            string data = JsonSerializer.Serialize(TopScores);
+            File.WriteAllText(filepath, data);
         }
 
 
@@ -430,6 +464,7 @@ namespace Fall2020_CSC403_Project
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
+            this.score = 0;
             gameAudio.PlayLooping();
 
             this.gameOver = false;
