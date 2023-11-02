@@ -40,7 +40,7 @@ namespace Fall2020_CSC403_Project.code
         public Tank()
         {
             baseMaxHealth = 100;
-            baseDefense = 10;
+            baseDefense = 14;
             baseDamage = 2;
             baseSpeed = 0;
             hitMod = 2;
@@ -76,8 +76,26 @@ namespace Fall2020_CSC403_Project.code
         public Swordsman()
         {
             baseMaxHealth = 50;
-            baseDefense = 10;
+            baseDefense = 12;
             baseDamage = 8;
+            baseSpeed = 2;
+            hitMod = 3;
+        }
+    }
+
+    public class Healer : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+
+        public Healer()
+        {
+            baseMaxHealth = 25;
+            baseDefense = 10;
+            baseDamage = 3;
             baseSpeed = 2;
             hitMod = 3;
         }
@@ -101,6 +119,44 @@ namespace Fall2020_CSC403_Project.code
         }
     }
 
+    public class Zombie : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+
+        public Zombie()
+        {
+            baseMaxHealth = 50;
+            baseDefense = 7;
+            baseDamage = 1;
+            baseSpeed = 2;
+            hitMod = 1;
+        }
+    }
+
+    public class 
+
+    public class Mage : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+
+        public Mage()
+        {
+            baseMaxHealth = 35;
+            baseDefense = 10;
+            baseDamage = 7;
+            baseSpeed = 3;
+            hitMod = 3;
+        }
+    }
+
     public class Boss : Archetype
     {
         public int baseMaxHealth { get; }
@@ -112,12 +168,28 @@ namespace Fall2020_CSC403_Project.code
         public Boss()
         {
             baseMaxHealth = 100;
-            baseDefense = 18;
+            baseDefense = 15;
             baseDamage = 10;
             baseSpeed = 5;
+            hitMod = 6;
+        }
+    }
+
+    public class Dragon : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+
+        public Dragon()
+        {
+            baseMaxHealth = 200;
+            baseDefense = 20;
+            baseDamage = 20;
+            baseSpeed = 2;
             hitMod = 10;
         }
-
     }
-    
 }
