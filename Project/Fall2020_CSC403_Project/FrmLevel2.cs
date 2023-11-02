@@ -25,6 +25,7 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private DateTime timeStart;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
+    private Character healthPack;
 
     public FrmLevel2() : base() {
       this.player = GameState.player;
@@ -63,6 +64,8 @@ namespace Fall2020_CSC403_Project {
       goose.Color = Color.LightGray;
       alligator.Color = Color.DarkOliveGreen;
       bossSquirrels.Color = Color.SaddleBrown;
+
+      healthPack = new Character(CreatePosition(healthPackLvl2), CreateCollider(healthPackLvl2, PADDING));
 
       walls = new Character[WALL_COUNT];
       for (int w = 1; w <= WALL_COUNT; w++) {
@@ -128,6 +131,11 @@ namespace Fall2020_CSC403_Project {
       }
       else if (HitAChar(player, bossSquirrels)) {
         Fight(bossSquirrels);
+      }
+      if (HitAChar(player, healthPack)){
+        player.HealthPackCount++;
+        healthPack.RemoveCollider();
+        healthPackLvl2.Visible = false;
       }
 
       // check state of each enemy

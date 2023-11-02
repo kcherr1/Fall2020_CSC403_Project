@@ -119,6 +119,7 @@
       this.picPlayer = new System.Windows.Forms.PictureBox();
       this.obstacle15 = new System.Windows.Forms.PictureBox();
       this.obstacle16 = new System.Windows.Forms.PictureBox();
+      this.healthPackLvl2 = new System.Windows.Forms.PictureBox();
       ((System.ComponentModel.ISupportInitialize)(this.wall1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall3)).BeginInit();
@@ -211,6 +212,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle15)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle16)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.healthPackLvl2)).BeginInit();
       this.SuspendLayout();
       // 
       // lblInGameTime
@@ -1342,6 +1344,17 @@
       this.obstacle16.TabIndex = 91;
       this.obstacle16.TabStop = false;
       // 
+      // healthPackLvl2
+      // 
+      this.healthPackLvl2.BackColor = System.Drawing.Color.Transparent;
+      this.healthPackLvl2.Image = global::Fall2020_CSC403_Project.Properties.Resources.health_pack;
+      this.healthPackLvl2.Location = new System.Drawing.Point(977, 534);
+      this.healthPackLvl2.Name = "healthPackLvl2";
+      this.healthPackLvl2.Size = new System.Drawing.Size(68, 62);
+      this.healthPackLvl2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.healthPackLvl2.TabIndex = 92;
+      this.healthPackLvl2.TabStop = false;
+      // 
       // FrmLevel2
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1350,7 +1363,8 @@
       this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.BackColor = System.Drawing.Color.Black;
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass;
-      this.ClientSize = new System.Drawing.Size(1807, 1050);
+      this.ClientSize = new System.Drawing.Size(1811, 1047);
+      this.Controls.Add(this.healthPackLvl2);
       this.Controls.Add(this.obstacle16);
       this.Controls.Add(this.obstacle15);
       this.Controls.Add(this.lblInGameTime);
@@ -1546,6 +1560,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle15)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle16)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.healthPackLvl2)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -1647,5 +1662,6 @@
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox obstacle15;
     private System.Windows.Forms.PictureBox obstacle16;
+    private System.Windows.Forms.PictureBox healthPackLvl2;
   }
 }

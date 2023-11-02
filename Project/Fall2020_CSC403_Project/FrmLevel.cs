@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project {
     private Character[] walls;
 
     private Weapon ak;
+    private Character healthPack;
 
     private DateTime timeStart;
     private FrmBattle frmBattle;
@@ -60,6 +61,8 @@ namespace Fall2020_CSC403_Project {
 
       ak = new Weapon(CreatePosition(weapon1), CreateCollider(weapon1, PADDING));
       ak.setStrength(4);
+
+      healthPack = new Character(CreatePosition(healthPackLvl1), CreateCollider(healthPackLvl1, PADDING));
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -109,6 +112,11 @@ namespace Fall2020_CSC403_Project {
         player.WeaponStrength = ak.getStrength();
         player.WeaponEquiped = true;
         weapon1.Visible = false;
+      }
+      if (HitAChar(player, healthPack)){
+        player.HealthPackCount++;
+        healthPack.RemoveCollider();
+        healthPackLvl1.Visible = false;
       }
 
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
