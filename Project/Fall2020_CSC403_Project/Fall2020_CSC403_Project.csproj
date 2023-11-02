@@ -168,6 +168,8 @@
     <None Include="data\squirrel_dead.png" />
     <None Include="data\squirrel2_dead.png" />
     <None Include="data\squirrel3_dead.png" />
+    <Content Include="data\rpg.png" />
+    <Content Include="data\tank.png" />
     <Content Include="data\weapon1.png" />
   </ItemGroup>
   <ItemGroup>
