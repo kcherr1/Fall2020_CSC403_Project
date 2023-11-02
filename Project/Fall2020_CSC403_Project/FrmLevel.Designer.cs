@@ -49,6 +49,7 @@ namespace Fall2020_CSC403_Project {
       this.picBossKoolAid = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
       this.weapon1 = new System.Windows.Forms.PictureBox();
+      this.button1 = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -296,6 +297,16 @@ namespace Fall2020_CSC403_Project {
       this.weapon1.TabIndex = 18;
       this.weapon1.TabStop = false;
       // 
+      // button1
+      // 
+      this.button1.Location = new System.Drawing.Point(22, 58);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(75, 34);
+      this.button1.TabIndex = 19;
+      this.button1.Text = "Menu";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
+      // 
       // FrmLevel
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -304,7 +315,8 @@ namespace Fall2020_CSC403_Project {
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravel;
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.ClientSize = new System.Drawing.Size(2352, 1400);
+      this.ClientSize = new System.Drawing.Size(1924, 1050);
+      this.Controls.Add(this.button1);
       this.Controls.Add(this.picWall11);
       this.Controls.Add(this.picWall2);
       this.Controls.Add(this.picWall8);
@@ -378,6 +390,7 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picWall11;
     private System.Windows.Forms.PictureBox weapon1;
     private System.Windows.Forms.PictureBox picNetherPortal;
+    private System.Windows.Forms.Button button1;
   }
 }
 

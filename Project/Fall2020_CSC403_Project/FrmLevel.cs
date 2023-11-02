@@ -206,5 +206,12 @@ namespace Fall2020_CSC403_Project {
             picEnemy.Image = global::Fall2020_CSC403_Project.Properties.Resources.Nether_portal1;
             picEnemy.SizeMode = PictureBoxSizeMode.Zoom;
     }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      FrmStartScreen pauseScreen = new FrmStartScreen();
+      pauseScreen.setContinueButtonText("Continue");
+      pauseScreen.ShowDialog();
+    }
   }
 }

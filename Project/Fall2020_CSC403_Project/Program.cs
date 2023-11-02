@@ -16,7 +16,10 @@ namespace Fall2020_CSC403_Project {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       //GameState gameState = null;
-      
+
+      FrmStartScreen startScreen = new FrmStartScreen();
+      startScreen.ShowDialog();
+
       FrmLevel levelOne = new FrmLevel();
       levelOne.ShowDialog();
 
