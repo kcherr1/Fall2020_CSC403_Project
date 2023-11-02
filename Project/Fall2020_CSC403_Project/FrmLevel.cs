@@ -22,6 +22,7 @@ namespace Fall2020_CSC403_Project
         private Form MainMenu;
 
         public int Level { get; set; }
+        public int score;
 
         public bool gameOver { get; set; }
 
@@ -37,6 +38,8 @@ namespace Fall2020_CSC403_Project
         {
             this.KeyPreview = true;
             this.DoubleBuffered = true;
+
+            this.score = 0;
 
             this.gameAudio = new SoundPlayer(Resources.Game_audio);
 
@@ -65,6 +68,10 @@ namespace Fall2020_CSC403_Project
             InitializeLevelLayout();
             Game.player = player;
             timeBegin = DateTime.Now;
+
+            ScoreLabel.Text = "Score: " + score.ToString();
+            ScoreLabel.Location = new Point(this.Width - 100, 15);
+            
             
             
 
@@ -216,9 +223,6 @@ namespace Fall2020_CSC403_Project
             if (x >= 0)
             {
                 Fight(enemies[x]);
-                Controls.Remove(enemies[x].Pic);
-                enemies.Remove(enemies[x]);
-
             }
 
             x = HitAnItem(player);
@@ -318,6 +322,14 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForBossBattle();
             }
+        }
+
+        public void RemoveEnemy(Enemy enemy)
+        {
+            Controls.Remove(enemy.Pic);
+            enemies.Remove(enemy);
+            score += 100;
+            ScoreLabel.Text = "Score: " + score.ToString();
         }
 
         public void GameOver()
