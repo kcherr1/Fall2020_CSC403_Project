@@ -188,11 +188,12 @@ namespace Fall2020_CSC403_Project {
      private void Heal_Click(object sender, EventArgs e){
          if (player.HealthPackCount > 0 && player.Health != player.MaxHealth) {
             player.UseHealthPack();
-            if (player.Health + 10 > player.MaxHealth) {
+            int healingPower = player.MaxHealth / 2;
+            if (player.Health + healingPower > player.MaxHealth) {
                 player.AlterHealth(player.MaxHealth - player.Health);
             }
             else {
-                player.AlterHealth(10);
+                player.AlterHealth(healingPower);
             }
             UpdateHealthBars();
             HealthPackCountLabel.Text = player.HealthPackCount.ToString();
