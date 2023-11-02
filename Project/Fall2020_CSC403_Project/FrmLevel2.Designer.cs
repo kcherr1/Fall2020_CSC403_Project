@@ -1348,7 +1348,7 @@
       // 
       this.healthPackLvl2.BackColor = System.Drawing.Color.Transparent;
       this.healthPackLvl2.Image = global::Fall2020_CSC403_Project.Properties.Resources.health_pack;
-      this.healthPackLvl2.Location = new System.Drawing.Point(977, 534);
+      this.healthPackLvl2.Location = new System.Drawing.Point(1311, 846);
       this.healthPackLvl2.Name = "healthPackLvl2";
       this.healthPackLvl2.Size = new System.Drawing.Size(68, 62);
       this.healthPackLvl2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
