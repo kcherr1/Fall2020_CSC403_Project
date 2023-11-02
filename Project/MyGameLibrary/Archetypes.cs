@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project;
 using MyGameLibrary.Properties;
@@ -191,7 +192,7 @@ namespace Fall2020_CSC403_Project.code
         public void specialMove() { }
     }
 
-    public class Bees : Archetype()
+    public class Bees : Archetype
     {
         public int baseMaxHealth { get; }
         public int baseDefense { get; }
@@ -207,6 +208,8 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 5;
             hitMod = 5;
         }
+
+        public void specialMove() { }
     }
 
     public class Mage : Archetype
