@@ -82,6 +82,7 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
+            Death = false;
       if (enemy.Health <= 0)
       {
         instance = null;
@@ -106,7 +107,6 @@ namespace Fall2020_CSC403_Project {
         {
             instance = null;
             Close();
-
         }
 
         private void EnemyDamage(int amount) {
@@ -126,6 +126,11 @@ namespace Fall2020_CSC403_Project {
         {
             string documentationUrl = "https://docs.google.com/document/d/158qKBqjiTSbWiRfbgNZ-8zu_gsyhuzam8IXES70mpeU/edit"; // link to google docs FAQ
             System.Diagnostics.Process.Start(documentationUrl);
+        }
+
+        private void FrmBattle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FrmLevel.frmlevel.CheckResult(enemy);
         }
     }
 }

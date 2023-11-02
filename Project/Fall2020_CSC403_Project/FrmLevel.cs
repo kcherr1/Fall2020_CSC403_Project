@@ -16,13 +16,15 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
-
+    public static FrmLevel frmlevel = null; 
+    
     public FrmLevel() {
       InitializeComponent();
-    }
+            frmlevel = this;
+        }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 8;
+      const int PADDING = 7;
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
@@ -92,7 +94,7 @@ namespace Fall2020_CSC403_Project {
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
             if (HitAWeapon(player))
             {
-                knife.Visible = false;
+                Controls.Remove(knife);
                 haveAWeapon = true;
             }
         }
@@ -109,6 +111,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private bool HitAChar(Character you, Character other) {
+      
       return you.Collider.Intersects(other.Collider);
     }
 
@@ -123,37 +126,40 @@ namespace Fall2020_CSC403_Project {
             return hitAWeapon;
         }
         private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.Show();
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
-            CheckResult(enemy);
         }
         public void CheckResult(Enemy enemy)
         {
-            bool checkdeath = FrmBattle.Death;
-            if (checkdeath)
+            //bool checkdeath = FrmBattle.Death;
+            if (FrmBattle.Death)
             {
                 Enemy_vanishing(enemy);
+                FrmBattle.Death = false;
             }
         }
         private void Enemy_vanishing(Enemy enemy)
         {
             if (enemy == enemyPoisonPacket)
             {
-                picEnemyPoisonPacket.Visible = false;
+                Controls.Remove(picEnemyPoisonPacket);
+                enemyPoisonPacket = new Enemy(CreatePosition(vanish), CreateCollider(vanish, 0));
             }
-            else if (enemy == bossKoolaid && enemy.Health == 0)
+            else if (enemy == bossKoolaid)
             {
-                picBossKoolAid.Visible = false;
+                picBossKoolAid.Dispose();
+                bossKoolaid = new Enemy(CreatePosition(vanish), CreateCollider(vanish, 0));
             }
             else if (enemy == enemyCheeto)
             {
-                picEnemyCheeto.Visible = false;
+                picEnemyCheeto.Dispose();
+                enemyCheeto = new Enemy(CreatePosition(vanish), CreateCollider(vanish, 0));
             }
         }
             private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
