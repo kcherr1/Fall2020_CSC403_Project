@@ -63,6 +63,16 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap brute {
+            get {
+                object obj = ResourceManager.GetObject("brute", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap dragonmage {
             get {
                 object obj = ResourceManager.GetObject("dragonmage", resourceCulture);

@@ -119,6 +119,24 @@ namespace Fall2020_CSC403_Project.code
         }
     }
 
+    public class Brute : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+
+        public Brute()
+        {
+            baseMaxHealth = 30;
+            baseDefense = 12;
+            baseDamage = 3;
+            baseSpeed = 1;
+            hitMod = 1;
+        }
+    }
+
     public class Zombie : Archetype
     {
         public int baseMaxHealth { get; }
