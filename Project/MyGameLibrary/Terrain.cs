@@ -13,37 +13,20 @@ namespace Fall2020_CSC403_Project.code
 {
     public class Terrain
     {
-        public List<Item> Items { get; set; }
-        public List<Wall> Walls { get; set; }
         public List<Tile> Tiles { get; set; }
 
-        public int GridWidth { get; set; }
-        public int GridHeight { get; set; }
+        public static Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Width / 15, Screen.PrimaryScreen.Bounds.Width / 15);
+        public static int GridWidth = Screen.PrimaryScreen.Bounds.Width / TileSize.Width;
+        public static int GridHeight = Screen.PrimaryScreen.Bounds.Height / TileSize.Width;
 
-        public Size TileSize { get; set; }
 
-
-        public Terrain (int GridWidth, int GridHeight, Size TileSize)
+        public Terrain (int Seed, double SeedAmplification)
         {
-            this.Items = new List<Item>();
-            this.Walls = new List<Wall>();
             this.Tiles = new List<Tile>();
-            this.GridWidth = GridWidth;
-            this.GridHeight = GridHeight;
-            this.TileSize = TileSize;
+            GenerateTerrain(Seed, SeedAmplification);
         }
 
 
-        public void AddWall(Wall wall)
-        {
-            this.Walls.Add(wall);
-
-        }
-
-        public void AddItem (Item item)
-        {
-            this.Items.Add(item);
-        }
 
         public void AddTile(Tile tile)
         {
@@ -65,15 +48,15 @@ namespace Fall2020_CSC403_Project.code
         {
 
             Random random = new Random(seed);
-            double[][] tiles = new double[this.GridHeight][];
-            for (int i = 0; i < this.GridHeight; i++)
+            double[][] tiles = new double[GridHeight][];
+            for (int i = 0; i < GridHeight; i++)
             {
-                tiles[i] = new double[this.GridWidth];
+                tiles[i] = new double[GridWidth];
             }
 
-            for (int y = 0; y < this.GridHeight; y++)
+            for (int y = 0; y < GridHeight; y++)
             {
-                for (int x = 0; x < this.GridWidth; x++)
+                for (int x = 0; x < GridWidth; x++)
                 {
                     double noise = random.NextDouble();
                     tiles[y][x] = noise + amplification;
@@ -82,8 +65,8 @@ namespace Fall2020_CSC403_Project.code
             }
             for (int i = 0; i < 4; i++)
             {
-                for (int y = 0; y < this.GridHeight; y++) {
-                    for (int x = 0; x < this.GridWidth; x++)
+                for (int y = 0; y < GridHeight; y++) {
+                    for (int x = 0; x < GridWidth; x++)
                     {
                         double sum = tiles[y][x];
                         int count = 1;
@@ -95,7 +78,7 @@ namespace Fall2020_CSC403_Project.code
                                 int adjacent_x = x + dx;
                                 int adjacent_y = y + dy;
 
-                                if (adjacent_x >= 0 && adjacent_x < this.GridWidth && adjacent_y >= 0 && adjacent_y < this.GridHeight && (dx != 0 || dy != 0))
+                                if (adjacent_x >= 0 && adjacent_x < GridWidth && adjacent_y >= 0 && adjacent_y < GridHeight && (dx != 0 || dy != 0))
                                 {
                                     sum += tiles[adjacent_y][adjacent_x];
                                     count++;
@@ -109,49 +92,49 @@ namespace Fall2020_CSC403_Project.code
                 }
             }
 
-            for (int y = 0; y < this.GridHeight; y++)
+            for (int y = 0; y < GridHeight; y++)
             {
-                for (int x = 0; x < this.GridWidth; x++)
+                for (int x = 0; x < GridWidth; x++)
                 {
                     if (tiles[y][x] < 0.4)
                     {
-                        this.AddTile(new Tile(MakePictureBox(water_grass, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.SuperSlowness));
+                        this.AddTile(new Tile(MakePictureBox(water_grass, new Point(x * TileSize.Width, y * TileSize.Width)), Tile.EffectType.SuperSlowness));
                     }
                     else if (tiles[y][x] < 0.45)
                     {
-                        this.AddTile(new Tile(MakePictureBox(water_clear, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.SuperSlowness));
+                        this.AddTile(new Tile(MakePictureBox(water_clear, new Point(x * TileSize.Width, y * TileSize.Width)), Tile.EffectType.SuperSlowness));
                     }
                     else if (tiles[y][x] < 0.47)
                     {
-                        this.AddTile(new Tile(MakePictureBox(sand, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.Slowness));
+                        this.AddTile(new Tile(MakePictureBox(sand, new Point(x * TileSize.Width, y * TileSize.Width)), Tile.EffectType.Slowness));
                     }
                     else if (tiles[y][x] < 0.5)
                     {
-                        this.AddTile(new Tile(MakePictureBox(dirt_path, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
+                        this.AddTile(new Tile(MakePictureBox(dirt_path, new Point(x * TileSize.Width, y * TileSize.Width))));
                     }
                     else if (tiles[y][x] < 0.55)
                     {
-                        this.AddTile(new Tile(MakePictureBox(grass_light, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
+                        this.AddTile(new Tile(MakePictureBox(grass_light, new Point(x * TileSize.Width, y * TileSize.Width))));
                     }
                     else if (tiles[y][x] < 0.65)
                     {
-                        this.AddTile(new Tile(MakePictureBox(grass_dark, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
+                        this.AddTile(new Tile(MakePictureBox(grass_dark, new Point(x * TileSize.Width, y * TileSize.Width))));
                     }
                     else if (tiles[y][x] < 0.7)
                     {
-                        this.AddTile(new Tile(MakePictureBox(cobble_moss, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
+                        this.AddTile(new Tile(MakePictureBox(cobble_moss, new Point(x * TileSize.Width, y * TileSize.Width))));
                     }
                     else if (tiles[y][x] < 0.72)
                     {
-                        this.AddTile(new Tile(MakePictureBox(cobblestone, new Point(x * this.TileSize.Width, y * this.TileSize.Width))));
+                        this.AddTile(new Tile(MakePictureBox(cobblestone, new Point(x * TileSize.Width, y * TileSize.Width))));
                     }
                     else if (tiles[y][x] < 75)
                     {
-                        this.AddTile(new Tile(MakePictureBox(stone_bricks, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.Speed));
+                        this.AddTile(new Tile(MakePictureBox(stone_bricks, new Point(x * TileSize.Width, y * TileSize.Width)), Tile.EffectType.Speed));
                     }
                     else
                     {
-                        this.AddTile(new Tile(MakePictureBox(bricks, new Point(x * this.TileSize.Width, y * this.TileSize.Width)), Tile.EffectType.Speed));
+                        this.AddTile(new Tile(MakePictureBox(bricks, new Point(x * TileSize.Width, y * TileSize.Width)), Tile.EffectType.Speed));
                     }
                 }
             }
@@ -163,7 +146,7 @@ namespace Fall2020_CSC403_Project.code
             {
                 Location = location,
                 Image = pic,
-                Size = this.TileSize,
+                Size = TileSize,
                 SizeMode = PictureBoxSizeMode.StretchImage,
             };
         }
