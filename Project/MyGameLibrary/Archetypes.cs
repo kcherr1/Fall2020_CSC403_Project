@@ -131,6 +131,26 @@ namespace Fall2020_CSC403_Project.code
         public void specialMove() { }
     }
 
+    public class Coward : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+
+        public Coward()
+        {
+            baseMaxHealth = 20;
+            baseDefense = 10;
+            baseDamage = 2;
+            baseSpeed = 5;
+            hitMod = 0;
+        }
+
+        public void specialMove() { }
+    }
+
     public class Brute : Archetype
     {
         public int baseMaxHealth { get; }
@@ -169,7 +189,25 @@ namespace Fall2020_CSC403_Project.code
         }
 
         public void specialMove() { }
-    } 
+    }
+
+    public class Bees : Archetype()
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+
+        public Bees()
+        {
+            baseMaxHealth = 10;
+            baseDefense = 18;
+            baseDamage = 1;
+            baseSpeed = 5;
+            hitMod = 5;
+        }
+    }
 
     public class Mage : Archetype
     {
@@ -191,6 +229,26 @@ namespace Fall2020_CSC403_Project.code
         public void specialMove() { }
     }
 
+    public class Whelp : Archetype
+    {
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; }
+
+        public Whelp()
+        {
+            baseMaxHealth = 50;
+            baseDefense = 7;
+            baseDamage = 3;
+            baseSpeed = 3;
+            hitMod = 3;
+        }
+
+        public void specialMove() { }
+    }
+
     public class Boss : Archetype
     {
         public int baseMaxHealth { get; }
@@ -201,7 +259,7 @@ namespace Fall2020_CSC403_Project.code
 
         public Boss()
         {
-            baseMaxHealth = 100;
+            baseMaxHealth = 65;
             baseDefense = 15;
             baseDamage = 10;
             baseSpeed = 5;
