@@ -11,26 +11,21 @@ namespace Fall2020_CSC403_Project.code
     public class Tile
     {
         public EffectType Effect { get; set; }
-        public PictureBox Pic { get; set; }
-        public Collider Collider { get; set; }
-        public Position Position { get; set; }
+        public Image Pic { get; set; }
+        public Point Position { get; set; }
 
 
-        public Tile(PictureBox Pic, EffectType Effect)
+        public Tile(Image Pic, Point Position, EffectType Effect)
         {
             this.Pic = Pic;
-            Pic.SendToBack();
-            this.Collider = new Collider(Pic);
-            this.Position = new Position(Pic);
+            this.Position = Position;
             this.Effect = Effect;
             
         }
-        public Tile(PictureBox Pic)
+        public Tile(Image Pic, Point Position)
         {
             this.Pic = Pic;
-            Pic.SendToBack();
-            this.Collider = new Collider(Pic);
-            this.Position = new Position(Pic);
+            this.Position = Position;
             this.Effect = EffectType.None;
         }
 

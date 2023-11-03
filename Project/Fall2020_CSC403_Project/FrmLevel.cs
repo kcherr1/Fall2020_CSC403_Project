@@ -33,6 +33,9 @@ namespace Fall2020_CSC403_Project
 
         public Area[] Areas;
 
+
+        public PictureBox TerrainPic;
+
         public FrmLevel(Form MainMenu, Player player)
         {
             this.KeyPreview = true;
@@ -48,6 +51,7 @@ namespace Fall2020_CSC403_Project
             this.MainMenu = MainMenu;
 
             this.Areas = new Area[10];
+
         }
 
 
@@ -78,14 +82,26 @@ namespace Fall2020_CSC403_Project
 
             if (this.Areas[Area].Terrain != null)
             {
-                if (this.Areas[Area].Terrain.Tiles != null)
+
+                Bitmap combinedImage = new Bitmap(Terrain.GridWidth * Terrain.TileSize.Width, Terrain.GridHeight * Terrain.TileSize.Width);
+                using(Graphics g = Graphics.FromImage(combinedImage))
                 {
-                    for (int i = 0; i < this.Areas[Area].Terrain.Tiles.Count; i++)
+                    for (int col = 0; col < Terrain.GridWidth; col++)
                     {
-                        this.Controls.Add(this.Areas[Area].Terrain.Tiles[i].Pic);
-                        this.Areas[Area].Terrain.Tiles[i].Pic.SendToBack();
+                        for (int row = 0; row < Terrain.GridHeight; row++)
+                        {
+
+                            int imageIndex = col + Terrain.GridWidth * row;
+
+                            Image image = this.Areas[this.Area].Terrain.Tiles[imageIndex].Pic;
+                            g.DrawImage(image, new Point(col * Terrain.TileSize.Width, row * Terrain.TileSize.Width));
+                        }
                     }
                 }
+                this.BackgroundImage = combinedImage;
+
+
+
                 if (this.Areas[Area].Walls != null)
                 {
                     for (int i = 0; i < this.Areas[Area].Walls.Count; i++)
@@ -370,6 +386,7 @@ namespace Fall2020_CSC403_Project
 
         private void DisposeLevel()
         {
+
             // iterate through the controls and remove them from control
 
             for (int i = 0; i < this.Areas[Area].Enemies.Count; i++)
@@ -379,10 +396,8 @@ namespace Fall2020_CSC403_Project
             this.Areas[Area].Enemies = new List<Enemy> { };
 
 
-            for (int i = 0; i < this.Areas[Area].Terrain.Tiles.Count; i++)
-            {
-                this.Controls.Remove(this.Areas[Area].Terrain.Tiles[i].Pic);
-            }
+            //remove terrain here
+            
             this.Areas[Area].Terrain.Tiles.Clear();
             for (int i = 0; i < this.Areas[Area].Items.Count; i++)
             {

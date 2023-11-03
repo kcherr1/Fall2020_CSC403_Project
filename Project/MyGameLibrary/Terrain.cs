@@ -15,7 +15,7 @@ namespace Fall2020_CSC403_Project.code
     {
         public List<Tile> Tiles { get; set; }
 
-        public static Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Width / 15, Screen.PrimaryScreen.Bounds.Width / 15);
+        public static Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Width / 35, Screen.PrimaryScreen.Bounds.Width / 35);
         public static int GridWidth = Screen.PrimaryScreen.Bounds.Width / TileSize.Width;
         public static int GridHeight = Screen.PrimaryScreen.Bounds.Height / TileSize.Width;
 
@@ -98,58 +98,49 @@ namespace Fall2020_CSC403_Project.code
                 {
                     if (tiles[y][x] < 0.4)
                     {
-                        this.AddTile(new Tile(MakePictureBox(water_grass, new Point(x * TileSize.Width, y * TileSize.Width)), Tile.EffectType.SuperSlowness));
+                        this.AddTile(new Tile(water_grass, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.SuperSlowness));
                     }
                     else if (tiles[y][x] < 0.45)
                     {
-                        this.AddTile(new Tile(MakePictureBox(water_clear, new Point(x * TileSize.Width, y * TileSize.Width)), Tile.EffectType.SuperSlowness));
+                        this.AddTile(new Tile(water_clear, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.SuperSlowness));
                     }
                     else if (tiles[y][x] < 0.47)
                     {
-                        this.AddTile(new Tile(MakePictureBox(sand, new Point(x * TileSize.Width, y * TileSize.Width)), Tile.EffectType.Slowness));
+                        this.AddTile(new Tile(sand, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Slowness));
                     }
                     else if (tiles[y][x] < 0.5)
                     {
-                        this.AddTile(new Tile(MakePictureBox(dirt_path, new Point(x * TileSize.Width, y * TileSize.Width))));
+                        this.AddTile(new Tile(dirt_path, new Point(x * TileSize.Width, y * TileSize.Width)));
                     }
                     else if (tiles[y][x] < 0.55)
                     {
-                        this.AddTile(new Tile(MakePictureBox(grass_light, new Point(x * TileSize.Width, y * TileSize.Width))));
+                        this.AddTile(new Tile(grass_light, new Point(x * TileSize.Width, y * TileSize.Width)));
                     }
                     else if (tiles[y][x] < 0.65)
                     {
-                        this.AddTile(new Tile(MakePictureBox(grass_dark, new Point(x * TileSize.Width, y * TileSize.Width))));
+                        this.AddTile(new Tile(grass_dark, new Point(x * TileSize.Width, y * TileSize.Width)));
                     }
                     else if (tiles[y][x] < 0.7)
                     {
-                        this.AddTile(new Tile(MakePictureBox(cobble_moss, new Point(x * TileSize.Width, y * TileSize.Width))));
+                        this.AddTile(new Tile(cobble_moss, new Point(x * TileSize.Width, y * TileSize.Width)));
                     }
                     else if (tiles[y][x] < 0.72)
                     {
-                        this.AddTile(new Tile(MakePictureBox(cobblestone, new Point(x * TileSize.Width, y * TileSize.Width))));
+                        this.AddTile(new Tile(cobblestone, new Point(x * TileSize.Width, y * TileSize.Width)));
                     }
                     else if (tiles[y][x] < 75)
                     {
-                        this.AddTile(new Tile(MakePictureBox(stone_bricks, new Point(x * TileSize.Width, y * TileSize.Width)), Tile.EffectType.Speed));
+                        this.AddTile(new Tile(stone_bricks, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Speed));
                     }
                     else
                     {
-                        this.AddTile(new Tile(MakePictureBox(bricks, new Point(x * TileSize.Width, y * TileSize.Width)), Tile.EffectType.Speed));
+                        this.AddTile(new Tile(bricks, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Speed));
                     }
                 }
             }
         }
 
-        private PictureBox MakePictureBox(Image pic, Point location)
-        {
-            return new PictureBox
-            {
-                Location = location,
-                Image = pic,
-                Size = TileSize,
-                SizeMode = PictureBoxSizeMode.StretchImage,
-            };
-        }
+
     }
 
 }
