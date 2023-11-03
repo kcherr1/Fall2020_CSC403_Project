@@ -494,33 +494,114 @@ namespace Fall2020_CSC403_Project
 
         private void AreaBoss()
         {
-            throw new NotImplementedException();
+            this.Area = 9;
+
+            if (this.Areas[9] != null)
+            {
+                return;
+            }
+
+            this.Areas[4] = new Area(0000, 0.05);
+
+            this.Areas[4].SetAdjacentArea(Direction.Left, Areas[3]);
+            this.Areas[4].SetAdjacentArea(Direction.Right, Areas[5]);
+            this.Areas[4].SetAdjacentArea(Direction.Up, Areas[7]);
+            this.Areas[4].SetAdjacentArea(Direction.Down, Areas[1]);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
         }
 
         private void Area8()
         {
-            throw new NotImplementedException();
+            this.Area = 8;
+
+            if (this.Areas[8] != null)
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(0000, 0.05);
+
+            this.Areas[this.Area].SetAdjacentArea(Direction.Left, Areas[3]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[5]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Up, Areas[7]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Down, Areas[1]);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
         }
 
         private void Area7()
         {
-            throw new NotImplementedException();
+            this.Area = 7;
+
+            if (this.Areas[7] != null)
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(0000, 0.05);
+
+            this.Areas[this.Area].SetAdjacentArea(Direction.Left, Areas[3]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[5]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Up, Areas[7]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Down, Areas[1]);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
         }
 
         private void Area6()
         {
-            throw new NotImplementedException();
+            this.Area = 6;
+
+            if (this.Areas[6] != null)
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(0000, 0.05);
+
+            this.Areas[this.Area].SetAdjacentArea(Direction.Left, Areas[3]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[5]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Up, Areas[7]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Down, Areas[1]);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
         }
 
         private void Area5()
         {
-            throw new NotImplementedException();
+            this.Area = 5;
+
+            if (this.Areas[5] != null)
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(0000, 0.05);
+
+            this.Areas[this.Area].SetAdjacentArea(Direction.Left, Areas[3]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[5]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Up, Areas[7]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Down, Areas[1]);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
         }
 
         
 
         private void Area4()
         {
+            // leave this here, default case when this.Area is unset.
             this.Area = 4;
 
             if (this.Areas[4] != null)
@@ -553,7 +634,6 @@ namespace Fall2020_CSC403_Project
 
         private void Area3()
         {
-            this.Area = 3;
 
             if (this.Areas[3] != null) { }
             {
@@ -584,17 +664,76 @@ namespace Fall2020_CSC403_Project
 
         private void Area2()
         {
-            throw new NotImplementedException();
+            if (this.Areas[3] != null) { }
+            {
+                return;
+            }
+
+            this.Areas[4] = new Area(0000, 0.05);
+
+            this.Areas[4].SetAdjacentArea(Direction.Left, Areas[3]);
+            this.Areas[4].SetAdjacentArea(Direction.Right, Areas[5]);
+            this.Areas[4].SetAdjacentArea(Direction.Up, Areas[7]);
+            this.Areas[4].SetAdjacentArea(Direction.Down, Areas[1]);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
         }
 
         private void Area1()
         {
-            throw new NotImplementedException();
+
+            if (this.Areas[1] != null) { }
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(0000, 0.05);
+
+            this.Areas[this.Area].SetAdjacentArea(Direction.Left, Areas[1]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[1]);
+            this.Areas[this.Area].SetAdjacentArea(Direction.Up, Areas[0]);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
         }
 
         private void Area0()
         {
-            throw new NotImplementedException();
+
+            if (this.Areas[this.Area] != null) { }
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(0000, 0.05);
+
+            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[1]);
+            this.Areas[0].SetAdjacentArea(Direction.Up, Areas[3]);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
+        }
+
+
+        private void setAdjacency()
+        {
+            int up = this.Area > 5 ? -1 : this.Area + 3;
+            int down = this.Area < 3 ? -1 : this.Area - 3;
+            int let = this.Area % 3 == 0 ? -1 : this.Area - 1;
+            int right = this.Area % 3 == 2 ? -1 : this.Area + 1;
+
+            if (up >= 0)
+            {
+                this.Areas[this.Area].SetAdjacentArea(Direction.Up, this.Areas[down]);
+            }
+            if (down >= 0)
+            {
+                this.Areas[this.Area].SetAdjacentArea(Direction.Down, this.Areas[down]);
+            }
         }
     }
 }
