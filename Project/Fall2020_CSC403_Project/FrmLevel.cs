@@ -2,6 +2,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Fall2020_CSC403_Project.item_system;
+using Fall2020_CSC403_Project.item_system.interfaces;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -15,20 +17,21 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     public Panel uiPanel;
+  
 
 
-    public FrmLevel() 
+        public FrmLevel() 
         {
       InitializeComponent();
         }
 
 
-      private void FrmLevel_Load(object sender, EventArgs e) 
+        private void FrmLevel_Load(object sender, EventArgs e) 
       {
-            
-
+          
           const int PADDING = 7;
           const int NUM_WALLS = 13;
+            
 
           player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
           bossChatgpt = new Enemy(CreatePosition(picBossChatgpt), CreateCollider(picBossChatgpt, PADDING));
@@ -49,11 +52,13 @@ namespace Fall2020_CSC403_Project {
           enemyPoisonPacket.Name = "poisonPacket";
           enemyCheeto.Name = "cheeto";
 
-          picPlayer.Focus();
 
-      
+          // Still works here, and Enemy and Player are both accessible. I mean, it would be accessible elsewhere
+          //InstantiateItem("HealthPotion", this);
 
-          walls = new Character[NUM_WALLS];
+
+
+            walls = new Character[NUM_WALLS];
           for (int w = 0; w < NUM_WALLS; w++) {
             PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
             walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
@@ -81,7 +86,8 @@ namespace Fall2020_CSC403_Project {
       TimeSpan span = DateTime.Now - timeBegin;
       string time = span.ToString(@"hh\:mm\:ss");
       lblInGameTime.Text = "Time: " + time.ToString();
-    }
+
+        }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) 
     {
@@ -171,5 +177,6 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
+        
     }
 }

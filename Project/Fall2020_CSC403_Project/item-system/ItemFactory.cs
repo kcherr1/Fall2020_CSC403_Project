@@ -9,12 +9,15 @@ namespace Fall2020_CSC403_Project.item_system
 {
     public class ItemFactory
     {
-        public IItem CreateItem(string itemType) 
+        
+        public IItem GetItem(string itemType, FrmLevel frmLevel)
         {
+
             switch (itemType) 
             {
                 case "HealthPotion":
-                    return new HealthPotion();
+
+                    return new HealthPotion(frmLevel);
 
                 case "WallBoom":
                     return new WallBoom();
@@ -26,6 +29,7 @@ namespace Fall2020_CSC403_Project.item_system
                 default:
                     throw new ArgumentException("invalid item type");
             }
+
         }
     }
 }

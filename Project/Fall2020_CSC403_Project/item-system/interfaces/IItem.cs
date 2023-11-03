@@ -9,10 +9,10 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
 {
     public interface IItem
     {
-        string Name { get; }
+        string itemName { get; }
+        void InitializeComponent(FrmLevel frmLevel);
         //void ExecuteEffect(Player player, Enemy enemy, List<Wall> walls);
-
-        void RandomlyMove();
+        void AI();
         // make the item randomly move
         // look into what makes the picture move..i guess its the picture itself of the enemy
         // So I'll need to add that parameter into randomly move when I figure out where i'll want to call it.
@@ -22,4 +22,5 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
         // When to generate the newItem? I guess it can be randomly located on the map, randomly generated based on time/tmr, and randomly destroyed
         //  based on random #secs
     }
+
 }
