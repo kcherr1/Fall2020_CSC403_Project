@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Archetypes.cs" />
+    <Compile Include="Area.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Collider.cs" />
@@ -53,7 +54,6 @@
     <Compile Include="Game.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="Area.cs" />
     <Compile Include="NPC.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,18 +102,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tile_water_grassy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\rogue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Swordsman.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tank.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
