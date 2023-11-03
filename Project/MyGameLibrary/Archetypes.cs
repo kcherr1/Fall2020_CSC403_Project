@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project.code
 {
     public interface Archetype
     {
+        string name { get; }
         int baseMaxHealth { get; }
         int baseDefense { get; }
         int baseDamage { get; }
@@ -31,6 +32,7 @@ namespace Fall2020_CSC403_Project.code
 
     public class Tank : Archetype
     {
+        public string name { get; }
         public int baseMaxHealth { get; }
         public int baseDefense { get; }
         public int baseDamage { get; }
@@ -39,6 +41,7 @@ namespace Fall2020_CSC403_Project.code
 
         public Tank()
         {
+            name = "Tank";
             baseMaxHealth = 100;
             baseDefense = 10;
             baseDamage = 2;
@@ -49,6 +52,7 @@ namespace Fall2020_CSC403_Project.code
 
     public class Rogue : Archetype
     {
+        public string name { get; }
         public int baseMaxHealth { get; }
         public int baseDefense { get; }
         public int baseDamage { get; }
@@ -57,6 +61,7 @@ namespace Fall2020_CSC403_Project.code
 
         public Rogue()
         {
+            name = "Rogue";
             baseMaxHealth = 20;
             baseDefense = 10;
             baseDamage = 10;
@@ -67,6 +72,7 @@ namespace Fall2020_CSC403_Project.code
 
     public class Swordsman : Archetype
     {
+        public string name { get; }
         public int baseMaxHealth { get; }
         public int baseDefense { get; }
         public int baseDamage { get; }
@@ -75,6 +81,7 @@ namespace Fall2020_CSC403_Project.code
 
         public Swordsman()
         {
+            name = "swordsman";
             baseMaxHealth = 50;
             baseDefense = 10;
             baseDamage = 8;
@@ -85,6 +92,7 @@ namespace Fall2020_CSC403_Project.code
 
     public class Minion : Archetype
     {
+        public string name { get; }
         public int baseMaxHealth { get; }
         public int baseDefense { get; }
         public int baseDamage { get; }
@@ -93,6 +101,7 @@ namespace Fall2020_CSC403_Project.code
 
         public Minion()
         {
+            name = "Minion";
             baseMaxHealth = 20;
             baseDefense = 10;
             baseDamage = 5;
@@ -103,6 +112,7 @@ namespace Fall2020_CSC403_Project.code
 
     public class Boss : Archetype
     {
+        public string name { get; }
         public int baseMaxHealth { get; }
         public int baseDefense { get; }
         public int baseDamage { get; }
@@ -111,6 +121,7 @@ namespace Fall2020_CSC403_Project.code
 
         public Boss()
         {
+            name = "Boss";
             baseMaxHealth = 100;
             baseDefense = 18;
             baseDamage = 10;

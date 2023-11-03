@@ -12,6 +12,8 @@ using System.Threading;
 using System.Media;
 using System.Text.Json;
 using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace Fall2020_CSC403_Project
 {
@@ -399,25 +401,71 @@ namespace Fall2020_CSC403_Project
             MainMenuButton.Visible = true;
             MainMenuButton.BringToFront();
 
-            RecordData();
+            RecordLeaderboardData();
 
             gameAudio.Stop();
         }
 
-        private void RecordData()
+        private void RecordLeaderboardData()
         {
-            int[] TopScores = new int[10];
-            for (int i = 0; i < TopScores.Length; i++)
+            string filepath = "../../data/LeaderboardData.json";
+            string[] text = File.ReadAllLines(filepath);
+
+            string playerText = text[0];
+            string classText = text[1];
+            string scoresText = text[2];
+            string weaponText = text[3];
+            string armorText = text[4];
+            string utilityText = text[5];
+
+            List<String> topPlayers = JsonSerializer.Deserialize<List<String>>(playerText);
+            List<String> topClasses = JsonSerializer.Deserialize<List<String>>(classText);
+            List<int> topScores = JsonSerializer.Deserialize<List<int>>(scoresText);
+            List<String> topWeapons = JsonSerializer.Deserialize<List<String>>(weaponText);
+            List<String> topArmors = JsonSerializer.Deserialize<List<String>>(armorText);
+            List<String> topUtilities = JsonSerializer.Deserialize<List<String>>(utilityText);
+
+            for (int i = 0; i < topScores.Count; i++)
             {
-                if(score > TopScores[i])
+                if (score > topScores[i])
                 {
-                    TopScores[i] = score;
+                    topPlayers.Insert(i, player.Name);
+                    topPlayers.RemoveAt(topPlayers.Count - 1);
+                    topClasses.Insert(i, player.archetype.name);
+                    topClasses.RemoveAt(topClasses.Count - 1);
+                    topScores.Insert(i, score);
+                    topScores.RemoveAt(topScores.Count - 1);
+                    if(player.Inventory.Weapon != null)
+                    {
+                        topWeapons.Insert(i, player.Inventory.Weapon.Name);
+                        topWeapons.RemoveAt(topWeapons.Count - 1);
+                    }
+                    if (player.Inventory.Armor != null)
+                    {
+                        topArmors.Insert(i, player.Inventory.Armor.Name);
+                        topArmors.RemoveAt(topArmors.Count - 1);
+                    }
+                    if (player.Inventory.Utility != null)
+                    {
+                        topUtilities.Insert(i, player.Inventory.Utility.Name);
+                        topUtilities.RemoveAt(topUtilities.Count - 1);
+                    }
                     break;
                 }
             }
-            string filepath = "../../data/GameData.json";
-            string data = JsonSerializer.Serialize(TopScores);
-            File.WriteAllText(filepath, data);
+            string[] data = new string[6];
+            data[0] = JsonSerializer.Serialize(topPlayers);
+            data[1] = JsonSerializer.Serialize(topClasses);
+            data[2] = JsonSerializer.Serialize(topScores);
+            data[3] = JsonSerializer.Serialize(topWeapons);
+            data[4] = JsonSerializer.Serialize(topArmors);
+            data[5] = JsonSerializer.Serialize(topUtilities);
+
+            Console.WriteLine(data[0]);
+            Console.WriteLine(data[1]);
+            Console.WriteLine(data[2]);
+            Console.WriteLine(data[3]);
+            File.WriteAllLines(filepath, data);
         }
 
 

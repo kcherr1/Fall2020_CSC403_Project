@@ -20,6 +20,9 @@ namespace MyGameLibrary
         public Inventory()
         {
             this.Backpack = new Item[9];
+            this.Weapon = null;
+            this.Armor = null;
+            this.Utility = null;
         }
 
         public Inventory(Item Weapon, Item Armor, Item Utility, Item[] Backpack)
