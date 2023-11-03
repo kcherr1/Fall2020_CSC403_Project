@@ -17,7 +17,7 @@ namespace MyGameLibrary
         public List<Item> Items { get; set; }
         public List<Wall> Walls { get; set; }
 
-        public Dictionary<Direction, Area> AdjacentAreas { get; set; }
+        public Dictionary<Direction, int> AdjacentAreas { get; set; }
 
         public Terrain Terrain;
 
@@ -28,7 +28,7 @@ namespace MyGameLibrary
             Enemies = new List<Enemy>();
             Items = new List<Item>();
             Walls = new List<Wall>();
-            AdjacentAreas = new Dictionary<Direction, Area>();
+            AdjacentAreas = new Dictionary<Direction, int>();
         }
         public void AddWall(Wall wall)
         {
@@ -46,7 +46,7 @@ namespace MyGameLibrary
             this.Enemies.Add(enemy);
         }
 
-        public void SetAdjacentArea(Direction direction, Area area)
+        public void SetAdjacentArea(Direction direction, int area)
         {
             this.AdjacentAreas[direction] = area;
         }

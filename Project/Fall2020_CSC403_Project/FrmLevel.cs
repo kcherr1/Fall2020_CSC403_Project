@@ -316,7 +316,7 @@ namespace Fall2020_CSC403_Project
         {
             this.gameOver = true;
             this.player.SetEntityPosition(new Position(-100, -100));
-            
+
 
             DisposeLevel();
 
@@ -501,12 +501,9 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[4] = new Area(0000, 0.05);
+            this.Areas[4] = new Area(123, 0.2);
 
-            this.Areas[4].SetAdjacentArea(Direction.Left, Areas[3]);
-            this.Areas[4].SetAdjacentArea(Direction.Right, Areas[5]);
-            this.Areas[4].SetAdjacentArea(Direction.Up, Areas[7]);
-            this.Areas[4].SetAdjacentArea(Direction.Down, Areas[1]);
+            setAdjacency(this.Area);
 
 
             player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
@@ -522,12 +519,9 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[this.Area] = new Area(0000, 0.05);
+            this.Areas[this.Area] = new Area(234, 0.05);
 
-            this.Areas[this.Area].SetAdjacentArea(Direction.Left, Areas[3]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[5]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Up, Areas[7]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Down, Areas[1]);
+            setAdjacency(this.Area);
 
 
             player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
@@ -543,12 +537,9 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[this.Area] = new Area(0000, 0.05);
+            this.Areas[this.Area] = new Area(345, 0.05);
 
-            this.Areas[this.Area].SetAdjacentArea(Direction.Left, Areas[3]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[5]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Up, Areas[7]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Down, Areas[1]);
+            setAdjacency(this.Area);
 
 
             player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
@@ -564,12 +555,9 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[this.Area] = new Area(0000, 0.05);
+            this.Areas[this.Area] = new Area(456, 0.05);
 
-            this.Areas[this.Area].SetAdjacentArea(Direction.Left, Areas[3]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[5]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Up, Areas[7]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Down, Areas[1]);
+            setAdjacency(this.Area);
 
 
             player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
@@ -585,19 +573,16 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[this.Area] = new Area(0000, 0.05);
+            this.Areas[this.Area] = new Area(567, 0.05);
 
-            this.Areas[this.Area].SetAdjacentArea(Direction.Left, Areas[3]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[5]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Up, Areas[7]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Down, Areas[1]);
+            setAdjacency(this.Area);
 
 
             player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
             player.Pic.Visible = true;
         }
 
-        
+
 
         private void Area4()
         {
@@ -609,12 +594,9 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[4] = new Area(0000, 0.05);
+            this.Areas[this.Area] = new Area(678, 0.05);
 
-            this.Areas[4].SetAdjacentArea(Direction.Left, Areas[3]);
-            this.Areas[4].SetAdjacentArea(Direction.Right, Areas[5]);
-            this.Areas[4].SetAdjacentArea(Direction.Up, Areas[7]);
-            this.Areas[4].SetAdjacentArea(Direction.Down, Areas[1]);
+            setAdjacency(this.Area);
 
 
             player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
@@ -640,25 +622,14 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[3] = new Area(5, 0.05);
+            this.Areas[3] = new Area(789, 0.05);
 
-            this.Areas[3].SetAdjacentArea(Direction.Right, Areas[4]);
-            this.Areas[3].SetAdjacentArea(Direction.Up, Areas[6]);
-            this.Areas[3].SetAdjacentArea(Direction.Down, Areas[0]);
+            setAdjacency(this.Area);
 
 
             player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
             player.Pic.Visible = true;
 
-
-            this.Areas[3].AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), itemSize), 5, Item.ItemType.Weapon));
-            this.Areas[3].AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), itemSize), 5, Item.ItemType.Utility, Item.PotionTypes.Healing));
-            this.Areas[3].AddItem(new Item("Armor of Noob", MakePictureBox(Resources.common_armor, new Point(880, 800), itemSize), 5, Item.ItemType.Armor));
-            this.Areas[3].AddItem(new Item("Potion of Speed", MakePictureBox(Resources.speed_potion, new Point(20, 400), itemSize), 10, Item.ItemType.Utility, Item.PotionTypes.Speed));
-
-            this.Areas[3].AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Minion()));
-            this.Areas[3].AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
-            this.Areas[3].AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
 
         }
 
@@ -669,12 +640,9 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[4] = new Area(0000, 0.05);
+            this.Areas[4] = new Area(890, 0.05);
 
-            this.Areas[4].SetAdjacentArea(Direction.Left, Areas[3]);
-            this.Areas[4].SetAdjacentArea(Direction.Right, Areas[5]);
-            this.Areas[4].SetAdjacentArea(Direction.Up, Areas[7]);
-            this.Areas[4].SetAdjacentArea(Direction.Down, Areas[1]);
+            setAdjacency(this.Area);
 
 
             player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
@@ -689,11 +657,9 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[this.Area] = new Area(0000, 0.05);
+            this.Areas[this.Area] = new Area(901, 0.05);
 
-            this.Areas[this.Area].SetAdjacentArea(Direction.Left, Areas[1]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[1]);
-            this.Areas[this.Area].SetAdjacentArea(Direction.Up, Areas[0]);
+            setAdjacency(this.Area);
 
 
             player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
@@ -708,31 +674,37 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
-            this.Areas[this.Area] = new Area(0000, 0.05);
+            this.Areas[this.Area] = new Area(12, 0.05);
 
-            this.Areas[this.Area].SetAdjacentArea(Direction.Right, Areas[1]);
-            this.Areas[0].SetAdjacentArea(Direction.Up, Areas[3]);
-
+            setAdjacency(this.Area);
 
             player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
             player.Pic.Visible = true;
         }
 
 
-        private void setAdjacency()
+        private void setAdjacency(int area)
         {
-            int up = this.Area > 5 ? -1 : this.Area + 3;
-            int down = this.Area < 3 ? -1 : this.Area - 3;
-            int let = this.Area % 3 == 0 ? -1 : this.Area - 1;
-            int right = this.Area % 3 == 2 ? -1 : this.Area + 1;
+            int up = area > 5 ? -1 : area + 3;
+            int down = area < 3 ? -1 : area - 3;
+            int left = area % 3 == 0 ? -1 : area - 1;
+            int right = area % 3 == 2 ? -1 : area + 1;
 
             if (up >= 0)
             {
-                this.Areas[this.Area].SetAdjacentArea(Direction.Up, this.Areas[down]);
+                this.Areas[area].SetAdjacentArea(Direction.Up, up);
             }
             if (down >= 0)
             {
-                this.Areas[this.Area].SetAdjacentArea(Direction.Down, this.Areas[down]);
+                this.Areas[area].SetAdjacentArea(Direction.Down, down);
+            }
+            if (left >= 0)
+            {
+                this.Areas[area].SetAdjacentArea(Direction.Left, left);
+            }
+            if (right >= 0)
+            {
+                this.Areas[area].SetAdjacentArea(Direction.Right, right);
             }
         }
     }
