@@ -17,6 +17,7 @@ namespace Fall2020_CSC403_Project
     {
         private Player player;
         private List<Enemy> enemies;
+        private List<NPC> npcs;
         private Terrain terrain;
 
         private Form MainMenu;
@@ -58,6 +59,7 @@ namespace Fall2020_CSC403_Project
 
             this.terrain = new Terrain(grid_width, grid_height, TileSize);
             enemies = new List<Enemy> { };
+            npcs = new List<NPC> { };
 
             LevelSelect();
 
@@ -119,6 +121,15 @@ namespace Fall2020_CSC403_Project
                 {
                     this.Controls.Add(enemies[i].Pic);
                     enemies[i].Pic.BringToFront();
+                }
+            }
+
+            if(npcs != null)
+            {
+                for (int i = 0; i < npcs.Count; i++)
+                {
+                    this.Controls.Add(npcs[i].Pic);
+                    npcs[i].Pic.BringToFront();
                 }
             }
 
@@ -212,13 +223,22 @@ namespace Fall2020_CSC403_Project
             }
 
             // check collision with enemies
-            int x = HitAChar(player);
+            int x = hitEnemy(player);
             if (x >= 0)
             {
                 Fight(enemies[x]);
                 Controls.Remove(enemies[x].Pic);
                 enemies.Remove(enemies[x]);
 
+            }
+
+            // check collision with NPCs
+            int npcIndex = hitNPC(player);
+            if (npcIndex >= 0)
+            {
+                Converse(npcs[npcIndex]);
+                Controls.Remove(npcs[npcIndex].Pic);
+                npcs.Remove(npcs[npcIndex]);
             }
 
             x = HitAnItem(player);
@@ -254,7 +274,7 @@ namespace Fall2020_CSC403_Project
             return hitAWall;
         }
 
-        private int HitAChar(Player you)
+        private int hitEnemy(Player you)
         {
             if (enemies == null)
             {
@@ -266,6 +286,27 @@ namespace Fall2020_CSC403_Project
                 if (enemies[i] != null)
                 {
                     if (you.Collider.Intersects(enemies[i].Collider))
+                    {
+                        hitChar = i;
+                        break;
+                    }
+                }
+            }
+            return hitChar;
+        }
+
+        private int hitNPC(Player you)
+        {
+            if(npcs == null)
+            {
+                return -1;
+            }
+            int hitChar = -1;
+            for (int i = 0; i < npcs.Count; i++)
+            {
+                if (npcs[i] != null)
+                {
+                    if (you.Collider.Intersects(npcs[i].Collider))
                     {
                         hitChar = i;
                         break;
@@ -317,6 +358,23 @@ namespace Fall2020_CSC403_Project
             if (enemy.Name == "BossKoolAid")
             {
                 frmBattle.SetupForBossBattle();
+            }
+        }
+
+        private void Converse(NPC npc)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+
+            // TODO: Insert conversation mechanic here
+
+            if(player.isPartyFull())
+            {
+                Console.WriteLine("PARTY IS FULL NOTIFICATION");
+            }
+            else
+            {
+                player.addPartyMember(npc);
             }
         }
 
@@ -385,6 +443,12 @@ namespace Fall2020_CSC403_Project
             }
             this.enemies = new List<Enemy> { };
 
+            for (int i = 0; i < this.npcs.Count; i++)
+            {
+                this.Controls.Remove(this.npcs[i].Pic);
+            }
+            this.npcs = new List<NPC> { };
+
 
             for (int i = 0; i < this.terrain.Tiles.Count; i++)
             {
@@ -407,6 +471,11 @@ namespace Fall2020_CSC403_Project
         private void AddEnemy(Enemy enemy)
         {
             enemies.Add(enemy);
+        }
+
+        private void AddNPC(NPC npc)
+        {
+            npcs.Add(npc);
         }
 
         private void Menu_Click(object sender, EventArgs e)
@@ -486,6 +555,8 @@ namespace Fall2020_CSC403_Project
             AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Minion()));
             AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
             AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
+
+            AddNPC(new NPC("Harold", MakePictureBox(Resources.tank, new Point(150, 150), new Size(100, 100)), new Healer()));
         }
     }
 }
