@@ -12,7 +12,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossChatgpt;
     private Enemy enemyCheeto;
-    private Character[] walls;
+    public Character[] walls;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -53,8 +53,14 @@ namespace Fall2020_CSC403_Project {
           enemyCheeto.Name = "cheeto";
 
 
-          // Still works here, and Enemy and Player are both accessible. I mean, it would be accessible elsewhere
-          InstantiateItem("PeanutPotion", this);
+            // Still works here, and Enemy and Player are both accessible. I mean, it would be accessible elsewhere
+            IItem rpot = InstantiateItem("RandomPotion", this, 767, 354);
+            IItem rpot2 = InstantiateItem("RandomPotion", this, 667, 354);
+            
+
+
+
+
 
 
 
@@ -64,7 +70,9 @@ namespace Fall2020_CSC403_Project {
             walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
           }
 
-          Game.player = player;
+          rpot2.ExecuteEffect(this);
+
+            Game.player = player;
           timeBegin = DateTime.Now;
       }
 
@@ -94,10 +102,18 @@ namespace Fall2020_CSC403_Project {
       // move player
       player.Move();
 
-      // check collision with walls
-      if (HitAWall(player)) {
-        player.MoveBack();
-      }
+            // check collision with walls
+            try 
+            {
+                if (HitAWall(player))
+                {
+                    player.MoveBack();
+                }
+            }
+            catch 
+            {
+
+            }
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
@@ -118,12 +134,22 @@ namespace Fall2020_CSC403_Project {
 
     private bool HitAWall(Character c) {
       bool hitAWall = false;
-      for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
-          hitAWall = true;
-          break;
-        }
-      }
+            try 
+            {
+                for (int w = 0; w < walls.Length; w++)
+                {
+                    if (c.Collider.Intersects(walls[w].Collider))
+                    {
+                        hitAWall = true;
+                        break;
+                    }
+                }
+            }
+            catch 
+            {
+
+            }
+      
       return hitAWall;
     }
 

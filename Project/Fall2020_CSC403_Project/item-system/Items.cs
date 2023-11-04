@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,44 +10,89 @@ using Fall2020_CSC403_Project.item_system.interfaces;
 
 namespace Fall2020_CSC403_Project.item_system
 {
-    public class PeanutPotion : IItem
+
+    public class RandomPotion : AbstractItem, IItem
     {
-        public string itemName => "Peanut Potion";
+        public string itemName => "Random Potion";
+        public Collider collider { get; set; }
+        public Vector2 initPos { get; set; }
+        //private FrmLevel frmLevelAtItem;
+        
 
-        public System.Windows.Forms.PictureBox picItem;
-        /*public void ExecuteEffect(Player player, Enemy enemy, List<Wall> walls)
+
+        public RandomPotion(FrmLevel frmLevel, int numItems, int locXatLvl, int locYatLvl)
         {
-            player.Health += 10;
-            if (player.Health >= player.MaxHealth)
+            // Non unique methods(implemented the same for all items) are called from the AbsractItem class
+            //InitializeComponent(frmLevel, NUM_ITEMS, global::Fall2020_CSC403_Project.Properties.Resources.RandomPotion, 767, 354, "RandomItem", 50, 50, 18);
+            InitializeComponent(frmLevel, numItems, global::Fall2020_CSC403_Project.Properties.Resources.RandomPotion, locXatLvl, locYatLvl, "RandomItem", 50, 50, 18);
+            initPos = CreatePosition(picItem);
+            collider = CreateCollider(picItem, 7);
+
+            // We need frmLevel accessible in other methods here, so we either need to keep track of it here,
+            //  or pass frmLevel directly into it from RandomPotion.myMethod(FrmLevel frmLevel)
+            //frmLevelAtItem = frmLevel;
+
+        }
+
+        // Unique Implementations for each Item are required by the interface.
+        //public void ExecuteEffect(FrmLevel frmLevel, Player player, Enemy enemy)
+        public void ExecuteEffect(FrmLevel frmLevel)
+        {
+            // remove all walls from map (or make them all non enabled or something
+            // also execute a battle_screen type popup with a boom that disappears shortly after
+            for (int w = 0; w < 13; w++)
             {
-                player.Health = player.MaxHealth;
+                PictureBox pic = frmLevel.Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+                pic.Visible = false;
+                frmLevel.walls[w] = null; // In order to null this, checks for the walls need to have try catch in case the walls no longer exist!
+                
+                //pic.Dispose();
+
+
+                //walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
-        }*/
+            
 
-        public PeanutPotion(FrmLevel frmLevel) 
-        {
-            InitializeComponent(frmLevel);
-        }
-        public void InitializeComponent(FrmLevel frmLevel)
-        {
-            picItem = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(picItem)).BeginInit();
-            frmLevel.SuspendLayout();
-            picItem.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
-            picItem.Location = new System.Drawing.Point(801, 387);
-            picItem.Name = "picItem";
-            picItem.Size = new System.Drawing.Size(100, 50);
-            picItem.TabIndex = 18;
-            picItem.TabStop = false;
-            frmLevel.Controls.Add(picItem);
-            ((System.ComponentModel.ISupportInitialize)(picItem)).EndInit();
-            frmLevel.ResumeLayout(false);
-        }
 
+        }
         /*public void ExecuteEffect(Player player, Enemy enemy, List<Wall> walls)
         {
             // remove all walls from map (or make them all non enabled or something
             // also execute a battle_screen type popup with a boom that disappears shortly after
+        }*/
+
+        /*void GetItemControls() 
+        {
+            items = new Character[NUM_ITEMS];
+            for (int w = 0; w < NUM_ITEMS; w++)
+            {
+                PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+            }
+        private bool ItemIsHit(Character c)
+        {
+            bool hitAnItem = false;
+            walls = new Character[NUM_WALLS];
+          for (int w = 0; w < NUM_WALLS; w++) {
+            PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+            walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+            for (int w = 0; w < walls.Length; w++)
+            {
+                if (c.Collider.Intersects(walls[w].Collider))
+                {
+                    hitAWall = true;
+                    break;
+                }
+            }
+            return hitAWall;
+        }
+        void PlaceHolder(Player player) 
+        {
+            if (ItemIsHit()) 
+            {
+                player.ResetMoveSpeed();
+                player.MoveBack();
+            }
         }*/
 
         public void AI() 
@@ -55,16 +101,18 @@ namespace Fall2020_CSC403_Project.item_system
         }
     }
 
-    public class WallBoom : IItem
+    /*public class WallBoom : IItem
     {
         public string itemName => "Wall Boom";
-        
-        
+        public Collider collider { get; set; }
+        public Vector2 initPos { get; set; }
+
+
         public void InitializeComponent(FrmLevel frmLvl) 
         {
             
         }
-        /*public void ExecuteEffect(Player player, Enemy enemy, List<Wall> walls)
+        *//*public void ExecuteEffect(Player player, Enemy enemy, List<Wall> walls)
         {
             // remove all walls from map (or make them all non enabled or something
             // also execute a battle_screen type popup with a boom that disappears shortly after
@@ -85,7 +133,7 @@ namespace Fall2020_CSC403_Project.item_system
             frmLvl.picWall11.Visible = false;
             frmLvl.picWall12.Visible = false;
             frmLvl.picWall13.Visible = false;
-        }*/
+        }*//*
 
         public void AI()
         {
@@ -96,12 +144,14 @@ namespace Fall2020_CSC403_Project.item_system
     public class Enemy1Boom: IItem
     {
         public string itemName => "Enemy Boom";
+        public Collider collider { get; set; }
+        public Vector2 initPos { get; set; }
         public void InitializeComponent(FrmLevel frmLvl)
         {
 
         }
 
-        /*public void ExecuteEffect(Player player, Enemy enemy, List<Wall> walls)
+        *//*public void ExecuteEffect(Player player, Enemy enemy, List<Wall> walls)
         {
             // (remove enemy 1 from map)
             
@@ -117,10 +167,10 @@ namespace Fall2020_CSC403_Project.item_system
                     frmLvl.picEnemyCheeto.Visible = false;
                     frmLvl.picEnemyCheeto.Enabled = false;
                 }
-        }*/
+        }*//*
         public void AI()
         {
             
         }
-    }
+    }*/
 }

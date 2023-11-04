@@ -10,8 +10,12 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
     public interface IItem
     {
         string itemName { get; }
-        void InitializeComponent(FrmLevel frmLevel);
+        Collider collider { get; set; }
+        Vector2 initPos { get; set; }
+        //void InitializeComponent(FrmLevel frmLevel);
+
         //void ExecuteEffect(Player player, Enemy enemy, List<Wall> walls);
+        void ExecuteEffect(FrmLevel frmLevel);
         void AI();
         // make the item randomly move
         // look into what makes the picture move..i guess its the picture itself of the enemy

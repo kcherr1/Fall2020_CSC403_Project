@@ -51,7 +51,6 @@ namespace Fall2020_CSC403_Project {
             this.picWall1 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
-            //this.picItem = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -69,7 +68,6 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.picItem)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -300,15 +298,6 @@ namespace Fall2020_CSC403_Project {
             this.picWall11.TabIndex = 17;
             this.picWall11.TabStop = false;
             // 
-            // picItem
-            // 
-            //this.picItem.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
-            //this.picItem.Location = new System.Drawing.Point(801, 387);
-            //this.picItem.Name = "picItem";
-            //this.picItem.Size = new System.Drawing.Size(100, 50);
-            //this.picItem.TabIndex = 18;
-            //this.picItem.TabStop = false;
-            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -316,7 +305,6 @@ namespace Fall2020_CSC403_Project {
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
-            //this.Controls.Add(this.picItem);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -361,21 +349,19 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             this.ResumeLayout(false);
-            //InstantiateItem("HealthPotion", this);
             this.PerformLayout();
 
         }
         #endregion
 
-        void InstantiateItem(string itemType, FrmLevel frmLevel)
+        IItem InstantiateItem(string itemType, FrmLevel frmLevel, int locationX, int locationY)
         {
             _factory = new ItemFactory();
-            IItem item = _factory.GetItem(itemType, frmLevel);
-
+            //IItem item = _factory.GetItem(itemType, frmLevel);
+            return _factory.GetItem(itemType, frmLevel, locationX, locationY);
 
             //item.Walk();
         }
-
 
     //private System.Windows.Forms.PictureBox picItem;
     private ItemFactory _factory;

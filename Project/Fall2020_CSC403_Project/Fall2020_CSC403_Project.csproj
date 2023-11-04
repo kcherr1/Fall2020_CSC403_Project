@@ -110,6 +110,7 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="item-system\interfaces\AbstractItem.cs" />
     <Compile Include="item-system\interfaces\IItem.cs" />
     <Compile Include="item-system\ItemFactory.cs" />
     <Compile Include="item-system\Items.cs" />
@@ -180,6 +181,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\RandomPotion.png" />
     <None Include="data\battle_screen_ramboVScgpt.png" />
     <None Include="data\cgptSingsWorldTakeover.wav" />
     <None Include="data\cgptBossRapTakeoverwav.wav" />
