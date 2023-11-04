@@ -556,7 +556,7 @@ namespace Fall2020_CSC403_Project
             AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
             AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
 
-            AddNPC(new NPC("Harold", MakePictureBox(Resources.tank, new Point(150, 150), new Size(100, 100)), new Healer()));
+            AddNPC(new NPC("Harold", MakePictureBox(Resources.harold, new Point(150, 150), new Size(75, 100)), new Healer()));
         }
     }
 }
