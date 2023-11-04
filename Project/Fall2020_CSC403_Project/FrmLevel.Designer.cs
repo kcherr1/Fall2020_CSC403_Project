@@ -53,6 +53,11 @@
             this.tmrArrowMove = new System.Windows.Forms.Timer(this.components);
             this.tmrCheetoMove = new System.Windows.Forms.Timer(this.components);
             this.tmrPoisonMove = new System.Windows.Forms.Timer(this.components);
+            this.poisonHealthBar = new System.Windows.Forms.Label();
+            this.playerHealthBar = new System.Windows.Forms.Label();
+            this.cheetoHealthBar = new System.Windows.Forms.Label();
+            this.tmrBoss = new System.Windows.Forms.Timer(this.components);
+            this.bossHealthBar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
@@ -75,7 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picArrow)).BeginInit();
-
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -361,6 +365,52 @@
             this.tmrPoisonMove.Interval = 25;
             this.tmrPoisonMove.Tick += new System.EventHandler(this.tmrPoisonMove_Tick);
             // 
+            // poisonHealthBar
+            // 
+            this.poisonHealthBar.BackColor = System.Drawing.Color.Red;
+            this.poisonHealthBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.poisonHealthBar.ForeColor = System.Drawing.Color.White;
+            this.poisonHealthBar.Location = new System.Drawing.Point(110, 77);
+            this.poisonHealthBar.Name = "poisonHealthBar";
+            this.poisonHealthBar.Size = new System.Drawing.Size(65, 15);
+            this.poisonHealthBar.TabIndex = 3;
+            // 
+            // playerHealthBar
+            // 
+            this.playerHealthBar.BackColor = System.Drawing.Color.Red;
+            this.playerHealthBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerHealthBar.ForeColor = System.Drawing.Color.White;
+            this.playerHealthBar.Location = new System.Drawing.Point(118, 494);
+            this.playerHealthBar.Name = "playerHealthBar";
+            this.playerHealthBar.Size = new System.Drawing.Size(55, 15);
+            this.playerHealthBar.TabIndex = 3;
+            // 
+            // cheetoHealthBar
+            // 
+            this.cheetoHealthBar.BackColor = System.Drawing.Color.Red;
+            this.cheetoHealthBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cheetoHealthBar.ForeColor = System.Drawing.Color.White;
+            this.cheetoHealthBar.Location = new System.Drawing.Point(834, 524);
+            this.cheetoHealthBar.Name = "cheetoHealthBar";
+            this.cheetoHealthBar.Size = new System.Drawing.Size(68, 13);
+            this.cheetoHealthBar.TabIndex = 3;
+            // 
+            // tmrBoss
+            // 
+            this.tmrBoss.Enabled = true;
+            this.tmrBoss.Interval = 25;
+            this.tmrBoss.Tick += new System.EventHandler(this.tmrBoss_Tick);
+            // 
+            // bossHealthBar
+            // 
+            this.bossHealthBar.BackColor = System.Drawing.Color.Red;
+            this.bossHealthBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bossHealthBar.ForeColor = System.Drawing.Color.White;
+            this.bossHealthBar.Location = new System.Drawing.Point(968, 55);
+            this.bossHealthBar.Name = "bossHealthBar";
+            this.bossHealthBar.Size = new System.Drawing.Size(196, 16);
+            this.bossHealthBar.TabIndex = 3;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +419,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
             this.Controls.Add(this.inventoryboard);
+            this.Controls.Add(this.bossHealthBar);
+            this.Controls.Add(this.cheetoHealthBar);
+            this.Controls.Add(this.playerHealthBar);
+            this.Controls.Add(this.poisonHealthBar);
             this.Controls.Add(this.selector);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
@@ -456,6 +510,11 @@
         private System.Windows.Forms.PictureBox selector;
         private System.Windows.Forms.Timer tmrCheetoMove;
         private System.Windows.Forms.Timer tmrPoisonMove;
+        private System.Windows.Forms.Label poisonHealthBar;
+        private System.Windows.Forms.Label playerHealthBar;
+        private System.Windows.Forms.Label cheetoHealthBar;
+        private System.Windows.Forms.Timer tmrBoss;
+        private System.Windows.Forms.Label bossHealthBar;
     }
 }
 

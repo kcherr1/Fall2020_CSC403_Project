@@ -12,7 +12,7 @@ namespace MyGameLibrary
         public bool inFlight = false;
         private const int GO_INC = 6;
 
-        public int Damage = -1;
+        public int Damage = -20;
         public Vector2 Position { get; set; }
         public Collider Collider { get; private set; }
         public Projectile(Vector2 initPos, Collider collider)
@@ -43,7 +43,12 @@ namespace MyGameLibrary
             }
 
             Position = new Vector2(Position.x + xPos, Position.y + yPos);
-            Collider.MovePosition((int)Position.x + xPos, (int)Position.y + yPos);
+            Collider.MovePosition((int)Position.x, (int)Position.y);
+        }
+
+        public void impact(Player p)
+        {
+            Collider.MovePosition((int)p.Position.x, (int)p.Position.y);
         }
     }
 }

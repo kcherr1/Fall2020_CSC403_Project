@@ -11,7 +11,7 @@ namespace Fall2020_CSC403_Project.code
     {
 
         public Inventory inventory;
-        public Player(Vector2 initPos, Collider collider) : base(initPos, collider)
+        public Player(Vector2 initPos, Collider collider, float toughness) : base(initPos, collider, toughness)
         {
             inventory = new Inventory();
         }
