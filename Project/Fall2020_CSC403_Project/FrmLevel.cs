@@ -54,7 +54,7 @@ namespace Fall2020_CSC403_Project {
 
 
           // Still works here, and Enemy and Player are both accessible. I mean, it would be accessible elsewhere
-          //InstantiateItem("HealthPotion", this);
+          InstantiateItem("PeanutPotion", this);
 
 
 

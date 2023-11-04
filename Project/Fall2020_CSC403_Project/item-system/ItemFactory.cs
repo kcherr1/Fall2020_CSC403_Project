@@ -15,9 +15,9 @@ namespace Fall2020_CSC403_Project.item_system
 
             switch (itemType) 
             {
-                case "HealthPotion":
+                case "PeanutPotion":
 
-                    return new HealthPotion(frmLevel);
+                    return new PeanutPotion(frmLevel);
 
                 case "WallBoom":
                     return new WallBoom();

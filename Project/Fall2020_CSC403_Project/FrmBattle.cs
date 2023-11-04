@@ -85,7 +85,7 @@ namespace Fall2020_CSC403_Project
             picEpicBossBattle.Visible = true;
             label3.Visible = true;
 
-            simpleSound.Stop();
+            //simpleSound.Stop();
             simpleSound = new SoundPlayer(Resources.cgptBossRapTakeoverwav);
             simpleSound.PlayLooping();
 

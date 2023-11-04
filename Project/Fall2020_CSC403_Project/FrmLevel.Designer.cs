@@ -1,4 +1,5 @@
-﻿using Fall2020_CSC403_Project.item_system.interfaces;
+﻿
+using Fall2020_CSC403_Project.item_system.interfaces;
 using Fall2020_CSC403_Project.item_system;
 using System.Media;
 using System.Runtime.CompilerServices;
@@ -383,7 +384,7 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
-    private System.Windows.Forms.PictureBox picWall3;
+    public System.Windows.Forms.PictureBox picWall3;
     private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
     private System.Windows.Forms.PictureBox picEnemyCheeto;
     private System.Windows.Forms.PictureBox picWall5;
