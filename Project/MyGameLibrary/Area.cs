@@ -14,6 +14,7 @@ namespace MyGameLibrary
     {
 
         public List<Enemy> Enemies { get; set; }
+        public List<NPC> npcs { get; set; }
         public List<Item> Items { get; set; }
         public List<Wall> Walls { get; set; }
 
@@ -26,6 +27,7 @@ namespace MyGameLibrary
         {
             Terrain = new Terrain(Seed, SeedAmp);
             Enemies = new List<Enemy>();
+            npcs = new List<NPC>();
             Items = new List<Item>();
             Walls = new List<Wall>();
             AdjacentAreas = new Dictionary<Direction, int>();
@@ -44,6 +46,11 @@ namespace MyGameLibrary
         public void AddEnemy(Enemy enemy)
         {
             this.Enemies.Add(enemy);
+        }
+
+        public void AddNPC(NPC npc)
+        {
+            this.npcs.Add(npc);
         }
 
         public void SetAdjacentArea(Direction direction, int area)

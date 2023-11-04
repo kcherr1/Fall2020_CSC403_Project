@@ -34,7 +34,7 @@ namespace MyGameLibrary
                     this.Backpack = Backpack;
                 } else
                 {
-                    throw new Exception("Backpack size limited to 6 Items");
+                    throw new Exception("Backpack size limited to 9 Items");
                 }
             } else
             {
@@ -224,6 +224,39 @@ namespace MyGameLibrary
         public void UseItem()
         {
             this.Utility = null;
+        }
+
+        public bool HasItem(Item item)
+        {
+            for (int i = 0; i < Backpack.Length; i++)
+            {
+                if (Backpack[i] != null)
+                {
+                    if (Backpack[i] == item)
+                    { return true; }
+                }
+            }
+            return false;
+        }
+
+        public void TradeItem(Item item, Character reciever)
+        {
+            if(this.HasItem(item))
+            {
+                if (reciever.Inventory.BackpackIsFull())
+                {
+                    Console.Error.WriteLine("The reciever's backpack is full!");
+                }
+                else
+                {
+                    this.RemoveFromBackpack(item);
+                    reciever.Inventory.AddToBackpack(item);
+                }
+            }
+            else
+            {
+                Console.Error.WriteLine("You do not have that item!");
+            }
         }
 
     }

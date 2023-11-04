@@ -10,23 +10,11 @@ namespace Fall2020_CSC403_Project.code {
   public class Player : Character
     {
         public NPC[] party;
+
         public Player(string name, PictureBox pic, Archetype archetype) : base(name, pic, archetype)
         {
             party = new NPC[3];
 
-        }
-
-        public NPC getPartyMember(string Name)
-        {
-            for (int i = 0; i < party.Length; i++)
-            {
-                if (party[i].Name == Name)
-                {
-                    return party[i];
-                }
-            }
-
-            return null;
         }
 
         public bool isPartyFull()
@@ -52,7 +40,6 @@ namespace Fall2020_CSC403_Project.code {
                     continue;
                 }
             }
-            Console.WriteLine(this.party);
         }
     }
 }

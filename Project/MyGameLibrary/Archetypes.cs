@@ -19,7 +19,7 @@ namespace Fall2020_CSC403_Project.code
         int baseSpeed { get; }
         int hitMod { get; }
 
-        void specialMove();
+        void specialMove(Character target);
     }
 
     public class ArchetypeHandler
@@ -32,6 +32,7 @@ namespace Fall2020_CSC403_Project.code
         }
     }
 
+    // Player Archetypes
     public class Tank : Archetype
     {
         public int baseMaxHealth { get; }
@@ -49,7 +50,7 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 2;
         }
 
-        public void specialMove() {}
+        public void specialMove(Character target) {}
     }
 
     public class Rogue : Archetype
@@ -69,7 +70,9 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 5;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target)
+        {
+        }
     }
 
     public class Swordsman : Archetype
@@ -89,9 +92,10 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 3;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target) { }
     }
-
+    
+    // NPC Archetypes
     public class Healer : Archetype
     {
         public int baseMaxHealth { get; }
@@ -109,9 +113,13 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 3;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target)
+        {
+            target.GiveHealth(target.dice.Next(1, 8) + this.hitMod);
+        }
     }
 
+    // Enemy Archetypes
     public class Minion : Archetype
     {
         public int baseMaxHealth { get; }
@@ -129,7 +137,7 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 0;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target) { }
     }
 
     public class Coward : Archetype
@@ -149,7 +157,7 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 0;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target) { }
     }
 
     public class Brute : Archetype
@@ -169,7 +177,7 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 1;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target) { }
     }
 
     public class Zombie : Archetype
@@ -189,7 +197,7 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 1;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target) { }
     }
 
     public class Bees : Archetype
@@ -209,7 +217,7 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 5;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target) { }
     }
 
     public class Mage : Archetype
@@ -229,7 +237,7 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 3;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target) { }
     }
 
     public class Whelp : Archetype
@@ -249,7 +257,7 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 3;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target) { }
     }
 
     public class Boss : Archetype
@@ -269,7 +277,7 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 6;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target) { }
     }
 
     public class Dragon : Archetype
@@ -289,6 +297,6 @@ namespace Fall2020_CSC403_Project.code
             hitMod = 10;
         }
 
-        public void specialMove() { }
+        public void specialMove(Character target) { }
     }
 }

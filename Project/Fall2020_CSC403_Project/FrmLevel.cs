@@ -130,24 +130,14 @@ namespace Fall2020_CSC403_Project
                 }
             }
 
-            if(npcs != null)
+            if(this.Areas[Area].npcs != null)
             {
-                for (int i = 0; i < npcs.Count; i++)
+                for (int i = 0; i < this.Areas[Area].npcs.Count; i++)
                 {
-                    this.Controls.Add(npcs[i].Pic);
-                    npcs[i].Pic.BringToFront();
+                    this.Controls.Add(this.Areas[Area].npcs[i].Pic);
+                    this.Areas[Area].npcs[i].Pic.BringToFront();
                 }
             }
-
-            if(npcs != null)
-            {
-                for (int i = 0; i < npcs.Count; i++)
-                {
-                    this.Controls.Add(npcs[i].Pic);
-                    npcs[i].Pic.BringToFront();
-                }
-            }
-
 
             if (player != null)
             {
@@ -172,6 +162,13 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
             player.ResetMoveSpeed();
+            for (int i = 0; i < player.party.Length; i++)
+            {
+                if (player.party[i] != null)
+                    player.party[i].ResetMoveSpeed();
+                else
+                    continue;
+            }
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
@@ -180,18 +177,46 @@ namespace Fall2020_CSC403_Project
             {
                 case Keys.A:
                     player.GoLeft();
+                    for (int i = 0; i < player.party.Length; i++)
+                    {
+                        if (player.party[i] != null)
+                            player.party[i].GoLeft();
+                        else
+                            continue;
+                    }
                     break;
 
                 case Keys.D:
                     player.GoRight();
+                    for (int i = 0; i < player.party.Length; i++)
+                    {
+                        if (player.party[i] != null)
+                            player.party[i].GoRight();
+                        else
+                            continue;
+                    }
                     break;
 
                 case Keys.W:
                     player.GoUp();
+                    for (int i = 0; i < player.party.Length; i++)
+                    {
+                        if (player.party[i] != null)
+                            player.party[i].GoUp();
+                        else
+                            continue;
+                    }
                     break;
 
                 case Keys.S:
                     player.GoDown();
+                    for (int i = 0; i < player.party.Length; i++)
+                    {
+                        if (player.party[i] != null)
+                            player.party[i].GoDown();
+                        else
+                            continue;
+                    }
                     break;
 
                 case Keys.E:
@@ -209,6 +234,13 @@ namespace Fall2020_CSC403_Project
 
                 default:
                     player.ResetMoveSpeed();
+                    for (int i = 0; i < player.party.Length; i++)
+                    {
+                        if (player.party[i] != null)
+                            player.party[i].ResetMoveSpeed();
+                        else
+                            continue;
+                    }
                     break;
             }
         }
@@ -231,10 +263,26 @@ namespace Fall2020_CSC403_Project
             // move playerd
             player.Move();
 
+            // move npcs in 
+            for (int i = 0; i < player.party.Length; i++)
+            {
+                if (player.party[i] != null)
+                    player.party[i].Move();
+                else
+                    continue;
+            }
+
             // check collision with walls
             if (HitAWall(player))
             {
                 player.MoveBack();
+                for (int i = 0; i < player.party.Length; i++)
+                {
+                    if (player.party[i] != null)
+                        player.party[i].MoveBack();
+                    else
+                        continue;
+                }
             }
 
             // check collision with enemies
@@ -251,9 +299,9 @@ namespace Fall2020_CSC403_Project
             int npcIndex = hitNPC(player);
             if (npcIndex >= 0)
             {
-                Converse(npcs[npcIndex]);
-                Controls.Remove(npcs[npcIndex].Pic);
-                npcs.Remove(npcs[npcIndex]);
+                Converse(this.Areas[Area].npcs[npcIndex]);
+                //Controls.Remove(this.Areas[Area].npcs[npcIndex].Pic);
+                //this.Areas[Area].npcs.Remove(this.Areas[Area].npcs[npcIndex]);
             }
 
             x = HitAnItem(player);
@@ -312,37 +360,16 @@ namespace Fall2020_CSC403_Project
 
         private int hitNPC(Player you)
         {
-            if(npcs == null)
+            if(this.Areas[Area].npcs == null)
             {
                 return -1;
             }
             int hitChar = -1;
-            for (int i = 0; i < npcs.Count; i++)
+            for (int i = 0; i < this.Areas[Area].npcs.Count; i++)
             {
-                if (npcs[i] != null)
+                if (this.Areas[Area].npcs[i] != null)
                 {
-                    if (you.Collider.Intersects(npcs[i].Collider))
-                    {
-                        hitChar = i;
-                        break;
-                    }
-                }
-            }
-            return hitChar;
-        }
-
-        private int hitNPC(Player you)
-        {
-            if(npcs == null)
-            {
-                return -1;
-            }
-            int hitChar = -1;
-            for (int i = 0; i < npcs.Count; i++)
-            {
-                if (npcs[i] != null)
-                {
-                    if (you.Collider.Intersects(npcs[i].Collider))
+                    if (you.Collider.Intersects(this.Areas[Area].npcs[i].Collider))
                     {
                         hitChar = i;
                         break;
@@ -395,23 +422,6 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattleScreen.SetupForBossBattle();
             }*/
-        }
-
-        private void Converse(NPC npc)
-        {
-            player.ResetMoveSpeed();
-            player.MoveBack();
-
-            // TODO: Insert conversation mechanic here
-
-            if(player.isPartyFull())
-            {
-                Console.WriteLine("PARTY IS FULL NOTIFICATION");
-            }
-            else
-            {
-                player.addPartyMember(npc);
-            }
         }
 
         private void Converse(NPC npc)
@@ -496,13 +506,13 @@ namespace Fall2020_CSC403_Project
             {
                 this.Controls.Remove(this.Areas[Area].Enemies[i].Pic);
             }
-            this.enemies = new List<Enemy> { };
+            this.Areas[Area].Enemies = new List<Enemy> { };
 
-            for (int i = 0; i < this.npcs.Count; i++)
+            for (int i = 0; i < this.Areas[Area].npcs.Count; i++)
             {
-                this.Controls.Remove(this.npcs[i].Pic);
+                this.Controls.Remove(this.Areas[Area].npcs[i].Pic);
             }
-            this.npcs = new List<NPC> { };
+            this.Areas[Area].npcs = new List<NPC> { };
 
             //remove terrain here
             
@@ -522,16 +532,6 @@ namespace Fall2020_CSC403_Project
             GC.Collect();
         }
 
-
-        private void AddEnemy(Enemy enemy)
-        {
-            this.Areas[Area].Enemies.Add(enemy);
-        }
-
-        private void AddNPC(NPC npc)
-        {
-            npcs.Add(npc);
-        }
 
         private void Menu_Click(object sender, EventArgs e)
         {
@@ -742,6 +742,8 @@ namespace Fall2020_CSC403_Project
             currentArea.AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Minion()));
             currentArea.AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
             currentArea.AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
+
+            currentArea.AddNPC(new NPC("Harold", MakePictureBox(Resources.harold, new Point(150,150), new Size(75,100)), new Healer()));
 
             currentArea.AddWall(new Wall(MakePictureBox(Resources.wall_bricks, new Point(500, 500), new Size(20, 100))));
             currentArea.Walls[0].Pic.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
