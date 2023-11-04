@@ -114,5 +114,23 @@
   <ItemGroup>
     <None Include="Resources\minion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dragonmage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zombie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\whelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dragonboss.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
