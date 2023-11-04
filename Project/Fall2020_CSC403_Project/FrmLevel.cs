@@ -16,23 +16,25 @@ namespace Fall2020_CSC403_Project
     public partial class FrmLevel : Form
     {
         private Player player;
-        private List<Enemy> enemies;
-        private List<NPC> npcs;
-        private Terrain terrain;
 
         private Form MainMenu;
 
-        public int Level { get; set; }
+        public int Area { get; set; }
 
         public bool gameOver { get; set; }
 
 		private DateTime timeBegin;
-		private FrmBattle frmBattle;
+		private FrmBattleScreen frmBattleScreen;
         private FrmInventory frminventory;
 
         private Size itemSize = new Size(50, 50);
 
         public SoundPlayer gameAudio;
+
+        public Area[] Areas;
+
+
+        public PictureBox TerrainPic;
 
         public FrmLevel(Form MainMenu, Player player)
         {
@@ -44,31 +46,23 @@ namespace Fall2020_CSC403_Project
             this.player = player;
             this.gameOver = false;
             this.WindowState = FormWindowState.Maximized;
-            this.Level = 1;
+            this.Area = 4;
             InitializeComponent();
             this.MainMenu = MainMenu;
+
+            this.Areas = new Area[10];
+
         }
 
-        
+
         private void FrmLevel_Load(object sender, EventArgs e)
         {
-            Size TileSize = new Size(Screen.PrimaryScreen.Bounds.Width / 15, Screen.PrimaryScreen.Bounds.Width / 15);
-            int grid_width = Screen.PrimaryScreen.Bounds.Width / TileSize.Width;
-            int grid_height = Screen.PrimaryScreen.Bounds.Height / TileSize.Width;
-            
+            AreaSelect();
 
-            this.terrain = new Terrain(grid_width, grid_height, TileSize);
-            enemies = new List<Enemy> { };
-            npcs = new List<NPC> { };
-
-            LevelSelect();
-
-
-            InitializeLevelLayout();
+            InitializeAreaLayout();
             Game.player = player;
             timeBegin = DateTime.Now;
-            
-            
+
 
             //Adding stop condition to mainMenu_music here
             FrmMain mainMenuPlayer = Application.OpenForms["FrmMain"] as FrmMain;
@@ -83,44 +77,65 @@ namespace Fall2020_CSC403_Project
             this.gameAudio.PlayLooping();
         }
 
-        private void InitializeLevelLayout()
+        private void InitializeAreaLayout()
         {
 
-            if (this.terrain != null)
+            if (this.Areas[Area].Terrain != null)
             {
-                if (this.terrain.Tiles != null)
+
+                Bitmap combinedImage = new Bitmap(Terrain.GridWidth * Terrain.TileSize.Width, Terrain.GridHeight * Terrain.TileSize.Width);
+                using(Graphics g = Graphics.FromImage(combinedImage))
                 {
-                    for (int i = 0; i < this.terrain.Tiles.Count; i++)
+                    for (int col = 0; col < Terrain.GridWidth; col++)
                     {
-                        this.Controls.Add(this.terrain.Tiles[i].Pic);
-                        this.terrain.Tiles[i].Pic.SendToBack();
+                        for (int row = 0; row < Terrain.GridHeight; row++)
+                        {
+
+                            int imageIndex = col + Terrain.GridWidth * row;
+
+                            Image image = this.Areas[this.Area].Terrain.Tiles[imageIndex].Pic;
+                            g.DrawImage(image, new Point(col * Terrain.TileSize.Width, row * Terrain.TileSize.Width));
+                        }
                     }
                 }
-                if (this.terrain.Walls != null)
+                this.BackgroundImage = combinedImage;
+
+
+
+                if (this.Areas[Area].Walls != null)
                 {
-                    for (int i = 0; i < this.terrain.Walls.Count; i++)
+                    for (int i = 0; i < this.Areas[Area].Walls.Count; i++)
                     {
-                        this.Controls.Add(this.terrain.Walls[i].Pic);
-                        this.terrain.Walls[i].Pic.BringToFront();
+                        this.Controls.Add(this.Areas[Area].Walls[i].Pic);
+                        this.Areas[Area].Walls[i].Pic.BringToFront();
                     }
                 }
-                if (this.terrain.Items != null)
+                if (this.Areas[Area].Items != null)
                 {
-                    for (int i = 0; i < this.terrain.Items.Count; i++)
+                    for (int i = 0; i < this.Areas[Area].Items.Count; i++)
                     {
-                        this.Controls.Add(this.terrain.Items[i].Pic);
-                        this.terrain.Items[i].Pic.BringToFront();
+                        this.Controls.Add(this.Areas[Area].Items[i].Pic);
+                        this.Areas[Area].Items[i].Pic.BringToFront();
                     }
                 }
             }
 
 
-            if (enemies != null)
+            if (this.Areas[Area].Enemies != null)
             {
-                for (int i = 0; i < enemies.Count; i++)
+                for (int i = 0; i < this.Areas[Area].Enemies.Count; i++)
                 {
-                    this.Controls.Add(enemies[i].Pic);
-                    enemies[i].Pic.BringToFront();
+                    this.Controls.Add(this.Areas[Area].Enemies[i].Pic);
+                    this.Areas[Area].Enemies[i].Pic.BringToFront();
+                }
+            }
+
+            if(npcs != null)
+            {
+                for (int i = 0; i < npcs.Count; i++)
+                {
+                    this.Controls.Add(npcs[i].Pic);
+                    npcs[i].Pic.BringToFront();
                 }
             }
 
@@ -150,7 +165,7 @@ namespace Fall2020_CSC403_Project
                 Location = location,
                 Image = pic,
                 SizeMode = PictureBoxSizeMode.StretchImage,
-                BackColor = Color.Transparent
+                BackColor = Color.Transparent,
             };
         }
 
@@ -226,9 +241,9 @@ namespace Fall2020_CSC403_Project
             int x = hitEnemy(player);
             if (x >= 0)
             {
-                Fight(enemies[x]);
-                Controls.Remove(enemies[x].Pic);
-                enemies.Remove(enemies[x]);
+                Fight(this.Areas[Area].Enemies[x]);
+                Controls.Remove(this.Areas[Area].Enemies[x].Pic);
+                this.Areas[Area].Enemies.Remove(this.Areas[Area].Enemies[x]);
 
             }
 
@@ -246,16 +261,16 @@ namespace Fall2020_CSC403_Project
             {
                 if (!player.Inventory.BackpackIsFull())
                 {
-                    player.Inventory.AddToBackpack(this.terrain.Items[x]);
-                    this.terrain.Items[x].RemoveEntity();
+                    player.Inventory.AddToBackpack(this.Areas[Area].Items[x]);
+                    this.Areas[Area].Items[x].RemoveEntity();
                 }
 
             }
 
             x = InATile(player);
-            if (x >= 0 && x < this.terrain.Tiles.Count)
+            if (x >= 0 && x < this.Areas[Area].Terrain.Tiles.Count)
             {
-                player.SPEED = (int)this.terrain.Tiles[x].Effect;
+                player.SPEED = (int)this.Areas[Area].Terrain.Tiles[x].Effect;
             }
 
         }
@@ -263,9 +278,9 @@ namespace Fall2020_CSC403_Project
         private bool HitAWall(Player c)
         {
             bool hitAWall = false;
-            for (int w = 0; w < this.terrain.Walls.Count; w++)
+            for (int w = 0; w < this.Areas[Area].Walls.Count; w++)
             {
-                if (c.Collider.Intersects(this.terrain.Walls[w].Collider))
+                if (c.Collider.Intersects(this.Areas[Area].Walls[w].Collider))
                 {
                     hitAWall = true;
                     break;
@@ -276,16 +291,37 @@ namespace Fall2020_CSC403_Project
 
         private int hitEnemy(Player you)
         {
-            if (enemies == null)
+            if (this.Areas[Area].Enemies == null)
             {
                 return -1;
             }
             int hitChar = -1;
-            for (int i = 0; i < enemies.Count; i++)
+            for (int i = 0; i < this.Areas[Area].Enemies.Count; i++)
             {
-                if (enemies[i] != null)
+                if (this.Areas[Area].Enemies[i] != null)
                 {
-                    if (you.Collider.Intersects(enemies[i].Collider))
+                    if (you.Collider.Intersects(this.Areas[Area].Enemies[i].Collider))
+                    {
+                        hitChar = i;
+                        break;
+                    }
+                }
+            }
+            return hitChar;
+        }
+
+        private int hitNPC(Player you)
+        {
+            if(npcs == null)
+            {
+                return -1;
+            }
+            int hitChar = -1;
+            for (int i = 0; i < npcs.Count; i++)
+            {
+                if (npcs[i] != null)
+                {
+                    if (you.Collider.Intersects(npcs[i].Collider))
                     {
                         hitChar = i;
                         break;
@@ -318,16 +354,16 @@ namespace Fall2020_CSC403_Project
 
         private int HitAnItem(Player you)
         {
-            if (this.terrain.Items == null)
+            if (this.Areas[Area].Items == null)
             {
                 return -1;
             }
             int hitItem = -1;
-            for (int i = 0; i < this.terrain.Items.Count; i++)
+            for (int i = 0; i < this.Areas[Area].Items.Count; i++)
             {
-                if (this.terrain.Items[i] != null)
+                if (this.Areas[Area].Items[i] != null)
                 {
-                    if (you.Collider.Intersects(this.terrain.Items[i].Collider))
+                    if (you.Collider.Intersects(this.Areas[Area].Items[i].Collider))
                     {
                         hitItem = i;
                         break;
@@ -339,10 +375,10 @@ namespace Fall2020_CSC403_Project
 
         public int InATile(Player you)
         {
-            int x = ((int)you.Position.x + you.Pic.Width / 2) / this.terrain.TileSize.Width;
-            int y = ((int)you.Position.y + you.Pic.Height) / this.terrain.TileSize.Width;
+            int x = ((int)you.Position.x + you.Pic.Width / 2) / Terrain.TileSize.Width;
+            int y = ((int)you.Position.y + you.Pic.Height) / Terrain.TileSize.Width;
 
-            int a = (int)((x) + Math.Floor((double)y * this.terrain.GridWidth));
+            int a = (int)((x) + Math.Floor((double)y * Terrain.GridWidth));
 
 
             return a;
@@ -352,12 +388,29 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(this, enemy);
-            frmBattle.Show();
+            frmBattleScreen = FrmBattleScreen.GetInstance(this, enemy);
+            frmBattleScreen.Show();
 
-            if (enemy.Name == "BossKoolAid")
+/*            if (enemy.Name == "BossKoolAid")
             {
-                frmBattle.SetupForBossBattle();
+                frmBattleScreen.SetupForBossBattle();
+            }*/
+        }
+
+        private void Converse(NPC npc)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+
+            // TODO: Insert conversation mechanic here
+
+            if(player.isPartyFull())
+            {
+                Console.WriteLine("PARTY IS FULL NOTIFICATION");
+            }
+            else
+            {
+                player.addPartyMember(npc);
             }
         }
 
@@ -382,6 +435,7 @@ namespace Fall2020_CSC403_Project
         {
             this.gameOver = true;
             this.player.SetEntityPosition(new Position(-100, -100));
+
 
             DisposeLevel();
 
@@ -435,11 +489,12 @@ namespace Fall2020_CSC403_Project
 
         private void DisposeLevel()
         {
+
             // iterate through the controls and remove them from control
 
-            for (int i = 0; i < this.enemies.Count; i++)
+            for (int i = 0; i < this.Areas[Area].Enemies.Count; i++)
             {
-                this.Controls.Remove(this.enemies[i].Pic);
+                this.Controls.Remove(this.Areas[Area].Enemies[i].Pic);
             }
             this.enemies = new List<Enemy> { };
 
@@ -449,28 +504,28 @@ namespace Fall2020_CSC403_Project
             }
             this.npcs = new List<NPC> { };
 
+            //remove terrain here
+            
+            this.Areas[Area].Terrain.Tiles.Clear();
+            for (int i = 0; i < this.Areas[Area].Items.Count; i++)
+            {
+                this.Controls.Remove(this.Areas[Area].Items[i].Pic);
+            }
+            this.Areas[Area].Items.Clear();
+            for (int i = 0; i < this.Areas[Area].Walls.Count; i++)
+            {
+                this.Controls.Remove(this.Areas[Area].Walls[i].Pic);
+            }
+            this.Areas[Area].Walls.Clear();
 
-            for (int i = 0; i < this.terrain.Tiles.Count; i++)
-            {
-                this.Controls.Remove(this.terrain.Tiles[i].Pic);
-            }
-            this.terrain.Tiles.Clear();
-            for (int i = 0; i < this.terrain.Items.Count; i++)
-            {
-                this.Controls.Remove(this.terrain.Items[i].Pic);
-            }
-            this.terrain.Items.Clear();
-            for (int i = 0; i < this.terrain.Walls.Count; i++)
-            {
-                this.Controls.Remove(this.terrain.Walls[i].Pic);
-            }
-            this.terrain.Walls.Clear();
+            this.Areas = new Area[10];
+            GC.Collect();
         }
 
 
         private void AddEnemy(Enemy enemy)
         {
-            enemies.Add(enemy);
+            this.Areas[Area].Enemies.Add(enemy);
         }
 
         private void AddNPC(NPC npc)
@@ -503,9 +558,9 @@ namespace Fall2020_CSC403_Project
             ExitButton.Enabled = false;
             MainMenuButton.Enabled = false;
 
-            this.Level = 1;
-            LevelSelect();
-            InitializeLevelLayout();
+            this.Area = 4;
+            AreaSelect();
+            InitializeAreaLayout();
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)
@@ -525,38 +580,265 @@ namespace Fall2020_CSC403_Project
             this.Close();
         }
 
-        private void LevelSelect()
+        private void AreaSelect()
         {
-            switch (this.Level)
+            switch (this.Area)
             {
+                case 0:
+                    Area0();
+                    break;
                 case 1:
-                    Level1();
+                    Area1();
+                    break;
+                case 2:
+                    Area2();
+                    break;
+                case 3:
+                    Area3();
+                    break;
+                case 4:
+                    Area4();
+                    break;
+                case 5:
+                    Area5();
+                    break;
+                case 6:
+                    Area6();
+                    break;
+                case 7:
+                    Area7();
+                    break;
+                case 8:
+                    Area8();
+                    break;
+                case 9:
+                    AreaBoss();
                     break;
                 default:
-                    Level1();
+                    Area4();
                     break;
             }
         }
 
-        private void Level1()
+        private void AreaBoss()
         {
-            
-            player.SetEntityPosition(new Position(100, 700));
+            this.Area = 9;
+
+            if (this.Areas[9] != null)
+            {
+                return;
+            }
+
+            this.Areas[4] = new Area(123, 0.2);
+
+            setAdjacency(this.Area);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
+        }
+
+        private void Area8()
+        {
+            this.Area = 8;
+
+            if (this.Areas[8] != null)
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(234, 0.05);
+
+            setAdjacency(this.Area);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
+        }
+
+        private void Area7()
+        {
+            this.Area = 7;
+
+            if (this.Areas[7] != null)
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(345, 0.05);
+
+            setAdjacency(this.Area);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
+        }
+
+        private void Area6()
+        {
+            this.Area = 6;
+
+            if (this.Areas[6] != null)
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(456, 0.05);
+
+            setAdjacency(this.Area);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
+        }
+
+        private void Area5()
+        {
+            this.Area = 5;
+
+            if (this.Areas[5] != null)
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(567, 0.05);
+
+            setAdjacency(this.Area);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
+        }
+
+
+
+        private void Area4()
+        {
+            // leave this here, default case when this.Area is unset.
+            this.Area = 4;
+
+            if (this.Areas[4] != null)
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(678, 0.05);
+
+            setAdjacency(this.Area);
+
+
+            Area currentArea = this.Areas[4];
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
             player.Pic.Visible = true;
 
 
-            this.terrain.GenerateTerrain(2);
+            currentArea.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), itemSize), 5, Item.ItemType.Weapon));
+            currentArea.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), itemSize), 5, Item.ItemType.Utility, Item.PotionTypes.Healing));
+            currentArea.AddItem(new Item("Armor of Noob", MakePictureBox(Resources.common_armor, new Point(880, 800), itemSize), 5, Item.ItemType.Armor));
+            currentArea.AddItem(new Item("Potion of Speed", MakePictureBox(Resources.speed_potion, new Point(20, 400), itemSize), 10, Item.ItemType.Utility, Item.PotionTypes.Speed));
 
-            this.terrain.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), itemSize), 5, Item.ItemType.Weapon));
-            this.terrain.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), itemSize), 5, Item.ItemType.Utility, Item.PotionTypes.Healing));
-            this.terrain.AddItem(new Item("Armor of Noob", MakePictureBox(Resources.common_armor, new Point(880, 800), itemSize), 5, Item.ItemType.Armor));
-            this.terrain.AddItem(new Item("Potion of Speed", MakePictureBox(Resources.speed_potion, new Point(20, 400), itemSize), 10, Item.ItemType.Utility, Item.PotionTypes.Speed));
+            currentArea.AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Minion()));
+            currentArea.AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
+            currentArea.AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
 
-            AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Minion()));
-            AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
-            AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
+            currentArea.AddWall(new Wall(MakePictureBox(Resources.wall_bricks, new Point(500, 500), new Size(20, 100))));
+            currentArea.Walls[0].Pic.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+        }
 
-            AddNPC(new NPC("Harold", MakePictureBox(Resources.harold, new Point(150, 150), new Size(75, 100)), new Healer()));
+        private void Area3()
+        {
+
+            if (this.Areas[3] != null) { }
+            {
+                return;
+            }
+
+            this.Areas[3] = new Area(789, 0.05);
+
+            setAdjacency(this.Area);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
+
+
+        }
+
+        private void Area2()
+        {
+            if (this.Areas[3] != null) { }
+            {
+                return;
+            }
+
+            this.Areas[4] = new Area(890, 0.05);
+
+            setAdjacency(this.Area);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
+        }
+
+        private void Area1()
+        {
+
+            if (this.Areas[1] != null) { }
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(901, 0.05);
+
+            setAdjacency(this.Area);
+
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
+        }
+
+        private void Area0()
+        {
+
+            if (this.Areas[this.Area] != null) { }
+            {
+                return;
+            }
+
+            this.Areas[this.Area] = new Area(12, 0.05);
+
+            setAdjacency(this.Area);
+
+            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+            player.Pic.Visible = true;
+        }
+
+
+        private void setAdjacency(int area)
+        {
+            int up = area > 5 ? -1 : area + 3;
+            int down = area < 3 ? -1 : area - 3;
+            int left = area % 3 == 0 ? -1 : area - 1;
+            int right = area % 3 == 2 ? -1 : area + 1;
+
+            if (up >= 0)
+            {
+                this.Areas[area].SetAdjacentArea(Direction.Up, up);
+            }
+            if (down >= 0)
+            {
+                this.Areas[area].SetAdjacentArea(Direction.Down, down);
+            }
+            if (left >= 0)
+            {
+                this.Areas[area].SetAdjacentArea(Direction.Left, left);
+            }
+            if (right >= 0)
+            {
+                this.Areas[area].SetAdjacentArea(Direction.Right, right);
+            }
         }
     }
 }

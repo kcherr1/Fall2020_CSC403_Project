@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Archetypes.cs" />
+    <Compile Include="Area.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Collider.cs" />

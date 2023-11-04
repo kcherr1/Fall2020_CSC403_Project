@@ -26,6 +26,7 @@ namespace Fall2020_CSC403_Project {
     /// </summary>
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
@@ -45,10 +46,10 @@ namespace Fall2020_CSC403_Project {
             this.lblInGameTime.BackColor = System.Drawing.Color.Black;
             this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInGameTime.ForeColor = System.Drawing.Color.White;
-            this.lblInGameTime.Location = new System.Drawing.Point(18, 14);
+            this.lblInGameTime.Location = new System.Drawing.Point(16, 11);
             this.lblInGameTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInGameTime.Name = "lblInGameTime";
-            this.lblInGameTime.Size = new System.Drawing.Size(79, 29);
+            this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
             this.lblInGameTime.TabIndex = 2;
             this.lblInGameTime.Text = "label1";
             // 
@@ -69,9 +70,9 @@ namespace Fall2020_CSC403_Project {
             this.GameOverText.BackColor = System.Drawing.Color.Black;
             this.GameOverText.Font = new System.Drawing.Font("Algerian", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GameOverText.ForeColor = System.Drawing.Color.Red;
-            this.GameOverText.Location = new System.Drawing.Point(321, 109);
+            this.GameOverText.Location = new System.Drawing.Point(285, 87);
             this.GameOverText.Name = "GameOverText";
-            this.GameOverText.Size = new System.Drawing.Size(680, 160);
+            this.GameOverText.Size = new System.Drawing.Size(568, 134);
             this.GameOverText.TabIndex = 21;
             this.GameOverText.Text = "You Died";
             this.GameOverText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,10 +84,10 @@ namespace Fall2020_CSC403_Project {
             this.RestartButton.Enabled = false;
             this.RestartButton.FlatAppearance.BorderSize = 0;
             this.RestartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RestartButton.Location = new System.Drawing.Point(495, 899);
+            this.RestartButton.Location = new System.Drawing.Point(440, 719);
             this.RestartButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RestartButton.Name = "RestartButton";
-            this.RestartButton.Size = new System.Drawing.Size(100, 30);
+            this.RestartButton.Size = new System.Drawing.Size(89, 24);
             this.RestartButton.TabIndex = 22;
             this.RestartButton.Text = "Restart";
             this.RestartButton.UseVisualStyleBackColor = false;
@@ -99,10 +100,10 @@ namespace Fall2020_CSC403_Project {
             this.ExitButton.Enabled = false;
             this.ExitButton.FlatAppearance.BorderSize = 0;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitButton.Location = new System.Drawing.Point(645, 901);
+            this.ExitButton.Location = new System.Drawing.Point(573, 721);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(100, 30);
+            this.ExitButton.Size = new System.Drawing.Size(89, 24);
             this.ExitButton.TabIndex = 23;
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = false;
@@ -112,10 +113,9 @@ namespace Fall2020_CSC403_Project {
             // BlackSquare
             // 
             this.BlackSquare.Image = global::Fall2020_CSC403_Project.Properties.Resources.tile_void;
-            this.BlackSquare.Location = new System.Drawing.Point(1002, 86);
-            this.BlackSquare.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BlackSquare.Location = new System.Drawing.Point(891, 69);
             this.BlackSquare.Name = "BlackSquare";
-            this.BlackSquare.Size = new System.Drawing.Size(112, 62);
+            this.BlackSquare.Size = new System.Drawing.Size(100, 50);
             this.BlackSquare.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.BlackSquare.TabIndex = 25;
             this.BlackSquare.TabStop = false;
@@ -124,10 +124,9 @@ namespace Fall2020_CSC403_Project {
             // InvPicButton
             // 
             this.InvPicButton.Image = global::Fall2020_CSC403_Project.Properties.Resources.InvButton;
-            this.InvPicButton.Location = new System.Drawing.Point(14, 64);
-            this.InvPicButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.InvPicButton.Location = new System.Drawing.Point(12, 51);
             this.InvPicButton.Name = "InvPicButton";
-            this.InvPicButton.Size = new System.Drawing.Size(110, 146);
+            this.InvPicButton.Size = new System.Drawing.Size(98, 117);
             this.InvPicButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.InvPicButton.TabIndex = 26;
             this.InvPicButton.TabStop = false;
@@ -138,9 +137,10 @@ namespace Fall2020_CSC403_Project {
             this.MainMenuButton.BackColor = System.Drawing.Color.DarkGray;
             this.MainMenuButton.Enabled = false;
             this.MainMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MainMenuButton.Location = new System.Drawing.Point(554, 836);
+            this.MainMenuButton.Location = new System.Drawing.Point(492, 669);
+            this.MainMenuButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MainMenuButton.Name = "MainMenuButton";
-            this.MainMenuButton.Size = new System.Drawing.Size(100, 30);
+            this.MainMenuButton.Size = new System.Drawing.Size(89, 24);
             this.MainMenuButton.TabIndex = 27;
             this.MainMenuButton.Text = "Main Menu";
             this.MainMenuButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -150,11 +150,11 @@ namespace Fall2020_CSC403_Project {
             // 
             // FrmLevel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1569, 1050);
+            this.ClientSize = new System.Drawing.Size(1395, 840);
             this.Controls.Add(this.MainMenuButton);
             this.Controls.Add(this.InvPicButton);
             this.Controls.Add(this.BlackSquare);
@@ -163,6 +163,7 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.GameOverText);
             this.Controls.Add(this.lblInGameTime);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "FrmLevel";
