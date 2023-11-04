@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBattleScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBattleScreen.Designer.cs">
+      <DependentUpon>FrmBattleScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInventory.cs">
       <SubType>Form</SubType>
     </Compile>
