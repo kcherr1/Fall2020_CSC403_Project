@@ -164,6 +164,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\wall_cobblestone.png" />
+    <None Include="data\wall_bricks.png" />
     <None Include="data\Cog.png" />
     <None Include="data\BackgroundForRPG3.png" />
     <None Include="data\boss_attack.wav" />
