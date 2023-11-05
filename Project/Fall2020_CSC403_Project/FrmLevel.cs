@@ -800,16 +800,16 @@ namespace Fall2020_CSC403_Project
             switch (this.TravelDirection)
             {
                 case Direction.Up:
-                    player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - 180 - player.Pic.Height));
+                    player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - signSize.Height - player.Pic.Height  - 100));
                     break;
                 case Direction.Down:
-                    player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, 20 + player.Pic.Height));
+                    player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, signSize.Height + 20));
                     break;
                 case Direction.Right:
-                    player.SetEntityPosition(new Position(20 + player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height / 2));
+                    player.SetEntityPosition(new Position(signSize.Width + 10, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height / 2));
                     break;
                 case Direction.Left:
-                    player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width - 20 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height / 2));
+                    player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width - signSize.Width - 20 - player.Pic.Width, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height / 2));
                     break;
 
                 default:
