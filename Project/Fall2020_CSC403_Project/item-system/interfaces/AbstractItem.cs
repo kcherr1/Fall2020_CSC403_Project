@@ -12,6 +12,8 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
     public abstract class AbstractItem
     {
         public System.Windows.Forms.PictureBox picItem;
+        public Collider collider { get; set; }
+        public Vector2 initPos { get; set; }
         public System.Windows.Forms.PictureBox picEffectEvent;
         public Vector2 CreatePosition(PictureBox pic)
         {
@@ -52,6 +54,16 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
             frmLevel.Controls.Add(picItem);
             ((System.ComponentModel.ISupportInitialize)(picItem)).EndInit();
             frmLevel.ResumeLayout(false);
+
+            initPos = CreatePosition(picItem);
+            collider = CreateCollider(picItem, 7);
+        }
+
+        public void RemoveItemFromMap(IItem thisItemFromClass)
+        {
+            // Now that the effect has been executed, remove the item from the map
+            this.picItem.Visible = false;
+            thisItemFromClass.collider = null;
         }
     }
 }

@@ -125,10 +125,12 @@ namespace Fall2020_CSC403_Project {
                     Fight(enemyPoisonPacket);
 
                     // Generate a random number to get a random effect from the RandomPotion (first 3 potions will be random potion candidates)
-                    //if (enemyPoisonPacket.Health == 0) 
-                    //{
-                        rpot = InstantiateItem(random.Next(1, 1), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
-                    //}
+                    
+                    // In the current state, the potion cannot be generated under improper conditions, BUT
+                    // if you do something new like FLEE from battle, the potion will generate like this! Need a condition to fix this.
+                    // Wait to see how Nis implements flee
+                    rpot = InstantiateItem(random.Next(1, 3), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
+                    
                     
 
                 }
@@ -226,6 +228,7 @@ namespace Fall2020_CSC403_Project {
       {
           frmBattle.SetupForBossBattle();
       }
+
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {

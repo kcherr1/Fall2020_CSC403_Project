@@ -17,8 +17,6 @@ namespace Fall2020_CSC403_Project.item_system
     public class WallBoom : AbstractItem, IItem
     {
         public string itemName => "Wall Boom";
-        public Collider collider { get; set; }
-        public Vector2 initPos { get; set; }
         private SoundPlayer effectEventPlayer;
         
 
@@ -27,8 +25,6 @@ namespace Fall2020_CSC403_Project.item_system
         {
             // Non unique methods(implemented the same for all items) are called from the AbsractItem class
             InitializeComponent(frmLevel, numItems, global::Fall2020_CSC403_Project.Properties.Resources.RandomPotion, locXatLvl, locYatLvl, "RandomItem", 50, 50, 18);
-            initPos = CreatePosition(picItem);
-            collider = CreateCollider(picItem, 7);
 
         }
 
@@ -55,15 +51,12 @@ namespace Fall2020_CSC403_Project.item_system
                 
             }
 
-            // Now that the effect has been executed, remove the item from the map
-            this.picItem.Visible = false;
-            this.collider = null;
+            RemoveItemFromMap(this);
             
-
-
         }
+        
 
-        private async void EffectEvent(FrmLevel frmLevel, int tabIndex) 
+        public async void EffectEvent(FrmLevel frmLevel, int tabIndex) 
         {
 
             effectEventPlayer = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.wallBoomSound1);
@@ -93,77 +86,62 @@ namespace Fall2020_CSC403_Project.item_system
             picEffectEvent.Visible = false;
 
         }
-        public void AI() 
-        {
-            
-        }
+
     }
 
-    /*
-    public class WallBoom : IItem
+    public class CheetoBoom : AbstractItem, IItem
     {
         public string itemName => "Wall Boom";
-        public Collider collider { get; set; }
-        public Vector2 initPos { get; set; }
+        private SoundPlayer effectEventPlayer;
 
 
-        public void InitializeComponent(FrmLevel frmLvl) 
+        public CheetoBoom(FrmLevel frmLevel, int numItems, float locXatLvl, float locYatLvl)
         {
-            
+            InitializeComponent(frmLevel, numItems, global::Fall2020_CSC403_Project.Properties.Resources.RandomPotion, locXatLvl, locYatLvl, "RandomItem", 50, 50, 18);
         }
-        */
-        
-        /*
+
+
         public void ExecuteEffect(FrmLevel frmLevel)
         {
-            // see above implementation and copy paste here
+            EffectEvent(frmLevel, global::Fall2020_CSC403_Project.Properties.Resources.wallBoom1, 700, 400, "CheetoBoom", 300, 300, 18);
+
+            // Remove enemy cheeto from map due to this CheetoBoom effect of Random Potion
+            frmLevel.enemyCheeto.Collider = null;
+            frmLevel.picEnemyCheeto.Visible =  false;
+
+            RemoveItemFromMap(this);
+
         }
-        */
-        
-        /*
-        public void AI()
+
+        public async void EffectEvent(FrmLevel frmLevel, Image img, int locationX, int locationY, string name, int sizeX, int sizeY, int tabIndex) 
         {
-            
+            effectEventPlayer = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.wallBoomSound1);
+            effectEventPlayer.Play();
+
+            picEffectEvent = new System.Windows.Forms.PictureBox();
+
+            ((System.ComponentModel.ISupportInitialize)(picEffectEvent)).BeginInit();
+            frmLevel.SuspendLayout();
+
+            this.picEffectEvent.Image = img;
+            this.picEffectEvent.Location = new System.Drawing.Point(locationX, locationY);
+            this.picEffectEvent.Name = name;
+            this.picEffectEvent.Size = new System.Drawing.Size(sizeX, sizeY);
+            this.picEffectEvent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEffectEvent.TabIndex = tabIndex;
+            this.picEffectEvent.TabStop = false;
+
+            frmLevel.Controls.Add(picEffectEvent);
+            ((System.ComponentModel.ISupportInitialize)(picEffectEvent)).EndInit();
+            frmLevel.ResumeLayout(false);
+
+            // Give the gif time to play
+            await Task.Delay(3000);
+
+            // Remove the image after the gif plays for however many seconds
+            picEffectEvent.Visible = false;
         }
+
     }
-
-    public class Enemy1Boom: IItem
-    {
-        public string itemName => "Enemy Boom";
-        public Collider collider { get; set; }
-        public Vector2 initPos { get; set; }
-        
-        public void InitializeComponent(FrmLevel frmLvl)
-        {
-
-        }
-        */
-        
-        /*
-        public void ExecuteEffect(FrmLevel frmLevel)
-        {
-            // (remove enemy 1 from map)
-            
-            // num = random(1,2); // random betewen 2 numbers
-
-            // if (num == 1)
-                {
-                    frmLevel.picEnemyPoisonPacket.Visible = false;
-                    frmLevel.enemyPoisonPacket = null;
-                }
-                else if (num == 2)
-                {
-                    frmLevel.picEnemyCheeto.Visible = false;
-                    frmLevel.enemyCheeto = null;
-                }
-        }
-        */
-        
-        /*
-        public void AI()
-        {
-            
-        }
-    }
-    */
+    
 }

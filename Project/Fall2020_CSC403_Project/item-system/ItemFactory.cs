@@ -22,9 +22,9 @@ namespace Fall2020_CSC403_Project.item_system
                     NUM_ITEMS += 1;
                     return new WallBoom(frmLevel, NUM_ITEMS, locationX, locationY);
 
-                /*case 2: //"WallBoom"
-                    return new WallBoom();
-
+                case 2: //"Enemy1Boom"
+                    return new CheetoBoom(frmLevel, NUM_ITEMS, locationX, locationY);
+                /*
                 case 3: //"Enemy1Boom"
                     return new Enemy1Boom();*/
 
