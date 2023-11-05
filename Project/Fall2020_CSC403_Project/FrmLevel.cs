@@ -4,20 +4,24 @@ using System.Drawing;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project.item_system;
 using Fall2020_CSC403_Project.item_system.interfaces;
+using Fall2020_CSC403_Project.Properties;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
 
-    private Enemy enemyPoisonPacket;
-    private Enemy bossChatgpt;
-    private Enemy enemyCheeto;
+    public Enemy enemyPoisonPacket;
+    public Enemy bossChatgpt;
+    public Enemy enemyCheeto;
     public Character[] walls;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     public Panel uiPanel;
-  
+    public static SoundPlayer levelMusic;
+    private Random random;
+
 
 
         public FrmLevel() 
@@ -48,21 +52,15 @@ namespace Fall2020_CSC403_Project {
           enemyPoisonPacket.Color = Color.Green;
           enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
-          bossChatgpt.Name = "boss";
-          enemyPoisonPacket.Name = "poisonPacket";
-          enemyCheeto.Name = "cheeto";
+          bossChatgpt.Name = "BossChatgpt";
+          enemyPoisonPacket.Name = "PoisonPacket";
+          enemyCheeto.Name = "Cheeto";
 
 
-            // Still works here, and Enemy and Player are both accessible. I mean, it would be accessible elsewhere
-            IItem rpot = InstantiateItem("RandomPotion", this, 767, 354);
-            IItem rpot2 = InstantiateItem("RandomPotion", this, 667, 354);
+          // Instantiating a RandomPotion to the map
+          //IItem rpot = InstantiateItem("RandomPotion", this, 767, 354);
+          //IItem rpot2 = InstantiateItem("RandomPotion", this, 667, 354);
             
-
-
-
-
-
-
 
             walls = new Character[NUM_WALLS];
           for (int w = 0; w < NUM_WALLS; w++) {
@@ -70,11 +68,19 @@ namespace Fall2020_CSC403_Project {
             walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
           }
 
-          rpot2.ExecuteEffect(this);
+          // executing the effect of removing the walls should happen after the walls are built otherwise null object error
+          //rpot2.ExecuteEffect(this); 
 
-            Game.player = player;
+          Game.player = player;
           timeBegin = DateTime.Now;
-      }
+
+          // Initialize the looping level music
+          levelMusic = new SoundPlayer(Resources.gamemusic);
+          levelMusic.PlayLooping();
+
+          // Get a random number generator
+          random = new Random();
+        }
 
     private Vector2 CreatePosition(PictureBox pic) {
       return new Vector2(pic.Location.X, pic.Location.Y);
@@ -112,20 +118,34 @@ namespace Fall2020_CSC403_Project {
             }
             catch 
             {
-
+                // walls dont exist to collide with!
             }
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossChatgpt))
-      {
-        Fight(bossChatgpt);
-      }
+            // check collision with enemies
+            try 
+            {
+                if (HitAChar(player, enemyPoisonPacket))
+                {
+                    Fight(enemyPoisonPacket);
+
+                    // Generate a random number to get a random effect from the RandomPotion (first 3 potions will be random potion candidates)
+                    InstantiateItem(random.Next(1, 1), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
+
+                }
+                else if (HitAChar(player, enemyCheeto))
+                {
+                    Fight(enemyCheeto);
+                }
+                if (HitAChar(player, bossChatgpt))
+                {
+                    Fight(bossChatgpt);
+                }
+            }
+            catch 
+            {
+                // if enemy was nulled, cant execute these, so we only try them and not force them on every tick
+            }
+      
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -136,18 +156,22 @@ namespace Fall2020_CSC403_Project {
       bool hitAWall = false;
             try 
             {
-                for (int w = 0; w < walls.Length; w++)
+                if (walls[0] != null) 
                 {
-                    if (c.Collider.Intersects(walls[w].Collider))
+                    for (int w = 0; w < walls.Length; w++)
                     {
-                        hitAWall = true;
-                        break;
+                        if (c.Collider.Intersects(walls[w].Collider))
+                        {
+                            hitAWall = true;
+                            break;
+                        }
                     }
                 }
+                
             }
             catch 
             {
-
+                // walls dont exist to collide with!
             }
       
       return hitAWall;
@@ -160,8 +184,8 @@ namespace Fall2020_CSC403_Project {
     public void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      if (enemy.Name == "boss")
+      frmBattle = FrmBattle.GetInstance(enemy, this);
+      if (enemy.Name == "BossChatgpt")
       {
           frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Psychedelic;
       }

@@ -101,7 +101,7 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyCheeto.Location = new System.Drawing.Point(1117, 665);
             this.picEnemyCheeto.Margin = new System.Windows.Forms.Padding(4);
-            this.picEnemyCheeto.Name = "picEnemyCheeto";
+            this.picEnemyCheeto.Name = "Cheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(85, 132);
             this.picEnemyCheeto.TabIndex = 5;
             this.picEnemyCheeto.TabStop = false;
@@ -113,7 +113,7 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyPoisonPacket.Location = new System.Drawing.Point(147, 121);
             this.picEnemyPoisonPacket.Margin = new System.Windows.Forms.Padding(4);
-            this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
+            this.picEnemyPoisonPacket.Name = "PoisonPacket";
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(84, 118);
             this.picEnemyPoisonPacket.TabIndex = 4;
             this.picEnemyPoisonPacket.TabStop = false;
@@ -137,7 +137,7 @@ namespace Fall2020_CSC403_Project {
             this.picBossChatgpt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossChatgpt.Location = new System.Drawing.Point(1295, 91);
             this.picBossChatgpt.Margin = new System.Windows.Forms.Padding(4);
-            this.picBossChatgpt.Name = "picBossChatgpt";
+            this.picBossChatgpt.Name = "BossChatgpt";
             this.picBossChatgpt.Size = new System.Drawing.Size(257, 239);
             this.picBossChatgpt.TabIndex = 1;
             this.picBossChatgpt.TabStop = false;
@@ -354,25 +354,27 @@ namespace Fall2020_CSC403_Project {
         }
         #endregion
 
-        IItem InstantiateItem(string itemType, FrmLevel frmLevel, int locationX, int locationY)
+        IItem InstantiateItem(int itemID, FrmLevel frmLevel, float locationX, float locationY)
         {
             _factory = new ItemFactory();
             //IItem item = _factory.GetItem(itemType, frmLevel);
-            return _factory.GetItem(itemType, frmLevel, locationX, locationY);
+            return _factory.GetItem(itemID, frmLevel, locationX, locationY);
 
             //item.Walk();
         }
 
+
+    public System.Windows.Forms.PictureBox picBossChatgpt;
+    public System.Windows.Forms.PictureBox picEnemyPoisonPacket;
+    public System.Windows.Forms.PictureBox picEnemyCheeto;
+
     //private System.Windows.Forms.PictureBox picItem;
     private ItemFactory _factory;
     private System.Windows.Forms.PictureBox picPlayer;
-    private System.Windows.Forms.PictureBox picBossChatgpt;
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
     public System.Windows.Forms.PictureBox picWall3;
-    private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
-    private System.Windows.Forms.PictureBox picEnemyCheeto;
     private System.Windows.Forms.PictureBox picWall5;
     private System.Windows.Forms.PictureBox picWall4;
     private System.Windows.Forms.PictureBox picWall12;

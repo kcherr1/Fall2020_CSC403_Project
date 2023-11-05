@@ -23,7 +23,7 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
             return new Collider(rect);
         }
 
-        public void InitializeComponent(FrmLevel frmLevel, int numItems, Image img, int locationX, int locationY, string name, int sizeX, int sizeY, int tabIndex)
+        public void InitializeComponent(FrmLevel frmLevel, int numItems, Image img, float locationX, float locationY, string name, int sizeX, int sizeY, int tabIndex)
         {
             picItem = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(picItem)).BeginInit();
@@ -31,7 +31,7 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
             //this.picItem.Image = global::Fall2020_CSC403_Project.Properties.Resources.RandomPotion;
             this.picItem.Image = img;
             //this.picItem.Location = new System.Drawing.Point(767, 354);
-            this.picItem.Location = new System.Drawing.Point(locationX, locationY);
+            this.picItem.Location = new System.Drawing.Point(Convert.ToInt32(locationX), Convert.ToInt32(locationY));
             //this.picItem.Name = "pictureBox1";
             this.picItem.Name = name + $"{numItems}";
             //this.picItem.Size = new System.Drawing.Size(50, 50);

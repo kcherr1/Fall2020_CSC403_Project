@@ -16,43 +16,56 @@ namespace Fall2020_CSC403_Project
 
         private Enemy enemy;
         private Player player;
+        private FrmLevel frmLevel;
         
 
-        public FrmBattle() 
+        public FrmBattle(FrmLevel frmLevelFromLvl) 
         {
             InitializeComponent();
             player = Game.player;
             // TODO: use mplayer and pause game music while i attack, play sfx, then resume
             simpleSFX = new SoundPlayer(Resources.attack1SFX);
+            frmLevel = frmLevelFromLvl;
+            FrmLevel.levelMusic.Stop();
 
         }
 
         public void FormBattle_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // If the player's health reached 0 and the form closed, the player died
-            //  so exit the game.
-            if (player.Health <= 0)
+            
+            try 
             {
-                System.Windows.Forms.MessageBox.Show("Game Over");
+                // If the player's health reached 0 and the form closed, the player died
+                //  so exit the game.
+                if (player.Health <= 0)
+                {
+                    System.Windows.Forms.MessageBox.Show("Game Over");
 
-                Application.Exit();
+                    Application.Exit();
+                }
+
+
+                // If player/enemy health>0 and form closes, the user closed the window
+                // You cannot run from battle by closing it!
+                if (player.Health > 0 && enemy.Health > 0)
+                {
+                    Application.Exit();
+                }
+
+                // If the battle closes normally , release the instance for future fights
+                //  so it does not lead to disposed exception.
+                if (enemy.Health <= 0)
+                {
+                    instance = null;
+                    //frmLevel.picPoisonPacket
+                }
+            }
+            catch 
+            {
+                // enemy or player was likely null-ed
+                //System.Windows.Forms.MessageBox.Show("Error: Enemy or Player null?");
             }
 
-            // If the battle closes normally , release the instance for future fights
-            //  so it does not lead to disposed exception.
-            if (enemy.Health <= 0)
-            {
-                instance = null;
-            }
-            
-            
-            // If player/enemy health>0 and form closes, the user closed the window
-            // You cannot run from battle by closing it!
-            if (player.Health > 0 && enemy.Health > 0) 
-            {
-                Application.Exit();
-            }
-            
         }
         public async void Setup() 
         {
@@ -96,12 +109,12 @@ namespace Fall2020_CSC403_Project
         // Or FrmBattle.attribute to access tha attribute if its public.
         // Although, the instance of FrmBattle is tied to the enemy thats fighting the player in the said frmbattle.
         // and everytime the instance is called, the frmbattle map is setup.
-        public static FrmBattle GetInstance(Enemy enemy) 
+        public static FrmBattle GetInstance(Enemy enemy, FrmLevel frmLevel) 
         {
 
             if (instance == null) 
             {
-                instance = new FrmBattle();
+                instance = new FrmBattle(frmLevel);
                 instance.enemy = enemy;
                 instance.Setup();
             }
@@ -110,6 +123,7 @@ namespace Fall2020_CSC403_Project
 
         private void UpdateHealthBars() 
         {
+
             float playerHealthPer = player.Health / (float)player.MaxHealth;
             float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
@@ -124,12 +138,11 @@ namespace Fall2020_CSC403_Project
         private async void btnAttack_Click(object sender, EventArgs e) 
         {
             player.OnAttack(-3);
-            
-      
+
             if (enemy.Health > 0) 
             {
 
-                if (enemy.Name == "boss") 
+                if (enemy.Name == "BossChatgpt") 
                 {
                     // Create the constructor
                     CGPT cgpt = new CGPT();
@@ -150,22 +163,25 @@ namespace Fall2020_CSC403_Project
                 {
                     enemy.OnAttack(-2);
                     simpleSFX.PlaySync();
-                    simpleSound.Play();
                 }
 
-
             }
-            else if (enemy.Health <= 0)
+            
+
+            UpdateHealthBars();
+
+            if (enemy.Health <= 0)
             {
-                if (enemy.Name == "boss")
+                if (enemy.Name == "BossChatgpt")
                 {
-                    simpleSound.Stop();
                     simpleSound = new SoundPlayer(Resources.congrats);
                     simpleSound.Play();
                     System.Windows.Forms.MessageBox.Show("~~~ You Win! ~~~");
 
                     // Close the window and send to formclosed event
                     instance = null;
+                    frmLevel.picBossChatgpt.Visible = false;
+                    frmLevel.bossChatgpt = null;
                     Close();
                 }
                 else
@@ -174,23 +190,21 @@ namespace Fall2020_CSC403_Project
 
                     // Close the window and send to formclosed event
                     instance = null;
+
+                    if (frmLevel.enemyCheeto.Name == enemy.Name) 
+                    {
+                        frmLevel.picEnemyCheeto.Visible = false;
+                        frmLevel.enemyCheeto = null;
+                    }
+                    else if (frmLevel.enemyPoisonPacket.Name == enemy.Name) 
+                    {
+                        frmLevel.picEnemyPoisonPacket.Visible = false;
+                        frmLevel.enemyPoisonPacket = null;
+                    }
                     Close();
                 }
             }
 
-            UpdateHealthBars();
-
-            if (player.Health <= 0) 
-            {
-                // Close the window and send to formclosed event
-                instance = null;
-                Close();
-            }
-            if (player.Health <= player.MaxHealth/2 || enemy.Health <= enemy.MaxHealth / 2) 
-            {
-                CGPT cgpt = new CGPT();
-                label3.Text = await cgpt.GetBossMidBattleCommentDying();
-            }
         }
 
         private void EnemyDamage(int amount) 

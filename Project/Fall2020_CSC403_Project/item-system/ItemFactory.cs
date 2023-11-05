@@ -13,19 +13,19 @@ namespace Fall2020_CSC403_Project.item_system
     public class ItemFactory
     {
         int NUM_ITEMS = 0;
-        public IItem GetItem(string itemType, FrmLevel frmLevel, int locationX, int locationY)
+        public IItem GetItem(int itemID, FrmLevel frmLevel, float locationX, float locationY)
         {
 
-            switch (itemType) 
+            switch (itemID) 
             {
-                case "RandomPotion":
+                case 1: // "RandomPotion"
                     NUM_ITEMS += 1;
                     return new RandomPotion(frmLevel, NUM_ITEMS, locationX, locationY);
 
-                /*case "WallBoom":
+                /*case 2: //"WallBoom"
                     return new WallBoom();
 
-                case "Enemy1Boom":
+                case 3: //"Enemy1Boom"
                     return new Enemy1Boom();*/
 
 

@@ -20,7 +20,7 @@ namespace Fall2020_CSC403_Project.item_system
         
 
 
-        public RandomPotion(FrmLevel frmLevel, int numItems, int locXatLvl, int locYatLvl)
+        public RandomPotion(FrmLevel frmLevel, int numItems, float locXatLvl, float locYatLvl)
         {
             // Non unique methods(implemented the same for all items) are called from the AbsractItem class
             //InitializeComponent(frmLevel, NUM_ITEMS, global::Fall2020_CSC403_Project.Properties.Resources.RandomPotion, 767, 354, "RandomItem", 50, 50, 18);
@@ -38,18 +38,20 @@ namespace Fall2020_CSC403_Project.item_system
         //public void ExecuteEffect(FrmLevel frmLevel, Player player, Enemy enemy)
         public void ExecuteEffect(FrmLevel frmLevel)
         {
+            // EFFECT #1 : WallBoom ...maybe implement as separate item
+
             // remove all walls from map (or make them all non enabled or something
             // also execute a battle_screen type popup with a boom that disappears shortly after
             for (int w = 0; w < 13; w++)
             {
+                // Get a handle for each wall picture
                 PictureBox pic = frmLevel.Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+                
+                // Remove pictures from being seen
                 pic.Visible = false;
+                // Remove colliders ... each wall in walls that was constructed in frmLevel has a collider. if we null the class contained in wall, all is removed
                 frmLevel.walls[w] = null; // In order to null this, checks for the walls need to have try catch in case the walls no longer exist!
                 
-                //pic.Dispose();
-
-
-                //walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
             
 
