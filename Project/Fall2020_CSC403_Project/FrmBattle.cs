@@ -64,6 +64,8 @@ namespace Fall2020_CSC403_Project {
         }
 
         private void btnAttack_Click(object sender, EventArgs e) {
+            SoundPlayer simpleSound = new SoundPlayer(Resources.attack);
+            simpleSound.Play();
             player.OnAttack(-4);
             if (enemy.Health > 0) {
                 enemy.OnAttack(-2);
@@ -88,6 +90,8 @@ namespace Fall2020_CSC403_Project {
             }
             if (enemy.Health <= 0)
             {
+                simpleSound = new SoundPlayer(Resources.success);
+                simpleSound.Play();
                 instance = null;
                 if(enemy == FrmHome.gameplayForm.bossKoolaid)
                 {
@@ -126,5 +130,10 @@ namespace Fall2020_CSC403_Project {
       tmrFinalBattle.Enabled = false;
     }
 
-  }
+        private void btnFlee_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(Resources.flee);
+            simpleSound.Play();
+        }
+    }
 }

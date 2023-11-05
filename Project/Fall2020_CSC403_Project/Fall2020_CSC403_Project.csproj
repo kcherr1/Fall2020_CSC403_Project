@@ -150,7 +150,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\attack.wav" />
+    <Content Include="data\flee.wav" />
     <Content Include="data\home.jpeg" />
+    <Content Include="data\success.wav" />
     <None Include="data\newpic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.themeSelect = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,10 +47,9 @@
             this.playBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.playBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playBtn.ForeColor = System.Drawing.Color.White;
-            this.playBtn.Location = new System.Drawing.Point(875, 26);
-            this.playBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.playBtn.Location = new System.Drawing.Point(778, 21);
             this.playBtn.Name = "playBtn";
-            this.playBtn.Size = new System.Drawing.Size(233, 72);
+            this.playBtn.Size = new System.Drawing.Size(207, 58);
             this.playBtn.TabIndex = 0;
             this.playBtn.TabStop = false;
             this.playBtn.Text = "New Game";
@@ -61,10 +61,9 @@
             this.exitBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.exitBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1426, 26);
-            this.exitBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.exitBtn.Location = new System.Drawing.Point(1268, 21);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(233, 72);
+            this.exitBtn.Size = new System.Drawing.Size(207, 58);
             this.exitBtn.TabIndex = 1;
             this.exitBtn.TabStop = false;
             this.exitBtn.Text = "Exit";
@@ -83,18 +82,19 @@
             this.labelHome.BackColor = System.Drawing.Color.Transparent;
             this.labelHome.Font = new System.Drawing.Font("Microsoft Tai Le", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHome.ForeColor = System.Drawing.Color.White;
-            this.labelHome.Location = new System.Drawing.Point(14, 11);
+            this.labelHome.Location = new System.Drawing.Point(12, 9);
             this.labelHome.Name = "labelHome";
-            this.labelHome.Size = new System.Drawing.Size(503, 122);
+            this.labelHome.Size = new System.Drawing.Size(418, 101);
             this.labelHome.TabIndex = 4;
             this.labelHome.Text = "Welcome!";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.home;
-            this.pictureBox1.Location = new System.Drawing.Point(709, 254);
+            this.pictureBox1.Location = new System.Drawing.Point(630, 203);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(477, 381);
+            this.pictureBox1.Size = new System.Drawing.Size(424, 305);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -104,9 +104,9 @@
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Image = global::Fall2020_CSC403_Project.Properties.Resources.home;
-            this.label1.Location = new System.Drawing.Point(663, 183);
+            this.label1.Location = new System.Drawing.Point(589, 146);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 20);
+            this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 6;
             // 
             // label2
@@ -114,9 +114,9 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(519, 717);
+            this.label2.Location = new System.Drawing.Point(461, 574);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 20);
+            this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 7;
             // 
             // timer1
@@ -130,22 +130,43 @@
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1159, 26);
+            this.button1.Location = new System.Drawing.Point(1030, 21);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(215, 72);
+            this.button1.Size = new System.Drawing.Size(191, 58);
             this.button1.TabIndex = 8;
+            this.button1.TabStop = false;
             this.button1.Text = "Instruction";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // themeSelect
+            // 
+            this.themeSelect.BackColor = System.Drawing.Color.Black;
+            this.themeSelect.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.themeSelect.ForeColor = System.Drawing.Color.White;
+            this.themeSelect.FormattingEnabled = true;
+            this.themeSelect.ItemHeight = 22;
+            this.themeSelect.Items.AddRange(new object[] {
+            "Classic Theme",
+            "New Theme"});
+            this.themeSelect.Location = new System.Drawing.Point(576, 39);
+            this.themeSelect.Name = "themeSelect";
+            this.themeSelect.Size = new System.Drawing.Size(155, 30);
+            this.themeSelect.TabIndex = 9;
+            this.themeSelect.TabStop = false;
+            this.themeSelect.Text = "Classic Theme";
+            this.themeSelect.SelectedIndexChanged += new System.EventHandler(this.themeSelect_SelectedIndexChanged);
+            // 
             // FrmHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.home;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1671, 798);
+            this.ClientSize = new System.Drawing.Size(1485, 638);
+            this.Controls.Add(this.themeSelect);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -154,7 +175,6 @@
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.playBtn);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
@@ -178,5 +198,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox themeSelect;
     }
 }
