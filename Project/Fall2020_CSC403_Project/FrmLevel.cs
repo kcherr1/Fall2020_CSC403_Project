@@ -397,6 +397,7 @@ namespace Fall2020_CSC403_Project
             DisposeGame();
 
 
+
             // set the location and size of the square 
             // to the location and size of the form
             BlackSquare.Location = this.Location;
@@ -505,6 +506,17 @@ namespace Fall2020_CSC403_Project
         private void RestartButton_Click(object sender, EventArgs e)
         {
             gameAudio.PlayLooping();
+
+            this.Areas[0] = new Area("Malek's Mountain", 12, 0.05);
+            this.Areas[1] = new Area("Village Ruins", 901, 0.05);
+            this.Areas[2] = new Area("Buddy Beachfront", 890, 0.05);
+            this.Areas[3] = new Area("Uphill Hill", 789, 0.05);
+            this.Areas[4] = new Area("Plainsfield", 678, 0.05);
+            this.Areas[5] = new Area("Lower Harmony Village", 567, 0.05);
+            this.Areas[6] = new Area("Windy Plateau", 456, 0.05);
+            this.Areas[7] = new Area("Harmony Plains", 345, 0.05);
+            this.Areas[8] = new Area("Harmony Village", 234, 0.05);
+            this.Areas[9] = new Area("Dragon's Lair", 123, 0.2);
 
             this.gameOver = false;
             this.player = new Player(player.Name, player.Pic, player.archetype);
