@@ -110,7 +110,7 @@ namespace Fall2020_CSC403_Project {
       }
       if (HitAChar(player, ak)){
         player.WeaponStrength = ak.getStrength();
-        player.WeaponEquiped = true;
+        player.WeaponEquiped = 1;
         weapon1.Visible = false;
       }
       if (HitAChar(player, healthPack)){

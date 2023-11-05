@@ -31,8 +31,14 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
-      if (player.WeaponEquiped){
+      if (player.WeaponEquiped != 0){
         weapon.Visible = true;
+        if (player.WeaponEquiped == 1){
+          weapon.Image = Resources.weapon1;
+        }
+        if (player.WeaponEquiped == 2){
+          weapon.Image = Resources.rpg;
+        }
       }
 
       // Observer pattern

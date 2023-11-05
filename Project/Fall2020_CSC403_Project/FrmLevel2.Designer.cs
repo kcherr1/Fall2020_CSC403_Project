@@ -120,6 +120,7 @@
       this.obstacle15 = new System.Windows.Forms.PictureBox();
       this.obstacle16 = new System.Windows.Forms.PictureBox();
       this.healthPackLvl2 = new System.Windows.Forms.PictureBox();
+      this.rpgPic = new System.Windows.Forms.PictureBox();
       ((System.ComponentModel.ISupportInitialize)(this.wall1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall3)).BeginInit();
@@ -213,6 +214,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.obstacle15)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle16)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.healthPackLvl2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.rpgPic)).BeginInit();
       this.SuspendLayout();
       // 
       // lblInGameTime
@@ -922,7 +924,6 @@
       this.hedge13.Size = new System.Drawing.Size(112, 125);
       this.hedge13.TabIndex = 54;
       this.hedge13.TabStop = false;
-      this.hedge13.Click += new System.EventHandler(this.hedge13_Click);
       // 
       // hedge12
       // 
@@ -1355,6 +1356,17 @@
       this.healthPackLvl2.TabIndex = 92;
       this.healthPackLvl2.TabStop = false;
       // 
+      // rpgPic
+      // 
+      this.rpgPic.BackColor = System.Drawing.Color.Transparent;
+      this.rpgPic.Image = global::Fall2020_CSC403_Project.Properties.Resources.rpg;
+      this.rpgPic.Location = new System.Drawing.Point(526, 213);
+      this.rpgPic.Name = "rpgPic";
+      this.rpgPic.Size = new System.Drawing.Size(117, 52);
+      this.rpgPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.rpgPic.TabIndex = 93;
+      this.rpgPic.TabStop = false;
+      // 
       // FrmLevel2
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1364,6 +1376,7 @@
       this.BackColor = System.Drawing.Color.Black;
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass;
       this.ClientSize = new System.Drawing.Size(1811, 1047);
+      this.Controls.Add(this.rpgPic);
       this.Controls.Add(this.healthPackLvl2);
       this.Controls.Add(this.obstacle16);
       this.Controls.Add(this.obstacle15);
@@ -1561,6 +1574,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.obstacle15)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle16)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.healthPackLvl2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.rpgPic)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -1663,5 +1677,6 @@
     private System.Windows.Forms.PictureBox obstacle15;
     private System.Windows.Forms.PictureBox obstacle16;
     private System.Windows.Forms.PictureBox healthPackLvl2;
+    private System.Windows.Forms.PictureBox rpgPic;
   }
 }

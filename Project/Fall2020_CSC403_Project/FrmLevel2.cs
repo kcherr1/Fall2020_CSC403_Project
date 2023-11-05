@@ -26,6 +26,7 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeStart;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
     private Character healthPack;
+    private Weapon rpg;
 
     public FrmLevel2() : base() {
       this.player = GameState.player;
@@ -66,6 +67,8 @@ namespace Fall2020_CSC403_Project {
       bossSquirrels.Color = Color.SaddleBrown;
 
       healthPack = new Character(CreatePosition(healthPackLvl2), CreateCollider(healthPackLvl2, PADDING));
+      rpg = new Weapon(CreatePosition(rpgPic), CreateCollider(rpgPic, PADDING));
+      rpg.setStrength(7);
 
       walls = new Character[WALL_COUNT];
       for (int w = 1; w <= WALL_COUNT; w++) {
@@ -131,6 +134,11 @@ namespace Fall2020_CSC403_Project {
       }
       else if (HitAChar(player, bossSquirrels)) {
         Fight(bossSquirrels);
+      }
+      if (HitAChar(player, rpg)) {
+        player.WeaponStrength = rpg.getStrength();
+        player.WeaponEquiped = 2;
+        rpgPic.Visible = false;
       }
       if (HitAChar(player, healthPack)){
         player.HealthPackCount++;
@@ -233,10 +241,6 @@ namespace Fall2020_CSC403_Project {
     private void RemoveEnemy(Enemy enemy, PictureBox picEnemy) {
       enemy.RemoveCollider();
       picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
-    }
-
-    private void hedge13_Click(object sender, EventArgs e) {
-
     }
   }
 }
