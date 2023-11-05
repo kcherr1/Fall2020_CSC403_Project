@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
     public abstract class AbstractItem
     {
         public System.Windows.Forms.PictureBox picItem;
+        public System.Windows.Forms.PictureBox picEffectEvent;
         public Vector2 CreatePosition(PictureBox pic)
         {
             return new Vector2(pic.Location.X, pic.Location.Y);

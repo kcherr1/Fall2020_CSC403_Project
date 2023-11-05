@@ -181,6 +181,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\wallBoomSound1.wav" />
+    <None Include="data\wallBoom1.gif" />
     <None Include="data\RandomPotion.png" />
     <None Include="data\battle_screen_ramboVScgpt.png" />
     <None Include="data\cgptSingsWorldTakeover.wav" />

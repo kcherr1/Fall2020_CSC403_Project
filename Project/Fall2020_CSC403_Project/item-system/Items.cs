@@ -2,24 +2,28 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Media;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.item_system.interfaces;
 
 namespace Fall2020_CSC403_Project.item_system
 {
 
-    public class RandomPotion : AbstractItem, IItem
+    public class WallBoom : AbstractItem, IItem
     {
-        public string itemName => "Random Potion";
+        public string itemName => "Wall Boom";
         public Collider collider { get; set; }
         public Vector2 initPos { get; set; }
+        private SoundPlayer effectEventPlayer;
         
 
 
-        public RandomPotion(FrmLevel frmLevel, int numItems, float locXatLvl, float locYatLvl)
+        public WallBoom(FrmLevel frmLevel, int numItems, float locXatLvl, float locYatLvl)
         {
             // Non unique methods(implemented the same for all items) are called from the AbsractItem class
             InitializeComponent(frmLevel, numItems, global::Fall2020_CSC403_Project.Properties.Resources.RandomPotion, locXatLvl, locYatLvl, "RandomItem", 50, 50, 18);
@@ -32,9 +36,12 @@ namespace Fall2020_CSC403_Project.item_system
         //public void ExecuteEffect(FrmLevel frmLevel, Player player, Enemy enemy)
         public void ExecuteEffect(FrmLevel frmLevel)
         {
-            /* EFFECT #1 : WallBoom ...maybe implement as separate item -- TODO: move to itemID 2 and make this a separate effect */
+            /* ExecuteEffect: Triggers on collision of player with item object
+             * EFFECT #1 : WallBoom ...maybe implement as separate item -- TODO: move to itemID 2 and make this a separate effect */
 
-            // remove all walls from map (or make them all non enabled or something
+            EffectEvent(frmLevel, 18);
+
+            // Remove all walls from map (or make them all non enabled or something
             // also execute a battle_screen type popup with a boom that disappears shortly after
             for (int w = 0; w < 13; w++)
             {
@@ -47,45 +54,52 @@ namespace Fall2020_CSC403_Project.item_system
                 frmLevel.walls[w] = null; // In order to null this, checks for the walls need to have try catch in case the walls no longer exist!
                 
             }
+
+            // Now that the effect has been executed, remove the item from the map
+            this.picItem.Visible = false;
+            this.collider = null;
             
 
 
         }
 
-        /*void GetItemControls() 
+        private async void EffectEvent(FrmLevel frmLevel, int tabIndex) 
         {
-            items = new Character[NUM_ITEMS];
-            for (int w = 0; w < NUM_ITEMS; w++)
-            {
-                PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
-            }
-        private bool ItemIsHit(Character c)
-        {
-            bool hitAnItem = false;
-            walls = new Character[NUM_WALLS];
-          for (int w = 0; w < NUM_WALLS; w++) {
-            PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-            walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
-            for (int w = 0; w < walls.Length; w++)
-            {
-                if (c.Collider.Intersects(walls[w].Collider))
-                {
-                    hitAWall = true;
-                    break;
-                }
-            }
-            return hitAWall;
-        }
-        void PlaceHolder(Player player) 
-        {
-            if (ItemIsHit()) 
-            {
-                player.ResetMoveSpeed();
-                player.MoveBack();
-            }
-        }*/
+            //1. Add sound player to RandomItem or AbstractItem class
+            //2. InitializeComponent for EffectEventPictureBox
+            // 2.1 at this time, connect soundplayer with boom sound
+            // 2.2 try having it play the sound at the end of instantiation (move .play if necessary for timing)
+            //3. Give EffectEventPictureBox the "boom gif"
+            //4. Add boom sound to resources
+            //5. after ExecuteEffect triggered, call EffectEvent() before the action is executed(boom walls)
 
+            effectEventPlayer = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.wallBoomSound1);
+            effectEventPlayer.Play();
+
+            picEffectEvent = new System.Windows.Forms.PictureBox();
+
+            ((System.ComponentModel.ISupportInitialize)(picEffectEvent)).BeginInit();
+            frmLevel.SuspendLayout();
+
+            this.picEffectEvent.Image = global::Fall2020_CSC403_Project.Properties.Resources.wallBoom1;
+            this.picEffectEvent.Location = new System.Drawing.Point(150,50);
+            this.picEffectEvent.Name = "WallBoom";
+            this.picEffectEvent.Size = new System.Drawing.Size(650,650);
+            this.picEffectEvent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEffectEvent.TabIndex = tabIndex;
+            this.picEffectEvent.TabStop = false;
+
+            frmLevel.Controls.Add(picEffectEvent);
+            ((System.ComponentModel.ISupportInitialize)(picEffectEvent)).EndInit();
+            frmLevel.ResumeLayout(false);
+
+            // Give the gif time to play
+            await Task.Delay(3000);
+
+            // Remove the image after the gif plays for however many seconds
+            picEffectEvent.Visible = false;
+
+        }
         public void AI() 
         {
             

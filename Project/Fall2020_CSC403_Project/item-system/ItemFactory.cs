@@ -18,9 +18,9 @@ namespace Fall2020_CSC403_Project.item_system
 
             switch (itemID) 
             {
-                case 1: // "RandomPotion"
+                case 1: // "WallBoom"
                     NUM_ITEMS += 1;
-                    return new RandomPotion(frmLevel, NUM_ITEMS, locationX, locationY);
+                    return new WallBoom(frmLevel, NUM_ITEMS, locationX, locationY);
 
                 /*case 2: //"WallBoom"
                     return new WallBoom();

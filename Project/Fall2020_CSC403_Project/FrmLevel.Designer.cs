@@ -101,7 +101,7 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyCheeto.Location = new System.Drawing.Point(1117, 665);
             this.picEnemyCheeto.Margin = new System.Windows.Forms.Padding(4);
-            this.picEnemyCheeto.Name = "Cheeto";
+            this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(85, 132);
             this.picEnemyCheeto.TabIndex = 5;
             this.picEnemyCheeto.TabStop = false;
@@ -113,7 +113,7 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyPoisonPacket.Location = new System.Drawing.Point(147, 121);
             this.picEnemyPoisonPacket.Margin = new System.Windows.Forms.Padding(4);
-            this.picEnemyPoisonPacket.Name = "PoisonPacket";
+            this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(84, 118);
             this.picEnemyPoisonPacket.TabIndex = 4;
             this.picEnemyPoisonPacket.TabStop = false;
@@ -137,7 +137,7 @@ namespace Fall2020_CSC403_Project {
             this.picBossChatgpt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossChatgpt.Location = new System.Drawing.Point(1295, 91);
             this.picBossChatgpt.Margin = new System.Windows.Forms.Padding(4);
-            this.picBossChatgpt.Name = "BossChatgpt";
+            this.picBossChatgpt.Name = "picBossChatgpt";
             this.picBossChatgpt.Size = new System.Drawing.Size(257, 239);
             this.picBossChatgpt.TabIndex = 1;
             this.picBossChatgpt.TabStop = false;

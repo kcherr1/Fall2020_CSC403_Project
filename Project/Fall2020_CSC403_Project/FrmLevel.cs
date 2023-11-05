@@ -21,6 +21,7 @@ namespace Fall2020_CSC403_Project {
     public Panel uiPanel;
     public static SoundPlayer levelMusic;
     private Random random;
+    private IItem rpot;
 
 
 
@@ -129,7 +130,11 @@ namespace Fall2020_CSC403_Project {
                     Fight(enemyPoisonPacket);
 
                     // Generate a random number to get a random effect from the RandomPotion (first 3 potions will be random potion candidates)
-                    InstantiateItem(random.Next(1, 1), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
+                    //if (enemyPoisonPacket.Health == 0) 
+                    //{
+                        rpot = InstantiateItem(random.Next(1, 1), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
+                    //}
+                    
 
                 }
                 else if (HitAChar(player, enemyCheeto))
@@ -145,6 +150,12 @@ namespace Fall2020_CSC403_Project {
             {
                 // if enemy was nulled, cant execute these, so we only try them and not force them on every tick
             }
+
+            if (HitAnItem(player)) 
+            {
+                player.MoveBack();
+                rpot.ExecuteEffect(this);
+            }
       
 
             // update player's picture box
@@ -152,6 +163,27 @@ namespace Fall2020_CSC403_Project {
 
     }
 
+        private bool HitAnItem(Character player) 
+        {
+
+            bool hitAnItem = false;
+            try 
+            {
+                if (rpot != null) 
+                {
+                    if (player.Collider.Intersects(rpot.collider)) 
+                    {
+                        hitAnItem = true;
+                    }
+                }
+            }
+            catch 
+            {
+                //Error: null item?
+            }
+
+            return hitAnItem;
+        }
     private bool HitAWall(Character c) {
       bool hitAWall = false;
             try 
