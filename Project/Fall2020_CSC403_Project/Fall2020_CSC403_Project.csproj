@@ -177,6 +177,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\travel_sign.png" />
+    <None Include="data\house_L.png" />
+    <None Include="data\house_long.png" />
     <Content Include="gfgLogoIco.ico" />
     <None Include="data\wall_cobblestone.png" />
     <None Include="data\wall_bricks.png" />

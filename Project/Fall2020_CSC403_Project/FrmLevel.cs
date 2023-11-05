@@ -66,8 +66,9 @@ namespace Fall2020_CSC403_Project
             this.Areas[5] = new Area("Lower Harmony Village", 567, 0.05);
             this.Areas[6] = new Area("Windy Plateau", 456, 0.05);
             this.Areas[7] = new Area("Harmony Plains", 345, 0.05);
-            this.Areas[8] = new Area("Harmony Village", 234, 0.05);
+            this.Areas[8] = new Area("Harmony Village", 623, 0.15);
             this.Areas[9] = new Area("Dragon's Lair", 123, 0.2);
+
 
             for (int i = 0; i < 9; i++)
             {
@@ -137,11 +138,11 @@ namespace Fall2020_CSC403_Project
                     }
                 }
 
-                if (this.Areas[Area].Walls != null)
+                if (this.Areas[Area].Structures != null)
                 {
-                    for (int i = 0; i < this.Areas[Area].Walls.Count; i++)
+                    for (int i = 0; i < this.Areas[Area].Structures.Count; i++)
                     {
-                        this.Controls.Add(this.Areas[Area].Walls[i].Pic);
+                        this.Controls.Add(this.Areas[Area].Structures[i].Pic);
                     }
                 }
                 if (this.Areas[Area].Items != null)
@@ -317,9 +318,9 @@ namespace Fall2020_CSC403_Project
         private bool HitAWall(Player c)
         {
             bool hitAWall = false;
-            for (int w = 0; w < this.Areas[Area].Walls.Count; w++)
+            for (int w = 0; w < this.Areas[Area].Structures.Count; w++)
             {
-                if (c.Collider.Intersects(this.Areas[Area].Walls[w].Collider))
+                if (c.Collider.Intersects(this.Areas[Area].Structures[w].Collider))
                 {
                     hitAWall = true;
                     break;
@@ -472,9 +473,9 @@ namespace Fall2020_CSC403_Project
             {
                 this.Controls.Remove(this.Areas[Area].Items[i].Pic);
             }
-            for (int i = 0; i < this.Areas[Area].Walls.Count; i++)
+            for (int i = 0; i < this.Areas[Area].Structures.Count; i++)
             {
-                this.Controls.Remove(this.Areas[Area].Walls[i].Pic);
+                this.Controls.Remove(this.Areas[Area].Structures[i].Pic);
             }
 
             GC.Collect();
@@ -490,7 +491,7 @@ namespace Fall2020_CSC403_Project
                 this.Areas[i].AdjacentAreas.Clear();
                 this.Areas[i].Terrain.Tiles.Clear();
                 this.Areas[i].Items.Clear();
-                this.Areas[i].Walls.Clear();
+                this.Areas[i].Structures.Clear();
             }
             this.Areas = new Area[10];
             GC.Collect();
@@ -624,8 +625,35 @@ namespace Fall2020_CSC403_Project
             }
             this.Areas[this.Area].Visited = true;
 
-
             player.Pic.Visible = true;
+
+
+            Area currentArea = this.Areas[this.Area];
+
+            Bitmap house_long = Resources.house_long;
+
+            Bitmap house_long_rot = Resources.house_long;
+            house_long_rot.RotateFlip(RotateFlipType.Rotate90FlipNone);
+
+            Bitmap house_L = Resources.house_L;
+
+            Bitmap house_L_rot90 = Resources.house_L;
+            house_L_rot90.RotateFlip(RotateFlipType.Rotate90FlipNone);
+
+            Bitmap house_L_rot180 = Resources.house_L;
+            house_L_rot180.RotateFlip(RotateFlipType.Rotate180FlipNone);
+
+            Size longSize = new Size(Terrain.TileSize.Width * 6, Terrain.TileSize.Height * 3);
+            Size longSize_rot = new Size(longSize.Height, longSize.Width);
+            Size L_Size = new Size(Terrain.TileSize.Width * 6, Terrain.TileSize.Height * 4);
+            Size L_Size_rot90 = new Size(L_Size.Height, L_Size.Width);
+
+            currentArea.AddStructure(new Structure(MakePictureBox(house_long_rot, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4 - 100 , - 100), longSize_rot)));
+            currentArea.AddStructure(new Structure(MakePictureBox(house_long, new Point(Screen.PrimaryScreen.Bounds.Width / 2, 400), longSize)));
+            currentArea.AddStructure(new Structure(MakePictureBox(house_L, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4, 300), L_Size)));
+            currentArea.AddStructure(new Structure(MakePictureBox(house_L_rot180, new Point(Screen.PrimaryScreen.Bounds.Width * 1 / 4, 80), L_Size)));
+
+
         }
 
         private void Area7()
@@ -701,8 +729,8 @@ namespace Fall2020_CSC403_Project
             currentArea.AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
             currentArea.AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
 
-            currentArea.AddWall(new Wall(MakePictureBox(Resources.wall_bricks, new Point(500, 500), new Size(20, 100))));
-            currentArea.Walls[0].Pic.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            currentArea.AddStructure(new Structure(MakePictureBox(Resources.wall_bricks, new Point(500, 500), new Size(20, 100))));
+            currentArea.Structures[0].Pic.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
         }
 
         private void Area3()
