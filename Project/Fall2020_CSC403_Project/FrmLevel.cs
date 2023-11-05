@@ -162,13 +162,6 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
             player.ResetMoveSpeed();
-            for (int i = 0; i < player.party.Length; i++)
-            {
-                if (player.party[i] != null)
-                    player.party[i].ResetMoveSpeed();
-                else
-                    continue;
-            }
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
@@ -177,46 +170,18 @@ namespace Fall2020_CSC403_Project
             {
                 case Keys.A:
                     player.GoLeft();
-                    for (int i = 0; i < player.party.Length; i++)
-                    {
-                        if (player.party[i] != null)
-                            player.party[i].GoLeft();
-                        else
-                            continue;
-                    }
                     break;
 
                 case Keys.D:
                     player.GoRight();
-                    for (int i = 0; i < player.party.Length; i++)
-                    {
-                        if (player.party[i] != null)
-                            player.party[i].GoRight();
-                        else
-                            continue;
-                    }
                     break;
 
                 case Keys.W:
                     player.GoUp();
-                    for (int i = 0; i < player.party.Length; i++)
-                    {
-                        if (player.party[i] != null)
-                            player.party[i].GoUp();
-                        else
-                            continue;
-                    }
                     break;
 
                 case Keys.S:
                     player.GoDown();
-                    for (int i = 0; i < player.party.Length; i++)
-                    {
-                        if (player.party[i] != null)
-                            player.party[i].GoDown();
-                        else
-                            continue;
-                    }
                     break;
 
                 case Keys.E:
@@ -234,13 +199,6 @@ namespace Fall2020_CSC403_Project
 
                 default:
                     player.ResetMoveSpeed();
-                    for (int i = 0; i < player.party.Length; i++)
-                    {
-                        if (player.party[i] != null)
-                            player.party[i].ResetMoveSpeed();
-                        else
-                            continue;
-                    }
                     break;
             }
         }
@@ -263,26 +221,10 @@ namespace Fall2020_CSC403_Project
             // move playerd
             player.Move();
 
-            // move npcs in 
-            for (int i = 0; i < player.party.Length; i++)
-            {
-                if (player.party[i] != null)
-                    player.party[i].Move();
-                else
-                    continue;
-            }
-
             // check collision with walls
             if (HitAWall(player))
             {
                 player.MoveBack();
-                for (int i = 0; i < player.party.Length; i++)
-                {
-                    if (player.party[i] != null)
-                        player.party[i].MoveBack();
-                    else
-                        continue;
-                }
             }
 
             // check collision with enemies
@@ -300,8 +242,8 @@ namespace Fall2020_CSC403_Project
             if (npcIndex >= 0)
             {
                 Converse(this.Areas[Area].npcs[npcIndex]);
-                //Controls.Remove(this.Areas[Area].npcs[npcIndex].Pic);
-                //this.Areas[Area].npcs.Remove(this.Areas[Area].npcs[npcIndex]);
+                Controls.Remove(this.Areas[Area].npcs[npcIndex].Pic);
+                this.Areas[Area].npcs.Remove(this.Areas[Area].npcs[npcIndex]);
             }
 
             x = HitAnItem(player);
