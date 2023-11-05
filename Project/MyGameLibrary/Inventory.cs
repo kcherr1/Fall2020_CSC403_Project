@@ -22,6 +22,9 @@ namespace MyGameLibrary
         public Inventory()
         {
             this.Backpack = new Item[9];
+            this.Weapon = null;
+            this.Armor = null;
+            this.Utility = null;
         }
 
         public Inventory(Item Weapon, Item Armor, Item Utility, Item[] Backpack)
@@ -49,22 +52,22 @@ namespace MyGameLibrary
             return this.Backpack[this.Backpack.Length - 1] != null;
         }
 
-        public void UnEquipWeapon(Position position, Facing facing)
+        public void UnEquipWeapon(Position position, Facing facing, Area area)
         {
-            EquipWeapon(null, position, facing);
+            EquipWeapon(null, position, facing, area);
         }
 
-        public void UnEquipArmor(Position position, Facing facing)
+        public void UnEquipArmor(Position position, Facing facing, Area area)
         {
-            EquipArmor(null, position, facing);
+            EquipArmor(null, position, facing, area);
         }
 
-        public void UnEquipUtility(Position position, Facing facing)
+        public void UnEquipUtility(Position position, Facing facing, Area area)
         {
-            EquipUtility(null, position, facing);
+            EquipUtility(null, position, facing, area);
         }
 
-        public void EquipWeapon(Item item, Position position, Facing facing)
+        public void EquipWeapon(Item item, Position position, Facing facing, Area area)
         {
             Item currently_equipped = this.Weapon;
             if (item == null || item.Type == Item.ItemType.Weapon)
@@ -73,7 +76,7 @@ namespace MyGameLibrary
                 RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    DropItem(currently_equipped, position, facing);
+                    DropItem(currently_equipped, position, facing, area);
 
                 } else
                 {
@@ -85,7 +88,7 @@ namespace MyGameLibrary
                 Console.Error.WriteLine("Not a weapon");
             }
         }
-        public void EquipArmor(Item item, Position position, Facing facing)
+        public void EquipArmor(Item item, Position position, Facing facing, Area area)
         {
             Item currently_equipped = this.Armor;
             if (item == null || item.Type == Item.ItemType.Armor)
@@ -94,7 +97,7 @@ namespace MyGameLibrary
                 RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    DropItem(currently_equipped, position, facing);
+                    DropItem(currently_equipped, position, facing, area);
                 }
                 else
                 {
@@ -104,7 +107,7 @@ namespace MyGameLibrary
                 Console.Error.WriteLine("Not armor");
             }
         }
-        public void EquipUtility(Item item, Position position, Facing facing)
+        public void EquipUtility(Item item, Position position, Facing facing, Area area)
         {
             Item currently_equipped = this.Utility;
             if (item == null || item.Type == Item.ItemType.Utility)
@@ -113,7 +116,7 @@ namespace MyGameLibrary
                 RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    DropItem(currently_equipped, position, facing);
+                    DropItem(currently_equipped, position, facing, area);
                 }
                 else
                 {
@@ -183,7 +186,7 @@ namespace MyGameLibrary
         }
 
 
-        public void DropItem(Item item, Position position, Facing facing)
+        public void DropItem(Item item, Position position, Facing facing, Area area)
         {
             if (item == null)
             {
@@ -192,6 +195,7 @@ namespace MyGameLibrary
             Position new_position = new Position(position.x, position.y);
             new_position.x = facing == Facing.Left ? new_position.x - item.Pic.Size.Width - 10 : new_position.x + item.Pic.Size.Width + 10;
             item.SetEntityPosition(new_position);
+            area.Items.Add(item);
         }
 
         public void DropAll(Position position)

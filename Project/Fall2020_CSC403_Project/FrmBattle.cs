@@ -98,6 +98,7 @@ namespace Fall2020_CSC403_Project
 
             } else if (enemy.Health <= 0)
             {
+                form.RemoveEnemy(enemy);
                 instance = null;
                 player.RemoveEffect();
                 Close();

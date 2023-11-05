@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Threading;
 using System.Media;
+using System.Text.Json;
+using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace Fall2020_CSC403_Project
 {
@@ -20,6 +24,7 @@ namespace Fall2020_CSC403_Project
         private Form MainMenu;
 
         public int Area { get; set; }
+        public int score;
 
         public bool gameOver { get; set; }
 
@@ -37,10 +42,16 @@ namespace Fall2020_CSC403_Project
 
         private Direction TravelDirection = Direction.None;
 
+        public Label ScoreLabel;
+
         public FrmLevel(Form MainMenu, Player player)
         {
             this.KeyPreview = true;
             this.DoubleBuffered = true;
+
+            this.ScoreLabel = null;
+
+            this.score = 0;
 
             this.gameAudio = new SoundPlayer(Resources.Game_audio);
 
@@ -82,6 +93,18 @@ namespace Fall2020_CSC403_Project
             Game.player = player;
             timeBegin = DateTime.Now;
 
+            this.ScoreLabel = new Label();
+            this.Controls.Add(ScoreLabel);
+            ScoreLabel.BackColor = Color.Black;
+            ScoreLabel.ForeColor = Color.White;
+            ScoreLabel.Text = "Score: " + score.ToString();
+            ScoreLabel.Location = new Point(Screen.PrimaryScreen.Bounds.Width - ScoreLabel.Width - 20, 15);
+            ScoreLabel.Font = new Font("Microsoft Sans Serif", 11);
+            ScoreLabel.Visible = true;
+            ScoreLabel.BringToFront();
+            
+            
+            
 
             //Adding stop condition to mainMenu_music here
             FrmMain mainMenuPlayer = Application.OpenForms["FrmMain"] as FrmMain;
@@ -217,7 +240,7 @@ namespace Fall2020_CSC403_Project
 
                 case Keys.E:
                     player.ResetMoveSpeed();
-                    frminventory = FrmInventory.GetInstance(player);
+                    frminventory = FrmInventory.GetInstance(player, this.Areas[this.Area]);
                     frminventory.Show();
                     break;
 
@@ -263,8 +286,7 @@ namespace Fall2020_CSC403_Project
             if (x >= 0)
             {
                 Fight(this.Areas[Area].Enemies[x]);
-                Controls.Remove(this.Areas[Area].Enemies[x].Pic);
-                this.Areas[Area].Enemies.Remove(this.Areas[Area].Enemies[x]);
+
 
             }
 
@@ -274,6 +296,7 @@ namespace Fall2020_CSC403_Project
                 if (!player.Inventory.BackpackIsFull())
                 {
                     Item item = this.Areas[this.Area].Items[x];
+                    this.Areas[this.Area].Items.Remove(item);
                     player.Inventory.AddToBackpack(item);
                     item.HideEntity();
                 }
@@ -388,11 +411,14 @@ namespace Fall2020_CSC403_Project
             player.MoveBack();
             frmBattleScreen = FrmBattleScreen.GetInstance(this, enemy);
             frmBattleScreen.Show();
+        }
 
-            /*            if (enemy.Name == "BossKoolAid")
-                        {
-                            frmBattleScreen.SetupForBossBattle();
-                        }*/
+        public void RemoveEnemy(Enemy enemy)
+        {
+            Controls.Remove(enemy.Pic);
+            this.Areas[Area].Enemies.Remove(enemy);
+            score += 100;
+            ScoreLabel.Text = "Score: " + score.ToString();
         }
 
         public void GameOver()
@@ -449,7 +475,68 @@ namespace Fall2020_CSC403_Project
             MainMenuButton.Visible = true;
             MainMenuButton.BringToFront();
 
+            RecordLeaderboardData();
+
             gameAudio.Stop();
+        }
+
+        private void RecordLeaderboardData()
+        {
+            string filepath = "../../data/LeaderboardData.json";
+            string[] text = File.ReadAllLines(filepath);
+
+            string playerText = text[0];
+            string classText = text[1];
+            string scoresText = text[2];
+            string weaponText = text[3];
+            string armorText = text[4];
+            string utilityText = text[5];
+
+            List<String> topPlayers = JsonSerializer.Deserialize<List<String>>(playerText);
+            List<String> topClasses = JsonSerializer.Deserialize<List<String>>(classText);
+            List<int> topScores = JsonSerializer.Deserialize<List<int>>(scoresText);
+            List<String> topWeapons = JsonSerializer.Deserialize<List<String>>(weaponText);
+            List<String> topArmors = JsonSerializer.Deserialize<List<String>>(armorText);
+            List<String> topUtilities = JsonSerializer.Deserialize<List<String>>(utilityText);
+
+
+            for (int i = 0; i < topScores.Count; i++)
+            {
+                if (score > topScores[i])
+                {
+                    topPlayers.Insert(i, player.Name);
+                    topPlayers.RemoveAt(topPlayers.Count - 1);
+                    topClasses.Insert(i, player.archetype.name);
+                    topClasses.RemoveAt(topClasses.Count - 1);
+                    topScores.Insert(i, score);
+                    topScores.RemoveAt(topScores.Count - 1);
+                    if (player.Inventory.Weapon != null)
+                    {
+                        topWeapons.Insert(i, player.Inventory.Weapon.Name);
+                        topWeapons.RemoveAt(topWeapons.Count - 1);
+                    }
+                    if (player.Inventory.Armor != null)
+                    {
+                        topArmors.Insert(i, player.Inventory.Armor.Name);
+                        topArmors.RemoveAt(topArmors.Count - 1);
+                    }
+                    if (player.Inventory.Utility != null)
+                    {
+                        topUtilities.Insert(i, player.Inventory.Utility.Name);
+                        topUtilities.RemoveAt(topUtilities.Count - 1);
+                    }
+                    break;
+                }
+            }
+            string[] data = new string[9];
+            data[0] = JsonSerializer.Serialize(topPlayers);
+            data[1] = JsonSerializer.Serialize(topClasses);
+            data[2] = JsonSerializer.Serialize(topScores);
+            data[3] = JsonSerializer.Serialize(topWeapons);
+            data[4] = JsonSerializer.Serialize(topArmors);
+            data[5] = JsonSerializer.Serialize(topUtilities);
+
+            File.WriteAllLines(filepath, data);
         }
 
 
@@ -506,13 +593,14 @@ namespace Fall2020_CSC403_Project
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            frminventory = FrmInventory.GetInstance(player);
+            frminventory = FrmInventory.GetInstance(player, this.Areas[this.Area]);
             frminventory.Show();
         }
 
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
+            this.score = 0;
             gameAudio.PlayLooping();
 
             this.Areas[0] = new Area("Malek's Mountain", 12, 0.05);

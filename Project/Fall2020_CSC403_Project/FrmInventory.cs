@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,6 +45,8 @@ namespace Fall2020_CSC403_Project
         private Label SpeedStat;
 
 
+        private Area Area;
+
         public FrmInventory()
         {
             this.WindowState = FormWindowState.Maximized;
@@ -51,15 +54,18 @@ namespace Fall2020_CSC403_Project
             this.KeyPreview = true;
         }
 
-        public static FrmInventory GetInstance(Player player)
+        public static FrmInventory GetInstance(Player player, Area area)
         {
             instance = new FrmInventory();
-            instance.Setup(player);
+            instance.Setup(player, area);
             return instance;
         }
 
-        public void Setup(Player player)
+        public void Setup(Player player, Area area)
         {
+
+            this.Area = area;
+
             int height = Screen.PrimaryScreen.Bounds.Height;
             int width = Screen.PrimaryScreen.Bounds.Width;
 
@@ -324,17 +330,17 @@ namespace Fall2020_CSC403_Project
         {
             if (selected == 10)
             {
-                player.Inventory.UnEquipWeapon(player.Position, player.facing);
+                player.Inventory.UnEquipWeapon(player.Position, player.facing, this.Area);
                 RefreshInv();
             }
             else if (selected == 11)
             {
-                player.Inventory.UnEquipArmor(player.Position, player.facing);
+                player.Inventory.UnEquipArmor(player.Position, player.facing, this.Area);
                 RefreshInv();
             }
             else if (selected == 12)
             {
-                player.Inventory.UnEquipUtility(player.Position, player.facing);
+                player.Inventory.UnEquipUtility(player.Position, player.facing, this.Area);
                 RefreshInv();
             }
             else { }
@@ -369,16 +375,16 @@ namespace Fall2020_CSC403_Project
             {
                 if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Weapon)
                 {
-                    player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                    player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing, this.Area);
 
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Armor)
                 {
-                    player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                    player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing, this.Area);
                 }
                 else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Utility)
                 {
-                    player.Inventory.EquipUtility(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                    player.Inventory.EquipUtility(player.Inventory.Backpack[selected - 1], player.Position, player.facing, this.Area);
                 }
                 else { }
 
@@ -399,7 +405,7 @@ namespace Fall2020_CSC403_Project
         {
             if (selected > 0 && selected < 10)
             {
-                player.Inventory.DropItem(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                player.Inventory.DropItem(player.Inventory.Backpack[selected - 1], player.Position, player.facing, this.Area);
                 player.Inventory.RemoveFromBackpack(selected - 1);
             }
             if (selected > 0)
