@@ -9,29 +9,47 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Text.Json;
+using System.Xml.Schema;
+using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 
 namespace Fall2020_CSC403_Project
 {
     public partial class FrmLeaderboard : Form
     {
-        public Form PreviousForm;
-        public FrmLeaderboard(Form PreviousForm)
+        public Form MainMenu;
+        private Label PreviousRanking;
+        private PictureBox PlayerPic;
+        private PictureBox BackgroundImg;
+        private PictureBox Weapon;
+        private PictureBox Armor;
+        private PictureBox Utility;
+        private int height;
+        private int width;
+
+        private List<String> topPlayers;
+        private List<String> topClasses;
+        private List<int> topScores;
+        private List<String> topWeapons;
+        private List<String> topArmors;
+        private List<String> topUtilities;
+        public FrmLeaderboard()
         {
             this.WindowState = FormWindowState.Maximized;
-            this.PreviousForm = PreviousForm;
+            this.MainMenu = Application.OpenForms["FrmMain"];
             InitializeComponent();
             this.Setup();
         }
 
         private void Setup()
         {
-            int height = Screen.PrimaryScreen.Bounds.Height;
-            int width = Screen.PrimaryScreen.Bounds.Width;
+            height = Screen.PrimaryScreen.Bounds.Height;
+            width = Screen.PrimaryScreen.Bounds.Width;
 
             // Set up background
-            PictureBox BackgroundImg = new PictureBox();
+            BackgroundImg = new PictureBox();
             this.Controls.Add(BackgroundImg);
-            BackgroundImg.Image = Properties.Resources.BackgroundForRPG3;
+            BackgroundImg.Image = Resources.BackgroundForRPG3;
             BackgroundImg.SizeMode = PictureBoxSizeMode.StretchImage;
             BackgroundImg.Size = new Size(width, height);
 
@@ -46,13 +64,14 @@ namespace Fall2020_CSC403_Project
             string armorText = text[4];
             string utilityText = text[5];
 
-            List<String> topPlayers = JsonSerializer.Deserialize<List<String>>(playerText);
-            List<String> topClasses = JsonSerializer.Deserialize<List<String>>(classText);
-            List<int> topScores = JsonSerializer.Deserialize<List<int>>(scoresText);
-            List<String> topWeapons = JsonSerializer.Deserialize<List<String>>(weaponText);
-            List<String> topArmors = JsonSerializer.Deserialize<List<String>>(armorText);
-            List<String> topUtilities = JsonSerializer.Deserialize<List<String>>(utilityText);
+            topPlayers = JsonSerializer.Deserialize<List<String>>(playerText);
+            topClasses = JsonSerializer.Deserialize<List<String>>(classText);
+            topScores = JsonSerializer.Deserialize<List<int>>(scoresText);
+            topWeapons = JsonSerializer.Deserialize<List<String>>(weaponText);
+            topArmors = JsonSerializer.Deserialize<List<String>>(armorText);
+            topUtilities = JsonSerializer.Deserialize<List<String>>(utilityText);
 
+            // Create the headers for the leaderboard chart using a Label
             new Label
             {
                 Location = new Point(0 + (7 * width / 16), 0),
@@ -64,6 +83,7 @@ namespace Fall2020_CSC403_Project
                 ForeColor = Color.Black,
             };
 
+            // Create Labels to hold the rankings on the right side of the screen.
             Label Ranking;
             for (int i = 0; i < topPlayers.Count; i++)
             {
@@ -83,6 +103,18 @@ namespace Fall2020_CSC403_Project
                 }
             }
 
+            // Create Label with instructions
+            new Label
+            {
+                Location = new Point(0 + (width / 18), 0 + (8 * height / 32)),
+                Text = "Click the rankings for more details on each playthrough",
+                Parent = BackgroundImg,
+                Size = new Size(3 * width / 8, 2 * height / 6),
+                Font = new Font("NSimSun", height / 20),
+                BackColor = Color.Transparent,
+                ForeColor = Color.Black,
+                BorderStyle = BorderStyle.None,
+            };
 
             // Add Buttons For Start, Settings and Exit
             Button ExitButton = new Button();
@@ -95,26 +127,158 @@ namespace Fall2020_CSC403_Project
             ExitButton.Click += ExitButton_Click;
 
 
-            //// Add Title
-            //Label Title = new Label();
-            //Title.Text = "Leaderboard";
-            //Title.Parent = BackgroundImg;
-            //Title.Size = new Size(width, height / 5);
-            //Title.Font = new Font("NSimSun", Title.Size.Height / 2);
-            //Title.BackColor = Color.Transparent;
-            //Title.Location = new Point(0 + (width / 6), 0 + (height / 12));
+            //Button ClearLeaderboard = new Button
+            //{
+            //    Location = new Point(0 + (width / 18), 0 + (7 * height / 9)),
+            //    Parent = BackgroundImg,
+            //    Size = new Size(width / 3, height / 10),
+            //    Text = ("Main Menu"),
+            //    Font = new Font("NSimSun", Size.Height / 2),
+            //};
+            //MainMenuButton.Click += MainMenuButton_Click;
         }
 
         private void Ranking_Click(object sender, EventArgs e)
         {
-            Label Ranking = (Label)sender;
-            string text = Ranking.Text;
-            Ranking.BackColor = Color.FromArgb(128, Color.White);
+            Label CurrentRanking = (Label)sender;
+
+            if (CurrentRanking != PreviousRanking)
+            {
+                CurrentRanking.BackColor = Color.FromArgb(128, Color.White);
+                if (PreviousRanking != null)
+                {
+                    PreviousRanking.BackColor = Color.FromArgb(64, Color.White);
+                    this.HidePlaythroughInfo();
+                }
+                PreviousRanking = CurrentRanking;
+                string[] rankingInfo = CurrentRanking.Text.Split(' ');
+                int ranking = int.Parse(rankingInfo[0]) - 1;
+                this.ShowPlaythroughInfo(ranking);
+            }else
+            {
+                PreviousRanking.BackColor = Color.FromArgb(64, Color.White);
+                PreviousRanking = null;
+                this.HidePlaythroughInfo();
+            }
+        }
+
+        private void ShowPlaythroughInfo(int ranking)
+        {
+            
+            string classType = topClasses[ranking];
+            string weaponType = topWeapons[ranking];
+            string armorType = topArmors[ranking];
+            string utilityType = topUtilities[ranking];
+
+            Controls.Add(Weapon);
+            Controls.Add(Armor);
+            Controls.Add(Utility);
+            Controls.Add(PlayerPic);
+
+            Weapon = new PictureBox()
+            {
+                Location = new Point(0, 0),
+                Size = new Size(3 * Height / 128 + width / 8,  3 * Height / 128 + width / 8),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Parent = BackgroundImg,
+                BackColor = Color.FromArgb(128, Color.DimGray),
+                BorderStyle = BorderStyle.FixedSingle,
+            };
+            Weapon.BringToFront();
+            
+            Armor = new PictureBox
+            {
+                Location = new Point(0, Weapon.Location.Y + Weapon.Height),
+                Size = new Size(3 * Height / 128 + width / 8, 3 * Height / 128 +  width / 8),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Parent = BackgroundImg,
+                BackColor = Color.FromArgb(128, Color.DimGray),
+                BorderStyle = BorderStyle.FixedSingle,
+            };
+            Armor.BringToFront();
+
+            Utility = new PictureBox
+            {
+                Location = new Point(0, Armor.Location.Y + Armor.Height),
+                Size = new Size(3 * Height / 128 + width / 8, 3 * Height / 128 + width / 8),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Parent = BackgroundImg,
+                BackColor = Color.FromArgb(128, Color.DimGray),
+                BorderStyle = BorderStyle.FixedSingle,
+            };
+            Utility.BringToFront();
+
+            PlayerPic = new PictureBox
+            {
+                Parent = BackgroundImg,
+                BackColor = Color.FromArgb(128, Color.DimGray),
+                Location = new Point(Weapon.Location.X + Weapon.Width, Weapon.Location.Y),
+                Size = new Size(4 + 19 * width / 64, 3 * (3 * Height / 128 + width / 8)),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+            };
+            PlayerPic.BringToFront();
+
+            switch (classType)
+            {
+                case "Tank":
+                    PlayerPic.Image = Resources.tank;
+                    break;
+                case "Rogue":
+                    PlayerPic.Image = Resources.rogue;
+                    break;
+                case "Swordsman":
+                    PlayerPic.Image = Resources.swordsman;
+                    break;
+                default:
+                    break;
+            }
+
+            switch (weaponType)
+            {
+                case "Sting":
+                    Weapon.Image = Resources.common_dagger;
+                    break;
+                default:
+                    break;
+            }
+
+            switch (armorType)
+            {
+                case "Armor of Noob":
+                    Armor.Image = Resources.common_armor;
+                    break;
+                default:
+                    break;
+            }
+
+            switch (utilityType)
+            {
+                case "Health Potion":
+                    Utility.Image = Resources.lesser_health_potion;
+                    break;
+                case "Potion of Speed":
+                    Utility.Image = Resources.speed_potion;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void HidePlaythroughInfo()
+        {
+            Controls.Remove(Weapon);
+            Controls.Remove(Armor);
+            Controls.Remove(Utility);
+            Controls.Remove(PlayerPic);
+            Weapon.Dispose();
+            Armor.Dispose();
+            Utility.Dispose();
+            PlayerPic.Dispose();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            PreviousForm.Show();
+            MainMenu.Show();
             this.Hide();
         }
     }

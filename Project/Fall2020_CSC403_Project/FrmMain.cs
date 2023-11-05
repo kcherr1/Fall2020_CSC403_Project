@@ -120,7 +120,7 @@ namespace Fall2020_CSC403_Project
 
         private void LeaderboardButton_Click(object sender, EventArgs e)
         {
-            FrmLeaderboard leaderboard = new FrmLeaderboard(this);
+            FrmLeaderboard leaderboard = new FrmLeaderboard();
             leaderboard.FormClosed += (s, args) => this.Close(); // Handle closure of FrmLeaderboard to close the application
             leaderboard.Show();
             this.Hide(); // Hide the FrmMain form

@@ -425,6 +425,7 @@ namespace Fall2020_CSC403_Project
             List<String> topArmors = JsonSerializer.Deserialize<List<String>>(armorText);
             List<String> topUtilities = JsonSerializer.Deserialize<List<String>>(utilityText);
 
+
             for (int i = 0; i < topScores.Count; i++)
             {
                 if (score > topScores[i])
@@ -435,7 +436,7 @@ namespace Fall2020_CSC403_Project
                     topClasses.RemoveAt(topClasses.Count - 1);
                     topScores.Insert(i, score);
                     topScores.RemoveAt(topScores.Count - 1);
-                    if(player.Inventory.Weapon != null)
+                    if (player.Inventory.Weapon != null)
                     {
                         topWeapons.Insert(i, player.Inventory.Weapon.Name);
                         topWeapons.RemoveAt(topWeapons.Count - 1);
@@ -453,7 +454,7 @@ namespace Fall2020_CSC403_Project
                     break;
                 }
             }
-            string[] data = new string[6];
+            string[] data = new string[9];
             data[0] = JsonSerializer.Serialize(topPlayers);
             data[1] = JsonSerializer.Serialize(topClasses);
             data[2] = JsonSerializer.Serialize(topScores);
@@ -461,10 +462,6 @@ namespace Fall2020_CSC403_Project
             data[4] = JsonSerializer.Serialize(topArmors);
             data[5] = JsonSerializer.Serialize(topUtilities);
 
-            Console.WriteLine(data[0]);
-            Console.WriteLine(data[1]);
-            Console.WriteLine(data[2]);
-            Console.WriteLine(data[3]);
             File.WriteAllLines(filepath, data);
         }
 
