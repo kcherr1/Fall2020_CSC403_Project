@@ -15,13 +15,12 @@ namespace Fall2020_CSC403_Project {
     public Enemy bossChatgpt;
     public Enemy enemyCheeto;
     public Character[] walls;
+    public static SoundPlayer levelMusic; // background music for the level
 
     private DateTime timeBegin;
-    private FrmBattle frmBattle;
-    public Panel uiPanel;
-    public static SoundPlayer levelMusic;
-    private Random random;
-    private IItem rpot;
+    private FrmBattle frmBattle;    
+    private Random random; // Random number generator for item system
+    private IItem rpot; //rpot is always the handle regardless of the item called because its a random item, thus rpot
 
 
 
@@ -57,10 +56,6 @@ namespace Fall2020_CSC403_Project {
           enemyPoisonPacket.Name = "PoisonPacket";
           enemyCheeto.Name = "Cheeto";
 
-
-          // Instantiating a RandomPotion to the map
-          //IItem rpot = InstantiateItem("RandomPotion", this, 767, 354);
-          //IItem rpot2 = InstantiateItem("RandomPotion", this, 667, 354);
             
 
             walls = new Character[NUM_WALLS];
@@ -154,7 +149,7 @@ namespace Fall2020_CSC403_Project {
             if (HitAnItem(player)) 
             {
                 player.MoveBack();
-                rpot.ExecuteEffect(this);
+                rpot.ExecuteEffect(this); //rpot is always the handle regardless of the item called because its a random item, thus rpot
             }
       
 

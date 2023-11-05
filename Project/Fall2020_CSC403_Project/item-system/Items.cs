@@ -65,13 +65,6 @@ namespace Fall2020_CSC403_Project.item_system
 
         private async void EffectEvent(FrmLevel frmLevel, int tabIndex) 
         {
-            //1. Add sound player to RandomItem or AbstractItem class
-            //2. InitializeComponent for EffectEventPictureBox
-            // 2.1 at this time, connect soundplayer with boom sound
-            // 2.2 try having it play the sound at the end of instantiation (move .play if necessary for timing)
-            //3. Give EffectEventPictureBox the "boom gif"
-            //4. Add boom sound to resources
-            //5. after ExecuteEffect triggered, call EffectEvent() before the action is executed(boom walls)
 
             effectEventPlayer = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.wallBoomSound1);
             effectEventPlayer.Play();
