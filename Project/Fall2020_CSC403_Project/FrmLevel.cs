@@ -34,10 +34,10 @@ namespace Fall2020_CSC403_Project
             const int ARROW_PADDING = 2;
             const int NUM_WALLS = 13;
 
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), 1.0f);
+            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 0.25f);
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), 0.5f);
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), 0.5f);
 
             // character projectile attack
             arrow = new Projectile(CreatePosition(picPlayer), CreateCollider(picArrow, ARROW_PADDING));
@@ -60,7 +60,7 @@ namespace Fall2020_CSC403_Project
             for (int w = 0; w < NUM_WALLS; w++)
             {
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING), 0.0f);
             }
 
             itemsListHealth = new List<HealthItem>();
@@ -106,6 +106,7 @@ namespace Fall2020_CSC403_Project
             if (ArrowHitAWall(arrow))
             {
                 arrow.inFlight = false;
+                arrow.impact(player);
                 picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                 picArrow.Hide();
             }
@@ -113,19 +114,25 @@ namespace Fall2020_CSC403_Project
             //check if projectile hits an enemy
             if (ProjHitAEnemy(arrow, enemyPoisonPacket))
             {
+                arrow.inFlight = false;
                 enemyPoisonPacket.AlterHealth(arrow.Damage);
+                arrow.impact(player);
                 picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                 picArrow.Hide();
             }
             else if (ProjHitAEnemy(arrow, enemyCheeto))
             {
+                arrow.inFlight = false;
                 enemyCheeto.AlterHealth(arrow.Damage);
+                arrow.impact(player);
                 picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                 picArrow.Hide();
             }
             else if (ProjHitAEnemy(arrow, bossKoolaid))
             {
+                arrow.inFlight = false;
                 bossKoolaid.AlterHealth(arrow.Damage);
+                arrow.impact(player);
                 picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                 picArrow.Hide();
             }
@@ -159,18 +166,24 @@ namespace Fall2020_CSC403_Project
 
       // check collision with enemies and projectiles
       if (HitAChar(player, enemyPoisonPacket)) {
+        // enemyPoisonPacket.ResetMoveSpeed();
+        // enemyPoisonPacket.MoveBack();
         Fight(enemyPoisonPacket);
       }
       else if (HitAChar(player, enemyCheeto)) {
+        // enemyCheeto.ResetMoveSpeed();
+        // enemyCheeto.MoveBack();
         Fight(enemyCheeto);
       }
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-      }
+      // update player's picture box, health bar, and health
+      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y + 15);
+      playerHealthBar.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      UpdatePlayerHealthBars(player);
+        }
 
     private Collider CreateCollider(PictureBox pic, int padding)
     {
@@ -243,16 +256,17 @@ namespace Fall2020_CSC403_Project
 
         private void Fight(Enemy enemy)
         {
+            /*
             player.ResetMoveSpeed();
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
-
-
             if (enemy == bossKoolaid)
             {
                 frmBattle.SetupForBossBattle();
             }
+            */
+            player.AlterHealth(-1);
         }         
 
         private void StoreItem(HealthItem item)
@@ -390,7 +404,8 @@ namespace Fall2020_CSC403_Project
             }
             }
             // update player's picture box
-            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y + 15);
+            playerHealthBar.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
 
         public void Inventory_Close()
@@ -460,6 +475,7 @@ namespace Fall2020_CSC403_Project
 
         private void tmrCheetoMove_Tick(object sender, EventArgs e)
         {
+            /*
             if (enemyCheeto.Health > 0)
             {
                 enemyCheeto.Move();
@@ -494,12 +510,16 @@ namespace Fall2020_CSC403_Project
                     }
 
                 }
+            */
                 picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
-            }
+                cheetoHealthBar.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y - 15);
+                UpdateCheetoHealthBars(enemyCheeto);
+            //}
         }
 
         private void tmrPoisonMove_Tick(object sender, EventArgs e)
         {
+            /*
             if (enemyPoisonPacket.Health > 0)
             {
                 enemyPoisonPacket.Move();
@@ -534,9 +554,58 @@ namespace Fall2020_CSC403_Project
                     }
 
                 }
-                
+            */
                 picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
-            }
+                poisonHealthBar.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y - 18);
+                UpdatePoisonHealthBars(enemyPoisonPacket);
+            //}
         }
+
+        private void tmrBoss_Tick(object sender, EventArgs e)
+        {
+            UpdateBossHealthBars(bossKoolaid);
+        }
+
+        /// <summary>
+        /// Update label size relative to remaining enemy health
+        /// </summary>
+        /// <param name="enemy"></param>
+        private void UpdatePoisonHealthBars(Enemy enemy)
+        {
+            float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+            const int MAX_HEALTHBAR_WIDTH = 65;
+            poisonHealthBar.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
+        }
+        /// <summary>
+        /// Update label size relative to remaining enemy health
+        /// </summary>
+        /// <param name="enemy"></param>
+        private void UpdatePlayerHealthBars(Player p)
+        {
+            float playerHealthPer = p.Health / (float)p.MaxHealth;
+            const int MAX_HEALTHBAR_WIDTH = 55;
+            playerHealthBar.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+        }
+        /// <summary>
+        /// Update label size relative to remaining enemy health
+        /// </summary>
+        /// <param name="enemy"></param>
+        private void UpdateCheetoHealthBars(Enemy enemy)
+        {
+            float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+            const int MAX_HEALTHBAR_WIDTH = 68;
+            cheetoHealthBar.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
+        }
+        /// <summary>
+        /// Update label size relative to remaining enemy health
+        /// </summary>
+        /// <param name="enemy"></param>
+        private void UpdateBossHealthBars(Enemy enemy)
+        {
+            float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+            const int MAX_HEALTHBAR_WIDTH = 196;
+            bossHealthBar.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
+        }
+
     }
 }

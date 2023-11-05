@@ -11,12 +11,14 @@ namespace Fall2020_CSC403_Project.code {
     public int Health { get; private set; }
     public int MaxHealth { get; private set; }
     private float strength;
-
+    // damage mitigation from attacks
+    private float toughness;
     public event Action<int> AttackEvent;
 
-    public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
+    public BattleCharacter(Vector2 initPos, Collider collider, float toughness) : base(initPos, collider, toughness) {
       MaxHealth = 50;
       strength = 2;
+      this.toughness = toughness;
       Health = MaxHealth;
     }
 
@@ -25,7 +27,7 @@ namespace Fall2020_CSC403_Project.code {
     }
 
     public void AlterHealth(int amount) {
-      Health += amount;
+      Health += (int)(amount * toughness);
     }
   }
 }
