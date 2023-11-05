@@ -186,6 +186,14 @@ namespace Fall2020_CSC403_Project
                 }
             }
 
+            if(this.Areas[Area].npcs != null)
+            {
+                for (int i = 0; i < this.Areas[Area].npcs.Count; i++)
+                {
+                    this.Controls.Add(this.Areas[Area].npcs[i].Pic);
+                    this.Areas[Area].npcs[i].Pic.BringToFront();
+                }
+            }
 
             if (player != null)
             {
@@ -282,12 +290,21 @@ namespace Fall2020_CSC403_Project
             }
 
             // check collision with enemies
-            int x = HitAChar(player);
+            int x = hitEnemy(player);
             if (x >= 0)
             {
                 Fight(this.Areas[Area].Enemies[x]);
 
 
+            }
+
+            // check collision with NPCs
+            int npcIndex = hitNPC(player);
+            if (npcIndex >= 0)
+            {
+                Converse(this.Areas[Area].npcs[npcIndex]);
+                Controls.Remove(this.Areas[Area].npcs[npcIndex].Pic);
+                this.Areas[Area].npcs.Remove(this.Areas[Area].npcs[npcIndex]);
             }
 
             x = HitAnItem(player);
@@ -352,7 +369,7 @@ namespace Fall2020_CSC403_Project
             return hitAWall;
         }
 
-        private int HitAChar(Player you)
+        private int hitEnemy(Player you)
         {
             if (this.Areas[Area].Enemies == null)
             {
@@ -364,6 +381,27 @@ namespace Fall2020_CSC403_Project
                 if (this.Areas[Area].Enemies[i] != null)
                 {
                     if (you.Collider.Intersects(this.Areas[Area].Enemies[i].Collider))
+                    {
+                        hitChar = i;
+                        break;
+                    }
+                }
+            }
+            return hitChar;
+        }
+
+        private int hitNPC(Player you)
+        {
+            if(this.Areas[Area].npcs == null)
+            {
+                return -1;
+            }
+            int hitChar = -1;
+            for (int i = 0; i < this.Areas[Area].npcs.Count; i++)
+            {
+                if (this.Areas[Area].npcs[i] != null)
+                {
+                    if (you.Collider.Intersects(this.Areas[Area].npcs[i].Collider))
                     {
                         hitChar = i;
                         break;
@@ -419,6 +457,23 @@ namespace Fall2020_CSC403_Project
             this.Areas[Area].Enemies.Remove(enemy);
             score += 100;
             ScoreLabel.Text = "Score: " + score.ToString();
+        }
+
+        private void Converse(NPC npc)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+
+            // TODO: Insert conversation mechanic here
+
+            if(player.isPartyFull())
+            {
+                Console.WriteLine("PARTY IS FULL NOTIFICATION");
+            }
+            else
+            {
+                player.addPartyMember(npc);
+            }
         }
 
         public void GameOver()
@@ -553,6 +608,11 @@ namespace Fall2020_CSC403_Project
                 this.Controls.Remove(this.Areas[Area].Enemies[i].Pic);
             }
 
+            for (int i = 0; i < this.Areas[Area].npcs.Count; i++)
+            {
+                this.Controls.Remove(this.Areas[Area].npcs[i].Pic);
+            }
+            this.Areas[Area].npcs = new List<NPC> { };
 
             //remove terrain here
 
@@ -585,11 +645,6 @@ namespace Fall2020_CSC403_Project
 
         }
 
-
-        private void AddEnemy(Enemy enemy)
-        {
-            this.Areas[Area].Enemies.Add(enemy);
-        }
 
         private void Menu_Click(object sender, EventArgs e)
         {
@@ -817,6 +872,7 @@ namespace Fall2020_CSC403_Project
             currentArea.AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
             currentArea.AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
 
+            currentArea.AddNPC(new NPC("Harold", MakePictureBox(Resources.harold, new Point(150, 150), new Size(75, 100)), new Healer()));
             currentArea.AddStructure(new Structure(MakePictureBox(Resources.wall_bricks, new Point(500, 500), new Size(20, 100))));
             currentArea.Structures[0].Pic.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
         }

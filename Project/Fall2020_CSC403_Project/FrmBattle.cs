@@ -1,11 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
-using Fall2020_CSC403_Project.Properties;
 using System;
-using System.Drawing;
-using System.Media;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project

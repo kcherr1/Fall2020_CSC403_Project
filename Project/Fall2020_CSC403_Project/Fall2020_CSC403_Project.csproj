@@ -122,6 +122,9 @@
     <EmbeddedResource Include="FrmInventory.resx">
       <DependentUpon>FrmInventory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLeaderboard.resx">
+      <DependentUpon>FrmLeaderboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,9 +184,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\harold1.png" />
     <None Include="data\travel_sign.png" />
     <None Include="data\house_L.png" />
     <None Include="data\house_long.png" />

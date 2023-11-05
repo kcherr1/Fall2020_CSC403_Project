@@ -106,6 +106,39 @@
     <None Include="Resources\tile_water_grassy.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\rogue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Swordsman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dragonmage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zombie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\whelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dragonboss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\harold.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\travel_sign.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
