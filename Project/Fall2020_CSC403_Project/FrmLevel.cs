@@ -28,7 +28,7 @@ namespace Fall2020_CSC403_Project
         private FrmInventory frminventory;
 
         private Size itemSize = new Size(50, 50);
-        private Size signSize = new Size(100, 75);
+        private Size signSize = new Size(75, 50);
 
         public SoundPlayer gameAudio;
 
@@ -589,65 +589,65 @@ namespace Fall2020_CSC403_Project
             {
                 return;
             }
+            this.Areas[this.Area].Visited = true;
 
 
-            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+
             player.Pic.Visible = true;
         }
 
         private void Area8()
         {
-            this.Area = 8;
 
             if (this.Areas[8].Visited)
             {
                 return;
             }
+            this.Areas[this.Area].Visited = true;
 
 
-            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
             player.Pic.Visible = true;
         }
 
         private void Area7()
         {
-            this.Area = 7;
 
             if (this.Areas[7].Visited)
             {
                 return;
             }
+            this.Areas[this.Area].Visited = true;
 
 
-            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+
             player.Pic.Visible = true;
         }
 
         private void Area6()
         {
-            this.Area = 6;
 
             if (this.Areas[6].Visited)
             {
                 return;
             }
+            this.Areas[this.Area].Visited = true;
 
 
-            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+
             player.Pic.Visible = true;
         }
 
         private void Area5()
         {
-            this.Area = 5;
 
             if (this.Areas[5].Visited)
             {
                 return;
             }
+            this.Areas[this.Area].Visited = true;
 
 
-            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+
             player.Pic.Visible = true;
         }
 
@@ -662,6 +662,8 @@ namespace Fall2020_CSC403_Project
             {
                 return;
             }
+            this.Areas[this.Area].Visited = true;
+
 
 
             Area currentArea = this.Areas[4];
@@ -691,9 +693,10 @@ namespace Fall2020_CSC403_Project
             {
                 return;
             }
+            this.Areas[this.Area].Visited = true;
 
 
-            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+
             player.Pic.Visible = true;
 
 
@@ -705,8 +708,8 @@ namespace Fall2020_CSC403_Project
             {
                 return;
             }
+            this.Areas[this.Area].Visited = true;
 
-            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
             player.Pic.Visible = true;
         }
 
@@ -718,8 +721,9 @@ namespace Fall2020_CSC403_Project
                 return;
             }
 
+            this.Areas[this.Area].Visited = true;
 
-            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+
             player.Pic.Visible = true;
         }
 
@@ -730,8 +734,9 @@ namespace Fall2020_CSC403_Project
             {
                 return;
             }
+            this.Areas[this.Area].Visited = true;
 
-            player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height));
+
             player.Pic.Visible = true;
         }
 
@@ -751,7 +756,7 @@ namespace Fall2020_CSC403_Project
             if (down >= 0)
             {
                 this.Areas[area].SetAdjacentArea(Direction.Down, down);
-                this.Areas[area].SetTravelSign(Direction.Down, new TravelSign(this.Areas[down].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - 40 - this.signSize.Height), this.signSize)));
+                this.Areas[area].SetTravelSign(Direction.Down, new TravelSign(this.Areas[down].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - 80 - this.signSize.Height), this.signSize)));
 
             }
             if (left >= 0)
@@ -772,7 +777,29 @@ namespace Fall2020_CSC403_Project
         {
             DisposeLevel();
             this.Area = this.Areas[this.Area].AdjacentAreas[this.TravelDirection];
+
+            switch (this.TravelDirection)
+            {
+                case Direction.Up:
+                    player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - 180 - player.Pic.Height));
+                    break;
+                case Direction.Down:
+                    player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width / 2, 20 + player.Pic.Height));
+                    break;
+                case Direction.Right:
+                    player.SetEntityPosition(new Position(20 + player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height / 2));
+                    break;
+                case Direction.Left:
+                    player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width - 20 - player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - player.Pic.Height / 2));
+                    break;
+
+                default:
+                    player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - player.Pic.Width, Screen.PrimaryScreen.Bounds.Height - player.Pic.Height));
+                    break;
+            }
+
             AreaSelect();
+
 
             InitializeAreaLayout();
             Game.player = player;
