@@ -63,7 +63,6 @@ namespace Fall2020_CSC403_Project
             catch 
             {
                 // enemy or player was likely null-ed
-                //System.Windows.Forms.MessageBox.Show("Error: Enemy or Player null?");
             }
 
         }

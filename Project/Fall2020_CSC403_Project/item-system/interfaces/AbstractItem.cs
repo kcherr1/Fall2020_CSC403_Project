@@ -25,21 +25,29 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
 
         public void InitializeComponent(FrmLevel frmLevel, int numItems, Image img, float locationX, float locationY, string name, int sizeX, int sizeY, int tabIndex)
         {
+            /*Parameters Example: 
+             *  Image img --> this.picItem.Image = global::Fall2020_CSC403_Project.Properties.Resources.RandomPotion;
+             *  float locationX --> 767
+             *  float locationY --> 354
+             *  string name --> this.picItem.Name = "pictureBox1";
+             *  int sizeX --> 50
+             *  int sizeY --> 50
+             *  int tabIndex --> this.picItem.TabIndex = 18;
+             */
+
             picItem = new System.Windows.Forms.PictureBox();
+            
             ((System.ComponentModel.ISupportInitialize)(picItem)).BeginInit();
             frmLevel.SuspendLayout();
-            //this.picItem.Image = global::Fall2020_CSC403_Project.Properties.Resources.RandomPotion;
+            
             this.picItem.Image = img;
-            //this.picItem.Location = new System.Drawing.Point(767, 354);
             this.picItem.Location = new System.Drawing.Point(Convert.ToInt32(locationX), Convert.ToInt32(locationY));
-            //this.picItem.Name = "pictureBox1";
             this.picItem.Name = name + $"{numItems}";
-            //this.picItem.Size = new System.Drawing.Size(50, 50);
             this.picItem.Size = new System.Drawing.Size(sizeX, sizeY);
             this.picItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            //this.picItem.TabIndex = 18;
             this.picItem.TabIndex = tabIndex;
             this.picItem.TabStop = false;
+
             frmLevel.Controls.Add(picItem);
             ((System.ComponentModel.ISupportInitialize)(picItem)).EndInit();
             frmLevel.ResumeLayout(false);
