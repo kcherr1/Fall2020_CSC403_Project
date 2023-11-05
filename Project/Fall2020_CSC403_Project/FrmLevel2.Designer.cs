@@ -1360,9 +1360,9 @@
       // 
       this.rpgPic.BackColor = System.Drawing.Color.Transparent;
       this.rpgPic.Image = global::Fall2020_CSC403_Project.Properties.Resources.rpg;
-      this.rpgPic.Location = new System.Drawing.Point(526, 213);
+      this.rpgPic.Location = new System.Drawing.Point(494, 190);
       this.rpgPic.Name = "rpgPic";
-      this.rpgPic.Size = new System.Drawing.Size(117, 52);
+      this.rpgPic.Size = new System.Drawing.Size(149, 75);
       this.rpgPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
       this.rpgPic.TabIndex = 93;
       this.rpgPic.TabStop = false;
