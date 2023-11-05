@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Fall2020_CSC403_Project.code;
 using MyGameLibrary;
+using Fall2020_CSC403_Project;
 using static Fall2020_CSC403_Project.code.Entity;
 
 namespace MyGameLibrary
@@ -42,7 +44,8 @@ namespace MyGameLibrary
             }
         }
 
-        public bool BackpackIsFull(){
+        public bool BackpackIsFull()
+        {
             return this.Backpack[this.Backpack.Length - 1] != null;
         }
 
@@ -178,6 +181,7 @@ namespace MyGameLibrary
             this.Backpack[this.Backpack.Length - 1] = null;
 
         }
+
 
         public void DropItem(Item item, Position position, Facing facing)
         {

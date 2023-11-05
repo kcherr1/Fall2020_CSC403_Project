@@ -171,6 +171,12 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        public void AddItemToScreen(Item item)
+        {
+            Controls.Add(item.Pic);
+            this.Areas[Area].Items.Add(item);
+        }
+
         public PictureBox MakePictureBox(Bitmap pic, Point location, Size Size)
         {
             return new PictureBox
@@ -266,8 +272,9 @@ namespace Fall2020_CSC403_Project
             {
                 if (!player.Inventory.BackpackIsFull())
                 {
-                    player.Inventory.AddToBackpack(this.Areas[Area].Items[x]);
-                    this.Areas[Area].Items[x].RemoveEntity();
+                    Item item = this.Areas[this.Area].Items[x];
+                    player.Inventory.AddToBackpack(item);
+                    item.HideEntity();
                 }
 
             }
