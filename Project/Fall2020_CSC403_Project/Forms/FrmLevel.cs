@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Forms;
 using MyGameLibrary;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace Fall2020_CSC403_Project
         private FrmBattle frmBattle;
 
         private FrmInventory frmInventory;
+
+        private ConfirmQuit confirmQuit = null;
 
         public FrmLevel()
         {
@@ -261,9 +264,8 @@ namespace Fall2020_CSC403_Project
         private void ShowOverlay()
         {
             button1.Location = new Point(520, 137);
-            button2.Location = new Point(520, 243);
-            button3.Location = new Point(520, 349);
-
+            button3.Location = new Point(520, 243);
+            
             panel1.Visible = true;
             richTextBox1.Visible = false;
         }
@@ -282,7 +284,17 @@ namespace Fall2020_CSC403_Project
 
         private void exit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
+            if (confirmQuit == null || confirmQuit.IsDisposed)
+            {
+                confirmQuit = new ConfirmQuit();
+                confirmQuit.Show();
+
+            }
+            else
+            {
+                confirmQuit.BringToFront();
+            }
         }
 
         private void fullScreen(object sender, EventArgs e)
@@ -310,14 +322,12 @@ namespace Fall2020_CSC403_Project
             if (button1.Location.X > 200)
             {
                 button1.Left -= 400;
-                button2.Left -= 400;
                 button3.Left -= 400;
                 richTextBox1.Visible = true;
             }
             else
             {
                 button1.Left += 400;
-                button2.Left += 400;
                 button3.Left += 400;
                 richTextBox1.Visible = false;
             }
