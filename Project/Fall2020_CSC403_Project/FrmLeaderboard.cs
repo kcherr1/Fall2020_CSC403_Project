@@ -75,7 +75,7 @@ namespace Fall2020_CSC403_Project
             new Label
             {
                 Location = new Point(0 + (7 * width / 16), 0),
-                Text = String.Format("{0,-8} {1,-10} {2,-10} {3,-6}", "Rank", "Name", "Class", "Score"),
+                Text = String.Format("{0,-6} {1,-10} {2,-10}", "Score", "Name", "Class"),
                 Parent = BackgroundImg,
                 Size = new Size(9 * width / 16, height / 15),
                 Font = new Font("NSimSun", height / 25),
@@ -92,7 +92,7 @@ namespace Fall2020_CSC403_Project
                     Ranking = new Label
                     {
                         Location = new Point(0 + (7 * width / 16), 0 + ((i + 1) * height / 15)),
-                        Text = String.Format("{0,-8} {1,-10} {2,-10} {3,-6}", (i + 1), topPlayers[i], topClasses[i], topScores[i]),
+                        Text = String.Format("{0,-6} {1,-10} {2,-10}", topScores[i], topPlayers[i], topClasses[i]),
                         Parent = BackgroundImg,
                         Size = new Size(9 * width / 16, height / 15),
                         Font = new Font("NSimSun", height / 25),
@@ -151,8 +151,8 @@ namespace Fall2020_CSC403_Project
                     this.HidePlaythroughInfo();
                 }
                 PreviousRanking = CurrentRanking;
-                string[] rankingInfo = CurrentRanking.Text.Split(' ');
-                int ranking = int.Parse(rankingInfo[0]) - 1;
+                // get which ranking it is based on its position on the page.
+                int ranking = (int)(CurrentRanking.Location.Y * ((float)15 / Height)) - 1;
                 this.ShowPlaythroughInfo(ranking);
             }else
             {
@@ -178,7 +178,7 @@ namespace Fall2020_CSC403_Project
             Weapon = new PictureBox()
             {
                 Location = new Point(0, 0),
-                Size = new Size(3 * Height / 128 + width / 8,  3 * Height / 128 + width / 8),
+                Size = new Size(11 * height / 45,  11 * height / 45),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Parent = BackgroundImg,
                 BackColor = Color.FromArgb(128, Color.DimGray),
@@ -189,7 +189,7 @@ namespace Fall2020_CSC403_Project
             Armor = new PictureBox
             {
                 Location = new Point(0, Weapon.Location.Y + Weapon.Height),
-                Size = new Size(3 * Height / 128 + width / 8, 3 * Height / 128 +  width / 8),
+                Size = new Size(11 * height / 45, 11 * height / 45),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Parent = BackgroundImg,
                 BackColor = Color.FromArgb(128, Color.DimGray),
@@ -200,7 +200,7 @@ namespace Fall2020_CSC403_Project
             Utility = new PictureBox
             {
                 Location = new Point(0, Armor.Location.Y + Armor.Height),
-                Size = new Size(3 * Height / 128 + width / 8, 3 * Height / 128 + width / 8),
+                Size = new Size(11 * height / 45, 11 * height / 45),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Parent = BackgroundImg,
                 BackColor = Color.FromArgb(128, Color.DimGray),
@@ -213,7 +213,7 @@ namespace Fall2020_CSC403_Project
                 Parent = BackgroundImg,
                 BackColor = Color.FromArgb(128, Color.DimGray),
                 Location = new Point(Weapon.Location.X + Weapon.Width, Weapon.Location.Y),
-                Size = new Size(4 + 19 * width / 64, 3 * (3 * Height / 128 + width / 8)),
+                Size = new Size((7 * width / 16) - 11 * height / 45, 11 * height / 15),
                 SizeMode = PictureBoxSizeMode.StretchImage,
             };
             PlayerPic.BringToFront();
