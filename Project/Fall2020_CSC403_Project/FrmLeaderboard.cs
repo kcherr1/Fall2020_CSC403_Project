@@ -314,7 +314,10 @@ namespace Fall2020_CSC403_Project
 
             foreach (Label Ranking in Rankings)
             {
-                Ranking.Dispose();
+                if (Ranking != null)
+                {
+                    Ranking.Dispose();
+                }
             }
         }
     }

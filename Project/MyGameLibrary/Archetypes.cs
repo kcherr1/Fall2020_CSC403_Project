@@ -96,7 +96,7 @@ namespace Fall2020_CSC403_Project.code
 
         public Swordsman()
         {
-            name = "swordsman";
+            name = "Swordsman";
             baseMaxHealth = 50;
             baseDefense = 12;
             baseDamage = 8;
