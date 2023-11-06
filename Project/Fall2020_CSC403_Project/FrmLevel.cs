@@ -28,10 +28,6 @@ namespace Fall2020_CSC403_Project {
       const int NUM_DIALOG = 1;
       const int NUM_KEY = 1;
             
-
-        
-
-
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
@@ -66,7 +62,7 @@ namespace Fall2020_CSC403_Project {
         key[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
       picDialog0.Visible = false;
-            picKey0.Visible = false;
+      picKey0.Visible = false;
 
       Game.player = player;
       timeBegin = DateTime.Now;
@@ -109,8 +105,6 @@ namespace Fall2020_CSC403_Project {
       // check collision with key
       if (HitAKey(player)) {
         player.MoveBack();
-                
-                
       }
 
       // check collision with enemies
@@ -119,15 +113,13 @@ namespace Fall2020_CSC403_Project {
                 if(x == true) {Fight(enemyPoisonPacket); }
         
       }
-      else if (HitAChar(player, enemyCheeto)) { 
+      if (HitAChar(player, enemyCheeto)) { 
                  y = IsEnemyDead(enemyCheeto);
-                if(y == true) { 
-        Fight(enemyCheeto);}
+                if(y == true) {Fight(enemyCheeto);}
       }
       if (HitAChar(player, bossKoolaid)) {
                  z = IsEnemyDead(bossKoolaid);
                 if(z == true) {Fight(bossKoolaid); }
-      
       }
          
       // update player's picture box
@@ -320,6 +312,47 @@ namespace Fall2020_CSC403_Project {
                 }
             
    }
-        
-  }
+
+        public void applyTheme()
+        {
+            this.BackColor = Color.Black;
+
+            this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut;
+
+            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(650, 300);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(120, 200);
+
+            this.picBossKoolAid.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid2;
+            this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket2;
+            this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos2;
+
+            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, 7));
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, 7));
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, 7));
+
+            bossKoolaid.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid2;
+            enemyPoisonPacket.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket2;
+            enemyCheeto.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos2;
+
+            bossKoolaid.Color = Color.Black;
+            enemyPoisonPacket.Color = Color.Lavender;
+            enemyCheeto.Color = Color.Orange;
+
+
+            this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall6.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall7.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall8.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall11.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+        }
+
+    }
 }

@@ -62,8 +62,10 @@ namespace Fall2020_CSC403_Project
             }
             if (selectedTheme == "New Theme")
             {
-                themeSelect.SelectedIndex = 1;
-                Application.Exit();
+                gameplayForm = new FrmLevel();
+                gameplayForm.Show();
+                gameplayForm.applyTheme();
+                this.Hide();
             }
             
         }
