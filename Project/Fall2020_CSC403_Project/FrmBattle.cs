@@ -9,8 +9,9 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
-    private Enemy enemy;
+    private EnemyType enemy;
     private Player player;
+    Random rnd = new Random();
 
     private FrmBattle() {
       InitializeComponent();
@@ -19,8 +20,10 @@ namespace Fall2020_CSC403_Project {
             {
                 instance = null;
                 enemy.AttackEvent -= PlayerDamage;
+                enemy.HealEvent -= EnemyHeal;
                 player.AttackEvent -= EnemyDamage;
                 player.HealEvent -= PlayerHeal;
+                enemy.resetEnemyClass();
             };
 
     }
@@ -32,9 +35,12 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
+      enemy.setEnemyClass();
+      enemy.setClassHealth();
 
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
+      enemy.HealEvent += EnemyHeal;
       player.AttackEvent += EnemyDamage;
       player.HealEvent += PlayerHeal;
 
@@ -49,20 +55,30 @@ namespace Fall2020_CSC403_Project {
       //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
       //simpleSound.Play();
       battleTheme.PlayLooping();
-
+      enemy.setBossClass(4);
+      enemy.setClassHealth();
       tmrFinalBattle.Enabled = true;
-    }
+      UpdateHealthBars();
+     }
 
-    public static FrmBattle GetInstance(Enemy enemy) {
+    public static FrmBattle GetInstance(EnemyType enemy) {
       if (instance == null) {
         instance = new FrmBattle();
         instance.enemy = enemy;
         instance.Setup();
-      }
+       }
       return instance;
     }
 
         private void UpdateHealthBars() {
+      if (player.Health > player.MaxHealth)
+            {
+                player.AlterHealth(player.MaxHealth - player.Health);
+            }
+      if (enemy.Health > enemy.MaxHealth)
+            {
+                enemy.setClassHealth();
+            }
       float playerHealthPer = player.Health / (float)player.MaxHealth;
       float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
@@ -75,9 +91,9 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      player.OnAttack(rnd.Next(-5,-2));
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        enemy.determineAttack();
       }
 
       UpdateHealthBars();
@@ -115,7 +131,7 @@ namespace Fall2020_CSC403_Project {
 
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack(-2);
+                    enemy.determineAttack();
                 }
 
                 UpdateHealthBars();
@@ -143,6 +159,11 @@ namespace Fall2020_CSC403_Project {
     private void PlayerHeal(int amount)
         {
             player.AlterHealth(amount);
+        }
+
+    private void EnemyHeal(int amount)
+        {
+            enemy.AlterHealth(amount);
         }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
