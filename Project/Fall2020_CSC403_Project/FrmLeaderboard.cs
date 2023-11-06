@@ -26,6 +26,7 @@ namespace Fall2020_CSC403_Project
         private PictureBox Utility;
         private int height;
         private int width;
+        private Label[] Rankings;
 
         private List<String> topPlayers;
         private List<String> topClasses;
@@ -75,7 +76,7 @@ namespace Fall2020_CSC403_Project
             new Label
             {
                 Location = new Point(0 + (7 * width / 16), 0),
-                Text = String.Format("{0,-6} {1,-10} {2,-10}", "Score", "Name", "Class"),
+                Text = String.Format("{0,-12} {1,-12} {2,-12}", "Score", "Name", "Class"),
                 Parent = BackgroundImg,
                 Size = new Size(9 * width / 16, height / 15),
                 Font = new Font("NSimSun", height / 25),
@@ -84,22 +85,22 @@ namespace Fall2020_CSC403_Project
             };
 
             // Create Labels to hold the rankings on the right side of the screen.
-            Label Ranking;
+            Rankings = new Label[10];
             for (int i = 0; i < topPlayers.Count; i++)
             {
                 if (topPlayers[i] != null)
                 {
-                    Ranking = new Label
+                    Rankings[i] = new Label
                     {
                         Location = new Point(0 + (7 * width / 16), 0 + ((i + 1) * height / 15)),
-                        Text = String.Format("{0,-6} {1,-10} {2,-10}", topScores[i], topPlayers[i], topClasses[i]),
+                        Text = String.Format("{0,-12} {1,-12} {2,-12}", topScores[i], topPlayers[i], topClasses[i]),
                         Parent = BackgroundImg,
                         Size = new Size(9 * width / 16, height / 15),
                         Font = new Font("NSimSun", height / 25),
                         BackColor = Color.FromArgb(64, Color.White),
                         ForeColor = Color.Black,
                     };
-                    Ranking.Click += Ranking_Click;
+                    Rankings[i].Click += Ranking_Click;
                 }
             }
 
@@ -117,25 +118,22 @@ namespace Fall2020_CSC403_Project
             };
 
             // Add Buttons For Start, Settings and Exit
-            Button ExitButton = new Button();
+            Button MainMenuButton = new Button();
+            MainMenuButton.Location = new Point(0 + (width / 18), 0 + (7 * height / 9));
+            MainMenuButton.Parent = BackgroundImg;
+            MainMenuButton.Size = new Size(width / 3, height / 10);
+            MainMenuButton.Text = ("Main Menu");
+            MainMenuButton.Font = new Font("NSimSun", MainMenuButton.Size.Height / 2);
+            MainMenuButton.Click += MainMenuButton_Click;
 
-            ExitButton.Location = new Point(0 + (width / 18), 0 + (7 * height / 9));
-            ExitButton.Parent = BackgroundImg;
-            ExitButton.Size = new Size(width / 3, height / 10);
-            ExitButton.Text = ("Exit");
-            ExitButton.Font = new Font("NSimSun", ExitButton.Size.Height / 2);
-            ExitButton.Click += ExitButton_Click;
 
-
-            //Button ClearLeaderboard = new Button
-            //{
-            //    Location = new Point(0 + (width / 18), 0 + (7 * height / 9)),
-            //    Parent = BackgroundImg,
-            //    Size = new Size(width / 3, height / 10),
-            //    Text = ("Main Menu"),
-            //    Font = new Font("NSimSun", Size.Height / 2),
-            //};
-            //MainMenuButton.Click += MainMenuButton_Click;
+            Button ClearRankingsButton = new Button();
+            ClearRankingsButton.Parent = BackgroundImg;
+            ClearRankingsButton.Size = new Size(width / 3, height / 10);
+            ClearRankingsButton.Location = new Point(17 * (width / 18) - ClearRankingsButton.Size.Width, 0 + (7 * height / 9));
+            ClearRankingsButton.Text = ("Clear Rankings");
+            ClearRankingsButton.Font = new Font("NSimSun", ClearRankingsButton.Size.Height / 2);
+            ClearRankingsButton.Click += ClearRankingsButton_Click;
         }
 
         private void Ranking_Click(object sender, EventArgs e)
@@ -276,10 +274,48 @@ namespace Fall2020_CSC403_Project
             PlayerPic.Dispose();
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
+        private void MainMenuButton_Click(object sender, EventArgs e)
         {
             MainMenu.Show();
             this.Hide();
+        }
+
+        private void ClearRankingsButton_Click(object sender, EventArgs e)
+        {
+            string filepath = "../../data/LeaderboardData.json";
+
+            for (int i = 0; i < topPlayers.Count; i++)
+            {
+                topPlayers[i] = null;
+                topClasses[i] = null;
+                topScores[i] = -1;
+                topWeapons[i] = null;
+                topArmors[i] = null;
+                topUtilities[i] = null;
+            }
+
+            string[] data = new string[6];
+            data[0] = JsonSerializer.Serialize(topPlayers);
+            data[1] = JsonSerializer.Serialize(topClasses);
+            data[2] = JsonSerializer.Serialize(topScores);
+            data[3] = JsonSerializer.Serialize(topWeapons);
+            data[4] = JsonSerializer.Serialize(topArmors);
+            data[5] = JsonSerializer.Serialize(topUtilities);
+
+            File.WriteAllLines(filepath, data);
+
+            if (Weapon != null)
+            {
+                Weapon.Dispose();
+                Armor.Dispose();
+                Utility.Dispose();
+                PlayerPic.Dispose();
+            }
+
+            foreach (Label Ranking in Rankings)
+            {
+                Ranking.Dispose();
+            }
         }
     }
 }
