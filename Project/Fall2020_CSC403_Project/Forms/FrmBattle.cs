@@ -2,6 +2,7 @@
 using Fall2020_CSC403_Project.Properties;
 using MyGameLibrary;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Media;
 using System.Threading.Tasks;
@@ -85,22 +86,27 @@ namespace Fall2020_CSC403_Project {
       await Task.Delay(750);
       DmgGivenDisplay();
       btnHeavyAttack.Enabled = true;
-      if (player.Health <= 0 || enemy.Health <= 0) {
-                MusicPlayer.StopBattleSound();
+      if (player.Health <= 0) {
+        MusicPlayer.StopBattleSound();
 
         if(player.Health <= 0 && enemy.Health > 0)
-            {
-                    MusicPlayer.StopLevelMusic();
-                MusicPlayer.PlayGameOverSound();
-            } else
-                {
+        {
+          MusicPlayer.StopLevelMusic();
+          MusicPlayer.PlayGameOverSound();
+        } else {
+          MusicPlayer.PlayLevelMusic();
                     
-                    MusicPlayer.PlayLevelMusic();
-                    
-                }
-                instance = null;
-                Close();
-            }
+        }
+         instance = null;
+         Close();
+      }
+
+      if (enemy.Health <= 0)
+      {
+        RemoveEnemy(enemy);
+        instance = null;
+        Close();
+      }
     }
    private async void btnHeavyAttack_Click(object sender, EventArgs e){
       lblDamage.Text = "  Dealt 16 damage!";
@@ -116,12 +122,32 @@ namespace Fall2020_CSC403_Project {
       await Task.Delay(750);
       DmgGivenDisplay();
       btnHeavyAttack.Enabled = false;
-      if (player.Health <= 0 || enemy.Health <= 0){
-        instance = null;
-        Close();
+      if (player.Health <= 0)
+      {
+        MusicPlayer.StopBattleSound();
+
+        if (player.Health <= 0 && enemy.Health > 0)
+        {
+            MusicPlayer.StopLevelMusic();
+            MusicPlayer.PlayGameOverSound();
+        }
+        else
+        {
+            MusicPlayer.PlayLevelMusic();
+
+        }
+      instance = null;
+      Close();
       }
 
-    }
+      if (enemy.Health <= 0)
+      {
+            RemoveEnemy(enemy);
+            instance = null;
+            Close();
+      }
+
+   }
     private void btnHeal_Click(object sender, EventArgs e)
     {
       player.AlterHealth(4);
@@ -161,6 +187,38 @@ namespace Fall2020_CSC403_Project {
       lblDamage.Visible = false;
     }
 
+        // This method will directly access the controls on FrmLevel to delete them since it is just a 
+        // copy here.
+    private void RemoveEnemy(Enemy enemy)
+        {
+            // Poison Packet
+            if(enemy.Color == Color.Green)
+            {
+                if(TitleScreen.FrmLevelInstance.picEnemyPoisonPacket.Parent != null)
+                {
+                    TitleScreen.FrmLevelInstance.picEnemyPoisonPacket.Parent.Controls.Remove(
+                        TitleScreen.FrmLevelInstance.picEnemyPoisonPacket);
+                    TitleScreen.FrmLevelInstance.enemyPoisonPacket= null;
+                }
+            // Cheeto
+            } else if (enemy.Color == Color.FromArgb(255, 245, 161)) { 
+                if(TitleScreen.FrmLevelInstance.picEnemyCheeto.Parent!= null)
+                {
+                    TitleScreen.FrmLevelInstance.picEnemyCheeto.Parent.Controls.Remove(
+                        TitleScreen.FrmLevelInstance.picEnemyCheeto);
+                    TitleScreen.FrmLevelInstance.enemyCheeto= null;
+                }
+            // Boss koolaid
+            } else if (enemy.Color == Color.Red)
+            {
+                if(TitleScreen.FrmLevelInstance.picBossKoolAid.Parent!= null)
+                {
+                    TitleScreen.FrmLevelInstance.picBossKoolAid.Parent.Controls.Remove(
+                        TitleScreen.FrmLevelInstance.picBossKoolAid);
+                    TitleScreen.FrmLevelInstance.bossKoolaid= null;
+                }
+            }
+        }
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;

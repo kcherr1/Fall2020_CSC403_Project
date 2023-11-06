@@ -13,9 +13,9 @@ namespace Fall2020_CSC403_Project
     {
         private Player player;
 
-        private Enemy enemyPoisonPacket;
-        private Enemy bossKoolaid;
-        private Enemy enemyCheeto;
+        public Enemy enemyPoisonPacket;
+        public Enemy bossKoolaid;
+        public Enemy enemyCheeto;
         private Character[] walls;
 
         private Item gun;
@@ -121,7 +121,7 @@ namespace Fall2020_CSC403_Project
             // check collision with enemies
             if (HitAChar(player, enemyPoisonPacket))
             {
-                Fight(enemyPoisonPacket);
+                Fight(enemyPoisonPacket);                
             }
             else if (HitAChar(player, enemyCheeto))
             {
@@ -152,7 +152,12 @@ namespace Fall2020_CSC403_Project
 
         private bool HitAChar(Character you, Character other)
         {
-            return you.Collider.Intersects(other.Collider);
+            if (other != null)
+            {
+                return you.Collider.Intersects(other.Collider);
+            }
+            else return false;
+            
         }
 
         private bool HitAItem(Character you, Item item) {
@@ -178,6 +183,9 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForBossBattle();
             }
+
+
+
         }
 
         private void ShowInven() {
