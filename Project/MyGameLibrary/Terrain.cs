@@ -26,6 +26,11 @@ namespace Fall2020_CSC403_Project.code
             GenerateTerrain(Seed, SeedAmplification);
         }
 
+        public Terrain()
+        {
+            this.Tiles = new List<Tile>();
+        }
+
 
 
         public void AddTile(Tile tile)

@@ -53,7 +53,6 @@ namespace Fall2020_CSC403_Project.code
 
         public bool Intersects(Collider c)
         {
-            Console.WriteLine(this.Enabled + ", " + c.Enabled);
             if (this.Enabled && c.Enabled)
             {
                 return rect.IntersectsWith(c.rect);

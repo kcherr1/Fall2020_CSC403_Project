@@ -17,7 +17,6 @@ namespace Fall2020_CSC403_Project
 
         public static FrmInventory instance = null;
         public PictureBox[] InvSlots = new PictureBox[9];
-        private Player player;
         public int selected;
         public PictureBox[] PictureBoxes;
 
@@ -45,8 +44,6 @@ namespace Fall2020_CSC403_Project
         private Label SpeedStat;
 
 
-        private Area Area;
-
         public FrmInventory()
         {
             this.WindowState = FormWindowState.Maximized;
@@ -54,17 +51,16 @@ namespace Fall2020_CSC403_Project
             this.KeyPreview = true;
         }
 
-        public static FrmInventory GetInstance(Player player, Area area)
+        public static FrmInventory GetInstance()
         {
             instance = new FrmInventory();
-            instance.Setup(player, area);
+            instance.Setup();
             return instance;
         }
 
-        public void Setup(Player player, Area area)
+        public void Setup()
         {
 
-            this.Area = area;
 
             int height = Screen.PrimaryScreen.Bounds.Height;
             int width = Screen.PrimaryScreen.Bounds.Width;
@@ -73,7 +69,6 @@ namespace Fall2020_CSC403_Project
             this.BackColor = Color.DarkSlateGray;
 
             // create inv screen containers
-            this.player = player;
 
              Inv1 = new PictureBox();
              Inv2 = new PictureBox();
@@ -116,7 +111,7 @@ namespace Fall2020_CSC403_Project
             PlayerPic.Location = new Point(Weapon.Location.X + Weapon.Width + width/128, Weapon.Location.Y);
             PlayerPic.Size = new Size(width / 5 + width / 128, 3 * width / 10 + 2* Height/32);
             PlayerPic.SizeMode = PictureBoxSizeMode.StretchImage;
-            PlayerPic.Image = player.Pic.Image;
+            PlayerPic.Image = Game.player.Pic.Image;
 
 
             // add click controls
@@ -278,18 +273,18 @@ namespace Fall2020_CSC403_Project
 
         private void UpdateStats()
         {
-            SpeedStat.Text = "Speed: "+player.speed.ToString();
-            DefStat.Text = "Defense: "+player.defense.ToString();
-            AttackStat.Text = "Attack: "+player.damage.ToString();
+            SpeedStat.Text = "Speed: "+Game.player.speed.ToString();
+            DefStat.Text = "Defense: "+Game.player.defense.ToString();
+            AttackStat.Text = "Attack: "+Game.player.damage.ToString();
         }
 
         private void UpdateHealthBars()
         {
-            float playerHealthPer = player.Health / (float)player.MaxHealth;
+            float playerHealthPer = Game.player.Health / (float)Game.player.MaxHealth;
             int MAX_HEALTHBAR_WIDTH = HealthMax.Width;
             CurrentHealth.BackColor = Color.Green;
             CurrentHealth.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
-            CurrentHealth.Text = player.Health.ToString();
+            CurrentHealth.Text = Game.player.Health.ToString();
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)
@@ -330,17 +325,17 @@ namespace Fall2020_CSC403_Project
         {
             if (selected == 10)
             {
-                player.Inventory.UnEquipWeapon(player.Position, player.facing, this.Area);
+                Game.player.Inventory.UnEquipWeapon();
                 RefreshInv();
             }
             else if (selected == 11)
             {
-                player.Inventory.UnEquipArmor(player.Position, player.facing, this.Area);
+                Game.player.Inventory.UnEquipArmor();
                 RefreshInv();
             }
             else if (selected == 12)
             {
-                player.Inventory.UnEquipUtility(player.Position, player.facing, this.Area);
+                Game.player.Inventory.UnEquipUtility();
                 RefreshInv();
             }
             else { }
@@ -356,8 +351,8 @@ namespace Fall2020_CSC403_Project
         {
             if (selected == 12)
             {
-                player.ApplyEffect(player.Inventory.Utility.Potion, player.Inventory.Utility.Stat);
-                player.Inventory.UseItem();
+                Game.player.ApplyEffect(Game.player.Inventory.Utility.Potion, Game.player.Inventory.Utility.Stat);
+                Game.player.Inventory.UseItem();
                 RefreshInv();
             }
 
@@ -373,18 +368,18 @@ namespace Fall2020_CSC403_Project
         {
             if (selected > 0 && selected < 10)
             {
-                if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Weapon)
+                if (Game.player.Inventory.Backpack[selected - 1] != null && Game.player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Weapon)
                 {
-                    player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing, this.Area);
+                    Game.player.Inventory.EquipWeapon(Game.player.Inventory.Backpack[selected - 1]);
 
                 }
-                else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Armor)
+                else if (Game.player.Inventory.Backpack[selected - 1] != null && Game.player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Armor)
                 {
-                    player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing, this.Area);
+                    Game.player.Inventory.EquipArmor(Game.player.Inventory.Backpack[selected - 1]);
                 }
-                else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Utility)
+                else if (Game.player.Inventory.Backpack[selected - 1] != null && Game.player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Utility)
                 {
-                    player.Inventory.EquipUtility(player.Inventory.Backpack[selected - 1], player.Position, player.facing, this.Area);
+                    Game.player.Inventory.EquipUtility(Game.player.Inventory.Backpack[selected - 1]);
                 }
                 else { }
 
@@ -394,7 +389,7 @@ namespace Fall2020_CSC403_Project
                 }
                 selected = 0;
 
-                player.UpdateStats();
+                Game.player.UpdateStats();
                 RefreshInv();
 
 
@@ -405,8 +400,8 @@ namespace Fall2020_CSC403_Project
         {
             if (selected > 0 && selected < 10)
             {
-                player.Inventory.DropItem(player.Inventory.Backpack[selected - 1], player.Position, player.facing, this.Area);
-                player.Inventory.RemoveFromBackpack(selected - 1);
+                Game.player.Inventory.DropItem(Game.player.Inventory.Backpack[selected - 1]);
+                Game.player.Inventory.RemoveFromBackpack(selected - 1);
             }
             if (selected > 0)
             {
@@ -431,36 +426,36 @@ namespace Fall2020_CSC403_Project
         public void RefreshInv()
         {
             PictureBox[] show_inventory = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9 };
-            for (int i = 0; i < player.Inventory.Backpack.Length; i++)
+            for (int i = 0; i < Game.player.Inventory.Backpack.Length; i++)
             {
-                if (player.Inventory.Backpack[i] != null)
+                if (Game.player.Inventory.Backpack[i] != null)
                 {
-                    show_inventory[i].Image = player.Inventory.Backpack[i].Pic.Image;
+                    show_inventory[i].Image = Game.player.Inventory.Backpack[i].Pic.Image;
                 }
                 else
                 {
                     show_inventory[i].Image = null;
                 }
             }
-            if (player.Inventory.Weapon != null)
+            if (Game.player.Inventory.Weapon != null)
             {
-                Weapon.Image = player.Inventory.Weapon.Pic.Image;
+                Weapon.Image = Game.player.Inventory.Weapon.Pic.Image;
             }
             else
             {
                 Weapon.Image = null;
             }
-            if (player.Inventory.Armor != null)
+            if (Game.player.Inventory.Armor != null)
             {
-                Armor.Image = player.Inventory.Armor.Pic.Image;
+                Armor.Image = Game.player.Inventory.Armor.Pic.Image;
             }
             else
             {
                 Armor.Image = null;
             }
-            if (player.Inventory.Utility != null)
+            if (Game.player.Inventory.Utility != null)
             {
-                Utility.Image = player.Inventory.Utility.Pic.Image;
+                Utility.Image = Game.player.Inventory.Utility.Pic.Image;
             }
             else
             {

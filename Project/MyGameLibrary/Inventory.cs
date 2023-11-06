@@ -52,22 +52,22 @@ namespace MyGameLibrary
             return this.Backpack[this.Backpack.Length - 1] != null;
         }
 
-        public void UnEquipWeapon(Position position, Facing facing, Area area)
+        public void UnEquipWeapon()
         {
-            EquipWeapon(null, position, facing, area);
+            EquipWeapon(null);
         }
 
-        public void UnEquipArmor(Position position, Facing facing, Area area)
+        public void UnEquipArmor()
         {
-            EquipArmor(null, position, facing, area);
+            EquipArmor(null);
         }
 
-        public void UnEquipUtility(Position position, Facing facing, Area area)
+        public void UnEquipUtility()
         {
-            EquipUtility(null, position, facing, area);
+            EquipUtility(null);
         }
 
-        public void EquipWeapon(Item item, Position position, Facing facing, Area area)
+        public void EquipWeapon(Item item)
         {
             Item currently_equipped = this.Weapon;
             if (item == null || item.Type == Item.ItemType.Weapon)
@@ -76,7 +76,7 @@ namespace MyGameLibrary
                 RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    DropItem(currently_equipped, position, facing, area);
+                    DropItem(currently_equipped);
 
                 } else
                 {
@@ -88,7 +88,7 @@ namespace MyGameLibrary
                 Console.Error.WriteLine("Not a weapon");
             }
         }
-        public void EquipArmor(Item item, Position position, Facing facing, Area area)
+        public void EquipArmor(Item item)
         {
             Item currently_equipped = this.Armor;
             if (item == null || item.Type == Item.ItemType.Armor)
@@ -97,7 +97,7 @@ namespace MyGameLibrary
                 RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    DropItem(currently_equipped, position, facing, area);
+                    DropItem(currently_equipped);
                 }
                 else
                 {
@@ -107,7 +107,7 @@ namespace MyGameLibrary
                 Console.Error.WriteLine("Not armor");
             }
         }
-        public void EquipUtility(Item item, Position position, Facing facing, Area area)
+        public void EquipUtility(Item item)
         {
             Item currently_equipped = this.Utility;
             if (item == null || item.Type == Item.ItemType.Utility)
@@ -116,7 +116,7 @@ namespace MyGameLibrary
                 RemoveFromBackpack(item);
                 if (BackpackIsFull())
                 {
-                    DropItem(currently_equipped, position, facing, area);
+                    DropItem(currently_equipped);
                 }
                 else
                 {
@@ -186,16 +186,17 @@ namespace MyGameLibrary
         }
 
 
-        public void DropItem(Item item, Position position, Facing facing, Area area)
+        public void DropItem(Item item)
         {
             if (item == null)
             {
                 return;
             }
-            Position new_position = new Position(position.x, position.y);
-            new_position.x = facing == Facing.Left ? new_position.x - item.Pic.Size.Width - 10 : new_position.x + item.Pic.Size.Width + 10;
+
+            Position new_position = new Position(Game.player.Position.x, Game.player.Position.y);
+            new_position.x = Game.player.facing == Facing.Left ? new_position.x - item.Pic.Size.Width - 10 : new_position.x + item.Pic.Size.Width + 10;
             item.SetEntityPosition(new_position);
-            area.Items.Add(item);
+            Game.CurrentArea.Items.Add(item);
         }
 
         public void DropAll(Position position)

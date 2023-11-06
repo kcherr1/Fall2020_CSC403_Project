@@ -31,6 +31,12 @@ namespace MyGameLibrary
 
         public Terrain Terrain;
 
+        public Area(String AreaName, Terrain Terrain)
+        {
+            this.AreaName = AreaName;
+            this.Terrain = Terrain;
+            this.Visited = false;
+        }
 
         public Area(String AreaName, int Seed, double SeedAmp)
         {
