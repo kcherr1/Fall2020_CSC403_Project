@@ -1,5 +1,5 @@
 ﻿namespace Fall2020_CSC403_Project {
-  partial class FrmLevel {
+  public partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -45,6 +45,9 @@
       this.picWall1 = new System.Windows.Forms.PictureBox();
       this.picWall2 = new System.Windows.Forms.PictureBox();
       this.picWall11 = new System.Windows.Forms.PictureBox();
+      this.picFence0 = new System.Windows.Forms.PictureBox();
+      this.picDialog0 = new System.Windows.Forms.PictureBox();
+      this.picKey0 = new System.Windows.Forms.PictureBox();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
@@ -62,20 +65,12 @@
       ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picFence0)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picDialog0)).BeginInit();
+       ((System.ComponentModel.ISupportInitialize)(this.picKey0)).BeginInit();
+
+
       this.SuspendLayout();
-      // 
-      // lblInGameTime
-      // 
-      this.lblInGameTime.AutoSize = true;
-      this.lblInGameTime.BackColor = System.Drawing.Color.Black;
-      this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblInGameTime.ForeColor = System.Drawing.Color.White;
-      this.lblInGameTime.Location = new System.Drawing.Point(12, 9);
-      this.lblInGameTime.Name = "lblInGameTime";
-      this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
-      this.lblInGameTime.TabIndex = 2;
-      this.lblInGameTime.Text = "label1";
-      this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
       // 
       // tmrUpdateInGameTime
       // 
@@ -203,9 +198,9 @@
       this.picWall10.BackColor = System.Drawing.Color.Transparent;
       this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall10.Location = new System.Drawing.Point(653, 89);
+      this.picWall10.Location = new System.Drawing.Point(653, 89); 
       this.picWall10.Name = "picWall10";
-      this.picWall10.Size = new System.Drawing.Size(228, 162);
+      this.picWall10.Size = new System.Drawing.Size(247, 162);
       this.picWall10.TabIndex = 11;
       this.picWall10.TabStop = false;
       // 
@@ -275,6 +270,68 @@
       this.picWall11.TabIndex = 17;
       this.picWall11.TabStop = false;
       // 
+         // picFence0
+      // 
+      this.picFence0.BackColor = System.Drawing.Color.Transparent;
+      this.picFence0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.fence;
+      this.picFence0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picFence0.Location = new System.Drawing.Point(890, 250);
+      this.picFence0.Name = "picFence0";
+      this.picFence0.Size = new System.Drawing.Size(20, 147); 
+      this.picFence0.TabIndex = 17;
+      this.picFence0.TabStop = false;
+       
+      //
+       // picDialog0
+      // 
+      this.picDialog0.BackColor = System.Drawing.Color.Transparent;
+      this.picDialog0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.boss_dialog;
+      this.picDialog0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picDialog0.Location = new System.Drawing.Point(905, 260);
+      this.picDialog0.Name = "picDialog0";
+      this.picDialog0.Size = new System.Drawing.Size(200, 150); 
+      this.picDialog0.TabIndex = 17;
+      this.picDialog0.TabStop = false;
+
+            //
+       // picKey0
+      // 
+      this.picKey0.BackColor = System.Drawing.Color.Transparent;
+      this.picKey0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.key;
+      this.picKey0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picKey0.Location = new System.Drawing.Point(962, 565);
+      this.picKey0.Name = "picKey0";
+      this.picKey0.Size = new System.Drawing.Size(70, 50); 
+      this.picKey0.TabIndex = 17;
+      this.picKey0.TabStop = false;
+            // 
+            // lblInGameTime
+            // 
+            this.lblInGameTime.AutoSize = true;
+            this.lblInGameTime.BackColor = System.Drawing.Color.Black;
+            this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInGameTime.ForeColor = System.Drawing.Color.White;
+            this.lblInGameTime.Location = new System.Drawing.Point(16, 11);
+            this.lblInGameTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInGameTime.Name = "lblInGameTime";
+            this.lblInGameTime.Size = new System.Drawing.Size(60, 24);
+            this.lblInGameTime.TabIndex = 2;
+            this.lblInGameTime.Text = "label1";
+            this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
+            // 
+            // goToHome
+            // 
+            //this.goToHome.AutoSize = true;
+            //this.goToHome.BackColor = System.Drawing.Color.Lavender;
+            //this.goToHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            //this.goToHome.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.goToHome.ForeColor = System.Drawing.Color.Black;
+            //this.goToHome.Location = new System.Drawing.Point(690, 16);
+            //this.goToHome.Name = "goToHome";
+            //this.goToHome.Size = new System.Drawing.Size(97, 19);
+            //this.goToHome.TabIndex = 18;
+            //this.goToHome.Text = "Go To Home";
+            //this.goToHome.Click += new System.EventHandler(this.goToHome_Click);
       // FrmLevel
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +357,9 @@
       this.Controls.Add(this.picWall3);
       this.Controls.Add(this.picBossKoolAid);
       this.Controls.Add(this.picPlayer);
+      this.Controls.Add(this.picFence0);
+      this.Controls.Add(this.picDialog0);
+      this.Controls.Add(this.picKey0);
       this.DoubleBuffered = true;
       this.Name = "FrmLevel";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -324,6 +384,9 @@
       ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picFence0)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picDialog0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picKey0)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -333,7 +396,6 @@
 
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picBossKoolAid;
-    private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
     private System.Windows.Forms.PictureBox picWall3;
@@ -351,6 +413,11 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
+        private System.Windows.Forms.Label lblInGameTime;
+        private System.Windows.Forms.Label goToHome;
+    private System.Windows.Forms.PictureBox picFence0;
+    private System.Windows.Forms.PictureBox picDialog0;
+        private System.Windows.Forms.PictureBox picKey0;
   }
 }
 
