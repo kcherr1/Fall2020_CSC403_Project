@@ -55,6 +55,9 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket.Color = Color.Green;
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
+            
+
+
             inventory = new Inventory();
 
             walls = new Character[NUM_WALLS];
@@ -121,14 +124,17 @@ namespace Fall2020_CSC403_Project
             // check collision with enemies
             if (HitAChar(player, enemyPoisonPacket))
             {
-                Fight(enemyPoisonPacket);                
+                enemyPoisonPacket.PoisonBC();
+                Fight(enemyPoisonPacket);
             }
             else if (HitAChar(player, enemyCheeto))
             {
+                enemyCheeto.CheetoBC();
                 Fight(enemyCheeto);
             }
             if (HitAChar(player, bossKoolaid))
             {
+                bossKoolaid.BossKoolAidBC();
                 Fight(bossKoolaid);
             }
 
