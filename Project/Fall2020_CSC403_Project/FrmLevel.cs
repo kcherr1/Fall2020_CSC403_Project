@@ -2,18 +2,12 @@
 using Fall2020_CSC403_Project.Properties;
 using MyGameLibrary;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Threading;
 using System.Media;
 using System.Text.Json;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace Fall2020_CSC403_Project
 {
