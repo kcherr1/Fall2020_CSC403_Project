@@ -198,6 +198,7 @@ namespace Fall2020_CSC403_Project {
                 {
                     TitleScreen.FrmLevelInstance.picEnemyPoisonPacket.Parent.Controls.Remove(
                         TitleScreen.FrmLevelInstance.picEnemyPoisonPacket);
+                    TitleScreen.FrmLevelInstance.enemyPoisonPacket= null;
                 }
             // Cheeto
             } else if (enemy.Color == Color.FromArgb(255, 245, 161)) { 
@@ -205,6 +206,7 @@ namespace Fall2020_CSC403_Project {
                 {
                     TitleScreen.FrmLevelInstance.picEnemyCheeto.Parent.Controls.Remove(
                         TitleScreen.FrmLevelInstance.picEnemyCheeto);
+                    TitleScreen.FrmLevelInstance.enemyCheeto= null;
                 }
             // Boss koolaid
             } else if (enemy.Color == Color.Red)
@@ -213,6 +215,7 @@ namespace Fall2020_CSC403_Project {
                 {
                     TitleScreen.FrmLevelInstance.picBossKoolAid.Parent.Controls.Remove(
                         TitleScreen.FrmLevelInstance.picBossKoolAid);
+                    TitleScreen.FrmLevelInstance.bossKoolaid= null;
                 }
             }
         }
