@@ -126,7 +126,7 @@ namespace Fall2020_CSC403_Project
             MainMenuButton.Font = new Font("NSimSun", MainMenuButton.Size.Height / 2);
             MainMenuButton.Click += MainMenuButton_Click;
 
-
+            // Create Button to clear the ranking
             Button ClearRankingsButton = new Button();
             ClearRankingsButton.Parent = BackgroundImg;
             ClearRankingsButton.Size = new Size(width / 3, height / 10);
@@ -140,6 +140,10 @@ namespace Fall2020_CSC403_Project
         {
             Label CurrentRanking = (Label)sender;
 
+            // Turn the ranking more opaque if it is clicked
+            // Change it back to original opaqueness if clicked again
+            // Display playthrough info when clicked
+            // Hide playthrough info when clicked again
             if (CurrentRanking != PreviousRanking)
             {
                 CurrentRanking.BackColor = Color.FromArgb(128, Color.White);
@@ -162,7 +166,7 @@ namespace Fall2020_CSC403_Project
 
         private void ShowPlaythroughInfo(int ranking)
         {
-            
+            // Get the class, weapon, armor, and utility used in the playthrough            
             string classType = topClasses[ranking];
             string weaponType = topWeapons[ranking];
             string armorType = topArmors[ranking];
@@ -173,6 +177,7 @@ namespace Fall2020_CSC403_Project
             Controls.Add(Utility);
             Controls.Add(PlayerPic);
 
+            // Display a picture of the weapon
             Weapon = new PictureBox()
             {
                 Location = new Point(0, 0),
@@ -183,7 +188,8 @@ namespace Fall2020_CSC403_Project
                 BorderStyle = BorderStyle.FixedSingle,
             };
             Weapon.BringToFront();
-            
+
+            // Display a picture of the armor
             Armor = new PictureBox
             {
                 Location = new Point(0, Weapon.Location.Y + Weapon.Height),
@@ -195,6 +201,7 @@ namespace Fall2020_CSC403_Project
             };
             Armor.BringToFront();
 
+            // Display a picture of the utility
             Utility = new PictureBox
             {
                 Location = new Point(0, Armor.Location.Y + Armor.Height),
@@ -206,6 +213,7 @@ namespace Fall2020_CSC403_Project
             };
             Utility.BringToFront();
 
+            // Display a picture of the class
             PlayerPic = new PictureBox
             {
                 Parent = BackgroundImg,
@@ -216,6 +224,7 @@ namespace Fall2020_CSC403_Project
             };
             PlayerPic.BringToFront();
 
+            // Set the pictures for the class, weapon, armor, and utility
             switch (classType)
             {
                 case "Tank":
@@ -284,6 +293,7 @@ namespace Fall2020_CSC403_Project
         {
             string filepath = "../../data/LeaderboardData.json";
 
+            // Set each item in the list to null or its equivalent
             for (int i = 0; i < topPlayers.Count; i++)
             {
                 topPlayers[i] = null;
@@ -294,6 +304,7 @@ namespace Fall2020_CSC403_Project
                 topUtilities[i] = null;
             }
 
+            // Convert the lists to a JSON format
             string[] data = new string[6];
             data[0] = JsonSerializer.Serialize(topPlayers);
             data[1] = JsonSerializer.Serialize(topClasses);
@@ -302,8 +313,10 @@ namespace Fall2020_CSC403_Project
             data[4] = JsonSerializer.Serialize(topArmors);
             data[5] = JsonSerializer.Serialize(topUtilities);
 
+            // Overwrite the current leaderboard data with the new lists
             File.WriteAllLines(filepath, data);
 
+            // Remove the pictures from the screen
             if (Weapon != null)
             {
                 Weapon.Dispose();
@@ -312,6 +325,7 @@ namespace Fall2020_CSC403_Project
                 PlayerPic.Dispose();
             }
 
+            // Remove the rankings from the screen
             foreach (Label Ranking in Rankings)
             {
                 if (Ranking != null)
