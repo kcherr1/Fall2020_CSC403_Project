@@ -86,22 +86,27 @@ namespace Fall2020_CSC403_Project {
       await Task.Delay(750);
       DmgGivenDisplay();
       btnHeavyAttack.Enabled = true;
-      if (player.Health <= 0 || enemy.Health <= 0) {
-                MusicPlayer.StopBattleSound();
+      if (player.Health <= 0) {
+        MusicPlayer.StopBattleSound();
 
         if(player.Health <= 0 && enemy.Health > 0)
-            {
-                    MusicPlayer.StopLevelMusic();
-                MusicPlayer.PlayGameOverSound();
-            } else
-                {
+        {
+          MusicPlayer.StopLevelMusic();
+          MusicPlayer.PlayGameOverSound();
+        } else {
+          MusicPlayer.PlayLevelMusic();
                     
-                    MusicPlayer.PlayLevelMusic();
-                    
-                }
-                instance = null;
-                Close();
-            }
+        }
+         instance = null;
+         Close();
+      }
+
+      if (enemy.Health <= 0)
+      {
+        RemoveEnemy(enemy);
+        instance = null;
+        Close();
+      }
     }
    private async void btnHeavyAttack_Click(object sender, EventArgs e){
       lblDamage.Text = "  Dealt 16 damage!";
@@ -117,13 +122,32 @@ namespace Fall2020_CSC403_Project {
       await Task.Delay(750);
       DmgGivenDisplay();
       btnHeavyAttack.Enabled = false;
-      if (player.Health <= 0 || enemy.Health <= 0){
-        RemoveEnemy(enemy);
-        instance = null;
-        Close();
+      if (player.Health <= 0)
+      {
+        MusicPlayer.StopBattleSound();
+
+        if (player.Health <= 0 && enemy.Health > 0)
+        {
+            MusicPlayer.StopLevelMusic();
+            MusicPlayer.PlayGameOverSound();
+        }
+        else
+        {
+            MusicPlayer.PlayLevelMusic();
+
+        }
+      instance = null;
+      Close();
       }
 
-    }
+      if (enemy.Health <= 0)
+      {
+            RemoveEnemy(enemy);
+            instance = null;
+            Close();
+      }
+
+   }
     private void btnHeal_Click(object sender, EventArgs e)
     {
       player.AlterHealth(4);
