@@ -118,10 +118,7 @@ namespace Fall2020_CSC403_Project {
       DmgGivenDisplay();
       btnHeavyAttack.Enabled = false;
       if (player.Health <= 0 || enemy.Health <= 0){
-        if(TitleScreen.FrmLevelInstance.picEnemyPoisonPacket.Parent != null)
-                {
-                    Debug.WriteLine("hello");
-                }
+        RemoveEnemy(enemy);
         instance = null;
         Close();
       }
@@ -166,6 +163,35 @@ namespace Fall2020_CSC403_Project {
       lblDamage.Visible = false;
     }
 
+        // This method will directly access the controls on FrmLevel to delete them since it is just a 
+        // copy here.
+    private void RemoveEnemy(Enemy enemy)
+        {
+            // Poison Packet
+            if(enemy.Color == Color.Green)
+            {
+                if(TitleScreen.FrmLevelInstance.picEnemyPoisonPacket.Parent != null)
+                {
+                    TitleScreen.FrmLevelInstance.picEnemyPoisonPacket.Parent.Controls.Remove(
+                        TitleScreen.FrmLevelInstance.picEnemyPoisonPacket);
+                }
+            // Cheeto
+            } else if (enemy.Color == Color.FromArgb(255, 245, 161)) { 
+                if(TitleScreen.FrmLevelInstance.picEnemyCheeto.Parent!= null)
+                {
+                    TitleScreen.FrmLevelInstance.picEnemyCheeto.Parent.Controls.Remove(
+                        TitleScreen.FrmLevelInstance.picEnemyCheeto);
+                }
+            // Boss koolaid
+            } else if (enemy.Color == Color.Red)
+            {
+                if(TitleScreen.FrmLevelInstance.picBossKoolAid.Parent!= null)
+                {
+                    TitleScreen.FrmLevelInstance.picBossKoolAid.Parent.Controls.Remove(
+                        TitleScreen.FrmLevelInstance.picBossKoolAid);
+                }
+            }
+        }
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
