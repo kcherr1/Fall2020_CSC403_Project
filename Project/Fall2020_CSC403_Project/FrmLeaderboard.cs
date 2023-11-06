@@ -251,7 +251,7 @@ namespace Fall2020_CSC403_Project
 
             switch (utilityType)
             {
-                case "Health Potion":
+                case "Lesser Heal":
                     Utility.Image = Resources.lesser_health_potion;
                     break;
                 case "Potion of Speed":
