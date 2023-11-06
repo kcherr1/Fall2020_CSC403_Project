@@ -17,11 +17,18 @@ namespace Fall2020_CSC403_Project.code {
     public event Action<int> HealEvent;
 
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
-      MaxHealth = 20;
+      MaxHealth = 30;
       strength = 2;
       Health = MaxHealth;
       Score = 0;
     }
+    
+        // Method to allow the setting of enemy health outside of this class
+    public void setHealth(int givenHealth)
+        {
+            MaxHealth = givenHealth;
+            Health = MaxHealth;
+        }
 
     public void OnAttack(int amount) {
       AttackEvent((int)(amount * strength));
@@ -31,6 +38,7 @@ namespace Fall2020_CSC403_Project.code {
         {
             HealEvent((int)(amount));
         }
+    
 
     public void AlterScore(int amount)
         {

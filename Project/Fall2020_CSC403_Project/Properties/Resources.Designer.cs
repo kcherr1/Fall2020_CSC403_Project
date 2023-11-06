@@ -122,6 +122,10 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap G_R_I_M_A_C_E_ {
+            get {
+                object obj = ResourceManager.GetObject("G_R_I_M_A_C_E_", resourceCulture);
+
         internal static System.Drawing.Bitmap peanut_end {
             get {
                 object obj = ResourceManager.GetObject("peanut_end", resourceCulture);
@@ -135,6 +139,7 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap peanut_victory {
             get {
                 object obj = ResourceManager.GetObject("peanut_victory", resourceCulture);
+
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -145,6 +150,26 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap player {
             get {
                 object obj = ResourceManager.GetObject("player", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap The_Primoridal_Juice {
+            get {
+                object obj = ResourceManager.GetObject("The_Primoridal_Juice", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap True_Raisin_Pain {
+            get {
+                object obj = ResourceManager.GetObject("True_Raisin_Pain", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
