@@ -35,7 +35,7 @@ namespace Fall2020_CSC403_Project
             this.lblTitle = new System.Windows.Forms.Label();
             this.peanut = new System.Windows.Forms.PictureBox();
             this.koolaid = new System.Windows.Forms.PictureBox();
-            this.menuTheme = new SoundPlayer("menu_theme.wav");
+            this.menuTheme = new System.Media.SoundPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.peanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.koolaid)).BeginInit();
             this.SuspendLayout();
@@ -93,6 +93,13 @@ namespace Fall2020_CSC403_Project
             this.koolaid.Size = new System.Drawing.Size(229, 267);
             this.koolaid.TabIndex = 1;
             this.koolaid.TabStop = false;
+            // 
+            // menuTheme
+            // 
+            this.menuTheme.LoadTimeout = 10000;
+            this.menuTheme.SoundLocation = "menu_theme.wav";
+            this.menuTheme.Stream = null;
+            this.menuTheme.Tag = null;
             // 
             // FrmMainMenu
             // 

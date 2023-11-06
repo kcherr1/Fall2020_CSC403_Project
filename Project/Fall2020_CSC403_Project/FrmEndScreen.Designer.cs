@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnLeaveGame = new System.Windows.Forms.Button();
+            this.btnRestartGame = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.peanut_end = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.peanut_end)).BeginInit();
@@ -37,13 +38,24 @@
             // btnLeaveGame
             // 
             this.btnLeaveGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeaveGame.Location = new System.Drawing.Point(339, 356);
+            this.btnLeaveGame.Location = new System.Drawing.Point(423, 356);
             this.btnLeaveGame.Name = "btnLeaveGame";
             this.btnLeaveGame.Size = new System.Drawing.Size(128, 43);
             this.btnLeaveGame.TabIndex = 2;
             this.btnLeaveGame.Text = "Quit";
             this.btnLeaveGame.UseVisualStyleBackColor = true;
             this.btnLeaveGame.Click += new System.EventHandler(this.btnLeaveGame_Click);
+            // 
+            // btnRestartGame
+            // 
+            this.btnRestartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestartGame.Location = new System.Drawing.Point(260, 356);
+            this.btnRestartGame.Name = "btnRestartGame";
+            this.btnRestartGame.Size = new System.Drawing.Size(128, 43);
+            this.btnRestartGame.TabIndex = 2;
+            this.btnRestartGame.Text = "Restart";
+            this.btnRestartGame.UseVisualStyleBackColor = true;
+            this.btnRestartGame.Click += new System.EventHandler(this.btnRestartGame_Click);
             // 
             // lblTitle
             // 
@@ -74,6 +86,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnLeaveGame);
+            this.Controls.Add(this.btnRestartGame);
             this.Controls.Add(this.peanut_end);
             this.Name = "FrmEndScreen";
             this.Text = "GAME OVER";
@@ -86,6 +99,7 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox peanut;
         private System.Windows.Forms.Button btnLeaveGame;
+        private System.Windows.Forms.Button btnRestartGame;
         private System.Windows.Forms.PictureBox peanut_end;
     }
 }

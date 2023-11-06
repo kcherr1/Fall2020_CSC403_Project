@@ -24,38 +24,13 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
             menuTheme.PlayLooping();
             this.FormClosed += (s, args) => Application.Exit();
+            this.Shown += (s, args) => menuTheme.PlayLooping();
             
         }
 
         private void btnStartGame_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            menuTheme.Stop();
-
-            frmLevel = new FrmLevel();
-            frmLevel.Closed += (s, args) =>
-            {
-                if (frmLevel.win == true)
-                {
-                    frmWin = new FrmWinScreen();
-                    frmWin.Show();
-                    frmWin.FormClosed += (x, t) => this.Show();
-                }
-                else if (frmLevel.lose == true)
-                {
-                    frmEnd = new FrmEndScreen();
-                    frmEnd.Show();
-                    frmEnd.FormClosed += (x, t) => this.Show();
-                }
-                else
-                {
-                    this.Show();
-                    menuTheme.PlayLooping();
-                }
-            };
-            frmLevel.Show();
-
-            instance = null;
+            startGame();
         }
 
         private void btnLeaveGame_Click(object sender, EventArgs e)
@@ -67,6 +42,64 @@ namespace Fall2020_CSC403_Project
         private void lblTitle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void startGame()
+        {
+            this.Hide();
+            menuTheme.Stop();
+
+            frmLevel = new FrmLevel();
+            frmLevel.Closed += (s, args) =>
+            {
+                if (frmLevel.win == true)
+                {
+                    frmWin = new FrmWinScreen();
+                    frmWin.Show();
+                    frmWin.FormClosed += (x, t) =>
+                    {
+                        if (frmWin.restart)
+                        {
+                            startGame();
+                        }
+                        else
+                        {
+                            this.Show();
+                            menuTheme.PlayLooping();
+                        };
+                    };
+                }
+                else if (frmLevel.lose == true)
+                {
+                    frmEnd = new FrmEndScreen();
+                    frmEnd.Show();
+                    frmEnd.FormClosed += (x, t) =>
+                    {
+                        if (frmEnd.restart)
+                        {
+                            startGame();
+                        }
+                        else
+                        {
+                            this.Show();
+                            menuTheme.PlayLooping();
+                        };
+                    };
+                }
+                else
+                {
+                    this.Show();
+                    startMusic();
+                }
+            };
+            frmLevel.Show();
+
+            instance = null;
+        }
+
+        public void startMusic()
+        {
+            menuTheme.PlayLooping();
         }
     }
 }
