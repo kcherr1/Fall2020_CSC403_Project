@@ -22,8 +22,10 @@ namespace Fall2020_CSC403_Project.code
         /// </summary>
         /// <param name="initPos">this is the initial position of the enemy</param>
         /// <param name="collider">this is the collider for the enemy</param>
-        public Enemy(Vector2 initPos, Collider collider) : base(initPos, collider)
+        /// <param name="toughness">this is the damage reduction from projectiles</param>
+        public Enemy(Vector2 initPos, Collider collider, float toughness) : base(initPos, collider, toughness)
         {
         }
+
     }
 }

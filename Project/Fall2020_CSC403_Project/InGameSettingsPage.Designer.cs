@@ -1,6 +1,6 @@
 ﻿namespace Fall2020_CSC403_Project
 {
-    partial class MainSettingsPage
+    partial class InGameSettingsPage
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,7 @@
             this.btnClose.Size = new System.Drawing.Size(136, 52);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Close";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Click += new System.EventHandler(this.btnCloseSettings_Click);
             // 
             // lblSettings
             // 
@@ -82,18 +82,18 @@
             this.btnVolume.UseVisualStyleBackColor = true;
             this.btnVolume.Click += new System.EventHandler(this.btnVolume_Click);
             // 
-            // MainSettingsPage
+            // InGameSettingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnVolume);
             this.Controls.Add(this.lblVolume);
+            this.Controls.Add(this.btnVolume);
             this.Controls.Add(this.btnControls);
             this.Controls.Add(this.lblSettings);
             this.Controls.Add(this.btnClose);
-            this.Name = "MainSettingsPage";
-            this.Text = "MainSettingsPage";
+            this.Name = "InGameSettingsPage";
+            this.Text = "InGameSettingsPage";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,5 +106,6 @@
         private System.Windows.Forms.Button btnControls;
         private System.Windows.Forms.Label lblVolume;
         private System.Windows.Forms.Button btnVolume;
+
     }
 }

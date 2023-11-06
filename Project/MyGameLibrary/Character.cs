@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class Character {
-    private const int GO_INC = 3;
-
+    private const int GO_INC = 2;
+    private float toughness;
     public Vector2 MoveSpeed { get; private set; }
     public Vector2 LastPosition { get; private set; }
     public Vector2 Position { get; private set; }
     public Collider Collider { get; private set; }
 
-    public Character(Vector2 initPos, Collider collider) {
+    public Character(Vector2 initPos, Collider collider, float toughness) {
       Position = initPos;
       Collider = collider;
+      this.toughness = toughness;
     }
 
     public void Move() {

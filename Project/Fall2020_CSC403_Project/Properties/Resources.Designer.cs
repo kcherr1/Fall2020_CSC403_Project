@@ -19,7 +19,7 @@ namespace Fall2020_CSC403_Project.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -57,6 +57,16 @@ namespace Fall2020_CSC403_Project.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_100_40_horizontal {
+            get {
+                object obj = ResourceManager.GetObject("arrow_100_40_horizontal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -121,21 +131,29 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
-        internal static System.Drawing.Bitmap inventoryboard
-        {
-            get
-            {
+        internal static System.Drawing.Bitmap inventoryboard {
+            get {
                 object obj = ResourceManager.GetObject("inventoryboard", resourceCulture);
-
-                return (((System.Drawing.Bitmap)(obj)));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LVL1potion0 {
+            get {
+                object obj = ResourceManager.GetObject("LVL1potion0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mainmenubackground {
             get {
                 object obj = ResourceManager.GetObject("mainmenubackground", resourceCulture);
-
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +171,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Potion {
+        internal static System.Drawing.Bitmap selectorline {
             get {
-                object obj = ResourceManager.GetObject("Potion", resourceCulture);
+                object obj = ResourceManager.GetObject("selectorline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

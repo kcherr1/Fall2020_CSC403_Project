@@ -9,6 +9,7 @@ namespace Fall2020_CSC403_Project.code
     public class Item
     {
         public string NAME;
+        private const int healValue = 10;
         public Vector2 Position { get; set; }
         public Collider Collider { get; set; }
         public Item(Vector2 initPos, Collider collider, string name)
@@ -18,7 +19,7 @@ namespace Fall2020_CSC403_Project.code
             NAME = name;
         }
 
-        public void useItem()
+        public void useItem(Player player)
         { }
         
     }

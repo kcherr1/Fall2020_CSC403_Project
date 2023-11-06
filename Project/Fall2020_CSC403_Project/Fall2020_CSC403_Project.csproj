@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AudioSwitcher.AudioApi, Version=3.0.0.209, Culture=neutral, PublicKeyToken=fda5729e2db3a64f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AudioSwitcher.AudioApi.3.0.0\lib\net40\AudioSwitcher.AudioApi.dll</HintPath>
+    </Reference>
+    <Reference Include="AudioSwitcher.AudioApi.CoreAudio, Version=3.0.0.209, Culture=neutral, PublicKeyToken=fda5729e2db3a64f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AudioSwitcher.AudioApi.CoreAudio.3.0.3\lib\net472\AudioSwitcher.AudioApi.CoreAudio.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,6 +54,24 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InGameControlsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InGameControlsPage.Designer.cs">
+      <DependentUpon>InGameControlsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlsPage.Designer.cs">
+      <DependentUpon>ControlsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InGameSettingsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InGameSettingsPage.Designer.cs">
+      <DependentUpon>InGameSettingsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +110,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="InGameControlsPage.resx">
+      <DependentUpon>InGameControlsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlsPage.resx">
+      <DependentUpon>ControlsPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Level2.resx">
       <DependentUpon>Level2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InGameSettingsPage.resx">
+      <DependentUpon>InGameSettingsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -109,6 +142,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -164,7 +198,16 @@
     <None Include="data\mainmenubackground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\raw images\Potion.png" />
+    <None Include="data\arrow_100_40_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\raw images\LVL1potion0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\selector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\selectorline.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
