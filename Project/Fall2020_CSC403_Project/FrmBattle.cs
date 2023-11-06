@@ -217,7 +217,7 @@ namespace Fall2020_CSC403_Project {
       FleeButton.FlatStyle = FlatStyle.Flat;
       Random random = new Random();
       int chance = random.Next(1, 3);
-      System.Diagnostics.Debug.WriteLine(chance.ToString());
+      //System.Diagnostics.Debug.WriteLine(chance.ToString());
       if (chance == 1)
       {
         Close();

@@ -268,11 +268,11 @@
       this.textBox1.BackColor = System.Drawing.Color.Green;
       this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
       this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-      this.textBox1.Location = new System.Drawing.Point(710, 1036);
+      this.textBox1.Location = new System.Drawing.Point(699, 1036);
       this.textBox1.Name = "textBox1";
       this.textBox1.Size = new System.Drawing.Size(339, 53);
       this.textBox1.TabIndex = 15;
-      this.textBox1.Text = "1/2 Chance of";
+      this.textBox1.Text = "50% Chance of";
       this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
       // 
       // textBox2
