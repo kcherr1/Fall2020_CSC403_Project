@@ -2,6 +2,7 @@
 using Fall2020_CSC403_Project.Properties;
 using MyGameLibrary;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Media;
 using System.Threading.Tasks;
@@ -117,6 +118,10 @@ namespace Fall2020_CSC403_Project {
       DmgGivenDisplay();
       btnHeavyAttack.Enabled = false;
       if (player.Health <= 0 || enemy.Health <= 0){
+        if(TitleScreen.FrmLevelInstance.picEnemyPoisonPacket.Parent != null)
+                {
+                    Debug.WriteLine("hello");
+                }
         instance = null;
         Close();
       }
