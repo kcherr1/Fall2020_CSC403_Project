@@ -157,14 +157,12 @@
     <Content Include="battle_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-
     <None Include="data\The Primoridal Juice.jpg" />
     <None Include="data\True Raisin Pain.jpg" />
     <None Include="data\G.R.I.M.A.C.E..png" />
     <None Include="data\peanut_end.jpg" />
     <None Include="data\peanut_victory.jpg" />
     <None Include="data\deadenemy_poisonpacket.fw.png" />
-    
     <Content Include="level_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
