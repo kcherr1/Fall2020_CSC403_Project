@@ -319,7 +319,7 @@ namespace Fall2020_CSC403_Project {
 
             this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut;
 
-            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(650, 300);
+            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(620, 260);
             this.picEnemyCheeto.Location = new System.Drawing.Point(120, 200);
 
             this.picBossKoolAid.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid2;
@@ -337,6 +337,8 @@ namespace Fall2020_CSC403_Project {
             bossKoolaid.Color = Color.Black;
             enemyPoisonPacket.Color = Color.Lavender;
             enemyCheeto.Color = Color.Orange;
+
+            this.picEnemyPoisonPacket.Size = new System.Drawing.Size(144, 148);
 
 
             this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
