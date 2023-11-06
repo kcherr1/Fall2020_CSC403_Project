@@ -159,7 +159,7 @@ namespace Fall2020_CSC403_Project {
             // picEnemyRaisin
             // 
             this.picEnemyRaisin.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyRaisin.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.True_Raisin_Pain;
+            this.picEnemyRaisin.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut_end;
             this.picEnemyRaisin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyRaisin.Location = new System.Drawing.Point(0, 0);
             this.picEnemyRaisin.Name = "picEnemyRaisin";

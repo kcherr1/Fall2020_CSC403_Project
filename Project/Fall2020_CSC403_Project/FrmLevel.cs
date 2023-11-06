@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project {
         private EnemyType bossPrimordialKoolaid;
         private EnemyType enemyRaisin;
         private EnemyType enemyGRIMACE;
+        private Enemy nextAreaDoor;
         private Character[] walls;
 
         public Boolean worldSelect = false;
@@ -42,12 +43,12 @@ namespace Fall2020_CSC403_Project {
      enemyGRIMACE= new EnemyType(CreatePosition(picEnemyGRIMACE), CreateCollider(picEnemyGRIMACE, PADDING));
      enemyRaisin = new EnemyType(CreatePosition(picEnemyRaisin), CreateCollider(picEnemyRaisin, PADDING));
      bossPrimordialKoolaid = new EnemyType(CreatePosition(picBossPrimordialKoolaid), CreateCollider(picBossPrimordialKoolaid, PADDING));
+     nextAreaDoor = new Enemy(CreatePosition(picAreaDoor), CreateCollider(picAreaDoor, PADDING));
 
-      enemyGRIMACE.Img = picEnemyGRIMACE.BackgroundImage;
+     enemyGRIMACE.Img = picEnemyGRIMACE.BackgroundImage;
       enemyRaisin.Img = picEnemyRaisin.BackgroundImage;
       bossPrimordialKoolaid.Img = picBossPrimordialKoolaid.BackgroundImage;
 
-      nextAreaDoor = new Enemy(CreatePosition(picAreaDoor), CreateCollider(picAreaDoor, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
