@@ -290,15 +290,17 @@ namespace Fall2020_CSC403_Project
         {
 
         }
-    }
 
-    /// <summary>
-    /// Closes the application when FrmLevel is closed 
-    /// </summary>
-    public void onFormClosed(object sender, FormClosedEventArgs e)
-        {            
+        /// <summary>
+        /// Closes the application when FrmLevel is closed 
+        /// </summary>
+        public void onFormClosed(object sender, FormClosedEventArgs e)
+        {
             System.Windows.Forms.Application.Exit();
         }
+    }
+
     
-  }
+  
 }
+

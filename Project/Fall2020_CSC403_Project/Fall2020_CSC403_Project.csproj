@@ -113,6 +113,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -157,11 +158,13 @@
     <None Include="data\inventoryboard.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\Potion.png" />
     <None Include="data\CatDisk.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\mainmenubackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\raw images\Potion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

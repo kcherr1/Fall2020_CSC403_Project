@@ -295,15 +295,27 @@ namespace Fall2020_CSC403_Project
         {
 
         }
+
+        private void picWall3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Closes the application when Level2 is closed 
+        /// </summary>
+        public void OnFormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 
-    /// <summary>
-    /// Closes the application when FrmLevel is closed 
-    /// </summary>
-    //public void onFormClosed(object sender, FormClosedEventArgs e)
-    // {            
-    //    System.Windows.Forms.Application.Exit();
-    // }
+    
 
 }
-//}
+
