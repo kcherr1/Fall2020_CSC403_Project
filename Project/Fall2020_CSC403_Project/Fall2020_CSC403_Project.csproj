@@ -84,6 +84,12 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Level2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Level2.Designer.cs">
+      <DependentUpon>Level2.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="MainSettingsPage.Designer.cs">
       <DependentUpon>MainSettingsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NextLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NextLevel.Designer.cs">
+      <DependentUpon>NextLevel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +122,9 @@
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Level2.resx">
+      <DependentUpon>Level2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InGameSettingsPage.resx">
       <DependentUpon>InGameSettingsPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,10 +134,12 @@
     <EmbeddedResource Include="MainSettingsPage.resx">
       <DependentUpon>MainSettingsPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NextLevel.resx">
+      <DependentUpon>NextLevel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
@@ -130,11 +147,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -179,7 +192,6 @@
     <None Include="data\inventoryboard.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\Potion.png" />
     <None Include="data\CatDisk.wav" />
   </ItemGroup>
   <ItemGroup>

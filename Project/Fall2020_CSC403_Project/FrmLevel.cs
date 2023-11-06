@@ -464,6 +464,7 @@ namespace Fall2020_CSC403_Project
         {
 
         }
+
         /// <summary>
         /// Closes the application when FrmLevel is closed 
         /// </summary>
@@ -609,3 +610,4 @@ namespace Fall2020_CSC403_Project
 
     }
 }
+
