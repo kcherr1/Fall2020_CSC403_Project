@@ -1,4 +1,4 @@
-﻿
+﻿using System.Media;
 namespace Fall2020_CSC403_Project
 {
     partial class FrmMainMenu
@@ -18,6 +18,7 @@ namespace Fall2020_CSC403_Project
             {
                 components.Dispose();
             }
+            this.menuTheme.Stop();
             base.Dispose(disposing);
         }
 
@@ -34,6 +35,7 @@ namespace Fall2020_CSC403_Project
             this.lblTitle = new System.Windows.Forms.Label();
             this.peanut = new System.Windows.Forms.PictureBox();
             this.koolaid = new System.Windows.Forms.PictureBox();
+            this.menuTheme = new SoundPlayer("menu_theme.wav");
             ((System.ComponentModel.ISupportInitialize)(this.peanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.koolaid)).BeginInit();
             this.SuspendLayout();
@@ -117,5 +119,6 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnStartGame;
         private System.Windows.Forms.Button btnLeaveGame;
+        SoundPlayer menuTheme = new SoundPlayer("menu_theme.wav");
     }
 }

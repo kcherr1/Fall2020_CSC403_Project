@@ -13,9 +13,11 @@ namespace Fall2020_CSC403_Project {
     private Player player;
     Random rnd = new Random();
 
-    private FrmBattle() {
+
+        private FrmBattle() {
       InitializeComponent();
       player = Game.player;
+          
             this.FormClosed += (s, args) =>
             {
                 instance = null;
@@ -27,7 +29,7 @@ namespace Fall2020_CSC403_Project {
             };
 
     }
-
+    
     public void Setup() {
       // update for this enemy
       battleTheme.PlayLooping();
@@ -94,6 +96,8 @@ namespace Fall2020_CSC403_Project {
       player.OnAttack(rnd.Next(-5,-2));
       if (enemy.Health > 0) {
         enemy.determineAttack(0);
+
+        PlayerScore(10);
       }
 
       UpdateHealthBars();
@@ -104,20 +108,27 @@ namespace Fall2020_CSC403_Project {
             {
                 instance = null;
                 Close();
-                Application.Exit();
             }
     }
 
-
-        private void btnHeal_Click(object sender, EventArgs e)
+    private void btnHeal_Click(object sender, EventArgs e)
+    {
+        if (player.Health <= 0 || enemy.Health <= 0)
         {
-            if (player.Health <= 0 || enemy.Health <= 0)
+            instance = null;
+            Close();
+        }
+        else
+        {
+
+            if ((player.Health + 8) > 20)
             {
-                instance = null;
-                Close();
+                player.OnHeal(20 - player.Health);
             }
             else
             {
+                player.OnHeal(8);
+            }
 
                 if ((player.Health + 8) > 20)
                 {
@@ -134,9 +145,15 @@ namespace Fall2020_CSC403_Project {
                     enemy.determineAttack(0);
                 }
 
-                UpdateHealthBars();
+
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
             }
+
+            UpdateHealthBars();
         }
+    }
 
         private void btnDodge_Click(object sender, EventArgs e)
         {
@@ -155,6 +172,7 @@ namespace Fall2020_CSC403_Project {
             //observers have to be cleared, otherwise other instances will do n*damage
             enemy.AttackEvent -= PlayerDamage;
             player.AttackEvent -= EnemyDamage;
+            player.HealEvent -= PlayerHeal;
             instance = null;
             Close();
 
@@ -168,7 +186,13 @@ namespace Fall2020_CSC403_Project {
       player.AlterHealth(amount);
     }
 
-    private void PlayerHeal(int amount)
+    private void PlayerScore(int amount)
+    {
+        player.AlterScore(amount);
+        lblPlayerScore.Text = "Score: " + player.Score.ToString();
+        }
+
+        private void PlayerHeal(int amount)
         {
             player.AlterHealth(amount);
         }

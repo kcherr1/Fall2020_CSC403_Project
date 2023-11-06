@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -9,6 +9,7 @@ namespace Fall2020_CSC403_Project {
     {
         private Player player;
 
+
         private EnemyType enemyPoisonPacket;
         private EnemyType bossKoolaid;
         private EnemyType enemyCheeto;
@@ -16,9 +17,15 @@ namespace Fall2020_CSC403_Project {
         private EnemyType enemyRaisin;
         private EnemyType enemyGRIMACE;
         private Character[] walls;
+
+        public Boolean worldSelect = false;
+        public Boolean bossDeath = false;
+
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
+        public Boolean win = false;
+        public Boolean lose = false;
 
     public FrmLevel() {
       InitializeComponent();
@@ -26,7 +33,7 @@ namespace Fall2020_CSC403_Project {
 
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
-      const int NUM_WALLS = 13;
+      const int NUM_WALLS = 25;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       bossKoolaid = new EnemyType(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -39,9 +46,13 @@ namespace Fall2020_CSC403_Project {
       enemyGRIMACE.Img = picEnemyGRIMACE.BackgroundImage;
       enemyRaisin.Img = picEnemyRaisin.BackgroundImage;
       bossPrimordialKoolaid.Img = picBossPrimordialKoolaid.BackgroundImage;
+
+      nextAreaDoor = new Enemy(CreatePosition(picAreaDoor), CreateCollider(picAreaDoor, PADDING));
+
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      nextAreaDoor.Img = picAreaDoor.BackgroundImage;
 
      enemyGRIMACE.Color = Color.Purple;
      enemyRaisin.Color = Color.Blue;
@@ -49,12 +60,19 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      nextAreaDoor.Color = Color.Green;
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+                if (w >= 13)
+                {
+                    pic.Location = new System.Drawing.Point(pic.Location.X + 1500 , pic.Location.Y + 1500);
+                    walls[w].Displace();
+                }
       }
+
 
       Game.player = player;
       timeBegin = DateTime.Now;
@@ -123,6 +141,84 @@ namespace Fall2020_CSC403_Project {
         Fight(bossKoolaid);
       }
 
+            // check collision with the door character and change the world as necessary
+            if (HitAChar(player, nextAreaDoor)) {
+                player.MoveBack();
+                if (bossKoolaid.Health <= 0 && bossDeath == false)
+                {
+                    // the first boss is defeated, load world 2 upon door interaction
+                    bossDeath = true;
+                    if (worldSelect == false)
+                    {
+
+                        for (int w = 0; w < 13; w++)
+                        {
+                            walls[w].Displace();
+                            PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X + 1500, pic.Location.Y + 1500);
+                        }
+                        for (int i = 13; i < 20; i++)
+                        {
+                            walls[i].Replace();
+                            PictureBox pic = Controls.Find("picWall" + i.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X - 1500,pic.Location.Y - 1500);
+                        }
+
+                        picAreaDoor.Location = new Point(400, 400);
+                        nextAreaDoor.Collider.MovePosition(400,400);
+                    }
+                    
+
+                }
+                else if (bossDeath == true) {
+                    // switch between the secret and second worlds upon interaction with the door
+                    if (worldSelect == false)
+                    {
+                        // switch from world 2 to secret world
+                        for (int j = 13; j < 20; j++)
+                        {
+                            walls[j].Displace();
+                            PictureBox pic = Controls.Find("picWall" + j.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X + 1500, pic.Location.Y + 1500);
+
+
+                        }
+                        for (int k = 20; k < 25; k++)
+                        {
+                            walls[k].Replace();
+                            PictureBox pic = Controls.Find("picWall" + k.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X - 1500, pic.Location.Y - 1500);
+                        }
+
+                        picAreaDoor.Location = new Point(500, 400);
+                        nextAreaDoor.Collider.MovePosition(500, 400);
+
+                        worldSelect = true;
+                    }
+                    else {
+                        worldSelect = false;
+                        // switch form secret world to world 2
+                        for (int t = 20; t < 25; t++)
+                        {
+                            walls[t].Displace();
+                            PictureBox pic = Controls.Find("picWall" + t.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X + 1500, pic.Location.Y + 1500);
+                        }
+                        for (int r = 13; r < 20; r++)
+                        {
+                            walls[r].Replace();
+                            PictureBox pic = Controls.Find("picWall" + r.ToString(), true)[0] as PictureBox;
+                            pic.Location = new Point(pic.Location.X - 1500, pic.Location.Y - 1500);
+                        }
+
+                        picAreaDoor.Location = new Point(400, 400);
+                        nextAreaDoor.Collider.MovePosition(400, 400);
+
+                        worldSelect = false;
+                    }
+                }
+            }
+
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
       UpdateMapHealth();
@@ -146,7 +242,19 @@ namespace Fall2020_CSC403_Project {
             player.MoveBack();
             this.Hide();
             frmBattle = FrmBattle.GetInstance(enemy);
-            frmBattle.FormClosed += (s, args) => this.Show();
+            frmBattle.FormClosed += (s, args) => {
+                
+                if(player.Health <= 0)
+                {
+                    this.lose = true;
+                    this.levelTheme.Stop();
+                    this.Close();
+                }
+                else if(player.Health > 0)
+                {
+                    this.Show();
+                    levelTheme.PlayLooping();
+                } };
             frmBattle.Show();
 
             if (enemy == bossKoolaid || enemy == bossPrimordialKoolaid)

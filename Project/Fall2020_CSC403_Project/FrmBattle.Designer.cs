@@ -15,7 +15,10 @@ namespace Fall2020_CSC403_Project {
       if (disposing && (components != null)) {
         components.Dispose();
         this.battleTheme.Stop();
+        if(player.Health != 0)
+        {
         this.levelTheme.PlayLooping();
+        }
       }
       base.Dispose(disposing);
     }
@@ -39,7 +42,7 @@ namespace Fall2020_CSC403_Project {
             this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-
+            this.lblPlayerScore = new System.Windows.Forms.Label();
 
             this.battleTheme = new SoundPlayer("battle_theme.wav");
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
@@ -133,6 +136,16 @@ namespace Fall2020_CSC403_Project {
             this.lblEnemyHealthFull.Size = new System.Drawing.Size(226, 20);
             this.lblEnemyHealthFull.TabIndex = 6;
             // 
+            // lblPlayerScore
+            // 
+            this.lblPlayerScore.BackColor = System.Drawing.Color.DarkBlue;
+            this.lblPlayerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerScore.ForeColor = System.Drawing.Color.White;
+            this.lblPlayerScore.Location = new System.Drawing.Point(71, 390);
+            this.lblPlayerScore.Name = "lblPlayerScore";
+            this.lblPlayerScore.Size = new System.Drawing.Size(226, 20);
+            this.lblPlayerScore.TabIndex = 6;
+            //  
             // picBossBattle
             // 
             this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
@@ -186,7 +199,11 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttack);
+
             this.Controls.Add(this.btnDodge);
+
+            this.Controls.Add(this.lblPlayerScore);
+
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.btnHeal);
@@ -217,7 +234,8 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
-    private System.Windows.Forms.Timer tmrFinalBattle;
+        private System.Windows.Forms.Label lblPlayerScore;
+        private System.Windows.Forms.Timer tmrFinalBattle;
     SoundPlayer battleTheme = new SoundPlayer("battle_theme.wav");
     SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");
 
