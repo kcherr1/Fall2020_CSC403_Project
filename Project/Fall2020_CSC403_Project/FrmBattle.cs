@@ -135,5 +135,10 @@ namespace Fall2020_CSC403_Project {
             SoundPlayer simpleSound = new SoundPlayer(Resources.flee);
             simpleSound.Play();
         }
+
+        public void playerImgChange()
+        {
+            picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut;
+        }
     }
 }

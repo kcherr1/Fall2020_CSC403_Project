@@ -15,7 +15,9 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
-        private int keyHitCount = 0;
+    private int keyHitCount = 0;
+
+    public string theme = "Classic";
 
     public FrmLevel() {
       InitializeComponent();
@@ -213,8 +215,8 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
+      if(theme == "New") { frmBattle.playerImgChange(); }
       frmBattle.Show();
-      
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
@@ -315,6 +317,7 @@ namespace Fall2020_CSC403_Project {
 
         public void applyTheme()
         {
+            theme = "New";
             this.BackColor = Color.Black;
 
             this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut;
@@ -339,7 +342,6 @@ namespace Fall2020_CSC403_Project {
             enemyCheeto.Color = Color.Orange;
 
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(144, 148);
-
 
             this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
             this.picWall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
