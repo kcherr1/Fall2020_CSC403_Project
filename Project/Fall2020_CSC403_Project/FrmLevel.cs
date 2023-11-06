@@ -576,7 +576,7 @@ namespace Fall2020_CSC403_Project
                     break;
                 }
             }
-            string[] data = new string[9];
+            string[] data = new string[6];
             data[0] = JsonSerializer.Serialize(topPlayers);
             data[1] = JsonSerializer.Serialize(topClasses);
             data[2] = JsonSerializer.Serialize(topScores);
