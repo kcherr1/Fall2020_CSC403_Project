@@ -93,7 +93,7 @@ namespace Fall2020_CSC403_Project {
     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(rnd.Next(-5,-2));
       if (enemy.Health > 0) {
-        enemy.determineAttack();
+        enemy.determineAttack(0);
       }
 
       UpdateHealthBars();
@@ -131,13 +131,25 @@ namespace Fall2020_CSC403_Project {
 
                 if (enemy.Health > 0)
                 {
-                    enemy.determineAttack();
+                    enemy.determineAttack(0);
                 }
 
                 UpdateHealthBars();
             }
         }
 
+        private void btnDodge_Click(object sender, EventArgs e)
+        {
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+            else
+            {
+                enemy.determineAttack(1);
+            }
+        }
     private void btnFlee_Click(object sender, EventArgs e)
         {
             //observers have to be cleared, otherwise other instances will do n*damage

@@ -36,6 +36,7 @@ namespace Fall2020_CSC403_Project.code {
         {
             HealEvent((int)(amount));
         }
+    
 
     public void AlterHealth(int amount) {
       Health += amount;

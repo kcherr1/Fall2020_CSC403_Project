@@ -30,10 +30,8 @@ namespace Fall2020_CSC403_Project {
             this.components = new System.ComponentModel.Container();
             this.btnAttack = new System.Windows.Forms.Button();
             this.btnHeal = new System.Windows.Forms.Button();
-
-  
+            this.btnDodge = new System.Windows.Forms.Button();
             this.btnFlee = new System.Windows.Forms.Button();
-
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,6 +70,18 @@ namespace Fall2020_CSC403_Project {
             this.btnHeal.Text = "Heal";
             this.btnHeal.UseVisualStyleBackColor = true;
             this.btnHeal.Click += new System.EventHandler(this.btnHeal_Click);
+
+            // btnDodge
+            // 
+            this.btnDodge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodge.Location = new System.Drawing.Point(127, 461);
+            this.btnDodge.Name = "btnDodge";
+            this.btnDodge.Size = new System.Drawing.Size(128, 43);
+            this.btnDodge.TabIndex = 9;
+            this.btnDodge.Text = "Dodge";
+            this.btnDodge.UseVisualStyleBackColor = true;
+            this.btnDodge.Click += new System.EventHandler(this.btnDodge_Click);
+
 
             // btnFlee
             // 
@@ -176,7 +186,7 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttack);
-
+            this.Controls.Add(this.btnDodge);
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.btnHeal);
@@ -197,6 +207,7 @@ namespace Fall2020_CSC403_Project {
     #endregion
 
     private System.Windows.Forms.PictureBox picPlayer;
+    private System.Windows.Forms.Button btnDodge;
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Button btnHeal;

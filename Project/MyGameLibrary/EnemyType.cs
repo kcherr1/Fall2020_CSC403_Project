@@ -167,20 +167,54 @@ public class EnemyType : Enemy
     }
 
     // Picks attack pool based on which class enemy has
-    public void determineAttack()
+    public void determineAttack(int dodge)
     {
-        if (enemyClass == 1)
+        // Checks to see if player had dodged and makes a roll from 1-100, if the roll is greater than 20 the enemy does no damage, else they attack as normal
+        if (dodge == 1)
         {
-            Assasin();
-        } else if (enemyClass == 2)
+            int dodgeChance = rnd.Next(1, 101);
+            if (dodgeChance > 20)
+            {
+                this.OnAttack(0);
+            }
+            else
+            {
+                if (enemyClass == 1)
+                {
+                    Assasin();
+                }
+                else if (enemyClass == 2)
+                {
+                    Brute();
+                }
+                else if (enemyClass == 3)
+                {
+                    OddBall();
+                }
+                else if (enemyClass == 4)
+                {
+                    Boss();
+                }
+            }
+        }
+        else
         {
-            Brute();
-        } else if (enemyClass == 3)
-        {
-            OddBall();
-        } else if (enemyClass == 4)
-        {
-            Boss();
+            if (enemyClass == 1)
+            {
+                Assasin();
+            }
+            else if (enemyClass == 2)
+            {
+                Brute();
+            }
+            else if (enemyClass == 3)
+            {
+                OddBall();
+            }
+            else if (enemyClass == 4)
+            {
+                Boss();
+            }
         }
     }
 

@@ -114,7 +114,7 @@ namespace Fall2020_CSC403_Project.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap G_R_I_M_A_C_E_ {
             get {
-                object obj = ResourceManager.GetObject("G.R.I.M.A.C.E.", resourceCulture);
+                object obj = ResourceManager.GetObject("G_R_I_M_A_C_E_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
