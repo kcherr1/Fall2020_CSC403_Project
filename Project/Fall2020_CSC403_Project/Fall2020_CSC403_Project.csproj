@@ -161,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\ammo.png" />
+    <None Include="Resources\nether_portal_exit.wav" />
+    <None Include="Resources\nether_portal_enter.wav" />
+    <None Include="Resources\among_us_start.wav" />
     <None Include="data\battle_screen_squirrels.png" />
     <None Include="data\angy_squirrels.png" />
     <Content Include="data\gunfireBlast.png" />

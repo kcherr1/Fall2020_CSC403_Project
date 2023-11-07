@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using Microsoft.CSharp.RuntimeBinder;
 using MyGameLibrary;
 using System;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel2 : Level {
@@ -82,6 +84,9 @@ namespace Fall2020_CSC403_Project {
         hedges[h - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
       Game.player = GameState.player;
+
+      SoundPlayer simpleSound = new SoundPlayer(Resources.nether_portal_exit);
+      simpleSound.Play();
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {

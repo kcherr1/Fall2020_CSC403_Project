@@ -81,6 +81,15 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream among_us_start {
+            get {
+                return ResourceManager.GetStream("among_us_start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap angy_squirrels {
@@ -276,6 +285,24 @@ namespace Fall2020_CSC403_Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("hedge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream nether_portal_enter {
+            get {
+                return ResourceManager.GetStream("nether_portal_enter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream nether_portal_exit {
+            get {
+                return ResourceManager.GetStream("nether_portal_exit", resourceCulture);
             }
         }
         

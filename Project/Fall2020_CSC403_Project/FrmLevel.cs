@@ -1,9 +1,12 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using MyGameLibrary;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
+using System.Threading;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Level {
@@ -112,6 +115,9 @@ namespace Fall2020_CSC403_Project {
       }
 
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
+        SoundPlayer simpleSound = new SoundPlayer(Resources.nether_portal_enter);
+        simpleSound.Play();
+        Thread.Sleep(3000);
         //this closes the current form and returns to main
         GameState.isLevelOneCompleted = true;
         this.Close();
