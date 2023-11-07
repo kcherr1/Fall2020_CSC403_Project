@@ -16,6 +16,10 @@ namespace Fall2020_CSC403_Project
     public FrmStartScreen()
     {
       InitializeComponent();
+      System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
+      timer1.Interval = 1000;
+      timer1.Tick += new System.EventHandler(timer1_Tick);
+      timer1.Start();
     }
 
     private void button1_Click(object sender, EventArgs e)
@@ -57,6 +61,17 @@ namespace Fall2020_CSC403_Project
     private void button3_Click(object sender, EventArgs e)
     {
       this.label1.Visible = !this.label1.Visible;
+    }
+
+    private void timer1_Tick(object sender, EventArgs e)
+    {
+      pictureBox3.Visible = !pictureBox3.Visible;
+      pictureBox4.Visible = !pictureBox4.Visible;
+      pictureBox7.Visible = !pictureBox7.Visible;
+
+      pictureBox2.Visible = !pictureBox2.Visible;
+      pictureBox5.Visible = !pictureBox5.Visible;
+      pictureBox6.Visible = !pictureBox6.Visible;
     }
   }
 }

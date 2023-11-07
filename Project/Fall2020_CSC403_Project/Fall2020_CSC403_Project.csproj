@@ -177,6 +177,8 @@
     <None Include="data\squirrel_dead.png" />
     <None Include="data\squirrel2_dead.png" />
     <None Include="data\squirrel3_dead.png" />
+    <None Include="data\money.png" />
+    <None Include="data\mr_peanut_without_rizz.jpg" />
     <Content Include="data\weapon1.png" />
   </ItemGroup>
   <ItemGroup>
