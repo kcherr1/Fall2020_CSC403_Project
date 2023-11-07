@@ -425,11 +425,20 @@ namespace Fall2020_CSC403_Project
             MusicPlayer.StopLevelMusic();
             player.ResetMoveSpeed();
             player.MoveBack();
-            bonusLevel = new BonusLevel();
+            if (bonusLevel == null || bonusLevel.IsDisposed)
+            {
+                bonusLevel = new BonusLevel();
+                bonusLevel.Show();
+
+            }
+            else
+            {
+                bonusLevel.BringToFront();
+            }
+            
             bonusLevel.StartPosition = FormStartPosition.Manual;
             bonusLevel.Location = this.Location;
             bonusLevel.Size = this.Size;
-            bonusLevel.Show();
         }
 
         
