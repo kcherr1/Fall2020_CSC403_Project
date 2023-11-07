@@ -17,3 +17,9 @@ namespace Fall2020_CSC403_Project {
     }
   }
 }
+
+/* Reference Code Locations
+ * 1. (menu->storyWindow>game)c# windows form overlay and with button click: https://foxlearn.com/windows-forms/how-to-create-overlay-modal-popup-in-csharp-514.html
+ * 
+ * 
+ */

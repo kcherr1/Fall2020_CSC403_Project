@@ -29,11 +29,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblEnemyHealthFull = new System.Windows.Forms.Label();
-            this.picBossBattle = new System.Windows.Forms.PictureBox();
+            this.picEpicBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.picEpicBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             // 
             // lblPlayerHealthFull
             // 
-            this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
+            this.lblPlayerHealthFull.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
             this.lblPlayerHealthFull.Location = new System.Drawing.Point(95, 74);
@@ -81,6 +82,17 @@
             this.label2.Size = new System.Drawing.Size(305, 28);
             this.label2.TabIndex = 5;
             // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Silver;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(689, 453);
+            this.label3.MaximumSize = new System.Drawing.Size(50, 50);
+            this.label3.MinimumSize = new System.Drawing.Size(300, 140);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(300, 80);
+            this.label3.TabIndex = 8;
+            // 
             // lblEnemyHealthFull
             // 
             this.lblEnemyHealthFull.BackColor = System.Drawing.Color.Blue;
@@ -92,17 +104,18 @@
             this.lblEnemyHealthFull.Size = new System.Drawing.Size(301, 25);
             this.lblEnemyHealthFull.TabIndex = 6;
             // 
-            // picBossBattle
+            // picEpicBossBattle
             // 
-            this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
-            this.picBossBattle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossBattle.Location = new System.Drawing.Point(1040, 693);
-            this.picBossBattle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.picBossBattle.Name = "picBossBattle";
-            this.picBossBattle.Size = new System.Drawing.Size(40, 34);
-            this.picBossBattle.TabIndex = 7;
-            this.picBossBattle.TabStop = false;
-            this.picBossBattle.Visible = false;
+            this.picEpicBossBattle.BackColor = System.Drawing.Color.Green;
+            this.picEpicBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen_ramboVScgpt;
+            this.picEpicBossBattle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEpicBossBattle.Location = new System.Drawing.Point(1040, 693);
+            this.picEpicBossBattle.Margin = new System.Windows.Forms.Padding(4);
+            this.picEpicBossBattle.Name = "picEpicBossBattle";
+            this.picEpicBossBattle.Size = new System.Drawing.Size(40, 34);
+            this.picEpicBossBattle.TabIndex = 7;
+            this.picEpicBossBattle.TabStop = false;
+            this.picEpicBossBattle.Visible = false;
             // 
             // picEnemy
             // 
@@ -139,10 +152,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
+            this.BackColor = System.Drawing.Color.SpringGreen;
+            this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Psychedelic;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1096, 742);
-            this.Controls.Add(this.picBossBattle);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.picEpicBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPlayerHealthFull);
@@ -155,23 +170,24 @@
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
-            ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEpicBossBattle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             this.ResumeLayout(false);
 
     }
 
-    #endregion
+        #endregion
 
     private System.Windows.Forms.PictureBox picPlayer;
-    private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Label lblPlayerHealthFull;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label lblEnemyHealthFull;
-    private System.Windows.Forms.PictureBox picBossBattle;
+    private System.Windows.Forms.PictureBox picEpicBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
+    public System.Windows.Forms.PictureBox picEnemy;
+    private System.Windows.Forms.Label label3;
   }
 }

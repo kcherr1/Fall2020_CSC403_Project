@@ -1,4 +1,11 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿
+using Fall2020_CSC403_Project.item_system.interfaces;
+using Fall2020_CSC403_Project.item_system;
+using System.Media;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
+
+namespace Fall2020_CSC403_Project {
   public partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
@@ -31,7 +38,7 @@
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
-            this.picBossKoolAid = new System.Windows.Forms.PictureBox();
+            this.picBossChatgpt = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picWall5 = new System.Windows.Forms.PictureBox();
             this.picWall4 = new System.Windows.Forms.PictureBox();
@@ -132,27 +139,27 @@
             this.picWall3.TabIndex = 3;
             this.picWall3.TabStop = false;
             // 
-            // picBossKoolAid
+            // picBossChatgpt
             // 
-            this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
-            this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
-            this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(1457, 114);
-            this.picBossKoolAid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.picBossKoolAid.Name = "picBossKoolAid";
-            this.picBossKoolAid.Size = new System.Drawing.Size(289, 299);
-            this.picBossKoolAid.TabIndex = 1;
-            this.picBossKoolAid.TabStop = false;
+            this.picBossChatgpt.BackColor = System.Drawing.Color.Transparent;
+            this.picBossChatgpt.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.iamchatgpt;
+            this.picBossChatgpt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBossChatgpt.Location = new System.Drawing.Point(1295, 91);
+            this.picBossChatgpt.Margin = new System.Windows.Forms.Padding(4);
+            this.picBossChatgpt.Name = "picBossChatgpt";
+            this.picBossChatgpt.Size = new System.Drawing.Size(257, 239);
+            this.picBossChatgpt.TabIndex = 1;
+            this.picBossChatgpt.TabStop = false;
             // 
             // picPlayer
             // 
             this.picPlayer.BackColor = System.Drawing.Color.Transparent;
             this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picPlayer.Location = new System.Drawing.Point(179, 785);
+            this.picPlayer.Location = new System.Drawing.Point(159, 628);
             this.picPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picPlayer.Name = "picPlayer";
-            this.picPlayer.Size = new System.Drawing.Size(81, 162);
+            this.picPlayer.Size = new System.Drawing.Size(72, 130);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
@@ -374,7 +381,7 @@
             this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picWall3);
-            this.Controls.Add(this.picBossKoolAid);
+            this.Controls.Add(this.picBossChatgpt);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picFence0);
             this.Controls.Add(this.picDialog0);
@@ -391,7 +398,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBossChatgpt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
@@ -411,17 +418,30 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-    }
+        }
+        #endregion
 
-    #endregion
+        IItem InstantiateItem(int itemID, FrmLevel frmLevel, float locationX, float locationY)
+        {
+            _factory = new ItemFactory();
+            //IItem item = _factory.GetItem(itemType, frmLevel);
+            return _factory.GetItem(itemID, frmLevel, locationX, locationY);
 
+            //item.Walk();
+        }
+
+
+    public System.Windows.Forms.PictureBox picBossChatgpt;
+    public System.Windows.Forms.PictureBox picEnemyPoisonPacket;
+    public System.Windows.Forms.PictureBox picEnemyCheeto;
+
+    //private System.Windows.Forms.PictureBox picItem;
+    private ItemFactory _factory;
     private System.Windows.Forms.PictureBox picPlayer;
-    private System.Windows.Forms.PictureBox picBossKoolAid;
+    private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
-    private System.Windows.Forms.PictureBox picWall3;
-    private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
-    private System.Windows.Forms.PictureBox picEnemyCheeto;
+    public System.Windows.Forms.PictureBox picWall3;
     private System.Windows.Forms.PictureBox picWall5;
     private System.Windows.Forms.PictureBox picWall4;
     private System.Windows.Forms.PictureBox picWall12;
@@ -434,11 +454,11 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
-        private System.Windows.Forms.Label lblInGameTime;
+
     private System.Windows.Forms.PictureBox picFence0;
     private System.Windows.Forms.PictureBox picDialog0;
-        private System.Windows.Forms.PictureBox picKey0;
-        private System.Windows.Forms.Label goToHome;
+    private System.Windows.Forms.PictureBox picKey0;
+    private System.Windows.Forms.Label goToHome;
     }
 }
 
