@@ -105,11 +105,12 @@ namespace Fall2020_CSC403_Project
             StatusBar.Size = new Size(width, height / 14);
             StatusBar.Parent = this;
             StatusBar.BackColor = this.BackColor;
+            StatusBar.BackgroundImage = Properties.Resources.status_bar_bg;
 
             // Add name to status bar
             Label NameLabel = new Label();
-            NameLabel.Parent = this;
-            NameLabel.BackColor = this.BackColor;
+            NameLabel.Parent = StatusBar;
+            NameLabel.BackColor = Color.Transparent;
             NameLabel.Size = new Size(width/3, 7*StatusBar.Height/8);
             NameLabel.Location = new Point(0, NameLabel.Size.Height-height/18);
             NameLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -154,6 +155,17 @@ namespace Fall2020_CSC403_Project
             ScoreLabel.Font = new Font("Microsoft Sans Serif", 11);
             ScoreLabel.Visible = true;
             ScoreLabel.BringToFront();
+
+            // Add signboard
+            PictureBox SignBoard = new PictureBox();
+            SignBoard.BackColor = Color.Transparent;
+            SignBoard.Parent = this;
+            SignBoard.Size = new Size(width / 3, height / 14);
+            SignBoard.SizeMode = PictureBoxSizeMode.StretchImage;
+            SignBoard.Location = new Point(width / 3, 0);
+            SignBoard.Image = Properties.Resources.area_bar;
+            SignBoard.BackgroundImage = Properties.Resources.status_bar_bg;
+            SignBoard.BringToFront();
             
             
 
