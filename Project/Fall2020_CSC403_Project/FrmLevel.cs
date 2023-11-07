@@ -837,18 +837,16 @@ namespace Fall2020_CSC403_Project
             Game.player.Pic.Visible = true;
 
 
-            Game.CurrentArea.AddItem(new Item("Sting", MakePictureBox(Resources.common_dagger, new Point(300, 200), itemSize), 5, Item.ItemType.Weapon));
-            Game.CurrentArea.AddItem(new Item("Lesser Heal", MakePictureBox(Resources.lesser_health_potion, new Point(500, 300), itemSize), 5, Item.ItemType.Utility, Item.PotionTypes.Healing));
-            Game.CurrentArea.AddItem(new Item("Armor of Noob", MakePictureBox(Resources.common_armor, new Point(880, 800), itemSize), 5, Item.ItemType.Armor));
-            Game.CurrentArea.AddItem(new Item("Potion of Speed", MakePictureBox(Resources.speed_potion, new Point(20, 400), itemSize), 10, Item.ItemType.Utility, Item.PotionTypes.Speed));
+            Game.CurrentArea.AddItem(Game.Items["Sting"]);
+            Game.CurrentArea.AddItem(Game.Items["Lesser Health Potion"]);
+            Game.CurrentArea.AddItem(Game.Items["Shabby Armor"]);
+            Game.CurrentArea.AddItem(Game.Items["Speed Potion"]);
 
-            Game.CurrentArea.AddEnemy(new Enemy("Poison Packet", MakePictureBox(Resources.enemy_poisonpacket, new Point(200, 500), new Size(100, 100)), new Minion()));
-            Game.CurrentArea.AddEnemy(new Enemy("Cheeto", MakePictureBox(Resources.enemy_cheetos, new Point(600, 200), new Size(75, 125)), new Minion()));
-            Game.CurrentArea.AddEnemy(new Enemy("BossKoolAid", MakePictureBox(Resources.enemy_koolaid, new Point(this.Width - 200, 100), new Size(150, 150)), new Boss()));
+            Game.CurrentArea.AddEnemy(Game.Enemies["Minion1"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Minion2"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Brute"]);
 
-            Game.CurrentArea.AddNPC(new NPC("Harold", MakePictureBox(Resources.harold, new Point(150, 150), new Size(75, 100)), new Healer()));
-            Game.CurrentArea.AddStructure(new Structure(MakePictureBox(Resources.wall_bricks, new Point(500, 500), new Size(20, 100))));
-            Game.CurrentArea.Structures[0].Pic.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            Game.CurrentArea.AddNPC(Game.NPCs["Harold"]);
         }
 
         private void Area3()

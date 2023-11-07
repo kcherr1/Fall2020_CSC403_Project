@@ -111,7 +111,9 @@ namespace Fall2020_CSC403_Project.code
 				case PotionTypes.Speed:
 					this.speed += stat;
 					break;
-
+				case PotionTypes.Accuracy:
+					this.archetype.hitMod += stat;
+					break;
 				default:
 					break;
 			}
