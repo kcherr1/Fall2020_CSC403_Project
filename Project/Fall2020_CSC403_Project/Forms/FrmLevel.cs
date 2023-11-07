@@ -307,6 +307,7 @@ namespace Fall2020_CSC403_Project
             button3.Location = new Point(520, 243);
             
             panel1.Visible = true;
+            panel1.BringToFront();
             richTextBox1.Visible = false;
         }
 

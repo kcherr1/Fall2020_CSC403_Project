@@ -46,10 +46,10 @@ namespace Fall2020_CSC403_Project {
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picGun = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
             this.pipe = new System.Windows.Forms.PictureBox();
             this.barrier = new System.Windows.Forms.PictureBox();
             this.barrier2 = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainCharacter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
@@ -108,7 +108,7 @@ namespace Fall2020_CSC403_Project {
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1176, 726);
+            this.panel1.Size = new System.Drawing.Size(1568, 894);
             this.panel1.TabIndex = 18;
             this.panel1.Visible = false;
             // 
