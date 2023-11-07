@@ -61,9 +61,12 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket.Color = Color.Green;
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 
+            // set values for enemmies
+            bossKoolaid.BossKoolAidBC();
+            enemyPoisonPacket.PoisonBC();
+            enemyCheeto.CheetoBC();
             this.createPipeBarrier();
             pipeCollider = new Character(CreatePosition(pipe), CreatePipeCollider(pipe, 140));
-
 
             inventory = new Inventory();
 
@@ -139,17 +142,14 @@ namespace Fall2020_CSC403_Project
             // check collision with enemies
             if (HitAChar(player, enemyPoisonPacket))
             {
-                enemyPoisonPacket.PoisonBC();
                 Fight(enemyPoisonPacket);
             }
             else if (HitAChar(player, enemyCheeto))
             {
-                enemyCheeto.CheetoBC();
                 Fight(enemyCheeto);
             }
             if (HitAChar(player, bossKoolaid))
             {
-                bossKoolaid.BossKoolAidBC();
                 Fight(bossKoolaid);
             }
 

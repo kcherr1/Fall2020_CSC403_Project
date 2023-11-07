@@ -18,7 +18,8 @@ namespace Fall2020_CSC403_Project {
       InitializeComponent();
       player = Game.player;
       lblHit.Text = "                             HIT!";
-    }
+      this.FormClosing += FrmBattle_FormClosing;
+        }
 
     public void Setup() {
       // update for this enemy
@@ -52,14 +53,12 @@ namespace Fall2020_CSC403_Project {
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
-    //updated enemies go here?
-      if (instance == null) {
-        instance = new FrmBattle();
-        instance.enemy = enemy;
-        instance.Setup();
-      }
-      return instance;
-    }
+            //updated enemies go here?
+            var newInstance = new FrmBattle();
+            newInstance.enemy = enemy;
+            newInstance.Setup();
+            return newInstance;
+        }
 
     private void UpdateHealthBars() {
       float playerHealthPer = player.Health / (float)player.MaxHealth;
@@ -230,6 +229,19 @@ namespace Fall2020_CSC403_Project {
 
         }
 
+
+        private void FrmBattle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Unsubscribe from event subscriptions to avoid memory leaks
+            enemy.AttackEvent -= PlayerDamage;
+            player.AttackEvent -= EnemyDamage;
+
+            // Dispose of any other resources or perform cleanup as needed
+            // ...
+
+            // Set the instance to null to allow a new instance to be created if needed
+            instance = null;
+        }
 
     }
 }
