@@ -55,6 +55,10 @@ namespace Fall2020_CSC403_Project {
           // rough rodents
           bossBattle = picBossBattleSquirrels;
           break;
+        case 3:
+          // beeg amongus
+          bossBattle = picBossBattleSquirrels;
+          break;
       }
 
       bossBattle.Location = Point.Empty;

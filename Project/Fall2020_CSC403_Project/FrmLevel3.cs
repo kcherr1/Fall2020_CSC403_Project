@@ -1,73 +1,71 @@
 ﻿using Fall2020_CSC403_Project.code;
-using Microsoft.CSharp.RuntimeBinder;
 using MyGameLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using System.Windows.Forms.VisualStyles;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel2 : Level {
-    //public GameState gameState { get; private set; }
+  public partial class FrmLevel3 : Level {
     private Player player;
-    private Enemy goose;
-    private Enemy alligator;
-    private Enemy bossSquirrels;
+    private Enemy blue;
+    private Enemy white;
+    private Enemy bossRed;
     private Character[] walls;
-    private Character[] hedges;
     private Character[] obstacles;
+    private Character[] tables;
     private FrmBattle frmBattle;
     private DateTime timeStart;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
-    public FrmLevel2() : base() {
+    public FrmLevel3() : base() {
       this.player = GameState.player;
-      this.player.MoveTo(119, 510);
+      this.player.MoveTo(20, 325);
       this.player.ResetMoveSpeed();
-      //this.picPlayer.Location = new System.Drawing.Point(159, 628);
       InitializeComponent();
     }
 
     private void LoadLevel(object send, EventArgs e) {
-      const int WALL_COUNT = 46;
-      const int HEDGE_COUNT = 23;
-      const int OBSTACLE_COUNT = 16;
+      const int WALL_COUNT = 8;
+      const int OBSTACLE_COUNT = 5;
+      const int TABLE_COUNT = 5;
       const int PADDING = 0;
-      goose = new Enemy(
-      base.CreatePosition(picGoose),
-      base.CreateCollider(picGoose, PADDING)
+      blue = new Enemy(
+      base.CreatePosition(picBlue),
+      base.CreateCollider(picBlue, PADDING)
       );
-      alligator = new Enemy(
-        base.CreatePosition(picAlligator),
-        base.CreateCollider(picAlligator, PADDING),
+      white = new Enemy(
+        base.CreatePosition(picWhite),
+        base.CreateCollider(picWhite, PADDING),
         50
       );
-      bossSquirrels = new Enemy(
-        base.CreatePosition(picSquirrel3),
-        base.CreateCollider(picSquirrel3, PADDING),
+      bossRed = new Enemy(
+        base.CreatePosition(picBossRed),
+        base.CreateCollider(picBossRed, PADDING),
         100
       );
       timeStart = GameState.timeStart;
       player = GameState.player;
 
-      goose.Img = picGoose.BackgroundImage;
-      alligator.Img = picAlligator.BackgroundImage;
-      bossSquirrels.Img = picSquirrel3.BackgroundImage;
+      blue.Img = picBlue.BackgroundImage;
+      white.Img = picWhite.BackgroundImage;
+      bossRed.Img = picBossRed.BackgroundImage;
 
-      goose.Color = Color.LightGray;
-      alligator.Color = Color.DarkOliveGreen;
-      bossSquirrels.Color = Color.SaddleBrown;
+      blue.Color = Color.LightBlue;
+      white.Color = Color.LightGray;
+      bossRed.Color = Color.Red;
 
       walls = new Character[WALL_COUNT];
       for (int w = 1; w <= WALL_COUNT; w++) {
         PictureBox pic = Controls.Find("wall" + w.ToString(), true)[0] as PictureBox;
-        walls[w-1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+        walls[w - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
       obstacles = new Character[OBSTACLE_COUNT];
@@ -76,11 +74,12 @@ namespace Fall2020_CSC403_Project {
         obstacles[o - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
-      hedges = new Character[HEDGE_COUNT];
-      for (int h = 1; h <= HEDGE_COUNT; h++) {
-        PictureBox pic = Controls.Find("hedge" + h.ToString(), true)[0] as PictureBox;
-        hedges[h - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      tables = new Character[TABLE_COUNT];
+      for (int o = 1; o <= TABLE_COUNT; o++) {
+        PictureBox pic = Controls.Find("table" + o.ToString(), true)[0] as PictureBox;
+        tables[o - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
+
       Game.player = GameState.player;
     }
 
@@ -104,42 +103,41 @@ namespace Fall2020_CSC403_Project {
         //Debug.WriteLine("hit a wall!");
       }
 
-      if (HitAHedge(player)) {
-        player.MoveBack();
-        //Debug.WriteLine("hit a hedge!");
-      }
-
       if (HitAnObstacle(player)) {
         player.MoveBack();
         //Debug.WriteLine("hit a obstacle!");
       }
 
-      // check collision with enemies
-      if (HitAChar(player, goose)) {
-        Fight(goose);
-      }
-      else if (HitAChar(player, alligator)) {
-        Fight(alligator);
+      if (HitATable(player)) {
+        player.MoveBack();
+        //Debug.WriteLine("hit a obstacle!");
       }
 
-      if (HitAChar(player, bossSquirrels) && bossIsDefeated.bossIsDefeated) {
-        GameState.isLevelTwoCompleted = true;
+      // check collision with enemies
+      if (HitAChar(player, blue)) {
+        Fight(blue);
+      }
+      else if (HitAChar(player, white)) {
+        Fight(white);
+      }
+
+      if (HitAChar(player, bossRed) && bossIsDefeated.bossIsDefeated) {
         // this closes the current form and returns to main
         this.Close();
       }
-      else if (HitAChar(player, bossSquirrels)) {
-        Fight(bossSquirrels);
+      else if (HitAChar(player, bossRed)) {
+        Fight(bossRed);
       }
 
       // check state of each enemy
-      if (!goose.IsAlive) {
-        RemoveEnemy(goose, picGoose);
+      if (!blue.IsAlive) {
+        RemoveEnemy(blue, picBlue);
       }
-      if (!alligator.IsAlive) {
-        RemoveEnemy(alligator, picAlligator);
+      if (!white.IsAlive) {
+        RemoveEnemy(white, picWhite);
       }
-      if (!bossSquirrels.IsAlive) {
-        RemoveEnemy(bossSquirrels, picSquirrel3);
+      if (!bossRed.IsAlive) {
+        RemoveEnemy(bossRed, picBossRed);
       }
 
       // update player's picture box
@@ -157,6 +155,18 @@ namespace Fall2020_CSC403_Project {
       return hitAWall;
     }
 
+    private bool HitATable(Character c) {
+      bool hitATable = false;
+      for (int o = 0; o < tables.Length; o++) {
+        if (c.Collider.Intersects(tables[o].Collider)) {
+          hitATable = true;
+          break;
+        }
+      }
+      return hitATable;
+
+    }
+
     private bool HitAnObstacle(Character c) {
       bool hitAnObstacle = false;
       for (int o = 0; o < obstacles.Length; o++) {
@@ -168,32 +178,19 @@ namespace Fall2020_CSC403_Project {
       return hitAnObstacle;
     }
 
-    private bool HitAHedge(Character c) {
-      bool hitAHedge = false;
-      for (int h = 0; h < hedges.Length; h++) {
-        if (c.Collider.Intersects(hedges[h].Collider)) {
-          hitAHedge = true;
-          break;
-        }
-      }
-      return hitAHedge;
-    }
-
     private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
     }
 
-    private void Fight(Enemy enemy)
-    {
+    private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy, 2);
+      frmBattle = FrmBattle.GetInstance(enemy, 3);
       frmBattle.Show();
 
-      if (enemy == bossSquirrels)
-      {
+      if (enemy == bossRed) {
         frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
-        frmBattle.SetupForBossBattle(2);
+        frmBattle.SetupForBossBattle(3);
       }
     }
 
@@ -221,15 +218,9 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-
-
     private void RemoveEnemy(Enemy enemy, PictureBox picEnemy) {
       enemy.RemoveCollider();
       picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
-    }
-
-    private void hedge13_Click(object sender, EventArgs e) {
-
     }
   }
 }
