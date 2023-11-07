@@ -129,6 +129,12 @@ into a battle, and will add additional strength to the player’s attack power b
 the weapon. When the player selects the “ATTACK” button, a short animation will happen where it will
 appear that the weapon (in this exmample case being a firearm) is firing and will show a short burst of
 ammunition fire from the gun before inflicting the attack on the enemy.</p>
+<p>The current weapons that can be found and equipped in the game are the AK-47 (strength=4) and the RPG-7
+Rocket Launcher (strength=7). When a player collides with a weapon, the code checks (in the FrmLevel that
+the player is in) whether the strength of the new weapon is stronger than the strength of the current weapon
+equipped by the player (if applicable). If the new weapon’s strength is greater, than the new weapon is added
+to the player’s inventory and the player’s former weapon is disguarded. Otherwise, the weapon is not picked up
+by the player.</p>
 <p><strong>Techical Information</strong></p>
 <p>A class called “Weapon” was created with the following class structure:</p>
 <dl class="csharp">
@@ -151,6 +157,8 @@ ammunition fire from the gun before inflicting the attack on the enemy.</p>
 <li><p>Added the WeaponStrength variable to the AttackEvent in the BattleCharacter class</p></li>
 <li><p>Created the weapon in the FrmLevel</p></li>
 <li><p>Added checks within the FrmLevel code to check and see if the player has collided with the weapon object</p></li>
+<li><p>More than one weapon is availabe for use within the FrmLevels</p></li>
+<li><p>Weapon strength is compared to the player’s weapon’s strength when the player collides with a weapon on the level.</p></li>
 </ul>
 </section>
 
@@ -205,7 +213,7 @@ ammunition fire from the gun before inflicting the attack on the enemy.</p>
                 </nav>
             
             <div class="text-center">
-                <p>Last updated: 11:23 PM 30 Oct 2023</p>
+                <p>Last updated: 02:53 PM 07 Nov 2023</p>
                 <p style="display: none">
                     <a class="text-light" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
                         Wagtail Sphinx Theme 6.1.1

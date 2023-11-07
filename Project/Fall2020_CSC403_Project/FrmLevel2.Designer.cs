@@ -1376,7 +1376,6 @@
       this.BackColor = System.Drawing.Color.Black;
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass;
       this.ClientSize = new System.Drawing.Size(1811, 1047);
-      this.Controls.Add(this.rpgPic);
       this.Controls.Add(this.healthPackLvl2);
       this.Controls.Add(this.obstacle16);
       this.Controls.Add(this.obstacle15);
@@ -1471,6 +1470,7 @@
       this.Controls.Add(this.wall3);
       this.Controls.Add(this.wall2);
       this.Controls.Add(this.wall1);
+      this.Controls.Add(this.rpgPic);
       this.DoubleBuffered = true;
       this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
       this.MaximumSize = new System.Drawing.Size(1829, 1146);

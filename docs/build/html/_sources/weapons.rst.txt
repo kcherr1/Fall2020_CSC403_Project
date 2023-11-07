@@ -13,7 +13,14 @@ When the weapon is equipped, the weapon will appear beside the "ATTACK" button w
 into a battle, and will add additional strength to the player's attack power based on the strength of 
 the weapon. When the player selects the "ATTACK" button, a short animation will happen where it will 
 appear that the weapon (in this exmample case being a firearm) is firing and will show a short burst of 
-ammunition fire from the gun before inflicting the attack on the enemy.
+ammunition fire from the gun before inflicting the attack on the enemy. 
+
+The current weapons that can be found and equipped in the game are the AK-47 (strength=4) and the RPG-7 
+Rocket Launcher (strength=7). When a player collides with a weapon, the code checks (in the FrmLevel that
+the player is in) whether the strength of the new weapon is stronger than the strength of the current weapon
+equipped by the player (if applicable). If the new weapon's strength is greater, than the new weapon is added
+to the player's inventory and the player's former weapon is disguarded. Otherwise, the weapon is not picked up
+by the player.
 
 
 
@@ -42,3 +49,5 @@ The changes to the code for weapons are as follows:
 * Added the WeaponStrength variable to the AttackEvent in the BattleCharacter class
 * Created the weapon in the FrmLevel
 * Added checks within the FrmLevel code to check and see if the player has collided with the weapon object
+* More than one weapon is availabe for use within the FrmLevels
+* Weapon strength is compared to the player's weapon's strength when the player collides with a weapon on the level.

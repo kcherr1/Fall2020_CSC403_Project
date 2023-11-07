@@ -136,9 +136,11 @@ namespace Fall2020_CSC403_Project {
         Fight(bossSquirrels);
       }
       if (HitAChar(player, rpg)) {
-        player.WeaponStrength = rpg.getStrength();
-        player.WeaponEquiped = 2;
-        rpgPic.Visible = false;
+        if (player.WeaponStrength < rpg.getStrength()){
+          player.WeaponStrength = rpg.getStrength();
+          player.WeaponEquiped = 2;
+          rpgPic.Visible = false;
+        }
       }
       if (HitAChar(player, healthPack)){
         player.HealthPackCount++;

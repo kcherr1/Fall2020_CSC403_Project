@@ -109,9 +109,11 @@ namespace Fall2020_CSC403_Project {
         Fight(enemyCheeto);
       }
       if (HitAChar(player, ak)){
-        player.WeaponStrength = ak.getStrength();
-        player.WeaponEquiped = 1;
-        weapon1.Visible = false;
+        if (player.WeaponStrength < ak.getStrength()){
+          player.WeaponStrength = ak.getStrength();
+          player.WeaponEquiped = 1;
+          weapon1.Visible = false;
+        }
       }
       if (HitAChar(player, healthPack)){
         player.HealthPackCount++;
