@@ -214,6 +214,7 @@ namespace Fall2020_CSC403_Project
 
         private void FleeButton_Click(object sender, EventArgs e)
         {
+            enemy.OnAttack(player.defense);
             this.Close();
         }
 
@@ -255,13 +256,12 @@ namespace Fall2020_CSC403_Project
 
         public static FrmBattleScreen GetInstance(FrmLevel level, Enemy enemy)
         {
-            if (instance == null)
-            {
-                instance = new FrmBattleScreen(level);
-                instance.enemy = enemy;
-                instance.Setup();
-            }
+          
+            instance = new FrmBattleScreen(level);
+            instance.enemy = enemy;
+            instance.Setup();
             return instance;
+           
         }
         private void EnemyDamage(int amount)
         {
