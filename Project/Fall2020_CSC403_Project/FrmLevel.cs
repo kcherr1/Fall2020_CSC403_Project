@@ -40,6 +40,12 @@ namespace Fall2020_CSC403_Project
         public int height = Screen.PrimaryScreen.Bounds.Height;
         public int width = Screen.PrimaryScreen.Bounds.Width;
 
+        private Label playerHealthMax;
+        private Label playerCurrentHealth;
+
+        private Label enemyHealthMax;
+        private Label enemyCurrentHealth;
+
         public FrmLevel(Form MainMenu)
         {
             this.KeyPreview = true;
@@ -92,11 +98,48 @@ namespace Fall2020_CSC403_Project
             InitializeAreaLayout();
             timeBegin = DateTime.Now;
 
+            this.BackColor = Color.SlateGray;
+
             // Add bar to top of screen that will hold status
             Label StatusBar = new Label();
             StatusBar.Size = new Size(width, height / 14);
             StatusBar.Parent = this;
             StatusBar.BackColor = this.BackColor;
+
+            // Add name to status bar
+            Label NameLabel = new Label();
+            NameLabel.Parent = this;
+            NameLabel.BackColor = this.BackColor;
+            NameLabel.Size = new Size(width/3, 7*StatusBar.Height/8);
+            NameLabel.Location = new Point(0, NameLabel.Size.Height-height/18);
+            NameLabel.TextAlign = ContentAlignment.MiddleCenter;
+            NameLabel.Font = new Font("NSimSun", NameLabel.Size.Height / 2);
+            NameLabel.Text = "Player: "+Game.player.Name.ToString();
+            NameLabel.BringToFront();
+
+            // Add character Health Bar
+            playerHealthMax = new Label();
+            playerCurrentHealth = new Label();
+
+            playerCurrentHealth.Size = new Size(width/7, height/22);
+            playerCurrentHealth.Parent = this;
+            playerCurrentHealth.Location = new Point(2*width/3 + width/64, height/64);
+            playerCurrentHealth.Font = new Font("NSimSun", 3 * playerCurrentHealth.Size.Height / 8);
+            playerCurrentHealth.TextAlign = ContentAlignment.MiddleCenter;
+            playerCurrentHealth.BackColor = Color.Green;
+            playerCurrentHealth.AutoSize = false;
+
+            playerHealthMax.Size = playerCurrentHealth.Size;
+            playerHealthMax.Parent = this;
+            playerHealthMax.Location = playerCurrentHealth.Location;
+            playerHealthMax.Font = new Font("NSimSun", 3 * playerCurrentHealth.Size.Height / 8);
+            playerHealthMax.BackColor = Color.Red;
+            playerHealthMax.AutoSize = false;
+
+            playerHealthMax.BringToFront();
+            playerCurrentHealth.BringToFront();
+
+            UpdateHealthBars();
 
             //Move inventory and labels
             InvPicButton.Location = new Point(InvPicButton.Location.X, InvPicButton.Location.Y+StatusBar.Height);
@@ -256,7 +299,7 @@ namespace Fall2020_CSC403_Project
 
                 case Keys.E:
                     Game.player.ResetMoveSpeed();
-                    frminventory = FrmInventory.GetInstance();
+                    frminventory = FrmInventory.GetInstance(this);
                     frminventory.Show();
                     break;
 
@@ -302,7 +345,6 @@ namespace Fall2020_CSC403_Project
             if (x >= 0)
             {
                 Fight(Game.CurrentArea.Enemies[x]);
-
 
             }
 
@@ -375,6 +417,16 @@ namespace Fall2020_CSC403_Project
                 }
             }
             return hitAWall;
+        }
+
+        public void UpdateHealthBars()
+        {
+            // for player
+            float playerHealthPer = Game.player.Health / (float)Game.player.MaxHealth;
+            int MAX_HEALTHBAR_WIDTH = playerHealthMax.Width;
+            playerCurrentHealth.BackColor = Color.Green;
+            playerCurrentHealth.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+            playerCurrentHealth.Text = Game.player.Health.ToString();
         }
 
         private int hitEnemy(Player you)
@@ -457,6 +509,7 @@ namespace Fall2020_CSC403_Project
             Game.player.MoveBack();
             frmBattleScreen = FrmBattleScreen.GetInstance(this, enemy);
             frmBattleScreen.Show();
+            UpdateHealthBars();
         }
 
         public void RemoveEnemy(Enemy enemy)
@@ -465,6 +518,7 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.Enemies.Remove(enemy);
             score += 100;
             ScoreLabel.Text = "Score: " + score.ToString();
+            UpdateHealthBars();
         }
 
         private void Converse(NPC npc)
@@ -656,7 +710,7 @@ namespace Fall2020_CSC403_Project
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            frminventory = FrmInventory.GetInstance();
+            frminventory = FrmInventory.GetInstance(this);
             frminventory.Show();
         }
 
