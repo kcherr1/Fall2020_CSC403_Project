@@ -41,7 +41,7 @@ namespace Fall2020_CSC403_Project
         public int width = Screen.PrimaryScreen.Bounds.Width;
 
         private Label playerHealthMax;
-        private Label playerCurrentHealth;
+        public Label playerCurrentHealth;
 
         private Label enemyHealthMax;
         private Label enemyCurrentHealth;
@@ -139,7 +139,7 @@ namespace Fall2020_CSC403_Project
             playerHealthMax.BringToFront();
             playerCurrentHealth.BringToFront();
 
-            UpdateHealthBars();
+            UpdateHealthBars(playerCurrentHealth);
 
             //Move inventory and labels
             InvPicButton.Location = new Point(InvPicButton.Location.X, InvPicButton.Location.Y+StatusBar.Height);
@@ -419,7 +419,7 @@ namespace Fall2020_CSC403_Project
             return hitAWall;
         }
 
-        public void UpdateHealthBars()
+        public void UpdateHealthBars(Label playerCurrentHealth)
         {
             // for player
             float playerHealthPer = Game.player.Health / (float)Game.player.MaxHealth;
@@ -509,7 +509,7 @@ namespace Fall2020_CSC403_Project
             Game.player.MoveBack();
             frmBattleScreen = FrmBattleScreen.GetInstance(this, enemy);
             frmBattleScreen.Show();
-            UpdateHealthBars();
+            UpdateHealthBars(playerCurrentHealth);
         }
 
         public void RemoveEnemy(Enemy enemy)
@@ -518,7 +518,7 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.Enemies.Remove(enemy);
             score += 100;
             ScoreLabel.Text = "Score: " + score.ToString();
-            UpdateHealthBars();
+            UpdateHealthBars(playerCurrentHealth);
         }
 
         private void Converse(NPC npc)

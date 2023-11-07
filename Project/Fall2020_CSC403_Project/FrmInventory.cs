@@ -299,7 +299,7 @@ namespace Fall2020_CSC403_Project
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
-            frmLevel.UpdateHealthBars();
+            frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
             this.Close();
         }
 
@@ -309,6 +309,7 @@ namespace Fall2020_CSC403_Project
             {
 
                 case Keys.E:
+                    frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
                     this.Close();
                     break;
 
