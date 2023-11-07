@@ -133,7 +133,7 @@ namespace Fall2020_CSC403_Project {
             this.button4.FlatAppearance.BorderSize = 100;
             this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Magenta;
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button4.Location = new System.Drawing.Point(65, 621);
+            this.button4.Location = new System.Drawing.Point(32, 795);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 56);
             this.button4.TabIndex = 3;
