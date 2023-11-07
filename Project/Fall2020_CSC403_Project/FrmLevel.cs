@@ -475,7 +475,7 @@ namespace Fall2020_CSC403_Project
             Game.player.SetEntityPosition(new Position(-100, -100));
 
 
-            DisposeLevel();
+            DisposeArea();
             DisposeGame();
 
 
@@ -588,7 +588,7 @@ namespace Fall2020_CSC403_Project
         }
 
 
-        private void DisposeLevel()
+        private void DisposeArea()
         {
 
             foreach (Direction direction in Game.CurrentArea.TravelSigns.Keys)
@@ -931,7 +931,7 @@ namespace Fall2020_CSC403_Project
 
         private void TravelButton_Click(object sender, EventArgs e)
         {
-            DisposeLevel();
+            DisposeArea();
             this.AreaNum = Game.CurrentArea.AdjacentAreas[this.TravelDirection];
 
             switch (this.TravelDirection)
