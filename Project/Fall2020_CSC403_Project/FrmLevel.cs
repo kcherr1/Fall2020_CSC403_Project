@@ -37,6 +37,9 @@ namespace Fall2020_CSC403_Project
 
         public Label ScoreLabel;
 
+        public int height = Screen.PrimaryScreen.Bounds.Height;
+        public int width = Screen.PrimaryScreen.Bounds.Width;
+
         public FrmLevel(Form MainMenu)
         {
             this.KeyPreview = true;
@@ -62,6 +65,9 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_Load(object sender, EventArgs e)
         {
+
+            
+
             Game.Areas = new Area[10];
             Game.Areas[0] = new Area("Malek's Mountain", 12, 0.05);
             Game.Areas[1] = new Area("Village Ruins", 901, 0.05);
@@ -86,16 +92,25 @@ namespace Fall2020_CSC403_Project
             InitializeAreaLayout();
             timeBegin = DateTime.Now;
 
+            // Add bar to top of screen that will hold status
+            Label StatusBar = new Label();
+            StatusBar.Size = new Size(width, height / 14);
+            StatusBar.Parent = this;
+            StatusBar.BackColor = this.BackColor;
+
+            //Move inventory and labels
+            InvPicButton.Location = new Point(InvPicButton.Location.X, InvPicButton.Location.Y+StatusBar.Height);
+            lblInGameTime.Location = new Point(lblInGameTime.Location.X, lblInGameTime.Location.Y + StatusBar.Height);
+
             this.ScoreLabel = new Label();
             this.Controls.Add(ScoreLabel);
             ScoreLabel.BackColor = Color.Black;
             ScoreLabel.ForeColor = Color.White;
             ScoreLabel.Text = "Score: " + score.ToString();
-            ScoreLabel.Location = new Point(Screen.PrimaryScreen.Bounds.Width - ScoreLabel.Width - 20, 15);
+            ScoreLabel.Location = new Point(Screen.PrimaryScreen.Bounds.Width - ScoreLabel.Width - 20, lblInGameTime.Location.Y);
             ScoreLabel.Font = new Font("Microsoft Sans Serif", 11);
             ScoreLabel.Visible = true;
             ScoreLabel.BringToFront();
-            
             
             
 
@@ -907,7 +922,7 @@ namespace Fall2020_CSC403_Project
             if (up >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Up, up);
-                Game.Areas[area].SetTravelSign(Direction.Up, new TravelSign(Game.Areas[up].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, 10), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Up, new TravelSign(Game.Areas[up].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, height/12+10), this.signSize)));
             }
             if (down >= 0)
             {
@@ -940,7 +955,7 @@ namespace Fall2020_CSC403_Project
                     Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - signSize.Height - Game.player.Pic.Height  - 100));
                     break;
                 case Direction.Down:
-                    Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, signSize.Height + 20));
+                    Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, height/12 + signSize.Height + 20));
                     break;
                 case Direction.Right:
                     Game.player.SetEntityPosition(new Position(signSize.Width + 10, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
