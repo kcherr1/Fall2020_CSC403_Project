@@ -157,7 +157,7 @@ namespace Fall2020_CSC403_Project.code
 
             Enemies["Lizard Wizard1"] = new Enemy(
                 "Lizard Wizard",
-                MakePictureBox(Resources.wizardlizard, new Point(845, 240), new Size(150, 150)),
+                MakePictureBox(Resources.wizardlizard, new Point(845, 540), new Size(150, 150)),
                 new Mage());
 
             Enemies["Whelp"] = new Enemy(
