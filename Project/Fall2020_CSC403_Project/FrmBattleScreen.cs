@@ -199,10 +199,33 @@ namespace Fall2020_CSC403_Project
             enemyHealthMax.BackColor = Color.Red;
             enemyHealthMax.AutoSize = false;
 
-            UpdateHealthBars();
+            // Add log labels to screen
+            Label backlog = new Label();
+            Label[] loglabels = new Label[BattleLog.Count()];
 
-            //BackColor = enemy.Color;
-            //picBossBattle.Visible = false;
+            for (int i = 0; i < BattleLog.Count(); i++)
+            {
+                loglabels[i] = new Label();
+                loglabels[i].Parent = backlog;
+                loglabels[i].Text = BattleLog[i]; // Assuming BattleLog is a list of strings
+                loglabels[i].AutoSize = false;
+                loglabels[i].Size = new Size((picEnemy.Location.X - picPlayer.Location.X) + (picPlayer.Width), height / 32);
+                loglabels[i].Font = new Font("NSimSun", 7 * loglabels[i].Size.Height / 8);
+                
+                
+                                                                                                // Adjust this based on your requirement
+                                                                                                // Set other properties of the label as needed
+                                                                                                // For example:
+                                                                                                // loglabels[i].Location = new Point(x, y); // Set the location
+                                                                                                // loglabels[i].Font = new Font("Arial", 10); // Set the font
+                                                                                                // Add the label to your form or container
+            }
+
+
+
+
+
+            UpdateHealthBars();
 
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
