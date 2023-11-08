@@ -49,6 +49,7 @@ namespace Fall2020_CSC403_Project
             picArrow.Hide();
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             picBossKoolAid.Hide();
+            bossHealthBar.Hide();
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
@@ -130,6 +131,8 @@ namespace Fall2020_CSC403_Project
                     if (enemyList.Count == 0)
                     {
                         bossKoolaid.setupBoss();
+                        picBossKoolAid.Show();
+                        bossHealthBar.Show();
                     }
                 }
             }
@@ -146,6 +149,8 @@ namespace Fall2020_CSC403_Project
                     if(enemyList.Count == 0)
                     {
                         bossKoolaid.setupBoss();
+                        picBossKoolAid.Show();
+                        bossHealthBar.Show();
                     }
                 }
             }
