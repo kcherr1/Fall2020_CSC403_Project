@@ -345,7 +345,6 @@ namespace Fall2020_CSC403_Project
                 for (int i = 0; i < Game.CurrentArea.npcs.Count; i++)
                 {
                     this.Controls.Add(Game.CurrentArea.npcs[i].Pic);
-                    Game.CurrentArea.npcs[i].Pic.BringToFront();
                 }
             }
 
@@ -785,9 +784,7 @@ namespace Fall2020_CSC403_Project
             {
                 this.Controls.Remove(Game.CurrentArea.npcs[i].Pic);
             }
-            Game.CurrentArea.npcs = new List<NPC> { };
 
-            //remove terrain here
 
             for (int i = 0; i < Game.CurrentArea.Items.Count; i++)
             {
@@ -812,6 +809,7 @@ namespace Fall2020_CSC403_Project
                 Game.Areas[i].Terrain.Tiles.Clear();
                 Game.Areas[i].Items.Clear();
                 Game.Areas[i].Structures.Clear();
+                Game.Areas[i].npcs.Clear();
             }
             Game.Areas = new Area[10];
             GC.Collect();

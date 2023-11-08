@@ -20,11 +20,11 @@ namespace Fall2020_CSC403_Project.code
 
         private static Size itemSize = new Size(50, 50);
 
+        // default items
         public static Dictionary<string, Item> Items = new Dictionary<string, Item>();
         public static Dictionary<string, Enemy> Enemies = new Dictionary<string, Enemy>();
         public static Dictionary<string, NPC> NPCs = new Dictionary<string, NPC>();
         public static Dictionary<string, Structure> Structures = new Dictionary<string, Structure>();
-        public static Dictionary<string, TravelSign> TravelSigns = new Dictionary<string, TravelSign>();
 
         public static void PopulateWorld()
         {
