@@ -120,15 +120,20 @@ namespace Fall2020_CSC403_Project
             NameLabel.Text =Game.player.Name.ToString();
             NameLabel.BringToFront();
 
-
-
             // Add character Health Bar
+            PictureBox health_stat = new PictureBox();
+            health_stat.Size = new Size(height / 22, height / 22);
+            health_stat.SizeMode = PictureBoxSizeMode.StretchImage;
+            health_stat.Parent = this;
+            health_stat.Location = new Point(2 * width / 3, height / 64);
+            health_stat.Image = Properties.Resources.icon_health;
+
             playerHealthMax = new Label();
             playerCurrentHealth = new Label();
 
             playerCurrentHealth.Size = new Size(width/7, height/22);
             playerCurrentHealth.Parent = this;
-            playerCurrentHealth.Location = new Point(2*width/3 + width/64, height/64);
+            playerCurrentHealth.Location = new Point(health_stat.Location.X+health_stat.Size.Width, health_stat.Location.Y);
             playerCurrentHealth.Font = new Font("NSimSun", 3 * playerCurrentHealth.Size.Height / 8);
             playerCurrentHealth.TextAlign = ContentAlignment.MiddleCenter;
             playerCurrentHealth.BackColor = Color.Green;
@@ -145,6 +150,37 @@ namespace Fall2020_CSC403_Project
             playerCurrentHealth.BringToFront();
 
             UpdateHealthBars(playerCurrentHealth);
+
+            // Add images for stats
+            PictureBox speed_stat = new PictureBox();
+            PictureBox def_stat = new PictureBox();
+            PictureBox damage_stat = new PictureBox();
+
+            speed_stat.Parent = StatusBar;
+            def_stat.Parent = StatusBar;
+            damage_stat.Parent = StatusBar;
+
+            damage_stat.Size = new Size(playerHealthMax.Size.Height, playerHealthMax.Size.Height);
+            damage_stat.SizeMode = PictureBoxSizeMode.StretchImage;
+            damage_stat.Image = Properties.Resources.icon_damage;
+            damage_stat.Location = new Point(playerHealthMax.Location.X+playerHealthMax.Width+damage_stat.Size.Width/3, height/64);
+
+            def_stat.Size = damage_stat.Size;
+            def_stat.SizeMode = PictureBoxSizeMode.StretchImage;
+            def_stat.Image = Properties.Resources.icon_armor;
+            def_stat.Location = new Point(damage_stat.Location.X + 2*damage_stat.Width + damage_stat.Size.Width / 3, height / 64);
+
+            speed_stat.Size = damage_stat.Size;
+            speed_stat.SizeMode = PictureBoxSizeMode.StretchImage;
+            speed_stat.Image = Properties.Resources.icon_speed;
+            speed_stat.Location = new Point(damage_stat.Location.X + 2 * damage_stat.Width + damage_stat.Size.Width / 3, height / 64);
+
+            // Add labels for stats
+
+            Label speed_label = new Label();
+            Label def_label = new Label();
+            Label damage_label = new Label();
+
 
             //Move inventory and labels
             InvPicButton.Location = new Point(InvPicButton.Location.X, InvPicButton.Location.Y+StatusBar.Height);
