@@ -40,9 +40,9 @@ namespace Fall2020_CSC403_Project
             const int PADDING = 7;
             const int NUM_WALLS = 13;
 
-            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING), "Gun");
+            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING), "Gun", "Heavy");
             gun.Img = picGun.BackgroundImage;
-            potion = new Item(CreatePosition(picPotion), CreateCollider(picPotion, PADDING), "Potion");
+            potion = new Item(CreatePosition(picPotion), CreateCollider(picPotion, PADDING), "Potion", "Healing");
             potion.Img = picPotion.BackgroundImage;
 
             player = new Player(CreatePosition(mainCharacter), CreateCollider(mainCharacter, 0));
