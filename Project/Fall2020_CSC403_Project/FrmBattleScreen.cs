@@ -207,6 +207,10 @@ namespace Fall2020_CSC403_Project
             // Add log labels to screen
             backlog = new Label();
             loglabels = new Label[BattleLog.Count()];
+            backlog.BackColor = Color.FromArgb(60, 70, 80);
+            backlog.Size = new Size(picEnemy.Left - picPlayer.Right, 10 * height / 32);
+            backlog.Parent = this;
+            backlog.AutoSize = false;
             for (int i = 0; i < BattleLog.Count(); i++)
             {
                 loglabels[i] = new Label();
@@ -216,7 +220,8 @@ namespace Fall2020_CSC403_Project
                 loglabels[i].TextAlign = ContentAlignment.MiddleCenter;
                 loglabels[i].Size = new Size(picEnemy.Left - picPlayer.Right, height / 32);
                 loglabels[i].Font = new Font("NSimSun", 7 * loglabels[i].Size.Height / 8);
-                loglabels[i].ForeColor = Color.Black;
+                loglabels[i].ForeColor = Color.White;
+                loglabels[i].BackColor = Color.FromArgb(60, 70, 80);
                 if (i == 0)
                 {
                     loglabels[i].Location = new Point(picPlayer.Location.X + picPlayer.Width, picPlayer.Location.Y + picPlayer.Height - loglabels[i].Size.Height);
@@ -232,6 +237,12 @@ namespace Fall2020_CSC403_Project
                 }
             }
             updateLog();
+            backlog.Location = new Point(picPlayer.Location.X + picPlayer.Width, picPlayer.Location.Y + picPlayer.Height - 10*loglabels[0].Size.Height);
+
+
+
+
+
 
             UpdateHealthBars();
 
@@ -252,6 +263,7 @@ namespace Fall2020_CSC403_Project
                     loglabels[i].Text = BattleLog[i];
                     Game.FontSizing(loglabels[i]);
                 }
+                loglabels[i].BringToFront();
             }
         }
 
