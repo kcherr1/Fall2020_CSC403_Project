@@ -32,13 +32,18 @@ namespace Fall2020_CSC403_Project
         {
             this.btnStartGame = new System.Windows.Forms.Button();
             this.btnLeaveGame = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblSettings = new System.Windows.Forms.Label();
+            this.lblVolume = new System.Windows.Forms.Label();
             this.peanut = new System.Windows.Forms.PictureBox();
             this.koolaid = new System.Windows.Forms.PictureBox();
             this.menuTheme = new System.Media.SoundPlayer();
             this.volumeBar = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.peanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.koolaid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStartGame
@@ -63,6 +68,29 @@ namespace Fall2020_CSC403_Project
             this.btnLeaveGame.UseVisualStyleBackColor = true;
             this.btnLeaveGame.Click += new System.EventHandler(this.btnLeaveGame_Click);
             // 
+            // btnSettings
+            // 
+            this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.Location = new System.Drawing.Point(338, 300);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(128, 43);
+            this.btnSettings.TabIndex = 2;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(338, 300);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(128, 43);
+            this.btnBack.TabIndex = 2;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.Hide();
+            // 
             // lblTitle
             // 
             this.lblTitle.BackColor = System.Drawing.Color.Blue;
@@ -74,6 +102,32 @@ namespace Fall2020_CSC403_Project
             this.lblTitle.TabIndex = 6;
             this.lblTitle.Text = "Kool-Aid Krushers";
             this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
+            // 
+            // lblSettings
+            // 
+            //this.lblSettings.BackColor = System.Drawing.Color.Blue;
+            this.lblSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSettings.ForeColor = System.Drawing.Color.White;
+            this.lblSettings.Location = new System.Drawing.Point(288, 72);
+            this.lblSettings.Name = "lblSettings";
+            this.lblSettings.Size = new System.Drawing.Size(200, 59);
+            this.lblSettings.TabIndex = 6;
+            this.lblSettings.Text = "Settings";
+            this.lblSettings.Click += new System.EventHandler(this.lblTitle_Click);
+            this.lblSettings.Hide();
+            // 
+            // lblVolume
+            // 
+            //this.lblVolume.BackColor = System.Drawing.Color.Blue;
+            this.lblVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVolume.ForeColor = System.Drawing.Color.White;
+            this.lblVolume.Location = new System.Drawing.Point(259, 166);
+            this.lblVolume.Name = "lblVolume";
+            this.lblVolume.Size = new System.Drawing.Size(88, 34);
+            this.lblVolume.TabIndex = 6;
+            this.lblVolume.Text = "Volume";
+            this.lblVolume.Click += new System.EventHandler(this.lblTitle_Click);
+            this.lblVolume.Hide();
             // 
             // peanut
             // 
@@ -101,17 +155,17 @@ namespace Fall2020_CSC403_Project
             this.menuTheme.SoundLocation = "menu_theme.wav";
             this.menuTheme.Stream = null;
             this.menuTheme.Tag = null;
-            //
-            // volume Control
-            //
-            this.volumeBar.Location = new System.Drawing.Point(100, 50);
-            this.volumeBar.Name = "volumeBar";
-            this.volumeBar.Size = new System.Drawing.Size(100, 100);
-            this.volumeBar.Scroll += new System.EventHandler(this.changeMusicVolume);
+            // 
+            // volumeBar
+            // 
+            this.volumeBar.Location = new System.Drawing.Point(230, 203);
             this.volumeBar.Maximum = 100;
-            this.volumeBar.Minimum = 0;
+            this.volumeBar.Name = "volumeBar";
+            this.volumeBar.Size = new System.Drawing.Size(142, 45);
+            this.volumeBar.TabIndex = 7;
             this.volumeBar.TickFrequency = 5;
-            this.volumeBar.Value = 50;
+            this.volumeBar.Value = 20;
+            this.volumeBar.Scroll += new System.EventHandler(this.changeMusicVolume);
             this.volumeBar.Hide();
             // 
             // FrmMainMenu
@@ -121,8 +175,12 @@ namespace Fall2020_CSC403_Project
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.lblSettings);
+            this.Controls.Add(this.lblVolume);
             this.Controls.Add(this.btnStartGame);
             this.Controls.Add(this.btnLeaveGame);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.peanut);
             this.Controls.Add(this.koolaid);
             this.Controls.Add(this.volumeBar);
@@ -130,7 +188,9 @@ namespace Fall2020_CSC403_Project
             this.Text = "Main Menu";
             ((System.ComponentModel.ISupportInitialize)(this.peanut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.koolaid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -138,8 +198,12 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.PictureBox peanut;
         private System.Windows.Forms.PictureBox koolaid;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblSettings;
+        private System.Windows.Forms.Label lblVolume;
         private System.Windows.Forms.Button btnStartGame;
         private System.Windows.Forms.Button btnLeaveGame;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TrackBar volumeBar;
         SoundPlayer menuTheme = new SoundPlayer("menu_theme.wav");
     }

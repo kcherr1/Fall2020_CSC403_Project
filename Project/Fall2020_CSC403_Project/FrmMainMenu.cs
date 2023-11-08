@@ -45,6 +45,32 @@ namespace Fall2020_CSC403_Project
             Close();
         }
 
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            lblTitle.Hide();
+            btnStartGame.Hide();
+            btnSettings.Hide();
+            btnLeaveGame.Hide();
+            peanut.Hide();
+            koolaid.Hide();
+            volumeBar.Show();
+            lblSettings.Show();
+            lblVolume.Show();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            lblTitle.Show();
+            btnStartGame.Show();
+            btnSettings.Show();
+            btnLeaveGame.Show();
+            peanut.Show();
+            koolaid.Show();
+            volumeBar.Hide();
+            lblSettings.Hide();
+            lblVolume.Hide();
+        }
+
         private void lblTitle_Click(object sender, EventArgs e)
         {
 
