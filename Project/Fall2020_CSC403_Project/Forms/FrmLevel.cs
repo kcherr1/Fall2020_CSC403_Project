@@ -66,7 +66,7 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket.PoisonBC();
             enemyCheeto.CheetoBC();
             this.createPipeBarrier();
-            pipeCollider = new Character(CreatePosition(pipe), CreatePipeCollider(pipe, 140));
+            pipeCollider = new Character(CreatePosition(pipe), CreatePipeCollider(pipe, 100));
 
             inventory = new Inventory();
 
