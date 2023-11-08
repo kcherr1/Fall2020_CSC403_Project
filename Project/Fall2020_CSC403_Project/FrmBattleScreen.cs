@@ -32,6 +32,15 @@ namespace Fall2020_CSC403_Project
 
         public static FrmLevel frmLevel;
 
+        private Label backlog;
+        private Label[] loglabels;
+
+        private PictureBox picPlayer;
+        private PictureBox picEnemy;
+
+        private int height = Screen.PrimaryScreen.Bounds.Height;
+        private int width = Screen.PrimaryScreen.Bounds.Width;
+
         public FrmBattleScreen(FrmLevel level)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -46,12 +55,8 @@ namespace Fall2020_CSC403_Project
             this.BackColor = Color.SlateGray;
             //this.ControlBox = false;
 
-            int height = Screen.PrimaryScreen.Bounds.Height;
-            int width = Screen.PrimaryScreen.Bounds.Width;
-
-
             // Set up player
-            PictureBox picPlayer = new PictureBox();
+            picPlayer = new PictureBox();
             picPlayer.Parent = this;
             picPlayer.Size = new Size(width / 5 + width / 128, 3 * width / 10 + 2 * Height / 32);
             picPlayer.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -60,7 +65,7 @@ namespace Fall2020_CSC403_Project
             picPlayer.Image = player.Pic.Image;
 
             // Set up Enemy
-            PictureBox picEnemy = new PictureBox();
+            picEnemy = new PictureBox();
             picEnemy.Parent= this;
             picEnemy.Size = new Size(width / 5 + width / 128, 3 * width / 10 + 2 * Height / 32);
             picEnemy.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -200,30 +205,33 @@ namespace Fall2020_CSC403_Project
             enemyHealthMax.AutoSize = false;
 
             // Add log labels to screen
-            Label backlog = new Label();
-            Label[] loglabels = new Label[BattleLog.Count()];
-
+            backlog = new Label();
+            loglabels = new Label[BattleLog.Count()];
             for (int i = 0; i < BattleLog.Count(); i++)
             {
                 loglabels[i] = new Label();
-                loglabels[i].Parent = backlog;
+                loglabels[i].Parent = this;
                 loglabels[i].Text = BattleLog[i]; // Assuming BattleLog is a list of strings
                 loglabels[i].AutoSize = false;
-                loglabels[i].Size = new Size((picEnemy.Location.X - picPlayer.Location.X) + (picPlayer.Width), height / 32);
+                loglabels[i].TextAlign = ContentAlignment.MiddleCenter;
+                loglabels[i].Size = new Size(picEnemy.Left - picPlayer.Right, height / 32);
                 loglabels[i].Font = new Font("NSimSun", 7 * loglabels[i].Size.Height / 8);
-                
-                
-                                                                                                // Adjust this based on your requirement
-                                                                                                // Set other properties of the label as needed
-                                                                                                // For example:
-                                                                                                // loglabels[i].Location = new Point(x, y); // Set the location
-                                                                                                // loglabels[i].Font = new Font("Arial", 10); // Set the font
-                                                                                                // Add the label to your form or container
+                loglabels[i].ForeColor = Color.Black;
+                if (i == 0)
+                {
+                    loglabels[i].Location = new Point(picPlayer.Location.X + picPlayer.Width, picPlayer.Location.Y + picPlayer.Height - loglabels[i].Size.Height);
+                }
+                else
+                {
+                    loglabels[i].Location = new Point(loglabels[i - 1].Location.X, loglabels[i - 1].Location.Y - loglabels[i].Height);
+                }
+                if (BattleLog[i] != null)
+                {
+                    loglabels[i].Text = BattleLog[i];
+                    Game.FontSizing(loglabels[i]);
+                }
             }
-
-
-
-
+            updateLog();
 
             UpdateHealthBars();
 
@@ -234,6 +242,19 @@ namespace Fall2020_CSC403_Project
             // show health
             UpdateHealthBars();
         }
+
+        private void updateLog()
+        {
+            for (int i = 0; i < BattleLog.Count(); i++)
+            {
+                if (BattleLog[i] != null)
+                {
+                    loglabels[i].Text = BattleLog[i];
+                    Game.FontSizing(loglabels[i]);
+                }
+            }
+        }
+
 
         private void UpdateHealthBars()
         {
@@ -279,6 +300,7 @@ namespace Fall2020_CSC403_Project
                     AddToLog(enemy.OnAttack(player.defense));
                 }
             }
+
             else
             {
                 if (enemy.Health > 0)
@@ -288,6 +310,7 @@ namespace Fall2020_CSC403_Project
                 AddToLog(player.OnAttack(enemy.defense));
             }
 
+            updateLog();
             UpdateHealthBars();
             if (player.Health <= 0)
             {
