@@ -122,6 +122,7 @@ namespace Fall2020_CSC403_Project
             NameLabel.Font = new Font("NSimSun", 3*NameLabel.Size.Height / 4, FontStyle.Bold);
             NameLabel.Text =Game.player.Name.ToString();
             NameLabel.BringToFront();
+            FontSizing(NameLabel);
 
             // Add character Health Bar
             PictureBox health_stat = new PictureBox();
@@ -253,22 +254,7 @@ namespace Fall2020_CSC403_Project
             location.TextAlign = ContentAlignment.MiddleCenter;
             location.Text = Game.CurrentArea.AreaName.ToString();
             location.Font = new Font("NSimSun", 10);
-
-            using (Graphics g = location.CreateGraphics())
-            {
-                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
-                for (int fontSize = 100; fontSize >= 8; fontSize--)
-                {
-                    Font testFont = new Font("NSimSun", fontSize);
-                    Size textSize = TextRenderer.MeasureText(g, location.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
-
-                    if (textSize.Width <= location.Width && textSize.Height <= location.Height)
-                    {
-                        location.Font = testFont; // Set the font size that fits
-                        break;
-                    }
-                }
-            }
+            FontSizing(location);
 
 
             //Adding stop condition to mainMenu_music here
@@ -572,6 +558,26 @@ namespace Fall2020_CSC403_Project
                 }
             }
             return hitChar;
+        }
+
+
+        private void FontSizing(Label lbl)
+        {
+            using (Graphics g = lbl.CreateGraphics())
+            {
+                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                for (int fontSize = 100; fontSize >= 8; fontSize--)
+                {
+                    Font testFont = new Font("NSimSun", fontSize);
+                    Size textSize = TextRenderer.MeasureText(g, lbl.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
+
+                    if (textSize.Width <= lbl.Width && textSize.Height <= lbl.Height)
+                    {
+                        lbl.Font = testFont; // Set the font size that fits
+                        break;
+                    }
+                }
+            }
         }
 
         private int hitNPC(Player you)
@@ -1165,21 +1171,7 @@ namespace Fall2020_CSC403_Project
 
             // reset text in status bar
             location.Text = Game.CurrentArea.AreaName.ToString();
-            using (Graphics g = location.CreateGraphics())
-            {
-                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
-                for (int fontSize = 100; fontSize >= 8; fontSize--)
-                {
-                    Font testFont = new Font("NSimSun", fontSize);
-                    Size textSize = TextRenderer.MeasureText(g, location.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
-
-                    if (textSize.Width <= location.Width && textSize.Height <= location.Height)
-                    {
-                        location.Font = testFont; // Set the font size that fits
-                        break;
-                    }
-                }
-            }
+            FontSizing(location);
 
 
             InitializeAreaLayout();
