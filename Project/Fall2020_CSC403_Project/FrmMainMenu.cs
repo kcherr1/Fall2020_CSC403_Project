@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
+using AudioSwitcher.AudioApi.CoreAudio;
+using Fall2020_CSC403_Project.code;
+
 namespace Fall2020_CSC403_Project
 {
     public partial class FrmMainMenu : Form
@@ -19,9 +22,12 @@ namespace Fall2020_CSC403_Project
         private FrmWinScreen frmWin;
         private FrmEndScreen frmEnd;
 
+        CoreAudioDevice defaultPlayback = new CoreAudioController().DefaultPlaybackDevice;
+
         public FrmMainMenu()
         {
             InitializeComponent();
+            defaultPlayback.Volume = Game.volume;
             menuTheme.PlayLooping();
             this.FormClosed += (s, args) => Application.Exit();
             this.Shown += (s, args) => menuTheme.PlayLooping();
@@ -100,6 +106,12 @@ namespace Fall2020_CSC403_Project
         public void startMusic()
         {
             menuTheme.PlayLooping();
+        }
+
+        public void changeMusicVolume(object sender, EventArgs s)
+        {
+            Game.volume = volumeBar.Value;
+            defaultPlayback.Volume = Game.volume;
         }
     }
 }

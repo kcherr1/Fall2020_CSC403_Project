@@ -36,6 +36,7 @@ namespace Fall2020_CSC403_Project
             this.peanut = new System.Windows.Forms.PictureBox();
             this.koolaid = new System.Windows.Forms.PictureBox();
             this.menuTheme = new System.Media.SoundPlayer();
+            this.volumeBar = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.peanut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.koolaid)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +101,18 @@ namespace Fall2020_CSC403_Project
             this.menuTheme.SoundLocation = "menu_theme.wav";
             this.menuTheme.Stream = null;
             this.menuTheme.Tag = null;
+            //
+            // volume Control
+            //
+            this.volumeBar.Location = new System.Drawing.Point(100, 50);
+            this.volumeBar.Name = "volumeBar";
+            this.volumeBar.Size = new System.Drawing.Size(100, 100);
+            this.volumeBar.Scroll += new System.EventHandler(this.changeMusicVolume);
+            this.volumeBar.Maximum = 100;
+            this.volumeBar.Minimum = 0;
+            this.volumeBar.TickFrequency = 5;
+            this.volumeBar.Value = 50;
+            this.volumeBar.Hide();
             // 
             // FrmMainMenu
             // 
@@ -112,6 +125,7 @@ namespace Fall2020_CSC403_Project
             this.Controls.Add(this.btnLeaveGame);
             this.Controls.Add(this.peanut);
             this.Controls.Add(this.koolaid);
+            this.Controls.Add(this.volumeBar);
             this.Name = "FrmMainMenu";
             this.Text = "Main Menu";
             ((System.ComponentModel.ISupportInitialize)(this.peanut)).EndInit();
@@ -126,6 +140,7 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnStartGame;
         private System.Windows.Forms.Button btnLeaveGame;
+        private System.Windows.Forms.TrackBar volumeBar;
         SoundPlayer menuTheme = new SoundPlayer("menu_theme.wav");
     }
 }
