@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -312,7 +313,6 @@ namespace Fall2020_CSC403_Project
                     AddToLog(enemy.OnAttack(player.defense));
                 }
             }
-
             else
             {
                 if (enemy.Health > 0)
@@ -322,10 +322,11 @@ namespace Fall2020_CSC403_Project
                 AddToLog(player.OnAttack(enemy.defense));
             }
 
-            updateLog();
             UpdateHealthBars();
+
             if (player.Health <= 0)
             {
+                AddToLog(enemy.Name + " defeated " + player.Name + "!");
                 instance = null;
                 Close();
                 form.GameOver();
@@ -333,6 +334,7 @@ namespace Fall2020_CSC403_Project
             }
             else if (enemy.Health <= 0)
             {
+                AddToLog(player.Name + " deafeated " + enemy.Name + "!");
                 instance = null;
                 form.RemoveEnemy(enemy);
                 player.RemoveEffect();
@@ -371,6 +373,8 @@ namespace Fall2020_CSC403_Project
                 BattleLog[i] = BattleLog[i - 1];
             }
             BattleLog[0] = log;
+
+            updateLog();
         }
 
     }
