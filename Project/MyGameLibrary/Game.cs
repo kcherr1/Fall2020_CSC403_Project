@@ -271,5 +271,24 @@ namespace Fall2020_CSC403_Project.code
                 BackColor = Color.Transparent,
             };
         }
+
+        public static void FontSizing(Label lbl)
+        {
+            using (Graphics g = lbl.CreateGraphics())
+            {
+                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                for (int fontSize = 100; fontSize >= 8; fontSize--)
+                {
+                    Font testFont = new Font("NSimSun", fontSize);
+                    Size textSize = TextRenderer.MeasureText(g, lbl.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
+
+                    if (textSize.Width <= lbl.Width && textSize.Height <= lbl.Height)
+                    {
+                        lbl.Font = testFont; // Set the font size that fits
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
