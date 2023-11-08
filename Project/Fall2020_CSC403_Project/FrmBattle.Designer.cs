@@ -1,4 +1,5 @@
-﻿using System.Media;
+﻿using Fall2020_CSC403_Project.Properties;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   partial class FrmBattle {
@@ -43,8 +44,7 @@ namespace Fall2020_CSC403_Project {
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.lblPlayerScore = new System.Windows.Forms.Label();
-
-            this.battleTheme = new SoundPlayer("battle_theme.wav");
+            this.battleTheme = new System.Media.SoundPlayer();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
@@ -54,7 +54,7 @@ namespace Fall2020_CSC403_Project {
             // btnAttack
             // 
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttack.Location = new System.Drawing.Point(127, 422);
+            this.btnAttack.Location = new System.Drawing.Point(70, 423);
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(128, 43);
             this.btnAttack.TabIndex = 2;
@@ -62,41 +62,38 @@ namespace Fall2020_CSC403_Project {
             this.btnAttack.UseVisualStyleBackColor = true;
             this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
             // 
-
             // btnHeal
             // 
             this.btnHeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHeal.Location = new System.Drawing.Point(127, 461);
+            this.btnHeal.Location = new System.Drawing.Point(204, 423);
             this.btnHeal.Name = "btnHeal";
             this.btnHeal.Size = new System.Drawing.Size(128, 43);
             this.btnHeal.TabIndex = 8;
             this.btnHeal.Text = "Heal";
             this.btnHeal.UseVisualStyleBackColor = true;
             this.btnHeal.Click += new System.EventHandler(this.btnHeal_Click);
-
+            // 
             // btnDodge
             // 
             this.btnDodge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDodge.Location = new System.Drawing.Point(127, 461);
+            this.btnDodge.Location = new System.Drawing.Point(204, 472);
             this.btnDodge.Name = "btnDodge";
             this.btnDodge.Size = new System.Drawing.Size(128, 43);
             this.btnDodge.TabIndex = 9;
             this.btnDodge.Text = "Dodge";
             this.btnDodge.UseVisualStyleBackColor = true;
             this.btnDodge.Click += new System.EventHandler(this.btnDodge_Click);
-
-
+            // 
             // btnFlee
             // 
-            this.btnFlee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)));
-            this.btnFlee.Location = new System.Drawing.Point(127, 500);
+            this.btnFlee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnFlee.Location = new System.Drawing.Point(70, 472);
             this.btnFlee.Name = "btnFlee";
             this.btnFlee.Size = new System.Drawing.Size(128, 43);
             this.btnFlee.TabIndex = 2;
             this.btnFlee.Text = "Flee Battle";
             this.btnFlee.UseVisualStyleBackColor = true;
             this.btnFlee.Click += new System.EventHandler(this.btnFlee_Click);
-            
             // 
             // lblPlayerHealthFull
             // 
@@ -136,16 +133,6 @@ namespace Fall2020_CSC403_Project {
             this.lblEnemyHealthFull.Size = new System.Drawing.Size(226, 20);
             this.lblEnemyHealthFull.TabIndex = 6;
             // 
-            // lblPlayerScore
-            // 
-            this.lblPlayerScore.BackColor = System.Drawing.Color.DarkBlue;
-            this.lblPlayerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerScore.ForeColor = System.Drawing.Color.White;
-            this.lblPlayerScore.Location = new System.Drawing.Point(71, 390);
-            this.lblPlayerScore.Name = "lblPlayerScore";
-            this.lblPlayerScore.Size = new System.Drawing.Size(226, 20);
-            this.lblPlayerScore.TabIndex = 6;
-            //  
             // picBossBattle
             // 
             this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
@@ -181,6 +168,23 @@ namespace Fall2020_CSC403_Project {
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
+            // lblPlayerScore
+            // 
+            this.lblPlayerScore.BackColor = System.Drawing.Color.DarkBlue;
+            this.lblPlayerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerScore.ForeColor = System.Drawing.Color.White;
+            this.lblPlayerScore.Location = new System.Drawing.Point(71, 390);
+            this.lblPlayerScore.Name = "lblPlayerScore";
+            this.lblPlayerScore.Size = new System.Drawing.Size(226, 20);
+            this.lblPlayerScore.TabIndex = 6;
+            // 
+            // battleTheme
+            // 
+            this.battleTheme.LoadTimeout = 10000;
+            this.battleTheme.SoundLocation = "battle_theme.wav";
+            this.battleTheme.Stream = null;
+            this.battleTheme.Tag = null;
+            // 
             // tmrFinalBattle
             // 
             this.tmrFinalBattle.Interval = 5600;
@@ -199,13 +203,8 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttack);
-
             this.Controls.Add(this.btnDodge);
-
             this.Controls.Add(this.lblPlayerScore);
-
-            this.Controls.Add(this.picEnemy);
-            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.btnHeal);
             this.Controls.Add(this.btnFlee);
             this.Controls.Add(this.picEnemy);
@@ -238,6 +237,9 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.Timer tmrFinalBattle;
     SoundPlayer battleTheme = new SoundPlayer("battle_theme.wav");
     SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");
-
+    SoundPlayer attackSound = new SoundPlayer(Resources.attack);
+    SoundPlayer healSound = new SoundPlayer(Resources.heal);
+    SoundPlayer enemy_attack = new SoundPlayer(Resources.enemyAttack);
+    SoundPlayer dodgeSound = new SoundPlayer(Resources.dodge);
     }
 }

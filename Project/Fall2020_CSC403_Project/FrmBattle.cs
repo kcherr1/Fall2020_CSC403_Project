@@ -94,13 +94,18 @@ namespace Fall2020_CSC403_Project {
 
     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(rnd.Next(-5,-2));
+      battleTheme.Stop();
+      attackSound.PlaySync();
       if (enemy.Health > 0) {
         enemy.determineAttack(0);
+        enemy_attack.PlaySync();
 
         PlayerScore(10);
       }
 
       UpdateHealthBars();
+      battleTheme.PlayLooping();
+
       if (enemy.Health <= 0) {
         instance = null;
         Close();
@@ -127,7 +132,10 @@ namespace Fall2020_CSC403_Project {
             }
             else
             {
-                player.OnHeal(8);
+                    battleTheme.Stop();
+                    healSound.PlaySync();
+                    player.OnHeal(8);
+
             }
 
                 if ((player.Health + 8) > 20)
@@ -136,6 +144,8 @@ namespace Fall2020_CSC403_Project {
                 }
                 else
                 {
+                    battleTheme.Stop();
+                    healSound.PlaySync();
                     player.OnHeal(8);
                 }
 
@@ -143,6 +153,7 @@ namespace Fall2020_CSC403_Project {
                 if (enemy.Health > 0)
                 {
                     enemy.determineAttack(0);
+                    enemy_attack.PlaySync();
                 }
 
 
@@ -150,8 +161,8 @@ namespace Fall2020_CSC403_Project {
             {
                 enemy.OnAttack(-2);
             }
-
-            UpdateHealthBars();
+                battleTheme.PlayLooping();
+                UpdateHealthBars();
         }
     }
 
@@ -165,10 +176,15 @@ namespace Fall2020_CSC403_Project {
             else
             {
                 enemy.determineAttack(1);
+                enemy_attack.PlaySync();
+                dodgeSound.PlaySync();
+                battleTheme.PlayLooping();
             }
         }
     private void btnFlee_Click(object sender, EventArgs e)
         {
+            SoundPlayer fleeSound = new SoundPlayer(Resources.flee);
+            fleeSound.PlaySync();
             //observers have to be cleared, otherwise other instances will do n*damage
             enemy.AttackEvent -= PlayerDamage;
             player.AttackEvent -= EnemyDamage;

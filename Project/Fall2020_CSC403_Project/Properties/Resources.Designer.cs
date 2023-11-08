@@ -90,6 +90,15 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream dodge {
+            get {
+                return ResourceManager.GetStream("dodge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap enemy_cheetos {
@@ -122,6 +131,15 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream enemyAttack {
+            get {
+                return ResourceManager.GetStream("enemyAttack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream final_battle {
             get {
                 return ResourceManager.GetStream("final_battle", resourceCulture);
@@ -134,6 +152,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.IO.UnmanagedMemoryStream flee {
             get {
                 return ResourceManager.GetStream("flee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap G_R_I_M_A_C_E_ {
+            get {
+                object obj = ResourceManager.GetObject("G_R_I_M_A_C_E_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -152,16 +180,6 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.IO.UnmanagedMemoryStream koolaid_attack {
             get {
                 return ResourceManager.GetStream("koolaid_attack", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap G_R_I_M_A_C_E_ {
-            get {
-                object obj = ResourceManager.GetObject("G_R_I_M_A_C_E_", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
