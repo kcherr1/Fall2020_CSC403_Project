@@ -1068,6 +1068,16 @@ namespace Fall2020_CSC403_Project
             }
             Game.CurrentArea.Visited = true;
 
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard1"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Brute1"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Brute2"]);
+
+            Game.CurrentArea.AddItem(Game.Items["Accuracy Potion"]);
+            Game.CurrentArea.AddItem(Game.Items["Rusty Sword"]);
+            Game.CurrentArea.AddItem(Game.Items["Lumberjack Axe"]);
+
+            Game.CurrentArea.AddNPC(Game.NPCs["Tombstone"]);
         }
 
         private void Area0()
