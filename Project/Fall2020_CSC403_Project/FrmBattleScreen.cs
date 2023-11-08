@@ -286,7 +286,7 @@ namespace Fall2020_CSC403_Project
         private void FleeButton_Click(object sender, EventArgs e)
         {
             frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
-            enemy.OnAttack(player.defense);
+            AddToLog(enemy.OnAttack(player.defense));
             this.Close();
         }
 
