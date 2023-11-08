@@ -162,7 +162,13 @@
     <None Include="data\G.R.I.M.A.C.E..png" />
     <None Include="data\peanut_end.jpg" />
     <None Include="data\peanut_victory.jpg" />
+
     <None Include="data\deadenemy_poisonpacket.fw.png" />
+
+    <None Include="data\attack.wav" />
+    <None Include="data\flee.wav" />
+    <None Include="data\heal.wav" />
+    <None Include="data\koolaid_attack.wav" />
     <Content Include="level_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
