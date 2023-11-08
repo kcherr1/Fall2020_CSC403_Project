@@ -466,7 +466,7 @@ namespace Fall2020_CSC403_Project
                 Utility.Image = null;
             }
 
-
+            frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
             UpdateHealthBars();
             UpdateStats();
             this.Refresh();

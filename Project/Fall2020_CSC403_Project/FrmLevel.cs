@@ -46,6 +46,10 @@ namespace Fall2020_CSC403_Project
 
         private Label location;
 
+        public Label speed_label;
+        public Label def_label;
+        public Label damage_label;
+
 
         public FrmLevel(Form MainMenu)
         {
@@ -182,9 +186,9 @@ namespace Fall2020_CSC403_Project
 
             // Add labels for stats
 
-            Label speed_label = new Label();
-            Label def_label = new Label();
-            Label damage_label = new Label();
+            speed_label = new Label();
+            def_label = new Label();
+            damage_label = new Label();
 
             speed_label.Parent = StatusBar;
             def_label.Parent = StatusBar;
@@ -194,7 +198,6 @@ namespace Fall2020_CSC403_Project
             damage_label.BackColor = Color.Transparent;
             damage_label.ForeColor = Color.White;
             damage_label.Location = new Point(damage_stat.Location.X+damage_stat.Size.Width, height / 64);
-            damage_label.Text = Game.player.damage.ToString();
             damage_label.TextAlign = ContentAlignment.MiddleCenter;
             damage_label.Font = new Font("NSimSun", playerCurrentHealth.Size.Height / 2, FontStyle.Bold);
 
@@ -202,7 +205,6 @@ namespace Fall2020_CSC403_Project
             def_label.BackColor = Color.Transparent;
             def_label.ForeColor = Color.White;
             def_label.Location = new Point(def_stat.Location.X + def_stat.Size.Width, height / 64);
-            def_label.Text = Game.player.defense.ToString();
             def_label.TextAlign = ContentAlignment.MiddleCenter;
             def_label.Font = new Font("NSimSun", playerCurrentHealth.Size.Height / 2, FontStyle.Bold);
 
@@ -210,9 +212,10 @@ namespace Fall2020_CSC403_Project
             speed_label.BackColor = Color.Transparent;
             speed_label.ForeColor = Color.White;
             speed_label.Location = new Point(speed_stat.Location.X + speed_stat.Size.Width, height / 64);
-            speed_label.Text = Game.player.speed.ToString();
             speed_label.TextAlign = ContentAlignment.MiddleCenter;
             speed_label.Font = new Font("NSimSun", playerCurrentHealth.Size.Height / 2, FontStyle.Bold);
+
+            UpdateStatusBar(def_label, damage_label, speed_label);
 
             //Move inventory and labels
             InvPicButton.Location = new Point(InvPicButton.Location.X, InvPicButton.Location.Y+StatusBar.Height);
@@ -1093,6 +1096,13 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        public void UpdateStatusBar(Label def, Label dmg, Label speed)
+        {
+            def.Text = Game.player.defense.ToString();
+            dmg.Text = Game.player.damage.ToString();
+            speed.Text = Game.player.speed.ToString();
+
+        }
 
         private void setAdjacency(int area)
         {
@@ -1153,6 +1163,7 @@ namespace Fall2020_CSC403_Project
 
             AreaSelect();
 
+            // reset text in status bar
             location.Text = Game.CurrentArea.AreaName.ToString();
             using (Graphics g = location.CreateGraphics())
             {
@@ -1169,6 +1180,8 @@ namespace Fall2020_CSC403_Project
                     }
                 }
             }
+
+
             InitializeAreaLayout();
 
         }
