@@ -78,6 +78,7 @@ namespace Fall2020_CSC403_Project {
 
     private async void btnAttack_Click(object sender, EventArgs e) {
       lblDamage.Text = "   Dealt 8 damage!";
+      btnAttack.Enabled = false;
       HitDisplay();
       await Task.Delay(1500);
       player.OnAttack(-4);
@@ -107,6 +108,7 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       await Task.Delay(750);
       DmgGivenDisplay();
+      btnAttack.Enabled = true;
       btnHeavyAttack.Enabled = true;
       if (player.Health <= 0) {
         MusicPlayer.StopBattleSound();
@@ -132,6 +134,7 @@ namespace Fall2020_CSC403_Project {
     }
    private async void btnHeavyAttack_Click(object sender, EventArgs e){
       lblDamage.Text = "  Dealt 16 damage!";
+      btnHeavyAttack.Enabled = false;
       HitDisplay();
       await Task.Delay(1500);
       player.OnHeavyAttack(-4);
@@ -160,7 +163,6 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
       await Task.Delay(750);
       DmgGivenDisplay();
-      btnHeavyAttack.Enabled = false;
       if (player.Health <= 0)
       {
         MusicPlayer.StopBattleSound();
