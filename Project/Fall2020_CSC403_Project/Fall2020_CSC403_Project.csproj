@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,9 +47,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>gfgLogoIco.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Text.Json, Version=7.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,11 +66,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBattleScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBattleScreen.Designer.cs">
+      <DependentUpon>FrmBattleScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInventory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmInventory.Designer.cs">
       <DependentUpon>FrmInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLeaderboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLeaderboard.Designer.cs">
+      <DependentUpon>FrmLeaderboard.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPlayerSelect.cs">
       <SubType>Form</SubType>
@@ -89,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInventory.resx">
       <DependentUpon>FrmInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLeaderboard.resx">
+      <DependentUpon>FrmLeaderboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
@@ -149,15 +184,22 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
-      <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
-      <Name>MyGameLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\Transparent.png" />
+    <None Include="Resources\harold1.png" />
+    <None Include="data\travel_sign.png" />
+    <None Include="data\house_L.png" />
+    <None Include="data\house_long.png" />
+    <None Include="data\area_bar.png" />
+    <None Include="data\status_bar_bg.png" />
+    <None Include="data\icon_armor.png" />
+    <None Include="data\icon_damage.png" />
+    <None Include="data\icon_health.png" />
+    <None Include="data\icon_speed.png" />
+    <Content Include="gfgLogoIco.ico" />
+    <None Include="data\wall_cobblestone.png" />
+    <None Include="data\wall_bricks.png" />
     <None Include="data\Cog.png" />
     <None Include="data\BackgroundForRPG3.png" />
     <None Include="data\boss_attack.wav" />
@@ -195,6 +237,24 @@
     <Content Include="data\rogue.png" />
     <Content Include="data\Swordsman.png" />
     <Content Include="data\Tank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
+      <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
+      <Name>MyGameLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

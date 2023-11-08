@@ -169,21 +169,21 @@ namespace Fall2020_CSC403_Project
                     {
                         case 1:
                             img = MakePictureBox(Properties.Resources.tank, new Point(100, this.Height - 200), new Size(50, 100));
-                            this.player = new Player(playerName, img, new Tank());
+                            Game.player = new Player(playerName, img, new Tank());
                             break;
                         case 2:
                             img = MakePictureBox(Properties.Resources.rogue, new Point(100, this.Height - 200), new Size(50, 100));
-                            this.player = new Player(playerName, img, new Rogue());
+                            Game.player = new Player(playerName, img, new Rogue());
                             break;
                         case 3:
                             img = MakePictureBox(Properties.Resources.swordsman, new Point(100, this.Height - 200), new Size(50, 100));
-                            this.player = new Player(playerName, img, new Swordsman());
+                            Game.player = new Player(playerName, img, new Swordsman());
                             break;
                     }
 
-                    if (this.player != null)
+                    if (Game.player != null)
                     {
-                        FrmLevel frmlevel = new FrmLevel(MainMenu, player);
+                        FrmLevel frmlevel = new FrmLevel(MainMenu);
                         frmlevel.FormClosed += (s, args) => this.Close();
                         frmlevel.Show();
                         this.Hide();
@@ -222,21 +222,21 @@ namespace Fall2020_CSC403_Project
             {
                 case 1:
                     img = MakePictureBox(Properties.Resources.tank, new Point(100, this.Height - 200), new Size(50, 100));
-                    this.player = new Player(playerName, img, new Tank());
+                    Game.player = new Player(playerName, img, new Tank());
                     break;
                 case 2:
                     img = MakePictureBox(Properties.Resources.rogue, new Point(100, this.Height - 200), new Size(50, 100));
-                    this.player = new Player(playerName, img, new Rogue());
+                    Game.player = new Player(playerName, img, new Rogue());
                     break;
                 case 3:
                     img = MakePictureBox(Properties.Resources.swordsman, new Point(100, this.Height - 200), new Size(50, 100));
-                    this.player = new Player(playerName, img, new Swordsman());
+                    Game.player = new Player(playerName, img, new Swordsman());
                     break;
             }
 
-            if (this.player != null)
+            if (Game.player != null)
             {
-                FrmLevel frmlevel = new FrmLevel(MainMenu, player);
+                FrmLevel frmlevel = new FrmLevel(MainMenu);
                 frmlevel.FormClosed += (s, args) => this.Close();
                 frmlevel.Show();
                 this.Hide();

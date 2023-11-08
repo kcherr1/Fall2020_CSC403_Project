@@ -1,9 +1,11 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,6 @@ namespace Fall2020_CSC403_Project
 
         public static FrmInventory instance = null;
         public PictureBox[] InvSlots = new PictureBox[9];
-        private Player player;
         public int selected;
         public PictureBox[] PictureBoxes;
 
@@ -42,7 +43,11 @@ namespace Fall2020_CSC403_Project
         private Label AttackStat;
         private Label DefStat;
         private Label SpeedStat;
+        private Label ItemName;
+        private Label ItemDesc;
 
+        public static FrmLevel frmLevel;
+        
 
         public FrmInventory()
         {
@@ -51,15 +56,18 @@ namespace Fall2020_CSC403_Project
             this.KeyPreview = true;
         }
 
-        public static FrmInventory GetInstance(Player player)
+        public static FrmInventory GetInstance(FrmLevel level)
         {
+            frmLevel = level;
             instance = new FrmInventory();
-            instance.Setup(player);
+            instance.Setup();
             return instance;
         }
 
-        public void Setup(Player player)
+        public void Setup()
         {
+
+
             int height = Screen.PrimaryScreen.Bounds.Height;
             int width = Screen.PrimaryScreen.Bounds.Width;
 
@@ -67,7 +75,6 @@ namespace Fall2020_CSC403_Project
             this.BackColor = Color.DarkSlateGray;
 
             // create inv screen containers
-            this.player = player;
 
              Inv1 = new PictureBox();
              Inv2 = new PictureBox();
@@ -110,7 +117,7 @@ namespace Fall2020_CSC403_Project
             PlayerPic.Location = new Point(Weapon.Location.X + Weapon.Width + width/128, Weapon.Location.Y);
             PlayerPic.Size = new Size(width / 5 + width / 128, 3 * width / 10 + 2* Height/32);
             PlayerPic.SizeMode = PictureBoxSizeMode.StretchImage;
-            PlayerPic.Image = player.Pic.Image;
+            PlayerPic.Image = Game.player.Pic.Image;
 
 
             // add click controls
@@ -263,6 +270,25 @@ namespace Fall2020_CSC403_Project
             SpeedStat.TextAlign = ContentAlignment.MiddleLeft;
             SpeedStat.Font = new Font("NSimSun", SpeedStat.Size.Height / 4);
 
+            // Label for Item name and description
+            ItemDesc = new Label();
+            ItemDesc.Size = new Size(Inv1.Width * 3, Inv1.Height / 2);
+            ItemDesc.AutoSize = false;
+            ItemDesc.Parent = this;
+            ItemDesc.Location = new Point(Inv1.Location.X + (2 * Inv1.Width / 32), Inv1.Location.Y - Inv1.Height * 2 / 3);
+            ItemDesc.TextAlign = ContentAlignment.MiddleLeft;
+            ItemDesc.Font = new Font("NSimSun", AttackStat.Size.Height / 4);
+
+            ItemName = new Label();
+            ItemName.Size = new Size(Inv1.Width * 3, Inv1.Height);
+            ItemName.AutoSize = false;
+            ItemName.Parent = this;
+            ItemName.Location = new Point(Inv1.Location.X + (2 * Inv1.Width / 32), Inv1.Location.Y - Inv1.Height * 5 / 4);
+            ItemName.TextAlign = ContentAlignment.MiddleLeft;
+            ItemName.Font = new Font("NSimSun", AttackStat.Size.Height / 4, FontStyle.Bold);
+
+
+
             UpdateStats();
 
 
@@ -272,18 +298,18 @@ namespace Fall2020_CSC403_Project
 
         private void UpdateStats()
         {
-            SpeedStat.Text = "Speed: "+player.speed.ToString();
-            DefStat.Text = "Defense: "+player.defense.ToString();
-            AttackStat.Text = "Attack: "+player.damage.ToString();
+            SpeedStat.Text = "Speed: "+Game.player.speed.ToString();
+            DefStat.Text = "Defense: "+Game.player.defense.ToString();
+            AttackStat.Text = "Attack: "+Game.player.damage.ToString();
         }
 
         private void UpdateHealthBars()
         {
-            float playerHealthPer = player.Health / (float)player.MaxHealth;
+            float playerHealthPer = Game.player.Health / (float)Game.player.MaxHealth;
             int MAX_HEALTHBAR_WIDTH = HealthMax.Width;
             CurrentHealth.BackColor = Color.Green;
             CurrentHealth.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
-            CurrentHealth.Text = player.Health.ToString();
+            CurrentHealth.Text = Game.player.Health.ToString();
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)
@@ -324,17 +350,17 @@ namespace Fall2020_CSC403_Project
         {
             if (selected == 10)
             {
-                player.Inventory.UnEquipWeapon(player.Position, player.facing);
+                Game.player.Inventory.UnEquipWeapon();
                 RefreshInv();
             }
             else if (selected == 11)
             {
-                player.Inventory.UnEquipArmor(player.Position, player.facing);
+                Game.player.Inventory.UnEquipArmor();
                 RefreshInv();
             }
             else if (selected == 12)
             {
-                player.Inventory.UnEquipUtility(player.Position, player.facing);
+                Game.player.Inventory.UnEquipUtility();
                 RefreshInv();
             }
             else { }
@@ -350,8 +376,8 @@ namespace Fall2020_CSC403_Project
         {
             if (selected == 12)
             {
-                player.ApplyEffect(player.Inventory.Utility.Potion, player.Inventory.Utility.Stat);
-                player.Inventory.UseItem();
+                Game.player.ApplyEffect(Game.player.Inventory.Utility.Potion, Game.player.Inventory.Utility.Stat);
+                Game.player.Inventory.UseItem();
                 RefreshInv();
             }
 
@@ -367,18 +393,18 @@ namespace Fall2020_CSC403_Project
         {
             if (selected > 0 && selected < 10)
             {
-                if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Weapon)
+                if (Game.player.Inventory.Backpack[selected - 1] != null && Game.player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Weapon)
                 {
-                    player.Inventory.EquipWeapon(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                    Game.player.Inventory.EquipWeapon(Game.player.Inventory.Backpack[selected - 1]);
 
                 }
-                else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Armor)
+                else if (Game.player.Inventory.Backpack[selected - 1] != null && Game.player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Armor)
                 {
-                    player.Inventory.EquipArmor(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                    Game.player.Inventory.EquipArmor(Game.player.Inventory.Backpack[selected - 1]);
                 }
-                else if (player.Inventory.Backpack[selected - 1] != null && player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Utility)
+                else if (Game.player.Inventory.Backpack[selected - 1] != null && Game.player.Inventory.Backpack[selected - 1].Type == MyGameLibrary.Item.ItemType.Utility)
                 {
-                    player.Inventory.EquipUtility(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
+                    Game.player.Inventory.EquipUtility(Game.player.Inventory.Backpack[selected - 1]);
                 }
                 else { }
 
@@ -388,7 +414,7 @@ namespace Fall2020_CSC403_Project
                 }
                 selected = 0;
 
-                player.UpdateStats();
+                Game.player.UpdateStats();
                 RefreshInv();
 
 
@@ -399,14 +425,15 @@ namespace Fall2020_CSC403_Project
         {
             if (selected > 0 && selected < 10)
             {
-                player.Inventory.DropItem(player.Inventory.Backpack[selected - 1], player.Position, player.facing);
-                player.Inventory.RemoveFromBackpack(selected - 1);
+                Game.player.Inventory.DropItem(Game.player.Inventory.Backpack[selected - 1]);
+                Game.player.Inventory.RemoveFromBackpack(selected - 1);
             }
             if (selected > 0)
             {
                 PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             selected = 0;
+
             RefreshInv();
         }
 
@@ -425,43 +452,46 @@ namespace Fall2020_CSC403_Project
         public void RefreshInv()
         {
             PictureBox[] show_inventory = { Inv1, Inv2, Inv3, Inv4, Inv5, Inv6, Inv7, Inv8, Inv9 };
-            for (int i = 0; i < player.Inventory.Backpack.Length; i++)
+            for (int i = 0; i < Game.player.Inventory.Backpack.Length; i++)
             {
-                if (player.Inventory.Backpack[i] != null)
+                if (Game.player.Inventory.Backpack[i] != null)
                 {
-                    show_inventory[i].Image = player.Inventory.Backpack[i].Pic.Image;
+                    show_inventory[i].Image = Game.player.Inventory.Backpack[i].Pic.Image;
                 }
                 else
                 {
                     show_inventory[i].Image = null;
                 }
             }
-            if (player.Inventory.Weapon != null)
+            if (Game.player.Inventory.Weapon != null)
             {
-                Weapon.Image = player.Inventory.Weapon.Pic.Image;
+                Weapon.Image = Game.player.Inventory.Weapon.Pic.Image;
             }
             else
             {
                 Weapon.Image = null;
             }
-            if (player.Inventory.Armor != null)
+            if (Game.player.Inventory.Armor != null)
             {
-                Armor.Image = player.Inventory.Armor.Pic.Image;
+                Armor.Image = Game.player.Inventory.Armor.Pic.Image;
             }
             else
             {
                 Armor.Image = null;
             }
-            if (player.Inventory.Utility != null)
+            if (Game.player.Inventory.Utility != null)
             {
-                Utility.Image = player.Inventory.Utility.Pic.Image;
+                Utility.Image = Game.player.Inventory.Utility.Pic.Image;
             }
             else
             {
                 Utility.Image = null;
             }
 
+            ItemDesc.Text = "";
+            ItemName.Text = "";
 
+            frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
             UpdateHealthBars();
             UpdateStats();
             this.Refresh();
@@ -479,7 +509,19 @@ namespace Fall2020_CSC403_Project
                 PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             selected = 11;
-            Armor.BackColor = Color.WhiteSmoke; ;
+            Armor.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Armor != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Armor.Desc;
+
+                ItemName.Text = Game.player.Inventory.Armor.Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
 
         private void Utility_Click(object sender, EventArgs e)
@@ -490,6 +532,18 @@ namespace Fall2020_CSC403_Project
             }
             selected = 12;
             Utility.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Utility != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Utility.Desc;
+
+                ItemName.Text = Game.player.Inventory.Utility.Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
 
         private void Weapon_Click(object sender, EventArgs e)
@@ -500,6 +554,18 @@ namespace Fall2020_CSC403_Project
             }
             selected = 10;
             Weapon.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Weapon != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Weapon.Desc;
+
+                ItemName.Text = Game.player.Inventory.Weapon.Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
 
         private void Inv9_Click(object sender, EventArgs e)
@@ -510,16 +576,41 @@ namespace Fall2020_CSC403_Project
             }
             selected = 9;
             Inv9.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Backpack[selected - 1] != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected - 1].Desc;
+
+                ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
+
 
         private void Inv8_Click(object sender, EventArgs e)
         {
             if (selected > 0)
             {
-                PictureBoxes[selected - 1].BackColor = Color.DimGray;
+                PictureBoxes[selected].BackColor = Color.DimGray;
             }
             selected = 8;
             Inv8.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Backpack[selected - 1] != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected - 1].Desc;
+
+                ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
 
         private void Inv7_Click(object sender, EventArgs e)
@@ -530,6 +621,18 @@ namespace Fall2020_CSC403_Project
             }
             selected = 7;
             Inv7.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Backpack[selected - 1] != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected - 1].Desc;
+
+                ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
 
         private void Inv6_Click(object sender, EventArgs e)
@@ -540,6 +643,18 @@ namespace Fall2020_CSC403_Project
             }
             selected = 6;
             Inv6.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Backpack[selected - 1] != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected - 1].Desc;
+
+                ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
 
         private void Inv5_Click(object sender, EventArgs e)
@@ -550,6 +665,18 @@ namespace Fall2020_CSC403_Project
             }
             selected = 5;
             Inv5.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Backpack[selected - 1] != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected].Desc;
+
+                ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
 
         private void Inv4_Click(object sender, EventArgs e)
@@ -560,6 +687,18 @@ namespace Fall2020_CSC403_Project
             }
             selected = 4;
             Inv4.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Backpack[selected - 1] != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected - 1].Desc;
+
+                ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
 
         private void Inv3_Click(object sender, EventArgs e)
@@ -570,6 +709,18 @@ namespace Fall2020_CSC403_Project
             }
             selected = 3;
             Inv3.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Backpack[selected - 1] != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected - 1].Desc;
+
+                ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
 
         private void Inv2_Click(object sender, EventArgs e)
@@ -580,6 +731,18 @@ namespace Fall2020_CSC403_Project
             }
             selected = 2;
             Inv2.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Backpack[selected - 1] != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected - 1].Desc;
+
+                ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
 
         private void Inv1_Click(object sender, EventArgs e)
@@ -590,11 +753,18 @@ namespace Fall2020_CSC403_Project
             }
             selected = 1;
             Inv1.BackColor = Color.WhiteSmoke;
+
+            if (Game.player.Inventory.Backpack[selected - 1] != null)
+            {
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected - 1].Desc;
+
+                ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
+            }
+            else
+            {
+                ItemDesc.Text = "";
+                ItemName.Text = "";
+            }
         }
-
-
-
-
-
     }
 }

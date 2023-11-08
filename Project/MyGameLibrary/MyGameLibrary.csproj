@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Text.Json, Version=7.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Archetypes.cs" />
+    <Compile Include="Area.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Collider.cs" />
@@ -64,7 +66,8 @@
     </Compile>
     <Compile Include="Terrain.cs" />
     <Compile Include="Tile.cs" />
-    <Compile Include="Wall.cs" />
+    <Compile Include="TravelSign.cs" />
+    <Compile Include="Structure.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -113,6 +116,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dragonmage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zombie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\whelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dragonboss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\harold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\travel_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transparency.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
