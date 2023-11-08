@@ -72,11 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_bricks.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tile_cobblestone.png" />
@@ -112,7 +110,7 @@
     <None Include="Resources\Swordsman.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Tank.png" />
+    <None Include="Resources\tank.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minion.png" />
@@ -142,88 +140,22 @@
     <None Include="Resources\travel_sign.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Transparent.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Transparency.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tile_cobblestone3.png" />
+    <None Include="Resources\tile_rocky.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tile_cobblestone_mossy3.png" />
+    <None Include="Resources\tile_stony.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tile_dirt_path3.png" />
+    <None Include="Resources\tile_stony2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tile_grass_dark3.png" />
+    <None Include="Resources\accuracy_potion.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tile_grass_light3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_rock1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_rocky1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_sand3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_stonebrick3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_stony1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_stony21.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_water_clear3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_water_grassy3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_cobblestone4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_cobblestone_mossy4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_dirt_path4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_grass_dark4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_grass_light4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_rock2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_rocky2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_sand4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_stonebrick4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_stony3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_stony22.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_water_clear4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tile_water_grassy4.png" />
+    <None Include="Resources\tile_rock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

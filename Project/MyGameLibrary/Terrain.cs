@@ -20,11 +20,12 @@ namespace Fall2020_CSC403_Project.code
         public static int GridHeight = GridWidth;
 
 
-        public Terrain (int Seed, double SeedAmplification)
+        public Terrain(int Seed, Biome Biome, double SeedAmplification)
         {
             this.Tiles = new List<Tile>();
-            GenerateTerrain(Seed, SeedAmplification);
+            GenerateTerrain(Seed, Biome, SeedAmplification);
         }
+
 
         public Terrain()
         {
@@ -49,10 +50,56 @@ namespace Fall2020_CSC403_Project.code
         private static Image stone_bricks = Resources.tile_stonebrick;
         private static Image stony = Resources.tile_stony;
         private static Image stony2 = Resources.tile_stony2;
-        private static Image rock = Resources.tile_rock;
 
-        public void GenerateTerrain(int seed, double amplification = 0)
+        private static Image[] beach = new Image[] { water_grass, water_clear, water_clear, sand, sand, grass_light };
+        private static Tile.EffectType[] beach_eff = new Tile.EffectType[] { Tile.EffectType.SuperSlowness, Tile.EffectType.SuperSlowness, Tile.EffectType.SuperSlowness, Tile.EffectType.Slowness, Tile.EffectType.Slowness, Tile.EffectType.None };
+
+        private static Image[] grassland = new Image[] { dirt_path, grass_dark, grass_dark, grass_light, grass_light, grass_light };
+        private static Tile.EffectType[] grassland_eff = new Tile.EffectType[] { Tile.EffectType.None, Tile.EffectType.None, Tile.EffectType.None, Tile.EffectType.None, Tile.EffectType.None, Tile.EffectType.None };
+
+        private static Image[] village = new Image[] { grass_dark, grass_light, dirt_path, cobblestone, stone_bricks, cobble_moss};
+        private static Tile.EffectType[] village_eff = new Tile.EffectType[] { Tile.EffectType.None, Tile.EffectType.None, Tile.EffectType.None, Tile.EffectType.Speed, Tile.EffectType.Speed, Tile.EffectType.Speed };
+
+        private static Image[] mountain = new Image[] { grass_dark, stony, stony2, stony, dirt_path, grass_light };
+        private static Tile.EffectType[] mountain_eff = new Tile.EffectType[] { Tile.EffectType.None, Tile.EffectType.Slowness, Tile.EffectType.Slowness, Tile.EffectType.None, Tile.EffectType.None, Tile.EffectType.None };
+
+
+        public enum Biome
         {
+            Beach,
+            Grassland,
+            Village,
+            Mountain
+        }
+
+        public void GenerateTerrain(int seed, Biome Biome, double amplification = 0)
+        {
+            Image[] images;
+            Tile.EffectType[] effects;
+            switch(Biome)
+            {
+                case Biome.Beach:
+                    images = beach;
+                    effects = beach_eff;
+                    break;
+                case Biome.Grassland:
+                    images = grassland;
+                    effects = grassland_eff;
+                    break;
+                case Biome.Village:
+                    images = village;
+                    effects = village_eff;
+                    break;
+                case Biome.Mountain:
+                    images = mountain;
+                    effects = mountain_eff;
+                    break;
+
+                default:
+                    images = grassland;
+                    effects = grassland_eff;
+                    break;
+            }
 
             Random random = new Random(seed);
             double[][] tiles = new double[GridHeight][];
@@ -70,7 +117,7 @@ namespace Fall2020_CSC403_Project.code
 
                 }
             }
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 for (int y = 0; y < GridHeight; y++) {
                     for (int x = 0; x < GridWidth; x++)
@@ -103,52 +150,31 @@ namespace Fall2020_CSC403_Project.code
             {
                 for (int x = 0; x < GridWidth; x++)
                 {
-                    if (tiles[y][x] < 0.4)
+                    if (tiles[y][x] < 0.45)
                     {
-                        this.AddTile(new Tile(water_grass, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.SuperSlowness));
+                        this.AddTile(new Tile(images[0], new Point(x * TileSize.Width, y * TileSize.Width), effects[0]));
                     }
-                    else if (tiles[y][x] < 0.45)
+                    else if (tiles[y][x] < 0.58)
                     {
-                        this.AddTile(new Tile(water_clear, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.SuperSlowness));
+                        this.AddTile(new Tile(images[1], new Point(x * TileSize.Width, y * TileSize.Width), effects[1]));
                     }
-                    else if (tiles[y][x] < 0.47)
+                    else if (tiles[y][x] < 0.61)
                     {
-                        this.AddTile(new Tile(sand, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Slowness));
-                    }
-                    else if (tiles[y][x] < 0.5)
-                    {
-                        this.AddTile(new Tile(dirt_path, new Point(x * TileSize.Width, y * TileSize.Width)));
-                    }
-                    else if (tiles[y][x] < 0.55)
-                    {
-                        this.AddTile(new Tile(grass_light, new Point(x * TileSize.Width, y * TileSize.Width)));
+                        this.AddTile(new Tile(images[2], new Point(x * TileSize.Width, y * TileSize.Width), effects[2]));
                     }
                     else if (tiles[y][x] < 0.65)
                     {
-                        this.AddTile(new Tile(grass_dark, new Point(x * TileSize.Width, y * TileSize.Width)));
+                        this.AddTile(new Tile(images[3], new Point(x * TileSize.Width, y * TileSize.Width), effects[3]));
                     }
                     else if (tiles[y][x] < 0.7)
                     {
-                        this.AddTile(new Tile(cobble_moss, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Speed));
+                        this.AddTile(new Tile(images[4], new Point(x * TileSize.Width, y * TileSize.Width), effects[4]));
                     }
-                    else if (tiles[y][x] < 0.72)
+                    else 
                     {
-                        this.AddTile(new Tile(cobblestone, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Speed));
+                        this.AddTile(new Tile(images[5], new Point(x * TileSize.Width, y * TileSize.Width), effects[5]));
                     }
-                    else if (tiles[y][x] < 0.75)
-                    {
-                        this.AddTile(new Tile(stone_bricks, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Speed));
-                    }
-                    else if (tiles[y][x] < 0.8)
-                    {
-                        this.AddTile(new Tile(stony, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Slowness));
-                    } else if (tiles[y][x] < 0.9)
-                    {
-                        this.AddTile(new Tile(rock, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Slowness));
-                    } else
-                    {
-                        this.AddTile(new Tile(stony2, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Slowness));
-                    }
+
                 }
             }
         }

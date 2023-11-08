@@ -38,9 +38,9 @@ namespace MyGameLibrary
             this.Visited = false;
         }
 
-        public Area(String AreaName, int Seed, double SeedAmp)
+        public Area(String AreaName, int Seed, Terrain.Biome Biome, double SeedAmp = 0)
         {
-            Terrain = new Terrain(Seed, SeedAmp);
+            Terrain = new Terrain(Seed, Biome, SeedAmp);
             Enemies = new List<Enemy>();
             npcs = new List<NPC>();
             Items = new List<Item>();
@@ -50,6 +50,7 @@ namespace MyGameLibrary
             this.AreaName = AreaName;
             this.Visited = false;
         }
+
         public void AddStructure(Structure structure)
         {
             this.Structures.Add(structure);

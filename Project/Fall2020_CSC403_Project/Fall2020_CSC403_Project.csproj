@@ -162,25 +162,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\final_battle.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\player.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="data\battle_screen.fw.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\wall.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\enemy_cheetos.fw.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\enemy_poisonpacket.fw.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\enemy_koolaid.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
@@ -197,8 +182,6 @@
     <None Include="data\icon_damage.png" />
     <None Include="data\icon_health.png" />
     <None Include="data\icon_speed.png" />
-    <None Include="data\tile_rock.png" />
-    <None Include="data\tile_rocky.png" />
     <None Include="data\tile_stony.png" />
     <None Include="data\tile_stony2.png" />
     <Content Include="gfgLogoIco.ico" />
@@ -223,10 +206,8 @@
     <Content Include="data\lesser_health_potion.png" />
     <Content Include="data\rare_armor.png" />
     <Content Include="data\rare_sword.png" />
-    <None Include="data\settingscog.png" />
     <None Include="data\Return.png" />
     <None Include="data\speed_potion.png" />
-    <Content Include="data\tile_bricks.png" />
     <Content Include="data\tile_cobblestone.png" />
     <Content Include="data\tile_cobblestone_mossy.png" />
     <Content Include="data\tile_dirt_path.png" />

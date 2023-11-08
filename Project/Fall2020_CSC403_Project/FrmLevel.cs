@@ -31,8 +31,6 @@ namespace Fall2020_CSC403_Project
 
         public SoundPlayer gameAudio;
 
-        public Area[] Areas;
-        public PictureBox TerrainPic;
 
         private Direction TravelDirection = Direction.None;
 
@@ -67,7 +65,7 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
             this.MainMenu = MainMenu;
 
-            this.AreaNum = 4;
+            this.AreaNum = 2;
 
 
         }
@@ -287,16 +285,16 @@ namespace Fall2020_CSC403_Project
         private void InitializeArea()
         {
             Game.Areas = new Area[10];
-            Game.Areas[0] = new Area("Malek's Mountain", 12, 0.2);
-            Game.Areas[1] = new Area("Village Ruins", 901, 0.05);
-            Game.Areas[2] = new Area("Buddy Beachfront", 890, 0.05);
-            Game.Areas[3] = new Area("Uphill Hill", 789, 0.05);
-            Game.Areas[4] = new Area("Plainsfield", 678, 0.05);
-            Game.Areas[5] = new Area("Lower Harmony Village", 567, 0.18);
-            Game.Areas[6] = new Area("Windy Plateau", 456, 0.05);
-            Game.Areas[7] = new Area("Harmony Plains", 345, 0.05);
-            Game.Areas[8] = new Area("Harmony Village", 623, 0.14);
-            Game.Areas[9] = new Area("Dragon's Lair", 123, 0.22);
+            Game.Areas[0] = new Area("Malek's Mountain", 710, Terrain.Biome.Mountain, 0.1);
+            Game.Areas[1] = new Area("Village Ruins", 901, Terrain.Biome.Village);
+            Game.Areas[2] = new Area("Buddy Beachfront", 512, Terrain.Biome.Beach, 0.12);
+            Game.Areas[3] = new Area("Uphill Hill", 789, Terrain.Biome.Grassland, 0.15);
+            Game.Areas[4] = new Area("Plainsfield", 678, Terrain.Biome.Grassland, 0.12);
+            Game.Areas[5] = new Area("Lower Harmony Village", 343, Terrain.Biome.Village, 0.07);
+            Game.Areas[6] = new Area("Windy Plateau", 456, Terrain.Biome.Grassland);
+            Game.Areas[7] = new Area("Harmony Plains", 345, Terrain.Biome.Grassland, 0.13);
+            Game.Areas[8] = new Area("Harmony Village", 623, Terrain.Biome.Village, 0.07);
+            Game.Areas[9] = new Area("Dragon's Lair", 123, Terrain.Biome.Mountain);
         }
 
         private void InitializeCurrentArea()

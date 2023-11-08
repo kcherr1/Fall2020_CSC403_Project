@@ -103,7 +103,7 @@ namespace Fall2020_CSC403_Project.code
 
             Items["Accuracy Potion"] = new Item(
                 "Potion of Accuracy",
-                MakePictureBox(Resources.acc_potion, new Point(800, 100), itemSize),
+                MakePictureBox(Resources.accuracy_potion, new Point(800, 100), itemSize),
                 3,
                 Item.ItemType.Utility,
                 Item.PotionTypes.Accuracy,
