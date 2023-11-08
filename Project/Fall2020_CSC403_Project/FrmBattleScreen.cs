@@ -208,7 +208,7 @@ namespace Fall2020_CSC403_Project
             backlog = new Label();
             loglabels = new Label[BattleLog.Count()];
             backlog.BackColor = Color.FromArgb(60, 70, 80);
-            backlog.Size = new Size(picEnemy.Left - picPlayer.Right, 10 * height / 32);
+            backlog.Size = new Size(picPlayer.Width,10 * height / 32);
             backlog.Parent = this;
             backlog.AutoSize = false;
             for (int i = 0; i < BattleLog.Count(); i++)
@@ -218,13 +218,13 @@ namespace Fall2020_CSC403_Project
                 loglabels[i].Text = BattleLog[i]; // Assuming BattleLog is a list of strings
                 loglabels[i].AutoSize = false;
                 loglabels[i].TextAlign = ContentAlignment.MiddleCenter;
-                loglabels[i].Size = new Size(picEnemy.Left - picPlayer.Right, height / 32);
+                loglabels[i].Size = new Size(picPlayer.Width, height / 32);
                 loglabels[i].Font = new Font("NSimSun", 7 * loglabels[i].Size.Height / 8);
                 loglabels[i].ForeColor = Color.White;
                 loglabels[i].BackColor = Color.FromArgb(60, 70, 80);
                 if (i == 0)
                 {
-                    loglabels[i].Location = new Point(picPlayer.Location.X + picPlayer.Width, picPlayer.Location.Y + picPlayer.Height - loglabels[i].Size.Height);
+                    loglabels[i].Location = new Point(picEnemy.Left - picPlayer.Right / 2 - loglabels[i].Width/2, picPlayer.Location.Y + picPlayer.Height - loglabels[i].Size.Height);
                 }
                 else
                 {
@@ -237,7 +237,7 @@ namespace Fall2020_CSC403_Project
                 }
             }
             updateLog();
-            backlog.Location = new Point(picPlayer.Location.X + picPlayer.Width, picPlayer.Location.Y + picPlayer.Height - 10*loglabels[0].Size.Height);
+            backlog.Location = new Point(picEnemy.Left - picPlayer.Right / 2 - backlog.Width / 2, picPlayer.Location.Y + picPlayer.Height - 10*loglabels[0].Size.Height);
 
 
 
