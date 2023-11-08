@@ -35,6 +35,9 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
+            this.picEnemyGRIMACE = new System.Windows.Forms.PictureBox();
+            this.picEnemyRaisin = new System.Windows.Forms.PictureBox();
+            this.picBossPrimordialKoolaid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picWall5 = new System.Windows.Forms.PictureBox();
             this.picWall4 = new System.Windows.Forms.PictureBox();
@@ -62,6 +65,9 @@ namespace Fall2020_CSC403_Project {
             this.picWall24 = new System.Windows.Forms.PictureBox();
             this.picAreaDoor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyGRIMACE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyRaisin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBossPrimordialKoolaid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
@@ -136,6 +142,44 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
             this.picEnemyCheeto.TabIndex = 5;
             this.picEnemyCheeto.TabStop = false;
+
+            // 
+            // picEnemyGRIMACE
+            // 
+            this.picEnemyGRIMACE.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyGRIMACE.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.G_R_I_M_A_C_E_;
+            this.picEnemyGRIMACE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemyGRIMACE.Location = new System.Drawing.Point(0, 0);
+            this.picEnemyGRIMACE.Name = "picEnemyCheeto";
+            this.picEnemyGRIMACE.Size = new System.Drawing.Size(63, 96);
+            this.picEnemyGRIMACE.TabIndex = 12;
+            this.picEnemyGRIMACE.TabStop = false;
+
+            // 
+            // picEnemyRaisin
+            // 
+            this.picEnemyRaisin.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyRaisin.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut_end;
+            this.picEnemyRaisin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemyRaisin.Location = new System.Drawing.Point(0, 0);
+            this.picEnemyRaisin.Name = "picEnemyRaisin";
+            this.picEnemyRaisin.Size = new System.Drawing.Size(63, 96);
+            this.picEnemyRaisin.TabIndex = 13;
+            this.picEnemyRaisin.TabStop = false;
+
+            // 
+            // picBossPrimordialKoolaid
+            // 
+            this.picBossPrimordialKoolaid.BackColor = System.Drawing.Color.Transparent;
+            this.picBossPrimordialKoolaid.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.The_Primoridal_Juice;
+            this.picBossPrimordialKoolaid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBossPrimordialKoolaid.Location = new System.Drawing.Point(0, 0);
+            this.picBossPrimordialKoolaid.Name = "picBossPrimorialKoolaid";
+            this.picBossPrimordialKoolaid.Size = new System.Drawing.Size(193, 194);
+            this.picBossPrimordialKoolaid.TabIndex = 14;
+            this.picBossPrimordialKoolaid.TabStop = false;
+
+
             // 
             // picEnemyPoisonPacket
             // 
@@ -464,6 +508,9 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.picEnemyGRIMACE);
+            this.Controls.Add(this.picEnemyRaisin);
+            this.Controls.Add(this.picBossPrimordialKoolaid);
             this.Controls.Add(this.picWall13);
             this.Controls.Add(this.picWall14);
             this.Controls.Add(this.picWall15);
@@ -486,6 +533,9 @@ namespace Fall2020_CSC403_Project {
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyGRIMACE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyRaisin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBossPrimordialKoolaid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
@@ -528,6 +578,9 @@ namespace Fall2020_CSC403_Project {
         public System.Windows.Forms.Timer tmrPlayerMove;
         public System.Windows.Forms.PictureBox picWall3;
         public System.Windows.Forms.PictureBox picEnemyPoisonPacket;
+        public System.Windows.Forms.PictureBox picEnemyGRIMACE;
+        public System.Windows.Forms.PictureBox picEnemyRaisin;
+        public System.Windows.Forms.PictureBox picBossPrimordialKoolaid;
         public System.Windows.Forms.PictureBox picEnemyCheeto;
         public System.Windows.Forms.Label lblPlayerHealthMap;
         public System.Windows.Forms.PictureBox picWall5;

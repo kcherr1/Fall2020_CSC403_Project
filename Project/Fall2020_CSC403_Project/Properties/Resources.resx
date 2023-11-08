@@ -139,6 +139,12 @@
   <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="G_R_I_M_A_C_E_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\G.R.I.M.A.C.E..png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="The_Primoridal_Juice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\The Primoridal Juice.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="peanut_end" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\peanut_end.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -147,5 +153,26 @@
   </data>
   <data name="deadenemy_poisonpacket_fw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\deadenemy_poisonpacket.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="True_Raisin_Pain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\True Raisin Pain.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\flee.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="heal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\heal.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="koolaid_attack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\koolaid_attack.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="attack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\attack.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dodge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\dodge.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="enemyAttack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\enemyAttack.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

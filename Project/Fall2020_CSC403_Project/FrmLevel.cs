@@ -9,11 +9,16 @@ namespace Fall2020_CSC403_Project {
     {
         private Player player;
 
-        private Enemy enemyPoisonPacket;
-        private Enemy bossKoolaid;
-        private Enemy enemyCheeto;
+
+        private EnemyType enemyPoisonPacket;
+        private EnemyType bossKoolaid;
+        private EnemyType enemyCheeto;
+        private EnemyType bossPrimordialKoolaid;
+        private EnemyType enemyRaisin;
+        private EnemyType enemyGRIMACE;
         private Enemy nextAreaDoor;
         private Character[] walls;
+
         public Boolean worldSelect = false;
         public Boolean bossDeath = false;
 
@@ -32,16 +37,27 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 25;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-      nextAreaDoor = new Enemy(CreatePosition(picAreaDoor), CreateCollider(picAreaDoor, PADDING));
+      bossKoolaid = new EnemyType(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+      enemyPoisonPacket = new EnemyType(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+      enemyCheeto = new EnemyType(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+     enemyGRIMACE= new EnemyType(CreatePosition(picEnemyGRIMACE), CreateCollider(picEnemyGRIMACE, PADDING));
+     enemyRaisin = new EnemyType(CreatePosition(picEnemyRaisin), CreateCollider(picEnemyRaisin, PADDING));
+     bossPrimordialKoolaid = new EnemyType(CreatePosition(picBossPrimordialKoolaid), CreateCollider(picBossPrimordialKoolaid, PADDING));
+     nextAreaDoor = new Enemy(CreatePosition(picAreaDoor), CreateCollider(picAreaDoor, PADDING));
+
+     enemyGRIMACE.Img = picEnemyGRIMACE.BackgroundImage;
+      enemyRaisin.Img = picEnemyRaisin.BackgroundImage;
+      bossPrimordialKoolaid.Img = picBossPrimordialKoolaid.BackgroundImage;
+
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
       nextAreaDoor.Img = picAreaDoor.BackgroundImage;
 
+     enemyGRIMACE.Color = Color.Purple;
+     enemyRaisin.Color = Color.Blue;
+     bossPrimordialKoolaid.Color = Color.Black;
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
@@ -106,7 +122,21 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, enemyCheeto)) {
         levelTheme.Stop();
         Fight(enemyCheeto);
-      }
+      } else if (HitAChar(player, enemyGRIMACE))
+            {
+                levelTheme.Stop();
+                Fight(enemyGRIMACE);
+            }
+      else if (HitAChar(player, enemyRaisin))
+            {
+                levelTheme.Stop();
+                Fight(enemyRaisin);
+            }
+      else if (HitAChar(player, bossPrimordialKoolaid))
+            {
+                levelTheme.Stop();
+                Fight(bossPrimordialKoolaid);
+            }
       if (HitAChar(player, bossKoolaid)) {
         levelTheme.Stop();
         Fight(bossKoolaid);
@@ -207,7 +237,7 @@ namespace Fall2020_CSC403_Project {
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
         }
-        private void Fight(Enemy enemy)
+        private void Fight(EnemyType enemy)
         {
             player.ResetMoveSpeed();
             player.MoveBack();
@@ -228,7 +258,7 @@ namespace Fall2020_CSC403_Project {
                 } };
             frmBattle.Show();
 
-            if (enemy == bossKoolaid)
+            if (enemy == bossKoolaid || enemy == bossPrimordialKoolaid)
             {
                 frmBattle.SetupForBossBattle();
             }
