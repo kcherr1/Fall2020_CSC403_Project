@@ -47,7 +47,9 @@ namespace Fall2020_CSC403_Project.code
         private static Image cobble_moss = Resources.tile_cobblestone_mossy;
         private static Image cobblestone = Resources.tile_cobblestone;
         private static Image stone_bricks = Resources.tile_stonebrick;
-        private static Image bricks = Resources.tile_bricks;
+        private static Image stony = Resources.tile_stony;
+        private static Image stony2 = Resources.tile_stony2;
+        private static Image rock = Resources.tile_rock;
 
         public void GenerateTerrain(int seed, double amplification = 0)
         {
@@ -127,19 +129,25 @@ namespace Fall2020_CSC403_Project.code
                     }
                     else if (tiles[y][x] < 0.7)
                     {
-                        this.AddTile(new Tile(cobble_moss, new Point(x * TileSize.Width, y * TileSize.Width)));
+                        this.AddTile(new Tile(cobble_moss, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Speed));
                     }
                     else if (tiles[y][x] < 0.72)
                     {
-                        this.AddTile(new Tile(cobblestone, new Point(x * TileSize.Width, y * TileSize.Width)));
+                        this.AddTile(new Tile(cobblestone, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Speed));
                     }
-                    else if (tiles[y][x] < 75)
+                    else if (tiles[y][x] < 0.75)
                     {
                         this.AddTile(new Tile(stone_bricks, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Speed));
                     }
-                    else
+                    else if (tiles[y][x] < 0.8)
                     {
-                        this.AddTile(new Tile(bricks, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Speed));
+                        this.AddTile(new Tile(stony, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Slowness));
+                    } else if (tiles[y][x] < 0.9)
+                    {
+                        this.AddTile(new Tile(rock, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Slowness));
+                    } else
+                    {
+                        this.AddTile(new Tile(stony2, new Point(x * TileSize.Width, y * TileSize.Width), Tile.EffectType.Slowness));
                     }
                 }
             }

@@ -197,6 +197,10 @@
     <None Include="data\icon_damage.png" />
     <None Include="data\icon_health.png" />
     <None Include="data\icon_speed.png" />
+    <None Include="data\tile_rock.png" />
+    <None Include="data\tile_rocky.png" />
+    <None Include="data\tile_stony.png" />
+    <None Include="data\tile_stony2.png" />
     <Content Include="gfgLogoIco.ico" />
     <None Include="data\wall_cobblestone.png" />
     <None Include="data\wall_bricks.png" />

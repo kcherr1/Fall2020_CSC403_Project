@@ -76,19 +76,7 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_Load(object sender, EventArgs e)
         {
 
-            
-
-            Game.Areas = new Area[10];
-            Game.Areas[0] = new Area("Malek's Mountain", 12, 0.05);
-            Game.Areas[1] = new Area("Village Ruins", 901, 0.05);
-            Game.Areas[2] = new Area("Buddy Beachfront", 890, 0.05);
-            Game.Areas[3] = new Area("Uphill Hill", 789, 0.05);
-            Game.Areas[4] = new Area("Plainsfield", 678, 0.05);
-            Game.Areas[5] = new Area("Lower Harmony Village", 567, 0.18);
-            Game.Areas[6] = new Area("Windy Plateau", 456, 0.05);
-            Game.Areas[7] = new Area("Harmony Plains", 345, 0.05);
-            Game.Areas[8] = new Area("Harmony Village", 623, 0.14);
-            Game.Areas[9] = new Area("Dragon's Lair", 123, 0.22);
+            InitializeArea();
 
             Game.CurrentArea = Game.Areas[this.AreaNum];
 
@@ -99,7 +87,7 @@ namespace Fall2020_CSC403_Project
 
             AreaSelect();
 
-            InitializeAreaLayout();
+            InitializeCurrentArea();
             timeBegin = DateTime.Now;
 
             this.BackColor = Color.SlateGray;
@@ -296,7 +284,22 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void InitializeAreaLayout()
+        private void InitializeArea()
+        {
+            Game.Areas = new Area[10];
+            Game.Areas[0] = new Area("Malek's Mountain", 12, 0.2);
+            Game.Areas[1] = new Area("Village Ruins", 901, 0.05);
+            Game.Areas[2] = new Area("Buddy Beachfront", 890, 0.05);
+            Game.Areas[3] = new Area("Uphill Hill", 789, 0.05);
+            Game.Areas[4] = new Area("Plainsfield", 678, 0.05);
+            Game.Areas[5] = new Area("Lower Harmony Village", 567, 0.18);
+            Game.Areas[6] = new Area("Windy Plateau", 456, 0.05);
+            Game.Areas[7] = new Area("Harmony Plains", 345, 0.05);
+            Game.Areas[8] = new Area("Harmony Village", 623, 0.14);
+            Game.Areas[9] = new Area("Dragon's Lair", 123, 0.22);
+        }
+
+        private void InitializeCurrentArea()
         {
 
             if (Game.CurrentArea.Terrain != null)
@@ -844,16 +847,7 @@ namespace Fall2020_CSC403_Project
             this.score = 0;
             gameAudio.PlayLooping();
 
-            Game.Areas[0] = new Area("Malek's Mountain", 12, 0.05);
-            Game.Areas[1] = new Area("Village Ruins", 901, 0.05);
-            Game.Areas[2] = new Area("Buddy Beachfront", 890, 0.05);
-            Game.Areas[3] = new Area("Uphill Hill", 789, 0.05);
-            Game.Areas[4] = new Area("Plainsfield", 678, 0.05);
-            Game.Areas[5] = new Area("Lower Harmony Village", 567, 0.05);
-            Game.Areas[6] = new Area("Windy Plateau", 456, 0.05);
-            Game.Areas[7] = new Area("Harmony Plains", 345, 0.05);
-            Game.Areas[8] = new Area("Harmony Village", 234, 0.05);
-            Game.Areas[9] = new Area("Dragon's Lair", 123, 0.2);
+            InitializeArea();
 
             this.gameOver = false;
             Game.player = new Player(Game.player.Name, Game.player.Pic, Game.player.archetype);
@@ -870,7 +864,7 @@ namespace Fall2020_CSC403_Project
 
 
             AreaSelect();
-            InitializeAreaLayout();
+            InitializeCurrentArea();
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)
@@ -1182,7 +1176,7 @@ namespace Fall2020_CSC403_Project
             }
 
 
-            InitializeAreaLayout();
+            InitializeCurrentArea();
 
         }
     }

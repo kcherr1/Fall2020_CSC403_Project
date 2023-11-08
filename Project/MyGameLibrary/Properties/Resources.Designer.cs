@@ -403,16 +403,6 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tile_bricks {
-            get {
-                object obj = ResourceManager.GetObject("tile_bricks", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap tile_cobblestone {
             get {
                 object obj = ResourceManager.GetObject("tile_cobblestone", resourceCulture);
@@ -463,6 +453,26 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap tile_rock {
+            get {
+                object obj = ResourceManager.GetObject("tile_rock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tile_rocky {
+            get {
+                object obj = ResourceManager.GetObject("tile_rocky", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap tile_sand {
             get {
                 object obj = ResourceManager.GetObject("tile_sand", resourceCulture);
@@ -476,6 +486,26 @@ namespace MyGameLibrary.Properties {
         public static System.Drawing.Bitmap tile_stonebrick {
             get {
                 object obj = ResourceManager.GetObject("tile_stonebrick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tile_stony {
+            get {
+                object obj = ResourceManager.GetObject("tile_stony", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tile_stony2 {
+            get {
+                object obj = ResourceManager.GetObject("tile_stony2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
