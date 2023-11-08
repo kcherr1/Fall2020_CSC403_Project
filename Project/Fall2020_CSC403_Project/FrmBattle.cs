@@ -30,8 +30,10 @@ namespace Fall2020_CSC403_Project {
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
 
-      // show health
+      // show health, stamina, Mana
       UpdateHealthBars();
+      UpdateStaminaBar();
+      UpdateManaBar();
     }
 
     public void SetupForBossBattle() {
@@ -66,6 +68,20 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
+    private void UpdateStaminaBar() {
+      float playerStaminaPer = player.Stamina / (float)player.MaxStamina;
+
+      const int MAX_STAMINABAR_WIDTH = 226;
+      lblPlayerStaminaFull.Width = (int)(MAX_STAMINABAR_WIDTH * playerStaminaPer);
+    }
+
+    private void UpdateManaBar() {
+      float playerManaPer = player.Mana / (float)player.MaxMana;
+
+      const int MAX_MANABAR_WIDTH = 226;
+      lblPlayerManaFull.Width = (int)(MAX_MANABAR_WIDTH * playerManaPer);
+    }
+
     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
@@ -81,14 +97,15 @@ namespace Fall2020_CSC403_Project {
 
     private void EnemyDamage(int amount) {
             enemy.AlterHealth(amount);
-        }
+            player.AlterStamina(amount);
+    }
 
     private void PlayerDamage(int amount) {
             if (Blocking != true)
             { player.AlterHealth(amount); }
             else
             { Blocking = false; }
-        }
+    }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
@@ -96,11 +113,16 @@ namespace Fall2020_CSC403_Project {
     }
 
         /// flee button click
-        private void BtnFlee_Click(object sender, EventArgs e){ 
-            instance = null;
-            this.Hide(); }
+    private void BtnFlee_Click(object sender, EventArgs e){ 
+       instance = null;
+       this.Hide(); 
+    }
 
         /// Defend Button click
-        private void BtnDefend_Click(object sender, EventArgs e){ Blocking = true;}
+     private void BtnDefend_Click(object sender, EventArgs e){ Blocking = true;}
+
+     private void lblEnemyHealthFull_Click(object sender, EventArgs e){
+
+     }
     }
 }
