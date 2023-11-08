@@ -153,6 +153,8 @@
     </Content>
     <None Include="data\peanut_end.jpg" />
     <None Include="data\peanut_victory.jpg" />
+    <None Include="data\fire.png" />
+    <None Include="data\portal.png" />
     <Content Include="level_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

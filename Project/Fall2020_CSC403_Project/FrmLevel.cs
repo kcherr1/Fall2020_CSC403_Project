@@ -13,9 +13,13 @@ namespace Fall2020_CSC403_Project {
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Enemy nextAreaDoor;
+        private Enemy obstacle1;
+        private Enemy obstacle2;
         private Character[] walls;
         public Boolean worldSelect = false;
         public Boolean bossDeath = false;
+        public Boolean secondWorld = false;
+        public Boolean invincible = false;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -34,16 +38,22 @@ namespace Fall2020_CSC403_Project {
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
       nextAreaDoor = new Enemy(CreatePosition(picAreaDoor), CreateCollider(picAreaDoor, PADDING));
+      obstacle1 = new Enemy(CreatePosition(picObstacle1), CreateCollider(picObstacle1, PADDING));
+      obstacle2 = new Enemy(CreatePosition(picObstacle2), CreateCollider(picObstacle2, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
       nextAreaDoor.Img = picAreaDoor.BackgroundImage;
+      obstacle1.Img = picObstacle1.BackgroundImage;
+      obstacle2.Img = picObstacle2.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
       nextAreaDoor.Color = Color.Green;
+      obstacle1.Color = Color.Red;
+      obstacle2.Color = Color.Red;
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -88,6 +98,25 @@ namespace Fall2020_CSC403_Project {
   
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+      // ensure dead enemies leave the screen and stay off it
+      if (enemyPoisonPacket.Health <= 0)
+      {
+          enemyPoisonPacket.Displace();
+          picEnemyPoisonPacket.Location = new Point(1500, 1500);
+      }
+
+      if (enemyCheeto.Health <= 0)
+      {
+        enemyCheeto.Displace();
+        picEnemyCheeto.Location = new Point(1500, 1500);
+      }
+   
+      if (bossKoolaid.Health <= 0)
+      {
+        bossKoolaid.Displace();
+        picBossKoolAid.Location = new Point(1500, 1500);
+      }
+      
       // move player
       player.Move();
 
@@ -100,25 +129,76 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, enemyPoisonPacket)) {
         levelTheme.Stop();
         Fight(enemyPoisonPacket);
+                
       }
       else if (HitAChar(player, enemyCheeto)) {
         levelTheme.Stop();
         Fight(enemyCheeto);
-      }
+                
+            }
       if (HitAChar(player, bossKoolaid)) {
         levelTheme.Stop();
         Fight(bossKoolaid);
-      }
+                
+            }
+
+            // if necessary move obstacles
+            if (DateTime.Now.Second % 2 == 0) {
+                // check the player is in the second world
+                if (secondWorld == true) {
+                    // place the obstacles in their respectful areas
+                    picObstacle1.Location = new Point(600, 475);
+                    obstacle1.Collider.MovePosition(600, 475);
+                    picObstacle2.Location = new Point(850,475);
+                    obstacle2.Collider.MovePosition(850, 475);
+
+                    
+                }
+            } else {
+                // remove the obstacles
+                picObstacle1.Location = new Point(1500, 1500);
+                obstacle1.Collider.MovePosition(1500, 1500);
+                picObstacle2.Location = new Point(1500, 1500);
+                obstacle2.Collider.MovePosition(1500, 1500);
+
+                // remove player immunity to obstacles
+                invincible = false;
+            }
+
+            // check collision with obstacles
+            // if collision occurs make the player temporarily invincible to obstacles after damage calculation
+
+            if (HitAChar(player, obstacle1)) {
+                player.MoveBack();
+                if (invincible == false) { 
+                    player.AlterHealth(-2);
+                    invincible = true;
+                }
+            }
+
+            if (HitAChar(player, obstacle2))
+            {
+                player.MoveBack();
+                if (invincible == false)
+                {
+                    player.AlterHealth(-2);
+                    invincible = true;
+                }
+            }
 
             // check collision with the door character and change the world as necessary
             if (HitAChar(player, nextAreaDoor)) {
-                player.MoveBack();
+                
                 if (bossKoolaid.Health <= 0 && bossDeath == false)
                 {
                     // the first boss is defeated, load world 2 upon door interaction
                     bossDeath = true;
                     if (worldSelect == false)
                     {
+                        // move the player to the new area's starting position
+                        picPlayer.Location = new Point(200, 450);
+                        player.Collider.MovePosition(200, 450);
+
 
                         for (int w = 0; w < 13; w++)
                         {
@@ -133,8 +213,19 @@ namespace Fall2020_CSC403_Project {
                             pic.Location = new Point(pic.Location.X - 1500,pic.Location.Y - 1500);
                         }
 
-                        picAreaDoor.Location = new Point(400, 400);
-                        nextAreaDoor.Collider.MovePosition(400,400);
+                        picAreaDoor.Location = new Point(1000, 475);
+                        nextAreaDoor.Collider.MovePosition(1000, 475);
+
+                        // remove enemies from world one
+                        enemyPoisonPacket.Displace();
+                        picEnemyPoisonPacket.Location = new Point(1500, 1500);
+                        enemyCheeto.Displace();
+                        picEnemyCheeto.Location = new Point(1500, 1500);
+
+                        // note the world for obstacles
+                        secondWorld = true;
+
+
                     }
                     
 
@@ -159,10 +250,20 @@ namespace Fall2020_CSC403_Project {
                             pic.Location = new Point(pic.Location.X - 1500, pic.Location.Y - 1500);
                         }
 
-                        picAreaDoor.Location = new Point(500, 400);
-                        nextAreaDoor.Collider.MovePosition(500, 400);
+                        // ensure the obstacles are removed
+                        picObstacle1.Location = new Point(1500, 1500);
+                        obstacle1.Collider.MovePosition(1500, 1500);
+                        picObstacle2.Location = new Point(1500, 1500);
+                        obstacle2.Collider.MovePosition(1500, 1500);
+
+                        // move the area door
+                        picAreaDoor.Location = new Point(200, 475);
+                        nextAreaDoor.Collider.MovePosition(200, 475);
 
                         worldSelect = true;
+
+                        // note the world for obstacles
+                        secondWorld = false;
                     }
                     else {
                         worldSelect = false;
@@ -180,10 +281,13 @@ namespace Fall2020_CSC403_Project {
                             pic.Location = new Point(pic.Location.X - 1500, pic.Location.Y - 1500);
                         }
 
-                        picAreaDoor.Location = new Point(400, 400);
-                        nextAreaDoor.Collider.MovePosition(400, 400);
+                        picAreaDoor.Location = new Point(1000, 475);
+                        nextAreaDoor.Collider.MovePosition(1000,475);
 
                         worldSelect = false;
+
+                        // note the world for obstacles
+                        secondWorld = true;
                     }
                 }
             }
