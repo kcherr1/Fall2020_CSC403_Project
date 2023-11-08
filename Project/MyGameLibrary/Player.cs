@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter {
-    public int Score { get; private set; }
-    public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
-        Score = 0;
+    public new int Xp { get; private set; }
+        public new int XpLevel { get;  set; }
+        public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
+        Xp = 0;
+        XpLevel = 1;
     }
-    public void AlterScore(int amount){
-        Score += amount;
+    public new void AlterXp(int amount){
+        Xp += amount;
     }
   }
 }
