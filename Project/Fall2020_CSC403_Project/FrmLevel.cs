@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Media;
 using System.Text.Json;
 using System.IO;
+using System.Drawing.Drawing2D;
 
 namespace Fall2020_CSC403_Project
 {
@@ -111,13 +112,14 @@ namespace Fall2020_CSC403_Project
             Label NameLabel = new Label();
             NameLabel.Parent = StatusBar;
             NameLabel.BackColor = Color.Transparent;
-            NameLabel.ForeColor = Color.White;
+            NameLabel.ForeColor = Color.Black;
             NameLabel.Size = new Size(width/3, 7*StatusBar.Height/8);
             NameLabel.Location = new Point(0, NameLabel.Size.Height-height/18);
             NameLabel.TextAlign = ContentAlignment.MiddleCenter;
-            NameLabel.Font = new Font("NSimSun", NameLabel.Size.Height / 2);
-            NameLabel.Text = "Player: "+Game.player.Name.ToString();
+            NameLabel.Font = new Font("NSimSun", 3*NameLabel.Size.Height / 4, FontStyle.Bold);
+            NameLabel.Text =Game.player.Name.ToString();
             NameLabel.BringToFront();
+
 
 
             // Add character Health Bar
