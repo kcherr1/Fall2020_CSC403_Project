@@ -59,7 +59,6 @@ namespace Fall2020_CSC403_Project {
             newInstance.enemy = enemy;
             newInstance.Setup();
             newInstance.inventory = inventory;
-            Debug.WriteLine(inventory.ToString());
             return newInstance;
         }
 

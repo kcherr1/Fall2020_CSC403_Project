@@ -46,6 +46,7 @@ namespace Fall2020_CSC403_Project {
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picGun = new System.Windows.Forms.PictureBox();
+            this.picPotion = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainCharacter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
@@ -65,6 +66,7 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPotion)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -363,11 +365,21 @@ namespace Fall2020_CSC403_Project {
             // 
             this.picGun.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picGun.BackgroundImage")));
             this.picGun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picGun.Location = new System.Drawing.Point(572, 301);
+            this.picGun.Location = new System.Drawing.Point(755, 349);
             this.picGun.Name = "picGun";
             this.picGun.Size = new System.Drawing.Size(73, 59);
             this.picGun.TabIndex = 19;
             this.picGun.TabStop = false;
+            // 
+            // picPotion
+            // 
+            this.picPotion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picPotion.BackgroundImage")));
+            this.picPotion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picPotion.Location = new System.Drawing.Point(512, 180);
+            this.picPotion.Name = "picPotion";
+            this.picPotion.Size = new System.Drawing.Size(74, 71);
+            this.picPotion.TabIndex = 20;
+            this.picPotion.TabStop = false;
             // 
             // FrmLevel
             // 
@@ -397,6 +409,7 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picGun);
+            this.Controls.Add(this.picPotion);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -424,6 +437,7 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPotion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,6 +471,7 @@ namespace Fall2020_CSC403_Project {
         private System.Windows.Forms.RichTextBox richTextBox1;
     private System.Windows.Forms.PictureBox mainCharacter;
         private System.Windows.Forms.PictureBox picGun;
+        private System.Windows.Forms.PictureBox picPotion;
     }
 }
 

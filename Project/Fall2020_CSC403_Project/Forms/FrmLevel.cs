@@ -193,6 +193,16 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        private void PickUpItem(Character you, Item item)
+        {
+            if (HitAItem(you, item))
+            {
+                inventory.AddItem(gun);
+                picGun.Dispose();
+                gun = null;
+            }
+        }
+
         private void ShowInven() {
             frmInventory = new FrmInventory(inventory);
             frmInventory.Show();
@@ -232,12 +242,7 @@ namespace Fall2020_CSC403_Project
                         break;
 
                     case Keys.E:
-                        if(HitAItem(player, gun))
-                        {
-                            inventory.AddItem(gun);
-                            picGun.Dispose();
-                            gun = null;
-                        }
+                        PickUpItem(player, gun);
                     break;
                     
                     case Keys.I:
