@@ -221,8 +221,8 @@
     <Content Include="data\iamchatgpt.png" />
     <None Include="data\ramboPeanut.png" />
     <None Include="data\Psychedelic.png" />
-	<Content Include="data\home.jpeg" />
-	<None Include="data\newpic.png" />
+    <Content Include="data\home.jpeg" />
+    <None Include="data\newpic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,7 +63,7 @@ namespace Fall2020_CSC403_Project {
             }
 
         }
-        public async void Setup()
+        public void Setup()
         {
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
@@ -80,13 +80,9 @@ namespace Fall2020_CSC403_Project {
             // show health
             UpdateHealthBars();
 
-            // Update text box the boss's intro statement
-            CGPT cgpt = new CGPT();
-            label3.Text = await cgpt.GetBossIntroStatement();
-
         }
 
-        public void SetupForBossBattle()
+        public async void SetupForBossBattle()
         {
             picEpicBossBattle.Location = Point.Empty;
             picEpicBossBattle.Size = ClientSize;
@@ -99,6 +95,10 @@ namespace Fall2020_CSC403_Project {
             simpleSound.PlayLooping();
 
             tmrFinalBattle.Enabled = true;
+
+            // Update text box the boss's intro statement
+            CGPT cgpt = new CGPT();
+            label3.Text = await cgpt.GetBossIntroStatement();
         }
 
         // In order to make the instance nonnull, we use this. if its already non null, we can just use FrmBattle.instance to access it. 
@@ -131,7 +131,7 @@ namespace Fall2020_CSC403_Project {
 
         private async void btnAttack_Click(object sender, EventArgs e)
         {
-            player.OnAttack(-3);
+            player.OnAttack(-6);
 
             if (enemy.Health > 0)
             {
@@ -153,45 +153,53 @@ namespace Fall2020_CSC403_Project {
                         label3.Text = $"You do 3 damage, but CGPT Heals 4 health back!";
                     }
                 }
-                else
+                else // other enemies
                 {
                     enemy.OnAttack(-2);
                     simpleSFX.PlaySync();
                 }
+            }
 
-                UpdateHealthBars();
-                if (player.Health <= 0)
+            UpdateHealthBars();
+
+            if (player.Health <= 0)
+            {
+                instance = null;
+                DialogResult gotoHomeDialogue = MessageBox.Show("You lose!!! Want to play again?", "YOU LOSE!!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (gotoHomeDialogue == DialogResult.Yes)
                 {
-                    instance = null;
-                    DialogResult gotoHomeDialogue = MessageBox.Show("You lose!!! Want to play again?", "YOU LOSE!!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (gotoHomeDialogue == DialogResult.Yes)
-                    {
-                        FrmHome.gameplayForm.Close();
-                        FrmHome homeForm = new FrmHome();
-                        homeForm.Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        Application.Exit();
-                    }
+                    FrmHome.gameplayForm.Close();
+                    FrmHome.gameplayForm = null;
+                    Program.frmHome = new FrmHome();
+                    Program.frmHome.Show();
+                    this.Close();
                 }
-                if (enemy.Health <= 0)
+                else
                 {
-                    instance = null;
+                    Application.Exit();
+                }
+            }
+
+            if (enemy.Health <= 0) {
+
+                try 
+                {
                     if (enemy == FrmHome.gameplayForm.bossChatgpt)
                     {
                         simpleSound = new SoundPlayer(Resources.congrats);
                         simpleSound.Play();
                         frmLevel.picBossChatgpt.Visible = false;
-                        frmLevel.bossChatgpt = null;
+                        //
+                        //frmLevel.bossChatgpt = null;
                         DialogResult gotoHomeDialogue = MessageBox.Show("You win!!! Want to play again?", "YOU WIN!!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (gotoHomeDialogue == DialogResult.Yes)
                         {
                             FrmHome.gameplayForm.Close();
-                            FrmHome homeForm = new FrmHome();
-                            homeForm.Show();
+                            FrmHome.gameplayForm = null;
+                            Program.frmHome = new FrmHome();
+                            Program.frmHome.Show();
                             this.Close();
+                            instance = null;
                         }
                         else
                         {
@@ -202,44 +210,46 @@ namespace Fall2020_CSC403_Project {
                     {
                         // for all other enemies, after battle play another sound
                         // Close the window and send to formclosed event
-                        instance = null;
                         if (frmLevel.enemyCheeto.Name == enemy.Name)
                         {
                             frmLevel.picEnemyCheeto.Visible = false;
-                            frmLevel.enemyCheeto = null;
+                            //frmLevel.enemyCheeto = null;
+
                         }
                         else if (frmLevel.enemyPoisonPacket.Name == enemy.Name)
                         {
                             frmLevel.picEnemyPoisonPacket.Visible = false;
-                            frmLevel.enemyPoisonPacket = null;
+                            //frmLevel.enemyPoisonPacket = null;
+
                         }
-                        Close();
+                        this.Close();
+                        instance = null;
 
                     }
-
                 }
+                catch 
+                {
+                    // If you turn this on, and you attack too quickly, it will display because the attack is firing but the boss has already been nulled that it is checking
+                    //System.Windows.Forms.MessageBox.Show("Null exception on boss");
+                }
+            
             }
-
-            private void EnemyDamage(int amount)
-            {
-                enemy.AlterHealth(amount);
-            }
-
-            private void PlayerDamage(int amount)
-            {
-
-                player.AlterHealth(amount);
-            }
-
-
-            private void PlayerDamage(int amount) {
-                player.AlterHealth(amount);
-            }
-
-            private void tmrFinalBattle_Tick(object sender, EventArgs e) {
-                picEpicBossBattle.Visible = false;
-                tmrFinalBattle.Enabled = false;
-            }
-
         }
+
+        private void EnemyDamage(int amount)
+        {
+            enemy.AlterHealth(amount);
+        }
+
+        private void PlayerDamage(int amount) {
+            player.AlterHealth(amount);
+        }
+
+        private void tmrFinalBattle_Tick(object sender, EventArgs e) {
+            picEpicBossBattle.Visible = false;
+            tmrFinalBattle.Enabled = false;
+        }
+
+        
     }
+}

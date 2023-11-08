@@ -120,7 +120,7 @@
             // picEnemy
             // 
             this.picEnemy.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid;
+            this.picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.iamchatgpt;
             this.picEnemy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picEnemy.Location = new System.Drawing.Point(687, 121);

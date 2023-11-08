@@ -17,7 +17,9 @@ namespace Fall2020_CSC403_Project
         private List<string> label1Text = new List<string>();
         private List<string> label2Text = new List<string>();
         private int currentImageIndex = 0;
+        private FrmHelp frmHelp;
         public static FrmLevel gameplayForm = null;
+        public static FrmHome frmHome = null;
         public FrmHome()
         {
             InitializeComponent();
@@ -75,7 +77,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
                 case Keys.S:
-                    FrmLevel gameplayForm = new FrmLevel();
+                    gameplayForm = new FrmLevel();
                     gameplayForm.Show();
                     this.Hide();
                     break;
@@ -103,7 +105,7 @@ namespace Fall2020_CSC403_Project
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmHelp frmHelp = new FrmHelp(); // Create an instance of the instruction form
+            frmHelp = new FrmHelp(); // Create an instance of the instruction form
             frmHelp.ShowDialog(); // Show the instruction form as a modal dialog
 
             // Environment.Exit(0);
