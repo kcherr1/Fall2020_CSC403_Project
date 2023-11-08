@@ -250,19 +250,19 @@ namespace Fall2020_CSC403_Project
         {
             if (player.speed >= enemy.speed)
             {
-                player.OnAttack(enemy.defense);
+                AddToLog(player.OnAttack(enemy.defense));
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack(player.defense);
+                    AddToLog(enemy.OnAttack(player.defense));
                 }
             }
             else
             {
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack(player.defense);
+                    AddToLog(enemy.OnAttack(player.defense));
                 }
-                player.OnAttack(enemy.defense);
+                AddToLog(player.OnAttack(enemy.defense));
             }
 
             UpdateHealthBars();
@@ -282,6 +282,7 @@ namespace Fall2020_CSC403_Project
                 frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
                 Close();
             }
+
         }
 
         public static FrmBattleScreen GetInstance(FrmLevel level, Enemy enemy)
@@ -303,6 +304,15 @@ namespace Fall2020_CSC403_Project
         {
             player.TakeDamage(amount);
             UpdateHealthBars();
+        }
+
+        private void AddToLog(string log)
+        {
+            for (int i = BattleLog.Length - 1; i > 0; i--)
+            {
+                BattleLog[i] = BattleLog[i - 1];
+            }
+            BattleLog[0] = log;
         }
 
     }
