@@ -533,6 +533,16 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Transparency {
+            get {
+                object obj = ResourceManager.GetObject("Transparency", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap wall_bricks {
             get {
                 object obj = ResourceManager.GetObject("wall_bricks", resourceCulture);

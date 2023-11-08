@@ -186,6 +186,7 @@
     <Folder Include="code\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Transparent.png" />
     <None Include="Resources\harold1.png" />
     <None Include="data\travel_sign.png" />
     <None Include="data\house_L.png" />

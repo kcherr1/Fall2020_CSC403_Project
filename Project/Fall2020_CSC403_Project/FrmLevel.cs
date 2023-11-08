@@ -56,7 +56,6 @@ namespace Fall2020_CSC403_Project
             this.AreaNum = 4;
 
 
-
         }
 
 
@@ -68,11 +67,11 @@ namespace Fall2020_CSC403_Project
             Game.Areas[2] = new Area("Buddy Beachfront", 890, 0.05);
             Game.Areas[3] = new Area("Uphill Hill", 789, 0.05);
             Game.Areas[4] = new Area("Plainsfield", 678, 0.05);
-            Game.Areas[5] = new Area("Lower Harmony Village", 567, 0.05);
+            Game.Areas[5] = new Area("Lower Harmony Village", 567, 0.18);
             Game.Areas[6] = new Area("Windy Plateau", 456, 0.05);
             Game.Areas[7] = new Area("Harmony Plains", 345, 0.05);
-            Game.Areas[8] = new Area("Harmony Village", 623, 0.15);
-            Game.Areas[9] = new Area("Dragon's Lair", 123, 0.2);
+            Game.Areas[8] = new Area("Harmony Village", 623, 0.14);
+            Game.Areas[9] = new Area("Dragon's Lair", 123, 0.22);
 
             Game.CurrentArea = Game.Areas[this.AreaNum];
 
@@ -115,6 +114,7 @@ namespace Fall2020_CSC403_Project
             SignPanel.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - SignPanel.Width / 2, 0);
 
             TravelLabel.Size = new Size(SignPanel.Size.Width, SignPanel.Size.Height / 2);
+            TravelLabel.Font = new Font("NSimSun", TravelLabel.Size.Height / 4);
             TravelLabel.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - TravelLabel.Width / 2, 0);
 
             TravelButton.Size = new Size(SignPanel.Size.Width - 200, SignPanel.Size.Height / 4);
@@ -145,6 +145,7 @@ namespace Fall2020_CSC403_Project
                     }
                 }
                 this.BackgroundImage = combinedImage;
+                this.BackgroundImageLayout = ImageLayout.None;
 
                 if (Game.CurrentArea.TravelSigns != null)
                 {
@@ -275,6 +276,14 @@ namespace Fall2020_CSC403_Project
 
             // move Game.playerd
             Game.player.Move();
+
+            if (Game.player.Position.x < 0 || 
+                Game.player.Position.x > Screen.PrimaryScreen.Bounds.Width - Game.player.Pic.Size.Width ||
+                Game.player.Position.y < Screen.PrimaryScreen.Bounds.Height * 1/12 ||
+                Game.player.Position.y > Screen.PrimaryScreen.Bounds.Height - Game.player.Pic.Size.Height - 40)
+            {
+                Game.player.MoveBack();
+            }
 
             // check collision with walls
             if (HitAWall(Game.player))
@@ -675,7 +684,7 @@ namespace Fall2020_CSC403_Project
             ExitButton.Enabled = false;
             MainMenuButton.Enabled = false;
 
-            this.AreaNum = 4;
+
             AreaSelect();
             InitializeAreaLayout();
         }
@@ -700,6 +709,7 @@ namespace Fall2020_CSC403_Project
         private void AreaSelect()
         {
             Game.CurrentArea = Game.Areas[this.AreaNum];
+
             switch (this.AreaNum)
             {
                 case 0:
@@ -782,6 +792,8 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddStructure(new Structure(MakePictureBox(house_L, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4, 300), L_Size)));
             Game.CurrentArea.AddStructure(new Structure(MakePictureBox(house_L_rot180, new Point(Screen.PrimaryScreen.Bounds.Width * 1 / 4, 80), L_Size)));
 
+            Game.CurrentArea.AddStructure(Game.Structures["VillageWall1"]);
+            Game.CurrentArea.AddStructure(Game.Structures["VillageWall2"]);
 
         }
 
@@ -815,6 +827,10 @@ namespace Fall2020_CSC403_Project
                 return;
             }
             Game.CurrentArea.Visited = true;
+
+            Game.CurrentArea.AddStructure(Game.Structures["LowerVillageWall1"]);
+            Game.CurrentArea.AddStructure(Game.Structures["LowerVillageWall2"]);
+            Game.CurrentArea.AddStructure(Game.Structures["LowerVillageWall3"]);
 
         }
 

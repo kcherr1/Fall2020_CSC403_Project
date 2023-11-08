@@ -216,6 +216,41 @@ namespace Fall2020_CSC403_Project.code
             Structures["house_L_rot180"] = new Structure(
                 MakePictureBox(house_L_rot180, new Point(Screen.PrimaryScreen.Bounds.Width * 1 / 4, 80), L_Size));
 
+
+            Structures["VillageWall1"] = new Structure(
+                MakePictureBox(Resources.Transparency, new Point((int)Screen.PrimaryScreen.Bounds.Width * 2 / 10, 0), new Size(Resources.wall_bricks.Height, Terrain.TileSize.Width * 7)));
+            Structures["VillageWall1"].Pic.BackgroundImage = Resources.wall_bricks;
+            Structures["VillageWall1"].Pic.BackgroundImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            Structures["VillageWall1"].Pic.BackgroundImageLayout = ImageLayout.Tile;
+
+            Structures["VillageWall2"] = new Structure(
+                MakePictureBox(Resources.Transparency, new Point((int)Screen.PrimaryScreen.Bounds.Width * 2 / 10, Terrain.TileSize.Width * 12), new Size(Resources.wall_bricks.Height, Screen.PrimaryScreen.Bounds.Height)));
+            Structures["VillageWall2"].Pic.BackgroundImage = Resources.wall_bricks;
+            Structures["VillageWall2"].Pic.BackgroundImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            Structures["VillageWall2"].Pic.BackgroundImageLayout = ImageLayout.Tile;
+
+
+            Structures["LowerVillageWall1"] = new Structure(
+    MakePictureBox(Resources.Transparency, new Point((int)Screen.PrimaryScreen.Bounds.Width * 1/ 5 - 10, 0), new Size(Resources.wall_bricks.Height, Terrain.TileSize.Width * 7)));
+            Structures["LowerVillageWall1"].Pic.BackgroundImage = Resources.wall_bricks;
+            Structures["LowerVillageWall1"].Pic.BackgroundImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            Structures["LowerVillageWall1"].Pic.BackgroundImageLayout = ImageLayout.Tile;
+
+            Structures["LowerVillageWall2"] = new Structure(
+                MakePictureBox(Resources.Transparency, new Point((int)Screen.PrimaryScreen.Bounds.Width * 1/ 5  - 10, Terrain.TileSize.Width * 12), new Size(Resources.wall_bricks.Height, Terrain.TileSize.Width * 2)));
+            Structures["LowerVillageWall2"].Pic.BackgroundImage = Resources.wall_bricks;
+            Structures["LowerVillageWall2"].Pic.BackgroundImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            Structures["LowerVillageWall2"].Pic.BackgroundImageLayout = ImageLayout.Tile;
+
+
+            int x = Structures["LowerVillageWall2"].Pic.Location.X;
+            int y = Terrain.TileSize.Width * 14;
+            Structures["LowerVillageWall3"] = new Structure(
+                MakePictureBox(Resources.Transparency, new Point(x, y), new Size(Screen.PrimaryScreen.Bounds.Width, Resources.wall_bricks.Height)));
+            Structures["LowerVillageWall3"].Pic.BackgroundImage = Resources.wall_bricks;
+            Structures["LowerVillageWall3"].Pic.BackgroundImageLayout = ImageLayout.Tile;
+
+
         }
 
         public static PictureBox MakePictureBox(Bitmap pic, Point location, Size Size)
