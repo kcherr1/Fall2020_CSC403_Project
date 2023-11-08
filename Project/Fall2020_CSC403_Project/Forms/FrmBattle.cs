@@ -13,6 +13,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+    private Inventory inventory;
 
     private FrmBattle() {
       InitializeComponent();
@@ -52,11 +53,13 @@ namespace Fall2020_CSC403_Project {
       tmrFinalBattle.Enabled = true;
     }
 
-    public static FrmBattle GetInstance(Enemy enemy) {
+    public static FrmBattle GetInstance(Enemy enemy, Inventory inventory) {
             //updated enemies go here?
             var newInstance = new FrmBattle();
             newInstance.enemy = enemy;
             newInstance.Setup();
+            newInstance.inventory = inventory;
+            Debug.WriteLine(inventory.ToString());
             return newInstance;
         }
 

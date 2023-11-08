@@ -181,7 +181,7 @@ namespace Fall2020_CSC403_Project
             MusicPlayer.StopLevelMusic();
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle = FrmBattle.GetInstance(enemy, inventory);
             frmBattle.Show();
 
             if (enemy == bossKoolaid)
