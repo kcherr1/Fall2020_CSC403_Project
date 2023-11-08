@@ -415,7 +415,7 @@ namespace Fall2020_CSC403_Project
 
                 case Keys.E:
                     Game.player.ResetMoveSpeed();
-                    frminventory = FrmInventory.GetInstance();
+                    frminventory = FrmInventory.GetInstance(this);
                     frminventory.Show();
                     break;
 
@@ -834,7 +834,7 @@ namespace Fall2020_CSC403_Project
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            frminventory = FrmInventory.GetInstance();
+            frminventory = FrmInventory.GetInstance(this);
             frminventory.Show();
         }
 

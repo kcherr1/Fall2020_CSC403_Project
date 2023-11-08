@@ -44,7 +44,7 @@ namespace Fall2020_CSC403_Project.code
 
             Items["Speed Potion"] = new Item(
                 "Potion of Speed",
-                MakePictureBox(Resources.speed_potion, new Point(20, 400), itemSize),
+                MakePictureBox(Resources.speed_potion, new Point(69, 420), itemSize),
                 10,
                 Item.ItemType.Utility,
                 Item.PotionTypes.Speed,
