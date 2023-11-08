@@ -63,6 +63,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap area_bar {
+            get {
+                object obj = ResourceManager.GetObject("area_bar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BackgroundForRPG3 {
             get {
                 object obj = ResourceManager.GetObject("BackgroundForRPG3", resourceCulture);
@@ -360,6 +370,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap speed_potion {
             get {
                 object obj = ResourceManager.GetObject("speed_potion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap status_bar_bg {
+            get {
+                object obj = ResourceManager.GetObject("status_bar_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

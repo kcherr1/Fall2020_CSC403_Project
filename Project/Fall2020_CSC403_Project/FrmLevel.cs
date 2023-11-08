@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Media;
 using System.Text.Json;
 using System.IO;
+using System.Drawing.Drawing2D;
 
 namespace Fall2020_CSC403_Project
 {
@@ -37,6 +38,15 @@ namespace Fall2020_CSC403_Project
 
         public Label ScoreLabel;
 
+        public int height = Screen.PrimaryScreen.Bounds.Height;
+        public int width = Screen.PrimaryScreen.Bounds.Width;
+
+        private Label playerHealthMax;
+        public Label playerCurrentHealth;
+
+        private Label location;
+
+
         public FrmLevel(Form MainMenu)
         {
             this.KeyPreview = true;
@@ -61,6 +71,9 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_Load(object sender, EventArgs e)
         {
+
+            
+
             Game.Areas = new Area[10];
             Game.Areas[0] = new Area("Malek's Mountain", 12, 0.05);
             Game.Areas[1] = new Area("Village Ruins", 901, 0.05);
@@ -85,18 +98,106 @@ namespace Fall2020_CSC403_Project
             InitializeAreaLayout();
             timeBegin = DateTime.Now;
 
+            this.BackColor = Color.SlateGray;
+
+            // Add bar to top of screen that will hold status
+            Label StatusBar = new Label();
+            StatusBar.Size = new Size(width, height / 14);
+            StatusBar.Parent = this;
+            StatusBar.BackColor = this.BackColor;
+            StatusBar.BackgroundImage = Properties.Resources.status_bar_bg;
+
+            // Add name to status bar
+            Label NameLabel = new Label();
+            NameLabel.Parent = StatusBar;
+            NameLabel.BackColor = Color.Transparent;
+            NameLabel.ForeColor = Color.Black;
+            NameLabel.Size = new Size(width/3, 7*StatusBar.Height/8);
+            NameLabel.Location = new Point(0, NameLabel.Size.Height-height/18);
+            NameLabel.TextAlign = ContentAlignment.MiddleCenter;
+            NameLabel.Font = new Font("NSimSun", 3*NameLabel.Size.Height / 4, FontStyle.Bold);
+            NameLabel.Text =Game.player.Name.ToString();
+            NameLabel.BringToFront();
+
+
+
+            // Add character Health Bar
+            playerHealthMax = new Label();
+            playerCurrentHealth = new Label();
+
+            playerCurrentHealth.Size = new Size(width/7, height/22);
+            playerCurrentHealth.Parent = this;
+            playerCurrentHealth.Location = new Point(2*width/3 + width/64, height/64);
+            playerCurrentHealth.Font = new Font("NSimSun", 3 * playerCurrentHealth.Size.Height / 8);
+            playerCurrentHealth.TextAlign = ContentAlignment.MiddleCenter;
+            playerCurrentHealth.BackColor = Color.Green;
+            playerCurrentHealth.AutoSize = false;
+
+            playerHealthMax.Size = playerCurrentHealth.Size;
+            playerHealthMax.Parent = this;
+            playerHealthMax.Location = playerCurrentHealth.Location;
+            playerHealthMax.Font = new Font("NSimSun", 3 * playerCurrentHealth.Size.Height / 8);
+            playerHealthMax.BackColor = Color.Red;
+            playerHealthMax.AutoSize = false;
+
+            playerHealthMax.BringToFront();
+            playerCurrentHealth.BringToFront();
+
+            UpdateHealthBars(playerCurrentHealth);
+
+            //Move inventory and labels
+            InvPicButton.Location = new Point(InvPicButton.Location.X, InvPicButton.Location.Y+StatusBar.Height);
+            lblInGameTime.Location = new Point(lblInGameTime.Location.X, lblInGameTime.Location.Y + StatusBar.Height);
+
             this.ScoreLabel = new Label();
             this.Controls.Add(ScoreLabel);
             ScoreLabel.BackColor = Color.Black;
             ScoreLabel.ForeColor = Color.White;
             ScoreLabel.Text = "Score: " + score.ToString();
-            ScoreLabel.Location = new Point(Screen.PrimaryScreen.Bounds.Width - ScoreLabel.Width - 20, 15);
+            ScoreLabel.Location = new Point(Screen.PrimaryScreen.Bounds.Width - ScoreLabel.Width - 20, lblInGameTime.Location.Y);
             ScoreLabel.Font = new Font("Microsoft Sans Serif", 11);
             ScoreLabel.Visible = true;
             ScoreLabel.BringToFront();
-            
-            
-            
+
+            // Add signboard
+            PictureBox SignBoard = new PictureBox();
+            SignBoard.BackColor = Color.Transparent;
+            SignBoard.Parent = this;
+            SignBoard.Size = new Size(width / 3, height / 14);
+            SignBoard.SizeMode = PictureBoxSizeMode.StretchImage;
+            SignBoard.Location = new Point(width / 3, 0);
+            SignBoard.Image = Properties.Resources.area_bar;
+            SignBoard.BackgroundImage = Properties.Resources.status_bar_bg;
+            SignBoard.BringToFront();
+
+            // Add location
+            location = new Label();
+            location.Parent = SignBoard;
+            location.BackColor = Color.Transparent;
+            location.ForeColor = Color.White;
+            location.Size = new Size(width / 5, height / 14);
+            location.Location = new Point(SignBoard.Size.Width / 2 - location.Size.Width / 2, 0);
+            location.AutoSize = false;
+            location.TextAlign = ContentAlignment.MiddleCenter;
+            location.Text = Game.CurrentArea.AreaName.ToString();
+            location.Font = new Font("NSimSun", 10);
+
+            using (Graphics g = location.CreateGraphics())
+            {
+                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                for (int fontSize = 100; fontSize >= 8; fontSize--)
+                {
+                    Font testFont = new Font("NSimSun", fontSize);
+                    Size textSize = TextRenderer.MeasureText(g, location.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
+
+                    if (textSize.Width <= location.Width && textSize.Height <= location.Height)
+                    {
+                        location.Font = testFont; // Set the font size that fits
+                        break;
+                    }
+                }
+            }
+
 
             //Adding stop condition to mainMenu_music here
             FrmMain mainMenuPlayer = Application.OpenForms["FrmMain"] as FrmMain;
@@ -242,7 +343,7 @@ namespace Fall2020_CSC403_Project
 
                 case Keys.E:
                     Game.player.ResetMoveSpeed();
-                    frminventory = FrmInventory.GetInstance();
+                    frminventory = FrmInventory.GetInstance(this);
                     frminventory.Show();
                     break;
 
@@ -296,7 +397,6 @@ namespace Fall2020_CSC403_Project
             if (x >= 0)
             {
                 Fight(Game.CurrentArea.Enemies[x]);
-
 
             }
 
@@ -369,6 +469,16 @@ namespace Fall2020_CSC403_Project
                 }
             }
             return hitAWall;
+        }
+
+        public void UpdateHealthBars(Label playerCurrentHealth)
+        {
+            // for player
+            float playerHealthPer = Game.player.Health / (float)Game.player.MaxHealth;
+            int MAX_HEALTHBAR_WIDTH = playerHealthMax.Width;
+            playerCurrentHealth.BackColor = Color.Green;
+            playerCurrentHealth.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+            playerCurrentHealth.Text = Game.player.Health.ToString();
         }
 
         private int hitEnemy(Player you)
@@ -451,6 +561,7 @@ namespace Fall2020_CSC403_Project
             Game.player.MoveBack();
             frmBattleScreen = FrmBattleScreen.GetInstance(this, enemy);
             frmBattleScreen.Show();
+            UpdateHealthBars(playerCurrentHealth);
         }
 
         public void RemoveEnemy(Enemy enemy)
@@ -459,6 +570,7 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.Enemies.Remove(enemy);
             score += 100;
             ScoreLabel.Text = "Score: " + score.ToString();
+            UpdateHealthBars(playerCurrentHealth);
         }
 
         private void Converse(NPC npc)
@@ -650,7 +762,7 @@ namespace Fall2020_CSC403_Project
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            frminventory = FrmInventory.GetInstance();
+            frminventory = FrmInventory.GetInstance(this);
             frminventory.Show();
         }
 
@@ -921,7 +1033,7 @@ namespace Fall2020_CSC403_Project
             if (up >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Up, up);
-                Game.Areas[area].SetTravelSign(Direction.Up, new TravelSign(Game.Areas[up].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, 10), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Up, new TravelSign(Game.Areas[up].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, height/12+10), this.signSize)));
             }
             if (down >= 0)
             {
@@ -954,7 +1066,7 @@ namespace Fall2020_CSC403_Project
                     Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - signSize.Height - Game.player.Pic.Height  - 100));
                     break;
                 case Direction.Down:
-                    Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, signSize.Height + 20));
+                    Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, height/12 + signSize.Height + 20));
                     break;
                 case Direction.Right:
                     Game.player.SetEntityPosition(new Position(signSize.Width + 10, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
@@ -970,7 +1082,22 @@ namespace Fall2020_CSC403_Project
 
             AreaSelect();
 
+            location.Text = Game.CurrentArea.AreaName.ToString();
+            using (Graphics g = location.CreateGraphics())
+            {
+                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                for (int fontSize = 100; fontSize >= 8; fontSize--)
+                {
+                    Font testFont = new Font("NSimSun", fontSize);
+                    Size textSize = TextRenderer.MeasureText(g, location.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
 
+                    if (textSize.Width <= location.Width && textSize.Height <= location.Height)
+                    {
+                        location.Font = testFont; // Set the font size that fits
+                        break;
+                    }
+                }
+            }
             InitializeAreaLayout();
 
         }

@@ -14,11 +14,12 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmInventory : Form
     {
-
         public static FrmInventory instance = null;
         public PictureBox[] InvSlots = new PictureBox[9];
         public int selected;
         public PictureBox[] PictureBoxes;
+
+        public static FrmLevel frmLevel;
 
         // Pic Declarations for showing inventory
         private PictureBox Inv1;
@@ -51,8 +52,9 @@ namespace Fall2020_CSC403_Project
             this.KeyPreview = true;
         }
 
-        public static FrmInventory GetInstance()
+        public static FrmInventory GetInstance(FrmLevel level)
         {
+            frmLevel = level;
             instance = new FrmInventory();
             instance.Setup();
             return instance;
@@ -297,6 +299,7 @@ namespace Fall2020_CSC403_Project
 
         private void ReturnButton_Click(object sender, EventArgs e)
         {
+            frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
             this.Close();
         }
 
@@ -306,6 +309,7 @@ namespace Fall2020_CSC403_Project
             {
 
                 case Keys.E:
+                    frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
                     this.Close();
                     break;
 

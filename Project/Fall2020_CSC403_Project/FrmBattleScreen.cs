@@ -28,6 +28,8 @@ namespace Fall2020_CSC403_Project
         private Label enemyHealthMax;
         private Label enemyCurrentHealth;
 
+        public static FrmLevel frmLevel;
+
         public FrmBattleScreen(FrmLevel level)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -237,6 +239,7 @@ namespace Fall2020_CSC403_Project
 
         private void FleeButton_Click(object sender, EventArgs e)
         {
+            frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
             enemy.OnAttack(player.defense);
             this.Close();
         }
@@ -273,13 +276,14 @@ namespace Fall2020_CSC403_Project
                 instance = null;
                 form.RemoveEnemy(enemy);
                 player.RemoveEffect();
+                frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
                 Close();
             }
         }
 
         public static FrmBattleScreen GetInstance(FrmLevel level, Enemy enemy)
         {
-          
+            frmLevel = level;
             instance = new FrmBattleScreen(level);
             instance.enemy = enemy;
             instance.Setup();
