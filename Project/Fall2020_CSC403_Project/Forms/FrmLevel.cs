@@ -19,6 +19,7 @@ namespace Fall2020_CSC403_Project
         private Character[] walls;
 
         private Item gun;
+        private Item potion;
         private Inventory inventory;
 
         private DateTime timeBegin;
@@ -41,6 +42,8 @@ namespace Fall2020_CSC403_Project
 
             gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING), "Gun");
             gun.Img = picGun.BackgroundImage;
+            potion = new Item(CreatePosition(picPotion), CreateCollider(picPotion, PADDING), "Potion");
+            potion.Img = picPotion.BackgroundImage;
 
             player = new Player(CreatePosition(mainCharacter), CreateCollider(mainCharacter, 0));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -193,13 +196,18 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void PickUpItem(Character you, Item item)
+        private void PickUpItem(Character you)
         {
-            if (HitAItem(you, item))
+            if (HitAItem(you, gun))
             {
                 inventory.AddItem(gun);
                 picGun.Dispose();
                 gun = null;
+            } else if (HitAItem(you, potion))
+            {
+                inventory.AddItem(potion);
+                picPotion.Dispose();
+                picPotion = null;
             }
         }
 
@@ -242,7 +250,7 @@ namespace Fall2020_CSC403_Project
                         break;
 
                     case Keys.E:
-                        PickUpItem(player, gun);
+                        PickUpItem(player);
                     break;
                     
                     case Keys.I:
