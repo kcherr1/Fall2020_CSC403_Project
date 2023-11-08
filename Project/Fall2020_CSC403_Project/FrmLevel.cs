@@ -547,7 +547,7 @@ namespace Fall2020_CSC403_Project
         public int InATile(Player you)
         {
             int x = ((int)you.Position.x + you.Pic.Width / 2) / Terrain.TileSize.Width;
-            int y = ((int)you.Position.y + you.Pic.Height) / Terrain.TileSize.Width;
+            int y = ((int)you.Position.y + you.Pic.Height - 10) / Terrain.TileSize.Width;
 
             int a = (int)((x) + Math.Floor((double)y * Terrain.GridWidth));
 
