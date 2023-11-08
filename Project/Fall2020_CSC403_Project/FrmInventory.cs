@@ -46,6 +46,8 @@ namespace Fall2020_CSC403_Project
         private Label ItemName;
         private Label ItemDesc;
 
+        public static FrmLevel frmLevel;
+        
 
         public FrmInventory()
         {
@@ -54,8 +56,9 @@ namespace Fall2020_CSC403_Project
             this.KeyPreview = true;
         }
 
-        public static FrmInventory GetInstance()
+        public static FrmInventory GetInstance(FrmLevel level)
         {
+            frmLevel = level;
             instance = new FrmInventory();
             instance.Setup();
             return instance;
