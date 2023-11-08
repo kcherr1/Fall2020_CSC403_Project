@@ -277,6 +277,7 @@ namespace Fall2020_CSC403_Project
                 form.RemoveEnemy(enemy);
                 player.RemoveEffect();
                 frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
+                frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
                 Close();
             }
         }
