@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -32,6 +33,15 @@ namespace Fall2020_CSC403_Project
 
         public static FrmLevel frmLevel;
 
+        private Label backlog;
+        private Label[] loglabels;
+
+        private PictureBox picPlayer;
+        private PictureBox picEnemy;
+
+        private int height = Screen.PrimaryScreen.Bounds.Height;
+        private int width = Screen.PrimaryScreen.Bounds.Width;
+
         public FrmBattleScreen(FrmLevel level)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -46,12 +56,8 @@ namespace Fall2020_CSC403_Project
             this.BackColor = Color.SlateGray;
             //this.ControlBox = false;
 
-            int height = Screen.PrimaryScreen.Bounds.Height;
-            int width = Screen.PrimaryScreen.Bounds.Width;
-
-
             // Set up player
-            PictureBox picPlayer = new PictureBox();
+            picPlayer = new PictureBox();
             picPlayer.Parent = this;
             picPlayer.Size = new Size(width / 5 + width / 128, 3 * width / 10 + 2 * Height / 32);
             picPlayer.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -60,7 +66,7 @@ namespace Fall2020_CSC403_Project
             picPlayer.Image = player.Pic.Image;
 
             // Set up Enemy
-            PictureBox picEnemy = new PictureBox();
+            picEnemy = new PictureBox();
             picEnemy.Parent= this;
             picEnemy.Size = new Size(width / 5 + width / 128, 3 * width / 10 + 2 * Height / 32);
             picEnemy.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -199,10 +205,47 @@ namespace Fall2020_CSC403_Project
             enemyHealthMax.BackColor = Color.Red;
             enemyHealthMax.AutoSize = false;
 
-            UpdateHealthBars();
+            // Add log labels to screen
+            backlog = new Label();
+            loglabels = new Label[BattleLog.Count()];
+            backlog.BackColor = Color.FromArgb(60, 70, 80);
+            backlog.Size = new Size(picPlayer.Width,10 * height / 32);
+            backlog.Parent = this;
+            backlog.AutoSize = false;
+            for (int i = 0; i < BattleLog.Count(); i++)
+            {
+                loglabels[i] = new Label();
+                loglabels[i].Parent = this;
+                loglabels[i].Text = BattleLog[i]; // Assuming BattleLog is a list of strings
+                loglabels[i].AutoSize = false;
+                loglabels[i].TextAlign = ContentAlignment.MiddleCenter;
+                loglabels[i].Size = new Size(picPlayer.Width, height / 32);
+                loglabels[i].Font = new Font("NSimSun", 7 * loglabels[i].Size.Height / 8);
+                loglabels[i].ForeColor = Color.White;
+                loglabels[i].BackColor = Color.FromArgb(60, 70, 80);
+                if (i == 0)
+                {
+                    loglabels[i].Location = new Point(picEnemy.Left - picPlayer.Right / 2 - loglabels[i].Width/2, picPlayer.Location.Y + picPlayer.Height - loglabels[i].Size.Height);
+                }
+                else
+                {
+                    loglabels[i].Location = new Point(loglabels[i - 1].Location.X, loglabels[i - 1].Location.Y - loglabels[i].Height);
+                }
+                if (BattleLog[i] != null)
+                {
+                    loglabels[i].Text = BattleLog[i];
+                    Game.FontSizing(loglabels[i]);
+                }
+            }
+            updateLog();
+            backlog.Location = new Point(picEnemy.Left - picPlayer.Right / 2 - backlog.Width / 2, picPlayer.Location.Y + picPlayer.Height - 10*loglabels[0].Size.Height);
 
-            //BackColor = enemy.Color;
-            //picBossBattle.Visible = false;
+
+
+
+
+
+            UpdateHealthBars();
 
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
@@ -211,6 +254,20 @@ namespace Fall2020_CSC403_Project
             // show health
             UpdateHealthBars();
         }
+
+        private void updateLog()
+        {
+            for (int i = 0; i < BattleLog.Count(); i++)
+            {
+                if (BattleLog[i] != null)
+                {
+                    loglabels[i].Text = BattleLog[i];
+                    Game.FontSizing(loglabels[i]);
+                }
+                loglabels[i].BringToFront();
+            }
+        }
+
 
         private void UpdateHealthBars()
         {
@@ -242,7 +299,7 @@ namespace Fall2020_CSC403_Project
         private void FleeButton_Click(object sender, EventArgs e)
         {
             frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
-            enemy.OnAttack(player.defense);
+            AddToLog(enemy.OnAttack(player.defense));
             this.Close();
         }
 
@@ -250,24 +307,26 @@ namespace Fall2020_CSC403_Project
         {
             if (player.speed >= enemy.speed)
             {
-                player.OnAttack(enemy.defense);
+                AddToLog(player.OnAttack(enemy.defense));
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack(player.defense);
+                    AddToLog(enemy.OnAttack(player.defense));
                 }
             }
             else
             {
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack(player.defense);
+                    AddToLog(enemy.OnAttack(player.defense));
                 }
-                player.OnAttack(enemy.defense);
+                AddToLog(player.OnAttack(enemy.defense));
             }
 
             UpdateHealthBars();
+
             if (player.Health <= 0)
             {
+                AddToLog(enemy.Name + " defeated " + player.Name + "!");
                 instance = null;
                 Close();
                 form.GameOver();
@@ -275,6 +334,7 @@ namespace Fall2020_CSC403_Project
             }
             else if (enemy.Health <= 0)
             {
+                AddToLog(player.Name + " deafeated " + enemy.Name + "!");
                 instance = null;
                 form.RemoveEnemy(enemy);
                 player.RemoveEffect();
@@ -282,6 +342,7 @@ namespace Fall2020_CSC403_Project
                 frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
                 Close();
             }
+
         }
 
         public static FrmBattleScreen GetInstance(FrmLevel level, Enemy enemy)
@@ -303,6 +364,17 @@ namespace Fall2020_CSC403_Project
         {
             player.TakeDamage(amount);
             UpdateHealthBars();
+        }
+
+        private void AddToLog(string log)
+        {
+            for (int i = BattleLog.Length - 1; i > 0; i--)
+            {
+                BattleLog[i] = BattleLog[i - 1];
+            }
+            BattleLog[0] = log;
+
+            updateLog();
         }
 
     }

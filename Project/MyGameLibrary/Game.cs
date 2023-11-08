@@ -157,7 +157,7 @@ namespace Fall2020_CSC403_Project.code
 
             Enemies["Lizard Wizard1"] = new Enemy(
                 "Lizard Wizard",
-                MakePictureBox(Resources.wizardlizard, new Point(845, 240), new Size(150, 150)),
+                MakePictureBox(Resources.wizardlizard, new Point(845, 540), new Size(150, 150)),
                 new Mage());
 
             Enemies["Whelp"] = new Enemy(
@@ -270,6 +270,25 @@ namespace Fall2020_CSC403_Project.code
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.Transparent,
             };
+        }
+
+        public static void FontSizing(Label lbl)
+        {
+            using (Graphics g = lbl.CreateGraphics())
+            {
+                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                for (int fontSize = 100; fontSize >= 8; fontSize--)
+                {
+                    Font testFont = new Font("NSimSun", fontSize);
+                    Size textSize = TextRenderer.MeasureText(g, lbl.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
+
+                    if (textSize.Width <= lbl.Width && textSize.Height <= lbl.Height)
+                    {
+                        lbl.Font = testFont; // Set the font size that fits
+                        break;
+                    }
+                }
+            }
         }
     }
 }

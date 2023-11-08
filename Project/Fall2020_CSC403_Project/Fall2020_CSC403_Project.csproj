@@ -102,12 +102,6 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBattle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBattle.Designer.cs">
-      <DependentUpon>FrmBattle.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmLevel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,8 +110,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmBattle.resx">
-      <DependentUpon>FrmBattle.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBattleScreen.resx">
+      <DependentUpon>FrmBattleScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInventory.resx">
       <DependentUpon>FrmInventory.cs</DependentUpon>

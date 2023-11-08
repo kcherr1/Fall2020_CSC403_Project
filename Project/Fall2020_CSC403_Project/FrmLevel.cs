@@ -108,6 +108,7 @@ namespace Fall2020_CSC403_Project
             NameLabel.Font = new Font("NSimSun", 3*NameLabel.Size.Height / 4, FontStyle.Bold);
             NameLabel.Text =Game.player.Name.ToString();
             NameLabel.BringToFront();
+            Game.FontSizing(NameLabel);
 
             // Add character Health Bar
             PictureBox health_stat = new PictureBox();
@@ -239,22 +240,7 @@ namespace Fall2020_CSC403_Project
             location.TextAlign = ContentAlignment.MiddleCenter;
             location.Text = Game.CurrentArea.AreaName.ToString();
             location.Font = new Font("NSimSun", 10);
-
-            using (Graphics g = location.CreateGraphics())
-            {
-                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
-                for (int fontSize = 100; fontSize >= 8; fontSize--)
-                {
-                    Font testFont = new Font("NSimSun", fontSize);
-                    Size textSize = TextRenderer.MeasureText(g, location.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
-
-                    if (textSize.Width <= location.Width && textSize.Height <= location.Height)
-                    {
-                        location.Font = testFont; // Set the font size that fits
-                        break;
-                    }
-                }
-            }
+            Game.FontSizing(location);
 
 
             //Adding stop condition to mainMenu_music here
@@ -1074,6 +1060,16 @@ namespace Fall2020_CSC403_Project
             }
             Game.CurrentArea.Visited = true;
 
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard1"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Brute1"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Brute2"]);
+
+            Game.CurrentArea.AddItem(Game.Items["Accuracy Potion"]);
+            Game.CurrentArea.AddItem(Game.Items["Rusty Sword"]);
+            Game.CurrentArea.AddItem(Game.Items["Lumberjack Axe"]);
+
+            Game.CurrentArea.AddNPC(Game.NPCs["Tombstone"]);
         }
 
         private void Area0()
@@ -1157,21 +1153,7 @@ namespace Fall2020_CSC403_Project
 
             // reset text in status bar
             location.Text = Game.CurrentArea.AreaName.ToString();
-            using (Graphics g = location.CreateGraphics())
-            {
-                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
-                for (int fontSize = 100; fontSize >= 8; fontSize--)
-                {
-                    Font testFont = new Font("NSimSun", fontSize);
-                    Size textSize = TextRenderer.MeasureText(g, location.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
-
-                    if (textSize.Width <= location.Width && textSize.Height <= location.Height)
-                    {
-                        location.Font = testFont; // Set the font size that fits
-                        break;
-                    }
-                }
-            }
+            Game.FontSizing(location);
 
 
             InitializeCurrentArea();
