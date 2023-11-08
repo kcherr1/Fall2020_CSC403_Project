@@ -430,6 +430,7 @@ namespace Fall2020_CSC403_Project
                 PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             selected = 0;
+
             RefreshInv();
         }
 
@@ -484,6 +485,8 @@ namespace Fall2020_CSC403_Project
                 Utility.Image = null;
             }
 
+            ItemDesc.Text = "";
+            ItemName.Text = "";
 
             UpdateHealthBars();
             UpdateStats();
