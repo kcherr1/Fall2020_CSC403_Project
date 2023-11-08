@@ -28,6 +28,8 @@ namespace Fall2020_CSC403_Project
         private Label enemyHealthMax;
         private Label enemyCurrentHealth;
 
+        private String[] BattleLog = new string[10];
+
         public static FrmLevel frmLevel;
 
         public FrmBattleScreen(FrmLevel level)
