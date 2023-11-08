@@ -111,19 +111,23 @@ namespace Fall2020_CSC403_Project {
       }
     }
    private async void btnHeavyAttack_Click(object sender, EventArgs e){
-      lblDamage.Text = "  Dealt 16 damage!";
-      HitDisplay();
-      await Task.Delay(1500);
-      player.OnHeavyAttack(-4);
-      if (enemy.Health > 0){
-        enemy.OnAttack(-2);
-      }
-      EnemyDmgDisplay();
-      await Task.Delay(1750);     
-      UpdateHealthBars();
-      await Task.Delay(750);
-      DmgGivenDisplay();
-      btnHeavyAttack.Enabled = false;
+      if (inventory.ContainsAttribute(inventory, "Heavy"))
+        {
+            lblDamage.Text = "  Dealt 16 damage!";
+            HitDisplay();
+            await Task.Delay(1500);
+            player.OnHeavyAttack(-4);
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
+            }
+            EnemyDmgDisplay();
+            await Task.Delay(1750);
+            UpdateHealthBars();
+            await Task.Delay(750);
+            DmgGivenDisplay();
+            btnHeavyAttack.Enabled = false;
+        }
       if (player.Health <= 0)
       {
         MusicPlayer.StopBattleSound();
@@ -152,9 +156,12 @@ namespace Fall2020_CSC403_Project {
    }
     private void btnHeal_Click(object sender, EventArgs e)
     {
-      player.AlterHealth(4);
-      UpdateHealthBars();  
-      btnHeal.Enabled = false;
+       if(inventory.ContainsAttribute(inventory, "Healing"))
+       {
+          player.AlterHealth(4);
+          UpdateHealthBars();
+          btnHeal.Enabled = false;
+       }
     }
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
