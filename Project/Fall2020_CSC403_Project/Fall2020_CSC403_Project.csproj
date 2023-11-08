@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBackground.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBackground.Designer.cs">
+      <DependentUpon>FrmBackground.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,8 +157,14 @@
     <Content Include="battle_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="data\The Primoridal Juice.jpg" />
+    <None Include="data\True Raisin Pain.jpg" />
+    <None Include="data\G.R.I.M.A.C.E..png" />
     <None Include="data\peanut_end.jpg" />
     <None Include="data\peanut_victory.jpg" />
+
+    <None Include="data\deadenemy_poisonpacket.fw.png" />
+
     <None Include="data\attack.wav" />
     <None Include="data\flee.wav" />
     <None Include="data\heal.wav" />

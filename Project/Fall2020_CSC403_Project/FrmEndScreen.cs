@@ -23,7 +23,7 @@ namespace Fall2020_CSC403_Project
         private void btnLeaveGame_Click(object sender, EventArgs e)
         {
             instance = null;
-            Application.Exit();
+            Close();
         }
 
         //TO ADD LATER RETURN TO MENU BUTTON
