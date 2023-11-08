@@ -164,6 +164,7 @@
   <ItemGroup>
     <Content Include="data\sounds\boss-battle.wav" />
     <Content Include="data\sounds\battle.wav" />
+    <None Include="Resources\brick.png" />
     <None Include="Resources\pipe.png" />
     <None Include="Resources\pipe.bmp" />
     <None Include="Resources\338817__sirkoto51__rpg-battle-loop-1.wav" />
