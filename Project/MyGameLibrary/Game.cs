@@ -201,19 +201,19 @@ namespace Fall2020_CSC403_Project.code
             Size L_Size = new Size(Terrain.TileSize.Width * 6, Terrain.TileSize.Height * 4);
             Size L_Size_rot90 = new Size(L_Size.Height, L_Size.Width);
 
-            Structures["house_long_rot"] = new Structure(
+            Structures["house_long_rot_1"] = new Structure(
                 MakePictureBox(
                     house_long_rot,
                     new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4 - 100, -100),
                     new Size(longSize.Height, longSize.Width)));
 
-            Structures["house_long"] = new Structure(
+            Structures["house_long_1"] = new Structure(
                 MakePictureBox(house_long, new Point(Screen.PrimaryScreen.Bounds.Width / 2, 400), longSize));
 
-            Structures["house_L"] = new Structure(
+            Structures["house_L_1"] = new Structure(
                 MakePictureBox(house_L, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4, 300), L_Size));
 
-            Structures["house_L_rot180"] = new Structure(
+            Structures["house_L_rot180_1"] = new Structure(
                 MakePictureBox(house_L_rot180, new Point(Screen.PrimaryScreen.Bounds.Width * 1 / 4, 80), L_Size));
 
 
@@ -246,9 +246,16 @@ namespace Fall2020_CSC403_Project.code
             int x = Structures["LowerVillageWall2"].Pic.Location.X;
             int y = Terrain.TileSize.Width * 14;
             Structures["LowerVillageWall3"] = new Structure(
-                MakePictureBox(Resources.Transparency, new Point(x, y), new Size(Screen.PrimaryScreen.Bounds.Width, Resources.wall_bricks.Height)));
+                MakePictureBox(Resources.Transparency, new Point(x, y), new Size(12 * Terrain.TileSize.Width, Resources.wall_bricks.Height)));
             Structures["LowerVillageWall3"].Pic.BackgroundImage = Resources.wall_bricks;
             Structures["LowerVillageWall3"].Pic.BackgroundImageLayout = ImageLayout.Tile;
+
+            int x_2 = Terrain.TileSize.Width * 4 + Structures["LowerVillageWall3"].Pic.Location.X + Structures["LowerVillageWall3"].Pic.Size.Width;
+            int y_2 = Structures["LowerVillageWall3"].Pic.Location.Y;
+            Structures["LowerVillageWall4"] = new Structure(
+                MakePictureBox(Resources.Transparency, new Point(x_2, y-2), new Size(Screen.PrimaryScreen.Bounds.Width, Resources.wall_bricks.Height)));
+            Structures["LowerVillageWall4"].Pic.BackgroundImage = Resources.wall_bricks;
+            Structures["LowerVillageWall4"].Pic.BackgroundImageLayout = ImageLayout.Tile;
 
 
         }

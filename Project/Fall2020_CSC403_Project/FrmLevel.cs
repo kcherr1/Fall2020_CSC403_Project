@@ -899,13 +899,14 @@ namespace Fall2020_CSC403_Project
             Size L_Size = new Size(Terrain.TileSize.Width * 6, Terrain.TileSize.Height * 4);
             Size L_Size_rot90 = new Size(L_Size.Height, L_Size.Width);
 
-            Game.CurrentArea.AddStructure(new Structure(MakePictureBox(house_long_rot, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4 - 100 , - 100), longSize_rot)));
-            Game.CurrentArea.AddStructure(new Structure(MakePictureBox(house_long, new Point(Screen.PrimaryScreen.Bounds.Width / 2, 400), longSize)));
-            Game.CurrentArea.AddStructure(new Structure(MakePictureBox(house_L, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4, 300), L_Size)));
-            Game.CurrentArea.AddStructure(new Structure(MakePictureBox(house_L_rot180, new Point(Screen.PrimaryScreen.Bounds.Width * 1 / 4, 80), L_Size)));
+            Game.CurrentArea.AddStructure(Game.Structures["house_long_rot_1"]);
+            Game.CurrentArea.AddStructure(Game.Structures["house_long_1"]);
+            Game.CurrentArea.AddStructure(Game.Structures["house_L_1"]);
+            Game.CurrentArea.AddStructure(Game.Structures["house_L_rot180_1"]);
 
             Game.CurrentArea.AddStructure(Game.Structures["VillageWall1"]);
             Game.CurrentArea.AddStructure(Game.Structures["VillageWall2"]);
+            
 
         }
 
@@ -943,6 +944,7 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddStructure(Game.Structures["LowerVillageWall1"]);
             Game.CurrentArea.AddStructure(Game.Structures["LowerVillageWall2"]);
             Game.CurrentArea.AddStructure(Game.Structures["LowerVillageWall3"]);
+            Game.CurrentArea.AddStructure(Game.Structures["LowerVillageWall4"]);
 
         }
 
