@@ -130,9 +130,6 @@
   <data name="CatDisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\CatDisk.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="LVL1potion0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\raw images\LVL1potion0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="enemy_koolaid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_koolaid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,14 +151,11 @@
   <data name="selectorline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\selectorline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CatDisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\CatDisk.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="mainmenubackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\mainmenubackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="arrow_100_40_horizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\arrow_100_40_horizontal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LVL1potion0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\raw images\LVL1potion0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Potion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\raw images\LVL1potion0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

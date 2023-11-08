@@ -141,7 +141,7 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LVL1potion0 {
+        internal static System.Drawing.Bitmap Potion {
             get {
                 object obj = ResourceManager.GetObject("LVL1potion0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
