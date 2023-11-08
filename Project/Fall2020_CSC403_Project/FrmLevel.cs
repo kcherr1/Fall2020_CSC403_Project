@@ -74,7 +74,7 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_Load(object sender, EventArgs e)
         {
 
-            InitializeArea();
+            InitializeLevel();
 
             Game.CurrentArea = Game.Areas[this.AreaNum];
 
@@ -256,7 +256,7 @@ namespace Fall2020_CSC403_Project
             this.gameAudio.PlayLooping();
 
             SignPanel.Size = new Size(Screen.PrimaryScreen.Bounds.Width * 7 / 8, Screen.PrimaryScreen.Bounds.Height * 7 / 8);
-            SignPanel.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - SignPanel.Width / 2, 0);
+            SignPanel.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - SignPanel.Width / 2, Screen.PrimaryScreen.Bounds.Height * 1/14);
 
             TravelLabel.Size = new Size(SignPanel.Size.Width, SignPanel.Size.Height / 2);
             TravelLabel.Font = new Font("NSimSun", TravelLabel.Size.Height / 4);
@@ -268,11 +268,11 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void InitializeArea()
+        private void InitializeLevel()
         {
             Game.Areas = new Area[10];
             Game.Areas[0] = new Area("Malek's Mountain", 710, Terrain.Biome.Mountain, 0.1);
-            Game.Areas[1] = new Area("Village Ruins", 901, Terrain.Biome.Village);
+            Game.Areas[1] = new Area("Village Ruins", 908, Terrain.Biome.Village, 0.1);
             Game.Areas[2] = new Area("Buddy Beachfront", 512, Terrain.Biome.Beach, 0.12);
             Game.Areas[3] = new Area("Uphill Hill", 789, Terrain.Biome.Grassland, 0.15);
             Game.Areas[4] = new Area("Plainsfield", 678, Terrain.Biome.Grassland, 0.12);
@@ -829,7 +829,8 @@ namespace Fall2020_CSC403_Project
             this.score = 0;
             gameAudio.PlayLooping();
 
-            InitializeArea();
+            this.AreaNum = 4;
+            InitializeLevel();
 
             this.gameOver = false;
             Game.player = new Player(Game.player.Name, Game.player.Pic, Game.player.archetype);
@@ -844,9 +845,14 @@ namespace Fall2020_CSC403_Project
             ExitButton.Enabled = false;
             MainMenuButton.Enabled = false;
 
+            for (int i = 0; i < 9; i++)
+            {
+                setAdjacency(i);
+            }
 
             AreaSelect();
             InitializeCurrentArea();
+            UpdateHealthBars(playerCurrentHealth);
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)

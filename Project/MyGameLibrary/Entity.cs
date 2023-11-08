@@ -28,6 +28,7 @@ namespace Fall2020_CSC403_Project.code
         public string Name { get; private set; }
 
         public Facing facing { get; set; }
+        private Facing LastFacing { get; set; }
 
 
         public enum Facing
@@ -43,14 +44,22 @@ namespace Fall2020_CSC403_Project.code
             this.Pic = Pic;
             this.Position = new Position(this.Pic);
             this.Collider = new Collider(this.Pic);
+            this.facing = Facing.Right;
+            this.LastFacing = this.facing;
         }
         
         public void Move()
         {
+            if (this.LastFacing != this.facing)
+            {
+                this.Pic.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            }
+            this.LastFacing = this.facing;
             this.LastPosition = Position;
             this.Position = new Position(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
             this.Pic.Location = new Point((int)this.Position.x, (int)this.Position.y);
             this.Collider.MovePosition((int)Position.x, (int)Position.y);
+
         }
 
 
