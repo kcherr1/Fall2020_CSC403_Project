@@ -43,8 +43,8 @@ namespace Fall2020_CSC403_Project
         private Label playerHealthMax;
         public Label playerCurrentHealth;
 
-        private Label enemyHealthMax;
-        private Label enemyCurrentHealth;
+        private Label location;
+
 
         public FrmLevel(Form MainMenu)
         {
@@ -111,12 +111,14 @@ namespace Fall2020_CSC403_Project
             Label NameLabel = new Label();
             NameLabel.Parent = StatusBar;
             NameLabel.BackColor = Color.Transparent;
+            NameLabel.ForeColor = Color.White;
             NameLabel.Size = new Size(width/3, 7*StatusBar.Height/8);
             NameLabel.Location = new Point(0, NameLabel.Size.Height-height/18);
             NameLabel.TextAlign = ContentAlignment.MiddleCenter;
             NameLabel.Font = new Font("NSimSun", NameLabel.Size.Height / 2);
             NameLabel.Text = "Player: "+Game.player.Name.ToString();
             NameLabel.BringToFront();
+
 
             // Add character Health Bar
             playerHealthMax = new Label();
@@ -166,8 +168,35 @@ namespace Fall2020_CSC403_Project
             SignBoard.Image = Properties.Resources.area_bar;
             SignBoard.BackgroundImage = Properties.Resources.status_bar_bg;
             SignBoard.BringToFront();
-            
-            
+
+            // Add location
+            location = new Label();
+            location.Parent = SignBoard;
+            location.BackColor = Color.Transparent;
+            location.ForeColor = Color.White;
+            location.Size = new Size(width / 5, height / 14);
+            location.Location = new Point(SignBoard.Size.Width / 2 - location.Size.Width / 2, 0);
+            location.AutoSize = false;
+            location.TextAlign = ContentAlignment.MiddleCenter;
+            location.Text = Game.CurrentArea.AreaName.ToString();
+            location.Font = new Font("NSimSun", 10);
+
+            using (Graphics g = location.CreateGraphics())
+            {
+                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                for (int fontSize = 100; fontSize >= 8; fontSize--)
+                {
+                    Font testFont = new Font("NSimSun", fontSize);
+                    Size textSize = TextRenderer.MeasureText(g, location.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
+
+                    if (textSize.Width <= location.Width && textSize.Height <= location.Height)
+                    {
+                        location.Font = testFont; // Set the font size that fits
+                        break;
+                    }
+                }
+            }
+
 
             //Adding stop condition to mainMenu_music here
             FrmMain mainMenuPlayer = Application.OpenForms["FrmMain"] as FrmMain;
@@ -1037,7 +1066,22 @@ namespace Fall2020_CSC403_Project
 
             AreaSelect();
 
+            location.Text = Game.CurrentArea.AreaName.ToString();
+            using (Graphics g = location.CreateGraphics())
+            {
+                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                for (int fontSize = 100; fontSize >= 8; fontSize--)
+                {
+                    Font testFont = new Font("NSimSun", fontSize);
+                    Size textSize = TextRenderer.MeasureText(g, location.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
 
+                    if (textSize.Width <= location.Width && textSize.Height <= location.Height)
+                    {
+                        location.Font = testFont; // Set the font size that fits
+                        break;
+                    }
+                }
+            }
             InitializeAreaLayout();
 
         }
