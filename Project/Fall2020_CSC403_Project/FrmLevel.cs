@@ -139,7 +139,7 @@ namespace Fall2020_CSC403_Project {
             }
 
             // check collision with enemies
-            //try {
+            try {
 
                 if (HitAChar(player, enemyPoisonPacket)) {
                     x = IsEnemyDead(enemyPoisonPacket);
@@ -168,11 +168,11 @@ namespace Fall2020_CSC403_Project {
                         Fight(bossChatgpt); 
                     }
                 }
-            //}
-            //catch {
-                // if enemy was nulled, cant execute these, so we only try them and not force them on every tick
+            }
+            catch {
+                // if enemy or their collider was nulled, cant execute these, so we only try them and not force them on every tick
               //  System.Windows.Forms.MessageBox.Show("FrmLevel tick error");
-            //}
+            }
         
             if (HitAnItem(player)) {
                 player.MoveBack();
