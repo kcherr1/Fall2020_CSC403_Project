@@ -304,7 +304,7 @@ namespace Fall2020_CSC403_Project {
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravel;
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.ClientSize = new System.Drawing.Size(2352, 1400);
+      this.ClientSize = new System.Drawing.Size(1924, 1050);
       this.Controls.Add(this.picWall11);
       this.Controls.Add(this.picWall2);
       this.Controls.Add(this.picWall8);
