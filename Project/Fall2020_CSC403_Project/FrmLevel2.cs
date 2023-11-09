@@ -224,7 +224,8 @@ namespace Fall2020_CSC403_Project {
 
     private void RemoveEnemy(Enemy enemy, PictureBox picEnemy) {
       enemy.RemoveCollider();
-      picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
+      //picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
+      picEnemy.BackgroundImage = null;
     }
 
     private void hedge13_Click(object sender, EventArgs e) {

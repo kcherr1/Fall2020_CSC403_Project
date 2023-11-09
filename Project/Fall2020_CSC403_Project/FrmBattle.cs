@@ -20,6 +20,9 @@ namespace Fall2020_CSC403_Project {
     //just used to keep track of which level this is on
     private int level;
 
+    //keeps track of whether or not player has used flee during an encounter
+    bool fleeLocked = false;
+
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -46,7 +49,10 @@ namespace Fall2020_CSC403_Project {
       PlayerLevel.Text = "Level " + GameState.player.level.ToString()
         + " Exp: " + GameState.player.experience.ToString()
         + "/" + GameState.player.experiencePerLevel.ToString();
-      
+
+      textBox1.BackColor = this.BackColor;
+      textBox2.BackColor = this.BackColor;
+
     }
 
     public void SetupForBossBattle(int level) {
@@ -199,6 +205,25 @@ namespace Fall2020_CSC403_Project {
         }
      }
 
+    // When clicked, player has a 1/2 chance of fleeing battle.
+    // If failed, flee button does nothing
+    private void FleeButton_Click(object sender, EventArgs e)
+    {
+      if (fleeLocked)
+      {
+        return;
+      }
+      fleeLocked = true;
+      FleeButton.FlatStyle = FlatStyle.Flat;
+      Random random = new Random();
+      int chance = random.Next(1, 3);
+      //System.Diagnostics.Debug.WriteLine(chance.ToString());
+      if (chance == 1)
+      {
+        Close();
+      }
+    }
+
     // Found this code at: https://stackoverflow.com/questions/10458118/wait-one-second-in-running-program
     public void wait(int milliseconds)
     {
@@ -224,6 +249,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void PlayerLevel_Click(object sender, EventArgs e)
+    {
+      
+    }
+
+    private void textBox1_TextChanged(object sender, EventArgs e)
     {
 
     }
