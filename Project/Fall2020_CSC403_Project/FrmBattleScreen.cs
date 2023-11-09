@@ -217,7 +217,7 @@ namespace Fall2020_CSC403_Project
 
             if(enemy.archetype.opener != null)
             {
-                AddToLog(enemy.archetype.opener);
+               BattleLog[0] = enemy.archetype.opener;
             }
 
             AddLogLabels();
