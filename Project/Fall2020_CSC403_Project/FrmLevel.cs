@@ -240,7 +240,7 @@ namespace Fall2020_CSC403_Project {
         }
         private bool HitAKey(Character c) {
             bool hitAKey = false;
-            if(playerHasKey == false) { 
+            if(playerHasKey == false && IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false) { 
                 for (int w = 0; w < key.Length; w++) {
                     if (c.Collider.Intersects(key[w].Collider)) {
                         hitAKey = true;
