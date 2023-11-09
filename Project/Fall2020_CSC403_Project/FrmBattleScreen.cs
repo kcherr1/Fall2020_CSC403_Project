@@ -207,7 +207,7 @@ namespace Fall2020_CSC403_Project
             enemyHealthMax.BackColor = Color.Red;
             enemyHealthMax.AutoSize = false;
 
-            //if (!player.isPartyEmpty()) { picPlayer.Hide(); UseButton.Hide(); FleeButton.Hide(); AttackButton.Hide(); playerCurrentHealth.Hide(); playerHealthMax.Hide(); PlayerName.Hide(); }
+            if (player.PartyCount() > 0) { picPlayer.Hide(); playerCurrentHealth.Hide(); playerHealthMax.Hide(); PlayerName.Hide(); }
 
             // Add log labels to screen
             backlog = new Label();
