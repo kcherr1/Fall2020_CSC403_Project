@@ -47,18 +47,14 @@ namespace Fall2020_CSC403_Project {
      enemyGRIMACE= new EnemyType(CreatePosition(picEnemyGRIMACE), CreateCollider(picEnemyGRIMACE, PADDING));
      enemyRaisin = new EnemyType(CreatePosition(picEnemyRaisin), CreateCollider(picEnemyRaisin, PADDING));
      bossPrimordialKoolaid = new EnemyType(CreatePosition(picBossPrimordialKoolaid), CreateCollider(picBossPrimordialKoolaid, PADDING));
-     nextAreaDoor = new Enemy(CreatePosition(picAreaDoor), CreateCollider(picAreaDoor, PADDING));
+     nextAreaDoor = new EnemyType(CreatePosition(picAreaDoor), CreateCollider(picAreaDoor, PADDING));
 
      enemyGRIMACE.Img = picEnemyGRIMACE.BackgroundImage;
       enemyRaisin.Img = picEnemyRaisin.BackgroundImage;
       bossPrimordialKoolaid.Img = picBossPrimordialKoolaid.BackgroundImage;
-
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-      nextAreaDoor = new Enemy(CreatePosition(picAreaDoor), CreateCollider(picAreaDoor, PADDING));
-      obstacle1 = new Enemy(CreatePosition(picObstacle1), CreateCollider(picObstacle1, PADDING));
-      obstacle2 = new Enemy(CreatePosition(picObstacle2), CreateCollider(picObstacle2, PADDING));
+      
+      obstacle1 = new EnemyType(CreatePosition(picObstacle1), CreateCollider(picObstacle1, PADDING));
+      obstacle2 = new EnemyType(CreatePosition(picObstacle2), CreateCollider(picObstacle2, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
