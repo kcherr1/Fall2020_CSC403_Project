@@ -170,6 +170,12 @@
     <None Include="data\enemy_attack.wav" />
     <None Include="data\dodge.wav" />
     <None Include="data\enemyAttack.wav" />
+    <None Include="portal.png" />
+    <None Include="data\peanut_end.jpg" />
+    <None Include="data\peanut_victory.jpg" />
+    <None Include="data\fire.png" />
+    <None Include="data\portal.png" />
+    <None Include="fire.png" />
     <Content Include="level_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
