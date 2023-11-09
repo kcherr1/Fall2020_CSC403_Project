@@ -173,6 +173,12 @@ namespace Fall2020_CSC403_Project {
           FrmPlayerDeath playerDeathInstance = new FrmPlayerDeath();
           playerDeathInstance.Show();
         }
+        if (BackColor == Color.LightGray)
+        {
+          System.Diagnostics.Debug.WriteLine("duck");
+          SoundPlayer simpleSound = new SoundPlayer(Resources.goose_death);
+          simpleSound.Play();
+        }
         Close();
       }
     }

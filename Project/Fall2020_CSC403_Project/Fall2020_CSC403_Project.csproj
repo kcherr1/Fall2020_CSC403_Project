@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\ammo.png" />
+    <None Include="Resources\goose_death.wav" />
     <None Include="Resources\walk_sand.wav" />
     <None Include="Resources\akSound.wav" />
     <None Include="Resources\walk_grass.wav" />

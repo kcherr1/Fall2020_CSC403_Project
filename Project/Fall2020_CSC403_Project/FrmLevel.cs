@@ -182,7 +182,7 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       SoundPlayer simpleSound = new SoundPlayer(Resources.walk_sand);
       simpleSound.Load();
-      System.Diagnostics.Debug.WriteLine(soundTime.Second);
+      //System.Diagnostics.Debug.WriteLine(soundTime.Second);
       if ((DateTime.Now.Second - soundTime.Second) > 1)
       {
         simpleSound.Play();
