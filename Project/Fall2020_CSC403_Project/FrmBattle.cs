@@ -6,73 +6,87 @@ using System.Drawing.Text;
 using System.Media;
 using System.Windows.Forms;
 
-namespace Fall2020_CSC403_Project
-{
-    public partial class FrmBattle : Form
-    {
-        public static FrmBattle instance = null;
-        private Enemy enemy;
-        private Player player;
-        private FrmBattle()
-        {
-            InitializeComponent();
-            player = Game.player;
+
+namespace Fall2020_CSC403_Project {
+  public partial class FrmBattle : Form {
+    public static FrmBattle instance = null;
+    private EnemyType enemy;
+    private Player player;
+    Random rnd = new Random();
+
+
+    private FrmBattle() {
+      InitializeComponent();
+      player = Game.player;
             this.FormClosed += (s, args) =>
             {
                 instance = null;
                 enemy.AttackEvent -= PlayerDamage;
+                enemy.HealEvent -= EnemyHeal;
                 player.AttackEvent -= EnemyDamage;
                 player.HealEvent -= PlayerHeal;
+                enemy.resetEnemyClass();
             };
-        }
 
-        public void Setup()
-        {
-            // update for this enemy
-            battleTheme.PlayLooping();
-            picEnemy.BackgroundImage = enemy.Img;
-            picEnemy.Refresh();
-            BackColor = enemy.Color;
-            picBossBattle.Visible = false;
+    }
+    
+    public void Setup() {
+      // update for this enemy
+      battleTheme.PlayLooping();
+      picEnemy.BackgroundImage = enemy.Img;
+      picEnemy.Refresh();
+      BackColor = enemy.Color;
+      picBossBattle.Visible = false;
+      enemy.setEnemyClass();
+      enemy.setClassHealth();
 
-            // Observer pattern
-            enemy.AttackEvent += PlayerDamage;
-            player.AttackEvent += EnemyDamage;
-            player.HealEvent += PlayerHeal;
+      // Observer pattern
+      enemy.AttackEvent += PlayerDamage;
+      enemy.HealEvent += EnemyHeal;
+      player.AttackEvent += EnemyDamage;
+      player.HealEvent += PlayerHeal;
 
-            // show health
-            UpdateHealthBars();
+      // show health
+      UpdateHealthBars();
+      
+       // show XP
+      lblPlayerXp.Text = "XP: " + player.Xp.ToString();
+    }
 
-            // show XP
-            lblPlayerXp.Text = "XP: " + player.Xp.ToString();
-        }
+    public void SetupForBossBattle() {
+      picBossBattle.Location = Point.Empty;
+      picBossBattle.Size = ClientSize;
+      picBossBattle.Visible = true;
+      //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+      //simpleSound.Play();
+      battleTheme.PlayLooping();
+      enemy.setBossClass(4);
+      enemy.setClassHealth();
+      tmrFinalBattle.Enabled = true;
+      UpdateHealthBars();
+     }
 
-        public void SetupForBossBattle()
-        {
-            picBossBattle.Location = Point.Empty;
-            picBossBattle.Size = ClientSize;
-            picBossBattle.Visible = true;
-            //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-            //simpleSound.Play();
-            battleTheme.PlayLooping();
-            tmrFinalBattle.Enabled = true;
-        }
+    public static FrmBattle GetInstance(EnemyType enemy) {
+      if (instance == null) {
+        instance = new FrmBattle();
+        instance.enemy = enemy;
+        instance.Setup();
+       }
+      return instance;
+    }
 
-        public static FrmBattle GetInstance(Enemy enemy)
-        {
-            if (instance == null)
+        private void UpdateHealthBars() {
+      if (player.Health > player.MaxHealth)
             {
-                instance = new FrmBattle();
-                instance.enemy = enemy;
-                instance.Setup();
+                player.AlterHealth(player.MaxHealth - player.Health);
             }
-            return instance;
-        }
+      if (enemy.Health > enemy.MaxHealth)
+            {
+                enemy.setClassHealth();
+            }
+      float playerHealthPer = player.Health / (float)player.MaxHealth;
+      float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
-        private void UpdateHealthBars()
-        {
-            float playerHealthPer = player.Health / (float)player.MaxHealth;
-            float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
             const int MAX_HEALTHBAR_WIDTH = 226;
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
@@ -82,21 +96,23 @@ namespace Fall2020_CSC403_Project
             lblEnemyHealthFull.Text = enemy.Health.ToString();
         }
 
-        private void btnAttack_Click(object sender, EventArgs e)
-        {
-            player.OnAttack(-4);
-            if (enemy.Health > 0)
-            {
-                enemy.OnAttack(-2);
-                PlayerXp(10);
-            }
+    private void btnAttack_Click(object sender, EventArgs e) {
+      player.OnAttack(rnd.Next(-5,-2));
+      battleTheme.Stop();
+      attackSound.PlaySync();
+      if (enemy.Health > 0) {
+        enemy.determineAttack(0);
+        enemy_attack.PlaySync();
+        PlayerXp(10);
+      }
 
-            UpdateHealthBars();
-            if (enemy.Health <= 0)
-            {
-                instance = null;
-                PlayerXp(20);
-                {
+      UpdateHealthBars();
+      battleTheme.PlayLooping();
+
+      if (enemy.Health <= 0) {
+        instance = null;
+        Close();
+        {
                     instance = null;
                     PlayerXp(20);
                     lblXpMessage.Text = "HE'S DEAD! +20 XP";
@@ -112,13 +128,21 @@ namespace Fall2020_CSC403_Project
                     };
                     closeTimer.Start();
                 }
+      } 
+      else if (player.Health <= 0)
+      {
+          instance = null;
+          Close();
+      }
+    }
 
-            }
-            else if (player.Health == 0)
-            {
-                instance = null;
-                Close();
-            }
+    private void btnHeal_Click(object sender, EventArgs e)
+    {
+        if (player.Health <= 0 || enemy.Health <= 0)
+        {
+            instance = null;
+            Close();
+
         }
 
         private void btnHeal_Click(object sender, EventArgs e)
@@ -131,27 +155,61 @@ namespace Fall2020_CSC403_Project
             else
             {
 
+                    battleTheme.Stop();
+                    healSound.PlaySync();
+                    player.OnHeal(8);
+
+            }
+
+
                 if ((player.Health + 8) > 20)
                 {
                     player.OnHeal(20 - player.Health);
                 }
                 else
                 {
+                    battleTheme.Stop();
+                    healSound.PlaySync();
                     player.OnHeal(8);
                 }
 
-
                 if (enemy.Health > 0)
                 {
-                    enemy.OnAttack(-2);
+                    enemy.determineAttack(0);
+                    enemy_attack.PlaySync();
                 }
 
-                UpdateHealthBars();
+
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
             }
+                battleTheme.PlayLooping();
+                UpdateHealthBars();
+
         }
 
-        private void btnFlee_Click(object sender, EventArgs e)
+
+        private void btnDodge_Click(object sender, EventArgs e)
         {
+            if (player.Health <= 0 || enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+            else
+            {
+                enemy.determineAttack(1);
+                enemy_attack.PlaySync();
+                dodgeSound.PlaySync();
+                battleTheme.PlayLooping();
+            }
+        }
+    private void btnFlee_Click(object sender, EventArgs e)
+
+        {
+            SoundPlayer fleeSound = new SoundPlayer(Resources.flee);
+            fleeSound.PlaySync();
             //observers have to be cleared, otherwise other instances will do n*damage
             enemy.AttackEvent -= PlayerDamage;
             player.AttackEvent -= EnemyDamage;
@@ -212,10 +270,15 @@ namespace Fall2020_CSC403_Project
             player.AlterHealth(amount);
         }
 
-        private void tmrFinalBattle_Tick(object sender, EventArgs e)
+
+    private void EnemyHeal(int amount)
         {
-            picBossBattle.Visible = false;
-            tmrFinalBattle.Enabled = false;
+            enemy.AlterHealth(amount);
         }
+
+    private void tmrFinalBattle_Tick(object sender, EventArgs e) {
+      picBossBattle.Visible = false;
+      tmrFinalBattle.Enabled = false;
+
     }
 }

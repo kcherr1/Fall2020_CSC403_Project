@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AudioSwitcher.AudioApi, Version=3.0.0.209, Culture=neutral, PublicKeyToken=fda5729e2db3a64f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AudioSwitcher.AudioApi.3.0.0\lib\net40\AudioSwitcher.AudioApi.dll</HintPath>
+    </Reference>
+    <Reference Include="AudioSwitcher.AudioApi.CoreAudio, Version=3.0.0.209, Culture=neutral, PublicKeyToken=fda5729e2db3a64f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AudioSwitcher.AudioApi.CoreAudio.3.0.3\lib\net472\AudioSwitcher.AudioApi.CoreAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -105,6 +111,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,9 +164,25 @@
     <Content Include="battle_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="data\The Primoridal Juice.jpg" />
+    <None Include="data\True Raisin Pain.jpg" />
+    <None Include="data\G.R.I.M.A.C.E..png" />
     <None Include="data\peanut_end.jpg" />
     <None Include="data\peanut_victory.jpg" />
     <None Include="data\deadenemy_poisonpacket.fw.png" />
+    <None Include="data\attack.wav" />
+    <None Include="data\flee.wav" />
+    <None Include="data\heal.wav" />
+    <None Include="data\koolaid_attack.wav" />
+    <None Include="data\enemy_attack.wav" />
+    <None Include="data\dodge.wav" />
+    <None Include="data\enemyAttack.wav" />
+    <None Include="portal.png" />
+    <None Include="data\peanut_end.jpg" />
+    <None Include="data\peanut_victory.jpg" />
+    <None Include="data\fire.png" />
+    <None Include="data\portal.png" />
+    <None Include="fire.png" />
     <Content Include="level_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
