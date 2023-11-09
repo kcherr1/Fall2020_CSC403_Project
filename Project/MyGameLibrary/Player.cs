@@ -9,19 +9,19 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project.code {
   public class Player : Character
     {
-        public NPC[] party;
+        public NPC[] Party;
 
         public Player(string name, PictureBox pic, Archetype archetype) : base(name, pic, archetype)
         {
-            party = new NPC[3];
+            Party = new NPC[3];
 
         }
 
         public bool isPartyFull()
         {
-            for (int i = 0; i < this.party.Length; i++)
+            for (int i = 0; i < this.Party.Length; i++)
             {
-                if (this.party[i] == null)
+                if (this.Party[i] == null)
                 { return false; }
             }
             return true;
@@ -29,11 +29,11 @@ namespace Fall2020_CSC403_Project.code {
 
         public void addPartyMember(NPC newMember)
         {
-            for (int i = 0; i < party.Length; i++)
+            for (int i = 0; i < Party.Length; i++)
             {
-                if (party[i] == null)
+                if (Party[i] == null)
                 {
-                    party[i] = newMember;
+                    Party[i] = newMember;
                 }
                 else
                 {
