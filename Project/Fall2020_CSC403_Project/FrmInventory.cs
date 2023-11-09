@@ -289,15 +289,16 @@ namespace Fall2020_CSC403_Project
 
 
 
-            UpdateStats();
+            UpdateStatLabels();
 
 
             RefreshInv();
 
         }
 
-        private void UpdateStats()
+        private void UpdateStatLabels()
         {
+            Game.player.UpdateStats();
             SpeedStat.Text = "Speed: "+Game.player.speed.ToString();
             DefStat.Text = "Defense: "+Game.player.defense.ToString();
             AttackStat.Text = "Attack: "+Game.player.damage.ToString();
@@ -368,7 +369,7 @@ namespace Fall2020_CSC403_Project
             selected = 0;
 
             RefreshInv();
-
+            UpdateStatLabels();
         }
 
         private void UseButton_Click(object sender, EventArgs e)
@@ -492,7 +493,7 @@ namespace Fall2020_CSC403_Project
 
             frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
             UpdateHealthBars();
-            UpdateStats();
+            UpdateStatLabels();
             this.Refresh();
 
         }
