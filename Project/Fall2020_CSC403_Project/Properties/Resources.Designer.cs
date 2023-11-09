@@ -241,6 +241,7 @@ namespace Fall2020_CSC403_Project.Properties {
                 object obj = ResourceManager.GetObject("True_Raisin_Pain", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
                 }
+            }
         internal static System.Drawing.Bitmap portal {
             get {
                 object obj = ResourceManager.GetObject("portal", resourceCulture);
