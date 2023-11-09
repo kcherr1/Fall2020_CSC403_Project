@@ -161,7 +161,6 @@ namespace Fall2020_CSC403_Project {
             }
 
             UpdateHealthBars();
-
             if (player.Health <= 0)
             {
                 instance = null;
