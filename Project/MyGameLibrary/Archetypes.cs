@@ -142,6 +142,27 @@ namespace Fall2020_CSC403_Project.code
 
     }
 
+    public class Tombstone : Archetype
+    {
+        public string name { get; }
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; set; }
+        public string opener { get; }
+
+        public Tombstone()
+        {
+            name = "Tombstone";
+            baseMaxHealth = 30;
+            baseDefense = 10;
+            baseDamage = 3;
+            baseSpeed = 2;
+            hitMod = 3;
+        }
+    }
+
     // Enemy Archetypes
     public class Minion : Archetype
     {

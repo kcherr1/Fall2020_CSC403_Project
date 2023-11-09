@@ -14,7 +14,6 @@ namespace Fall2020_CSC403_Project.code {
         public Player(string name, PictureBox pic, Archetype archetype) : base(name, pic, archetype)
         {
             Party = new NPC[3];
-
         }
 
         public bool isPartyFull()
@@ -22,6 +21,16 @@ namespace Fall2020_CSC403_Project.code {
             for (int i = 0; i < this.Party.Length; i++)
             {
                 if (this.Party[i] == null)
+                { return false; }
+            }
+            return true;
+        }
+
+        public bool isPartyEmpty()
+        {
+            for (int i = 0; i < this.Party.Length; i++)
+            {
+                if (this.Party[i] != null)
                 { return false; }
             }
             return true;
