@@ -44,6 +44,7 @@ namespace Fall2020_CSC403_Project.code {
                 if (Party[i] == null)
                 {
                     Party[i] = newMember;
+                    return;
                 }
                 else
                 {
