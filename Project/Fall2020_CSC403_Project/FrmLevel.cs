@@ -936,7 +936,7 @@ namespace Fall2020_CSC403_Project
                 return;
             }
             Game.CurrentArea.Visited = true;
-
+            Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - Game.player.Pic.Height - 100));
 
             for (int i = 1; i < 7 ; i++)
             {
