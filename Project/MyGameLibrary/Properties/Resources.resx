@@ -124,6 +124,9 @@
   <data name="BackgroundForRPG3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackgroundForRPG3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bartholomew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bartholomew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brute" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brute.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

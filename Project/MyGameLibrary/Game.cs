@@ -186,6 +186,11 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.gerald, new Point(300, 300), new Size(100, 100)),
                 new Gerald());
 
+            NPCs["Bartholomew"] = new NPC(
+                "Bartholomew",
+                MakePictureBox(Resources.bartholomew, new Point(300, 300), new Size(75, 100))
+                new Guy());
+
             // Create Structures
             Structures["wall_bricks"] = new Structure(
                 MakePictureBox(Resources.wall_bricks, new Point(500, 500), new Size(20, 100)));
