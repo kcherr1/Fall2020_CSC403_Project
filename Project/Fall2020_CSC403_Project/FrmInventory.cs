@@ -351,17 +351,14 @@ namespace Fall2020_CSC403_Project
             if (selected == 10)
             {
                 Game.player.Inventory.UnEquipWeapon();
-                RefreshInv();
             }
             else if (selected == 11)
             {
                 Game.player.Inventory.UnEquipArmor();
-                RefreshInv();
             }
             else if (selected == 12)
             {
                 Game.player.Inventory.UnEquipUtility();
-                RefreshInv();
             }
             else { }
             if (selected > 0)
@@ -369,6 +366,8 @@ namespace Fall2020_CSC403_Project
                 PictureBoxes[selected - 1].BackColor = Color.DimGray;
             }
             selected = 0;
+
+            RefreshInv();
 
         }
 
