@@ -65,7 +65,7 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
             this.MainMenu = MainMenu;
 
-            this.AreaNum = 4;
+            this.AreaNum = 9;
 
 
         }
@@ -280,7 +280,8 @@ namespace Fall2020_CSC403_Project
             Game.Areas[6] = new Area("Windy Plateau", 456, Terrain.Biome.Grassland);
             Game.Areas[7] = new Area("Harmony Plains", 345, Terrain.Biome.Grassland, 0.13);
             Game.Areas[8] = new Area("Harmony Village", 623, Terrain.Biome.Village, 0.07);
-            Game.Areas[9] = new Area("Dragon's Lair", 123, Terrain.Biome.Mountain);
+            Game.Areas[9] = new Area("Malek's Lair");
+            Game.Areas[9].MakeBossRoom();
         }
 
         private void InitializeCurrentArea()
@@ -651,8 +652,14 @@ namespace Fall2020_CSC403_Project
         public void GameOver()
         {
             this.gameOver = true;
-            Game.player.SetEntityPosition(new Position(-100, -100));
 
+            foreach (Item item in Game.player.Inventory.Backpack)
+            {
+                item?.ShowEntity();
+            }
+            Game.player.Inventory.Weapon?.ShowEntity();
+            Game.player.Inventory.Armor?.ShowEntity();
+            Game.player.Inventory.Utility?.ShowEntity();
 
             DisposeArea();
             DisposeGame();
@@ -850,9 +857,15 @@ namespace Fall2020_CSC403_Project
                 setAdjacency(i);
             }
 
+            foreach (Area area in Game.Areas)
+            {
+                area.Visited = false;
+            }
+
             AreaSelect();
             InitializeCurrentArea();
             UpdateHealthBars(playerCurrentHealth);
+            UpdateStatusBar(def_label, damage_label, speed_label);
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)
@@ -923,6 +936,21 @@ namespace Fall2020_CSC403_Project
                 return;
             }
             Game.CurrentArea.Visited = true;
+
+
+            for (int i = 1; i < 7 ; i++)
+            {
+                Game.CurrentArea.AddStructure(Game.Structures["Pillar" + i.ToString()]);
+            }
+
+            for (int i = 1; i < 5; i++)
+            {
+                Game.CurrentArea.AddStructure(Game.Structures["Gold" + i.ToString()]);
+            }
+
+            Game.CurrentArea.AddEnemy(Game.Enemies["Dragon"]);
+
+
         }
 
         private void Area8()

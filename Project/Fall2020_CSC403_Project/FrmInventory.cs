@@ -668,7 +668,7 @@ namespace Fall2020_CSC403_Project
 
             if (Game.player.Inventory.Backpack[selected - 1] != null)
             {
-                ItemDesc.Text = Game.player.Inventory.Backpack[selected].Desc;
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected - 1].Desc;
 
                 ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
             }

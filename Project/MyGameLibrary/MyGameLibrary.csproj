@@ -157,5 +157,26 @@
   <ItemGroup>
     <None Include="Resources\tile_rock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_cave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_cave_path.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pillar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold_pile1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold_pile2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold_pile3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold_pile4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

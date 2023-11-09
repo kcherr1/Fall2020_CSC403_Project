@@ -163,10 +163,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Transparent.png" />
-    <None Include="Resources\harold1.png" />
     <None Include="data\travel_sign.png" />
     <None Include="data\house_L.png" />
     <None Include="data\house_long.png" />
@@ -178,6 +177,13 @@
     <None Include="data\icon_speed.png" />
     <None Include="data\tile_stony.png" />
     <None Include="data\tile_stony2.png" />
+    <Content Include="data\gold_pile1.png" />
+    <Content Include="data\gold_pile2.png" />
+    <Content Include="data\gold_pile3.png" />
+    <Content Include="data\gold_pile4.png" />
+    <Content Include="data\pillar.png" />
+    <Content Include="data\tile_cave.png" />
+    <Content Include="data\tile_cave_path.png" />
     <Content Include="gfgLogoIco.ico" />
     <None Include="data\wall_cobblestone.png" />
     <None Include="data\wall_bricks.png" />

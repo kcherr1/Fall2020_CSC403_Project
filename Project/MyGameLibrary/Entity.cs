@@ -99,15 +99,20 @@ namespace Fall2020_CSC403_Project.code
 			this.Pic.Visible = false;
         }
 
+        public void ShowEntity()
+        {
+            Collider.Enable();
+            this.Pic.Visible = true;
+        }
+
         public void SetEntityPosition(Position pos)
         {
             this.LastPosition = Position;
             this.Position = pos;
             Collider.MovePosition((int)Position.x, (int)Position.y);
-            this.Pic.Visible = true;
             this.Pic.Location = new Point((int)Position.x, (int)Position.y);
-            Collider.Enable();
             this.Pic.BringToFront();
+            ShowEntity();
         }
 
 
