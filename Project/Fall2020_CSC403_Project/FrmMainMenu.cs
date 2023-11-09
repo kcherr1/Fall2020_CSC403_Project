@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
+using AudioSwitcher.AudioApi.CoreAudio;
+using Fall2020_CSC403_Project.code;
+
 namespace Fall2020_CSC403_Project
 {
     public partial class FrmMainMenu : Form
@@ -19,15 +22,61 @@ namespace Fall2020_CSC403_Project
         private FrmWinScreen frmWin;
         private FrmEndScreen frmEnd;
 
+        CoreAudioDevice defaultPlayback = new CoreAudioController().DefaultPlaybackDevice;
+
         public FrmMainMenu()
         {
             InitializeComponent();
+            defaultPlayback.Volume = Game.volume;
             menuTheme.PlayLooping();
             this.FormClosed += (s, args) => Application.Exit();
+            this.Shown += (s, args) => menuTheme.PlayLooping();
             
         }
 
         private void btnStartGame_Click(object sender, EventArgs e)
+        {
+            startGame();
+        }
+
+        private void btnLeaveGame_Click(object sender, EventArgs e)
+        {
+            instance = null;
+            Close();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            lblTitle.Hide();
+            btnStartGame.Hide();
+            btnSettings.Hide();
+            btnLeaveGame.Hide();
+            peanut.Hide();
+            koolaid.Hide();
+            volumeBar.Show();
+            lblSettings.Show();
+            lblVolume.Show();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            lblTitle.Show();
+            btnStartGame.Show();
+            btnSettings.Show();
+            btnLeaveGame.Show();
+            peanut.Show();
+            koolaid.Show();
+            volumeBar.Hide();
+            lblSettings.Hide();
+            lblVolume.Hide();
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startGame()
         {
             this.Hide();
             menuTheme.Stop();
@@ -39,18 +88,40 @@ namespace Fall2020_CSC403_Project
                 {
                     frmWin = new FrmWinScreen();
                     frmWin.Show();
-                    frmWin.FormClosed += (x, t) => this.Show();
+                    frmWin.FormClosed += (x, t) =>
+                    {
+                        if (frmWin.restart)
+                        {
+                            startGame();
+                        }
+                        else
+                        {
+                            this.Show();
+                            menuTheme.PlayLooping();
+                        };
+                    };
                 }
                 else if (frmLevel.lose == true)
                 {
                     frmEnd = new FrmEndScreen();
                     frmEnd.Show();
-                    frmEnd.FormClosed += (x, t) => this.Show();
+                    frmEnd.FormClosed += (x, t) =>
+                    {
+                        if (frmEnd.restart)
+                        {
+                            startGame();
+                        }
+                        else
+                        {
+                            this.Show();
+                            menuTheme.PlayLooping();
+                        };
+                    };
                 }
                 else
                 {
                     this.Show();
-                    menuTheme.PlayLooping();
+                    startMusic();
                 }
             };
             frmLevel.Show();
@@ -58,15 +129,15 @@ namespace Fall2020_CSC403_Project
             instance = null;
         }
 
-        private void btnLeaveGame_Click(object sender, EventArgs e)
+        public void startMusic()
         {
-            instance = null;
-            Close();
+            menuTheme.PlayLooping();
         }
 
-        private void lblTitle_Click(object sender, EventArgs e)
+        public void changeMusicVolume(object sender, EventArgs s)
         {
-
+            Game.volume = volumeBar.Value;
+            defaultPlayback.Volume = Game.volume;
         }
     }
 }
