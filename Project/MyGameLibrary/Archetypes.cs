@@ -188,6 +188,29 @@ namespace Fall2020_CSC403_Project.code
         public void specialMove(Character target) { }
     }
 
+    public class Guy : Archetype
+    {
+        public string name { get; }
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; set; }
+        public string opener { get; }
+
+        public Guy()
+        {
+            name = "Guy";
+            baseMaxHealth = 10;
+            baseDefense = 0;
+            baseDamage = 1;
+            baseSpeed = 1;
+            hitMod = 0;
+        }
+
+        public void specialMove(Character target) { }
+    }
+
     // Enemy Archetypes
     public class Minion : Archetype
     {
