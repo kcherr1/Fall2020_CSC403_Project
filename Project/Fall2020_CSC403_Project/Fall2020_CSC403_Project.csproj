@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmStartScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStartScreen.Designer.cs">
+      <DependentUpon>FrmStartScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPlayerDeath.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmPlayerDeath.resx">
       <DependentUpon>FrmPlayerDeath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStartScreen.resx">
+      <DependentUpon>FrmStartScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWinLevelTwo.resx">
       <DependentUpon>FrmWinLevelTwo.cs</DependentUpon>
@@ -168,6 +177,8 @@
     <None Include="data\squirrel_dead.png" />
     <None Include="data\squirrel2_dead.png" />
     <None Include="data\squirrel3_dead.png" />
+    <None Include="data\money.png" />
+    <None Include="data\mr_peanut_without_rizz.jpg" />
     <Content Include="data\weapon1.png" />
   </ItemGroup>
   <ItemGroup>
