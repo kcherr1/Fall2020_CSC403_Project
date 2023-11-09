@@ -67,8 +67,6 @@ namespace Fall2020_CSC403_Project
             picPlayer.BackColor = this.BackColor;
             picPlayer.Image = player.Pic.Image;
 
-            if (player.party.Length > 0) { picPlayer.Hide(); }
-
             // Set up Enemy
             picEnemy = new PictureBox();
             picEnemy.Parent= this;
@@ -209,7 +207,7 @@ namespace Fall2020_CSC403_Project
             enemyHealthMax.BackColor = Color.Red;
             enemyHealthMax.AutoSize = false;
 
-            if (!player.isPartyEmpty()) { picPlayer.Hide(); UseButton.Hide(); FleeButton.Hide(); AttackButton.Hide(); playerCurrentHealth.Hide(); playerHealthMax.Hide(); PlayerName.Hide(); }
+            //if (!player.isPartyEmpty()) { picPlayer.Hide(); UseButton.Hide(); FleeButton.Hide(); AttackButton.Hide(); playerCurrentHealth.Hide(); playerHealthMax.Hide(); PlayerName.Hide(); }
 
             // Add log labels to screen
             backlog = new Label();
