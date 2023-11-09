@@ -57,5 +57,7 @@ namespace Fall2020_CSC403_Project.code {
     {
       Collider = new Collider(new Rectangle());
     }
+
+    public virtual void Save(string fileName) { }
   }
 }

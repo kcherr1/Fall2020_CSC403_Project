@@ -1,6 +1,8 @@
 ﻿using Fall2020_CSC403_Project.code;
 using MyGameLibrary;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
@@ -18,6 +20,8 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeStart;
     private FrmBattle frmBattle;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
+
+    private List<Character> objectsToSave = new List<Character>();
 
     public FrmLevel() : base() {
     //added this to keep track of whether or not the boss is defeated
@@ -69,6 +73,8 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
+
+      objectsToSave.Add(player);
     }
 
     //private Vector2 CreatePosition(PictureBox pic) {
@@ -214,6 +220,14 @@ namespace Fall2020_CSC403_Project {
             picEnemy.BackgroundImage = null;
             picEnemy.Image = global::Fall2020_CSC403_Project.Properties.Resources.Nether_portal1;
             picEnemy.SizeMode = PictureBoxSizeMode.Zoom;
+    }
+
+    public void SaveGame(string fileName)
+    {
+      foreach (Character character in objectsToSave)
+      {
+        character.Save(fileName);
+      }
     }
 
   }

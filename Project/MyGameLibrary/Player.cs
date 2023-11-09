@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter {
@@ -29,6 +32,29 @@ namespace Fall2020_CSC403_Project.code {
         this.Health += 5; //player gets a chance to heal a little after leveling up
         this.strength += 2;
       }
+    }
+
+    public override void Save(string fileName)
+    {
+      Hashtable vals = new Hashtable();
+
+      vals.Add("Health", Health);
+      vals.Add("MaxHealth",MaxHealth);
+      vals.Add("strength",strength);
+      vals.Add("strength", experience);
+      vals.Add("HealthPackCount", HealthPackCount);
+      vals.Add("WeaponStrength",WeaponStrength);
+      vals.Add("WeaponEquipped",WeaponEquiped);
+
+      using (var writer = new StreamWriter(fileName+"_player.csv"))
+      {   
+          foreach ( string item in vals) {
+            var line = string.Format("{0},{1}", item, vals[item]);
+            writer.WriteLine(line);
+            writer.Flush();
+        }
+      }
+
     }
   }
 }

@@ -42,6 +42,8 @@
       this.pictureBox3 = new System.Windows.Forms.PictureBox();
       this.pictureBox2 = new System.Windows.Forms.PictureBox();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.textBox1 = new System.Windows.Forms.TextBox();
+      this.button4 = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -54,7 +56,7 @@
       // button1
       // 
       this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.button1.Location = new System.Drawing.Point(471, 556);
+      this.button1.Location = new System.Drawing.Point(471, 492);
       this.button1.Name = "button1";
       this.button1.Size = new System.Drawing.Size(98, 41);
       this.button1.TabIndex = 1;
@@ -65,7 +67,7 @@
       // button2
       // 
       this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.button2.Location = new System.Drawing.Point(716, 556);
+      this.button2.Location = new System.Drawing.Point(716, 492);
       this.button2.Name = "button2";
       this.button2.Size = new System.Drawing.Size(98, 41);
       this.button2.TabIndex = 2;
@@ -87,7 +89,7 @@
       // button3
       // 
       this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.button3.Location = new System.Drawing.Point(591, 556);
+      this.button3.Location = new System.Drawing.Point(591, 492);
       this.button3.Name = "button3";
       this.button3.Size = new System.Drawing.Size(98, 41);
       this.button3.TabIndex = 5;
@@ -100,7 +102,7 @@
       this.label1.AutoSize = true;
       this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
       this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.label1.Location = new System.Drawing.Point(911, 153);
+      this.label1.Location = new System.Drawing.Point(111, 133);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(250, 362);
       this.label1.TabIndex = 6;
@@ -178,12 +180,29 @@
       // pictureBox1
       // 
       this.pictureBox1.Image = global::Fall2020_CSC403_Project.Properties.Resources.player;
-      this.pictureBox1.Location = new System.Drawing.Point(581, 243);
+      this.pictureBox1.Location = new System.Drawing.Point(585, 210);
       this.pictureBox1.Name = "pictureBox1";
       this.pictureBox1.Size = new System.Drawing.Size(104, 233);
       this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
       this.pictureBox1.TabIndex = 7;
       this.pictureBox1.TabStop = false;
+      // 
+      // textBox1
+      // 
+      this.textBox1.Location = new System.Drawing.Point(1018, 150);
+      this.textBox1.Name = "textBox1";
+      this.textBox1.Size = new System.Drawing.Size(189, 26);
+      this.textBox1.TabIndex = 14;
+      // 
+      // button4
+      // 
+      this.button4.Location = new System.Drawing.Point(1018, 192);
+      this.button4.Name = "button4";
+      this.button4.Size = new System.Drawing.Size(189, 30);
+      this.button4.TabIndex = 15;
+      this.button4.Text = "Create Save...";
+      this.button4.UseVisualStyleBackColor = true;
+      this.button4.Click += new System.EventHandler(this.button4_Click);
       // 
       // FrmStartScreen
       // 
@@ -191,6 +210,8 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Khaki;
       this.ClientSize = new System.Drawing.Size(1280, 640);
+      this.Controls.Add(this.button4);
+      this.Controls.Add(this.textBox1);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.pictureBox6);
       this.Controls.Add(this.pictureBox5);
@@ -231,5 +252,7 @@
     private System.Windows.Forms.PictureBox pictureBox5;
     private System.Windows.Forms.PictureBox pictureBox6;
     private System.Windows.Forms.PictureBox pictureBox7;
+    private System.Windows.Forms.TextBox textBox1;
+    private System.Windows.Forms.Button button4;
   }
 }

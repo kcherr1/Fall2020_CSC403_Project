@@ -73,5 +73,12 @@ namespace Fall2020_CSC403_Project
       pictureBox5.Visible = !pictureBox5.Visible;
       pictureBox6.Visible = !pictureBox6.Visible;
     }
+
+    private void button4_Click(object sender, EventArgs e)
+    {
+      string fileName = textBox1.Text;
+
+      GameState.
+    }
   }
 }
