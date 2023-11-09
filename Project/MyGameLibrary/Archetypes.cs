@@ -186,6 +186,7 @@ namespace Fall2020_CSC403_Project.code
         }
 
         public void specialMove(Character target) { }
+    }
 
     // Enemy Archetypes
     public class Minion : Archetype
