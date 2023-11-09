@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +26,8 @@ namespace Fall2020_CSC403_Project.code
         public static Dictionary<string, Enemy> Enemies = new Dictionary<string, Enemy>();
         public static Dictionary<string, NPC> NPCs = new Dictionary<string, NPC>();
         public static Dictionary<string, Structure> Structures = new Dictionary<string, Structure>();
+
+        public static Dictionary<string, bool> Objectives = new Dictionary<string, bool>();
 
         public static void PopulateWorld()
         {
@@ -309,6 +312,15 @@ namespace Fall2020_CSC403_Project.code
             y_4 = Screen.PrimaryScreen.Bounds.Height * 5 / 8;
             Structures["Gold4"] = new Structure(
                 MakePictureBox(Resources.gold_pile4, new Point(x_4, y_4), new Size(Terrain.TileSize.Width * 7, Terrain.TileSize.Width * 4)));
+
+
+            Objectives["spoke_to_barthollomew"] = false;
+            Objectives["spoke_to_tobmstone"] = false;
+            Objectives["tombstone with you"] = false;
+            Objectives["cleared_harmony_plains"] = false;
+            Objectives["killed_dragon"] = false;
+            Objectives["cleared_mountain"] = false;
+
 
         }
 
