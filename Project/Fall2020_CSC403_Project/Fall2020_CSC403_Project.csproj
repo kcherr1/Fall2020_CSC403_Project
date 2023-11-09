@@ -88,6 +88,7 @@
     <Compile Include="FrmLevel2.Designer.cs">
       <DependentUpon>FrmLevel2.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameState.cs" />
     <Compile Include="Level.cs">
       <SubType>Form</SubType>
     </Compile>

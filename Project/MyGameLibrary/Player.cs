@@ -41,14 +41,31 @@ namespace Fall2020_CSC403_Project.code {
       vals.Add("Health", Health);
       vals.Add("MaxHealth",MaxHealth);
       vals.Add("strength",strength);
-      vals.Add("strength", experience);
+      vals.Add("experience", experience);
       vals.Add("HealthPackCount", HealthPackCount);
       vals.Add("WeaponStrength",WeaponStrength);
       vals.Add("WeaponEquipped",WeaponEquiped);
 
-      using (var writer = new StreamWriter(fileName+"_player.csv"))
+      /*
+      string savePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
+                        + "\\Food-Fight-Save\\"+fileName + "_player.csv";
+
+      if (!Directory.Exists(savePath))
+      {
+        Directory.CreateDirectory(savePath);
+      }
+
+      using (var writer = new StreamWriter(savePath))
+      */
+      string savePath = "Food-Fight-Save\\" + fileName + "_player.csv";
+      if (!Directory.Exists(savePath))
+      {
+        Directory.CreateDirectory(savePath);
+      }
+
+      using (var writer = new StreamWriter(savePath))
       {   
-          foreach ( string item in vals) {
+          foreach ( var item in vals.Values) {
             var line = string.Format("{0},{1}", item, vals[item]);
             writer.WriteLine(line);
             writer.Flush();

@@ -78,7 +78,7 @@ namespace Fall2020_CSC403_Project
     {
       string fileName = textBox1.Text;
 
-      GameState.
+      GameState.currentLevel.SaveGame(fileName);
     }
   }
 }

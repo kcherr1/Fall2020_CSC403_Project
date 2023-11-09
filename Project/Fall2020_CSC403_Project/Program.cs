@@ -25,6 +25,7 @@ namespace Fall2020_CSC403_Project {
       {
 
         FrmLevel levelOne = new FrmLevel();
+        GameState.currentLevel = levelOne;
         levelOne.ShowDialog();
 
         //levelOne = null;
@@ -33,6 +34,7 @@ namespace Fall2020_CSC403_Project {
         {
           levelOne.Dispose();
           FrmLevel2 levelTwo = new FrmLevel2();
+          GameState.currentLevel = levelTwo;
           levelTwo.ShowDialog();
         }
       }

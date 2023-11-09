@@ -18,5 +18,7 @@ namespace Fall2020_CSC403_Project {
       );
       return new Collider(rect);
     }
+
+    public virtual void SaveGame(string fileName){ }
   }
 }

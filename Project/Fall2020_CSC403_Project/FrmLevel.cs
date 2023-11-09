@@ -222,7 +222,7 @@ namespace Fall2020_CSC403_Project {
             picEnemy.SizeMode = PictureBoxSizeMode.Zoom;
     }
 
-    public void SaveGame(string fileName)
+    public override void SaveGame(string fileName)
     {
       foreach (Character character in objectsToSave)
       {

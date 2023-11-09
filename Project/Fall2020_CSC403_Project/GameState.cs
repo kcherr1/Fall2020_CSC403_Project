@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Reflection;
 
 namespace Fall2020_CSC403_Project.code {
-  public class GameState
-  {
+  public class GameState {
     public static Player player { get; private set; }
     public static DateTime timeStart { get; private set; }
     //public Enemy[] enemies { get; set; }
@@ -18,13 +14,12 @@ namespace Fall2020_CSC403_Project.code {
     public static bool isGamePaused = false;
     public static TimeSpan totalPausedTime = TimeSpan.Zero;
 
-    public static FrmLevel currentLevel = null;
+    public static Level currentLevel;
 
-    public GameState(Player player, DateTime timeStart)
-    {
+    public GameState(Player player, DateTime timeStart) {
       GameState.player = player;
       GameState.timeStart = timeStart;
+      //this.enemies = enemies;
     }
-
   }
 }
