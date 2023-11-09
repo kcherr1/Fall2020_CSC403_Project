@@ -35,6 +35,8 @@ namespace Fall2020_CSC403_Project
 
         private Label backlog;
         private Label[] loglabels;
+        private Label[] loggradients;
+
 
         private PictureBox picPlayer;
         private PictureBox picEnemy;
@@ -205,6 +207,8 @@ namespace Fall2020_CSC403_Project
             enemyHealthMax.BackColor = Color.Red;
             enemyHealthMax.AutoSize = false;
 
+            //if (!player.isPartyEmpty()) { picPlayer.Hide(); UseButton.Hide(); FleeButton.Hide(); AttackButton.Hide(); playerCurrentHealth.Hide(); playerHealthMax.Hide(); PlayerName.Hide(); }
+
             // Add log labels to screen
             backlog = new Label();
             loglabels = new Label[BattleLog.Count()];
@@ -212,6 +216,29 @@ namespace Fall2020_CSC403_Project
             backlog.Size = new Size(picPlayer.Width,10 * height / 32);
             backlog.Parent = this;
             backlog.AutoSize = false;
+
+            if(enemy.archetype.opener != null)
+            {
+               BattleLog[0] = enemy.archetype.opener;
+            }
+
+            AddLogLabels();
+            updateLog();
+
+            backlog.Location = new Point(picEnemy.Left - picPlayer.Right / 2 - backlog.Width / 2, picPlayer.Location.Y + picPlayer.Height - 10*loglabels[0].Size.Height);
+
+            UpdateHealthBars();
+
+            // Observer pattern
+            enemy.AttackEvent += PlayerDamage;
+            player.AttackEvent += EnemyDamage;
+
+            // show health
+            UpdateHealthBars();
+        }
+
+        private void AddLogLabels()
+        {
             for (int i = 0; i < BattleLog.Count(); i++)
             {
                 loglabels[i] = new Label();
@@ -221,11 +248,23 @@ namespace Fall2020_CSC403_Project
                 loglabels[i].TextAlign = ContentAlignment.MiddleCenter;
                 loglabels[i].Size = new Size(picPlayer.Width, height / 32);
                 loglabels[i].Font = new Font("NSimSun", 7 * loglabels[i].Size.Height / 8);
-                loglabels[i].ForeColor = Color.White;
                 loglabels[i].BackColor = Color.FromArgb(60, 70, 80);
+
+                // Get the background color
+                Color backgroundColor = loglabels[i].BackColor;
+
+                // Interpolate between white and the background color to create a gradient
+                double interpolationFactor = (double)(BattleLog.Length-i) / (BattleLog.Count()*(4/3));
+                int red = (int)Math.Round(255 * interpolationFactor + (1 - interpolationFactor) * backgroundColor.R);
+                int green = (int)Math.Round(255 * interpolationFactor + (1 - interpolationFactor) * backgroundColor.G);
+                int blue = (int)Math.Round(255 * interpolationFactor + (1 - interpolationFactor) * backgroundColor.B);
+
+                Color gradientColor = Color.FromArgb(red, green, blue);
+                loglabels[i].ForeColor = gradientColor;
+
                 if (i == 0)
                 {
-                    loglabels[i].Location = new Point(picEnemy.Left - picPlayer.Right / 2 - loglabels[i].Width/2, picPlayer.Location.Y + picPlayer.Height - loglabels[i].Size.Height);
+                    loglabels[i].Location = new Point(picEnemy.Left - picPlayer.Right / 2 - loglabels[i].Width / 2, picPlayer.Location.Y + picPlayer.Height - loglabels[i].Size.Height);
                 }
                 else
                 {
@@ -237,22 +276,6 @@ namespace Fall2020_CSC403_Project
                     Game.FontSizing(loglabels[i]);
                 }
             }
-            updateLog();
-            backlog.Location = new Point(picEnemy.Left - picPlayer.Right / 2 - backlog.Width / 2, picPlayer.Location.Y + picPlayer.Height - 10*loglabels[0].Size.Height);
-
-
-
-
-
-
-            UpdateHealthBars();
-
-            // Observer pattern
-            enemy.AttackEvent += PlayerDamage;
-            player.AttackEvent += EnemyDamage;
-
-            // show health
-            UpdateHealthBars();
         }
 
         private void updateLog()
