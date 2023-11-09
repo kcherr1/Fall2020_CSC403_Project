@@ -65,7 +65,7 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
             this.MainMenu = MainMenu;
 
-            this.AreaNum = 9;
+            this.AreaNum = 4;
 
 
         }
