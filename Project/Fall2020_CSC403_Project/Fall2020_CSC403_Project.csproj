@@ -161,6 +161,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\ammo.png" />
+    <None Include="Resources\walk_sand.wav" />
+    <None Include="Resources\walk_grass.wav" />
     <None Include="Resources\nether_portal_exit.wav" />
     <None Include="Resources\nether_portal_enter.wav" />
     <None Include="Resources\among_us_start.wav" />
