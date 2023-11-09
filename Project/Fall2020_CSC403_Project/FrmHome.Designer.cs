@@ -149,7 +149,8 @@
             this.themeSelect.ItemHeight = 22;
             this.themeSelect.Items.AddRange(new object[] {
             "Classic Theme",
-            "New Theme"});
+            "New Theme",
+            "Invisible Theme"});
             this.themeSelect.Location = new System.Drawing.Point(576, 39);
             this.themeSelect.Name = "themeSelect";
             this.themeSelect.Size = new System.Drawing.Size(155, 30);

@@ -134,6 +134,8 @@ namespace Fall2020_CSC403_Project {
         {
             SoundPlayer simpleSound = new SoundPlayer(Resources.flee);
             simpleSound.Play();
+            this.Hide();
+    
         }
 
         public void playerImgChange()

@@ -64,10 +64,16 @@ namespace Fall2020_CSC403_Project
             {
                 gameplayForm = new FrmLevel();
                 gameplayForm.Show();
-                gameplayForm.applyTheme();
+                gameplayForm.applyTheme1();
                 this.Hide();
             }
-            
+            if (selectedTheme == "Invisible Theme")
+            {
+                gameplayForm = new FrmLevel();
+                gameplayForm.Show();
+                gameplayForm.applyTheme2();
+                this.Hide();
+            }
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
