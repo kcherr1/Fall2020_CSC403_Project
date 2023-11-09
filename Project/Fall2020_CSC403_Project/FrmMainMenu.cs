@@ -56,6 +56,7 @@ namespace Fall2020_CSC403_Project
             volumeBar.Show();
             lblSettings.Show();
             lblVolume.Show();
+            btnBack.Show();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -69,6 +70,7 @@ namespace Fall2020_CSC403_Project
             volumeBar.Hide();
             lblSettings.Hide();
             lblVolume.Hide();
+            btnBack.Hide();
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
