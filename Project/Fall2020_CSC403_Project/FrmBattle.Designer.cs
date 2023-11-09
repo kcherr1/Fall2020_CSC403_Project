@@ -32,29 +32,31 @@
       this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
       this.Heal = new System.Windows.Forms.Button();
       this.HealthPackCountLabel = new System.Windows.Forms.Label();
+      this.picBossBattleImposter = new System.Windows.Forms.PictureBox();
       this.pictureBox2 = new System.Windows.Forms.PictureBox();
       this.gunfireBlast = new System.Windows.Forms.PictureBox();
       this.weapon = new System.Windows.Forms.PictureBox();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.picBossBattle = new System.Windows.Forms.PictureBox();
+      this.picBossBattleSquirrels = new System.Windows.Forms.PictureBox();
       this.picEnemy = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
-      this.picBossBattleSquirrels = new System.Windows.Forms.PictureBox();
+      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleImposter)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.gunfireBlast)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.weapon)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleSquirrels)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleSquirrels)).BeginInit();
       this.SuspendLayout();
       // 
       // btnAttack
       // 
       this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.btnAttack.Location = new System.Drawing.Point(158, 376);
-      this.btnAttack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.btnAttack.Margin = new System.Windows.Forms.Padding(4);
       this.btnAttack.Name = "btnAttack";
       this.btnAttack.Size = new System.Drawing.Size(171, 59);
       this.btnAttack.TabIndex = 2;
@@ -133,6 +135,19 @@
       this.HealthPackCountLabel.TabIndex = 10;
       this.HealthPackCountLabel.Text = "3";
       // 
+      // picBossBattleImposter
+      // 
+      this.picBossBattleImposter.BackColor = System.Drawing.Color.Maroon;
+      this.picBossBattleImposter.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen_imposter;
+      this.picBossBattleImposter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picBossBattleImposter.Location = new System.Drawing.Point(1040, 694);
+      this.picBossBattleImposter.Margin = new System.Windows.Forms.Padding(4);
+      this.picBossBattleImposter.Name = "picBossBattleImposter";
+      this.picBossBattleImposter.Size = new System.Drawing.Size(40, 34);
+      this.picBossBattleImposter.TabIndex = 14;
+      this.picBossBattleImposter.TabStop = false;
+      this.picBossBattleImposter.Visible = false;
+      // 
       // pictureBox2
       // 
       this.pictureBox2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen_squirrels;
@@ -194,6 +209,18 @@
       this.picBossBattle.TabStop = false;
       this.picBossBattle.Visible = false;
       // 
+      // picBossBattleSquirrels
+      // 
+      this.picBossBattleSquirrels.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen_squirrels;
+      this.picBossBattleSquirrels.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picBossBattleSquirrels.Location = new System.Drawing.Point(1170, 866);
+      this.picBossBattleSquirrels.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+      this.picBossBattleSquirrels.Name = "picBossBattleSquirrels";
+      this.picBossBattleSquirrels.Size = new System.Drawing.Size(45, 43);
+      this.picBossBattleSquirrels.TabIndex = 7;
+      this.picBossBattleSquirrels.TabStop = false;
+      this.picBossBattleSquirrels.Visible = false;
+      // 
       // picEnemy
       // 
       this.picEnemy.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -220,18 +247,6 @@
       this.picPlayer.TabIndex = 0;
       this.picPlayer.TabStop = false;
       // 
-      // picBossBattleSquirrels
-      // 
-      this.picBossBattleSquirrels.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen_squirrels;
-      this.picBossBattleSquirrels.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picBossBattleSquirrels.Location = new System.Drawing.Point(1170, 866);
-      this.picBossBattleSquirrels.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-      this.picBossBattleSquirrels.Name = "picBossBattleSquirrels";
-      this.picBossBattleSquirrels.Size = new System.Drawing.Size(45, 43);
-      this.picBossBattleSquirrels.TabIndex = 7;
-      this.picBossBattleSquirrels.TabStop = false;
-      this.picBossBattleSquirrels.Visible = false;
-      // 
       // FrmBattle
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -239,6 +254,7 @@
       this.BackColor = System.Drawing.Color.Green;
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1051, 724);
+      this.Controls.Add(this.picBossBattleImposter);
       this.Controls.Add(this.pictureBox2);
       this.Controls.Add(this.gunfireBlast);
       this.Controls.Add(this.weapon);
@@ -255,18 +271,19 @@
       this.Controls.Add(this.picEnemy);
       this.Controls.Add(this.picPlayer);
       this.DoubleBuffered = true;
-      this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "FrmBattle";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Fight!";
+      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleImposter)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.gunfireBlast)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.weapon)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleSquirrels)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleSquirrels)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -290,5 +307,6 @@
     private System.Windows.Forms.PictureBox weapon;
     private System.Windows.Forms.PictureBox gunfireBlast;
     private System.Windows.Forms.PictureBox pictureBox2;
+    private System.Windows.Forms.PictureBox picBossBattleImposter;
   }
 }

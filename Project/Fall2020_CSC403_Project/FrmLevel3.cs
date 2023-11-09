@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using System.Windows.Forms.VisualStyles;
+using System.Diagnostics;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel3 : Level {
@@ -27,7 +28,7 @@ namespace Fall2020_CSC403_Project {
 
     public FrmLevel3() : base() {
       this.player = GameState.player;
-      this.player.MoveTo(20, 325);
+      this.player.MoveTo(10, 257);
       this.player.ResetMoveSpeed();
       InitializeComponent();
     }
@@ -80,6 +81,7 @@ namespace Fall2020_CSC403_Project {
         tables[o - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
+      this.player.ChangeCollider(base.CreateCollider(picPlayer, 0));
       Game.player = GameState.player;
     }
 
@@ -100,17 +102,17 @@ namespace Fall2020_CSC403_Project {
       // check collision with walls
       if (HitAWall(player)) {
         player.MoveBack();
-        //Debug.WriteLine("hit a wall!");
+        Debug.WriteLine("hit a wall!");
       }
 
       if (HitAnObstacle(player)) {
         player.MoveBack();
-        //Debug.WriteLine("hit a obstacle!");
+        Debug.WriteLine("hit a obstacle!");
       }
 
       if (HitATable(player)) {
         player.MoveBack();
-        //Debug.WriteLine("hit a obstacle!");
+        Debug.WriteLine("hit a obstacle!");
       }
 
       // check collision with enemies

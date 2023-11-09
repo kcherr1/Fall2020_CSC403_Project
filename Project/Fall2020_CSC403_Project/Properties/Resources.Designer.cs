@@ -103,6 +103,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap battle_screen_imposter {
+            get {
+                object obj = ResourceManager.GetObject("battle_screen_imposter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap battle_screen_squirrels {
             get {
                 object obj = ResourceManager.GetObject("battle_screen_squirrels", resourceCulture);

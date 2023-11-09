@@ -32,12 +32,12 @@
       this.wall4 = new System.Windows.Forms.PictureBox();
       this.wall3 = new System.Windows.Forms.PictureBox();
       this.wall5 = new System.Windows.Forms.PictureBox();
-      this.wall6 = new System.Windows.Forms.PictureBox();
+      this.exit = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
       this.picWhite = new System.Windows.Forms.PictureBox();
-      this.wall8 = new System.Windows.Forms.PictureBox();
-      this.picBlue = new System.Windows.Forms.PictureBox();
       this.wall7 = new System.Windows.Forms.PictureBox();
+      this.picBlue = new System.Windows.Forms.PictureBox();
+      this.wall6 = new System.Windows.Forms.PictureBox();
       this.picBossRed = new System.Windows.Forms.PictureBox();
       this.table1 = new System.Windows.Forms.PictureBox();
       this.table2 = new System.Windows.Forms.PictureBox();
@@ -54,12 +54,12 @@
       ((System.ComponentModel.ISupportInitialize)(this.wall4)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall3)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall5)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.wall6)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.exit)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWhite)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.wall8)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picBlue)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall7)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picBlue)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.wall6)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossRed)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
@@ -73,18 +73,18 @@
       ((System.ComponentModel.ISupportInitialize)(this.obstacle5)).BeginInit();
       this.SuspendLayout();
       // 
-      // tmrPlayerMove
-      // 
-      this.tmrPlayerMove.Enabled = true;
-      this.tmrPlayerMove.Interval = 10;
-      this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
-      // 
       // lblInGameTime
       // 
       this.lblInGameTime.Location = new System.Drawing.Point(0, 0);
       this.lblInGameTime.Name = "lblInGameTime";
       this.lblInGameTime.Size = new System.Drawing.Size(89, 18);
       this.lblInGameTime.TabIndex = 95;
+      // 
+      // tmrPlayerMove
+      // 
+      this.tmrPlayerMove.Enabled = true;
+      this.tmrPlayerMove.Interval = 10;
+      this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
       // 
       // wall1
       // 
@@ -97,7 +97,7 @@
       // 
       // wall2
       // 
-      this.wall2.Location = new System.Drawing.Point(-12, 482);
+      this.wall2.Location = new System.Drawing.Point(-12, 487);
       this.wall2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.wall2.Name = "wall2";
       this.wall2.Size = new System.Drawing.Size(240, 303);
@@ -124,28 +124,28 @@
       // 
       // wall5
       // 
-      this.wall5.Location = new System.Drawing.Point(-17, 247);
+      this.wall5.Location = new System.Drawing.Point(-17, 284);
       this.wall5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.wall5.Name = "wall5";
-      this.wall5.Size = new System.Drawing.Size(21, 186);
+      this.wall5.Size = new System.Drawing.Size(20, 208);
       this.wall5.TabIndex = 4;
       this.wall5.TabStop = false;
       // 
-      // wall6
+      // exit
       // 
-      this.wall6.Location = new System.Drawing.Point(1604, 288);
-      this.wall6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.wall6.Name = "wall6";
-      this.wall6.Size = new System.Drawing.Size(21, 186);
-      this.wall6.TabIndex = 5;
-      this.wall6.TabStop = false;
+      this.exit.Location = new System.Drawing.Point(1604, 288);
+      this.exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.exit.Name = "exit";
+      this.exit.Size = new System.Drawing.Size(21, 186);
+      this.exit.TabIndex = 5;
+      this.exit.TabStop = false;
       // 
       // picPlayer
       // 
       this.picPlayer.BackColor = System.Drawing.Color.Transparent;
       this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player3;
       this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picPlayer.Location = new System.Drawing.Point(13, 375);
+      this.picPlayer.Location = new System.Drawing.Point(50, 375);
       this.picPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
       this.picPlayer.Name = "picPlayer";
       this.picPlayer.Size = new System.Drawing.Size(64, 68);
@@ -164,35 +164,35 @@
       this.picWhite.TabIndex = 92;
       this.picWhite.TabStop = false;
       // 
-      // wall8
+      // wall7
       // 
-      this.wall8.Location = new System.Drawing.Point(196, 774);
-      this.wall8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.wall8.Name = "wall8";
-      this.wall8.Size = new System.Drawing.Size(1202, 25);
-      this.wall8.TabIndex = 94;
-      this.wall8.TabStop = false;
+      this.wall7.Location = new System.Drawing.Point(196, 774);
+      this.wall7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.wall7.Name = "wall7";
+      this.wall7.Size = new System.Drawing.Size(1202, 25);
+      this.wall7.TabIndex = 94;
+      this.wall7.TabStop = false;
       // 
       // picBlue
       // 
       this.picBlue.BackColor = System.Drawing.Color.Transparent;
       this.picBlue.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.blue;
       this.picBlue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picBlue.Location = new System.Drawing.Point(606, 518);
+      this.picBlue.Location = new System.Drawing.Point(647, 533);
       this.picBlue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
       this.picBlue.Name = "picBlue";
       this.picBlue.Size = new System.Drawing.Size(64, 68);
       this.picBlue.TabIndex = 96;
       this.picBlue.TabStop = false;
       // 
-      // wall7
+      // wall6
       // 
-      this.wall7.Location = new System.Drawing.Point(221, -16);
-      this.wall7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.wall7.Name = "wall7";
-      this.wall7.Size = new System.Drawing.Size(1177, 22);
-      this.wall7.TabIndex = 97;
-      this.wall7.TabStop = false;
+      this.wall6.Location = new System.Drawing.Point(221, -16);
+      this.wall6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+      this.wall6.Name = "wall6";
+      this.wall6.Size = new System.Drawing.Size(1177, 22);
+      this.wall6.TabIndex = 97;
+      this.wall6.TabStop = false;
       // 
       // picBossRed
       // 
@@ -330,6 +330,7 @@
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.cafeteria_whole;
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1610, 777);
+      this.Controls.Add(this.picPlayer);
       this.Controls.Add(this.obstacle5);
       this.Controls.Add(this.obstacle3);
       this.Controls.Add(this.obstacle4);
@@ -341,12 +342,11 @@
       this.Controls.Add(this.table2);
       this.Controls.Add(this.table1);
       this.Controls.Add(this.picBossRed);
-      this.Controls.Add(this.wall7);
-      this.Controls.Add(this.picBlue);
-      this.Controls.Add(this.wall8);
-      this.Controls.Add(this.picWhite);
-      this.Controls.Add(this.picPlayer);
       this.Controls.Add(this.wall6);
+      this.Controls.Add(this.picBlue);
+      this.Controls.Add(this.wall7);
+      this.Controls.Add(this.picWhite);
+      this.Controls.Add(this.exit);
       this.Controls.Add(this.wall5);
       this.Controls.Add(this.wall3);
       this.Controls.Add(this.wall4);
@@ -360,17 +360,20 @@
       this.Name = "FrmLevel3";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "C";
+      this.Load += new System.EventHandler(this.LoadLevel);
+      this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
+      this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
       ((System.ComponentModel.ISupportInitialize)(this.wall1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall4)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall3)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall5)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.wall6)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.exit)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWhite)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.wall8)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picBlue)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall7)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picBlue)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.wall6)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossRed)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
@@ -395,12 +398,12 @@
     private System.Windows.Forms.PictureBox wall4;
     private System.Windows.Forms.PictureBox wall3;
     private System.Windows.Forms.PictureBox wall5;
-    private System.Windows.Forms.PictureBox wall6;
+    private System.Windows.Forms.PictureBox exit;
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picWhite;
-    private System.Windows.Forms.PictureBox wall8;
-    private System.Windows.Forms.PictureBox picBlue;
     private System.Windows.Forms.PictureBox wall7;
+    private System.Windows.Forms.PictureBox picBlue;
+    private System.Windows.Forms.PictureBox wall6;
     private System.Windows.Forms.PictureBox picBossRed;
     private System.Windows.Forms.PictureBox table1;
     private System.Windows.Forms.PictureBox table2;

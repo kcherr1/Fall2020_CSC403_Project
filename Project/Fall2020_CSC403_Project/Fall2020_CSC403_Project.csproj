@@ -175,6 +175,7 @@
     <None Include="data\angy_squirrels.png" />
     <None Include="data\cafeteria_whole.png" />
     <None Include="data\blue.png" />
+    <None Include="data\battle_screen_imposter.png" />
     <Content Include="data\gunfireBlast.png" />
     <Content Include="data\health_pack.png" />
     <None Include="data\squirrel_dead.png" />
