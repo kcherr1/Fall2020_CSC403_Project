@@ -48,6 +48,9 @@ namespace Fall2020_CSC403_Project
         public Label def_label;
         public Label damage_label;
 
+        public Panel conversePanel;
+        public Label converseText;
+
 
         public FrmLevel(Form MainMenu)
         {
@@ -266,6 +269,22 @@ namespace Fall2020_CSC403_Project
             TravelButton.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - SignPanel.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2);
 
 
+            this.conversePanel = new Panel();
+            this.conversePanel.Hide();
+            this.conversePanel.Location = new Point(0, Screen.PrimaryScreen.Bounds.Height * 3/ 4);
+            this.conversePanel.Parent = this;
+            this.conversePanel.Width = Screen.PrimaryScreen.Bounds.Width;
+            this.conversePanel.Height = Screen.PrimaryScreen.Bounds.Height - this.conversePanel.Top;
+            this.conversePanel.BackColor = Color.FromArgb(170, 123, 123, 123);
+
+            this.converseText = new Label();
+            this.converseText.Parent = this.conversePanel;
+            this.converseText.Size = new Size(Screen.PrimaryScreen.Bounds.Width, this.conversePanel.Size.Height - 10);
+            this.converseText.Text = "here i am sahing something to you";
+            Game.FontSizing(this.converseText);
+
+            
+
         }
 
         private void InitializeLevel()
@@ -463,9 +482,15 @@ namespace Fall2020_CSC403_Project
             int npcIndex = hitNPC(Game.player);
             if (npcIndex >= 0)
             {
-                Converse(Game.CurrentArea.npcs[npcIndex]);
-                Controls.Remove(Game.CurrentArea.npcs[npcIndex].Pic);
-                Game.CurrentArea.npcs.Remove(Game.CurrentArea.npcs[npcIndex]);
+                
+                this.conversePanel.Show();
+                //Converse(Game.CurrentArea.npcs[npcIndex]);
+
+                //Controls.Remove(Game.CurrentArea.npcs[npcIndex].Pic);
+                //Game.CurrentArea.npcs.Remove(Game.CurrentArea.npcs[npcIndex]);
+            } else
+            {
+                this.conversePanel.Hide();
             }
 
             x = HitAnItem(Game.player);
@@ -639,6 +664,9 @@ namespace Fall2020_CSC403_Project
 
             // TODO: Insert conversation mechanic here
 
+
+            conversePanel.Show();
+
             if(Game.player.isPartyFull())
             {
                 Console.WriteLine("PARTY IS FULL NOTIFICATION");
@@ -647,6 +675,7 @@ namespace Fall2020_CSC403_Project
             {
                 Game.player.addPartyMember(npc);
             }
+
         }
 
         public void GameOver()
