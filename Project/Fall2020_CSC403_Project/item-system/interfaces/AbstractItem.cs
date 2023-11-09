@@ -32,7 +32,7 @@ namespace Fall2020_CSC403_Project.item_system.interfaces
              *  Image img --> this.picItem.Image = global::Fall2020_CSC403_Project.Properties.Resources.RandomPotion;
              *  float locationX --> 767
              *  float locationY --> 354
-             *  string name --> this.picItem.Name = "pictureBox1";
+             *  string name --> this.picItem.Name = "picHealthPotion0";
              *  int sizeX --> 50
              *  int sizeY --> 50
              *  int tabIndex --> this.picItem.TabIndex = 18;

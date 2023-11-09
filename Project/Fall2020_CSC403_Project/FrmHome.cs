@@ -88,7 +88,7 @@ namespace Fall2020_CSC403_Project
         {
             if (currentImageIndex < images.Count)
             {
-                pictureBox1.Image = images[currentImageIndex];
+                picHealthPotion0.Image = images[currentImageIndex];
                 label1.Text = label1Text[currentImageIndex];
                 label2.Text = label2Text[currentImageIndex];
                 currentImageIndex++;
