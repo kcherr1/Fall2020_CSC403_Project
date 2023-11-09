@@ -22,6 +22,8 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
+    private DateTime soundTime = DateTime.Now;
+
     public FrmLevel() : base() {
     //added this to keep track of whether or not the boss is defeated
       InitializeComponent();
@@ -109,9 +111,13 @@ namespace Fall2020_CSC403_Project {
         Fight(enemyCheeto);
       }
       if (HitAChar(player, ak)){
+        SoundPlayer akSound = new SoundPlayer(Resources.ak_Sound);
+        akSound.Load();
         player.WeaponStrength = ak.getStrength();
         player.WeaponEquiped = true;
         weapon1.Visible = false;
+        akSound.Play();
+        ak.RemoveCollider();
       }
 
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
@@ -174,6 +180,14 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      SoundPlayer simpleSound = new SoundPlayer(Resources.walk_sand);
+      simpleSound.Load();
+      System.Diagnostics.Debug.WriteLine(soundTime.Second);
+      if ((DateTime.Now.Second - soundTime.Second) > 1)
+      {
+        simpleSound.Play();
+        soundTime = DateTime.Now;
+      }
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
