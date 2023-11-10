@@ -17,9 +17,7 @@ namespace Fall2020_CSC403_Project
         private List<string> label1Text = new List<string>();
         private List<string> label2Text = new List<string>();
         private int currentImageIndex = 0;
-        private FrmHelp frmHelp;
         public static FrmLevel gameplayForm = null;
-        public static FrmHome frmHome = null;
         public FrmHome()
         {
             InitializeComponent();
@@ -48,7 +46,7 @@ namespace Fall2020_CSC403_Project
 
             label2Text.Add("Player Character (Your Avatar): \n A young hero with the ability to harness the power of Air. \n You are known for your agility and problem-solving skills.");
             label2Text.Add("Koolaid (Enemy - representing the corrupted Water Element): \n Koolaid is a devious and manipulative enchantress who \n wants to flood Eldorania with her dark Water magic.");
-            label2Text.Add("Cheetos (Enemy - representing the corrupted Fire Element):\n Chootos is a cunning and power-hungry sorcerer who \n seeks to unleash the destructive force of Fire to rule the realm.");
+            label2Text.Add("Cheetos (Enemy - representing the corrupted Fire Element):\n Cheetos is a cunning and power-hungry sorcerer who \n seeks to unleash the destructive force of Fire to rule the realm.");
             label2Text.Add("Poisonpacket (Enemy - representing the corrupted Earth Element): \n Poisonpacket is a treacherous rogue who plans \n to spread chaos by infecting the land with poisonous Earth.");
             // Add more text as needed
         }
@@ -95,7 +93,7 @@ namespace Fall2020_CSC403_Project
                     }
                     break;
                 case Keys.S:
-                    gameplayForm = new FrmLevel();
+                    FrmLevel gameplayForm = new FrmLevel();
                     gameplayForm.Show();
                     this.Hide();
                     break;
@@ -106,7 +104,7 @@ namespace Fall2020_CSC403_Project
         {
             if (currentImageIndex < images.Count)
             {
-                picHealthPotion0.Image = images[currentImageIndex];
+                pictureBox1.Image = images[currentImageIndex];
                 label1.Text = label1Text[currentImageIndex];
                 label2.Text = label2Text[currentImageIndex];
                 currentImageIndex++;
@@ -123,7 +121,7 @@ namespace Fall2020_CSC403_Project
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmHelp = new FrmHelp(); // Create an instance of the instruction form
+            FrmHelp frmHelp = new FrmHelp(); // Create an instance of the instruction form
             frmHelp.ShowDialog(); // Show the instruction form as a modal dialog
 
             // Environment.Exit(0);
@@ -131,7 +129,7 @@ namespace Fall2020_CSC403_Project
 
         private void themeSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

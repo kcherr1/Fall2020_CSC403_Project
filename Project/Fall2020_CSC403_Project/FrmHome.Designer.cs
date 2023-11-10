@@ -33,13 +33,13 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.labelHome = new System.Windows.Forms.Label();
-            this.picHealthPotion0 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.themeSelect = new System.Windows.Forms.ComboBox();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // playBtn
@@ -88,15 +88,15 @@
             this.labelHome.TabIndex = 4;
             this.labelHome.Text = "Welcome!";
             // 
-            // picictureBox1
+            // pictureBox1
             // 
-            //this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.home;
-            //this.pictureBox1.Location = new System.Drawing.Point(630, 203);
-            //this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            //this.pictureBox1.Name = "pictureBox1";
-            //this.pictureBox1.Size = new System.Drawing.Size(424, 305);
-            //this.pictureBox1.TabIndex = 5;
-            //this.pictureBox1.TabStop = false;
+            this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.home;
+            this.pictureBox1.Location = new System.Drawing.Point(630, 203);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(424, 305);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -171,7 +171,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.picHealthPotion0);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelHome);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.playBtn);
@@ -182,7 +182,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmHome_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmHome_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.picHealthPotion0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,7 +194,7 @@
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label labelHome;
-        private System.Windows.Forms.PictureBox picHealthPotion0;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;

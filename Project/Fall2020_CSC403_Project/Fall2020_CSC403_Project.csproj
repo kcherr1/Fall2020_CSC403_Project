@@ -231,7 +231,6 @@
     <Content Include="data\flee.wav" />
     <Content Include="data\home.jpeg" />
     <Content Include="data\iamchatgpt2.png" />
-    <Content Include="data\iamchatgpt3.png" />
     <Content Include="data\peanut.png" />
     <Content Include="data\success.wav" />
     <Content Include="data\wall2.jpg" />
