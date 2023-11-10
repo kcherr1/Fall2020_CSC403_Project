@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,22 @@ namespace Fall2020_CSC403_Project.code {
       Collider = collider;
     }
 
-    public void Move() {
+    // displace moves the charcter's collider
+    public void Displace()
+    {
+        LastPosition = Position;
+        Position = new Vector2((int)Position.x + 1500, (int)Position.y + 1500);
+        Collider.MovePosition((int)Position.x + 1500, (int)Position.y + 1500);
+    }
+
+    // replace undoes the movement of displace
+    public void Replace()
+    {
+        Position = LastPosition;
+        Collider.MovePosition((int)LastPosition.x, (int)LastPosition.y);
+    }
+
+        public void Move() {
       LastPosition = Position;
       Position = new Vector2(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
       Collider.MovePosition((int)Position.x, (int)Position.y);

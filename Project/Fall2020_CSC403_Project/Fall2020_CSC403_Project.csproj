@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AudioSwitcher.AudioApi, Version=3.0.0.209, Culture=neutral, PublicKeyToken=fda5729e2db3a64f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AudioSwitcher.AudioApi.3.0.0\lib\net40\AudioSwitcher.AudioApi.dll</HintPath>
+    </Reference>
+    <Reference Include="AudioSwitcher.AudioApi.CoreAudio, Version=3.0.0.209, Culture=neutral, PublicKeyToken=fda5729e2db3a64f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AudioSwitcher.AudioApi.CoreAudio.3.0.3\lib\net472\AudioSwitcher.AudioApi.CoreAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,11 +52,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBackground.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBackground.Designer.cs">
+      <DependentUpon>FrmBackground.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmBattle.Designer.cs">
       <DependentUpon>FrmBattle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEndScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEndScreen.Designer.cs">
+      <DependentUpon>FrmEndScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLevel.cs">
       <SubType>Form</SubType>
@@ -58,13 +76,34 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMainMenu.Designer.cs">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWinScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWinScreen.Designer.cs">
+      <DependentUpon>FrmWinScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEndScreen.resx">
+      <DependentUpon>FrmEndScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMainMenu.resx">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWinScreen.resx">
+      <DependentUpon>FrmWinScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -72,6 +111,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -113,13 +153,43 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="battle_theme.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="data\The Primoridal Juice.jpg" />
+    <None Include="data\True Raisin Pain.jpg" />
+    <None Include="data\G.R.I.M.A.C.E..png" />
+    <None Include="data\peanut_end.jpg" />
+    <None Include="data\peanut_victory.jpg" />
+    <None Include="data\deadenemy_poisonpacket.fw.png" />
+    <None Include="data\attack.wav" />
+    <None Include="data\flee.wav" />
+    <None Include="data\heal.wav" />
+    <None Include="data\koolaid_attack.wav" />
+    <None Include="data\enemy_attack.wav" />
+    <None Include="data\dodge.wav" />
+    <None Include="data\enemyAttack.wav" />
+    <None Include="portal.png" />
+    <None Include="data\peanut_end.jpg" />
+    <None Include="data\peanut_victory.jpg" />
+    <None Include="data\fire.png" />
+    <None Include="data\portal.png" />
+    <None Include="fire.png" />
+    <Content Include="level_theme.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\peanut_end.bmp" />
+    <Content Include="menu_theme.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
