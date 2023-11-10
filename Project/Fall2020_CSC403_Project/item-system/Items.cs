@@ -140,6 +140,13 @@ namespace Fall2020_CSC403_Project.item_system
 
             // Remove the image after the gif plays for however many seconds
             picEffectEvent.Visible = false;
+
+            // Remove the image of the fence after gif plays for however many seconds
+            frmLevel.picFence0.Visible = false;
+            frmLevel.fences = null;
+            //frmLevel
+            //frmLevel.picDialog0.Visible = false;
+            //frmLevel.dialog[0].Collider = null;
         }
 
     }

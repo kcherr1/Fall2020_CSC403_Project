@@ -129,9 +129,13 @@ namespace Fall2020_CSC403_Project {
             }
 
             // check collision with fences
-            if (HitAFence(player)) {
-                player.MoveBack();
+            if (fences != null) { 
+                if (HitAFence(player))
+                {
+                    player.MoveBack();
+                }
             }
+            
 
             // check collision with key
             if (HitAKey(player)) {
@@ -139,11 +143,12 @@ namespace Fall2020_CSC403_Project {
             }
 
             // check collision with enemies
-            try {
 
+            if (enemyPoisonPacket != null) {
                 if (HitAChar(player, enemyPoisonPacket)) {
                     x = IsEnemyDead(enemyPoisonPacket);
-                    if (x == true) {
+                    if (x == true)
+                    {
                         Fight(enemyPoisonPacket);
                         // Generate a random number to get a random effect from the RandomPotion (first 3 potions will be random potion candidates)
 
@@ -152,26 +157,29 @@ namespace Fall2020_CSC403_Project {
                         // Wait to see how Nis implements flee
                         rpot = InstantiateItem(random.Next(1, 3), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
                     }
-
                 }
-                else if (HitAChar(player, enemyCheeto)) {
+                    
+
+            }
+            else if (enemyCheeto !=null) {
+                if (HitAChar(player, enemyCheeto)){
                     y = IsEnemyDead(enemyCheeto);
                     if (y == true) {
                         Fight(enemyCheeto);
                     }
                 }
+            }
             
+            if (bossChatgpt != null) {
                 if (HitAChar(player, bossChatgpt)) {
                     // not triggering
                     z = IsEnemyDead(bossChatgpt);
-                    if (z == true) { 
-                        Fight(bossChatgpt); 
+                    if (z == true)
+                    {
+                        Fight(bossChatgpt);
                     }
                 }
-            }
-            catch {
-                // if enemy or their collider was nulled, cant execute these, so we only try them and not force them on every tick
-              //  System.Windows.Forms.MessageBox.Show("FrmLevel tick error");
+                    
             }
         
             if (HitAnItem(player)) {
