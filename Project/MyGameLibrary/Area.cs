@@ -102,7 +102,6 @@ namespace MyGameLibrary
             {
                 for (int row = 0; row < Terrain.GridHeight; row++)
                 {
-                    Console.WriteLine(col + ", " + row + ": " + Terrain.GridWidth + ", " + Terrain.GridHeight);
                     if (row < 12 || row >= Terrain.GridWidth - 12)
                     {
                         this.Terrain.AddTile(new Tile(cave, new Point(col * Terrain.TileSize.Width, row * Terrain.TileSize.Width), Tile.EffectType.None));

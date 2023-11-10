@@ -374,7 +374,7 @@ namespace Fall2020_CSC403_Project
 
         private void UseButton_Click(object sender, EventArgs e)
         {
-            if (selected == 12)
+            if (selected == 12 && Game.player.Inventory.Utility != null)
             {
                 Game.player.ApplyEffect(Game.player.Inventory.Utility.Potion, Game.player.Inventory.Utility.Stat);
                 Game.player.Inventory.UseItem();
