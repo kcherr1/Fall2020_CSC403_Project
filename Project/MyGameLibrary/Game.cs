@@ -315,11 +315,11 @@ namespace Fall2020_CSC403_Project.code
 
 
             Objectives["spoke_to_barthollomew"] = false;
-            Objectives["spoke_to_tobmstone"] = false;
-            Objectives["tombstone with you"] = false;
+            Objectives["spoke_to_"] = false;
             Objectives["cleared_harmony_plains"] = false;
-            Objectives["killed_dragon"] = false;
             Objectives["cleared_mountain"] = false;
+            Objectives["killed_dragon"] = false;
+            Objectives["tombstone_revived"] = false;
 
 
         }
