@@ -56,10 +56,10 @@ namespace Fall2020_CSC403_Project {
 
     public static FrmBattle GetInstance(Enemy enemy, Inventory inventory) {
       if (instance == null) {
-        var newInstance = new FrmBattle();
-        newInstance.enemy = enemy;
-        newInstance.Setup();
-        newInstance.inventory = inventory;
+        instance = new FrmBattle();
+        instance.enemy = enemy;
+        instance.Setup();
+        instance.inventory = inventory;
       }
       return instance;
     }
