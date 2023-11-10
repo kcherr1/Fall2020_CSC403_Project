@@ -193,7 +193,7 @@ namespace Fall2020_CSC403_Project {
                     
 
             }
-            else if (enemyCheeto !=null) {
+            if (enemyCheeto != null) {
                 if (HitAChar(player, enemyCheeto)){
                     y = IsEnemyDead(enemyCheeto);
                     if (y == true) {
