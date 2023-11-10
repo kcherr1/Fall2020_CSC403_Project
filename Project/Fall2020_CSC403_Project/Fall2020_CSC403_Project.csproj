@@ -177,6 +177,8 @@
     <None Include="data\icon_speed.png" />
     <None Include="data\tile_stony.png" />
     <None Include="data\tile_stony2.png" />
+    <Content Include="data\cave_entrance_close.png" />
+    <Content Include="data\cave_entrance_open.png" />
     <Content Include="data\gold_pile1.png" />
     <Content Include="data\gold_pile2.png" />
     <Content Include="data\gold_pile3.png" />

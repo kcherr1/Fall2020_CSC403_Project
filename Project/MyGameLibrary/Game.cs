@@ -320,7 +320,7 @@ namespace Fall2020_CSC403_Project.code
                 Location = location,
                 Image = pic,
                 SizeMode = PictureBoxSizeMode.StretchImage,
-                BackColor = Color.Transparent,
+                BackColor = Color.Transparent,  
             };
         }
 

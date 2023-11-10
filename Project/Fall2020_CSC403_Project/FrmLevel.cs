@@ -950,6 +950,7 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.AddEnemy(Game.Enemies["Dragon"]);
 
+            
 
         }
 
@@ -1113,6 +1114,12 @@ namespace Fall2020_CSC403_Project
             }
 
             Game.CurrentArea.Visited = true;
+
+            Game.CurrentArea.SetAdjacentArea(Direction.Left, 9);
+            Size caveSize = new Size(Terrain.TileSize.Width * 4, Terrain.TileSize.Width * 3);
+            Game.CurrentArea.SetTravelSign(Direction.Left, new TravelSign(Game.Areas[9].AreaName, MakePictureBox(Resources.cave_entrance_open, new Point(-10, Screen.PrimaryScreen.Bounds.Height / 2 - caveSize.Height / 2), caveSize)));
+            Game.CurrentArea.TravelSigns[Direction.Left].Collider.Disable();
+
 
         }
 
