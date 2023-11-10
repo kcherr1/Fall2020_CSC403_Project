@@ -614,6 +614,16 @@ namespace Fall2020_CSC403_Project
             float playerHealthPer = p.Health / (float)p.MaxHealth;
             const int MAX_HEALTHBAR_WIDTH = 55;
             playerHealthBar.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+
+           
+            if(p.Health == 0)
+            {
+                DeathScreen deathScreen = new DeathScreen();
+                deathScreen.Show();
+                Hide();
+                player.AlterHealth(-1);
+            }
+
         }
         /// <summary>
         /// Update label size relative to remaining enemy health

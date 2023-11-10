@@ -54,6 +54,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeathScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeathScreen.Designer.cs">
+      <DependentUpon>DeathScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="InGameControlsPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DeathScreen.resx">
+      <DependentUpon>DeathScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InGameControlsPage.resx">
       <DependentUpon>InGameControlsPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +218,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\raw images\LVL1potion0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\blackbackground.png" />
+    <Content Include="data\deathscreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
