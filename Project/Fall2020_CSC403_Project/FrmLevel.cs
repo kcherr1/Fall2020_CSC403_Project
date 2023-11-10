@@ -12,37 +12,41 @@ namespace Fall2020_CSC403_Project {
     public partial class FrmLevel : Form {
         private Player player;
         public bool playerHasKey = false;
+        public bool playerHasHeal = false;
 
         public Enemy enemyPoisonPacket;
         public Enemy bossChatgpt;
         public Enemy enemyCheeto;
-        public Character[] walls, fences, dialog, key;
+        public Character[] walls, fences, dialog, key, healing_potion;
         public static SoundPlayer levelMusic; // background music for the level
 
         private DateTime timeBegin;
-        private FrmBattle frmBattle;    
+        private FrmBattle frmBattle;
         private Random random; // Random number generator for item system
         private IItem rpot; //rpot is always the handle regardless of the item called because its a random item, thus rpot
         private int keyHitCount = 0;
+        private int healHitCount = 0;
 
         public FrmLevel() {
             InitializeComponent();
         }
 
+
         private void FrmLevel_Load(object sender, EventArgs e) {
-            const int PADDING = 7;
+            const int PADDING = 4;
             const int NUM_WALLS = 13;
             const int NUM_FENCES = 1;
             const int NUM_DIALOG = 1;
             const int NUM_KEY = 1;
-            
+            const int NUM_HEAL = 1;
+
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             //bossChatgpt = new Enemy(CreatePosition(picBossChatgpt), CreateCollider(picBossChatgpt, PADDING));
             bossChatgpt = new Enemy(CreatePosition(picBossChatgpt), CreateCollider(picBossChatgpt, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-      
+
 
             bossChatgpt.Img = picBossChatgpt.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -61,31 +65,39 @@ namespace Fall2020_CSC403_Project {
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
-            
+
             fences = new Character[NUM_FENCES];
             for (int w = 0; w < NUM_FENCES; w++) {
                 PictureBox pic = Controls.Find("picFence" + w.ToString(), true)[0] as PictureBox;
                 fences[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
-       
+
             dialog = new Character[NUM_DIALOG];
             for (int w = 0; w < NUM_DIALOG; w++) {
                 PictureBox pic = Controls.Find("picDialog" + w.ToString(), true)[0] as PictureBox;
                 dialog[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
-            
+
             key = new Character[NUM_KEY];
             for (int w = 0; w < NUM_KEY; w++) {
                 PictureBox pic = Controls.Find("picKey" + w.ToString(), true)[0] as PictureBox;
                 key[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
-      
+
+            healing_potion = new Character[NUM_HEAL];
+            for (int w = 0; w < NUM_KEY; w++)
+            {
+                PictureBox pic = Controls.Find("picHealthPotion" + w.ToString(), true)[0] as PictureBox;
+                healing_potion[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+            }
+
             picDialog0.Visible = false;
             picKey0.Visible = false;
+            picHealthPotion0.Visible = false;
+            picHealthPotion0.Enabled = false;
 
             Game.player = player;
             timeBegin = DateTime.Now;
-
             // Initialize the looping level music
             levelMusic = new SoundPlayer(Resources.gamemusic);
             levelMusic.PlayLooping();
@@ -95,24 +107,40 @@ namespace Fall2020_CSC403_Project {
         }
 
         private Vector2 CreatePosition(PictureBox pic) {
-          return new Vector2(pic.Location.X, pic.Location.Y);
+            return new Vector2(pic.Location.X, pic.Location.Y);
         }
 
         private Collider CreateCollider(PictureBox pic, int padding) {
-          Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-          return new Collider(rect);
+            Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+            return new Collider(rect);
         }
 
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-          player.ResetMoveSpeed();
+            player.ResetMoveSpeed();
         }
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-          TimeSpan span = DateTime.Now - timeBegin;
-          string time = span.ToString(@"hh\:mm\:ss");
-          lblInGameTime.Text = "Time: " + time.ToString();
+            TimeSpan span = DateTime.Now - timeBegin;
+            string time = span.ToString(@"hh\:mm\:ss");
+            lblInGameTime.Text = "Time: " + time.ToString();
         }
-    
+
+        private void UpdatePlayerBar(object sender, EventArgs e)
+        {
+            float playerHealthPer = player.Health / (float)player.MaxHealth;
+            const int MAX_HEALTHBAR_WIDTH = 200;
+            lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+            lblPlayerHealthFull.Text = player.Health.ToString();
+            if (player.Health <= 16)
+            {
+                lblPlayerHealthFull.BackColor = Color.DarkRed;
+            }
+
+
+
+        }
+
+
         private void tmrPlayerMove_Tick(object sender, EventArgs e) {
             bool x,y,z;
             // move player
@@ -140,6 +168,10 @@ namespace Fall2020_CSC403_Project {
             // check collision with key
             if (HitAKey(player)) {
                 player.MoveBack();    
+            }
+
+            if (HitAHeal(player)){
+                player.MoveBack();
             }
 
             // check collision with enemies
@@ -193,15 +225,30 @@ namespace Fall2020_CSC403_Project {
         private void AllSideEnemyDied(Character c) {
             //bool allSideEnemyDied = false;
             bool keyHit = HitAKey(player);
+            bool healHit = HitAHeal(player);
             
             
             if (IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false) {   
                 if(keyHit == true) {
-                    picKey0.Visible = false;   
+                    picKey0.Visible = false;
+                    
                 }
-                else if (keyHit == false && keyHitCount == 0) { 
+                if (keyHit == false && keyHitCount == 0) { 
                     picKey0.Visible = true;
                 }
+                
+                if (healHit == true)
+                {
+                    picHealthPotion0.Visible = false;
+                    
+                }
+                if (healHit == false && healHitCount == 0)
+                {
+                    picHealthPotion0.Enabled = true;
+                    picHealthPotion0.Visible = true;
+                }
+                
+
             }
         }
 
@@ -248,7 +295,7 @@ namespace Fall2020_CSC403_Project {
         }
         private bool HitAKey(Character c) {
             bool hitAKey = false;
-            if(playerHasKey == false) { 
+            if(playerHasKey == false && IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false) { 
                 for (int w = 0; w < key.Length; w++) {
                     if (c.Collider.Intersects(key[w].Collider)) {
                         hitAKey = true;
@@ -260,6 +307,27 @@ namespace Fall2020_CSC403_Project {
                 }
             }
             return hitAKey;
+        }
+
+        private bool HitAHeal(Character c)
+        {
+            bool hitAHeal = false;
+            if (playerHasHeal == false && IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false)
+            {
+                for (int w = 0; w < healing_potion.Length; w++)
+                {
+                    if (c.Collider.Intersects(healing_potion[w].Collider))
+                    {
+                        hitAHeal = true;
+                        playerHasHeal = true;
+                        healHitCount++;
+                        picHealthPotion0.Visible = false;
+                        player.Health = player.Health + 10;
+                        break;
+                    }
+                }
+            }
+            return hitAHeal;
         }
 
         private bool HitAFence(Character c) {
@@ -310,6 +378,8 @@ namespace Fall2020_CSC403_Project {
                 frmBattle.SetupForBossBattle();
             }
         }
+
+
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
             switch (e.KeyCode) {
