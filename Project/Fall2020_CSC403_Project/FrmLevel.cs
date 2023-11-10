@@ -10,9 +10,10 @@ namespace Fall2020_CSC403_Project
     public partial class FrmLevel : Form
     {
         private Player player;
+        const int PADDING = 7;
 
-    private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
+        private Enemy enemyPoisonPacket;
+    private Boss bossKoolaid;
     private Enemy enemyCheeto;
     private Projectile arrow;
     private Character[] walls;
@@ -20,6 +21,7 @@ namespace Fall2020_CSC403_Project
     private DateTime timeBegin;
     private FrmBattle frmBattle;
         private List<HealthItem> itemsListHealth;
+        private List<Enemy> enemyList;
         private int rng;
 
 
@@ -30,19 +32,24 @@ namespace Fall2020_CSC403_Project
 
 
     private void FrmLevel_Load(object sender, EventArgs e) {
-            const int PADDING = 7;
+            //const int PADDING = 7;
             const int ARROW_PADDING = 2;
             const int NUM_WALLS = 13;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING), 1.0f);
-            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 0.25f);
+            bossKoolaid = new Boss(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), 0.25f);
+            enemyList = new List<Enemy>();
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), 0.5f);
+            enemyList.Add(enemyPoisonPacket);
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), 0.5f);
+            enemyList.Add(enemyCheeto);
 
             // character projectile attack
             arrow = new Projectile(CreatePosition(picPlayer), CreateCollider(picArrow, ARROW_PADDING));
             picArrow.Hide();
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+            picBossKoolAid.Hide();
+            bossHealthBar.Hide();
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
@@ -50,7 +57,6 @@ namespace Fall2020_CSC403_Project
             inventoryboard.Hide();
             selector.Parent = inventoryboard;
             selector.Hide();
-
 
             bossKoolaid.Color = Color.Red;
             enemyPoisonPacket.Color = Color.Green;
@@ -82,7 +88,7 @@ namespace Fall2020_CSC403_Project
             {
                 PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
                 inventoryItem.Hide();
-                // Sets inventory Item as child to always display item images on top of the inventory board.S
+                // Sets inventory Item as child to always display item images on top of the inventory board.
                 inventoryItem.Parent = this.inventoryboard;
             }
 
@@ -119,6 +125,16 @@ namespace Fall2020_CSC403_Project
                 arrow.impact(player);
                 picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                 picArrow.Hide();
+                if (enemyPoisonPacket.Health <= 0)
+                {
+                    enemyList.Remove(enemyPoisonPacket);
+                    if (enemyList.Count == 0)
+                    {
+                        bossKoolaid.setupBoss();
+                        picBossKoolAid.Show();
+                        bossHealthBar.Show();
+                    }
+                }
             }
             else if (ProjHitAEnemy(arrow, enemyCheeto))
             {
@@ -127,14 +143,27 @@ namespace Fall2020_CSC403_Project
                 arrow.impact(player);
                 picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                 picArrow.Hide();
+                if (enemyCheeto.Health <= 0)
+                {
+                    enemyList.Remove(enemyCheeto);
+                    if(enemyList.Count == 0)
+                    {
+                        bossKoolaid.setupBoss();
+                        picBossKoolAid.Show();
+                        bossHealthBar.Show();
+                    }
+                }
             }
-            else if (ProjHitAEnemy(arrow, bossKoolaid))
+            else if (bossKoolaid.showBoss)
             {
-                arrow.inFlight = false;
-                bossKoolaid.AlterHealth(arrow.Damage);
-                arrow.impact(player);
-                picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
-                picArrow.Hide();
+                if (ProjHitAEnemy(arrow, bossKoolaid))
+                {
+                    arrow.inFlight = false;
+                    bossKoolaid.AlterHealth(arrow.Damage);
+                    arrow.impact(player);
+                    picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                    picArrow.Hide();
+                }
             }
 
             // update position if object is inFlight
@@ -175,9 +204,9 @@ namespace Fall2020_CSC403_Project
         // enemyCheeto.MoveBack();
         Fight(enemyCheeto);
       }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
-      }
+      //if (HitAChar(player, bossKoolaid)) {
+      //  Fight(bossKoolaid);
+      //}
 
       // update player's picture box, health bar, and health
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y + 15);
@@ -323,7 +352,6 @@ namespace Fall2020_CSC403_Project
                             player.inventory.selectedItem -= 1;
                             selectedItem();
                         }
-                        Inventory_Open();
                         break;
 
                     default:
