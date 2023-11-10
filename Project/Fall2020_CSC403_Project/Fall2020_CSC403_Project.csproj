@@ -170,6 +170,7 @@
     <None Include="data\enemy_attack.wav" />
     <None Include="data\dodge.wav" />
     <None Include="data\enemyAttack.wav" />
+    <None Include="data\battleback.jpg" />
     <Content Include="level_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
