@@ -54,10 +54,10 @@ namespace Fall2020_CSC403_Project {
       tmrFinalBattle.Enabled = true;
     }
 
-    public static FrmBattle GetInstance(Enemy enemy, Invenotry inventory) {
+    public static FrmBattle GetInstance(Enemy enemy, Inventory inventory) {
       if (instance == null) {
         var newInstance = new FrmBattle();
-        newIinstance.enemy = enemy;
+        newInstance.enemy = enemy;
         newInstance.Setup();
         newInstance.inventory = inventory;
       }
@@ -135,7 +135,7 @@ namespace Fall2020_CSC403_Project {
       }
     }
    private async void btnHeavyAttack_Click(object sender, EventArgs e){
-      if(ContainsItem(inventory, "Heavy")){
+      if(inventory.ContainsAttribute(inventory, "Heavy")){
         lblDamage.Text = "  Dealt 16 damage!";
         btnHeavyAttack.Enabled = false;
         HitDisplay();
