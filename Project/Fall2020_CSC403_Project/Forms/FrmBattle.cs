@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemy;
     private Player player;
     private Inventory inventory;
+    Random atkchoice = new Random();
 
     private FrmBattle() {
       InitializeComponent();
@@ -53,14 +54,17 @@ namespace Fall2020_CSC403_Project {
       tmrFinalBattle.Enabled = true;
     }
 
-    public static FrmBattle GetInstance(Enemy enemy, Inventory inventory) {
-            //updated enemies go here?
-            var newInstance = new FrmBattle();
-            newInstance.enemy = enemy;
-            newInstance.Setup();
-            newInstance.inventory = inventory;
-            return newInstance;
-        }
+    public static FrmBattle GetInstance(Enemy enemy, Invenotry inventory) {
+      if (instance == null) {
+        var newInstance = new FrmBattle();
+        newIinstance.enemy = enemy;
+        newInstance.Setup();
+        newInstance.inventory = inventory;
+      }
+      return instance;
+    }
+            
+
 
     private void UpdateHealthBars() {
       float playerHealthPer = player.Health / (float)player.MaxHealth;
@@ -76,17 +80,37 @@ namespace Fall2020_CSC403_Project {
 
     private async void btnAttack_Click(object sender, EventArgs e) {
       lblDamage.Text = "   Dealt 8 damage!";
+      btnAttack.Enabled = false;
       HitDisplay();
       await Task.Delay(1500);
       player.OnAttack(-4);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        int enemyatk = atkchoice.Next(1, 4);
+        if(enemyatk == 1){
+          enemy.OnAttack(-2);
+        }
+        else if (enemyatk == 2) {
+          enemy.OnHeavyAttack(-2);
+        }
+        else if (enemyatk == 3) {
+          if (enemy.special == 1) {
+            enemy.CheetoSpecial(-2);
+          }
+          else if (enemy.special == 2) {
+            enemy.PoisonSpecial(-2);
+          }
+          else if (enemy.special == 3) {
+            enemy.KoolAidSpecial(-2);
+          }
+        }
+
       }
       EnemyDmgDisplay();
       await Task.Delay(1750);
       UpdateHealthBars();
       await Task.Delay(750);
       DmgGivenDisplay();
+      btnAttack.Enabled = true;
       btnHeavyAttack.Enabled = true;
       if (player.Health <= 0) {
         MusicPlayer.StopBattleSound();
@@ -111,23 +135,38 @@ namespace Fall2020_CSC403_Project {
       }
     }
    private async void btnHeavyAttack_Click(object sender, EventArgs e){
-      if (inventory.ContainsAttribute(inventory, "Heavy"))
-        {
-            lblDamage.Text = "  Dealt 16 damage!";
-            HitDisplay();
-            await Task.Delay(1500);
-            player.OnHeavyAttack(-4);
-            if (enemy.Health > 0)
-            {
-                enemy.OnAttack(-2);
+      if(ContainsItem(inventory, "Heavy")){
+        lblDamage.Text = "  Dealt 16 damage!";
+        btnHeavyAttack.Enabled = false;
+        HitDisplay();
+        await Task.Delay(1500);
+        player.OnHeavyAttack(-4);
+        if (enemy.Health > 0){
+          int enemyatk = atkchoice.Next(1, 4);
+          if (enemyatk == 1) {
+            enemy.OnAttack(-2);
+          }
+          else if (enemyatk == 2) {
+            enemy.OnHeavyAttack(-2);
+          }
+          else if (enemyatk == 3) {
+            if(enemy.special == 1) {
+              enemy.CheetoSpecial(-2);   
             }
-            EnemyDmgDisplay();
-            await Task.Delay(1750);
-            UpdateHealthBars();
-            await Task.Delay(750);
-            DmgGivenDisplay();
-            btnHeavyAttack.Enabled = false;
+            else if(enemy.special == 2) {
+              enemy.PoisonSpecial(-2);
+            }
+            else if(enemy.special == 3) {
+              enemy.KoolAidSpecial(-2);
+            }
+          }
         }
+        EnemyDmgDisplay();
+        await Task.Delay(1750);     
+        UpdateHealthBars();
+        await Task.Delay(750);
+        DmgGivenDisplay();
+      }
       if (player.Health <= 0)
       {
         MusicPlayer.StopBattleSound();
