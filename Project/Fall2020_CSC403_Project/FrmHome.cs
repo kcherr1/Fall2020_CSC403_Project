@@ -55,9 +55,27 @@ namespace Fall2020_CSC403_Project
 
         public void playBtn_Click(object sender, EventArgs e)
         {
-            gameplayForm = new FrmLevel();
-            gameplayForm.Show();
-            this.Hide();
+            string selectedTheme = themeSelect.SelectedItem.ToString();
+            if (selectedTheme == "Classic Theme")
+            {
+                gameplayForm = new FrmLevel();
+                gameplayForm.Show();
+                this.Hide();
+            }
+            if (selectedTheme == "New Theme")
+            {
+                gameplayForm = new FrmLevel();
+                gameplayForm.Show();
+                gameplayForm.applyTheme1();
+                this.Hide();
+            }
+            if (selectedTheme == "Invisible Theme")
+            {
+                gameplayForm = new FrmLevel();
+                gameplayForm.Show();
+                gameplayForm.applyTheme2();
+                this.Hide();
+            }
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -109,6 +127,11 @@ namespace Fall2020_CSC403_Project
             frmHelp.ShowDialog(); // Show the instruction form as a modal dialog
 
             // Environment.Exit(0);
+        }
+
+        private void themeSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

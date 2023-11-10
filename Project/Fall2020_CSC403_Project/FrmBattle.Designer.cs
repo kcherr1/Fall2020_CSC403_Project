@@ -33,6 +33,8 @@
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+            this.btnFlee = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEpicBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
@@ -43,10 +45,11 @@
             // 
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttack.Location = new System.Drawing.Point(169, 519);
-            this.btnAttack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAttack.Margin = new System.Windows.Forms.Padding(4);
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(171, 53);
             this.btnAttack.TabIndex = 2;
+            this.btnAttack.TabStop = false;
             this.btnAttack.Text = "Attack";
             this.btnAttack.UseVisualStyleBackColor = true;
             this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
@@ -124,7 +127,7 @@
             this.picEnemy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picEnemy.Location = new System.Drawing.Point(687, 121);
-            this.picEnemy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picEnemy.Margin = new System.Windows.Forms.Padding(4);
             this.picEnemy.Name = "picEnemy";
             this.picEnemy.Size = new System.Drawing.Size(304, 328);
             this.picEnemy.TabIndex = 1;
@@ -137,7 +140,7 @@
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picPlayer.Location = new System.Drawing.Point(93, 121);
-            this.picPlayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picPlayer.Margin = new System.Windows.Forms.Padding(4);
             this.picPlayer.Name = "picPlayer";
             this.picPlayer.Size = new System.Drawing.Size(304, 328);
             this.picPlayer.TabIndex = 0;
@@ -147,6 +150,19 @@
             // 
             this.tmrFinalBattle.Interval = 5600;
             this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
+            // 
+            // btnFlee
+            // 
+            this.btnFlee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFlee.Location = new System.Drawing.Point(169, 591);
+            this.btnFlee.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFlee.Name = "btnFlee";
+            this.btnFlee.Size = new System.Drawing.Size(171, 53);
+            this.btnFlee.TabIndex = 8;
+            this.btnFlee.TabStop = false;
+            this.btnFlee.Text = "Flee";
+            this.btnFlee.UseVisualStyleBackColor = true;
+            this.btnFlee.Click += new System.EventHandler(this.btnFlee_Click);
             // 
             // FrmBattle
             // 
@@ -163,10 +179,11 @@
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttack);
+            this.Controls.Add(this.btnFlee);
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
@@ -189,5 +206,6 @@
     private System.Windows.Forms.Timer tmrFinalBattle;
     public System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Label label3;
-  }
+    private System.Windows.Forms.Button btnFlee;
+    }
 }

@@ -249,6 +249,17 @@ namespace Fall2020_CSC403_Project {
             tmrFinalBattle.Enabled = false;
         }
 
-        
+        private void btnFlee_Click(object sender, EventArgs e)
+        {
+            SoundPlayer simpleSound = new SoundPlayer(Resources.flee);
+            simpleSound.Play();
+            this.Hide();
+    
+        }
+
+        public void playerImgChange()
+        {
+            picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut;
+        }
     }
 }

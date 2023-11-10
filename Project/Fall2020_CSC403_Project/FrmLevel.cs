@@ -27,9 +27,11 @@ namespace Fall2020_CSC403_Project {
         private int keyHitCount = 0;
         private int healHitCount = 0;
 
-        public FrmLevel() {
-            InitializeComponent();
-        }
+    public string theme = "Classic";
+
+    public FrmLevel() {
+      InitializeComponent();
+    }
 
 
         private void FrmLevel_Load(object sender, EventArgs e) {
@@ -450,11 +452,106 @@ namespace Fall2020_CSC403_Project {
                     picEnemyCheeto.Visible = false;    
                 }
             
-                return false;
-            }
-            else {
-                return true;
-            }
-        }    
+            return false;
+                }
+             else
+                {
+                    return true;
+                }
+            
+   }
+
+        public void applyTheme1()
+        {
+            theme = "New";
+            this.BackColor = Color.Black;
+
+            this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut;
+
+            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(620, 260);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(120, 200);
+
+            this.picBossKoolAid.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid2;
+            this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket2;
+            this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos2;
+
+            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, 7));
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, 7));
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, 7));
+
+            bossKoolaid.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid2;
+            enemyPoisonPacket.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket2;
+            enemyCheeto.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos2;
+
+            bossKoolaid.Color = Color.Black;
+            enemyPoisonPacket.Color = Color.Lavender;
+            enemyCheeto.Color = Color.Orange;
+
+            this.picEnemyPoisonPacket.Size = new System.Drawing.Size(144, 148);
+
+            this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall6.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall7.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall8.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+            this.picWall11.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall2;
+        }
+
+        public void applyTheme2()
+        {
+            theme = "Invisible";
+            this.BackColor = Color.Black;
+
+            this.picPlayer.Size = new System.Drawing.Size(10, 10);
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, 7));
+            this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.dot;
+
+            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(650, 60);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(120, 200);
+
+            this.picEnemyPoisonPacket.Size = new System.Drawing.Size(40, 40);
+            this.picEnemyCheeto.Size = new System.Drawing.Size(40,40);
+
+            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, 7));
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, 7));
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, 7));
+
+            bossKoolaid.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid;
+            enemyPoisonPacket.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
+            enemyCheeto.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
+
+            bossKoolaid.Color = Color.Black;
+            enemyPoisonPacket.Color = Color.Black;
+            enemyCheeto.Color = Color.Black;
+
+            this.picEnemyPoisonPacket.Size = new System.Drawing.Size(144, 148);
+
+            this.picEnemyPoisonPacket.Visible = false;
+            this.picEnemyCheeto.Visible = false;
+            this.picBossKoolAid.Visible = false;
+            this.picFence0.Visible = false;
+
+            this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall6.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall7.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall8.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+            this.picWall11.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
+        }
+
     }
 }

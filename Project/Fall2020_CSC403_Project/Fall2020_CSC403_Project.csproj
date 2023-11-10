@@ -223,7 +223,17 @@
     <Content Include="data\iamchatgpt.png" />
     <None Include="data\ramboPeanut.png" />
     <None Include="data\Psychedelic.png" />
+    <Content Include="data\attack.wav" />
+    <Content Include="data\dot.png" />
+    <Content Include="data\enemy_cheetos2.png" />
+    <Content Include="data\enemy_koolaid2.png" />
+    <Content Include="data\enemy_poisonpacket2.png" />
+    <Content Include="data\flee.wav" />
     <Content Include="data\home.jpeg" />
+    <Content Include="data\peanut.png" />
+    <Content Include="data\success.wav" />
+    <Content Include="data\wall2.jpg" />
+    <Content Include="data\wall3.jpg" />
     <None Include="data\newpic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
