@@ -39,7 +39,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.themeSelect = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // playBtn
@@ -88,15 +88,15 @@
             this.labelHome.TabIndex = 4;
             this.labelHome.Text = "Welcome!";
             // 
-            // picHealthPotion0
+            // picictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.home;
-            this.pictureBox1.Location = new System.Drawing.Point(630, 203);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(424, 305);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            //this.pictureBox1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.home;
+            //this.pictureBox1.Location = new System.Drawing.Point(630, 203);
+            //this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            //this.pictureBox1.Name = "pictureBox1";
+            //this.pictureBox1.Size = new System.Drawing.Size(424, 305);
+            //this.pictureBox1.TabIndex = 5;
+            //this.pictureBox1.TabStop = false;
             // 
             // label1
             // 

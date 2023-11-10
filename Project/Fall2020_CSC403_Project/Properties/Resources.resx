@@ -154,11 +154,8 @@
   <data name="enemyFightBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemyFightBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-	<data name="cgptBossRapTakeoverwav" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\data\cgptBossRapTakeoverwav.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</data>
-  <data name="fence" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\fence.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cgptBossRapTakeoverwav" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\cgptBossRapTakeoverwav.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="boss_dialog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\boss_dialog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,9 +181,6 @@
   <data name="Psychedelic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\Psychedelic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="player" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="gamemusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\gamemusic.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -199,14 +193,8 @@
   <data name="wallBoom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\wallBoom1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="boss_dialog" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\boss_dialog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="health_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\health_box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="key" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="attack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\attack.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -237,5 +225,11 @@
   </data>
   <data name="wall3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\wall3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iamchatgpt2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\iamchatgpt2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iamchatgpt3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\iamchatgpt3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

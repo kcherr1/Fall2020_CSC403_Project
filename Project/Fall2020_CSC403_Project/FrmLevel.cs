@@ -471,19 +471,19 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyPoisonPacket.Location = new System.Drawing.Point(620, 260);
             this.picEnemyCheeto.Location = new System.Drawing.Point(120, 200);
 
-            this.picBossKoolAid.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid2;
+            this.picBossChatgpt.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.iamchatgpt2;
             this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket2;
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos2;
 
-            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, 7));
+            bossChatgpt = new Enemy(CreatePosition(picBossChatgpt), CreateCollider(picBossChatgpt, 7));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, 7));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, 7));
 
-            bossKoolaid.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid2;
+            bossChatgpt.Img = global::Fall2020_CSC403_Project.Properties.Resources.iamchatgpt2;
             enemyPoisonPacket.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket2;
             enemyCheeto.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos2;
 
-            bossKoolaid.Color = Color.Black;
+            bossChatgpt.Color = Color.Black;
             enemyPoisonPacket.Color = Color.Lavender;
             enemyCheeto.Color = Color.Orange;
 
@@ -513,29 +513,25 @@ namespace Fall2020_CSC403_Project {
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, 7));
             this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.dot;
 
-            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(650, 60);
+            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(612, 68);
             this.picEnemyCheeto.Location = new System.Drawing.Point(120, 200);
 
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(40, 40);
             this.picEnemyCheeto.Size = new System.Drawing.Size(40,40);
 
-            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, 7));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, 7));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, 7));
 
-            bossKoolaid.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid;
             enemyPoisonPacket.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
             enemyCheeto.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
 
-            bossKoolaid.Color = Color.Black;
+            bossChatgpt.Color = Color.Black;
             enemyPoisonPacket.Color = Color.Black;
             enemyCheeto.Color = Color.Black;
 
-            this.picEnemyPoisonPacket.Size = new System.Drawing.Size(144, 148);
-
             this.picEnemyPoisonPacket.Visible = false;
             this.picEnemyCheeto.Visible = false;
-            this.picBossKoolAid.Visible = false;
+            this.picBossChatgpt.Visible = false;
             this.picFence0.Visible = false;
 
             this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;

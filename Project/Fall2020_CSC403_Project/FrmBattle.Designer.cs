@@ -34,7 +34,7 @@
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
             this.btnFlee = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEpicBossBattle)).BeginInit();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEpicBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();

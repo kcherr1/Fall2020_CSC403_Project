@@ -48,7 +48,7 @@ namespace Fall2020_CSC403_Project
 
             label2Text.Add("Player Character (Your Avatar): \n A young hero with the ability to harness the power of Air. \n You are known for your agility and problem-solving skills.");
             label2Text.Add("Koolaid (Enemy - representing the corrupted Water Element): \n Koolaid is a devious and manipulative enchantress who \n wants to flood Eldorania with her dark Water magic.");
-            label2Text.Add("Chootos (Enemy - representing the corrupted Fire Element):\n Chootos is a cunning and power-hungry sorcerer who \n seeks to unleash the destructive force of Fire to rule the realm.");
+            label2Text.Add("Cheetos (Enemy - representing the corrupted Fire Element):\n Chootos is a cunning and power-hungry sorcerer who \n seeks to unleash the destructive force of Fire to rule the realm.");
             label2Text.Add("Poisonpacket (Enemy - representing the corrupted Earth Element): \n Poisonpacket is a treacherous rogue who plans \n to spread chaos by infecting the land with poisonous Earth.");
             // Add more text as needed
         }
