@@ -318,6 +318,7 @@ namespace Fall2020_CSC403_Project.code
             Objectives["spoke_to_"] = false;
             Objectives["cleared_harmony_plains"] = false;
             Objectives["cleared_mountain"] = false;
+            Objectives["cleared_ruined village"] = false;
             Objectives["killed_dragon"] = false;
             Objectives["tombstone_revived"] = false;
 
