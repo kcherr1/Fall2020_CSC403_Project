@@ -314,6 +314,7 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.gold_pile4, new Point(x_4, y_4), new Size(Terrain.TileSize.Width * 7, Terrain.TileSize.Width * 4)));
 
 
+            Objectives["spoke_to_tombstone"] = false;
             Objectives["spoke_to_barthollomew"] = false;
             Objectives["spoke_to_"] = false;
             Objectives["cleared_harmony_plains"] = false;
@@ -354,6 +355,58 @@ namespace Fall2020_CSC403_Project.code
                     }
                 }
             }
+        }
+
+        public static void CheckObjectives()
+        {
+
+            if (!Objectives["spoke_to_barthollomew"] && !Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"])
+            {
+                NPCs["Tombstone"].Dialog = "Hey, name's Tombstone.\nWhy am I not attacking you? I don't like those other lizards...\nbut don't go tell them that.\nJust run away from me and pretend I attacked you";
+            } else if (Objectives["spoke_to_barthollomew"] && !Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"])
+            {
+                NPCs["Tombstone"].Dialog = "Hey, name's Tombstone.\nWhy am I not attacking you? I don't like those other lizards...\nbut don't go tell them that.\nHey! I know where that Dragon is... why don't I show you the way? Meet you at Malek's Mountain";
+            } else if (!Objectives["spoke_to_barthollomew"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"])
+            {
+                NPCs["Tombstone"].Dialog = "Hey there again, back for more?\nHa, I'll let you go again this time";
+            } else if (Objectives["spoke_to_barthollomew"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"])
+            {
+                NPCs["Tombstone"].Dialog = "Hey, I know where that Dragon is ... why don't I show you the way? Meet you at Malek's Mountain";
+            } else if (!Objectives["killed_dragon"] && Game.CurrentArea.AreaName == "Malek's Mountain")
+            {
+                NPCs["Tombstone"].Dialog = "Hey, I moved that big stone in front of the cave for you, it's right over there";
+            } else if (Objectives["killed_dragon"] && Game.CurrentArea.AreaName == "Malek's Lair" && !Objectives["tombstone_revived"]) 
+            {
+                NPCs["Tombstone"].Dialog = "Hey, I'm very sorry about that. How am I alive? I was cursed to never die as long as that Dragon was alive. Thank you for freeing me...\nCan we agree not to mention all the adventurers I've brought here before you? Thanks";
+                Objectives["tombstone_revived"] = true;
+            } else  if (Objectives["killed_dragon"] && Objectives["tombstone_revived"])
+            {
+                NPCs["Tombstone"].Dialog = "I am tombstone, newly declared owner of this cave and its gold... don't worry friend. I won't forget you.";
+            } else
+            {
+                NPCs["Tombstone"].Dialog = "Hey there!";
+            }
+
+
+/*            if (!Objectives["cleared_harmony_plains"] && !Objectives["cleared_ruined_village"] && !Objectives["cleared_mountain"] && !Objectives["killed_dragon"])
+            {
+                NPCs["Barthollomew"].Dialog = "Those darn pesky lizard people have taken over the harmony plains! Some adventurers are fighting them, but I'm not sure they have what it takes.";
+            } else if (Objectives["cleared_harmony_plains"] && !Objectives["cleared_ruined_village"] && !Objectives["cleared_mountain"] && !Objectives["killed_dragon"])
+            {
+                NPCs["Barthollomew"].Dialog = "Great job clearing Harmony Plains.. now if only someone would get rid of the lizards in the old village... They moved in after the dragon destroyed it.";
+            } else if (!Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && !Objectives["cleared_mountain"] && !Objectives["killed_dragon"])
+            {
+                NPCs["Barthollomew"].Dialog = "Great work! I wish those lizars would leave Harmony Plains though";
+            } else if (!Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_mountain"] && !Objectives["killed_dragon"])
+            {
+                NPCs["Barthollomew"].Dialog = "Wow! You cleared the reptiles from the Mountain, I wish someone could clear them from Harmony Plains";
+            } else if (!Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_mountain"] && Objectives["killed_dragon"]) {
+                NPCs["Barthollomew"].Dialog = "Fantatic work getting rid of the Dragon! Without their leader, it should be easy to wipe out the rest of the reptiles from the surrounding land";
+            }
+*/
+
+
+
         }
     }
 }

@@ -51,7 +51,10 @@ namespace Fall2020_CSC403_Project
 
         public FrmInventory()
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
             InitializeComponent();
             this.KeyPreview = true;
         }

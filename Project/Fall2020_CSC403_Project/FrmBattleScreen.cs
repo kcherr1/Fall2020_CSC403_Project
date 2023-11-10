@@ -46,7 +46,10 @@ namespace Fall2020_CSC403_Project
 
         public FrmBattleScreen(FrmLevel level)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
             InitializeComponent();
             form = level;
             player = Game.player;

@@ -17,7 +17,10 @@ namespace Fall2020_CSC403_Project
 
         public FrmSettings(Form previous)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
             InitializeComponent();
             this.setup();
             this.KeyPreview = true;

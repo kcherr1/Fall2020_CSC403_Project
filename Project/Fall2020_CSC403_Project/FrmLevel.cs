@@ -54,6 +54,10 @@ namespace Fall2020_CSC403_Project
 
         public FrmLevel(Form MainMenu)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
             this.KeyPreview = true;
             this.DoubleBuffered = true;
 
@@ -64,7 +68,6 @@ namespace Fall2020_CSC403_Project
             this.gameAudio = new SoundPlayer(Resources.Game_audio);
 
             this.gameOver = false;
-            this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
             this.MainMenu = MainMenu;
 
@@ -306,6 +309,8 @@ namespace Fall2020_CSC403_Project
         private void InitializeCurrentArea()
         {
 
+            Game.CheckObjectives();
+
             if (Game.CurrentArea.Terrain != null)
             {
 
@@ -480,9 +485,12 @@ namespace Fall2020_CSC403_Project
 
             // check collision with NPCs
             int npcIndex = hitNPC(Game.player);
+            int speaking = -1;
             if (npcIndex >= 0)
             {
-                
+                speaking = npcIndex;
+                this.converseText.Text = Game.CurrentArea.npcs[npcIndex].Dialog;
+                Game.FontSizing(this.converseText);
                 this.conversePanel.Show();
                 //Converse(Game.CurrentArea.npcs[npcIndex]);
 
@@ -491,6 +499,19 @@ namespace Fall2020_CSC403_Project
             } else
             {
                 this.conversePanel.Hide();
+                Game.CheckObjectives();
+            }
+
+            if (speaking >= 0) 
+            {
+                if (Game.CurrentArea.npcs[speaking].Name == "Tombstone")
+                {
+                    Game.Objectives["spoke_to_tombstone"] = true;
+                }
+                if (Game.CurrentArea.npcs[speaking].Name == "Barthollomew")
+                {
+                    Game.Objectives["spoke_to_barthollomew"] = true;
+                }
             }
 
             x = HitAnItem(Game.player);
@@ -1168,7 +1189,7 @@ namespace Fall2020_CSC403_Project
             if (down >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Down, down);
-                Game.Areas[area].SetTravelSign(Direction.Down, new TravelSign(Game.Areas[down].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - 80 - this.signSize.Height), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Down, new TravelSign(Game.Areas[down].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - 10 - this.signSize.Height), this.signSize)));
 
             }
             if (left >= 0)

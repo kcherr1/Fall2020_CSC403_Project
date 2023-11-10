@@ -11,8 +11,17 @@ namespace Fall2020_CSC403_Project.code
     public class NPC : Character
     {
 
+        public string Dialog;
+
+
         public NPC(string name, PictureBox pic, Archetype archetype) : base(name, pic, archetype)
-        { 
+        {
+            
         }
+
+
+
+
+
     }
 }
