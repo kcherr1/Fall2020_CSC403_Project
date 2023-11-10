@@ -82,6 +82,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap battleback {
+            get {
+                object obj = ResourceManager.GetObject("battleback", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deadenemy_poisonpacket_fw {
             get {
                 object obj = ResourceManager.GetObject("deadenemy_poisonpacket_fw", resourceCulture);
