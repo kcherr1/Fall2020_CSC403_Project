@@ -14,6 +14,8 @@ namespace Fall2020_CSC403_Project
     {
 
         public static FrmEndScreen instance = null;
+
+        public bool restart;
         public FrmEndScreen()
         {
             InitializeComponent();
@@ -23,9 +25,16 @@ namespace Fall2020_CSC403_Project
         private void btnLeaveGame_Click(object sender, EventArgs e)
         {
             instance = null;
+            restart = false;
             Close();
         }
 
-        //TO ADD LATER RETURN TO MENU BUTTON
+        //TODO ADD LATER RETURN TO MENU BUTTON
+        private void btnRestartGame_Click(object sender, EventArgs e)
+        {
+            instance = null;
+            restart = true;
+            Close();
+        }
     }
 }
