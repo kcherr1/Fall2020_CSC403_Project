@@ -111,7 +111,6 @@ namespace Fall2020_CSC403_Project
             if (enemy.Health > 0)
             {
                 enemy.determineAttack(0);
-                enemy_attack.PlaySync();
                 PlayerXp(10);
             }
 
@@ -179,7 +178,6 @@ namespace Fall2020_CSC403_Project
             if (enemy.Health > 0)
             {
                 enemy.determineAttack(0);
-                enemy_attack.PlaySync();
             }
 
 
@@ -203,7 +201,6 @@ namespace Fall2020_CSC403_Project
             else
             {
                 enemy.determineAttack(1);
-                enemy_attack.PlaySync();
                 dodgeSound.PlaySync();
                 battleTheme.PlayLooping();
             }

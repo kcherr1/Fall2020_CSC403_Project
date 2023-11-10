@@ -195,16 +195,6 @@ namespace Fall2020_CSC403_Project {
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
-            // lblPlayerScore
-            // 
-            this.lblPlayerScore.BackColor = System.Drawing.Color.DarkBlue;
-            this.lblPlayerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerScore.ForeColor = System.Drawing.Color.White;
-            this.lblPlayerScore.Location = new System.Drawing.Point(71, 390);
-            this.lblPlayerScore.Name = "lblPlayerScore";
-            this.lblPlayerScore.Size = new System.Drawing.Size(226, 20);
-            this.lblPlayerScore.TabIndex = 6;
-            // 
             // battleTheme
             // 
             this.battleTheme.LoadTimeout = 10000;
@@ -222,6 +212,7 @@ namespace Fall2020_CSC403_Project {
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
+            this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battleback;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
             this.Controls.Add(this.picBossBattle);
@@ -235,7 +226,6 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.btnDodge);
-            this.Controls.Add(this.lblPlayerScore);
             this.Controls.Add(this.btnHeal);
             this.Controls.Add(this.btnFlee);
             this.Controls.Add(this.picEnemy);
@@ -271,7 +261,6 @@ namespace Fall2020_CSC403_Project {
     SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");
     SoundPlayer attackSound = new SoundPlayer(Resources.attack);
     SoundPlayer healSound = new SoundPlayer(Resources.heal);
-    SoundPlayer enemy_attack = new SoundPlayer(Resources.enemyAttack);
     SoundPlayer dodgeSound = new SoundPlayer(Resources.dodge);
     }
 }

@@ -180,6 +180,7 @@
     <None Include="portal.png" />
     <None Include="data\fire.png" />
     <None Include="data\battleback.jpg" />
+    <None Include="data\gameEndScreen.jpg" />
     <Content Include="level_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
