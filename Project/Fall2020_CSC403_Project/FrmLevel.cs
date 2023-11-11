@@ -380,11 +380,10 @@ namespace Fall2020_CSC403_Project {
         private bool HitAHeal(Character c)
         {
             bool hitAHeal = false;
-            // Poison packet was killed normally, cheeto was boom'd
+            // if both enemies dead via boom item or fighting, healing potion hasnt been nulled yet
             if (enemyPoisonPacket == null && enemyCheeto == null && healing_potion != null) 
             {
 
-                // And similarly, we want the heal to drop when they are both "dead" (null and no longer have an instance)
                 for (int w = 0; w < healing_potion.Length; w++)
                 {
                     if (c.Collider.Intersects(healing_potion[w].Collider))
