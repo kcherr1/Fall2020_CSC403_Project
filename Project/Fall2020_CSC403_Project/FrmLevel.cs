@@ -21,7 +21,7 @@ namespace Fall2020_CSC403_Project {
         public static SoundPlayer levelMusic; // background music for the level
 
         private DateTime timeBegin;
-        private FrmBattle frmBattle;
+        public FrmBattle frmBattle;
         private Random random; // Random number generator for item system
         private IItem rpot; //rpot is always the handle regardless of the item called because its a random item, thus rpot
         private int keyHitCount = 0;
@@ -189,7 +189,13 @@ namespace Fall2020_CSC403_Project {
                         // In the current state, the potion cannot be generated under improper conditions, BUT
                         // if you do something new like FLEE from battle, the potion will generate like this! Need a condition to fix this.
                         // Wait to see how Nis implements flee
-                        rpot = InstantiateItem(random.Next(1, 3), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
+                        if (enemyPoisonPacket.Health <= 0) 
+                        {
+                            // If, specifically, enemyPoisonPacket died within the battle form, after the battle generate the potion
+                            //  the other option to do this is to move rpot to inside the frmBattle instance code, but thats much heavier lifting than this
+                            rpot = InstantiateItem(random.Next(1, 3), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
+                        }
+                        
                     }
                 }
                     
