@@ -228,29 +228,58 @@ namespace Fall2020_CSC403_Project {
             //bool allSideEnemyDied = false;
             bool keyHit = HitAKey(player);
             bool healHit = HitAHeal(player);
-            
-            
-            if (IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false) {   
-                if(keyHit == true) {
-                    picKey0.Visible = false;
-                    
+
+            if (enemyCheeto != null && enemyPoisonPacket != null)
+            {
+                // This only works if neither enemy has been killed (nulled) by the bomb and their instance disposed of
+                //  so we need to check to see if the enemy is null before checking to see if their health is 0
+                if (IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false)
+                {
+                    if (keyHit == true)
+                    {
+                        picKey0.Visible = false;
+
+                    }
+                    if (keyHit == false && keyHitCount == 0)
+                    {
+                        picKey0.Visible = true;
+                    }
+
+                    if (healHit == true)
+                    {
+                        picHealthPotion0.Visible = false;
+
+                    }
+                    if (healHit == false && healHitCount == 0)
+                    {
+                        picHealthPotion0.Enabled = true;
+                        picHealthPotion0.Visible = true;
+                    }
                 }
-                if (keyHit == false && keyHitCount == 0) { 
+            }
+            else if (enemyCheeto == null && enemyPoisonPacket == null) 
+            {
+                // But, as before, we need this to trigger if both of them are killed (nulled) when the boom triggers
+                if (keyHit == true)
+                {
+                    picKey0.Visible = false;
+
+                }
+                if (keyHit == false && keyHitCount == 0)
+                {
                     picKey0.Visible = true;
                 }
-                
+
                 if (healHit == true)
                 {
                     picHealthPotion0.Visible = false;
-                    
+
                 }
                 if (healHit == false && healHitCount == 0)
                 {
                     picHealthPotion0.Enabled = true;
                     picHealthPotion0.Visible = true;
                 }
-                
-
             }
         }
 
@@ -297,25 +326,70 @@ namespace Fall2020_CSC403_Project {
         }
         private bool HitAKey(Character c) {
             bool hitAKey = false;
-            if(playerHasKey == false && IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false) { 
-                for (int w = 0; w < key.Length; w++) {
-                    if (c.Collider.Intersects(key[w].Collider)) {
+            if (enemyPoisonPacket != null && enemyCheeto != null) 
+            {
+                // neither of them have been nulled, so we can check to see if they are dead
+                if (playerHasKey == false && IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false)
+                {
+                    for (int w = 0; w < key.Length; w++)
+                    {
+                        if (c.Collider.Intersects(key[w].Collider))
+                        {
+                            hitAKey = true;
+                            playerHasKey = true;
+                            keyHitCount++;
+                            picKey0.Visible = false;
+                            break;
+                        }
+                    }
+                }
+            }
+            else if (enemyPoisonPacket == null && enemyCheeto == null)
+            {
+                // The explosion killed both cheeto and poisonpacket, so they are both null (how ive set them to be "dead" ..
+                //  if they have been killed there is no purpose to keep their instance around unless we intend to revive them or something, so I dispose of them with null instead of health=0/invisible)
+                // the reason we include this else if... is because we need to handle the situation where the bomb killed both of them, but we need the key to drop
+                for (int w = 0; w < key.Length; w++)
+                {
+                    if (c.Collider.Intersects(key[w].Collider))
+                    {
                         hitAKey = true;
                         playerHasKey = true;
-                        keyHitCount ++;
+                        keyHitCount++;
                         picKey0.Visible = false;
                         break;
                     }
                 }
             }
+            
             return hitAKey;
         }
 
         private bool HitAHeal(Character c)
         {
             bool hitAHeal = false;
-            if (playerHasHeal == false && IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false)
+            if (enemyPoisonPacket != null && enemyCheeto != null)
             {
+                // Same situation, neither of them have been blown up by the explosion (neither null), so we can do this check
+                if (playerHasHeal == false && IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false)
+                {
+                    for (int w = 0; w < healing_potion.Length; w++)
+                    {
+                        if (c.Collider.Intersects(healing_potion[w].Collider))
+                        {
+                            hitAHeal = true;
+                            playerHasHeal = true;
+                            healHitCount++;
+                            picHealthPotion0.Visible = false;
+                            player.Health = player.Health + 10;
+                            break;
+                        }
+                    }
+                }
+            }
+            else if (enemyPoisonPacket != null && enemyCheeto == null) 
+            {
+                // And similarly, we want the heal to drop when they are both "dead" (null and no longer have an instance)
                 for (int w = 0; w < healing_potion.Length; w++)
                 {
                     if (c.Collider.Intersects(healing_potion[w].Collider))
@@ -329,6 +403,7 @@ namespace Fall2020_CSC403_Project {
                     }
                 }
             }
+            
             return hitAHeal;
         }
 

@@ -106,7 +106,7 @@ namespace Fall2020_CSC403_Project.item_system
             EffectEvent(frmLevel, global::Fall2020_CSC403_Project.Properties.Resources.wallBoom1, 700, 400, "CheetoBoom", 300, 300, 18);
 
             // Remove enemy cheeto from map due to this CheetoBoom effect of Random Potion
-            frmLevel.enemyCheeto.Collider = null;
+            frmLevel.enemyCheeto = null;
             frmLevel.picEnemyCheeto.Visible =  false;
 
             RemoveItemFromMap(this);
