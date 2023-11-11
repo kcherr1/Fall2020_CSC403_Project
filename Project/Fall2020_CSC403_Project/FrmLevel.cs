@@ -24,6 +24,9 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime soundTime = DateTime.Now;
 
+    public SoundPlayer walk_sand;
+    public SoundPlayer akSound;
+
     public FrmLevel() : base() {
     //added this to keep track of whether or not the boss is defeated
       InitializeComponent();
@@ -73,6 +76,8 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
+
+      InitializeSounds();
     }
 
     //private Vector2 CreatePosition(PictureBox pic) {
@@ -111,13 +116,13 @@ namespace Fall2020_CSC403_Project {
         Fight(enemyCheeto);
       }
       if (HitAChar(player, ak)){
-        SoundPlayer akSound = new SoundPlayer(Resources.ak_Sound);
-        akSound.Load();
+        walk_sand.Stop();
         player.WeaponStrength = ak.getStrength();
         player.WeaponEquiped = true;
         weapon1.Visible = false;
         akSound.Play();
         ak.RemoveCollider();
+        akSound.Dispose();
       }
 
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
@@ -180,12 +185,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      SoundPlayer simpleSound = new SoundPlayer(Resources.walk_sand);
-      simpleSound.Load();
+      //this.walk_sand.Load();
       //System.Diagnostics.Debug.WriteLine(soundTime.Second);
       if ((DateTime.Now.Second - soundTime.Second) > 1)
       {
-        simpleSound.Play();
+        //walk_sand.Play();
         soundTime = DateTime.Now;
       }
       switch (e.KeyCode) {
@@ -226,6 +230,14 @@ namespace Fall2020_CSC403_Project {
             picEnemy.BackgroundImage = null;
             picEnemy.Image = global::Fall2020_CSC403_Project.Properties.Resources.Nether_portal1;
             picEnemy.SizeMode = PictureBoxSizeMode.Zoom;
+    }
+
+    private void InitializeSounds()
+    {
+      walk_sand = new SoundPlayer(Resources.walk_sand);
+      walk_sand.Load();
+      akSound = new SoundPlayer(Resources.ak_Sound);
+      akSound.Load();
     }
   }
 }

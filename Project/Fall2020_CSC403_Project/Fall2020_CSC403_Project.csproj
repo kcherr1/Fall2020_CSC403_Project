@@ -161,6 +161,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\ammo.png" />
+    <None Include="Resources\boss_win.wav" />
+    <None Include="Resources\player_death.wav" />
+    <None Include="Resources\fail_sound.wav" />
+    <None Include="Resources\oh_yeah.wav" />
     <None Include="Resources\goose_death.wav" />
     <None Include="Resources\walk_sand.wav" />
     <None Include="Resources\akSound.wav" />

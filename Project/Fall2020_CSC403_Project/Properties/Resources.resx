@@ -253,4 +253,16 @@
   <data name="goose_death" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\goose_death.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="boss_win" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boss_win.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fail_sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fail_sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="oh_yeah" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\oh_yeah.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="player_death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\player_death.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -28,6 +28,10 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeStart;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
+    private DateTime soundTime = DateTime.Now;
+
+    public SoundPlayer walk_grass;
+
     public FrmLevel2() : base() {
       this.player = GameState.player;
       this.player.MoveTo(119, 510);
@@ -87,6 +91,8 @@ namespace Fall2020_CSC403_Project {
 
       SoundPlayer simpleSound = new SoundPlayer(Resources.nether_portal_exit);
       simpleSound.Play();
+
+      InitializeSounds();
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
@@ -202,6 +208,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      if ((DateTime.Now.Second - soundTime.Second) > 1)
+      {
+        //walk_sand.Play();
+        soundTime = DateTime.Now;
+      }
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
@@ -235,6 +246,12 @@ namespace Fall2020_CSC403_Project {
 
     private void hedge13_Click(object sender, EventArgs e) {
 
+    }
+
+    private void InitializeSounds()
+    {
+      //walk_grass = new SoundPlayer(Resources.walk_grass);
+      //walk_grass.Load();
     }
   }
 }
