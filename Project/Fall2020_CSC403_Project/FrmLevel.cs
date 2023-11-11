@@ -494,7 +494,9 @@ namespace Fall2020_CSC403_Project {
                     if (gotoHomeDialogue == DialogResult.Yes) {
                         Program.frmHome.Show();
                         FrmHome.gameplayForm = null;
+                        FrmLevel.levelMusic.Stop();
                         this.Close();
+                        
                         
                     }
                     break;
@@ -513,6 +515,7 @@ namespace Fall2020_CSC403_Project {
             if (gotoHomeDialogue == DialogResult.Yes) {
                 Program.frmHome.Show();
                 FrmHome.gameplayForm = null;
+                FrmLevel.levelMusic.Stop();
                 this.Close();
             }
         }
