@@ -612,7 +612,7 @@ namespace Fall2020_CSC403_Project {
         }
         #endregion
 
-        IItem InstantiateItem(int itemID, FrmLevel frmLevel, float locationX, float locationY)
+        public IItem InstantiateItem(int itemID, FrmLevel frmLevel, float locationX, float locationY)
         {
             _factory = new ItemFactory();
             //IItem item = _factory.GetItem(itemType, frmLevel);

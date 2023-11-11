@@ -12,7 +12,7 @@ namespace Fall2020_CSC403_Project {
         public static SoundPlayer simpleSound;
         public static SoundPlayer simpleSFX;
 
-        private Enemy enemy;
+        public Enemy enemy;
         private Player player;
         private FrmLevel frmLevel;
 
@@ -212,17 +212,21 @@ namespace Fall2020_CSC403_Project {
                         if (frmLevel.enemyCheeto.Name == enemy.Name)
                         {
                             frmLevel.picEnemyCheeto.Visible = false;
-                            //frmLevel.enemyCheeto = null;
+                            frmLevel.enemyCheeto = null;
 
                         }
                         else if (frmLevel.enemyPoisonPacket.Name == enemy.Name)
                         {
+                            Random random = new Random();
+                            frmLevel.rpot = frmLevel.InstantiateItem(random.Next(1, 3), frmLevel, frmLevel.enemyPoisonPacket.Position.x, frmLevel.enemyPoisonPacket.Position.y);
                             frmLevel.picEnemyPoisonPacket.Visible = false;
-                            //frmLevel.enemyPoisonPacket = null;
+                            frmLevel.enemyPoisonPacket = null;
+                            
 
                         }
                         this.Close();
                         instance = null;
+                        
 
                     }
                 }

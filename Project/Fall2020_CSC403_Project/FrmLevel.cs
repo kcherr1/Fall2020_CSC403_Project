@@ -23,7 +23,7 @@ namespace Fall2020_CSC403_Project {
         private DateTime timeBegin;
         public FrmBattle frmBattle;
         private Random random; // Random number generator for item system
-        private IItem rpot; //rpot is always the handle regardless of the item called because its a random item, thus rpot
+        public IItem rpot; //rpot is always the handle regardless of the item called because its a random item, thus rpot
         private int keyHitCount = 0;
         private int healHitCount = 0;
 
@@ -178,8 +178,10 @@ namespace Fall2020_CSC403_Project {
 
             // check collision with enemies
 
-            if (enemyPoisonPacket != null) {
-                if (HitAChar(player, enemyPoisonPacket)) {
+            if (enemyPoisonPacket != null)
+            {
+                if (HitAChar(player, enemyPoisonPacket))
+                {
                     x = IsEnemyDead(enemyPoisonPacket);
                     if (x == true)
                     {
@@ -189,18 +191,22 @@ namespace Fall2020_CSC403_Project {
                         // In the current state, the potion cannot be generated under improper conditions, BUT
                         // if you do something new like FLEE from battle, the potion will generate like this! Need a condition to fix this.
                         // Wait to see how Nis implements flee
-                        if (enemyPoisonPacket.Health <= 0) 
-                        {
+                        //if (this.enemyPoisonPacket == null)
+                        //{
                             // If, specifically, enemyPoisonPacket died within the battle form, after the battle generate the potion
                             //  the other option to do this is to move rpot to inside the frmBattle instance code, but thats much heavier lifting than this
-                            rpot = InstantiateItem(random.Next(1, 3), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
-                        }
-                        
+                            //rpot = InstantiateItem(random.Next(1, 3), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
+                        //}
+
                     }
                 }
-                    
-
             }
+            //else if (enemyPoisonPacket == null) 
+            //{
+                // enemyPoisonPacket died and was thus nulled after killing him
+                //rpot = InstantiateItem(random.Next(1, 3), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
+            //}
+
             if (enemyCheeto != null) {
                 if (HitAChar(player, enemyCheeto)){
                     y = IsEnemyDead(enemyCheeto);
@@ -374,27 +380,10 @@ namespace Fall2020_CSC403_Project {
         private bool HitAHeal(Character c)
         {
             bool hitAHeal = false;
-            if (enemyPoisonPacket != null && enemyCheeto != null)
+            // Poison packet was killed normally, cheeto was boom'd
+            if (enemyPoisonPacket == null && enemyCheeto == null && healing_potion != null) 
             {
-                // Same situation, neither of them have been blown up by the explosion (neither null), so we can do this check
-                if (playerHasHeal == false && IsEnemyDead(enemyPoisonPacket) == false && IsEnemyDead(enemyCheeto) == false)
-                {
-                    for (int w = 0; w < healing_potion.Length; w++)
-                    {
-                        if (c.Collider.Intersects(healing_potion[w].Collider))
-                        {
-                            hitAHeal = true;
-                            playerHasHeal = true;
-                            healHitCount++;
-                            picHealthPotion0.Visible = false;
-                            player.Health = player.Health + 10;
-                            break;
-                        }
-                    }
-                }
-            }
-            else if (enemyPoisonPacket != null && enemyCheeto == null) 
-            {
+
                 // And similarly, we want the heal to drop when they are both "dead" (null and no longer have an instance)
                 for (int w = 0; w < healing_potion.Length; w++)
                 {
@@ -405,11 +394,13 @@ namespace Fall2020_CSC403_Project {
                         healHitCount++;
                         picHealthPotion0.Visible = false;
                         player.Health = player.Health + 10;
+                        healing_potion = null;
                         break;
                     }
                 }
+                
             }
-            
+
             return hitAHeal;
         }
 
