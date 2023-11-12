@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -21,14 +22,14 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
-    private List<Character> objectsToSave = new List<Character>();
-
     public FrmLevel() : base() {
     //added this to keep track of whether or not the boss is defeated
       InitializeComponent();
     }
   
     private void FrmLevel_Load(object sender, EventArgs e) {
+
+      levelID = 1;
 
       const int PADDING = 0;
       const int NUM_WALLS = 13;
@@ -127,8 +128,10 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
         //this closes the current form and returns to main
         GameState.isLevelOneCompleted = true;
+        GameState.levelToLoad = 2;
         this.Close();
       }
+
       else if (HitAChar(player, bossKoolaid)){
         Fight(bossKoolaid);
       }
@@ -222,13 +225,12 @@ namespace Fall2020_CSC403_Project {
             picEnemy.SizeMode = PictureBoxSizeMode.Zoom;
     }
 
-    public override void SaveGame(string fileName)
+    public override void LoadData(string fileName)
     {
       foreach (Character character in objectsToSave)
       {
-        character.Save(fileName);
+        character.Load(fileName);
       }
     }
-
   }
 }

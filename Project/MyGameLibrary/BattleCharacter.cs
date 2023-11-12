@@ -10,10 +10,10 @@ namespace Fall2020_CSC403_Project.code {
   public class BattleCharacter : Character {
     public int Health { get; protected set; }
     public int MaxHealth { get; protected set; }
-    public float strength { get; protected set; }
+    public int strength { get; protected set; }
     public bool IsAlive { get; private set; }
     public int experience { get; protected set; }
-    public int HealthPackCount { get; private set; }
+    public int HealthPackCount { get; protected set; }
     public int WeaponStrength;
     public Boolean WeaponEquiped;
 

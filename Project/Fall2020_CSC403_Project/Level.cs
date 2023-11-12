@@ -1,10 +1,16 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public class Level : Form {
+
+    public int levelID;
+
+    public List<Character> objectsToSave = new List<Character>();
+
     public Level() { }
 
     public Vector2 CreatePosition(PictureBox pic) {
@@ -18,7 +24,6 @@ namespace Fall2020_CSC403_Project {
       );
       return new Collider(rect);
     }
-
-    public virtual void SaveGame(string fileName){ }
+    public virtual void LoadData(string fileName) { }
   }
 }

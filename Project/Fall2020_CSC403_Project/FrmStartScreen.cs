@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -78,7 +79,26 @@ namespace Fall2020_CSC403_Project
     {
       string fileName = textBox1.Text;
 
-      GameState.currentLevel.SaveGame(fileName);
+      if (fileName != null && GameState.currentLevel != null) {
+        GameState.SaveGame(
+          fileName,
+          GameState.currentLevel.levelID,
+          GameState.currentLevel.objectsToSave
+        );
+      }
+      
+    }
+
+    private void button5_Click(object sender, EventArgs e)
+    {
+      string fileName = textBox2.Text;
+
+      if (fileName != null && GameState.currentLevel != null) {
+        GameState.LoadGame(
+          fileName
+        );
+      }
+      
     }
   }
 }

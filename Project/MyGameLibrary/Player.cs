@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -34,8 +36,11 @@ namespace Fall2020_CSC403_Project.code {
       }
     }
 
+    //overrides the Character Save function
     public override void Save(string fileName)
     {
+
+      //putting all vals into a hashtable makes it easier to write all to a csv
       Hashtable vals = new Hashtable();
 
       vals.Add("Health", Health);
@@ -46,31 +51,56 @@ namespace Fall2020_CSC403_Project.code {
       vals.Add("WeaponStrength",WeaponStrength);
       vals.Add("WeaponEquipped",WeaponEquiped);
 
-      /*
-      string savePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
-                        + "\\Food-Fight-Save\\"+fileName + "_player.csv";
-
-      if (!Directory.Exists(savePath))
+      // go through the ceremony of checking if the directory exists,
+      //then making the file, then writing it
+      string dir = "Food-Fight-Save\\";
+      if (!Directory.Exists(dir))
       {
-        Directory.CreateDirectory(savePath);
+        Directory.CreateDirectory(dir);
       }
-
-      using (var writer = new StreamWriter(savePath))
-      */
-      string savePath = "Food-Fight-Save\\" + fileName + "_player.csv";
-      if (!Directory.Exists(savePath))
-      {
-        Directory.CreateDirectory(savePath);
-      }
+      string savePath = dir + fileName + "_player.csv";
+      File.Create(savePath).Close();
 
       using (var writer = new StreamWriter(savePath))
       {   
-          foreach ( var item in vals.Values) {
+          foreach ( var item in vals.Keys) {
             var line = string.Format("{0},{1}", item, vals[item]);
             writer.WriteLine(line);
             writer.Flush();
         }
       }
+
+    }
+
+    //overrides the Character's Load function
+    public override void Load(string fileName)
+    {
+
+      Hashtable vals = new Hashtable();
+
+      string savePath = "Food-Fight-Save\\" + fileName + "_player.csv";
+      
+      using (var reader = new StreamReader(savePath))
+      {
+        string[] lines = reader.ReadToEnd().Trim().Split('\n');
+
+        foreach (var line in lines)
+        {
+          string[] split_line = line.Split(',');
+          vals.Add(
+            split_line[0],
+            split_line[1]
+           );
+        }
+      }
+
+      Health = Convert.ToInt32(vals["Health"]);
+      MaxHealth = Convert.ToInt32(vals["MaxHealth"]);
+      strength = Convert.ToInt32(vals["strength"]);
+      experience = Convert.ToInt32(vals["experience"]);
+      HealthPackCount = Convert.ToInt32(vals["HealthPackCount"]);
+      WeaponStrength = Convert.ToInt32(vals["WeaponStrength"]);
+      WeaponEquiped = Convert.ToBoolean(vals["WeaponEquiped"]);
 
     }
   }

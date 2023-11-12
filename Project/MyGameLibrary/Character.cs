@@ -59,5 +59,6 @@ namespace Fall2020_CSC403_Project.code {
     }
 
     public virtual void Save(string fileName) { }
+    public virtual void Load(string fileName) { }
   }
 }

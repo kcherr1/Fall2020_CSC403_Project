@@ -44,6 +44,8 @@
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.textBox1 = new System.Windows.Forms.TextBox();
       this.button4 = new System.Windows.Forms.Button();
+      this.button5 = new System.Windows.Forms.Button();
+      this.textBox2 = new System.Windows.Forms.TextBox();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -190,6 +192,7 @@
       // textBox1
       // 
       this.textBox1.Location = new System.Drawing.Point(1018, 150);
+      this.textBox1.Multiline = true;
       this.textBox1.Name = "textBox1";
       this.textBox1.Size = new System.Drawing.Size(189, 26);
       this.textBox1.TabIndex = 14;
@@ -204,12 +207,32 @@
       this.button4.UseVisualStyleBackColor = true;
       this.button4.Click += new System.EventHandler(this.button4_Click);
       // 
+      // button5
+      // 
+      this.button5.Location = new System.Drawing.Point(1018, 303);
+      this.button5.Name = "button5";
+      this.button5.Size = new System.Drawing.Size(189, 30);
+      this.button5.TabIndex = 17;
+      this.button5.Text = "Load Save...";
+      this.button5.UseVisualStyleBackColor = true;
+      this.button5.Click += new System.EventHandler(this.button5_Click);
+      // 
+      // textBox2
+      // 
+      this.textBox2.Location = new System.Drawing.Point(1018, 261);
+      this.textBox2.Multiline = true;
+      this.textBox2.Name = "textBox2";
+      this.textBox2.Size = new System.Drawing.Size(189, 26);
+      this.textBox2.TabIndex = 16;
+      // 
       // FrmStartScreen
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Khaki;
       this.ClientSize = new System.Drawing.Size(1280, 640);
+      this.Controls.Add(this.button5);
+      this.Controls.Add(this.textBox2);
       this.Controls.Add(this.button4);
       this.Controls.Add(this.textBox1);
       this.Controls.Add(this.label1);
@@ -254,5 +277,7 @@
     private System.Windows.Forms.PictureBox pictureBox7;
     private System.Windows.Forms.TextBox textBox1;
     private System.Windows.Forms.Button button4;
+    private System.Windows.Forms.Button button5;
+    private System.Windows.Forms.TextBox textBox2;
   }
 }
