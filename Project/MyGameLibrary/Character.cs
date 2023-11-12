@@ -14,7 +14,7 @@ namespace Fall2020_CSC403_Project.code {
 
         public Vector2 MoveSpeed { get; private set; }
     public Vector2 LastPosition { get; private set; }
-    public Vector2 Position { get; private set; }
+    public Vector2 Position { get; set; }
     public Collider Collider { get; private set; }
     public Dictionary<string, Vector2> KeysPressed = new Dictionary<string, Vector2>();
         public bool IsGrounded { get; set; }

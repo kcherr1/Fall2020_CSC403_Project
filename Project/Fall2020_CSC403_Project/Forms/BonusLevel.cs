@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,13 @@ namespace Fall2020_CSC403_Project.Forms
 
         private Player player;
         private Character floor;
+        private Vector2 cameraPosition;
+        private Vector2 prevCameraPosition;
         public BonusLevel()
         {
             InitializeComponent();
+            cameraPosition = new Vector2(0, 0);
+            prevCameraPosition = cameraPosition;
             Image originalImage = Properties.Resources.brick;
 
             // Resize the image to a new width and height
@@ -32,14 +37,28 @@ namespace Fall2020_CSC403_Project.Forms
             player = new Player(FrmLevel.CreatePosition(character), FrmLevel.CreateCollider(character, -20));
             /*player.KeysPressed.Add("gravity", new Vector2(0, 3));*/
             floor = new Character(FrmLevel.CreatePosition(floor1), FrmLevel.CreateCollider(floor1, -50));
+            floor1.Location = new Point(floor1.Location.X - (int)cameraPosition.x, floor1.Location.Y - (int)cameraPosition.y);
+            character.Location = new Point(character.Location.X - (int)cameraPosition.x, character.Location.Y - (int)cameraPosition.y);
         }
 
         private void BonusLevel_tick(object sender, EventArgs e)
         {
             bool isOnFloor = FrmLevel.HitAChar(player, floor);
-            player.Move(true); 
+            player.Move(true);
             player.IsGrounded = isOnFloor;
-            character.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            cameraPosition.x = (int)(player.Position.x - this.ClientSize.Width / 2.9);
+            cameraPosition.y = (int)(player.Position.y - this.ClientSize.Height / 2.9);
+
+            // Keep the character at the center of the screen horizontally
+            character.Location = new Point(this.ClientSize.Width / 2 - character.Width, character.Location.Y + (int)(cameraPosition.y - prevCameraPosition.y));
+
+            // Adjust the position of the floor based on the camera's position
+            floor1.Location = new Point(floor1.Location.X - (int)(cameraPosition.x - prevCameraPosition.x), floor1.Location.Y);
+
+            // Adjust the position of other game objects based on the camera's position
+            // ...
+
+            prevCameraPosition = cameraPosition;
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
