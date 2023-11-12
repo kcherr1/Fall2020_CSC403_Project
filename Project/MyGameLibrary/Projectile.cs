@@ -46,9 +46,36 @@ namespace MyGameLibrary
             Collider.MovePosition((int)Position.x, (int)Position.y);
         }
 
-        public void impact(Player p)
+        public void returnArrow(Character p)
         {
+            Position = new Vector2(p.Position.x, p.Position.y);
             Collider.MovePosition((int)p.Position.x, (int)p.Position.y);
+        }
+
+        public Vector2 calcDirection(Vector2 player, Vector2 enemy)
+        {
+            int dx = (int)player.x - (int)enemy.x;
+            int dy = (int)player.y - (int)enemy.y;
+
+            bool xIsPositive = dx > 0;
+            bool yIsPositive = dy > 0;
+
+            int xPos = (GO_INC - 3);
+            int yPos = (GO_INC - 3);
+
+            if (!xIsPositive)
+                xPos = -xPos;
+            if (!yIsPositive)
+                yPos = -yPos;
+
+
+            return new Vector2(xPos, yPos);
+        }
+
+        public void enemyArrowMove(Vector2 direction)
+        {
+            Position = new Vector2(Position.x + direction.x, Position.y + direction.y);
+            Collider.MovePosition((int)Position.x, (int)Position.y);
         }
     }
 }

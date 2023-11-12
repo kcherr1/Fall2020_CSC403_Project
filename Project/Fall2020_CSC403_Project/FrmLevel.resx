@@ -8332,4 +8332,10 @@
         9P8r1NXqPvR7FQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="tmrCheetoArrowMove.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>837, 17</value>
+  </metadata>
+  <metadata name="tmrPoisonArrowMove.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1010, 17</value>
+  </metadata>
 </root>
