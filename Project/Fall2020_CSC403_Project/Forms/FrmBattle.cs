@@ -125,7 +125,9 @@ namespace Fall2020_CSC403_Project {
 
       if (enemy.Health <= 0)
       {
-        RemoveEnemy(enemy);
+                MusicPlayer.StopBattleSound();
+                MusicPlayer.PlayLevelMusic();
+                RemoveEnemy(enemy);
         instance = null;
         Close();
       }
@@ -181,7 +183,9 @@ namespace Fall2020_CSC403_Project {
 
       if (enemy.Health <= 0)
       {
-            RemoveEnemy(enemy);
+                MusicPlayer.StopBattleSound();
+                MusicPlayer.PlayLevelMusic();
+                RemoveEnemy(enemy);
             instance = null;
             Close();
       }
