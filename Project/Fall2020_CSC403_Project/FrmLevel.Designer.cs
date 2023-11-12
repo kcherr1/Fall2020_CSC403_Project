@@ -58,6 +58,7 @@
             this.LVL1potion0 = new System.Windows.Forms.PictureBox();
             this.LVL1potion1 = new System.Windows.Forms.PictureBox();
             this.picWall10 = new System.Windows.Forms.PictureBox();
+            this.ItemPoisonPack = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
@@ -80,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemPoisonPack)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -437,6 +439,18 @@
             this.picWall10.TabIndex = 11;
             this.picWall10.TabStop = false;
             // 
+            // ItemPoisonPack
+            // 
+            this.ItemPoisonPack.BackColor = System.Drawing.Color.Transparent;
+            this.ItemPoisonPack.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
+            this.ItemPoisonPack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ItemPoisonPack.Location = new System.Drawing.Point(242, 110);
+            this.ItemPoisonPack.Margin = new System.Windows.Forms.Padding(4);
+            this.ItemPoisonPack.Name = "ItemPoisonPack";
+            this.ItemPoisonPack.Size = new System.Drawing.Size(84, 118);
+            this.ItemPoisonPack.TabIndex = 23;
+            this.ItemPoisonPack.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -471,8 +485,9 @@
             this.Controls.Add(this.LVL1potion0);
             this.Controls.Add(this.LVL1potion1);
             this.Controls.Add(this.picWall10);
+            this.Controls.Add(this.ItemPoisonPack);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";
@@ -501,6 +516,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemPoisonPack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,6 +557,7 @@
         private System.Windows.Forms.Label cheetoHealthBar;
         private System.Windows.Forms.Timer tmrBoss;
         private System.Windows.Forms.Label bossHealthBar;
+        private System.Windows.Forms.PictureBox ItemPoisonPack;
     }
 }
 

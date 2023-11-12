@@ -7,6 +7,7 @@ namespace Fall2020_CSC403_Project.code
     /// </summary>
     public class Enemy : BattleCharacter
     {
+        public bool showEnemy;
         /// <summary>
         /// THis is the image for an enemy
         /// </summary>
@@ -25,6 +26,17 @@ namespace Fall2020_CSC403_Project.code
         /// <param name="toughness">this is the damage reduction from projectiles</param>
         public Enemy(Vector2 initPos, Collider collider, float toughness) : base(initPos, collider, toughness)
         {
+            this.showEnemy = false;
+        }
+
+        public void setupEnemy()
+        {
+            this.showEnemy = true;
+        }
+
+        public void removeEnemy()
+        {
+            this.showEnemy = false;
         }
 
     }

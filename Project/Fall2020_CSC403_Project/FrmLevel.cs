@@ -21,6 +21,7 @@ namespace Fall2020_CSC403_Project
     private DateTime timeBegin;
     private FrmBattle frmBattle;
         private List<HealthItem> itemsListHealth;
+        private List<SugarPack> itemsSugarPacks;
         private List<Enemy> enemyList;
         private int rng;
 
@@ -43,6 +44,9 @@ namespace Fall2020_CSC403_Project
             enemyList.Add(enemyPoisonPacket);
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), 0.5f);
             enemyList.Add(enemyCheeto);
+            enemyCheeto.setupEnemy();
+            enemyPoisonPacket.setupEnemy();
+
 
             // character projectile attack
             arrow = new Projectile(CreatePosition(picPlayer), CreateCollider(picArrow, ARROW_PADDING));
@@ -84,6 +88,13 @@ namespace Fall2020_CSC403_Project
             catch (Exception ex)
             { }
 
+            itemsSugarPacks = new List<SugarPack>();
+            PictureBox sugaritem = Controls.Find("ItemPoisonPack", true)[0] as PictureBox;
+            SugarPack ItemPoisonPack = new SugarPack(CreatePosition(sugaritem), CreateCollider(sugaritem, PADDING), "ItemPoisonPack");
+            ItemPoisonPack.Img = sugaritem.Image;
+            itemsSugarPacks.Add(ItemPoisonPack);
+            sugaritem.Hide();
+
             foreach (string itemname in player.inventory.itemstorage)
             {
                 PictureBox inventoryItem = Controls.Find(itemname, true)[0] as PictureBox;
@@ -118,39 +129,52 @@ namespace Fall2020_CSC403_Project
             }
 
             //check if projectile hits an enemy
-            if (ProjHitAEnemy(arrow, enemyPoisonPacket))
+            if (enemyPoisonPacket.showEnemy)
             {
-                arrow.inFlight = false;
-                enemyPoisonPacket.AlterHealth(arrow.Damage);
-                arrow.impact(player);
-                picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
-                picArrow.Hide();
-                if (enemyPoisonPacket.Health <= 0)
+                if (ProjHitAEnemy(arrow, enemyPoisonPacket))
                 {
-                    enemyList.Remove(enemyPoisonPacket);
-                    if (enemyList.Count == 0)
+                    arrow.inFlight = false;
+                    enemyPoisonPacket.AlterHealth(arrow.Damage);
+                    arrow.impact(player);
+                    picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                    picArrow.Hide();
+                    if (enemyPoisonPacket.Health <= 0)
                     {
-                        bossKoolaid.setupBoss();
-                        picBossKoolAid.Show();
-                        bossHealthBar.Show();
+                        picEnemyPoisonPacket.Hide();
+                        enemyList.Remove(enemyPoisonPacket);
+                        enemyPoisonPacket.removeEnemy();
+
+                        PictureBox itemPoisonPack = Controls.Find(itemsSugarPacks[0].NAME, true)[0] as PictureBox;
+                        itemPoisonPack.Show();
+                        if (enemyList.Count == 0)
+                        {
+                            bossKoolaid.setupBoss();
+                            picBossKoolAid.Show();
+                            bossHealthBar.Show();
+                        }
                     }
-                }
+                } 
             }
-            else if (ProjHitAEnemy(arrow, enemyCheeto))
+            else if (enemyCheeto.showEnemy)
             {
-                arrow.inFlight = false;
-                enemyCheeto.AlterHealth(arrow.Damage);
-                arrow.impact(player);
-                picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
-                picArrow.Hide();
-                if (enemyCheeto.Health <= 0)
+                if (ProjHitAEnemy(arrow, enemyCheeto))
                 {
-                    enemyList.Remove(enemyCheeto);
-                    if(enemyList.Count == 0)
+                    arrow.inFlight = false;
+                    enemyCheeto.AlterHealth(arrow.Damage);
+                    arrow.impact(player);
+                    picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                    picArrow.Hide();
+                    if (enemyCheeto.Health <= 0)
                     {
-                        bossKoolaid.setupBoss();
-                        picBossKoolAid.Show();
-                        bossHealthBar.Show();
+                        picEnemyCheeto.Hide();
+                        enemyList.Remove(enemyCheeto);
+                        enemyCheeto.removeEnemy();
+                        if (enemyList.Count == 0)
+                        {
+                            bossKoolaid.setupBoss();
+                            picBossKoolAid.Show();
+                            bossHealthBar.Show();
+                        }
                     }
                 }
             }
@@ -204,12 +228,13 @@ namespace Fall2020_CSC403_Project
         // enemyCheeto.MoveBack();
         Fight(enemyCheeto);
       }
-      //if (HitAChar(player, bossKoolaid)) {
-      //  Fight(bossKoolaid);
-      //}
+      if (HitAChar(player, bossKoolaid))
+      {
+          Fight(bossKoolaid);
+      }
 
-      // update player's picture box, health bar, and health
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y + 15);
+            // update player's picture box, health bar, and health
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y + 15);
       playerHealthBar.Location = new Point((int)player.Position.x, (int)player.Position.y);
       UpdatePlayerHealthBars(player);
         }
