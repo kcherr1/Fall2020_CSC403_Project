@@ -59,6 +59,9 @@ namespace Fall2020_CSC403_Project
             poisonArrow = new Projectile(CreatePosition(picEnemyPoisonPacket), CreateCollider(picPoisonArrow, ARROW_PADDING));
             picPoisonArrow.Hide();
 
+            // hide shield on start
+            picShield.Hide();
+
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             picBossKoolAid.Hide();
             bossHealthBar.Hide();
@@ -223,6 +226,8 @@ namespace Fall2020_CSC403_Project
       // update player's picture box, health bar, and health
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y + 15);
       playerHealthBar.Location = new Point((int)player.Position.x, (int)player.Position.y);
+      picShield.Location = new Point((int)player.Position.x + 54, (int)player.Position.y + 15);
+
       UpdatePlayerHealthBars(player);
         }
 
@@ -235,6 +240,14 @@ namespace Fall2020_CSC403_Project
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
     {
         player.ResetMoveSpeed();
+
+            switch (e.KeyCode)
+            {
+                case Keys.B:
+                    player.toughness = 0.5f;
+                    picShield.Hide();
+                    break;
+            }
     }
 
     /// <summary>
@@ -423,6 +436,11 @@ namespace Fall2020_CSC403_Project
                         Inventory_Open();
                         break;
 
+                    case Keys.B:
+                        player.toughness = 0.0f;
+                        picShield.Show();
+                        break;
+
                     default:
                         player.ResetMoveSpeed();
                         break;
@@ -446,6 +464,7 @@ namespace Fall2020_CSC403_Project
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y + 15);
             playerHealthBar.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            picShield.Location = new Point((int)player.Position.x + 54, (int)player.Position.y + 15);
         }
 
         public void Inventory_Close()
