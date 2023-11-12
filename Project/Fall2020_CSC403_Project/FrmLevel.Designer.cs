@@ -459,6 +459,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
             this.Controls.Add(this.inventoryboard);
+            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.bossHealthBar);
             this.Controls.Add(this.cheetoHealthBar);
             this.Controls.Add(this.playerHealthBar);
@@ -480,7 +481,6 @@
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
-            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picArrow);
             this.Controls.Add(this.LVL1potion0);
             this.Controls.Add(this.LVL1potion1);
