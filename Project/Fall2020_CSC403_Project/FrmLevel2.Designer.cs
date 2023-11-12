@@ -119,7 +119,6 @@
       this.picPlayer = new System.Windows.Forms.PictureBox();
       this.obstacle15 = new System.Windows.Forms.PictureBox();
       this.obstacle16 = new System.Windows.Forms.PictureBox();
-      this.MenuButton = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.wall1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall3)).BeginInit();
@@ -1343,16 +1342,6 @@
       this.obstacle16.TabIndex = 91;
       this.obstacle16.TabStop = false;
       // 
-      // MenuButton
-      // 
-      this.MenuButton.Location = new System.Drawing.Point(22, 60);
-      this.MenuButton.Name = "MenuButton";
-      this.MenuButton.Size = new System.Drawing.Size(75, 34);
-      this.MenuButton.TabIndex = 92;
-      this.MenuButton.Text = "Menu";
-      this.MenuButton.UseVisualStyleBackColor = true;
-      this.MenuButton.Click += new System.EventHandler(this.MenuButton_Click);
-      // 
       // FrmLevel2
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1362,7 +1351,6 @@
       this.BackColor = System.Drawing.Color.Black;
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass;
       this.ClientSize = new System.Drawing.Size(1807, 1050);
-      this.Controls.Add(this.MenuButton);
       this.Controls.Add(this.obstacle16);
       this.Controls.Add(this.obstacle15);
       this.Controls.Add(this.lblInGameTime);
@@ -1659,6 +1647,5 @@
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox obstacle15;
     private System.Windows.Forms.PictureBox obstacle16;
-    private System.Windows.Forms.Button MenuButton;
   }
 }
