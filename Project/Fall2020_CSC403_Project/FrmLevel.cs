@@ -283,7 +283,7 @@ namespace Fall2020_CSC403_Project
             this.converseText = new Label();
             this.converseText.Parent = this.conversePanel;
             this.converseText.Size = new Size(Screen.PrimaryScreen.Bounds.Width, this.conversePanel.Size.Height - 10);
-            this.converseText.Text = "here i am sahing something to you";
+            this.converseText.Text = "";
             Game.FontSizing(this.converseText);
 
             
