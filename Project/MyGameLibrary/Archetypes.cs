@@ -158,7 +158,7 @@ namespace Fall2020_CSC403_Project.code
             baseMaxHealth = 30;
             baseDefense = 10;
             baseDamage = 3;
-            baseSpeed = 2;
+            baseSpeed = 3;
             hitMod = 3;
         }
 
@@ -181,7 +181,7 @@ namespace Fall2020_CSC403_Project.code
             baseMaxHealth = 100;
             baseDefense = 0;
             baseDamage = 20;
-            baseSpeed = 2;
+            baseSpeed = 0;
             hitMod = 3;
         }
 
@@ -228,7 +228,7 @@ namespace Fall2020_CSC403_Project.code
             baseMaxHealth = 20;
             baseDefense = 10;
             baseDamage = 5;
-            baseSpeed = 2;
+            baseSpeed = 1;
             hitMod = 0;
             opener = "*Unintelligible hissing*";
         }
