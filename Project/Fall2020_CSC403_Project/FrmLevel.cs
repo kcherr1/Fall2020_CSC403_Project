@@ -31,8 +31,6 @@ namespace Fall2020_CSC403_Project
 
         public SoundPlayer gameAudio;
 
-        public Area[] Areas;
-        public PictureBox TerrainPic;
 
         private Direction TravelDirection = Direction.None;
 
@@ -76,19 +74,7 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_Load(object sender, EventArgs e)
         {
 
-            
-
-            Game.Areas = new Area[10];
-            Game.Areas[0] = new Area("Malek's Mountain", 12, 0.05);
-            Game.Areas[1] = new Area("Village Ruins", 901, 0.05);
-            Game.Areas[2] = new Area("Buddy Beachfront", 890, 0.05);
-            Game.Areas[3] = new Area("Uphill Hill", 789, 0.05);
-            Game.Areas[4] = new Area("Plainsfield", 678, 0.05);
-            Game.Areas[5] = new Area("Lower Harmony Village", 567, 0.18);
-            Game.Areas[6] = new Area("Windy Plateau", 456, 0.05);
-            Game.Areas[7] = new Area("Harmony Plains", 345, 0.05);
-            Game.Areas[8] = new Area("Harmony Village", 623, 0.14);
-            Game.Areas[9] = new Area("Dragon's Lair", 123, 0.22);
+            InitializeLevel();
 
             Game.CurrentArea = Game.Areas[this.AreaNum];
 
@@ -99,7 +85,7 @@ namespace Fall2020_CSC403_Project
 
             AreaSelect();
 
-            InitializeAreaLayout();
+            InitializeCurrentArea();
             timeBegin = DateTime.Now;
 
             this.BackColor = Color.SlateGray;
@@ -122,6 +108,7 @@ namespace Fall2020_CSC403_Project
             NameLabel.Font = new Font("NSimSun", 3*NameLabel.Size.Height / 4, FontStyle.Bold);
             NameLabel.Text =Game.player.Name.ToString();
             NameLabel.BringToFront();
+            Game.FontSizing(NameLabel);
 
             // Add character Health Bar
             PictureBox health_stat = new PictureBox();
@@ -253,22 +240,7 @@ namespace Fall2020_CSC403_Project
             location.TextAlign = ContentAlignment.MiddleCenter;
             location.Text = Game.CurrentArea.AreaName.ToString();
             location.Font = new Font("NSimSun", 10);
-
-            using (Graphics g = location.CreateGraphics())
-            {
-                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
-                for (int fontSize = 100; fontSize >= 8; fontSize--)
-                {
-                    Font testFont = new Font("NSimSun", fontSize);
-                    Size textSize = TextRenderer.MeasureText(g, location.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
-
-                    if (textSize.Width <= location.Width && textSize.Height <= location.Height)
-                    {
-                        location.Font = testFont; // Set the font size that fits
-                        break;
-                    }
-                }
-            }
+            Game.FontSizing(location);
 
 
             //Adding stop condition to mainMenu_music here
@@ -284,7 +256,7 @@ namespace Fall2020_CSC403_Project
             this.gameAudio.PlayLooping();
 
             SignPanel.Size = new Size(Screen.PrimaryScreen.Bounds.Width * 7 / 8, Screen.PrimaryScreen.Bounds.Height * 7 / 8);
-            SignPanel.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - SignPanel.Width / 2, 0);
+            SignPanel.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - SignPanel.Width / 2, Screen.PrimaryScreen.Bounds.Height * 1/14);
 
             TravelLabel.Size = new Size(SignPanel.Size.Width, SignPanel.Size.Height / 2);
             TravelLabel.Font = new Font("NSimSun", TravelLabel.Size.Height / 4);
@@ -296,7 +268,23 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void InitializeAreaLayout()
+        private void InitializeLevel()
+        {
+            Game.Areas = new Area[10];
+            Game.Areas[0] = new Area("Malek's Mountain", 710, Terrain.Biome.Mountain, 0.1);
+            Game.Areas[1] = new Area("Village Ruins", 908, Terrain.Biome.Village, 0.1);
+            Game.Areas[2] = new Area("Buddy Beachfront", 512, Terrain.Biome.Beach, 0.12);
+            Game.Areas[3] = new Area("Uphill Hill", 789, Terrain.Biome.Grassland, 0.15);
+            Game.Areas[4] = new Area("Plainsfield", 678, Terrain.Biome.Grassland, 0.12);
+            Game.Areas[5] = new Area("Lower Harmony Village", 343, Terrain.Biome.Village, 0.07);
+            Game.Areas[6] = new Area("Windy Plateau", 456, Terrain.Biome.Grassland);
+            Game.Areas[7] = new Area("Harmony Plains", 345, Terrain.Biome.Grassland, 0.13);
+            Game.Areas[8] = new Area("Harmony Village", 623, Terrain.Biome.Village, 0.07);
+            Game.Areas[9] = new Area("Malek's Lair");
+            Game.Areas[9].MakeBossRoom();
+        }
+
+        private void InitializeCurrentArea()
         {
 
             if (Game.CurrentArea.Terrain != null)
@@ -358,7 +346,6 @@ namespace Fall2020_CSC403_Project
                 for (int i = 0; i < Game.CurrentArea.npcs.Count; i++)
                 {
                     this.Controls.Add(Game.CurrentArea.npcs[i].Pic);
-                    Game.CurrentArea.npcs[i].Pic.BringToFront();
                 }
             }
 
@@ -665,8 +652,14 @@ namespace Fall2020_CSC403_Project
         public void GameOver()
         {
             this.gameOver = true;
-            Game.player.SetEntityPosition(new Position(-100, -100));
 
+            foreach (Item item in Game.player.Inventory.Backpack)
+            {
+                item?.ShowEntity();
+            }
+            Game.player.Inventory.Weapon?.ShowEntity();
+            Game.player.Inventory.Armor?.ShowEntity();
+            Game.player.Inventory.Utility?.ShowEntity();
 
             DisposeArea();
             DisposeGame();
@@ -798,9 +791,7 @@ namespace Fall2020_CSC403_Project
             {
                 this.Controls.Remove(Game.CurrentArea.npcs[i].Pic);
             }
-            Game.CurrentArea.npcs = new List<NPC> { };
 
-            //remove terrain here
 
             for (int i = 0; i < Game.CurrentArea.Items.Count; i++)
             {
@@ -825,6 +816,7 @@ namespace Fall2020_CSC403_Project
                 Game.Areas[i].Terrain.Tiles.Clear();
                 Game.Areas[i].Items.Clear();
                 Game.Areas[i].Structures.Clear();
+                Game.Areas[i].npcs.Clear();
             }
             Game.Areas = new Area[10];
             GC.Collect();
@@ -844,16 +836,8 @@ namespace Fall2020_CSC403_Project
             this.score = 0;
             gameAudio.PlayLooping();
 
-            Game.Areas[0] = new Area("Malek's Mountain", 12, 0.05);
-            Game.Areas[1] = new Area("Village Ruins", 901, 0.05);
-            Game.Areas[2] = new Area("Buddy Beachfront", 890, 0.05);
-            Game.Areas[3] = new Area("Uphill Hill", 789, 0.05);
-            Game.Areas[4] = new Area("Plainsfield", 678, 0.05);
-            Game.Areas[5] = new Area("Lower Harmony Village", 567, 0.05);
-            Game.Areas[6] = new Area("Windy Plateau", 456, 0.05);
-            Game.Areas[7] = new Area("Harmony Plains", 345, 0.05);
-            Game.Areas[8] = new Area("Harmony Village", 234, 0.05);
-            Game.Areas[9] = new Area("Dragon's Lair", 123, 0.2);
+            this.AreaNum = 4;
+            InitializeLevel();
 
             this.gameOver = false;
             Game.player = new Player(Game.player.Name, Game.player.Pic, Game.player.archetype);
@@ -868,9 +852,20 @@ namespace Fall2020_CSC403_Project
             ExitButton.Enabled = false;
             MainMenuButton.Enabled = false;
 
+            for (int i = 0; i < 9; i++)
+            {
+                setAdjacency(i);
+            }
+
+            foreach (Area area in Game.Areas)
+            {
+                area.Visited = false;
+            }
 
             AreaSelect();
-            InitializeAreaLayout();
+            InitializeCurrentArea();
+            UpdateHealthBars(playerCurrentHealth);
+            UpdateStatusBar(def_label, damage_label, speed_label);
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)
@@ -935,12 +930,37 @@ namespace Fall2020_CSC403_Project
 
         private void AreaBoss()
         {
-            
+            Size caveSize = new Size(Terrain.TileSize.Width * 3, Terrain.TileSize.Width * 4);
+            Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - Game.player.Pic.Height - caveSize.Height - 50));
+
             if (Game.CurrentArea.Visited)
             {
                 return;
             }
             Game.CurrentArea.Visited = true;
+
+            for (int i = 1; i < 7 ; i++)
+            {
+                Game.CurrentArea.AddStructure(Game.Structures["Pillar" + i.ToString()]);
+            }
+
+            for (int i = 1; i < 5; i++)
+            {
+                Game.CurrentArea.AddStructure(Game.Structures["Gold" + i.ToString()]);
+            }
+
+            Game.CurrentArea.AddEnemy(Game.Enemies["Dragon"]);
+
+
+            Game.CurrentArea.SetAdjacentArea(Direction.Right, 0);
+
+            Game.CurrentArea.SetTravelSign(Direction.Right, new TravelSign(Game.Areas[0].AreaName, MakePictureBox(Resources.cave_exit, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height - 40), caveSize)));
+            Game.CurrentArea.TravelSigns[Direction.Right].Collider.MovePosition(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height - 40);
+            Game.CurrentArea.TravelSigns[Direction.Right].Pic.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height - 40);
+            //Game.CurrentArea.TravelSigns[Direction.Left].Collider.Disable();
+
+
+
         }
 
         private void Area8()
@@ -1082,6 +1102,16 @@ namespace Fall2020_CSC403_Project
             }
             Game.CurrentArea.Visited = true;
 
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard1"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Brute1"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Brute2"]);
+
+            Game.CurrentArea.AddItem(Game.Items["Accuracy Potion"]);
+            Game.CurrentArea.AddItem(Game.Items["Rusty Sword"]);
+            Game.CurrentArea.AddItem(Game.Items["Lumberjack Axe"]);
+
+            Game.CurrentArea.AddNPC(Game.NPCs["Tombstone"]);
         }
 
         private void Area0()
@@ -1093,6 +1123,12 @@ namespace Fall2020_CSC403_Project
             }
 
             Game.CurrentArea.Visited = true;
+
+            Game.CurrentArea.SetAdjacentArea(Direction.Left, 9);
+            Size caveSize = new Size(Terrain.TileSize.Width * 4, Terrain.TileSize.Width * 3);
+            Game.CurrentArea.SetTravelSign(Direction.Left, new TravelSign(Game.Areas[9].AreaName, MakePictureBox(Resources.cave_entrance_open, new Point(-10, Screen.PrimaryScreen.Bounds.Height / 2 - caveSize.Height / 2), caveSize)));
+            //Game.CurrentArea.TravelSigns[Direction.Left].Collider.Disable();
+
 
         }
 
@@ -1150,7 +1186,13 @@ namespace Fall2020_CSC403_Project
                     Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, height/12 + signSize.Height + 20));
                     break;
                 case Direction.Right:
-                    Game.player.SetEntityPosition(new Position(signSize.Width + 10, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
+                    if (Game.CurrentArea.AreaName == "Malek's Lair")
+                    {
+                        Game.player.SetEntityPosition(new Position(Terrain.TileSize.Width * 4 + 10, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
+                    } else
+                    {
+                        Game.player.SetEntityPosition(new Position(signSize.Width + 10, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
+                    }
                     break;
                 case Direction.Left:
                     Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width - signSize.Width - 20 - Game.player.Pic.Width, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
@@ -1165,24 +1207,10 @@ namespace Fall2020_CSC403_Project
 
             // reset text in status bar
             location.Text = Game.CurrentArea.AreaName.ToString();
-            using (Graphics g = location.CreateGraphics())
-            {
-                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
-                for (int fontSize = 100; fontSize >= 8; fontSize--)
-                {
-                    Font testFont = new Font("NSimSun", fontSize);
-                    Size textSize = TextRenderer.MeasureText(g, location.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
-
-                    if (textSize.Width <= location.Width && textSize.Height <= location.Height)
-                    {
-                        location.Font = testFont; // Set the font size that fits
-                        break;
-                    }
-                }
-            }
+            Game.FontSizing(location);
 
 
-            InitializeAreaLayout();
+            InitializeCurrentArea();
 
         }
     }

@@ -102,12 +102,6 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBattle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBattle.Designer.cs">
-      <DependentUpon>FrmBattle.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmLevel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,8 +110,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmBattle.resx">
-      <DependentUpon>FrmBattle.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBattleScreen.resx">
+      <DependentUpon>FrmBattleScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInventory.resx">
       <DependentUpon>FrmInventory.cs</DependentUpon>
@@ -162,32 +156,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\final_battle.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\player.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="data\battle_screen.fw.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\wall.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\enemy_cheetos.fw.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\enemy_poisonpacket.fw.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\enemy_koolaid.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="code\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Transparent.png" />
-    <None Include="Resources\harold1.png" />
     <None Include="data\travel_sign.png" />
     <None Include="data\house_L.png" />
     <None Include="data\house_long.png" />
@@ -197,6 +175,18 @@
     <None Include="data\icon_damage.png" />
     <None Include="data\icon_health.png" />
     <None Include="data\icon_speed.png" />
+    <None Include="data\tile_stony.png" />
+    <None Include="data\tile_stony2.png" />
+    <Content Include="data\cave_entrance_close.png" />
+    <Content Include="data\cave_entrance_open.png" />
+    <Content Include="data\cave_exit.png" />
+    <Content Include="data\gold_pile1.png" />
+    <Content Include="data\gold_pile2.png" />
+    <Content Include="data\gold_pile3.png" />
+    <Content Include="data\gold_pile4.png" />
+    <Content Include="data\pillar.png" />
+    <Content Include="data\tile_cave.png" />
+    <Content Include="data\tile_cave_path.png" />
     <Content Include="gfgLogoIco.ico" />
     <None Include="data\wall_cobblestone.png" />
     <None Include="data\wall_bricks.png" />
@@ -219,10 +209,8 @@
     <Content Include="data\lesser_health_potion.png" />
     <Content Include="data\rare_armor.png" />
     <Content Include="data\rare_sword.png" />
-    <None Include="data\settingscog.png" />
     <None Include="data\Return.png" />
     <None Include="data\speed_potion.png" />
-    <Content Include="data\tile_bricks.png" />
     <Content Include="data\tile_cobblestone.png" />
     <Content Include="data\tile_cobblestone_mossy.png" />
     <Content Include="data\tile_dirt_path.png" />

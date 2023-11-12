@@ -19,7 +19,6 @@ namespace MyGameLibrary
         public List<Structure> Structures { get; set; }
         
 
-
         public bool Visited { get; set; }
 
         public String AreaName { get; set; }
@@ -38,18 +37,32 @@ namespace MyGameLibrary
             this.Visited = false;
         }
 
-        public Area(String AreaName, int Seed, double SeedAmp)
+        public Area(String AreaName)
         {
-            Terrain = new Terrain(Seed, SeedAmp);
-            Enemies = new List<Enemy>();
-            npcs = new List<NPC>();
-            Items = new List<Item>();
-            Structures = new List<Structure>();
-            AdjacentAreas = new Dictionary<Direction, int>();
-            TravelSigns = new Dictionary<Direction, TravelSign>();
+            this.Terrain = new Terrain();
+            this.Enemies = new List<Enemy>();
+            this.npcs = new List<NPC>();
+            this.Items = new List<Item>();
+            this.Structures = new List<Structure>();
+            this.AdjacentAreas = new Dictionary<Direction, int>();
+            this.TravelSigns = new Dictionary<Direction, TravelSign>();
             this.AreaName = AreaName;
             this.Visited = false;
         }
+
+        public Area(String AreaName, int Seed, Terrain.Biome Biome, double SeedAmp = 0)
+        {
+            this.Terrain = new Terrain(Seed, Biome, SeedAmp);
+            this.Enemies = new List<Enemy>();
+            this.npcs = new List<NPC>();
+            this.Items = new List<Item>();
+            this.Structures = new List<Structure>();
+            this.AdjacentAreas = new Dictionary<Direction, int>();
+            this.TravelSigns = new Dictionary<Direction, TravelSign>();
+            this.AreaName = AreaName;
+            this.Visited = false;
+        }
+
         public void AddStructure(Structure structure)
         {
             this.Structures.Add(structure);
@@ -81,6 +94,25 @@ namespace MyGameLibrary
             this.TravelSigns[direction] = sign;
         }
 
+        public void MakeBossRoom()
+        {
+            Image cave = Resources.tile_cave;
+            Image cave_path = Resources.tile_cave_path;
+            for (int col = 0; col < Terrain.GridWidth; col++)
+            {
+                for (int row = 0; row < Terrain.GridHeight; row++)
+                {
+                    if (row < 12 || row >= Terrain.GridWidth - 12)
+                    {
+                        this.Terrain.AddTile(new Tile(cave, new Point(col * Terrain.TileSize.Width, row * Terrain.TileSize.Width), Tile.EffectType.None));
+                    }
+                    else
+                    {
+                        this.Terrain.AddTile(new Tile(cave_path, new Point(col * Terrain.TileSize.Width, row * Terrain.TileSize.Width), Tile.EffectType.None));
+                    }
+                }
+            }
+        }
 
     }
 
