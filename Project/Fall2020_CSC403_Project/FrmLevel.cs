@@ -16,6 +16,8 @@ namespace Fall2020_CSC403_Project
     private Boss bossKoolaid;
     private Enemy enemyCheeto;
     private Projectile arrow;
+    private Projectile cheetoArrow;
+    private Projectile poisonArrow;
     private Character[] walls;
     public string playerDirection = "right";
     private DateTime timeBegin;
@@ -23,7 +25,8 @@ namespace Fall2020_CSC403_Project
         private List<HealthItem> itemsListHealth;
         private List<Enemy> enemyList;
         private int rng;
-
+        Vector2 cheetoArrowDirection;
+        Vector2 poisonArrowDirection;
 
         public FrmLevel()
         {
@@ -32,7 +35,7 @@ namespace Fall2020_CSC403_Project
 
 
     private void FrmLevel_Load(object sender, EventArgs e) {
-            //const int PADDING = 7;
+            const int PADDING = 7;
             const int ARROW_PADDING = 2;
             const int NUM_WALLS = 13;
 
@@ -47,6 +50,15 @@ namespace Fall2020_CSC403_Project
             // character projectile attack
             arrow = new Projectile(CreatePosition(picPlayer), CreateCollider(picArrow, ARROW_PADDING));
             picArrow.Hide();
+
+            // cheeto projectile attack
+            cheetoArrow = new Projectile(CreatePosition(picEnemyCheeto), CreateCollider(picCheetoArrow, ARROW_PADDING));
+            picCheetoArrow.Hide();
+
+            // poison projectile attack
+            poisonArrow = new Projectile(CreatePosition(picEnemyPoisonPacket), CreateCollider(picPoisonArrow, ARROW_PADDING));
+            picPoisonArrow.Hide();
+
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             picBossKoolAid.Hide();
             bossHealthBar.Hide();
@@ -112,7 +124,7 @@ namespace Fall2020_CSC403_Project
             if (ArrowHitAWall(arrow))
             {
                 arrow.inFlight = false;
-                arrow.impact(player);
+                arrow.returnArrow(player);
                 picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                 picArrow.Hide();
             }
@@ -122,7 +134,7 @@ namespace Fall2020_CSC403_Project
             {
                 arrow.inFlight = false;
                 enemyPoisonPacket.AlterHealth(arrow.Damage);
-                arrow.impact(player);
+                arrow.returnArrow(player);
                 picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                 picArrow.Hide();
                 if (enemyPoisonPacket.Health <= 0)
@@ -140,7 +152,7 @@ namespace Fall2020_CSC403_Project
             {
                 arrow.inFlight = false;
                 enemyCheeto.AlterHealth(arrow.Damage);
-                arrow.impact(player);
+                arrow.returnArrow(player);
                 picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                 picArrow.Hide();
                 if (enemyCheeto.Health <= 0)
@@ -160,7 +172,7 @@ namespace Fall2020_CSC403_Project
                 {
                     arrow.inFlight = false;
                     bossKoolaid.AlterHealth(arrow.Damage);
-                    arrow.impact(player);
+                    arrow.returnArrow(player);
                     picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                     picArrow.Hide();
                 }
@@ -636,6 +648,89 @@ namespace Fall2020_CSC403_Project
             bossHealthBar.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
         }
 
+        private void tmrCheetoArrowMove_Tick(object sender, EventArgs e)
+        {
+
+                if (ArrowHitAWall(cheetoArrow))
+                {
+                    cheetoArrow.inFlight = false;
+                    cheetoArrow.returnArrow(enemyCheeto);
+                    picCheetoArrow.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
+                    cheetoArrowDirection = new Vector2(0, 0);
+                    picCheetoArrow.Hide();
+                }
+
+                if (ProjHitAEnemy(cheetoArrow, player))
+                {
+                    cheetoArrow.inFlight = false;
+                    player.AlterHealth(cheetoArrow.Damage);
+                    cheetoArrow.returnArrow(enemyCheeto);
+                    picCheetoArrow.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
+                    cheetoArrowDirection = new Vector2(0, 0);
+                    picCheetoArrow.Hide();
+                }
+
+                if (!cheetoArrow.inFlight)
+                {
+                    if (enemyCheeto.Health > 0)
+                    {
+                        cheetoArrowDirection = cheetoArrow.calcDirection(player.Position, enemyCheeto.Position);
+                        picCheetoArrow.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
+                        cheetoArrow.inFlight = true;
+                        picCheetoArrow.Show();
+                    } else
+                {
+                    cheetoArrow.inFlight = false;
+                }
+                }
+                else
+                {
+                    cheetoArrow.enemyArrowMove(cheetoArrowDirection);
+                    picCheetoArrow.Location = new Point((int)cheetoArrow.Position.x, (int)cheetoArrow.Position.y);
+                }
+        }
+
+        private void tmrPoisonArrowMove_Tick(object sender, EventArgs e)
+        {
+            if (ArrowHitAWall(poisonArrow))
+            {
+                poisonArrow.inFlight = false;
+                poisonArrow.returnArrow(enemyPoisonPacket);
+                picPoisonArrow.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
+                poisonArrowDirection = new Vector2(0, 0);
+                picPoisonArrow.Hide();
+            }
+
+            if (ProjHitAEnemy(poisonArrow, player))
+            {
+                poisonArrow.inFlight = false;
+                player.AlterHealth(poisonArrow.Damage);
+                poisonArrow.returnArrow(enemyPoisonPacket);
+                picPoisonArrow.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
+                poisonArrowDirection = new Vector2(0, 0);
+                picPoisonArrow.Hide();
+            }
+
+            if (!poisonArrow.inFlight)
+            {
+                if (enemyPoisonPacket.Health > 0)
+                {
+                    poisonArrowDirection = poisonArrow.calcDirection(player.Position, enemyPoisonPacket.Position);
+                    picPoisonArrow.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
+                    poisonArrow.inFlight = true;
+                    picPoisonArrow.Show();
+                }
+                else
+                {
+                    poisonArrow.inFlight = false;
+                }
+            }
+            else
+            {
+                poisonArrow.enemyArrowMove(poisonArrowDirection);
+                picPoisonArrow.Location = new Point((int)poisonArrow.Position.x, (int)poisonArrow.Position.y);
+            }
+        }
     }
 }
 
