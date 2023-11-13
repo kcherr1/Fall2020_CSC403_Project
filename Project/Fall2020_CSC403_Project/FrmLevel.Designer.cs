@@ -36,7 +36,10 @@
             this.cheetoHealthBar = new System.Windows.Forms.Label();
             this.tmrBoss = new System.Windows.Forms.Timer(this.components);
             this.bossHealthBar = new System.Windows.Forms.Label();
-            this.inventoryboard = new System.Windows.Forms.PictureBox();
+            this.tmrCheetoArrowMove = new System.Windows.Forms.Timer(this.components);
+            this.tmrPoisonArrowMove = new System.Windows.Forms.Timer(this.components);
+            this.picPoisonArrow = new System.Windows.Forms.PictureBox();
+            this.picCheetoArrow = new System.Windows.Forms.PictureBox();
             this.selector = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
@@ -58,7 +61,12 @@
             this.LVL1potion0 = new System.Windows.Forms.PictureBox();
             this.LVL1potion1 = new System.Windows.Forms.PictureBox();
             this.picWall10 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).BeginInit();
+            this.ItemPoisonPack = new System.Windows.Forms.PictureBox();
+            this.inventoryboard = new System.Windows.Forms.PictureBox();
+            this.picShield = new System.Windows.Forms.PictureBox();
+            this.nextleveldoor = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picPoisonArrow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCheetoArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
@@ -80,6 +88,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemPoisonPack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShield)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nextleveldoor)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -175,16 +187,41 @@
             this.bossHealthBar.Size = new System.Drawing.Size(261, 20);
             this.bossHealthBar.TabIndex = 3;
             // 
-            // inventoryboard
+            // tmrCheetoArrowMove
             // 
-            this.inventoryboard.Image = global::Fall2020_CSC403_Project.Properties.Resources.inventoryboard;
-            this.inventoryboard.Location = new System.Drawing.Point(163, 139);
-            this.inventoryboard.Margin = new System.Windows.Forms.Padding(4);
-            this.inventoryboard.Name = "inventoryboard";
-            this.inventoryboard.Size = new System.Drawing.Size(1243, 619);
-            this.inventoryboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.inventoryboard.TabIndex = 18;
-            this.inventoryboard.TabStop = false;
+            this.tmrCheetoArrowMove.Enabled = true;
+            this.tmrCheetoArrowMove.Interval = 10;
+            this.tmrCheetoArrowMove.Tick += new System.EventHandler(this.tmrCheetoArrowMove_Tick);
+            // 
+            // tmrPoisonArrowMove
+            // 
+            this.tmrPoisonArrowMove.Enabled = true;
+            this.tmrPoisonArrowMove.Interval = 10;
+            this.tmrPoisonArrowMove.Tick += new System.EventHandler(this.tmrPoisonArrowMove_Tick);
+            // 
+            // picPoisonArrow
+            // 
+            this.picPoisonArrow.BackColor = System.Drawing.Color.Transparent;
+            this.picPoisonArrow.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.proj;
+            this.picPoisonArrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picPoisonArrow.Location = new System.Drawing.Point(147, 265);
+            this.picPoisonArrow.Margin = new System.Windows.Forms.Padding(4);
+            this.picPoisonArrow.Name = "picPoisonArrow";
+            this.picPoisonArrow.Size = new System.Drawing.Size(27, 25);
+            this.picPoisonArrow.TabIndex = 24;
+            this.picPoisonArrow.TabStop = false;
+            // 
+            // picCheetoArrow
+            // 
+            this.picCheetoArrow.BackColor = System.Drawing.Color.Transparent;
+            this.picCheetoArrow.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.proj;
+            this.picCheetoArrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picCheetoArrow.Location = new System.Drawing.Point(1113, 614);
+            this.picCheetoArrow.Margin = new System.Windows.Forms.Padding(4);
+            this.picCheetoArrow.Name = "picCheetoArrow";
+            this.picCheetoArrow.Size = new System.Drawing.Size(27, 25);
+            this.picCheetoArrow.TabIndex = 23;
+            this.picCheetoArrow.TabStop = false;
             // 
             // selector
             // 
@@ -200,8 +237,7 @@
             // picWall11
             // 
             this.picWall11.BackColor = System.Drawing.Color.Transparent;
-            this.picWall11.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall11.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall11.Location = new System.Drawing.Point(735, 523);
             this.picWall11.Margin = new System.Windows.Forms.Padding(4);
             this.picWall11.Name = "picWall11";
@@ -212,8 +248,7 @@
             // picWall2
             // 
             this.picWall2.BackColor = System.Drawing.Color.Transparent;
-            this.picWall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall2.Location = new System.Drawing.Point(735, 1);
             this.picWall2.Margin = new System.Windows.Forms.Padding(4);
             this.picWall2.Name = "picWall2";
@@ -224,8 +259,7 @@
             // picWall8
             // 
             this.picWall8.BackColor = System.Drawing.Color.Transparent;
-            this.picWall8.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall8.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall8.Location = new System.Drawing.Point(1457, 337);
             this.picWall8.Margin = new System.Windows.Forms.Padding(4);
             this.picWall8.Name = "picWall8";
@@ -236,8 +270,7 @@
             // picWall7
             // 
             this.picWall7.BackColor = System.Drawing.Color.Transparent;
-            this.picWall7.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall7.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall7.Location = new System.Drawing.Point(952, 807);
             this.picWall7.Margin = new System.Windows.Forms.Padding(4);
             this.picWall7.Name = "picWall7";
@@ -248,8 +281,7 @@
             // picWall1
             // 
             this.picWall1.BackColor = System.Drawing.Color.Transparent;
-            this.picWall1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall1.Location = new System.Drawing.Point(111, 1);
             this.picWall1.Margin = new System.Windows.Forms.Padding(4);
             this.picWall1.Name = "picWall1";
@@ -260,8 +292,7 @@
             // picWall0
             // 
             this.picWall0.BackColor = System.Drawing.Color.Transparent;
-            this.picWall0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall0.Location = new System.Drawing.Point(3, 1);
             this.picWall0.Margin = new System.Windows.Forms.Padding(4);
             this.picWall0.Name = "picWall0";
@@ -272,9 +303,8 @@
             // picWall9
             // 
             this.picWall9.BackColor = System.Drawing.Color.Transparent;
-            this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picWall9.Location = new System.Drawing.Point(355, 190);
+            this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
+            this.picWall9.Location = new System.Drawing.Point(384, 175);
             this.picWall9.Margin = new System.Windows.Forms.Padding(4);
             this.picWall9.Name = "picWall9";
             this.picWall9.Size = new System.Drawing.Size(263, 145);
@@ -284,8 +314,7 @@
             // picWall6
             // 
             this.picWall6.BackColor = System.Drawing.Color.Transparent;
-            this.picWall6.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall6.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall6.Location = new System.Drawing.Point(476, 807);
             this.picWall6.Margin = new System.Windows.Forms.Padding(4);
             this.picWall6.Name = "picWall6";
@@ -296,8 +325,7 @@
             // picWall12
             // 
             this.picWall12.BackColor = System.Drawing.Color.Transparent;
-            this.picWall12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall12.Location = new System.Drawing.Point(1187, 489);
             this.picWall12.Margin = new System.Windows.Forms.Padding(4);
             this.picWall12.Name = "picWall12";
@@ -308,8 +336,7 @@
             // picWall4
             // 
             this.picWall4.BackColor = System.Drawing.Color.Transparent;
-            this.picWall4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall4.Location = new System.Drawing.Point(3, 559);
             this.picWall4.Margin = new System.Windows.Forms.Padding(4);
             this.picWall4.Name = "picWall4";
@@ -320,8 +347,7 @@
             // picWall5
             // 
             this.picWall5.BackColor = System.Drawing.Color.Transparent;
-            this.picWall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall5.Location = new System.Drawing.Point(3, 807);
             this.picWall5.Margin = new System.Windows.Forms.Padding(4);
             this.picWall5.Name = "picWall5";
@@ -334,7 +360,7 @@
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyCheeto.Location = new System.Drawing.Point(1117, 665);
+            this.picEnemyCheeto.Location = new System.Drawing.Point(1165, 665);
             this.picEnemyCheeto.Margin = new System.Windows.Forms.Padding(4);
             this.picEnemyCheeto.Name = "picEnemyCheeto";
             this.picEnemyCheeto.Size = new System.Drawing.Size(85, 132);
@@ -346,7 +372,7 @@
             this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
             this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
             this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(147, 121);
+            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(176, 175);
             this.picEnemyPoisonPacket.Margin = new System.Windows.Forms.Padding(4);
             this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(84, 118);
@@ -356,8 +382,7 @@
             // picWall3
             // 
             this.picWall3.BackColor = System.Drawing.Color.Transparent;
-            this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall3.Location = new System.Drawing.Point(3, 478);
             this.picWall3.Margin = new System.Windows.Forms.Padding(4);
             this.picWall3.Name = "picWall3";
@@ -392,19 +417,21 @@
             // picArrow
             // 
             this.picArrow.BackColor = System.Drawing.Color.Transparent;
-            this.picArrow.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.arrow_100_40_horizontal;
+            this.picArrow.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.proj;
             this.picArrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picArrow.Location = new System.Drawing.Point(419, 599);
             this.picArrow.Margin = new System.Windows.Forms.Padding(4);
             this.picArrow.Name = "picArrow";
-            this.picArrow.Size = new System.Drawing.Size(48, 28);
+            this.picArrow.Size = new System.Drawing.Size(27, 25);
             this.picArrow.TabIndex = 18;
             this.picArrow.TabStop = false;
             // 
             // LVL1potion0
             // 
             this.LVL1potion0.BackColor = System.Drawing.Color.Transparent;
+            this.LVL1potion0.ErrorImage = null;
             this.LVL1potion0.Image = global::Fall2020_CSC403_Project.Properties.Resources.Potion;
+            this.LVL1potion0.InitialImage = global::Fall2020_CSC403_Project.Properties.Resources.Potion;
             this.LVL1potion0.Location = new System.Drawing.Point(721, 101);
             this.LVL1potion0.Margin = new System.Windows.Forms.Padding(4);
             this.LVL1potion0.Name = "LVL1potion0";
@@ -428,8 +455,7 @@
             // picWall10
             // 
             this.picWall10.BackColor = System.Drawing.Color.Transparent;
-            this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass_wall;
             this.picWall10.Location = new System.Drawing.Point(871, 110);
             this.picWall10.Margin = new System.Windows.Forms.Padding(4);
             this.picWall10.Name = "picWall10";
@@ -437,14 +463,65 @@
             this.picWall10.TabIndex = 11;
             this.picWall10.TabStop = false;
             // 
+            // ItemPoisonPack
+            // 
+            this.ItemPoisonPack.BackColor = System.Drawing.Color.Transparent;
+            this.ItemPoisonPack.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
+            this.ItemPoisonPack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ItemPoisonPack.Location = new System.Drawing.Point(176, 175);
+            this.ItemPoisonPack.Margin = new System.Windows.Forms.Padding(5);
+            this.ItemPoisonPack.Name = "ItemPoisonPack";
+            this.ItemPoisonPack.Size = new System.Drawing.Size(168, 227);
+            this.ItemPoisonPack.TabIndex = 23;
+            this.ItemPoisonPack.TabStop = false;
+            // 
+            // inventoryboard
+            // 
+            this.inventoryboard.Image = global::Fall2020_CSC403_Project.Properties.Resources.inventoryboard;
+            this.inventoryboard.Location = new System.Drawing.Point(163, 139);
+            this.inventoryboard.Margin = new System.Windows.Forms.Padding(4);
+            this.inventoryboard.Name = "inventoryboard";
+            this.inventoryboard.Size = new System.Drawing.Size(1243, 619);
+            this.inventoryboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.inventoryboard.TabIndex = 18;
+            this.inventoryboard.TabStop = false;
+            // 
+            // picShield
+            // 
+            this.picShield.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.shield;
+            this.picShield.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picShield.Location = new System.Drawing.Point(239, 628);
+            this.picShield.Margin = new System.Windows.Forms.Padding(4);
+            this.picShield.Name = "picShield";
+            this.picShield.Size = new System.Drawing.Size(13, 130);
+            this.picShield.TabIndex = 25;
+            this.picShield.TabStop = false;
+            // 
+            // nextleveldoor
+            // 
+            this.nextleveldoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.minecraft_door;
+            this.nextleveldoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.nextleveldoor.Location = new System.Drawing.Point(1457, 12);
+            this.nextleveldoor.Name = "nextleveldoor";
+            this.nextleveldoor.Size = new System.Drawing.Size(109, 175);
+            this.nextleveldoor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.nextleveldoor.TabIndex = 26;
+            this.nextleveldoor.TabStop = false;
+            this.nextleveldoor.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.background_dark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 894);
             this.Controls.Add(this.inventoryboard);
+            this.Controls.Add(this.picShield);
+            this.Controls.Add(this.picPoisonArrow);
+            this.Controls.Add(this.picCheetoArrow);
+            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.bossHealthBar);
             this.Controls.Add(this.cheetoHealthBar);
             this.Controls.Add(this.playerHealthBar);
@@ -466,20 +543,22 @@
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
-            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picArrow);
-            this.Controls.Add(this.LVL1potion0);
-            this.Controls.Add(this.LVL1potion1);
             this.Controls.Add(this.picWall10);
+            this.Controls.Add(this.ItemPoisonPack);
+            this.Controls.Add(this.LVL1potion1);
+            this.Controls.Add(this.LVL1potion0);
+            this.Controls.Add(this.nextleveldoor);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPoisonArrow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCheetoArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
@@ -501,6 +580,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemPoisonPack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShield)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nextleveldoor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,6 +624,13 @@
         private System.Windows.Forms.Label cheetoHealthBar;
         private System.Windows.Forms.Timer tmrBoss;
         private System.Windows.Forms.Label bossHealthBar;
+        private System.Windows.Forms.PictureBox ItemPoisonPack;
+        private System.Windows.Forms.PictureBox picCheetoArrow;
+        private System.Windows.Forms.Timer tmrCheetoArrowMove;
+        private System.Windows.Forms.PictureBox picPoisonArrow;
+        private System.Windows.Forms.Timer tmrPoisonArrowMove;
+        private System.Windows.Forms.PictureBox picShield;
+        private System.Windows.Forms.PictureBox nextleveldoor;
     }
 }
 

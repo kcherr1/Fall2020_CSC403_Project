@@ -190,7 +190,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
@@ -222,6 +221,16 @@
   <ItemGroup>
     <Content Include="data\blackbackground.png" />
     <Content Include="data\deathscreen.png" />
+    <None Include="Resources\Potion.bmp" />
+    <None Include="data\background.png" />
+    <None Include="data\proj.png" />
+    <None Include="data\grass_wall.jpg" />
+    <None Include="data\shield.png" />
+    <None Include="data\background_dark.png" />
+    <Content Include="data\baby nut2.png" />
+    <Content Include="data\minecraft-door.jpeg" />
+    <None Include="data\raw images\Potion.png" />
+    <Content Include="grass_wall.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

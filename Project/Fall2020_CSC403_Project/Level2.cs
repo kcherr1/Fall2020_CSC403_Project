@@ -17,7 +17,7 @@ namespace Fall2020_CSC403_Project
         private Projectile arrow2;
         private Character[] walls2;
         public string playerDirection = "right";
-        private List<HealthItem> itemsList2;
+        private List<Item> itemsList2;
 
         private DateTime timeBegin2;
         private FrmBattle frmBattle2;
@@ -61,7 +61,7 @@ namespace Fall2020_CSC403_Project
                 walls2[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING), 0.0f);
             }
 
-            itemsList2 = new List<HealthItem>();
+            itemsList2 = new List<Item>();
             try
             {
                 int w = 0;
@@ -69,7 +69,7 @@ namespace Fall2020_CSC403_Project
                 {
                     string itemname = "LVL2potion" + w.ToString();
                     PictureBox item = Controls.Find(itemname, true)[0] as PictureBox;
-                    itemsList2.Add(new HealthItem(CreatePosition(item), CreateCollider(item, PADDING), itemname));
+                    itemsList2.Add(new Item(CreatePosition(item), CreateCollider(item, PADDING), "health", itemname));
                     w = w + 1;
                 }
             }
@@ -104,7 +104,7 @@ namespace Fall2020_CSC403_Project
             if (ArrowHitAWall(arrow2))
             {
                 arrow2.inFlight = false;
-                arrow2.impact(player2);
+                arrow2.returnArrow(player2);
                 picArrow2.Location = new Point((int)player2.Position.x, (int)player2.Position.y);
                 picArrow2.Hide();
             }
@@ -114,7 +114,7 @@ namespace Fall2020_CSC403_Project
             {
                 arrow2.inFlight = false;
                 enemyPoisonPacket2.AlterHealth(arrow2.Damage);
-                arrow2.impact(player2);
+                arrow2.returnArrow(player2);
                 picArrow2.Location = new Point((int)player2.Position.x, (int)player2.Position.y);
                 picArrow2.Hide();
             }
@@ -122,7 +122,7 @@ namespace Fall2020_CSC403_Project
             {
                 arrow2.inFlight = false;
                 enemyCheeto2.AlterHealth(arrow2.Damage);
-                arrow2.impact(player2);
+                arrow2.returnArrow(player2);
                 picArrow2.Location = new Point((int)player2.Position.x, (int)player2.Position.y);
                 picArrow2.Hide();
             }
@@ -130,7 +130,7 @@ namespace Fall2020_CSC403_Project
             {
                 arrow2.inFlight = false;
                 bossKoolaid2.AlterHealth(arrow2.Damage);
-                arrow2.impact(player2);
+                arrow2.returnArrow(player2);
                 picArrow2.Location = new Point((int)player2.Position.x, (int)player2.Position.y);
                 picArrow2.Hide();
             }
@@ -194,7 +194,7 @@ namespace Fall2020_CSC403_Project
             // check collision with item(s)
             if (HitAnItem(player2))
             {
-                HealthItem itemHit = null;
+                Item itemHit = null;
                 for (int w = 0; w < itemsList2.Count; w++)
                 {
                     if (player2.Collider.Intersects(itemsList2[w].Collider))
@@ -283,7 +283,7 @@ namespace Fall2020_CSC403_Project
             player2.AlterHealth(-1);
         }
 
-        private void StoreItem(HealthItem item)
+        private void StoreItem(Item item)
         {
             player2.inventory.addHealthItem(item);
             PictureBox pic = Controls.Find(item.NAME, true)[0] as PictureBox;
@@ -404,7 +404,7 @@ namespace Fall2020_CSC403_Project
                 // check collision with item(s)
                 if (HitAnItem(player2))
                 {
-                    HealthItem itemHit = null;
+                    Item itemHit = null;
                     for (int w = 0; w < itemsList2.Count; w++)
                     {
                         if (player2.Collider.Intersects(itemsList2[w].Collider))
