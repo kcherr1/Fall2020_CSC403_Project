@@ -140,6 +140,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
@@ -208,6 +209,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\raw images\LVL1potion0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\background.png" />
+    <None Include="data\proj.png" />
+    <None Include="data\grass_wall.jpg" />
+    <None Include="data\shield.png" />
+    <None Include="data\background_dark.png" />
+    <Content Include="grass_wall.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
