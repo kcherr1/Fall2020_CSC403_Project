@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.Properties;
 using System.Media;
+using System.Runtime.InteropServices;
 
 namespace Fall2020_CSC403_Project {
   partial class FrmBattle {
@@ -46,6 +47,7 @@ namespace Fall2020_CSC403_Project {
             this.lblPlayerScore = new System.Windows.Forms.Label();
             this.battleTheme = new System.Media.SoundPlayer();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+            this.battleLog = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -184,6 +186,16 @@ namespace Fall2020_CSC403_Project {
             this.battleTheme.SoundLocation = "battle_theme.wav";
             this.battleTheme.Stream = null;
             this.battleTheme.Tag = null;
+            //
+            // battleLog
+            //
+            this.battleLog.AcceptsReturn = false;
+            this.battleLog.AcceptsTab = false;
+            this.battleLog.ReadOnly = true;
+            this.battleLog.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.battleLog.Multiline = true;
+            this.battleLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.battleLog.Size = new System.Drawing.Size(226, 80);
             // 
             // tmrFinalBattle
             // 
@@ -209,6 +221,7 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.btnFlee);
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.battleLog);
             this.DoubleBuffered = true;
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -235,6 +248,7 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Label lblPlayerScore;
     private System.Windows.Forms.Timer tmrFinalBattle;
+    private System.Windows.Forms.TextBox battleLog;
     SoundPlayer battleTheme = new SoundPlayer("battle_theme.wav");
     SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");
     SoundPlayer attackSound = new SoundPlayer(Resources.attack);

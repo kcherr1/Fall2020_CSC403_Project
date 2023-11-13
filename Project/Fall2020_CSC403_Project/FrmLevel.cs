@@ -48,12 +48,18 @@ namespace Fall2020_CSC403_Project {
      enemyGRIMACE.Img = picEnemyGRIMACE.BackgroundImage;
       enemyRaisin.Img = picEnemyRaisin.BackgroundImage;
       bossPrimordialKoolaid.Img = picBossPrimordialKoolaid.BackgroundImage;
-
-
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
       nextAreaDoor.Img = picAreaDoor.BackgroundImage;
+
+     enemyGRIMACE.Name = picEnemyGRIMACE.Name;
+     enemyRaisin.Name = picEnemyRaisin.Name;
+     bossPrimordialKoolaid.Name = picBossPrimordialKoolaid.Name;
+     enemyPoisonPacket.Name = picEnemyPoisonPacket.Name;
+     enemyCheeto.Name = picEnemyCheeto.Name;
+     bossKoolaid.Name = picBossKoolAid.Name;
+
 
      enemyGRIMACE.Color = Color.Purple;
      enemyRaisin.Color = Color.Blue;
