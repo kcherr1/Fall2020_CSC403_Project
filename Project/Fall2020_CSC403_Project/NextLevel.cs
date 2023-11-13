@@ -24,7 +24,22 @@ namespace Fall2020_CSC403_Project
             frm.Show();
             // Whenever FrmLevel is closed, execute onFormClosed method
             frm.FormClosed += frm.OnFormClosed;
-            // music.Stop();
+            Hide();
+        }
+
+        private void OnFormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Create MainMenu and show it
+            MainMenu frm = new MainMenu();
+            frm.Show();
+            // Whenever Level is closed, execute onFormClosed method
+            // frm.FormClosed += frm.OnFormClosed;
             Hide();
         }
     }

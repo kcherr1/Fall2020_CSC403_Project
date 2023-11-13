@@ -64,6 +64,7 @@
             this.ItemPoisonPack = new System.Windows.Forms.PictureBox();
             this.inventoryboard = new System.Windows.Forms.PictureBox();
             this.picShield = new System.Windows.Forms.PictureBox();
+            this.nextleveldoor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picPoisonArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCheetoArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selector)).BeginInit();
@@ -90,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemPoisonPack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShield)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nextleveldoor)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -469,7 +471,7 @@
             this.ItemPoisonPack.Location = new System.Drawing.Point(176, 175);
             this.ItemPoisonPack.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ItemPoisonPack.Name = "ItemPoisonPack";
-            this.ItemPoisonPack.Size = new System.Drawing.Size(84, 118);
+            this.ItemPoisonPack.Size = new System.Drawing.Size(168, 227);
             this.ItemPoisonPack.TabIndex = 23;
             this.ItemPoisonPack.TabStop = false;
             // 
@@ -494,6 +496,18 @@
             this.picShield.Size = new System.Drawing.Size(13, 130);
             this.picShield.TabIndex = 25;
             this.picShield.TabStop = false;
+            // 
+            // nextleveldoor
+            // 
+            this.nextleveldoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.minecraft_door;
+            this.nextleveldoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.nextleveldoor.Location = new System.Drawing.Point(2186, 131);
+            this.nextleveldoor.Name = "nextleveldoor";
+            this.nextleveldoor.Size = new System.Drawing.Size(164, 308);
+            this.nextleveldoor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.nextleveldoor.TabIndex = 26;
+            this.nextleveldoor.TabStop = false;
+            this.nextleveldoor.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FrmLevel
             // 
@@ -568,6 +582,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemPoisonPack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShield)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nextleveldoor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -614,6 +629,7 @@
         private System.Windows.Forms.PictureBox picPoisonArrow;
         private System.Windows.Forms.Timer tmrPoisonArrowMove;
         private System.Windows.Forms.PictureBox picShield;
+        private System.Windows.Forms.PictureBox nextleveldoor;
     }
 }
 
