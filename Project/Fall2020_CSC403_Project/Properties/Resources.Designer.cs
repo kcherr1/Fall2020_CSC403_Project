@@ -179,7 +179,7 @@ namespace Fall2020_CSC403_Project.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Potion {
             get {
-                object obj = ResourceManager.GetObject("LVL1potion0", resourceCulture);
+                object obj = ResourceManager.GetObject("Potion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

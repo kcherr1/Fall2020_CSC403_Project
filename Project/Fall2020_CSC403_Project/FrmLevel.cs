@@ -96,6 +96,7 @@ namespace Fall2020_CSC403_Project
                     string itemname = "LVL1potion" + w.ToString();
                     PictureBox item = Controls.Find(itemname, true)[0] as PictureBox;
                     itemsList.Add(new Item(CreatePosition(item), CreateCollider(item, PADDING), "health", itemname));
+                    item.Show();
                     w = w + 1;
                 }
             }
@@ -247,6 +248,22 @@ namespace Fall2020_CSC403_Project
             if (HitAChar(player, bossKoolaid) && bossKoolaid.showEnemy)
             {
                 Fight(bossKoolaid);
+            }
+
+            // check collision with item(s)
+            if (HitAnItem(player))
+            {
+                Item itemHit = null;
+                for (int w = 0; w < itemsList.Count; w++)
+                {
+                    if (player.Collider.Intersects(itemsList[w].Collider))
+                    {
+                        itemHit = itemsList[w];
+                        itemsList.Remove(itemHit);
+                        break;
+                    }
+                }
+                StoreItem(itemHit);
             }
 
             // update player's picture box, health bar, and health
@@ -468,21 +485,6 @@ namespace Fall2020_CSC403_Project
                     default:
                         player.ResetMoveSpeed();
                         break;
-                }
-                // check collision with item(s)
-                if (HitAnItem(player))
-                {
-                    Item itemHit = null;
-                    for (int w = 0; w < itemsList.Count; w++)
-                    {
-                        if (player.Collider.Intersects(itemsList[w].Collider))
-                        {
-                            itemHit = itemsList[w];
-                            itemsList.Remove(itemHit);
-                            break;
-                        }
-                    }
-                    StoreItem(itemHit);
                 }
             }
             // update player's picture box
