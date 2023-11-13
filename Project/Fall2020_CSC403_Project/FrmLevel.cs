@@ -16,6 +16,8 @@ namespace Fall2020_CSC403_Project
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Projectile arrow;
+        private Projectile cheetoArrow;
+        private Projectile poisonArrow;
         private Character[] walls;
         public string playerDirection = "right";
         private DateTime timeBegin;
@@ -144,7 +146,7 @@ namespace Fall2020_CSC403_Project
                 {
                     arrow.inFlight = false;
                     enemyPoisonPacket.AlterHealth(arrow.Damage);
-                    arrow.impact(player);
+                    arrow.returnArrow(player);
                     picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                     picArrow.Hide();
                     if (enemyPoisonPacket.Health <= 0)
@@ -170,7 +172,7 @@ namespace Fall2020_CSC403_Project
                 {
                     arrow.inFlight = false;
                     enemyCheeto.AlterHealth(arrow.Damage);
-                    arrow.impact(player);
+                    arrow.returnArrow(player);
                     picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                     picArrow.Hide();
                     if (enemyCheeto.Health <= 0)

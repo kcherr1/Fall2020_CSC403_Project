@@ -451,7 +451,7 @@
             this.inventoryboard.Size = new System.Drawing.Size(932, 503);
             this.inventoryboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.inventoryboard.TabIndex = 18;
-            this.inventoryboard.TabStop = false;\
+            this.inventoryboard.TabStop = false;
             // 
             // picShield
             // 
