@@ -28,6 +28,7 @@ namespace Fall2020_CSC403_Project
         private int rng;
         Vector2 cheetoArrowDirection;
         Vector2 poisonArrowDirection;
+        private bool showLevel;
 
         public FrmLevel()
         {
@@ -118,7 +119,7 @@ namespace Fall2020_CSC403_Project
                 // Sets inventory Item as child to always display item images on top of the inventory board.
                 inventoryItem.Parent = this.inventoryboard;
             }
-
+            showLevel = true;
             Game.player = player;
             timeBegin = DateTime.Now;
         }
@@ -236,7 +237,7 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
-            if (HitADoor(player))
+            if (HitADoor(player) && showLevel)
             {
                 // Create NextLevel and show it
                 NextLevel nextlevel = new NextLevel();
@@ -244,6 +245,7 @@ namespace Fall2020_CSC403_Project
                 // Whenever NextLevel is closed, execute onFormClosed method
                 // nextlevel.FormClosed += nextlevel.OnFormClosed;
                 Hide();
+                showLevel = false;
             }
 
             // check collision with enemies and projectiles
