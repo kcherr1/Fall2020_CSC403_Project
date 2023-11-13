@@ -21,6 +21,7 @@ namespace Fall2020_CSC403_Project
         public int score;
 
         public bool gameOver { get; set; }
+        private NPC NPC_Conversing { get; set; }
 
         private DateTime timeBegin;
         private FrmBattleScreen frmBattleScreen;
@@ -50,6 +51,7 @@ namespace Fall2020_CSC403_Project
 
         public Panel conversePanel;
         public Label converseText;
+        public Button JoinParty;
 
 
         public FrmLevel(Form MainMenu)
@@ -280,15 +282,28 @@ namespace Fall2020_CSC403_Project
             this.conversePanel.Height = Screen.PrimaryScreen.Bounds.Height - this.conversePanel.Top;
             this.conversePanel.BackColor = Color.FromArgb(170, 123, 123, 123);
 
+            this.JoinParty = new Button();
+            this.JoinParty.Parent = this.conversePanel;
+            this.JoinParty.Size = new Size(this.conversePanel.Width, this.conversePanel.Height * 1 / 4);
+            this.JoinParty.Location = new Point(0, this.conversePanel.Height * 3 / 4);
+            this.JoinParty.BackColor = Color.SlateGray;
+            this.JoinParty.Text = "Invite to Party";
+            this.JoinParty.ForeColor = Color.Black;
+            this.JoinParty.Font = new Font("NSimSun", this.JoinParty.Height / 4);
+            this.JoinParty.Click += JoinParty_Click;
+
             this.converseText = new Label();
             this.converseText.Parent = this.conversePanel;
-            this.converseText.Size = new Size(Screen.PrimaryScreen.Bounds.Width, this.conversePanel.Size.Height - 10);
+            this.converseText.Size = new Size(Screen.PrimaryScreen.Bounds.Width, this.conversePanel.Size.Height - this.JoinParty.Height);
             this.converseText.Text = "";
             Game.FontSizing(this.converseText);
 
-            
+            this.conversePanel.BringToFront();
+
 
         }
+
+
 
         private void InitializeLevel()
         {
@@ -484,35 +499,28 @@ namespace Fall2020_CSC403_Project
             }
 
             // check collision with NPCs
-            int npcIndex = hitNPC(Game.player);
-            int speaking = -1;
-            if (npcIndex >= 0)
+            this.NPC_Conversing = hitNPC(Game.player);
+            if (NPC_Conversing != null)
             {
-                speaking = npcIndex;
-                this.converseText.Text = Game.CurrentArea.npcs[npcIndex].Dialog;
+                this.converseText.Text = this.NPC_Conversing.Dialog;
                 Game.FontSizing(this.converseText);
                 this.conversePanel.Show();
-                //Converse(Game.CurrentArea.npcs[npcIndex]);
 
-                //Controls.Remove(Game.CurrentArea.npcs[npcIndex].Pic);
-                //Game.CurrentArea.npcs.Remove(Game.CurrentArea.npcs[npcIndex]);
+                if (this.NPC_Conversing.Name == "Tombstone")
+                {
+                    Game.Objectives["spoke_to_tombstone"] = true;
+                }
+                if (this.NPC_Conversing.Name == "Barthollomew")
+                {
+                    Game.Objectives["spoke_to_bartholomew"] = true;
+                }
+
             } else
             {
                 this.conversePanel.Hide();
                 Game.CheckObjectives();
             }
 
-            if (speaking >= 0) 
-            {
-                if (Game.CurrentArea.npcs[speaking].Name == "Tombstone")
-                {
-                    Game.Objectives["spoke_to_tombstone"] = true;
-                }
-                if (Game.CurrentArea.npcs[speaking].Name == "Barthollomew")
-                {
-                    Game.Objectives["spoke_to_barthollomew"] = true;
-                }
-            }
 
             x = HitAnItem(Game.player);
             if (x >= 0)
@@ -607,25 +615,23 @@ namespace Fall2020_CSC403_Project
             return hitChar;
         }
 
-        private int hitNPC(Player you)
+        private NPC hitNPC(Player you)
         {
             if(Game.CurrentArea.npcs == null)
             {
-                return -1;
+                return null;
             }
-            int hitChar = -1;
             for (int i = 0; i < Game.CurrentArea.npcs.Count; i++)
             {
                 if (Game.CurrentArea.npcs[i] != null)
                 {
                     if (you.Collider.Intersects(Game.CurrentArea.npcs[i].Collider))
                     {
-                        hitChar = i;
-                        break;
+                        return Game.CurrentArea.npcs[i];
                     }
                 }
             }
-            return hitChar;
+            return null;
         }
 
         private int HitAnItem(Player you)
@@ -678,26 +684,6 @@ namespace Fall2020_CSC403_Project
             UpdateHealthBars(playerCurrentHealth);
         }
 
-        private void Converse(NPC npc)
-        {
-            Game.player.ResetMoveSpeed();
-            Game.player.MoveBack();
-
-            // TODO: Insert conversation mechanic here
-
-
-            conversePanel.Show();
-
-            if(Game.player.isPartyFull())
-            {
-                Console.WriteLine("PARTY IS FULL NOTIFICATION");
-            }
-            else
-            {
-                Game.player.addPartyMember(npc);
-            }
-
-        }
 
         public void GameOver()
         {
@@ -935,6 +921,23 @@ namespace Fall2020_CSC403_Project
             this.Close();
         }
 
+        private void JoinParty_Click(object sender, EventArgs e)
+        {
+            if (Game.player.isPartyFull())
+            {
+                Console.WriteLine("PARTY IS FULL NOTIFICATION");
+            }
+            else
+            {
+                Game.player.addPartyMember(this.NPC_Conversing);
+            }
+
+            Controls.Remove(this.NPC_Conversing.Pic);
+            
+            Game.CurrentArea.npcs.Remove(this.NPC_Conversing);
+            this.NPC_Conversing = null;
+        }
+
         private void AreaSelect()
         {
             Game.CurrentArea = Game.Areas[this.AreaNum];
@@ -1120,7 +1123,6 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.AddNPC(Game.NPCs["Harold"]);
             Game.CurrentArea.AddNPC(Game.NPCs["Gerald"]);
-            Game.CurrentArea.AddNPC(Game.NPCs["Tombstone"]);
         }
 
         private void Area3()

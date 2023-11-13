@@ -13,10 +13,12 @@ namespace Fall2020_CSC403_Project.code
 
         public string Dialog;
 
+        public bool CanJoinParty;
 
         public NPC(string name, PictureBox pic, Archetype archetype) : base(name, pic, archetype)
         {
-            
+            this.CanJoinParty = true;
+            this.Dialog = "";
         }
 
 
