@@ -61,6 +61,7 @@
             this.LVL1potion0 = new System.Windows.Forms.PictureBox();
             this.LVL1potion1 = new System.Windows.Forms.PictureBox();
             this.picWall10 = new System.Windows.Forms.PictureBox();
+            this.ItemPoisonPack = new System.Windows.Forms.PictureBox();
             this.inventoryboard = new System.Windows.Forms.PictureBox();
             this.picShield = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picPoisonArrow)).BeginInit();
@@ -86,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemPoisonPack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShield)).BeginInit();
             this.SuspendLayout();
@@ -430,6 +432,17 @@
             this.picWall10.TabIndex = 11;
             this.picWall10.TabStop = false;
             // 
+            // ItemPoisonPack
+            // 
+            this.ItemPoisonPack.BackColor = System.Drawing.Color.Transparent;
+            this.ItemPoisonPack.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
+            this.ItemPoisonPack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ItemPoisonPack.Location = new System.Drawing.Point(242, 110);
+            this.ItemPoisonPack.Margin = new System.Windows.Forms.Padding(4);
+            this.ItemPoisonPack.Name = "ItemPoisonPack";
+            this.ItemPoisonPack.Size = new System.Drawing.Size(84, 118);
+            this.ItemPoisonPack.TabIndex = 23;
+            this.ItemPoisonPack.TabStop = false;
             // inventoryboard
             // 
             this.inventoryboard.Image = global::Fall2020_CSC403_Project.Properties.Resources.inventoryboard;
@@ -438,7 +451,7 @@
             this.inventoryboard.Size = new System.Drawing.Size(932, 503);
             this.inventoryboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.inventoryboard.TabIndex = 18;
-            this.inventoryboard.TabStop = false;
+            this.inventoryboard.TabStop = false;\
             // 
             // picShield
             // 
@@ -461,6 +474,8 @@
             this.Controls.Add(this.picShield);
             this.Controls.Add(this.picPoisonArrow);
             this.Controls.Add(this.picCheetoArrow);
+            this.Controls.Add(this.inventoryboard);
+            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.bossHealthBar);
             this.Controls.Add(this.cheetoHealthBar);
             this.Controls.Add(this.playerHealthBar);
@@ -482,12 +497,11 @@
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
-            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picArrow);
             this.Controls.Add(this.LVL1potion0);
             this.Controls.Add(this.LVL1potion1);
             this.Controls.Add(this.picWall10);
-            this.Controls.Add(this.inventoryboard);
+            this.Controls.Add(this.ItemPoisonPack);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLevel";
@@ -519,6 +533,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LVL1potion1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemPoisonPack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShield)).EndInit();
             this.ResumeLayout(false);
@@ -561,6 +576,7 @@
         private System.Windows.Forms.Label cheetoHealthBar;
         private System.Windows.Forms.Timer tmrBoss;
         private System.Windows.Forms.Label bossHealthBar;
+        private System.Windows.Forms.PictureBox ItemPoisonPack;
         private System.Windows.Forms.PictureBox picCheetoArrow;
         private System.Windows.Forms.Timer tmrCheetoArrowMove;
         private System.Windows.Forms.PictureBox picPoisonArrow;
