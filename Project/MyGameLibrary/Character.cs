@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project.code
     public class Character : Entity
     {
 
-        public event Action<int> AttackEvent;
+        public event Action<Character,int> AttackEvent;
 
 		public Inventory Inventory { get; set; }
 
@@ -48,7 +48,7 @@ namespace Fall2020_CSC403_Project.code
 			this.dice = new Random();
 		}
 		
-		public string OnAttack(int defense)
+		public string OnAttack(Character target)
 		{
             int hit = this.dice.Next(1, 21);
 			string log;
@@ -57,14 +57,14 @@ namespace Fall2020_CSC403_Project.code
             if (hit == 20)
 			{
 				damage = this.damage * 2 + this.dice.Next(1, this.archetype.baseDamage + 1);
-                AttackEvent(damage);
-				log = this.Name + " criticaly hit for " + damage + "!";
+                AttackEvent(target, damage);
+				log = this.Name + " criticaly hit " + target.Name + " for " + damage + "!";
 			}
-            else if (hit + this.archetype.hitMod >= defense)
+            else if (hit + this.archetype.hitMod >= target.defense)
 			{
 				damage = this.damage + this.dice.Next(1, this.archetype.baseDamage + 1);
-                AttackEvent(damage);
-                log = this.Name + " hits for " + damage;
+                AttackEvent(target, damage);
+                log = this.Name + " hits " + target.Name + " for " + damage;
             }
 			else
 			{

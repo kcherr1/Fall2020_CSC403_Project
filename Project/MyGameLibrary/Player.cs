@@ -26,14 +26,15 @@ namespace Fall2020_CSC403_Project.code {
             return true;
         }
 
-        public bool isPartyEmpty()
+        public int PartyCount()
         {
+            int count = 0;
             for (int i = 0; i < this.Party.Length; i++)
             {
                 if (this.Party[i] != null)
-                { return false; }
+                { count++; }
             }
-            return true;
+            return count;
         }
 
         public void addPartyMember(NPC newMember)
@@ -43,6 +44,7 @@ namespace Fall2020_CSC403_Project.code {
                 if (Party[i] == null)
                 {
                     Party[i] = newMember;
+                    return;
                 }
                 else
                 {

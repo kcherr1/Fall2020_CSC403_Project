@@ -158,8 +158,54 @@ namespace Fall2020_CSC403_Project.code
             baseMaxHealth = 30;
             baseDefense = 10;
             baseDamage = 3;
-            baseSpeed = 2;
+            baseSpeed = 3;
             hitMod = 3;
+        }
+
+        public void specialMove(Character target) { }
+    }
+
+    public class Gerald : Archetype
+    {
+        public string name { get; }
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; set; }
+        public string opener { get; }
+
+        public Gerald()
+        {
+            name = "Gerald";
+            baseMaxHealth = 100;
+            baseDefense = 0;
+            baseDamage = 20;
+            baseSpeed = 0;
+            hitMod = 3;
+        }
+
+        public void specialMove(Character target) { }
+    }
+
+    public class Guy : Archetype
+    {
+        public string name { get; }
+        public int baseMaxHealth { get; }
+        public int baseDefense { get; }
+        public int baseDamage { get; }
+        public int baseSpeed { get; }
+        public int hitMod { get; set; }
+        public string opener { get; }
+
+        public Guy()
+        {
+            name = "Guy";
+            baseMaxHealth = 10;
+            baseDefense = 0;
+            baseDamage = 1;
+            baseSpeed = 1;
+            hitMod = 0;
         }
 
         public void specialMove(Character target) { }
@@ -182,7 +228,7 @@ namespace Fall2020_CSC403_Project.code
             baseMaxHealth = 20;
             baseDefense = 10;
             baseDamage = 5;
-            baseSpeed = 2;
+            baseSpeed = 1;
             hitMod = 0;
             opener = "*Unintelligible hissing*";
         }

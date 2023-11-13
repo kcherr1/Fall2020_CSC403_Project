@@ -183,7 +183,17 @@ namespace Fall2020_CSC403_Project.code
             NPCs["Tombstone"] = new NPC(
                 "Tombstone",
                 MakePictureBox(Resources.tombstone, new Point(150, 150), new Size(75, 100)),
-                new Healer());
+                new Tombstone());
+
+            NPCs["Gerald"] = new NPC(
+                "Gerald",
+                MakePictureBox(Resources.gerald, new Point(300, 300), new Size(100, 100)),
+                new Gerald());
+
+            NPCs["Bartholomew"] = new NPC(
+                "Bartholomew",
+                MakePictureBox(Resources.bartholomew, new Point(300, 300), new Size(75, 100)),
+                new Guy());
 
             // Create Structures
             Structures["wall_bricks"] = new Structure(
