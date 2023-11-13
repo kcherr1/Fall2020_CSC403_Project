@@ -19,6 +19,7 @@ namespace Fall2020_CSC403_Project
         private Projectile cheetoArrow;
         private Projectile poisonArrow;
         private Character[] walls;
+        private Character level2door;
         public string playerDirection = "right";
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -86,6 +87,9 @@ namespace Fall2020_CSC403_Project
                 PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING), 0.0f);
             }
+
+            PictureBox door = Controls.Find("nextleveldoor", true)[0] as PictureBox;
+            level2door = new Character(CreatePosition(door), CreateCollider(door, PADDING), 0.0f);
 
             itemsList = new List<Item>();
             try
@@ -231,6 +235,16 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
+            if (HitADoor(player))
+            {
+                // Create NextLevel and show it
+                NextLevel nextlevel = new NextLevel();
+                nextlevel.Show();
+                // Whenever NextLevel is closed, execute onFormClosed method
+                // nextlevel.FormClosed += nextlevel.OnFormClosed;
+                Hide();
+            }
+
             // check collision with enemies and projectiles
             if (HitAChar(player, enemyPoisonPacket) && enemyPoisonPacket.showEnemy)
             {
@@ -305,6 +319,17 @@ namespace Fall2020_CSC403_Project
                 }
             }
             return hitAWall;
+        }
+        private bool HitADoor(Character c)
+        {
+            bool hitADoor = false;
+            
+            if (c.Collider.Intersects(level2door.Collider))
+            {
+                hitADoor = true;
+            }
+
+            return hitADoor;
         }
 
         private bool HitAnItem(Character c)
@@ -773,6 +798,11 @@ namespace Fall2020_CSC403_Project
                 poisonArrow.enemyArrowMove(poisonArrowDirection);
                 picPoisonArrow.Location = new Point((int)poisonArrow.Position.x, (int)poisonArrow.Position.y);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -149,6 +149,11 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -216,6 +221,8 @@
     <None Include="data\grass_wall.jpg" />
     <None Include="data\shield.png" />
     <None Include="data\background_dark.png" />
+    <Content Include="data\baby nut2.png" />
+    <Content Include="data\minecraft-door.jpeg" />
     <Content Include="grass_wall.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
