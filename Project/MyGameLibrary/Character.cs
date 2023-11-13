@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Fall2020_CSC403_Project.code {
   public class Character {
     private const int GO_INC = 3;
-    private float toughness;
+    public float toughness;
     public Vector2 MoveSpeed { get; private set; }
     public Vector2 LastPosition { get; private set; }
     public Vector2 Position { get; private set; }
@@ -17,6 +17,16 @@ namespace Fall2020_CSC403_Project.code {
       Position = initPos;
       Collider = collider;
       this.toughness = toughness;
+    }
+
+    public float getToughness()
+    {
+        return toughness;
+   }
+
+    public void setToughness(float toughness)
+    {
+        this.toughness = toughness;
     }
 
     public void Move() {

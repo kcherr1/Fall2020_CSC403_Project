@@ -214,6 +214,8 @@
     <None Include="data\background.png" />
     <None Include="data\proj.png" />
     <None Include="data\grass_wall.jpg" />
+    <None Include="data\shield.png" />
+    <None Include="data\background_dark.png" />
     <Content Include="grass_wall.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
