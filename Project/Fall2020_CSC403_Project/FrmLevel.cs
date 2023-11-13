@@ -127,7 +127,11 @@ namespace Fall2020_CSC403_Project
                 picArrow.Hide();
                 if (enemyPoisonPacket.Health <= 0)
                 {
+                    // Remove Sprite Collider and Images
                     enemyList.Remove(enemyPoisonPacket);
+                    picEnemyPoisonPacket.Hide();
+                    enemyPoisonPacket.Collider.Deactivate();
+                    poisonHealthBar.Hide();
                     if (enemyList.Count == 0)
                     {
                         bossKoolaid.setupBoss();
@@ -145,6 +149,10 @@ namespace Fall2020_CSC403_Project
                 picArrow.Hide();
                 if (enemyCheeto.Health <= 0)
                 {
+                    // Remove Sprite Collider and Images
+                    picEnemyCheeto.Hide();
+                    enemyCheeto.Collider.Deactivate();
+                    cheetoHealthBar.Hide();
                     enemyList.Remove(enemyCheeto);
                     if(enemyList.Count == 0)
                     {
@@ -163,6 +171,14 @@ namespace Fall2020_CSC403_Project
                     arrow.impact(player);
                     picArrow.Location = new Point((int)player.Position.x, (int)player.Position.y);
                     picArrow.Hide();
+
+                    // Remove Boss Collider and Sprite Images
+                    if (bossKoolaid.Health <= 0)
+                    {
+                        picBossKoolAid.Hide();
+                        bossKoolaid.Collider.Deactivate();
+                        bossHealthBar.Hide();
+                    }
                 }
             }
 
