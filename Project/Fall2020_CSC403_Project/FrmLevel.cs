@@ -464,7 +464,7 @@ namespace Fall2020_CSC403_Project
             if (Game.player.Position.x < 0 || 
                 Game.player.Position.x > Screen.PrimaryScreen.Bounds.Width - Game.player.Pic.Size.Width ||
                 Game.player.Position.y < Screen.PrimaryScreen.Bounds.Height * 1/12 ||
-                Game.player.Position.y > Screen.PrimaryScreen.Bounds.Height - Game.player.Pic.Size.Height - 40)
+                Game.player.Position.y > Screen.PrimaryScreen.Bounds.Height - Game.player.Pic.Size.Height)
             {
                 Game.player.MoveBack();
             }
@@ -1004,9 +1004,9 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.SetAdjacentArea(Direction.Right, 0);
 
-            Game.CurrentArea.SetTravelSign(Direction.Right, new TravelSign(Game.Areas[0].AreaName, MakePictureBox(Resources.cave_exit, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height - 40), caveSize)));
-            Game.CurrentArea.TravelSigns[Direction.Right].Collider.MovePosition(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height - 40);
-            Game.CurrentArea.TravelSigns[Direction.Right].Pic.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height - 40);
+            Game.CurrentArea.SetTravelSign(Direction.Right, new TravelSign(Game.Areas[0].AreaName, MakePictureBox(Resources.cave_exit, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height), caveSize)));
+            Game.CurrentArea.TravelSigns[Direction.Right].Collider.MovePosition(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height);
+            Game.CurrentArea.TravelSigns[Direction.Right].Pic.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height);
             //Game.CurrentArea.TravelSigns[Direction.Left].Collider.Disable();
 
 
