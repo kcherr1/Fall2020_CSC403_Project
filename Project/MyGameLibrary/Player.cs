@@ -39,17 +39,19 @@ namespace Fall2020_CSC403_Project.code {
     //overrides the Character Save function
     public override void Save(string fileName)
     {
-
       //putting all vals into a hashtable makes it easier to write all to a csv
-      Hashtable vals = new Hashtable();
-
-      vals.Add("Health", Health);
-      vals.Add("MaxHealth",MaxHealth);
-      vals.Add("strength",strength);
-      vals.Add("experience", experience);
-      vals.Add("HealthPackCount", HealthPackCount);
-      vals.Add("WeaponStrength",WeaponStrength);
-      vals.Add("WeaponEquipped",WeaponEquiped);
+      Hashtable vals = new Hashtable
+      {
+        { "Health", Health },
+        { "MaxHealth", MaxHealth },
+        { "strength", strength },
+        { "experience", experience },
+        { "HealthPackCount", HealthPackCount },
+        { "WeaponStrength", WeaponStrength },
+        { "WeaponEquipped", WeaponEquiped },
+        {"X", Position.x },
+        {"Y", Position.y },
+      };
 
       // go through the ceremony of checking if the directory exists,
       //then making the file, then writing it
@@ -101,6 +103,11 @@ namespace Fall2020_CSC403_Project.code {
       HealthPackCount = Convert.ToInt32(vals["HealthPackCount"]);
       WeaponStrength = Convert.ToInt32(vals["WeaponStrength"]);
       WeaponEquiped = Convert.ToBoolean(vals["WeaponEquiped"]);
+
+      Position = new Vector2(
+        Convert.ToSingle(vals["X"]),
+        Convert.ToSingle(vals["Y"])
+      );
 
     }
   }

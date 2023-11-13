@@ -35,6 +35,8 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void LoadLevel(object send, EventArgs e) {
+      levelID = 2;
+
       const int WALL_COUNT = 46;
       const int HEDGE_COUNT = 23;
       const int OBSTACLE_COUNT = 16;
@@ -53,6 +55,11 @@ namespace Fall2020_CSC403_Project {
         base.CreateCollider(picSquirrel3, PADDING),
         100
       );
+
+      bossSquirrels.Name = "bossSquirrels";
+      goose.Name = "goose";
+      alligator.Name = "alligator";
+
       timeStart = GameState.timeStart;
       player = GameState.player;
 
@@ -82,6 +89,11 @@ namespace Fall2020_CSC403_Project {
         hedges[h - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
       Game.player = GameState.player;
+
+      objectsToSave.Add(player);
+      objectsToSave.Add(goose);
+      objectsToSave.Add(alligator);
+      objectsToSave.Add(bossSquirrels);
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
@@ -124,7 +136,9 @@ namespace Fall2020_CSC403_Project {
 
       if (HitAChar(player, bossSquirrels) && bossIsDefeated.bossIsDefeated) {
         // this closes the current form and returns to main
-        this.Close();
+        GameState.isLevelTwoCompleted = true;
+        GameState.levelToLoad = 3;
+        GameState.NextLevel();
       }
       else if (HitAChar(player, bossSquirrels)) {
         Fight(bossSquirrels);

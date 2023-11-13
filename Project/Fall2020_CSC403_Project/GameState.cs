@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project.code {
   public class GameState {
@@ -17,6 +18,9 @@ namespace Fall2020_CSC403_Project.code {
 
     public static Level currentLevel;
     public static int levelToLoad = 1;
+    public static string saveToLoadFrom;
+
+    public static Form startScreenReference;
 
     public GameState(Player player, DateTime timeStart) {
       GameState.player = player;
@@ -55,10 +59,10 @@ namespace Fall2020_CSC403_Project.code {
     //this just figures out which level needs to be loaded;
     //once that is done, then the GameState will create that level and then call
     //that level object's LoadData function
-    public static void LoadGame(string fileName)
+    public static void LoadGame()
     {
 
-      string basePath = "Food-Fight-Save\\" + fileName;
+      string basePath = "Food-Fight-Save\\" + saveToLoadFrom + "_level.csv";
         
       using (var reader = new StreamReader(basePath))
       {
@@ -71,12 +75,20 @@ namespace Fall2020_CSC403_Project.code {
           levelToLoad = Convert.ToInt32(split_line[1]);
         }
       }
-
-      currentLevel.Close();
+      NextLevel();
     }
 
+    //each level will call this to close after reaching the end condition
     public static void NextLevel()
     {
+
+      if (startScreenReference != null)
+      {
+        startScreenReference.Dispose();
+        startScreenReference = null;
+        isGamePaused = false;
+      }
+
       switch (levelToLoad)
       {
         case 1:

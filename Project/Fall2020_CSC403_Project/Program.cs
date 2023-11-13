@@ -17,11 +17,6 @@ namespace Fall2020_CSC403_Project {
       FrmStartScreen startScreen = new FrmStartScreen();
       startScreen.ShowDialog();
 
-      while (true)
-      {
-        GameState.NextLevel();
-      }
-
       /*
       if (GameState.startGame)
       {

@@ -251,6 +251,7 @@
       this.Controls.Add(this.button1);
       this.Controls.Add(this.pictureBox7);
       this.Name = "FrmStartScreen";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Form1";
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();

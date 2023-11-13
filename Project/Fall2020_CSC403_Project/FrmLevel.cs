@@ -52,6 +52,11 @@ namespace Fall2020_CSC403_Project {
         base.CreateCollider(picEnemyCheeto, PADDING),
         30
       );
+
+      bossKoolaid.Name = "bossKoolaid";
+      enemyCheeto.Name = "enemyCheeto";
+      enemyPoisonPacket.Name = "enemyPoisonPacket";
+
       timeStart = DateTime.Now;
       //gameState = new GameState(player, timeStart);
       new GameState(player, timeStart);
@@ -66,6 +71,7 @@ namespace Fall2020_CSC403_Project {
 
       ak = new Weapon(CreatePosition(weapon1), CreateCollider(weapon1, PADDING));
       ak.setStrength(4);
+      ak.Name = "ak";
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -76,6 +82,15 @@ namespace Fall2020_CSC403_Project {
       Game.player = player;
 
       objectsToSave.Add(player);
+      objectsToSave.Add(bossKoolaid);
+      objectsToSave.Add(enemyCheeto);
+      objectsToSave.Add(enemyPoisonPacket);
+      objectsToSave.Add(ak);
+
+      if (GameState.saveToLoadFrom != null)
+      {
+        LoadData(GameState.saveToLoadFrom);
+      }
     }
 
     //private Vector2 CreatePosition(PictureBox pic) {
@@ -129,7 +144,7 @@ namespace Fall2020_CSC403_Project {
         //this closes the current form and returns to main
         GameState.isLevelOneCompleted = true;
         GameState.levelToLoad = 2;
-        this.Close();
+        GameState.NextLevel();
       }
 
       else if (HitAChar(player, bossKoolaid)){
@@ -231,6 +246,15 @@ namespace Fall2020_CSC403_Project {
       {
         character.Load(fileName);
       }
+
+      if (!player.WeaponEquiped)
+      {
+        player.WeaponStrength = ak.getStrength();
+        player.WeaponEquiped = true;
+        weapon1.Visible = false;
+      }
+
+      GameState.saveToLoadFrom = null;
     }
   }
 }

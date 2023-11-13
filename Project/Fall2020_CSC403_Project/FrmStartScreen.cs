@@ -21,12 +21,20 @@ namespace Fall2020_CSC403_Project
       timer1.Interval = 1000;
       timer1.Tick += new System.EventHandler(timer1_Tick);
       timer1.Start();
+      GameState.startScreenReference = this;
     }
 
     private void button1_Click(object sender, EventArgs e)
     {
-      GameState.startGame = true;
-      this.Close();
+      if (!GameState.startGame)
+      {
+        GameState.startGame = true;
+        GameState.NextLevel();
+      }
+      else
+      {
+        this.Close();
+      }
     }
 
     private void button2_Click(object sender, EventArgs e)
@@ -93,10 +101,11 @@ namespace Fall2020_CSC403_Project
     {
       string fileName = textBox2.Text;
 
-      if (fileName != null && GameState.currentLevel != null) {
-        GameState.LoadGame(
-          fileName
-        );
+      if (fileName != null) {
+
+        GameState.startGame = true;
+        GameState.saveToLoadFrom = fileName;
+        GameState.LoadGame();
       }
       
     }

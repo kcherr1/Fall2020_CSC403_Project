@@ -11,7 +11,7 @@ namespace Fall2020_CSC403_Project.code {
     public int Health { get; protected set; }
     public int MaxHealth { get; protected set; }
     public int strength { get; protected set; }
-    public bool IsAlive { get; private set; }
+    public bool IsAlive { get; protected set; }
     public int experience { get; protected set; }
     public int HealthPackCount { get; protected set; }
     public int WeaponStrength;
