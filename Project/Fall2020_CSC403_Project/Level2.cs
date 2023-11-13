@@ -104,7 +104,7 @@ namespace Fall2020_CSC403_Project
             if (ArrowHitAWall(arrow2))
             {
                 arrow2.inFlight = false;
-                arrow2.impact(player2);
+                arrow2.returnArrow(player2);
                 picArrow2.Location = new Point((int)player2.Position.x, (int)player2.Position.y);
                 picArrow2.Hide();
             }
@@ -114,7 +114,7 @@ namespace Fall2020_CSC403_Project
             {
                 arrow2.inFlight = false;
                 enemyPoisonPacket2.AlterHealth(arrow2.Damage);
-                arrow2.impact(player2);
+                arrow2.returnArrow(player2);
                 picArrow2.Location = new Point((int)player2.Position.x, (int)player2.Position.y);
                 picArrow2.Hide();
             }
@@ -122,7 +122,7 @@ namespace Fall2020_CSC403_Project
             {
                 arrow2.inFlight = false;
                 enemyCheeto2.AlterHealth(arrow2.Damage);
-                arrow2.impact(player2);
+                arrow2.returnArrow(player2);
                 picArrow2.Location = new Point((int)player2.Position.x, (int)player2.Position.y);
                 picArrow2.Hide();
             }
@@ -130,7 +130,7 @@ namespace Fall2020_CSC403_Project
             {
                 arrow2.inFlight = false;
                 bossKoolaid2.AlterHealth(arrow2.Damage);
-                arrow2.impact(player2);
+                arrow2.returnArrow(player2);
                 picArrow2.Location = new Point((int)player2.Position.x, (int)player2.Position.y);
                 picArrow2.Hide();
             }
