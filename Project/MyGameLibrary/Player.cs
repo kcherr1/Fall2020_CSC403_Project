@@ -102,7 +102,7 @@ namespace Fall2020_CSC403_Project.code {
       experience = Convert.ToInt32(vals["experience"]);
       HealthPackCount = Convert.ToInt32(vals["HealthPackCount"]);
       WeaponStrength = Convert.ToInt32(vals["WeaponStrength"]);
-      WeaponEquiped = Convert.ToBoolean(vals["WeaponEquiped"]);
+      WeaponEquiped = Convert.ToInt32(vals["WeaponEquiped"]);
 
       Position = new Vector2(
         Convert.ToSingle(vals["X"]),
