@@ -41,6 +41,8 @@ namespace Fall2020_CSC403_Project
 
         private PictureBox picPlayer;
         private PictureBox picEnemy;
+        private Label PlayerName;
+
 
         private int height = Screen.PrimaryScreen.Bounds.Height;
         private int width = Screen.PrimaryScreen.Bounds.Width;
@@ -148,7 +150,7 @@ namespace Fall2020_CSC403_Project
 
             // Add user name and enemy name
             Label EnemyName = new Label();
-            Label PlayerName = new Label();
+            PlayerName = new Label();
 
             // Set up enemy name label
             EnemyName.Parent = this;
@@ -208,7 +210,22 @@ namespace Fall2020_CSC403_Project
             enemyHealthMax.BackColor = Color.Red;
             enemyHealthMax.AutoSize = false;
 
-            //if (!player.isPartyEmpty()) { picPlayer.Hide(); UseButton.Hide(); FleeButton.Hide(); AttackButton.Hide(); playerCurrentHealth.Hide(); playerHealthMax.Hide(); PlayerName.Hide(); }
+            if (player.PartyCount() > 0) 
+            { 
+                picPlayer.Hide(); playerCurrentHealth.Hide(); playerHealthMax.Hide(); PlayerName.Hide(); 
+            }
+            if (player.PartyCount() == 1)
+            {
+                GetPartyForm1();
+            }
+            else if (player.PartyCount() == 2)
+            {
+                GetPartyForm2();
+            }
+            else if (player.PartyCount() == 3)
+            {
+                GetPartyForm3();
+            }
 
             // Add log labels to screen
             backlog = new Label();
@@ -220,7 +237,7 @@ namespace Fall2020_CSC403_Project
 
             if(enemy.archetype.opener != null)
             {
-               BattleLog[0] = enemy.archetype.opener;
+                BattleLog[0] = enemy.archetype.opener;
             }
 
             this.attackOrder = new List<Character>();
@@ -286,6 +303,101 @@ namespace Fall2020_CSC403_Project
                 }
             }
         }
+
+        private void GetPartyForm1()
+        {
+            PictureBox partyZero = new PictureBox();
+            PictureBox partyOne = new PictureBox();
+
+            int h_scale = picPlayer.Height / 2;
+            int w_scale = picPlayer.Width / 2;
+
+            partyZero.Parent = this;
+            partyZero.Size = new Size(w_scale, h_scale);
+            partyZero.SizeMode = PictureBoxSizeMode.StretchImage;
+            partyZero.Location = new Point(picPlayer.Location.X - width / 64, picPlayer.Location.Y + picPlayer.Height / 7);
+            partyZero.BackColor = this.BackColor;
+            partyZero.Image = player.Pic.Image;
+
+            partyOne.Parent = this;
+            partyOne.Size = new Size(w_scale, h_scale);
+            partyOne.SizeMode = PictureBoxSizeMode.StretchImage;
+            partyOne.Location = new Point(partyZero.Right + width / 32, partyZero.Location.Y);
+            partyOne.BackColor = this.BackColor;
+            partyOne.Image = player.Party[0].Pic.Image;
+
+        }
+        private void GetPartyForm2()
+        {
+            PictureBox partyZero = new PictureBox();
+            PictureBox partyOne = new PictureBox();
+            PictureBox partyTwo = new PictureBox();
+
+            int h_scale = picPlayer.Height / 2;
+            int w_scale = picPlayer.Width / 2;
+
+            partyZero.Parent = this;
+            partyZero.Size = new Size(w_scale, h_scale);
+            partyZero.SizeMode = PictureBoxSizeMode.StretchImage;
+            partyZero.Location = new Point(picPlayer.Location.X - width / 64, picPlayer.Location.Y-height/48);
+            partyZero.BackColor = this.BackColor;
+            partyZero.Image = player.Pic.Image;
+
+            partyOne.Parent = this;
+            partyOne.Size = new Size(w_scale, h_scale);
+            partyOne.SizeMode = PictureBoxSizeMode.StretchImage;
+            partyOne.Location = new Point(partyZero.Right + width / 32, partyZero.Location.Y);
+            partyOne.BackColor = this.BackColor;
+            partyOne.Image = player.Party[0].Pic.Image;
+
+            partyTwo.Parent = this;
+            partyTwo.Size = new Size(w_scale, h_scale);
+            partyTwo.SizeMode = PictureBoxSizeMode.StretchImage;
+            partyTwo.Location = new Point(partyZero.Right + -partyZero.Width/2, partyZero.Bottom + height/64);
+            partyTwo.BackColor = this.BackColor;
+            partyTwo.Image = player.Party[1].Pic.Image;
+        }
+        private void GetPartyForm3()
+        {
+            PictureBox partyZero = new PictureBox();
+            PictureBox partyOne = new PictureBox();
+            PictureBox partyTwo = new PictureBox();
+            PictureBox partyThree = new PictureBox();
+
+            int h_scale = picPlayer.Height / 2;
+            int w_scale = picPlayer.Width / 2;
+
+            partyZero.Parent = this;
+            partyZero.Size = new Size(w_scale, h_scale);
+            partyZero.SizeMode = PictureBoxSizeMode.StretchImage;
+            partyZero.Location = new Point(picPlayer.Location.X - width / 64, picPlayer.Location.Y - height / 48);
+            partyZero.BackColor = this.BackColor;
+            partyZero.Image = player.Pic.Image;
+
+            partyOne.Parent = this;
+            partyOne.Size = new Size(w_scale, h_scale);
+            partyOne.SizeMode = PictureBoxSizeMode.StretchImage;
+            partyOne.Location = new Point(partyZero.Right + width / 32, partyZero.Location.Y);
+            partyOne.BackColor = this.BackColor;
+            partyOne.Image = player.Party[0].Pic.Image;
+
+            partyTwo.Parent = this;
+            partyTwo.Size = new Size(w_scale, h_scale);
+            partyTwo.SizeMode = PictureBoxSizeMode.StretchImage;
+            partyTwo.Location = new Point(partyZero.Left, partyZero.Bottom + height / 64);
+            partyTwo.BackColor = this.BackColor;
+            partyTwo.Image = player.Party[1].Pic.Image;
+
+            partyThree.Parent = this;
+            partyThree.Size = new Size(w_scale, h_scale);
+            partyThree.SizeMode = PictureBoxSizeMode.StretchImage;
+            partyThree.Location = new Point(partyOne.Left, partyZero.Bottom + height / 64);
+            partyThree.BackColor = this.BackColor;
+            partyThree.Image = player.Party[2].Pic.Image;
+
+
+        }
+
 
         private void updateLog()
         {
