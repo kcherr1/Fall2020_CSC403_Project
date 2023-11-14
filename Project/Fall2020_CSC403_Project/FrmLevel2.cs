@@ -27,15 +27,28 @@ namespace Fall2020_CSC403_Project {
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
     public FrmLevel2() : base() {
-      this.player = GameState.player;
-      this.player.MoveTo(119, 510);
-      this.player.ResetMoveSpeed();
+
       //this.picPlayer.Location = new System.Drawing.Point(159, 628);
       InitializeComponent();
     }
 
     private void LoadLevel(object send, EventArgs e) {
       levelID = 2;
+
+      if (GameState.player == null)
+      {
+        player = new Player(
+        base.CreatePosition(picPlayer),
+        base.CreateCollider(picPlayer, 0)
+        );
+
+        new GameState(player);
+        timeStart = GameState.timeStart;
+      }
+
+      this.player = GameState.player;
+      this.player.MoveTo(119, 510);
+      this.player.ResetMoveSpeed();
 
       const int WALL_COUNT = 46;
       const int HEDGE_COUNT = 23;
@@ -94,6 +107,11 @@ namespace Fall2020_CSC403_Project {
       objectsToSave.Add(goose);
       objectsToSave.Add(alligator);
       objectsToSave.Add(bossSquirrels);
+
+      if (GameState.saveToLoadFrom != null)
+      {
+        LoadData(GameState.saveToLoadFrom);
+      }
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
@@ -250,6 +268,16 @@ namespace Fall2020_CSC403_Project {
     private void MenuButton_Click(object sender, EventArgs e)
     {
       FrmStartScreen.displayStartScreen();
+    }
+
+    public override void LoadData(string fileName)
+    {
+      foreach (Character character in objectsToSave)
+      {
+        character.Load(fileName);
+      }
+
+      GameState.saveToLoadFrom = null;
     }
   }
 }

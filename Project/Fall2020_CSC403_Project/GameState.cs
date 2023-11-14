@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
@@ -22,9 +23,15 @@ namespace Fall2020_CSC403_Project.code {
 
     public static Form startScreenReference;
 
-    public GameState(Player player, DateTime timeStart) {
+    //public static DateTime saveTime;
+
+    public GameState(Player player) {
       GameState.player = player;
-      GameState.timeStart = timeStart;
+      
+      //if (timeStart == default(DateTime))
+      //{
+        timeStart = DateTime.Now;
+      //}
   }
 
     //takes file name for save files, the number of the level just so it's easy to track
@@ -47,6 +54,17 @@ namespace Fall2020_CSC403_Project.code {
       {
         var line = string.Format("{0},{1}", "level", levelNum);
         writer.WriteLine(line);
+
+        line = string.Format("{0},{1}", "time", timeStart);//+totalPausedTime);
+        writer.WriteLine(line);
+
+        //line = string.Format("{0},{1}", "saveTime", DateTime.Now);
+        //writer.WriteLine(line);
+
+        /*
+        line = string.Format("{0},{1}", "timeDifference", );
+        writer.WriteLine(line);
+        */
         writer.Flush();
       }
 
@@ -63,19 +81,27 @@ namespace Fall2020_CSC403_Project.code {
     {
 
       string basePath = "Food-Fight-Save\\" + saveToLoadFrom + "_level.csv";
-        
-      using (var reader = new StreamReader(basePath))
+
+      if (File.Exists(basePath))
       {
-        string[] lines = reader.ReadLine().Trim().Split('\n');
-
-        foreach (var line in lines)
+        using (var reader = new StreamReader(basePath))
         {
-          string[] split_line = line.Split(',');
+          string[] lines = reader.ReadToEnd().Trim().Split('\n');
 
+          string[] split_line = lines[0].Split(',');
           levelToLoad = Convert.ToInt32(split_line[1]);
+
+          split_line = lines[1].Split(',');
+          timeStart = Convert.ToDateTime(split_line[1]);
+
+          /*
+          split_line = lines[2].Split(',');
+          saveTime= Convert.ToDateTime(split_line[1]);*/
+
         }
+
+        NextLevel();
       }
-      NextLevel();
     }
 
     //each level will call this to close after reaching the end condition
@@ -104,13 +130,12 @@ namespace Fall2020_CSC403_Project.code {
           break;
 
         case 2:
-          if (isLevelOneCompleted)
-          {
+          if (currentLevel != null) {  
             currentLevel.Dispose();
-            FrmLevel2 levelTwo = new FrmLevel2();
-            currentLevel = levelTwo;
-            levelTwo.ShowDialog();
           }
+          FrmLevel2 levelTwo = new FrmLevel2();
+          currentLevel = levelTwo;
+          levelTwo.ShowDialog();
           break;
 
         default:

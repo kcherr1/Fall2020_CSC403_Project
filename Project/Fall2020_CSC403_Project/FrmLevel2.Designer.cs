@@ -1311,10 +1311,12 @@
       this.picPlayer.BackColor = System.Drawing.Color.Transparent;
       this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
       this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picPlayer.Image = global::Fall2020_CSC403_Project.Properties.Resources.player;
       this.picPlayer.Location = new System.Drawing.Point(179, 785);
       this.picPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
       this.picPlayer.Name = "picPlayer";
       this.picPlayer.Size = new System.Drawing.Size(81, 162);
+      this.picPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
       this.picPlayer.TabIndex = 89;
       this.picPlayer.TabStop = false;
       // 

@@ -58,7 +58,7 @@ namespace Fall2020_CSC403_Project
 
       //this generates a corrective factor to simulate pausing the timer in the FrmLevel;
       //this makes the time pause
-      GameState.totalPausedTime = DateTime.Now - pauseStartTime;
+      GameState.totalPausedTime += DateTime.Now - pauseStartTime;
       GameState.isGamePaused = false;
     }
 

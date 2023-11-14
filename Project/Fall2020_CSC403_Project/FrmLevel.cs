@@ -29,6 +29,8 @@ namespace Fall2020_CSC403_Project {
   
     private void FrmLevel_Load(object sender, EventArgs e) {
 
+      //added this to keep track of which level has specifically been saved
+      //to a file
       levelID = 1;
 
       const int PADDING = 0;
@@ -53,13 +55,14 @@ namespace Fall2020_CSC403_Project {
         30
       );
 
+      new GameState(player);
+      timeStart = GameState.timeStart;
+
+      //added these to keep track of which entity has been
+      //saved to the file
       bossKoolaid.Name = "bossKoolaid";
       enemyCheeto.Name = "enemyCheeto";
       enemyPoisonPacket.Name = "enemyPoisonPacket";
-
-      timeStart = DateTime.Now;
-      //gameState = new GameState(player, timeStart);
-      new GameState(player, timeStart);
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -109,9 +112,19 @@ namespace Fall2020_CSC403_Project {
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
       if (!GameState.isGamePaused)
       {
-      //GameState.totalPausedTime acts as a correcting factor for when
-      //players pause the game
-      TimeSpan span = DateTime.Now - timeStart - GameState.totalPausedTime;
+
+        TimeSpan span;
+
+        //GameState.totalPausedTime acts as a correcting factor for when
+        //players pause the game
+        /*if (GameState.saveTime != default(DateTime))
+        {
+          span = DateTime.Now.Subtract(GameState.saveTime) - GameState.totalPausedTime;
+        }
+        else
+        {*/
+          span = DateTime.Now - timeStart - GameState.totalPausedTime;
+        //}
         string time = span.ToString(@"hh\:mm\:ss");
         lblInGameTime.Text = "Time: " + time.ToString();
       }
