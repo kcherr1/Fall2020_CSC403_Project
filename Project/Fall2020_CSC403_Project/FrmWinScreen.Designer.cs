@@ -31,6 +31,7 @@ namespace Fall2020_CSC403_Project
         private void InitializeComponent()
         {
             this.btnLeaveGame = new System.Windows.Forms.Button();
+            this.btnRestartGame = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.peanut_victory = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.peanut_victory)).BeginInit();
@@ -39,13 +40,24 @@ namespace Fall2020_CSC403_Project
             // btnLeaveGame
             // 
             this.btnLeaveGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeaveGame.Location = new System.Drawing.Point(339, 354);
+            this.btnLeaveGame.Location = new System.Drawing.Point(437, 354);
             this.btnLeaveGame.Name = "btnLeaveGame";
             this.btnLeaveGame.Size = new System.Drawing.Size(128, 43);
             this.btnLeaveGame.TabIndex = 2;
             this.btnLeaveGame.Text = "Quit";
             this.btnLeaveGame.UseVisualStyleBackColor = true;
             this.btnLeaveGame.Click += new System.EventHandler(this.btnLeaveGame_Click);
+            // 
+            // btnRestartGame
+            // 
+            this.btnRestartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestartGame.Location = new System.Drawing.Point(253, 354);
+            this.btnRestartGame.Name = "btnRestartGame";
+            this.btnRestartGame.Size = new System.Drawing.Size(128, 43);
+            this.btnRestartGame.TabIndex = 2;
+            this.btnRestartGame.Text = "Restart";
+            this.btnRestartGame.UseVisualStyleBackColor = true;
+            this.btnRestartGame.Click += new System.EventHandler(this.btnLeaveGame_Click);
             // 
             // lblTitle
             // 
@@ -76,6 +88,7 @@ namespace Fall2020_CSC403_Project
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnLeaveGame);
+            this.Controls.Add(this.btnRestartGame);
             this.Controls.Add(this.peanut_victory);
             this.Name = "FrmWinScreen";
             this.Text = "VICTORY";
@@ -88,5 +101,6 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox peanut_victory;
         private System.Windows.Forms.Button btnLeaveGame;
+        private System.Windows.Forms.Button btnRestartGame;
     }
 }

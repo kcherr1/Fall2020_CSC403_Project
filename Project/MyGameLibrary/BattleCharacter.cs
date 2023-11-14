@@ -11,7 +11,8 @@ namespace Fall2020_CSC403_Project.code {
     public int Health { get; private set; }
     public int MaxHealth { get; private set; }
     private float strength;
-    public int Score { get; private set; }
+    public int Xp { get; private set; }
+    public int XpLevel { get; set; }
 
     public event Action<int> AttackEvent;
     public event Action<int> HealEvent;
@@ -20,7 +21,8 @@ namespace Fall2020_CSC403_Project.code {
       MaxHealth = 50;
       strength = 2;
       Health = MaxHealth;
-      Score = 0;
+      Xp = 0;
+      XpLevel = 1;
     }
     
         // Method to allow the setting of enemy health outside of this class
@@ -40,9 +42,9 @@ namespace Fall2020_CSC403_Project.code {
         }
     
 
-    public void AlterScore(int amount)
+    public void AlterXp(int amount)
         {
-            Score += amount;
+            Xp += amount;
         }
     public void AlterHealth(int amount) {
       Health += amount;
