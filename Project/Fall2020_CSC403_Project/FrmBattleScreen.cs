@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -45,7 +46,7 @@ namespace Fall2020_CSC403_Project
 
 
         private String[] BattleLog = new string[10];
-
+        
         public static FrmLevel frmLevel;
 
         private Label backlog;
@@ -816,7 +817,7 @@ namespace Fall2020_CSC403_Project
                 {
                     AddToLog(enemy.Name + " defeated " + player.Name + "!");
                     instance = null;
-                    Close();
+                    this.Close();
                     form.GameOver();
                     return;
                 }
@@ -845,7 +846,6 @@ namespace Fall2020_CSC403_Project
 
                     return;
                 }
-
             }
             while (this.attackOrder[attackOrder.Count - 1] != player);
         }
