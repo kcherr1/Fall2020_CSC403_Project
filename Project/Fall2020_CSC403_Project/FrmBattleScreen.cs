@@ -44,6 +44,10 @@ namespace Fall2020_CSC403_Project
         private Label partyTwoName;
         private Label partyThreeName;
 
+        private Button AttackButton;
+        private Button FleeButton;
+        private Button UseButton;
+
 
         private String[] BattleLog = new string[10];
         
@@ -188,6 +192,8 @@ namespace Fall2020_CSC403_Project
             { 
                 picPlayer.Hide(); playerCurrentHealth.Hide(); playerHealthMax.Hide(); PlayerName.Hide(); 
             }
+
+            Console.WriteLine(player.PartyCount());
             if (player.PartyCount() == 1)
             {
                 GetPartyForm1();
@@ -223,7 +229,7 @@ namespace Fall2020_CSC403_Project
             backlog.Location = new Point(picEnemy.Left - picPlayer.Right / 2 - backlog.Width / 2, picPlayer.Location.Y + picPlayer.Height - 10*loglabels[0].Size.Height - picPlayer.Height/4);
 
             // Set up attack button
-            Button AttackButton = new Button();
+            AttackButton = new Button();
             AttackButton.Parent = this;
             AttackButton.Size = new Size(picPlayer.Size.Width / 3, AttackButton.Size.Width / 2);
             AttackButton.Location = new Point(backlog.Location.X + picPlayer.Width / 3, picPlayer.Location.Y + picPlayer.Size.Height + AttackButton.Size.Height / 2);
@@ -237,7 +243,7 @@ namespace Fall2020_CSC403_Project
             AttackButton.Click += AttackButton_Click;
 
             // Set up flee button
-            Button FleeButton = new Button();
+            FleeButton = new Button();
             FleeButton.Parent = this;
             FleeButton.Size = AttackButton.Size;
             FleeButton.Location = new Point(backlog.Location.X + picPlayer.Width / 3, AttackButton.Location.Y + AttackButton.Size.Height + AttackButton.Size.Height / 2);
@@ -251,7 +257,7 @@ namespace Fall2020_CSC403_Project
             FleeButton.Click += FleeButton_Click;
 
             // Set up UseUtility button
-            Button UseButton = new Button();
+            UseButton = new Button();
             UseButton.Parent = this;
             UseButton.Size = AttackButton.Size;
             UseButton.Location = new Point(backlog.Location.X + picPlayer.Width / 3, FleeButton.Location.Y + FleeButton.Size.Height + FleeButton.Size.Height / 2);
@@ -836,6 +842,7 @@ namespace Fall2020_CSC403_Project
                     ExitButton.Location = new Point(width/6, 3*height/8);
                     ExitButton.Text = "You Won! Click to Exit";
                     ExitButton.Font = new Font("NSimSun", ExitButton.Size.Height / 2);
+                    Game.FontSizing(ExitButton);
                     ExitButton.BackColor = Color.DarkGreen;
                     ExitButton.ForeColor = Color.White;
                     ExitButton.FlatStyle = FlatStyle.Flat;
@@ -843,6 +850,9 @@ namespace Fall2020_CSC403_Project
                     ExitButton.FlatAppearance.BorderSize = 1;
                     ExitButton.Click += ExitButton_Click;
                     ExitButton.BringToFront();
+                    UseButton.Hide();
+                    AttackButton.Hide();
+                    FleeButton.Hide();
 
                     return;
                 }
