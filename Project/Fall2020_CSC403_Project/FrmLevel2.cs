@@ -247,7 +247,9 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
-
+        case Keys.Escape:
+          FrmStartScreen.displayStartScreen();
+          break;
         default:
           player.ResetMoveSpeed();
           break;

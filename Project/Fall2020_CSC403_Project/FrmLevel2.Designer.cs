@@ -1389,7 +1389,6 @@
       this.ClientSize = new System.Drawing.Size(1811, 1047);
       this.Controls.Add(this.healthPackLvl2);
       this.ClientSize = new System.Drawing.Size(1807, 1050);
-      this.Controls.Add(this.MenuButton);
       this.Controls.Add(this.obstacle16);
       this.Controls.Add(this.obstacle15);
       this.Controls.Add(this.lblInGameTime);
