@@ -255,9 +255,6 @@ namespace Fall2020_CSC403_Project
             {
                 this.attackOrder[i].AttackEvent += CharacterDamage;
             }
-            
-            /*enemy.AttackEvent += PlayerDamage;
-            player.AttackEvent += EnemyDamage;*/
 
             // show health
             UpdateHealthBars();
@@ -449,9 +446,8 @@ namespace Fall2020_CSC403_Project
 
         private void AttackButton_Click(object sender, EventArgs e)
         {
-            while(this.attackOrder[0] != player)
+            do
             {
-                Console.WriteLine(this.attackOrder[0].Name);
                 if (this.attackOrder[0] == enemy)
                 {
                     int target = enemy.dice.Next(1, player.PartyCount() + 1);
@@ -469,19 +465,22 @@ namespace Fall2020_CSC403_Project
                     instance = null;
                     Close();
                     form.GameOver();
-
+                    return;
                 }
                 else if (enemy.Health <= 0)
                 {
-                    AddToLog(player.Name + " deafeated " + enemy.Name + "!");
+                    AddToLog(this.attackOrder[0].Name + " deafeated " + enemy.Name + "!");
                     instance = null;
                     form.RemoveEnemy(enemy);
                     player.RemoveEffect();
                     frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
                     frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
                     Close();
+                    return;
                 }
+
             }
+            while (this.attackOrder[attackOrder.Count - 1] != player);
         }
 
         public static FrmBattleScreen GetInstance(FrmLevel level, Enemy enemy)
@@ -557,11 +556,6 @@ namespace Fall2020_CSC403_Project
             }
             if (!this.attackOrder.Contains(player))
                 this.attackOrder.Add(player);
-
-            for (int i = 0; i < this.attackOrder.Count(); i++)
-            {
-                Console.WriteLine(this.attackOrder[i].Name);
-            }
         }
 
         private void RotateOrder()
@@ -569,11 +563,6 @@ namespace Fall2020_CSC403_Project
             Character move = this.attackOrder[0];
             this.attackOrder.Remove(this.attackOrder[0]);
             this.attackOrder.Add(move);
-
-            for (int i = 0; i < this.attackOrder.Count(); i++)
-            {
-                Console.WriteLine(this.attackOrder[i].Name);
-            }
         }
 
     }
