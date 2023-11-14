@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project.code {
     public event Action<int> HealEvent;
 
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
-      MaxHealth = 30;
+      MaxHealth = 50;
       strength = 2;
       Health = MaxHealth;
       Xp = 0;

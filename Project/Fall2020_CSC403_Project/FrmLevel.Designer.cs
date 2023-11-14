@@ -155,7 +155,7 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyCheeto.Location = new System.Drawing.Point(838, 540);
-            this.picEnemyCheeto.Name = "picEnemyCheeto";
+            this.picEnemyCheeto.Name = "Cheeto Mauler";
             this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
             this.picEnemyCheeto.TabIndex = 5;
             this.picEnemyCheeto.TabStop = false;
@@ -167,8 +167,8 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyGRIMACE.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.G_R_I_M_A_C_E_;
             this.picEnemyGRIMACE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyGRIMACE.Location = new System.Drawing.Point(0, 0);
-            this.picEnemyGRIMACE.Name = "picEnemyCheeto";
-            this.picEnemyGRIMACE.Size = new System.Drawing.Size(200, 196);
+            this.picEnemyGRIMACE.Name = "The Mighty Grimace";
+            this.picEnemyGRIMACE.Size = new System.Drawing.Size(63, 96);
             this.picEnemyGRIMACE.TabIndex = 12;
             this.picEnemyGRIMACE.TabStop = false;
 
@@ -179,8 +179,8 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyRaisin.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.True_Raisin_Pain;
             this.picEnemyRaisin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyRaisin.Location = new System.Drawing.Point(0, 0);
-            this.picEnemyRaisin.Name = "picEnemyRaisin";
-            this.picEnemyRaisin.Size = new System.Drawing.Size(163, 196);
+            this.picEnemyRaisin.Name = "The Raisins of Pain";
+            this.picEnemyRaisin.Size = new System.Drawing.Size(63, 96);
             this.picEnemyRaisin.TabIndex = 13;
             this.picEnemyRaisin.TabStop = false;
 
@@ -191,7 +191,7 @@ namespace Fall2020_CSC403_Project {
             this.picBossPrimordialKoolaid.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.The_Primoridal_Juice;
             this.picBossPrimordialKoolaid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossPrimordialKoolaid.Location = new System.Drawing.Point(0, 0);
-            this.picBossPrimordialKoolaid.Name = "picBossPrimorialKoolaid";
+            this.picBossPrimordialKoolaid.Name = "The Primordial Koolaid";
             this.picBossPrimordialKoolaid.Size = new System.Drawing.Size(193, 194);
             this.picBossPrimordialKoolaid.TabIndex = 14;
             this.picBossPrimordialKoolaid.TabStop = false;
@@ -204,7 +204,7 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
             this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyPoisonPacket.Location = new System.Drawing.Point(110, 98);
-            this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
+            this.picEnemyPoisonPacket.Name = "Koolaid Jones";
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
             this.picEnemyPoisonPacket.TabIndex = 4;
             this.picEnemyPoisonPacket.TabStop = false;
@@ -226,7 +226,7 @@ namespace Fall2020_CSC403_Project {
             this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossKoolAid.Location = new System.Drawing.Point(900, 74);
-            this.picBossKoolAid.Name = "picBossKoolAid";
+            this.picBossKoolAid.Name = "The One and Only Koolaid Man";
             this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
             this.picBossKoolAid.TabIndex = 1;
             this.picBossKoolAid.TabStop = false;
