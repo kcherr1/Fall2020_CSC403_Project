@@ -119,6 +119,8 @@
       this.picPlayer = new System.Windows.Forms.PictureBox();
       this.obstacle15 = new System.Windows.Forms.PictureBox();
       this.obstacle16 = new System.Windows.Forms.PictureBox();
+      this.healthPackLvl2 = new System.Windows.Forms.PictureBox();
+      this.rpgPic = new System.Windows.Forms.PictureBox();
       this.MenuButton = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.wall1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.wall2)).BeginInit();
@@ -212,6 +214,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle15)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle16)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.healthPackLvl2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.rpgPic)).BeginInit();
       this.SuspendLayout();
       // 
       // lblInGameTime
@@ -921,7 +925,6 @@
       this.hedge13.Size = new System.Drawing.Size(112, 125);
       this.hedge13.TabIndex = 54;
       this.hedge13.TabStop = false;
-      this.hedge13.Click += new System.EventHandler(this.hedge13_Click);
       // 
       // hedge12
       // 
@@ -1343,6 +1346,28 @@
       this.obstacle16.TabIndex = 91;
       this.obstacle16.TabStop = false;
       // 
+      // healthPackLvl2
+      // 
+      this.healthPackLvl2.BackColor = System.Drawing.Color.Transparent;
+      this.healthPackLvl2.Image = global::Fall2020_CSC403_Project.Properties.Resources.health_pack;
+      this.healthPackLvl2.Location = new System.Drawing.Point(1311, 846);
+      this.healthPackLvl2.Name = "healthPackLvl2";
+      this.healthPackLvl2.Size = new System.Drawing.Size(68, 62);
+      this.healthPackLvl2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.healthPackLvl2.TabIndex = 92;
+      this.healthPackLvl2.TabStop = false;
+      // 
+      // rpgPic
+      // 
+      this.rpgPic.BackColor = System.Drawing.Color.Transparent;
+      this.rpgPic.Image = global::Fall2020_CSC403_Project.Properties.Resources.rpg;
+      this.rpgPic.Location = new System.Drawing.Point(494, 190);
+      this.rpgPic.Name = "rpgPic";
+      this.rpgPic.Size = new System.Drawing.Size(149, 75);
+      this.rpgPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.rpgPic.TabIndex = 93;
+      this.rpgPic.TabStop = false;
+      // 
       // MenuButton
       // 
       this.MenuButton.Location = new System.Drawing.Point(22, 60);
@@ -1361,6 +1386,8 @@
       this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.BackColor = System.Drawing.Color.Black;
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.grass;
+      this.ClientSize = new System.Drawing.Size(1811, 1047);
+      this.Controls.Add(this.healthPackLvl2);
       this.ClientSize = new System.Drawing.Size(1807, 1050);
       this.Controls.Add(this.MenuButton);
       this.Controls.Add(this.obstacle16);
@@ -1456,6 +1483,7 @@
       this.Controls.Add(this.wall3);
       this.Controls.Add(this.wall2);
       this.Controls.Add(this.wall1);
+      this.Controls.Add(this.rpgPic);
       this.DoubleBuffered = true;
       this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
       this.MaximumSize = new System.Drawing.Size(1829, 1146);
@@ -1558,6 +1586,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle15)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.obstacle16)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.healthPackLvl2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.rpgPic)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -1659,6 +1689,8 @@
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox obstacle15;
     private System.Windows.Forms.PictureBox obstacle16;
+    private System.Windows.Forms.PictureBox healthPackLvl2;
+    private System.Windows.Forms.PictureBox rpgPic;
     private System.Windows.Forms.Button MenuButton;
   }
 }
