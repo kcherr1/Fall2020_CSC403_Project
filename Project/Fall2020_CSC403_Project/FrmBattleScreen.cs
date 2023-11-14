@@ -18,6 +18,7 @@ namespace Fall2020_CSC403_Project
         public static FrmBattleScreen instance = null;
         private Enemy enemy;
         private Player player;
+        private List<Character> attackOrder;
         private FrmLevel form;
 
         private PictureBox UtilityPicture;
@@ -239,6 +240,9 @@ namespace Fall2020_CSC403_Project
                 BattleLog[0] = enemy.archetype.opener;
             }
 
+            this.attackOrder = new List<Character>();
+
+            FillAttackOrder(player.Party, enemy);
             AddLogLabels();
             updateLog();
 
@@ -247,8 +251,13 @@ namespace Fall2020_CSC403_Project
             UpdateHealthBars();
 
             // Observer pattern
-            enemy.AttackEvent += PlayerDamage;
-            player.AttackEvent += EnemyDamage;
+            for (int i = 0; i < this.attackOrder.Count(); i++)
+            {
+                this.attackOrder[i].AttackEvent += CharacterDamage;
+            }
+            
+            /*enemy.AttackEvent += PlayerDamage;
+            player.AttackEvent += EnemyDamage;*/
 
             // show health
             UpdateHealthBars();
@@ -434,29 +443,22 @@ namespace Fall2020_CSC403_Project
         private void FleeButton_Click(object sender, EventArgs e)
         {
             frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
-            AddToLog(enemy.OnAttack(player.defense));
+            AddToLog(enemy.OnAttack(player));
             this.Close();
         }
 
         private void AttackButton_Click(object sender, EventArgs e)
         {
-            if (player.speed >= enemy.speed)
+            Console.WriteLine(this.attackOrder[0].Name);
+            if (this.attackOrder[0] == enemy)
             {
-                AddToLog(player.OnAttack(enemy.defense));
-                if (enemy.Health > 0)
-                {
-                    AddToLog(enemy.OnAttack(player.defense));
-                }
+                int target = enemy.dice.Next(1, player.PartyCount() + 1);
+                AddToLog(this.attackOrder[0].OnAttack(this.attackOrder[target]));
             }
             else
-            {
-                if (enemy.Health > 0)
-                {
-                    AddToLog(enemy.OnAttack(player.defense));
-                }
-                AddToLog(player.OnAttack(enemy.defense));
-            }
+                AddToLog(this.attackOrder[0].OnAttack(enemy));
 
+            RotateOrder();
             UpdateHealthBars();
 
             if (player.Health <= 0)
@@ -489,15 +491,10 @@ namespace Fall2020_CSC403_Project
             return instance;
            
         }
-        private void EnemyDamage(int amount)
-        {
-            enemy.TakeDamage(amount);
-            UpdateHealthBars();
-        }
 
-        private void PlayerDamage(int amount)
+        private void CharacterDamage(Character target, int amount)
         {
-            player.TakeDamage(amount);
+            target.TakeDamage(amount);
             UpdateHealthBars();
         }
 
@@ -510,6 +507,71 @@ namespace Fall2020_CSC403_Project
             BattleLog[0] = log;
 
             updateLog();
+        }
+
+        private void FillAttackOrder(NPC[] party, Enemy enemy)
+        {
+            
+            for (int i = 0; i < party.Length; i++)
+            {
+                if (party[i] != null && this.attackOrder.Count() != 0)
+                {
+                    for (int j = 0; j < this.attackOrder.Count(); j++)
+                    {
+
+                        if (party[i].speed > this.attackOrder[j].speed)
+                        {
+                            this.attackOrder.Insert(j, party[i]);
+                            break;
+                        }
+                    }
+                    if (!this.attackOrder.Contains(party[i]))
+                        this.attackOrder.Add(party[i]);
+                }
+                else if (party[i] != null)
+                {
+                    this.attackOrder.Add(party[i]);
+                }
+            }
+
+            for (int i = 0; i < this.attackOrder.Count(); i++)
+            {
+                if (enemy.speed > this.attackOrder[i].speed)
+                {
+                    this.attackOrder.Insert(i, enemy);
+                    break;
+                }
+            }
+            if (!this.attackOrder.Contains(enemy))
+                this.attackOrder.Add(enemy);
+            
+            for (int i = 0; i < this.attackOrder.Count(); i++)
+            {
+                if (player.speed > this.attackOrder[i].speed)
+                {
+                    this.attackOrder.Insert(i, player);
+                    break;
+                }
+            }
+            if (!this.attackOrder.Contains(player))
+                this.attackOrder.Add(player);
+
+            for (int i = 0; i < this.attackOrder.Count(); i++)
+            {
+                Console.WriteLine(this.attackOrder[i].Name);
+            }
+        }
+
+        private void RotateOrder()
+        {
+            Character move = this.attackOrder[0];
+            this.attackOrder.Remove(this.attackOrder[0]);
+            this.attackOrder.Add(move);
+
+            for (int i = 0; i < this.attackOrder.Count(); i++)
+            {
+                Console.WriteLine(this.attackOrder[i].Name);
+            }
         }
 
     }
