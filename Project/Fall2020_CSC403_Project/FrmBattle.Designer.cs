@@ -194,7 +194,6 @@ namespace Fall2020_CSC403_Project {
             this.picPlayer.Size = new System.Drawing.Size(229, 267);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
-            
             // 
             // battleTheme
             // 
@@ -213,6 +212,7 @@ namespace Fall2020_CSC403_Project {
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
+            this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battleback;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
             this.Controls.Add(this.picBossBattle);
@@ -261,7 +261,6 @@ namespace Fall2020_CSC403_Project {
     SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");
     SoundPlayer attackSound = new SoundPlayer(Resources.attack);
     SoundPlayer healSound = new SoundPlayer(Resources.heal);
-    SoundPlayer enemy_attack = new SoundPlayer(Resources.enemyAttack);
     SoundPlayer dodgeSound = new SoundPlayer(Resources.dodge);
     }
 }
