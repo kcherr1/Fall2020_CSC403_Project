@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FAQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAQ.Designer.cs">
+      <DependentUpon>FAQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattleScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FAQ.resx">
+      <DependentUpon>FAQ.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattleScreen.resx">
       <DependentUpon>FrmBattleScreen.cs</DependentUpon>
     </EmbeddedResource>
