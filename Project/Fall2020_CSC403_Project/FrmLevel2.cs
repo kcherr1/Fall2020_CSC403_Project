@@ -27,6 +27,8 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private DateTime timeStart;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
+    private Character healthPack;
+    private Weapon rpg;
 
     private DateTime soundTime = DateTime.Now;
 
@@ -69,6 +71,10 @@ namespace Fall2020_CSC403_Project {
       goose.Color = Color.LightGray;
       alligator.Color = Color.DarkOliveGreen;
       bossSquirrels.Color = Color.SaddleBrown;
+
+      healthPack = new Character(CreatePosition(healthPackLvl2), CreateCollider(healthPackLvl2, PADDING));
+      rpg = new Weapon(CreatePosition(rpgPic), CreateCollider(rpgPic, PADDING));
+      rpg.setStrength(7);
 
       walls = new Character[WALL_COUNT];
       for (int w = 1; w <= WALL_COUNT; w++) {
@@ -139,6 +145,18 @@ namespace Fall2020_CSC403_Project {
       }
       else if (HitAChar(player, bossSquirrels)) {
         Fight(bossSquirrels);
+      }
+      if (HitAChar(player, rpg)) {
+        if (player.WeaponStrength < rpg.getStrength()){
+          player.WeaponStrength = rpg.getStrength();
+          player.WeaponEquiped = 2;
+          rpgPic.Visible = false;
+        }
+      }
+      if (HitAChar(player, healthPack)){
+        player.HealthPackCount++;
+        healthPack.RemoveCollider();
+        healthPackLvl2.Visible = false;
       }
 
       // check state of each enemy
@@ -252,6 +270,11 @@ namespace Fall2020_CSC403_Project {
     {
       //walk_grass = new SoundPlayer(Resources.walk_grass);
       //walk_grass.Load();
+    }
+
+    private void MenuButton_Click(object sender, EventArgs e)
+    {
+      FrmStartScreen.displayStartScreen();
     }
   }
 }

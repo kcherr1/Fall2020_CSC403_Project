@@ -63,6 +63,7 @@
 <li class="toctree-l1"><a class="reference internal" href="weapons.html">Weapons</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Healing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="experience.html">Experience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lore.html">Lore</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docguide.html">Documentation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
@@ -125,9 +126,34 @@
 <p><strong>Overview</strong></p>
 <p>At the beginning of the game, the player has 3 healing items. A button that says “HEAL” as well as a
 counter for how many healing potions the player has will be displayed on the battle screen. When the
-player uses a healing potion, it will heal the player <em>+10</em> health up to but not exceeding the player’s
-max health.</p>
-<p><strong>Technical Information/Changes</strong></p>
+player uses a healing potion, it will heal the player <em>1/2</em> health up to but not exceeding the player’s
+max health. Health packs can also be picked up within the level. Once the player touches a health pack,
+it will disappear from the level and the player’s health pack inventory will be incremented by one.</p>
+<p><strong>How to Add A Health Pack to a Level</strong></p>
+<ul class="simple">
+<li><p>On the designer of the level you want to add a health pack to, create a pictureBox, assign the health pack image (that is already contained in the Resources file), and rename the image (ex. healthPackImg9).</p></li>
+<li><p>In the level’s code, create a new <em>private</em> variable of type <em>Character</em> at the top of the class.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">private</span> <span class="n">Character</span> <span class="n">healthPack9</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In the setup function of the level’s code where all of the enemies are defined, define your new health pack (Character object) cooresponding to the image of the health pack that was created.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">healthPack9</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Character</span><span class="p">(</span><span class="n">CreatePosition</span><span class="p">(</span><span class="n">healthPackImg9</span><span class="p">),</span> <span class="n">CreateCollider</span><span class="p">(</span><span class="n">healthPackImg9</span><span class="p">,</span> <span class="n">PADDING</span><span class="p">));</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In the <em>tmrPlayerMove_Tick</em> in the level’s code, add a conditional check using the <em>HitAChar()</em> function to see if the player collides with the health pack. If the condition is met, then the player gets a new health pack aand the health pack is removed from the level.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">HitAChar</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">healthPack9</span><span class="p">)){</span>
+  <span class="n">player</span><span class="o">.</span><span class="n">HealthPackCount</span><span class="o">++</span><span class="p">;</span>
+  <span class="n">healthPack9</span><span class="o">.</span><span class="n">RemoveCollider</span><span class="p">();</span>
+  <span class="n">healthPackImg9</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Changes to the Code Base</strong></p>
 <p>The changes to the code for healing are as follows:</p>
 <ul class="simple">
 <li><p>Added a HealthPackCount variable which is initialized within the constructor of the BattleCharacter
@@ -137,6 +163,7 @@ HealthPackCount by one every time that it is used.</p></li>
 <li><p>A “HEAL” button (and the related code to its function), an image of a health pack beside the “HEAL”
 button, and a counter that pulls from HealthPackCount (which is updated every time the health bars
 are updated) were added to the FrmBattle class and Designer files.</p></li>
+<li><p>The player can pick up a health pack from the level (health pack is represented as a Character object).</p></li>
 </ul>
 </section>
 
@@ -191,7 +218,7 @@ are updated) were added to the FrmBattle class and Designer files.</p></li>
                 </nav>
             
             <div class="text-center">
-                <p>Last updated: 11:23 PM 30 Oct 2023</p>
+                <p>Last updated: 03:37 PM 09 Nov 2023</p>
                 <p style="display: none">
                     <a class="text-light" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
                         Wagtail Sphinx Theme 6.1.1

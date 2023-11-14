@@ -38,8 +38,14 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
-      if (player.WeaponEquiped){
+      if (player.WeaponEquiped != 0){
         weapon.Visible = true;
+        if (player.WeaponEquiped == 1){
+          weapon.Image = Resources.weapon1;
+        }
+        if (player.WeaponEquiped == 2){
+          weapon.Image = Resources.rpg;
+        }
       }
 
       // Observer pattern
@@ -201,11 +207,12 @@ namespace Fall2020_CSC403_Project {
      private void Heal_Click(object sender, EventArgs e){
          if (player.HealthPackCount > 0 && player.Health != player.MaxHealth) {
             player.UseHealthPack();
-            if (player.Health + 10 > player.MaxHealth) {
+            int healingPower = player.MaxHealth / 2;
+            if (player.Health + healingPower > player.MaxHealth) {
                 player.AlterHealth(player.MaxHealth - player.Health);
             }
             else {
-                player.AlterHealth(10);
+                player.AlterHealth(healingPower);
             }
             UpdateHealthBars();
             HealthPackCountLabel.Text = player.HealthPackCount.ToString();

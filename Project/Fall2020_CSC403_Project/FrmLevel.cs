@@ -17,6 +17,7 @@ namespace Fall2020_CSC403_Project {
     private Character[] walls;
 
     private Weapon ak;
+    private Character healthPack;
 
     private DateTime timeStart;
     private FrmBattle frmBattle;
@@ -33,6 +34,7 @@ namespace Fall2020_CSC403_Project {
     }
   
     private void FrmLevel_Load(object sender, EventArgs e) {
+
       const int PADDING = 0;
       const int NUM_WALLS = 13;
 
@@ -69,6 +71,8 @@ namespace Fall2020_CSC403_Project {
       ak = new Weapon(CreatePosition(weapon1), CreateCollider(weapon1, PADDING));
       ak.setStrength(4);
 
+      healthPack = new Character(CreatePosition(healthPackLvl1), CreateCollider(healthPackLvl1, PADDING));
+
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
@@ -94,12 +98,18 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeStart;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
+      if (!GameState.isGamePaused)
+      {
+      //GameState.totalPausedTime acts as a correcting factor for when
+      //players pause the game
+      TimeSpan span = DateTime.Now - timeStart - GameState.totalPausedTime;
+        string time = span.ToString(@"hh\:mm\:ss");
+        lblInGameTime.Text = "Time: " + time.ToString();
+      }
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+
       // move player
       player.Move();
 
@@ -117,12 +127,20 @@ namespace Fall2020_CSC403_Project {
       }
       if (HitAChar(player, ak)){
         walk_sand.Stop();
-        player.WeaponStrength = ak.getStrength();
-        player.WeaponEquiped = true;
-        weapon1.Visible = false;
+      }
+        if (player.WeaponStrength < ak.getStrength()){
+          player.WeaponStrength = ak.getStrength();
+          player.WeaponEquiped = 1;
+          weapon1.Visible = false;
         akSound.Play();
         ak.RemoveCollider();
         akSound.Dispose();
+
+      }
+      if (HitAChar(player, healthPack)){
+        player.HealthPackCount++;
+        healthPack.RemoveCollider();
+        healthPackLvl1.Visible = false;
       }
 
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
@@ -209,13 +227,15 @@ namespace Fall2020_CSC403_Project {
           player.GoDown();
           break;
 
+        case Keys.Escape:
+          FrmStartScreen.displayStartScreen();
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;
       }
     }
-
-
 
     private void RemoveEnemy(Enemy enemy, PictureBox picEnemy)
     {
@@ -239,5 +259,6 @@ namespace Fall2020_CSC403_Project {
       akSound = new SoundPlayer(Resources.ak_Sound);
       akSound.Load();
     }
+
   }
 }
