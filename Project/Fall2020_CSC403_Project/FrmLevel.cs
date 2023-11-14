@@ -709,21 +709,24 @@ namespace Fall2020_CSC403_Project
         /// Update label size relative to remaining enemy health
         /// </summary>
         /// <param name="enemy"></param>
+        /// 
+        private bool isPlayerDead = false; 
         private void UpdatePlayerHealthBars(Player p)
         {
+            if (isPlayerDead) return; 
+
             float playerHealthPer = p.Health / (float)p.MaxHealth;
             const int MAX_HEALTHBAR_WIDTH = 55;
             playerHealthBar.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
-
-           
-            if(p.Health == 0)
+            if (player.Health == 0)
             {
+                // Setting flag
+                isPlayerDead = true;
+                player.AlterHealth(-10);
                 DeathScreen deathScreen = new DeathScreen();
                 deathScreen.Show();
-                Hide();
-                player.AlterHealth(-1);
+                this.Hide();
             }
-
         }
         /// <summary>
         /// Update label size relative to remaining enemy health
@@ -766,6 +769,11 @@ namespace Fall2020_CSC403_Project
                     picCheetoArrow.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
                     cheetoArrowDirection = new Vector2(0, 0);
                     picCheetoArrow.Hide();
+                    if (player.Health < 0)
+                    {
+                        var tempHealth = (player.Health * -1);
+                        player.AlterHealth(tempHealth);
+                    }
                 }
 
                 if (!cheetoArrow.inFlight)
@@ -807,6 +815,11 @@ namespace Fall2020_CSC403_Project
                 picPoisonArrow.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
                 poisonArrowDirection = new Vector2(0, 0);
                 picPoisonArrow.Hide();
+                if (player.Health < 0)
+                {
+                    var tempHealth = (player.Health * -1);
+                    player.AlterHealth(tempHealth);
+                }
             }
 
             if (!poisonArrow.inFlight)
