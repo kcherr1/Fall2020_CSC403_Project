@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project.code {
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
 
       this.experience = 0;
-      this.level = 0;
+      this.level = 1;
       //helps calculate the player's level;
       //can be changed to increase how much experience is needed before leveling up
       this.experiencePerLevel = 20;

@@ -1,7 +1,0 @@
-changes for BasicEnemyAndPlayerExperienceSystem
-- added experience variable in BattleCharacter
-- changed variables in BattleCharacter to protected
-- added strength to damage calculations in OnAttack
-- added level and experiencePerLevel to Player 
-- added EarnExperience method to Player to increase health and strength
-- added check to btnAttack_Click to call the EarnExperience method

@@ -63,6 +63,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Weapons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="healing.html">Healing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="experience.html">Experience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lore.html">Lore</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docguide.html">Documentation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
@@ -129,14 +130,53 @@ into a battle, and will add additional strength to the player’s attack power b
 the weapon. When the player selects the “ATTACK” button, a short animation will happen where it will
 appear that the weapon (in this exmample case being a firearm) is firing and will show a short burst of
 ammunition fire from the gun before inflicting the attack on the enemy.</p>
-<p><strong>Techical Information</strong></p>
-<p>A class called “Weapon” was created with the following class structure:</p>
-<dl class="csharp">
-<dt class="sig sig-object sphinxsharp" id="type-Weapon">
-<span class="pre">public</span>  <span class="pre">class</span> <span class="sig-name descname"><span class="pre">Weapon</span></span><a class="headerlink" href="#type-Weapon" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<p><em>Class Variables</em></p>
+<p>The current weapons that can be found and equipped in the game are the AK-47 (strength=4) and the RPG-7
+Rocket Launcher (strength=7). When a player collides with a weapon, the code checks (in the FrmLevel that
+the player is in) whether the strength of the new weapon is stronger than the strength of the current weapon
+equipped by the player (if applicable). If the new weapon’s strength is greater, than the new weapon is added
+to the player’s inventory and the player’s former weapon is disguarded. Otherwise, the weapon is not picked up
+by the player.</p>
+<p><strong>How to Create a Weapon in a Level (+ an example)</strong></p>
+<p>(For our example, we will create a pistol. The object will be named <em>pistol</em> and the image of the object will be named <em>pistolPic</em>)</p>
+<ul class="simple">
+<li><p>Gather an image to be used for your weapon and save the image to the following path: <em>/Project/Fall2020_CSC403_Project/data/</em></p></li>
+<li><p>Add the new weapon image to <em>/Project/Fall2020_CSC403_Project/Properties/Resources.resx</em></p></li>
+<li><p>Add a pictureBox item to your given level’s designer. Assign the new weapon’s image to it and rename it.</p></li>
+<li><p>In the level’s code, create a new <em>private</em> variable of type <em>Weapon</em> at the top of the class.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">private</span> <span class="n">Weapon</span> <span class="n">pistol</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In the setup function of the level’s code where all of the enemies are defined, define your new weapon and set the weapons strength.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pistol</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Weapon</span><span class="p">(</span><span class="n">CreatePosition</span><span class="p">(</span><span class="n">pistolPic</span><span class="p">),</span> <span class="n">CreateCollider</span><span class="p">(</span><span class="n">pistolPic</span><span class="p">,</span> <span class="n">PADDING</span><span class="p">));</span>
+<span class="n">pistol</span><span class="o">.</span><span class="n">setStrength</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In the <em>tmrPlayerMove_Tick</em> function, create a conditional statement using the <em>HitAChar()</em> function that will compare the player’s current weapon strength and make the player pick up the new weapon if the new weapon’s strength is greater than the current player’s weapon’s strength.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">HitAChar</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">pistol</span><span class="p">)){</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">WeaponStrength</span> <span class="o">&lt;</span> <span class="n">pistol</span><span class="o">.</span><span class="n">getStrength</span><span class="p">()){</span>
+    <span class="n">player</span><span class="o">.</span><span class="n">WeaponStrength</span> <span class="o">=</span> <span class="n">pistol</span><span class="o">.</span><span class="n">getStrength</span><span class="p">();</span>
+    <span class="n">player</span><span class="o">.</span><span class="n">WeaponEquiped</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="o">//</span> <span class="n">i</span><span class="o">.</span><span class="n">d</span><span class="o">.</span> <span class="n">number</span> <span class="n">of</span> <span class="n">the</span> <span class="n">weapon</span>
+    <span class="n">pistolPic</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span> <span class="o">//</span> <span class="n">Hides</span> <span class="n">the</span> <span class="n">weapon</span> <span class="n">image</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In the <em>Setup</em> function of <em>FrmBattle.cs</em>, add a check to see if the new weapon is equipped so that the weapon that is equipped is shown when the player goes into battle.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">WeaponEquiped</span> <span class="o">==</span> <span class="mi">3</span><span class="p">){</span>
+  <span class="n">weapon</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="n">Resources</span><span class="o">.</span><span class="n">pistolPic</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Class Structure</strong></p>
+<p><em>public class Weapon</em></p>
+<p>Class Variables:</p>
 <ul class="simple">
 <li><p><em>private int strength</em> - defines the weapons strength (defaults to 0 if not defined in initialization)</p></li>
 </ul>
@@ -151,6 +191,8 @@ ammunition fire from the gun before inflicting the attack on the enemy.</p>
 <li><p>Added the WeaponStrength variable to the AttackEvent in the BattleCharacter class</p></li>
 <li><p>Created the weapon in the FrmLevel</p></li>
 <li><p>Added checks within the FrmLevel code to check and see if the player has collided with the weapon object</p></li>
+<li><p>More than one weapon is availabe for use within the FrmLevels</p></li>
+<li><p>Weapon strength is compared to the player’s weapon’s strength when the player collides with a weapon on the level.</p></li>
 </ul>
 </section>
 
@@ -205,7 +247,7 @@ ammunition fire from the gun before inflicting the attack on the enemy.</p>
                 </nav>
             
             <div class="text-center">
-                <p>Last updated: 11:23 PM 30 Oct 2023</p>
+                <p>Last updated: 03:37 PM 09 Nov 2023</p>
                 <p style="display: none">
                     <a class="text-light" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
                         Wagtail Sphinx Theme 6.1.1

@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using Microsoft.CSharp.RuntimeBinder;
 using MyGameLibrary;
 using System;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel2 : Level {
@@ -26,6 +28,12 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private DateTime timeStart;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
+    private Character healthPack;
+    private Weapon rpg;
+
+    private DateTime soundTime = DateTime.Now;
+
+    public SoundPlayer walk_grass;
 
     public FrmLevel2() : base() {
       this.player = GameState.player;
@@ -65,6 +73,10 @@ namespace Fall2020_CSC403_Project {
       alligator.Color = Color.DarkOliveGreen;
       bossSquirrels.Color = Color.SaddleBrown;
 
+      healthPack = new Character(CreatePosition(healthPackLvl2), CreateCollider(healthPackLvl2, PADDING));
+      rpg = new Weapon(CreatePosition(rpgPic), CreateCollider(rpgPic, PADDING));
+      rpg.setStrength(7);
+
       walls = new Character[WALL_COUNT];
       for (int w = 1; w <= WALL_COUNT; w++) {
         PictureBox pic = Controls.Find("wall" + w.ToString(), true)[0] as PictureBox;
@@ -84,6 +96,11 @@ namespace Fall2020_CSC403_Project {
       }
       portal = new Character(CreatePosition(picPortal), CreateCollider(picPortal, PADDING));
       Game.player = GameState.player;
+
+      SoundPlayer simpleSound = new SoundPlayer(Resources.nether_portal_exit);
+      simpleSound.Play();
+
+      InitializeSounds();
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
@@ -130,6 +147,18 @@ namespace Fall2020_CSC403_Project {
       }
       else if (HitAChar(player, bossSquirrels)) {
         Fight(bossSquirrels);
+      }
+      if (HitAChar(player, rpg)) {
+        if (player.WeaponStrength < rpg.getStrength()){
+          player.WeaponStrength = rpg.getStrength();
+          player.WeaponEquiped = 2;
+          rpgPic.Visible = false;
+        }
+      }
+      if (HitAChar(player, healthPack)){
+        player.HealthPackCount++;
+        healthPack.RemoveCollider();
+        healthPackLvl2.Visible = false;
       }
 
       // check state of each enemy
@@ -199,6 +228,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      if ((DateTime.Now.Second - soundTime.Second) > 1)
+      {
+        //walk_sand.Play();
+        soundTime = DateTime.Now;
+      }
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
@@ -215,7 +249,9 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
-
+        case Keys.Escape:
+          FrmStartScreen.displayStartScreen();
+          break;
         default:
           player.ResetMoveSpeed();
           break;
@@ -224,8 +260,23 @@ namespace Fall2020_CSC403_Project {
 
     private void RemoveEnemy(Enemy enemy, PictureBox picEnemy) {
       enemy.RemoveCollider();
-      picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
+      //picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
+      picEnemy.BackgroundImage = null;
     }
 
+    private void hedge13_Click(object sender, EventArgs e) {
+
+    }
+
+    private void InitializeSounds()
+    {
+      //walk_grass = new SoundPlayer(Resources.walk_grass);
+      //walk_grass.Load();
+    }
+
+    private void MenuButton_Click(object sender, EventArgs e)
+    {
+      FrmStartScreen.displayStartScreen();
+    }
   }
 }

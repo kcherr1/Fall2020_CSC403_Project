@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project
 {
@@ -18,7 +20,9 @@ namespace Fall2020_CSC403_Project
         public FrmWinLevelTwo()
         {
             InitializeComponent();
-        }
+            SoundPlayer boss_win = new SoundPlayer(Resources.boss_win);
+            boss_win.Play();
+    }
 
         public static FrmWinLevelTwo GetInstance()
         {

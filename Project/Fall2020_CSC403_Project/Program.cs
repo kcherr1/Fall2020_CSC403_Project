@@ -15,9 +15,17 @@ namespace Fall2020_CSC403_Project {
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      
-      FrmLevel levelOne = new FrmLevel();
-      levelOne.ShowDialog();
+      //GameState gameState = null;
+
+      FrmStartScreen startScreen = new FrmStartScreen();
+      startScreen.ShowDialog();
+
+      //prevents the player from closing the window and starting the game anyway
+      if (GameState.startGame)
+      {
+
+        FrmLevel levelOne = new FrmLevel();
+        levelOne.ShowDialog();
 
       //levelOne = null;
       //GC.Collect();

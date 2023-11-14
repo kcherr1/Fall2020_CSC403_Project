@@ -20,6 +20,13 @@ namespace Fall2020_CSC403_Project {
     //just used to keep track of which level this is on
     private int level;
 
+    //keeps track of whether or not player has used flee during an encounter
+    bool fleeLocked = false;
+
+    public SoundPlayer goose_death;
+    public SoundPlayer oh_yeah;
+    public SoundPlayer fail_sound;
+
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -31,8 +38,14 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
-      if (player.WeaponEquiped){
+      if (player.WeaponEquiped != 0){
         weapon.Visible = true;
+        if (player.WeaponEquiped == 1){
+          weapon.Image = Resources.weapon1;
+        }
+        if (player.WeaponEquiped == 2){
+          weapon.Image = Resources.rpg;
+        }
       }
       if(this.level == 3) {
         picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player3;
@@ -45,6 +58,15 @@ namespace Fall2020_CSC403_Project {
       // show health and health packs
       UpdateHealthBars();
       HealthPackCountLabel.Text = player.HealthPackCount.ToString();
+
+      PlayerLevel.Text = "Level " + GameState.player.level.ToString()
+        + " Exp: " + GameState.player.experience.ToString()
+        + "/" + GameState.player.experiencePerLevel.ToString();
+
+      textBox1.BackColor = this.BackColor;
+      textBox2.BackColor = this.BackColor;
+
+      InitializeSounds();
     }
 
     public void SetupForBossBattle(int level) {
@@ -53,6 +75,7 @@ namespace Fall2020_CSC403_Project {
         // kool-aid man
         case 1:
           bossBattle = picBossBattle;
+          oh_yeah.Play();
           break;
         case 2:
           // rough rodents
@@ -68,9 +91,6 @@ namespace Fall2020_CSC403_Project {
       bossBattle.Size = ClientSize;
       bossBattle.Visible = true;
       bossBattle.BringToFront();
-
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-      simpleSound.Play();
 
       tmrFinalBattle.Enabled = true;
 
@@ -161,6 +181,10 @@ namespace Fall2020_CSC403_Project {
         }
         if (enemy.Health <= 0)
         {
+          if (BackColor == Color.LightGray)
+          {
+            goose_death.Play();
+          }
           enemy.AlterIsAlive(false);
         }
         if (player.Health <= 0)
@@ -194,16 +218,40 @@ namespace Fall2020_CSC403_Project {
      private void Heal_Click(object sender, EventArgs e){
          if (player.HealthPackCount > 0 && player.Health != player.MaxHealth) {
             player.UseHealthPack();
-            if (player.Health + 10 > player.MaxHealth) {
+            int healingPower = player.MaxHealth / 2;
+            if (player.Health + healingPower > player.MaxHealth) {
                 player.AlterHealth(player.MaxHealth - player.Health);
             }
             else {
-                player.AlterHealth(10);
+                player.AlterHealth(healingPower);
             }
             UpdateHealthBars();
             HealthPackCountLabel.Text = player.HealthPackCount.ToString();
         }
      }
+
+    // When clicked, player has a 1/2 chance of fleeing battle.
+    // If failed, flee button does nothing
+    private void FleeButton_Click(object sender, EventArgs e)
+    {
+      if (fleeLocked)
+      {
+        return;
+      }
+      fleeLocked = true;
+      FleeButton.FlatStyle = FlatStyle.Flat;
+      Random random = new Random();
+      int chance = random.Next(1, 3);
+      //System.Diagnostics.Debug.WriteLine(chance.ToString());
+      if (chance == 1)
+      {
+        Close();
+      }
+      else
+      {
+        fail_sound.Play();
+      }
+    }
 
     // Found this code at: https://stackoverflow.com/questions/10458118/wait-one-second-in-running-program
     public void wait(int milliseconds)
@@ -227,6 +275,26 @@ namespace Fall2020_CSC403_Project {
       {
         Application.DoEvents();
       }
+    }
+
+    private void PlayerLevel_Click(object sender, EventArgs e)
+    {
+      
+    }
+
+    private void textBox1_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void InitializeSounds()
+    {
+      goose_death = new SoundPlayer(Resources.goose_death);
+      goose_death.Load();
+      oh_yeah = new SoundPlayer(Resources.oh_yeah);
+      oh_yeah.Load();
+      fail_sound = new SoundPlayer(Resources.fail_sound);
+      fail_sound.Load();
     }
   }
 }

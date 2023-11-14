@@ -10,6 +10,11 @@ namespace Fall2020_CSC403_Project.code {
     public static bool isLevelTwoCompleted = false;
     public static bool isLevelThreeCompleted = false;
 
+    public static bool startGame = false;
+
+    public static bool isGamePaused = false;
+    public static TimeSpan totalPausedTime = TimeSpan.Zero;
+
     public GameState(Player player, DateTime timeStart) {
       GameState.player = player;
       GameState.timeStart = timeStart;

@@ -58,6 +58,12 @@
     <Compile Include="FrmLevel3.Designer.cs">
       <DependentUpon>FrmLevel3.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmStartScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStartScreen.Designer.cs">
+      <DependentUpon>FrmStartScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPlayerDeath.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     <EmbeddedResource Include="FrmWinLevelThree.resx">
       <DependentUpon>FrmWinLevelThree.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmStartScreen.resx">
+      <DependentUpon>FrmStartScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmWinLevelTwo.resx">
       <DependentUpon>FrmWinLevelTwo.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,9 +157,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\final_battle.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="data\player.png" />
   </ItemGroup>
   <ItemGroup>
@@ -181,17 +187,33 @@
     <Content Include="data\ammo.png" />
     <None Include="Resources\ejected.bmp" />
     <None Include="data\white.png" />
+    <None Include="Resources\boss_win.wav" />
+    <None Include="Resources\player_death.wav" />
+    <None Include="Resources\fail_sound.wav" />
+    <None Include="Resources\oh_yeah.wav" />
+    <None Include="Resources\goose_death.wav" />
+    <None Include="Resources\walk_sand.wav" />
+    <None Include="Resources\akSound.wav" />
+    <None Include="Resources\walk_grass.wav" />
+    <None Include="Resources\nether_portal_exit.wav" />
+    <None Include="Resources\nether_portal_enter.wav" />
+    <None Include="Resources\among_us_start.wav" />
     <None Include="data\battle_screen_squirrels.png" />
     <None Include="data\angy_squirrels.png" />
     <None Include="data\cafeteria_whole.png" />
     <None Include="data\blue.png" />
     <None Include="data\battle_screen_imposter.png" />
     <None Include="data\ejected.gif" />
+    <Content Include="data\final_battle.wav" />
     <Content Include="data\gunfireBlast.png" />
     <Content Include="data\health_pack.png" />
     <None Include="data\squirrel_dead.png" />
     <None Include="data\squirrel2_dead.png" />
     <None Include="data\squirrel3_dead.png" />
+    <None Include="data\money.png" />
+    <None Include="data\mr_peanut_without_rizz.jpg" />
+    <Content Include="data\rpg.png" />
+    <Content Include="data\tank.png" />
     <None Include="data\player3.png" />
     <None Include="data\red_boss.png" />
     <None Include="data\transparent.png" />
