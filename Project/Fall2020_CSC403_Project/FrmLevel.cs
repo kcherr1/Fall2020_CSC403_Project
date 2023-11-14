@@ -1,9 +1,12 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using MyGameLibrary;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
+using System.Threading;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Level {
@@ -19,6 +22,11 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeStart;
     private FrmBattle frmBattle;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
+
+    private DateTime soundTime = DateTime.Now;
+
+    public SoundPlayer walk_sand;
+    public SoundPlayer akSound;
 
     public FrmLevel() : base() {
     //added this to keep track of whether or not the boss is defeated
@@ -72,6 +80,8 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
+
+      InitializeSounds();
     }
 
     //private Vector2 CreatePosition(PictureBox pic) {
@@ -116,11 +126,16 @@ namespace Fall2020_CSC403_Project {
         Fight(enemyCheeto);
       }
       if (HitAChar(player, ak)){
+        walk_sand.Stop();
+      }
         if (player.WeaponStrength < ak.getStrength()){
           player.WeaponStrength = ak.getStrength();
           player.WeaponEquiped = 1;
           weapon1.Visible = false;
-        }
+        akSound.Play();
+        ak.RemoveCollider();
+        akSound.Dispose();
+
       }
       if (HitAChar(player, healthPack)){
         player.HealthPackCount++;
@@ -129,6 +144,9 @@ namespace Fall2020_CSC403_Project {
       }
 
       if (HitAChar(player, bossKoolaid) && bossIsDefeated.bossIsDefeated) {
+        SoundPlayer simpleSound = new SoundPlayer(Resources.nether_portal_enter);
+        simpleSound.Play();
+        Thread.Sleep(3000);
         //this closes the current form and returns to main
         GameState.isLevelOneCompleted = true;
         this.Close();
@@ -185,6 +203,13 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      //this.walk_sand.Load();
+      //System.Diagnostics.Debug.WriteLine(soundTime.Second);
+      if ((DateTime.Now.Second - soundTime.Second) > 1)
+      {
+        //walk_sand.Play();
+        soundTime = DateTime.Now;
+      }
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
@@ -225,6 +250,14 @@ namespace Fall2020_CSC403_Project {
             picEnemy.BackgroundImage = null;
             picEnemy.Image = global::Fall2020_CSC403_Project.Properties.Resources.Nether_portal1;
             picEnemy.SizeMode = PictureBoxSizeMode.Zoom;
+    }
+
+    private void InitializeSounds()
+    {
+      walk_sand = new SoundPlayer(Resources.walk_sand);
+      walk_sand.Load();
+      akSound = new SoundPlayer(Resources.ak_Sound);
+      akSound.Load();
     }
 
   }

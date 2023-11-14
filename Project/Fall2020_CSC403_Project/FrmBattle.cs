@@ -23,6 +23,10 @@ namespace Fall2020_CSC403_Project {
     //keeps track of whether or not player has used flee during an encounter
     bool fleeLocked = false;
 
+    public SoundPlayer goose_death;
+    public SoundPlayer oh_yeah;
+    public SoundPlayer fail_sound;
+
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
@@ -59,6 +63,7 @@ namespace Fall2020_CSC403_Project {
       textBox1.BackColor = this.BackColor;
       textBox2.BackColor = this.BackColor;
 
+      InitializeSounds();
     }
 
     public void SetupForBossBattle(int level) {
@@ -67,6 +72,7 @@ namespace Fall2020_CSC403_Project {
         // kool-aid man
         case 1:
           bossBattle = picBossBattle;
+          oh_yeah.Play();
           break;
         case 2:
           // rough rodents
@@ -78,9 +84,6 @@ namespace Fall2020_CSC403_Project {
       bossBattle.Size = ClientSize;
       bossBattle.Visible = true;
       bossBattle.BringToFront();
-
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-      simpleSound.Play();
 
       tmrFinalBattle.Enabled = true;
 
@@ -168,6 +171,10 @@ namespace Fall2020_CSC403_Project {
         }
         if (enemy.Health <= 0)
         {
+          if (BackColor == Color.LightGray)
+          {
+            goose_death.Play();
+          }
           enemy.AlterIsAlive(false);
         }
         if (player.Health <= 0)
@@ -229,6 +236,10 @@ namespace Fall2020_CSC403_Project {
       {
         Close();
       }
+      else
+      {
+        fail_sound.Play();
+      }
     }
 
     // Found this code at: https://stackoverflow.com/questions/10458118/wait-one-second-in-running-program
@@ -263,6 +274,16 @@ namespace Fall2020_CSC403_Project {
     private void textBox1_TextChanged(object sender, EventArgs e)
     {
 
+    }
+
+    private void InitializeSounds()
+    {
+      goose_death = new SoundPlayer(Resources.goose_death);
+      goose_death.Load();
+      oh_yeah = new SoundPlayer(Resources.oh_yeah);
+      oh_yeah.Load();
+      fail_sound = new SoundPlayer(Resources.fail_sound);
+      fail_sound.Load();
     }
   }
 }

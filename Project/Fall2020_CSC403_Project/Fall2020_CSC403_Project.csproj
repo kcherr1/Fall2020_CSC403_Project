@@ -167,6 +167,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\ammo.png" />
+    <None Include="Resources\boss_win.wav" />
+    <None Include="Resources\player_death.wav" />
+    <None Include="Resources\fail_sound.wav" />
+    <None Include="Resources\oh_yeah.wav" />
+    <None Include="Resources\goose_death.wav" />
+    <None Include="Resources\walk_sand.wav" />
+    <None Include="Resources\akSound.wav" />
+    <None Include="Resources\walk_grass.wav" />
+    <None Include="Resources\nether_portal_exit.wav" />
+    <None Include="Resources\nether_portal_enter.wav" />
+    <None Include="Resources\among_us_start.wav" />
     <None Include="data\battle_screen_squirrels.png" />
     <None Include="data\angy_squirrels.png" />
     <Content Include="data\final_battle.wav" />

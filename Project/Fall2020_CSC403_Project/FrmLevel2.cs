@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using Microsoft.CSharp.RuntimeBinder;
 using MyGameLibrary;
 using System;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel2 : Level {
@@ -27,6 +29,10 @@ namespace Fall2020_CSC403_Project {
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
     private Character healthPack;
     private Weapon rpg;
+
+    private DateTime soundTime = DateTime.Now;
+
+    public SoundPlayer walk_grass;
 
     public FrmLevel2() : base() {
       this.player = GameState.player;
@@ -88,6 +94,11 @@ namespace Fall2020_CSC403_Project {
         hedges[h - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
       Game.player = GameState.player;
+
+      SoundPlayer simpleSound = new SoundPlayer(Resources.nether_portal_exit);
+      simpleSound.Play();
+
+      InitializeSounds();
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
@@ -215,6 +226,11 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+      if ((DateTime.Now.Second - soundTime.Second) > 1)
+      {
+        //walk_sand.Play();
+        soundTime = DateTime.Now;
+      }
       switch (e.KeyCode) {
         case Keys.Left:
           player.GoLeft();
@@ -248,6 +264,12 @@ namespace Fall2020_CSC403_Project {
 
     private void hedge13_Click(object sender, EventArgs e) {
 
+    }
+
+    private void InitializeSounds()
+    {
+      //walk_grass = new SoundPlayer(Resources.walk_grass);
+      //walk_grass.Load();
     }
 
     private void MenuButton_Click(object sender, EventArgs e)

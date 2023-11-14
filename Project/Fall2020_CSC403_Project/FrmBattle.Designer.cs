@@ -270,6 +270,7 @@
       this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
       this.textBox1.Location = new System.Drawing.Point(699, 1036);
       this.textBox1.Name = "textBox1";
+      this.textBox1.ReadOnly = true;
       this.textBox1.Size = new System.Drawing.Size(339, 53);
       this.textBox1.TabIndex = 15;
       this.textBox1.Text = "50% Chance of";
@@ -282,6 +283,7 @@
       this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
       this.textBox2.Location = new System.Drawing.Point(690, 1098);
       this.textBox2.Name = "textBox2";
+      this.textBox2.ReadOnly = true;
       this.textBox2.Size = new System.Drawing.Size(359, 53);
       this.textBox2.TabIndex = 16;
       this.textBox2.Text = "Successful Flee";

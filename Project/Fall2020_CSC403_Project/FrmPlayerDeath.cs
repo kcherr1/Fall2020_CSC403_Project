@@ -1,4 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
+using MyGameLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project
 {
@@ -17,6 +20,8 @@ namespace Fall2020_CSC403_Project
     public FrmPlayerDeath()
     {
       InitializeComponent();
+      SoundPlayer player_death = new SoundPlayer(Resources.player_death);
+      player_death.Play();
     }
 
     public static FrmPlayerDeath GetInstance()
