@@ -792,6 +792,11 @@ namespace Fall2020_CSC403_Project
             this.Close();
         }
 
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void AttackButton_Click(object sender, EventArgs e)
         {
             do
@@ -823,7 +828,21 @@ namespace Fall2020_CSC403_Project
                     player.RemoveEffect();
                     frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
                     frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
-                    Close();
+
+                    Button ExitButton = new Button();
+                    ExitButton.Parent = this;
+                    ExitButton.Size = new Size(2*width / 3, height / 4);
+                    ExitButton.Location = new Point(width/6, 3*height/8);
+                    ExitButton.Text = "You Won! Click to Exit";
+                    ExitButton.Font = new Font("NSimSun", ExitButton.Size.Height / 2);
+                    ExitButton.BackColor = Color.DarkGreen;
+                    ExitButton.ForeColor = Color.White;
+                    ExitButton.FlatStyle = FlatStyle.Flat;
+                    ExitButton.FlatAppearance.BorderColor = Color.Black;
+                    ExitButton.FlatAppearance.BorderSize = 1;
+                    ExitButton.Click += ExitButton_Click;
+                    ExitButton.BringToFront();
+
                     return;
                 }
 
