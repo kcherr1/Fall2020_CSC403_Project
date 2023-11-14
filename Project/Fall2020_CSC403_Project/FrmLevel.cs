@@ -125,17 +125,20 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
       }
-      if (HitAChar(player, ak)){
+      if (HitAChar(player, ak))
+      {
         walk_sand.Stop();
-      }
-        if (player.WeaponStrength < ak.getStrength()){
+
+        if (player.WeaponStrength < ak.getStrength())
+        {
           player.WeaponStrength = ak.getStrength();
           player.WeaponEquiped = 1;
           weapon1.Visible = false;
-        akSound.Play();
-        ak.RemoveCollider();
-        akSound.Dispose();
+          akSound.Play();
+          ak.RemoveCollider();
+          akSound.Dispose();
 
+        }
       }
       if (HitAChar(player, healthPack)){
         player.HealthPackCount++;
