@@ -13,9 +13,9 @@ namespace Fall2020_CSC403_Project.code {
     public float strength { get; protected set; }
     public bool IsAlive { get; private set; }
     public int experience { get; protected set; }
-    public int HealthPackCount { get; private set; }
+    public int HealthPackCount;
     public int WeaponStrength;
-    public Boolean WeaponEquiped;
+    public int WeaponEquiped;
 
     public event Action<int> AttackEvent;
 
@@ -27,7 +27,7 @@ namespace Fall2020_CSC403_Project.code {
       IsAlive = true;
       HealthPackCount = 3;
       WeaponStrength = 0;
-      WeaponEquiped = false;
+      WeaponEquiped = 0;
     }
 
     //amount should be a negative number, so subtract strength
