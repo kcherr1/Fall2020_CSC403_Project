@@ -24,15 +24,15 @@ namespace Fall2020_CSC403_Project {
       if (GameState.isLevelOneCompleted)
       {
         levelOne.Dispose();
-        //FrmLevel2 levelTwo = new FrmLevel2();
-        //levelTwo.ShowDialog();
+        FrmLevel2 levelTwo = new FrmLevel2();
+        levelTwo.ShowDialog();
 
-        //if (GameState.isLevelTwoCompleted) {
-          //levelTwo.Dispose();
+        if (GameState.isLevelTwoCompleted) {
+          levelTwo.Dispose();
           FrmLevel3 levelThree = new FrmLevel3();
           levelThree.ShowDialog();
+        }
       }
-      //}
 
       //GC.KeepAlive(gameState);
     }

@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="enemy_koolaid_xded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\enemy_koolaid_xded.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="angy_squirrels" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\angy_squirrels.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -126,6 +129,9 @@
   </data>
   <data name="gravestone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\gravestone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hedge4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\hedge4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="brick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\brick.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,8 +172,8 @@
   <data name="rock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\rock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="enemy_koolaid_xded" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\enemy_koolaid_xded.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hedge2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\hedge2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,8 +190,8 @@
   <data name="squirrel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\squirrel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="enemy_cheetos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\enemy_cheetos.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="enemy_poisonpacket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\enemy_poisonpacket.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,6 +214,9 @@
   <data name="squirrel2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\squirrel2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hedge5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\hedge5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="gravestone2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\gravestone2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -226,8 +235,8 @@
   <data name="tree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\tree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="enemy_cheetos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\enemy_cheetos.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="weapon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\weapon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,6 +256,9 @@
   <data name="pond" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\pond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="battle_screen_imposter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\battle_screen_imposter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="battle_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\battle_screen.fw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,7 +268,10 @@
   <data name="battle_screen_squirrels" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\battle_screen_squirrels.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="battle_screen_imposter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\data\battle_screen_imposter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="spaceship" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\spaceship.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ejected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\ejected.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

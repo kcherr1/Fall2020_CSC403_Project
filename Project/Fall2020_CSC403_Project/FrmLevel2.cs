@@ -36,9 +36,9 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void LoadLevel(object send, EventArgs e) {
-      const int WALL_COUNT = 46;
-      const int HEDGE_COUNT = 23;
-      const int OBSTACLE_COUNT = 15;
+      const int WALL_COUNT = 4;
+      const int HEDGE_COUNT = 4;
+      const int OBSTACLE_COUNT = 19;
       const int PADDING = 0;
       goose = new Enemy(
       base.CreatePosition(picGoose),
@@ -123,11 +123,8 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, alligator)) {
         Fight(alligator);
       }
-      Debug.WriteLine(bossIsDefeated.bossIsDefeated);
-      Debug.WriteLine(HitAChar(player, bossSquirrels));
       if (HitAChar(player, portal) && bossIsDefeated.bossIsDefeated) {
         GameState.isLevelTwoCompleted = true;
-        Debug.WriteLine("in if state");
         // this closes the current form and returns to main
         this.Close();
       }
@@ -197,7 +194,7 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossSquirrels)
       {
         frmBattle.bossIsDefeatedReference = this.bossIsDefeated;
-        frmBattle.SetupForBossBattle(3);
+        frmBattle.SetupForBossBattle(2);
       }
     }
 
@@ -230,8 +227,5 @@ namespace Fall2020_CSC403_Project {
       picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
     }
 
-    private void hedge13_Click(object sender, EventArgs e) {
-
-    }
   }
 }

@@ -19,6 +19,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy blue;
     private Enemy white;
     private Enemy bossRed;
+    private Character exit;
     private Character[] walls;
     private Character[] obstacles;
     private Character[] tables;
@@ -28,13 +29,13 @@ namespace Fall2020_CSC403_Project {
 
     public FrmLevel3() : base() {
       this.player = GameState.player;
-      this.player.MoveTo(10, 257);
+      this.player.MoveTo(10, 357); //257
       this.player.ResetMoveSpeed();
       InitializeComponent();
     }
 
     private void LoadLevel(object send, EventArgs e) {
-      const int WALL_COUNT = 8;
+      const int WALL_COUNT = 7;
       const int OBSTACLE_COUNT = 5;
       const int TABLE_COUNT = 5;
       const int PADDING = 0;
@@ -80,7 +81,7 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("table" + o.ToString(), true)[0] as PictureBox;
         tables[o - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
-
+      exit = new Character(CreatePosition(picExit), CreateCollider(picExit, PADDING));
       this.player.ChangeCollider(base.CreateCollider(picPlayer, 0));
       Game.player = GameState.player;
     }
@@ -123,8 +124,9 @@ namespace Fall2020_CSC403_Project {
         Fight(white);
       }
 
-      if (HitAChar(player, bossRed) && bossIsDefeated.bossIsDefeated) {
+      if (HitAChar(player, exit) && bossIsDefeated.bossIsDefeated) {
         // this closes the current form and returns to main
+        GameState.isLevelThreeCompleted = true;
         this.Close();
       }
       else if (HitAChar(player, bossRed)) {

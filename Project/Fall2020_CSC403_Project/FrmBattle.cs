@@ -149,8 +149,11 @@ namespace Fall2020_CSC403_Project {
               case 2:
                 win_instance = new FrmWinLevelTwo();
                 break;
+              case 3:
+                win_instance = new FrmWinLevelThree();
+                break;
               default:
-                win_instance = new FrmWinLevelTwo();
+                win_instance = new FrmWinLevel();
                 break;
             }
             win_instance.Show();

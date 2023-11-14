@@ -183,6 +183,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ejected {
+            get {
+                object obj = ResourceManager.GetObject("ejected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enemy_cheetos {
             get {
                 object obj = ResourceManager.GetObject("enemy_cheetos", resourceCulture);
@@ -322,6 +332,36 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hedge2 {
+            get {
+                object obj = ResourceManager.GetObject("hedge2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hedge4 {
+            get {
+                object obj = ResourceManager.GetObject("hedge4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hedge5 {
+            get {
+                object obj = ResourceManager.GetObject("hedge5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Nether_portal1 {
             get {
                 object obj = ResourceManager.GetObject("Nether_portal1", resourceCulture);
@@ -395,6 +435,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap rock {
             get {
                 object obj = ResourceManager.GetObject("rock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spaceship {
+            get {
+                object obj = ResourceManager.GetObject("spaceship", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
