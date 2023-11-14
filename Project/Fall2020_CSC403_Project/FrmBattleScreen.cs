@@ -337,37 +337,39 @@ namespace Fall2020_CSC403_Project
 
         private void AttackButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(this.attackOrder[0].Name);
-            if (this.attackOrder[0] == enemy)
+            while(this.attackOrder[0] != player)
             {
-                int target = enemy.dice.Next(1, player.PartyCount() + 1);
-                AddToLog(this.attackOrder[0].OnAttack(this.attackOrder[target]));
+                Console.WriteLine(this.attackOrder[0].Name);
+                if (this.attackOrder[0] == enemy)
+                {
+                    int target = enemy.dice.Next(1, player.PartyCount() + 1);
+                    AddToLog(this.attackOrder[0].OnAttack(this.attackOrder[target]));
+                }
+                else
+                    AddToLog(this.attackOrder[0].OnAttack(enemy));
+
+                RotateOrder();
+                UpdateHealthBars();
+
+                if (player.Health <= 0)
+                {
+                    AddToLog(enemy.Name + " defeated " + player.Name + "!");
+                    instance = null;
+                    Close();
+                    form.GameOver();
+
+                }
+                else if (enemy.Health <= 0)
+                {
+                    AddToLog(player.Name + " deafeated " + enemy.Name + "!");
+                    instance = null;
+                    form.RemoveEnemy(enemy);
+                    player.RemoveEffect();
+                    frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
+                    frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
+                    Close();
+                }
             }
-            else
-                AddToLog(this.attackOrder[0].OnAttack(enemy));
-
-            RotateOrder();
-            UpdateHealthBars();
-
-            if (player.Health <= 0)
-            {
-                AddToLog(enemy.Name + " defeated " + player.Name + "!");
-                instance = null;
-                Close();
-                form.GameOver();
-
-            }
-            else if (enemy.Health <= 0)
-            {
-                AddToLog(player.Name + " deafeated " + enemy.Name + "!");
-                instance = null;
-                form.RemoveEnemy(enemy);
-                player.RemoveEffect();
-                frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
-                frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
-                Close();
-            }
-
         }
 
         public static FrmBattleScreen GetInstance(FrmLevel level, Enemy enemy)
