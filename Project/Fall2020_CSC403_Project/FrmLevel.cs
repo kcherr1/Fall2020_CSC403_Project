@@ -51,6 +51,7 @@ namespace Fall2020_CSC403_Project
 
         public Panel conversePanel;
         public Label converseText;
+        public Label converseNPCName;
         public Button JoinParty;
 
 
@@ -292,12 +293,19 @@ namespace Fall2020_CSC403_Project
             this.JoinParty.Font = new Font("NSimSun", this.JoinParty.Height / 4);
             this.JoinParty.Click += JoinParty_Click;
 
+            this.converseNPCName = new Label();
+            this.converseNPCName.Parent = this.conversePanel;
+            this.converseNPCName.Size = new Size(this.conversePanel.Width, this.conversePanel.Height / 8);
+            this.converseNPCName.Text = "";
+            this.converseNPCName.Font = new Font("NSimSun", this.converseNPCName.Height * 3/4, FontStyle.Underline);
+
+
             this.converseText = new Label();
             this.converseText.Parent = this.conversePanel;
-            this.converseText.Size = new Size(Screen.PrimaryScreen.Bounds.Width, this.conversePanel.Size.Height - this.JoinParty.Height);
+            this.converseText.Size = new Size(Screen.PrimaryScreen.Bounds.Width, this.conversePanel.Size.Height - this.JoinParty.Height - this.converseNPCName.Height);
             this.converseText.Text = "";
             Game.FontSizing(this.converseText);
-
+            this.converseText.Location = new Point(0, this.converseNPCName.Bottom);
             this.conversePanel.BringToFront();
 
 
@@ -503,6 +511,7 @@ namespace Fall2020_CSC403_Project
             if (NPC_Conversing != null)
             {
                 this.converseText.Text = this.NPC_Conversing.Dialog;
+                this.converseNPCName.Text = this.NPC_Conversing.Name + ":";
                 Game.FontSizing(this.converseText);
                 this.conversePanel.Show();
 
@@ -923,6 +932,13 @@ namespace Fall2020_CSC403_Project
 
         private void JoinParty_Click(object sender, EventArgs e)
         {
+            if (!this.NPC_Conversing.CanJoinParty)
+            {
+                this.NPC_Conversing.Dialog = "Sorry pal, I've no reason to come along with you right now.";
+                Game.FontSizing(this.converseText);
+                return;
+            }
+
             if (Game.player.isPartyFull())
             {
                 Console.WriteLine("PARTY IS FULL NOTIFICATION");

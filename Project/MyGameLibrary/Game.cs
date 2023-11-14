@@ -180,7 +180,7 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.harold, new Point(150, 150), new Size(75, 100)),
                 new Healer()
             );
-            NPCs["Harold"].Dialog = "How's it going? Name's Gerald. If you go kill some lizards, let me know. I want in.";
+            NPCs["Harold"].Dialog = "How's it going? Name's Harold. If you go kill some lizards, let me know. I want in.";
 
 
             NPCs["Tombstone"] = new NPC(
@@ -193,7 +193,7 @@ namespace Fall2020_CSC403_Project.code
                 "Gerald",
                 MakePictureBox(Resources.gerald, new Point(300, 300), new Size(100, 100)),
                 new Gerald());
-            NPCs["Gerald"].Dialog = "Greetings, I am Harold. \nI wish to vanquish the lizards and dragon that plague our land. We cannot endure this much longer. \nI wish to aid in the vanquish of our foes.";
+            NPCs["Gerald"].Dialog = "Greetings, I am Gerald. \nI wish to vanquish the lizards and dragon that plague our land. We cannot endure this much longer. \nI wish to aid in the vanquish of our foes.";
 
 
 

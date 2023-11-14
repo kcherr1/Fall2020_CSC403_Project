@@ -30,6 +30,8 @@ namespace Fall2020_CSC403_Project.code
 
 		public int speed;
 
+		public int hit_mod;
+
 		public Random dice;
 
 		public int Health { get; private set; }
@@ -46,6 +48,7 @@ namespace Fall2020_CSC403_Project.code
             this.Health = MaxHealth;
 			this.Inventory = new Inventory();
 			this.dice = new Random();
+			this.hit_mod = archetype.hitMod;
 		}
 		
 		public string OnAttack(Character target)
@@ -60,7 +63,7 @@ namespace Fall2020_CSC403_Project.code
                 AttackEvent(target, damage);
 				log = this.Name + " criticaly hit " + target.Name + " for " + damage + "!";
 			}
-            else if (hit + this.archetype.hitMod >= target.defense)
+            else if (hit + this.hit_mod >= target.defense)
 			{
 				damage = this.damage + this.dice.Next(1, this.archetype.baseDamage + 1);
                 AttackEvent(target, damage);
@@ -126,7 +129,7 @@ namespace Fall2020_CSC403_Project.code
 					this.speed += stat;
 					break;
 				case PotionTypes.Accuracy:
-					this.archetype.hitMod += stat;
+					this.hit_mod += stat;
 					break;
 				default:
 					break;
@@ -137,6 +140,7 @@ namespace Fall2020_CSC403_Project.code
 		{
 			this.damage = this.archetype.baseDamage;
 			this.speed = this.archetype.baseSpeed;
+			this.hit_mod = this.archetype.hitMod;
 		}
         
     }
