@@ -117,8 +117,6 @@ namespace Fall2020_CSC403_Project {
             battleLog.AppendText(log);
             battleLog.AppendText(newLine);
             player.OnAttack(attack);
-            battleTheme.Stop();
-            attackSound.PlaySync();
             if (enemy.Health > 0)
             {
                 enemy.determineAttack(0);
@@ -138,7 +136,6 @@ namespace Fall2020_CSC403_Project {
                 lblXpMessage.Text = "HE'S DEAD! +20 XP";
                 lblXpMessage.Visible = true;
             }
-            battleTheme.PlayLooping();
 
         }
 
@@ -177,8 +174,6 @@ namespace Fall2020_CSC403_Project {
                 string log = string.Format("You betray your nut family, devouring them for {0} health", (heal));
                 battleLog.AppendText(log);
                 battleLog.AppendText(newLine);
-                battleTheme.Stop();
-                healSound.PlaySync();
                 player.OnHeal(heal);
             }
             else
@@ -187,8 +182,6 @@ namespace Fall2020_CSC403_Project {
                 string log = string.Format("You betray your nut family, devouring them for {0} health", (heal));
                 battleLog.AppendText(log);
                 battleLog.AppendText(newLine);
-                battleTheme.Stop();
-                healSound.PlaySync();
                 player.OnHeal(heal);
             }
 
@@ -200,7 +193,6 @@ namespace Fall2020_CSC403_Project {
                     battleLog.AppendText(log);
                     battleLog.AppendText(newLine);
                 }
-                battleTheme.PlayLooping();
                 UpdateHealthBars();
 
        
@@ -224,8 +216,6 @@ namespace Fall2020_CSC403_Project {
                 log = (foeName + enemy.determineAttack(1));
                 battleLog.AppendText(log);
                 battleLog.AppendText(newLine);
-                dodgeSound.PlaySync();
-                battleTheme.PlayLooping();
                 UpdateHealthBars();
 
             }
