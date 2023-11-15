@@ -92,6 +92,15 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream among_us_kill {
+            get {
+                return ResourceManager.GetStream("among_us_kill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream among_us_start {
             get {
                 return ResourceManager.GetStream("among_us_start", resourceCulture);
@@ -401,6 +410,15 @@ namespace Fall2020_CSC403_Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("hedge5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream jeff {
+            get {
+                return ResourceManager.GetStream("jeff", resourceCulture);
             }
         }
         

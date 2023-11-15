@@ -185,6 +185,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\ammo.png" />
+    <None Include="Resources\jeff.wav" />
+    <None Include="Resources\among_us_kill.wav" />
     <None Include="Resources\ejected.bmp" />
     <None Include="data\white.png" />
     <None Include="Resources\boss_win.wav" />
