@@ -173,7 +173,6 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, portal) && bossIsDefeated.bossIsDefeated) {
         GameState.isLevelTwoCompleted = true;
         // this closes the current form and returns to main
-        GameState.isLevelTwoCompleted = true;
         GameState.levelToLoad = 3;
         GameState.NextLevel();
       }

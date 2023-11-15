@@ -142,6 +142,16 @@ namespace Fall2020_CSC403_Project.code {
           levelTwo.ShowDialog();
           break;
 
+        case 3:
+          if (currentLevel != null)
+          {
+            currentLevel.Dispose();
+          }
+          FrmLevel3 levelThree = new FrmLevel3();
+          currentLevel = levelThree;
+          levelThree.ShowDialog();
+          break;
+
         default:
           break;
       }

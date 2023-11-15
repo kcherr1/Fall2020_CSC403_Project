@@ -35,6 +35,9 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void LoadLevel(object send, EventArgs e) {
+
+      levelID = 3;
+
       const int WALL_COUNT = 7;
       const int OBSTACLE_COUNT = 5;
       const int TABLE_COUNT = 5;
@@ -53,6 +56,11 @@ namespace Fall2020_CSC403_Project {
         base.CreateCollider(picBossRed, PADDING),
         100
       );
+
+      blue.Name = "blue";
+      white.Name = "white";
+      bossRed.Name = "bossRed";
+
       timeStart = GameState.timeStart;
       player = GameState.player;
 
@@ -83,7 +91,18 @@ namespace Fall2020_CSC403_Project {
       }
       exit = new Character(CreatePosition(picExit), CreateCollider(picExit, PADDING));
       this.player.ChangeCollider(base.CreateCollider(picPlayer, 0));
+
       Game.player = GameState.player;
+
+      objectsToSave.Add(player);
+      objectsToSave.Add(blue);
+      objectsToSave.Add(white);
+      objectsToSave.Add(bossRed);
+
+      if (GameState.saveToLoadFrom != null)
+      {
+        LoadData(GameState.saveToLoadFrom);
+      }
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
@@ -216,6 +235,10 @@ namespace Fall2020_CSC403_Project {
           player.GoDown();
           break;
 
+        case Keys.Escape:
+          FrmStartScreen.displayStartScreen();
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;
@@ -225,6 +248,35 @@ namespace Fall2020_CSC403_Project {
     private void RemoveEnemy(Enemy enemy, PictureBox picEnemy) {
       enemy.RemoveCollider();
       picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravestone;
+    }
+
+    public override void LoadData(string fileName)
+    {
+      foreach (Character character in objectsToSave)
+      {
+        character.Load(fileName);
+      }
+
+      //this just makes sure that the weapon is removed from the level and that the
+      //appropriate weapon is equipped to the player
+      /*
+      if (player.WeaponEquiped == 2)
+      {
+        player.WeaponStrength = rpg.getStrength();
+        player.WeaponEquiped = 2;
+        rpgPic.Visible = false;
+      }
+
+      //this removes the health pack from the level
+      this.healthPackCount = GameState.healthPackCountFromSave;
+      GameState.healthPackCountFromSave = -1;
+      if (healthPackCount < 1)
+      {
+        healthPack.RemoveCollider();
+        healthPackLvl2.Visible = false;
+      }
+
+      GameState.saveToLoadFrom = null;*/
     }
   }
 }
