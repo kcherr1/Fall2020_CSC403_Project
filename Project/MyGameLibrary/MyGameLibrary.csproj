@@ -179,9 +179,13 @@
     <None Include="Resources\gold_pile4.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\reginald.png" />
+    <None Include="Resources\hank.png" />
     <None Include="Resources\tombstone_tombstone.png" />
     <None Include="Resources\cave_entrance_close.png" />
     <None Include="Resources\cave_entrance_open.png" />
+    <None Include="Resources\bobby.png" />
+    <None Include="Resources\eugene.png" />
     <Content Include="Resources\gerald.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
