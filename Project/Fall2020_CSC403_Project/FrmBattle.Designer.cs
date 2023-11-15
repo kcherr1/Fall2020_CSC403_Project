@@ -234,8 +234,6 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.lblPlayerXp);
             this.Controls.Add(this.lblXpMessage);
             this.Controls.Add(this.lblXpLevel);
-            this.Controls.Add(this.picEnemy);
-            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.btnDodge);
             this.Controls.Add(this.btnHeal);
             this.Controls.Add(this.btnFlee);
