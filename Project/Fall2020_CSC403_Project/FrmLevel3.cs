@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using MyGameLibrary;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using System.Windows.Forms.VisualStyles;
 using System.Diagnostics;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel3 : Level {
@@ -82,6 +84,11 @@ namespace Fall2020_CSC403_Project {
       }
       this.player.ChangeCollider(base.CreateCollider(picPlayer, 0));
       Game.player = GameState.player;
+
+      SoundPlayer simpleSound = new SoundPlayer(Resources.nether_portal_exit);
+      simpleSound.Play();
+
+      InitializeSounds();
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
@@ -223,6 +230,12 @@ namespace Fall2020_CSC403_Project {
     private void RemoveEnemy(Enemy enemy, PictureBox picEnemy) {
       enemy.RemoveCollider();
       picEnemy.BackgroundImage = null;
+    }
+
+    private void InitializeSounds()
+    {
+      //walk_grass = new SoundPlayer(Resources.walk_grass);
+      //walk_grass.Load();
     }
   }
 }
