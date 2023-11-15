@@ -60,7 +60,7 @@ namespace Fall2020_CSC403_Project {
 
             // show Level and XP
             lblXpLevel.Text = "Level " + player.XpLevel.ToString();
-            lblPlayerXp.Text = "XP: " + player.Xp.ToString();
+            lblPlayerXp.Text = "XP: " + player.Xp.ToString() + "/100";
         }
 
         public void SetupForBossBattle()
@@ -124,7 +124,7 @@ namespace Fall2020_CSC403_Project {
                 log = (foeName + enemy.determineAttack(0));
                 battleLog.AppendText(log);
                 battleLog.AppendText(newLine);
-                PlayerXp(10);
+                PlayerXp(20);
             }
 
             UpdateHealthBars();
@@ -133,8 +133,8 @@ namespace Fall2020_CSC403_Project {
             {
                 instance = null;
                 Close();
-                PlayerXp(20);
-                lblXpMessage.Text = "HE'S DEAD! +20 XP";
+                PlayerXp(30);
+                lblXpMessage.Text = "HE'S DEAD! +30 XP";
                 lblXpMessage.Visible = true;
             }
             if (player.Health <= 0)
@@ -265,12 +265,14 @@ namespace Fall2020_CSC403_Project {
         {
             player.AlterXp(amount);
             lblXpLevel.Text = "Level " + player.XpLevel.ToString();
-            lblPlayerXp.Text = "XP: " + player.Xp.ToString() + "/50";
+            lblPlayerXp.Text = "XP: " + player.Xp.ToString() + "/100";
             btnAttack.Hide();
 
-            if (amount > 0)
+          
+            if (player.Xp >= 100)
             {
-                lblXpMessage.Text = "Enemy Damaged! + " + amount + "XP!";
+                player.XpLevel += 1;
+                lblXpMessage.Text = "Level" + player.XpLevel.ToString()+"! + 20 damage ability!";
                 lblXpMessage.Visible = true; // Show the message
                 Timer tmrXpMessage = new Timer();
                 tmrXpMessage.Interval = 3000;
@@ -281,13 +283,9 @@ namespace Fall2020_CSC403_Project {
                     tmrXpMessage.Dispose();
                 };
                 tmrXpMessage.Start();
-            }
-            if (player.Xp >= 50)
-            {
-                player.XpLevel += 1;
                 player.Xp = 0; // Reset XP to 0 after leveling up
                 lblXpLevel.Text = "Level " + player.XpLevel.ToString();
-                lblPlayerXp.Text = "XP: " + player.Xp.ToString() + "/20";
+                lblPlayerXp.Text = "XP: " + player.Xp.ToString() + "/100";
             }
             btnAttack.Show();
 
