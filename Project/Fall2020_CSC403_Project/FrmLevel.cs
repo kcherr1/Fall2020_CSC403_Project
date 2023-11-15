@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project {
 
     public partial class FrmLevel : Form {
         private Player player;
+        private bool hitAKey = false;
         public bool playerHasKey = false;
         public bool playerHasHeal = false;
 
@@ -161,11 +162,12 @@ namespace Fall2020_CSC403_Project {
                     player.MoveBack();
                 }
             }
-            
+
 
             // Check collision with key
-            if (HitAKey(player)) {
-                player.MoveBack();    
+            if (picKey0.Visible && player.Collider.Intersects(key[0].Collider)) 
+            {
+                player.MoveBack();
             }
 
             if (HitAHeal(player)){
@@ -315,7 +317,7 @@ namespace Fall2020_CSC403_Project {
             return hitAWall;
         }
         private bool HitAKey(Character c) {
-            bool hitAKey = false;
+            
             if (enemyPoisonPacket != null && enemyCheeto != null) 
             {
                 // neither of them have been nulled, so we can check to see if they are dead
@@ -325,6 +327,7 @@ namespace Fall2020_CSC403_Project {
                     {
                         if (c.Collider.Intersects(key[w].Collider))
                         {
+                            System.Windows.Forms.MessageBox.Show("test1");
                             hitAKey = true;
                             playerHasKey = true;
                             keyHitCount++;
@@ -343,6 +346,7 @@ namespace Fall2020_CSC403_Project {
                 {
                     if (c.Collider.Intersects(key[w].Collider))
                     {
+                        //System.Windows.Forms.MessageBox.Show("test2");
                         hitAKey = true;
                         playerHasKey = true;
                         keyHitCount++;
