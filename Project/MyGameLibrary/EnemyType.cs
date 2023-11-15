@@ -106,9 +106,9 @@ public class EnemyType : Enemy
         int attack = rnd.Next(1, 4);
         if (charged == 1)
         {
-            this.OnAttack(-10);
+            this.OnAttack(-7);
             charged = 0;
-            Log = " releases a gutteral OH YEAH and charges at you with it's full force. The impact shatters space and time itself and you see the horrible koolaid truth. You take 20 damage from the physical and pyschic trauma";
+            Log = " releases a gutteral OH YEAH and charges at you with it's full force. The impact shatters space and time itself and you see the horrible koolaid truth. You take 14 damage from the physical and pyschic trauma";
         }
         else if (attack == 1)
         {
@@ -126,8 +126,8 @@ public class EnemyType : Enemy
         }
         else if (attack == 2)
         {
-            this.OnAttack(-4);
-            Log = " waves their hand at you, their raw energy warping space itself as an attack that deals 8 damage";
+            this.OnAttack(-3);
+            Log = " waves their hand at you, their raw energy warping space itself as an attack that deals 6 damage";
         }
         else if (attack == 3)
         {
