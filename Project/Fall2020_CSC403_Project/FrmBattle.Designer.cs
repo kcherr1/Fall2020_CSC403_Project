@@ -199,7 +199,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormBattle_FormClosed);
-            this.Disposed += this.FormBattle_Disposed;
             ((System.ComponentModel.ISupportInitialize)(this.picEpicBossBattle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();

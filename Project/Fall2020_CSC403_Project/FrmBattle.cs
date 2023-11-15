@@ -32,6 +32,7 @@ namespace Fall2020_CSC403_Project {
         private void FormBattle_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Not currently necessary, all scenarios are handled such as player.Health and enemy.Health
+            FrmLevel.levelMusic.Play();
         }
 
             public void Setup()
