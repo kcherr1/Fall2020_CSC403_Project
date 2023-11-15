@@ -21,7 +21,6 @@ namespace Fall2020_CSC403_Project {
             player = Game.player;
             // TODO: use mplayer and pause game music while i attack, play sfx, then resume
             simpleSFX = new SoundPlayer(Resources.attack1SFX);
-            //frmLevel = frmLevelFromLvl;
             FrmLevel.levelMusic.Stop();
 
         }
@@ -30,49 +29,9 @@ namespace Fall2020_CSC403_Project {
         {
             this.Close();
         }
-        //public void FormBattle_FormClosed(object sender, FormClosedEventArgs e)
         private void FormBattle_FormClosed(object sender, FormClosedEventArgs e)
         {
-
-            // If the player's health reached 0 and the form closed, the player died
-            //  so exit the game.
-            if (player.Health <= 0)
-            {
-                System.Windows.Forms.MessageBox.Show("Game Over");
-
-                //Application.Exit();
-            }
-
-
-            // If player/enemy health>0 and form closes, the user closed the window
-            // You cannot run from battle by closing it!
-            if (player.Health > 0) 
-            {
-                if (enemy.Health > 0) 
-                {
-
-                }
-            }
-
-            if (player.Health > 0 && enemy.Health > 0)
-            {
-                // When this.Close() gets called elsewhere, then this FormBattle_FormClosed event fires, then it calls this.Close() then causes an infinite loop back and forth.
-                // Thus, cannot close instance here unless you handle all closing here
-                //FrmBattle.instance.Close();
-
-                //instance = null;
-                //System.Windows.Forms.MessageBox.Show("flee?");
-                //Application.Exit();
-            }
-
-            // If the battle closes normally , release the instance for future fights
-            //  so it does not lead to disposed exception.
-            if (enemy.Health <= 0)
-            {
-                //instance = null;
-                //frmLevel.picPoisonPacket
-            }
-
+            // Not currently necessary, all scenarios are handled such as player.Health and enemy.Health
         }
 
             public void Setup()
@@ -85,9 +44,10 @@ namespace Fall2020_CSC403_Project {
             picEpicBossBattle.Visible = false;
             label3.Visible = false;
 
-            // Observer pattern
+
             // This is the issue with flee. It should be called once ever for that enemy. Instead each time you flee and return,
             //  it stacks on extra += PlayerDamage, EnemyDamage for heal and attacks, etc.
+            // Observer pattern
             /*enemy.AttackEvent += PlayerDamage;
             enemy.HealEvent += EnemyDamage;
             player.AttackEvent += EnemyDamage;*/
@@ -115,11 +75,6 @@ namespace Fall2020_CSC403_Project {
             CGPT cgpt = new CGPT();
             label3.Text = await cgpt.GetBossIntroStatement();
         }
-
-        // In order to make the instance nonnull, we use this. if its already non null, we can just use FrmBattle.instance to access it. 
-        // Or FrmBattle.attribute to access tha attribute if its public.
-        // Although, the instance of FrmBattle is tied to the enemy thats fighting the player in the said frmbattle.
-        // and everytime the instance is called, the frmbattle map is setup.
         
         public static FrmBattle GetInstance(Enemy enemy)
         {
@@ -157,6 +112,7 @@ namespace Fall2020_CSC403_Project {
                 {
                     // Create the constructor
                     CGPT cgpt = new CGPT();
+
                     // use CGPT to get the boss's attack or heal decision!
                     var result = await cgpt.GetBossDecision(player.Health, enemy.Health, -4, -2, 3);
                     if (result.ToString() == "attack")
@@ -172,7 +128,7 @@ namespace Fall2020_CSC403_Project {
                         label3.Text = $"You do 3 damage, but CGPT Heals 4 health back!";
                     }
                 }
-                else // other enemies
+                else // enemy.Name == other enemies
                 {
                     //enemy.OnAttack(-2);
                     player.AlterHealth(-2);
@@ -205,10 +161,9 @@ namespace Fall2020_CSC403_Project {
                 {
                     simpleSound = new SoundPlayer(Resources.congrats);
                     simpleSound.Play();
+
                     FrmHome.gameplayForm.picBossChatgpt.Visible = false;
-                    //frmLevel.picBossChatgpt.Visible = false;
-                    //
-                    //frmLevel.bossChatgpt = null;
+
                     DialogResult gotoHomeDialogue = MessageBox.Show("You win!!! Want to play again?", "YOU WIN!!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (gotoHomeDialogue == DialogResult.Yes)
                     {
@@ -224,11 +179,8 @@ namespace Fall2020_CSC403_Project {
                         Application.Exit();
                     }
                 }
-                else
+                else // for all other enemies
                 {
-                    // for all other enemies
-                    // Close the window and send to formclosed event
-                    //if (frmLevel.enemyCheeto.Name == enemy.Name)
                     if (FrmHome.gameplayForm.enemyCheeto != null) 
                     {
                         if (FrmHome.gameplayForm.enemyCheeto.Name == enemy.Name)
@@ -255,11 +207,9 @@ namespace Fall2020_CSC403_Project {
                                 }
                             }
                             
-                            System.Windows.Forms.MessageBox.Show($"{rpotRandomNum}");
                             FrmHome.gameplayForm.rpot = FrmHome.gameplayForm.InstantiateItem(rpotRandomNum, FrmHome.gameplayForm, FrmHome.gameplayForm.enemyPoisonPacket.Position.x, FrmHome.gameplayForm.enemyPoisonPacket.Position.y);
                             FrmHome.gameplayForm.picEnemyPoisonPacket.Visible = false;
                             FrmHome.gameplayForm.enemyPoisonPacket = null;
-
 
                         }
                     }

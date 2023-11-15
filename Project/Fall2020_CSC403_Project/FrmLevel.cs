@@ -136,8 +136,6 @@ namespace Fall2020_CSC403_Project {
                 lblPlayerHealthFull.BackColor = Color.DarkRed;
             }
 
-
-
         }
 
 
@@ -165,7 +163,7 @@ namespace Fall2020_CSC403_Project {
             }
             
 
-            // check collision with key
+            // Check collision with key
             if (HitAKey(player)) {
                 player.MoveBack();    
             }
@@ -174,8 +172,7 @@ namespace Fall2020_CSC403_Project {
                 player.MoveBack();
             }
 
-            // check collision with enemies
-
+            // Check collision with enemies
             if (enemyPoisonPacket != null)
             {
                 if (HitAChar(player, enemyPoisonPacket))
@@ -184,26 +181,11 @@ namespace Fall2020_CSC403_Project {
                     if (x == true)
                     {
                         Fight(enemyPoisonPacket);
-                        // Generate a random number to get a random effect from the RandomPotion (first 3 potions will be random potion candidates)
-
-                        // In the current state, the potion cannot be generated under improper conditions, BUT
-                        // if you do something new like FLEE from battle, the potion will generate like this! Need a condition to fix this.
-                        // Wait to see how Nis implements flee
-                        //if (this.enemyPoisonPacket == null)
-                        //{
-                            // If, specifically, enemyPoisonPacket died within the battle form, after the battle generate the potion
-                            //  the other option to do this is to move rpot to inside the frmBattle instance code, but thats much heavier lifting than this
-                            //rpot = InstantiateItem(random.Next(1, 3), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
-                        //}
 
                     }
                 }
             }
-            //else if (enemyPoisonPacket == null) 
-            //{
-                // enemyPoisonPacket died and was thus nulled after killing him
-                //rpot = InstantiateItem(random.Next(1, 3), this, enemyPoisonPacket.Position.x, enemyPoisonPacket.Position.y);
-            //}
+            
 
             if (enemyCheeto != null) {
                 if (HitAChar(player, enemyCheeto)){
@@ -216,7 +198,6 @@ namespace Fall2020_CSC403_Project {
             
             if (bossChatgpt != null) {
                 if (HitAChar(player, bossChatgpt)) {
-                    // not triggering
                     z = IsEnemyDead(bossChatgpt);
                     if (z == true)
                     {
@@ -235,7 +216,6 @@ namespace Fall2020_CSC403_Project {
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
         private void AllSideEnemyDied(Character c) {
-            //bool allSideEnemyDied = false;
             bool keyHit = HitAKey(player);
             bool healHit = HitAHeal(player);
 
