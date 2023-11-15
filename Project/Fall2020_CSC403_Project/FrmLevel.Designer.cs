@@ -302,6 +302,7 @@ namespace Fall2020_CSC403_Project {
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravel;
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1199, 721);
+      this.Controls.Add(this.healthPackLvl1);
       this.Controls.Add(this.picWall11);
       this.Controls.Add(this.picWall2);
       this.Controls.Add(this.picWall8);

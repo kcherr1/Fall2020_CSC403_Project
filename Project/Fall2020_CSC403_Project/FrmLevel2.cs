@@ -36,14 +36,29 @@ namespace Fall2020_CSC403_Project {
     public SoundPlayer walk_grass;
 
     public FrmLevel2() : base() {
-      this.player = GameState.player;
-      this.player.MoveTo(119, 510);
-      this.player.ResetMoveSpeed();
+
       //this.picPlayer.Location = new System.Drawing.Point(159, 628);
       InitializeComponent();
     }
 
     private void LoadLevel(object send, EventArgs e) {
+      levelID = 2;
+
+      if (GameState.player == null)
+      {
+        player = new Player(
+        base.CreatePosition(picPlayer),
+        base.CreateCollider(picPlayer, 0)
+        );
+
+        new GameState(player);
+        timeStart = GameState.timeStart;
+      }
+
+      this.player = GameState.player;
+      this.player.MoveTo(119, 510);
+      this.player.ResetMoveSpeed();
+
       const int WALL_COUNT = 4;
       const int HEDGE_COUNT = 4;
       const int OBSTACLE_COUNT = 19;
@@ -62,6 +77,11 @@ namespace Fall2020_CSC403_Project {
         base.CreateCollider(picSquirrel3, PADDING),
         100
       );
+
+      bossSquirrels.Name = "bossSquirrels";
+      goose.Name = "goose";
+      alligator.Name = "alligator";
+
       timeStart = GameState.timeStart;
       player = GameState.player;
 
@@ -101,6 +121,16 @@ namespace Fall2020_CSC403_Project {
       simpleSound.Play();
 
       InitializeSounds();
+
+      objectsToSave.Add(player);
+      objectsToSave.Add(goose);
+      objectsToSave.Add(alligator);
+      objectsToSave.Add(bossSquirrels);
+
+      if (GameState.saveToLoadFrom != null)
+      {
+        LoadData(GameState.saveToLoadFrom);
+      }
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
@@ -143,7 +173,8 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, portal) && bossIsDefeated.bossIsDefeated) {
         GameState.isLevelTwoCompleted = true;
         // this closes the current form and returns to main
-        this.Close();
+        GameState.levelToLoad = 3;
+        GameState.NextLevel();
       }
       else if (HitAChar(player, bossSquirrels)) {
         Fight(bossSquirrels);
@@ -277,6 +308,34 @@ namespace Fall2020_CSC403_Project {
     private void MenuButton_Click(object sender, EventArgs e)
     {
       FrmStartScreen.displayStartScreen();
+    }
+
+    public override void LoadData(string fileName)
+    {
+      foreach (Character character in objectsToSave)
+      {
+        character.Load(fileName);
+      }
+
+      //this just makes sure that the weapon is removed from the level and that the
+      //appropriate weapon is equipped to the player
+      if (player.WeaponEquiped == 2)
+      {
+        player.WeaponStrength = rpg.getStrength();
+        player.WeaponEquiped = 2;
+        rpgPic.Visible = false;
+      }
+
+      //this removes the health pack from the level
+      this.healthPackCount = GameState.healthPackCountFromSave;
+      GameState.healthPackCountFromSave = -1;
+      if (healthPackCount < 1)
+      {
+        healthPack.RemoveCollider();
+        healthPackLvl2.Visible = false;
+      }
+
+      GameState.saveToLoadFrom = null;
     }
   }
 }

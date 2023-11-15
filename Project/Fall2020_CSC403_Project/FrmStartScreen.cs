@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,20 @@ namespace Fall2020_CSC403_Project
       timer1.Interval = 1000;
       timer1.Tick += new System.EventHandler(timer1_Tick);
       timer1.Start();
+      GameState.startScreenReference = this;
     }
 
     private void button1_Click(object sender, EventArgs e)
     {
-      GameState.startGame = true;
-      this.Close();
+      if (!GameState.startGame)
+      {
+        GameState.startGame = true;
+        GameState.NextLevel();
+      }
+      else
+      {
+        this.Close();
+      }
     }
 
     private void button2_Click(object sender, EventArgs e)
@@ -49,7 +58,7 @@ namespace Fall2020_CSC403_Project
 
       //this generates a corrective factor to simulate pausing the timer in the FrmLevel;
       //this makes the time pause
-      GameState.totalPausedTime = DateTime.Now - pauseStartTime;
+      GameState.totalPausedTime += DateTime.Now - pauseStartTime;
       GameState.isGamePaused = false;
     }
 
@@ -72,6 +81,33 @@ namespace Fall2020_CSC403_Project
       pictureBox2.Visible = !pictureBox2.Visible;
       pictureBox5.Visible = !pictureBox5.Visible;
       pictureBox6.Visible = !pictureBox6.Visible;
+    }
+
+    private void button4_Click(object sender, EventArgs e)
+    {
+      string fileName = textBox1.Text;
+
+      if (fileName != null && GameState.currentLevel != null) {
+        GameState.SaveGame(
+          fileName,
+          GameState.currentLevel.levelID,
+          GameState.currentLevel.objectsToSave
+        );
+      }
+      
+    }
+
+    private void button5_Click(object sender, EventArgs e)
+    {
+      string fileName = textBox2.Text;
+
+      if (fileName != null) {
+
+        GameState.startGame = true;
+        GameState.saveToLoadFrom = fileName;
+        GameState.LoadGame();
+      }
+      
     }
   }
 }

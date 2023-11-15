@@ -1,9 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
+using MyGameLibrary;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -20,26 +17,24 @@ namespace Fall2020_CSC403_Project {
       FrmStartScreen startScreen = new FrmStartScreen();
       startScreen.ShowDialog();
 
-      //prevents the player from closing the window and starting the game anyway
-      if (GameState.startGame) {
+      /*
+      if (GameState.startGame)
+      {
+
         FrmLevel levelOne = new FrmLevel();
+        GameState.currentLevel = levelOne;
         levelOne.ShowDialog();
 
-        //levelOne = null;
-        //GC.Collect();
-        if (GameState.isLevelOneCompleted) {
+        if (GameState.isLevelOneCompleted)
+        {
           levelOne.Dispose();
           FrmLevel2 levelTwo = new FrmLevel2();
+          GameState.currentLevel = levelTwo;
           levelTwo.ShowDialog();
-
-          if (GameState.isLevelTwoCompleted) {
-            levelTwo.Dispose();
-            FrmLevel3 levelThree = new FrmLevel3();
-            levelThree.ShowDialog();
-          }
         }
       }
-      //GC.KeepAlive(gameState);
+      */
+
     }
   }
 }

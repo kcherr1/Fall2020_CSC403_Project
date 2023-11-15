@@ -32,5 +32,10 @@ namespace Fall2020_CSC403_Project {
       Environment.ExitCode = 1;
       Application.Exit();
     }
+
+    public void FrmWinLevelThree_Load(object sender, EventArgs e)
+    {
+
+    }
   }
 }
