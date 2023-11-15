@@ -383,7 +383,7 @@ namespace Fall2020_CSC403_Project.code
 
             Objectives["visited_leader_tombstone"] = false;
 
-            Game.Objectives["spoke_to_tm_after_learn_dragon"] = true;
+            Game.Objectives["spoke_to_tm_after_learn_dragon"] = false;
 
 
         }

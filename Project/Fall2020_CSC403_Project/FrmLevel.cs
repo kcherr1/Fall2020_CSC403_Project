@@ -955,6 +955,11 @@ namespace Fall2020_CSC403_Project
 
         private void JoinParty_Click(object sender, EventArgs e)
         {
+            if (this.NPC_Conversing.Name == "Hank")
+            {
+                Game.Objectives["learned_of_dragon2"] = true;
+            }
+
             if (!this.NPC_Conversing.CanJoinParty)
             {
                 this.NPC_Conversing.Dialog = this.NPC_Conversing.InviteRejection;
