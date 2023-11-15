@@ -46,6 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInventory.Designer.cs">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPlayerSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPlayerSelect.Designer.cs">
+      <DependentUpon>FrmPlayerSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSettings.Designer.cs">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,8 +87,20 @@
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmInventory.resx">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPlayerSelect.resx">
+      <DependentUpon>FrmPlayerSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSettings.resx">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,6 +156,45 @@
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Cog.png" />
+    <None Include="data\BackgroundForRPG3.png" />
+    <None Include="data\boss_attack.wav" />
+    <Content Include="data\common_armor.png" />
+    <Content Include="data\common_axe.png" />
+    <Content Include="data\common_dagger.png" />
+    <Content Include="data\common_hammer.png" />
+    <Content Include="data\common_sword.png" />
+    <None Include="data\InvButton.png" />
+    <None Include="data\Instrucitons.png" />
+    <None Include="data\Game_audio.wav" />
+    <None Include="data\Mainmenu_audio.wav" />
+    <None Include="data\punch_1.wav" />
+    <None Include="data\punch_breaking.wav" />
+    <Content Include="data\rare_dagger.png" />
+    <Content Include="data\greather_health_potion.png" />
+    <Content Include="data\lesser_health_potion.png" />
+    <Content Include="data\rare_armor.png" />
+    <Content Include="data\rare_sword.png" />
+    <None Include="data\settingscog.png" />
+    <None Include="data\Return.png" />
+    <None Include="data\speed_potion.png" />
+    <Content Include="data\tile_bricks.png" />
+    <Content Include="data\tile_cobblestone.png" />
+    <Content Include="data\tile_cobblestone_mossy.png" />
+    <Content Include="data\tile_dirt_path.png" />
+    <Content Include="data\tile_grass_dark.png" />
+    <Content Include="data\tile_grass_light.png" />
+    <Content Include="data\tile_sand.png" />
+    <Content Include="data\tile_stonebrick.png" />
+    <Content Include="data\tile_water_clear.png" />
+    <Content Include="data\tile_water_grassy.png" />
+    <None Include="data\Title.png" />
+    <Content Include="data\void.png" />
+    <Content Include="data\rogue.png" />
+    <Content Include="data\Swordsman.png" />
+    <Content Include="data\Tank.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

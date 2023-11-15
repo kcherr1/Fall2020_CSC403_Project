@@ -2,47 +2,126 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using MyGameLibrary;
+using System.Runtime.Remoting.Messaging;
+using static MyGameLibrary.Item;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
-namespace Fall2020_CSC403_Project.code {
-  public class Character {
-    private const int GO_INC = 3;
 
-    public Vector2 MoveSpeed { get; private set; }
-    public Vector2 LastPosition { get; private set; }
-    public Vector2 Position { get; private set; }
-    public Collider Collider { get; private set; }
+#pragma warning disable 1591 // use this to disable comment warnings
 
-    public Character(Vector2 initPos, Collider collider) {
-      Position = initPos;
-      Collider = collider;
-    }
+namespace Fall2020_CSC403_Project.code
+{
+    public class Character : Entity
+    {
 
-    public void Move() {
-      LastPosition = Position;
-      Position = new Vector2(Position.x + MoveSpeed.x, Position.y + MoveSpeed.y);
-      Collider.MovePosition((int)Position.x, (int)Position.y);
-    }
+        public event Action<int> AttackEvent;
 
-    public void MoveBack() {
-      Position = LastPosition;
-    }
+		public Inventory Inventory { get; set; }
 
-    public void GoLeft() {
-      MoveSpeed = new Vector2(-GO_INC, 0);
-    }
-    public void GoRight() {
-      MoveSpeed = new Vector2(+GO_INC, 0);
-    }
-    public void GoUp() {
-      MoveSpeed = new Vector2(0, -GO_INC);
-    }
-    public void GoDown() {
-      MoveSpeed = new Vector2(0, +GO_INC);
-    }
+		public Archetype archetype;
+		
+		public int defense;
 
-    public void ResetMoveSpeed() {
-      MoveSpeed = new Vector2(0, 0);
+		public int damage;
+
+		public int speed;
+
+		public Random dice;
+
+		public int Health { get; private set; }
+		public int MaxHealth { get; private set; }
+
+
+		public Character(string Name, PictureBox Pic, Archetype archetype) : base(Name, Pic)
+		{
+            this.archetype = archetype;
+			this.MaxHealth = archetype.baseMaxHealth;
+            this.damage = archetype.baseDamage;
+            this.defense = archetype.baseDefense;
+            this.speed = archetype.baseSpeed;
+            this.Health = MaxHealth;
+			this.Inventory = new Inventory();
+			this.dice = new Random();
+		}
+		
+		public void OnAttack(int defense)
+		{
+            int hit = this.dice.Next(1, 21);
+            Console.WriteLine(this.Name + " hit : " + hit);
+            if (hit == 20)
+			{
+				Console.WriteLine(this.Name + " criticaly hit!");
+				AttackEvent(this.damage * 2 + this.dice.Next(1, this.archetype.baseDamage + 1));
+				return;
+			}
+            else if (hit + this.archetype.hitMod >= defense)
+			{
+                Console.WriteLine(this.Name + " hits for: " + (hit+this.archetype.hitMod));
+                AttackEvent(this.damage + this.dice.Next(1, this.archetype.baseDamage + 1));
+            }
+		}
+
+        public void TakeDamage(int amount)
+		{
+			Health -= amount;
+		}
+
+		public void GiveHealth(int amount)
+        {
+            Health += amount;
+        }
+
+        public void RestoreHealth()
+        {
+            this.Health = this.MaxHealth;
+        }
+
+		public void UpdateStats()
+		{
+			if (this.Inventory.Armor != null)
+			{
+                this.defense = this.archetype.baseDefense + this.Inventory.Armor.Stat;
+
+            }
+			if (this.Inventory.Weapon != null)
+			{
+                this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat;
+
+            }
+        }
+
+		public void ApplyEffect(PotionTypes Potion, int stat)
+		{
+			switch (Potion)
+			{
+				case PotionTypes.Healing:
+					this.Health += stat;
+					if (this.Health > this.MaxHealth)
+					{
+						this.Health = this.MaxHealth;
+					}
+					break;
+				case PotionTypes.Strength:
+					this.damage += stat;
+					break;
+				case PotionTypes.Speed:
+					this.speed += stat;
+					break;
+
+				default:
+					break;
+			}
+		}
+
+		public void RemoveEffect()
+		{
+			this.damage = this.archetype.baseDamage;
+			this.speed = this.archetype.baseSpeed;
+		}
+        
     }
-  }
 }
