@@ -336,7 +336,8 @@ namespace Fall2020_CSC403_Project.code
 
             Objectives["spoke_to_tombstone"] = false;
             Objectives["spoke_to_bartholomew"] = false;
-            Objectives["spoke_to_"] = false;
+
+            Objectives["tombstone_ready"] = false;
             Objectives["tombstone_leading"] = false;
             Objectives["cave_unlocked"] = false;
 
@@ -346,7 +347,12 @@ namespace Fall2020_CSC403_Project.code
 
             Objectives["killed_dragon"] = false;
 
+            Objectives["tombstone_killed"] = false;
             Objectives["tombstone_revived"] = false;
+
+            Objectives["visited_leader_tombstone"] = false;
+
+            Game.Objectives["spoke_to_tm_after_bart"] = false;
 
 
         }
@@ -385,43 +391,52 @@ namespace Fall2020_CSC403_Project.code
         public static void CheckObjectives()
         {
 
-            if (!Objectives["spoke_to_bartholomew"] && !Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"])
+            if (Objectives["tombstone_ready"] && Game.Objectives["spoke_to_tm_after_bart"])
+            {
+                Game.Areas[0].npcs.Add(NPCs["Tombstone"]);
+
+                Objectives["cave_unlocked"] = true;
+                Objectives["tombstone_ready"] = false;
+
+            } else if (Objectives["tombstone_killed"] && !Objectives["tombstone_revived"])
+            {
+                NPCs["Tombstone"].Dialog = "Here lies, Tombstone";
+                NPCs["Tombstone"].Pic.Image = Resources.tombstone_tombstone;
+            } else if (Objectives["killed_dragon"] && !Objectives["tombstone_revived"] && !Objectives["visited_leader_tombstone"])
+            {
+                NPCs["Tombstone"].Dialog = "Why am I alive again? I was cursed to be resurrected as that dragon was alive.\nThanks for freeing me.\nHey, let's not mention all of the previous adventurer's I've brought here... thanks.";
+                NPCs["Tombstone"].Pic.Image = Resources.tombstone;
+            } else if (!Objectives["spoke_to_bartholomew"] && !Objectives["spoke_to_tombstone"])
             {
                 NPCs["Tombstone"].Dialog = "Hey, name's Tombstone.\nWhy am I not attacking you? I don't like those other lizards...\nbut don't go tell them that.\nJust run away from me and pretend I attacked you";
-            } else if (Objectives["spoke_to_bartholomew"] && !Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && !Objectives["cave_unlocked"])
+            }
+            else if (Objectives["spoke_to_bartholomew"] && !Objectives["spoke_to_tombstone"])
             {
                 NPCs["Tombstone"].Dialog = "Hey, name's Tombstone.\nWhy am I not attacking you? I don't like those other lizards...\nbut don't go tell them that.\nHey! I know where that Dragon is... why don't I show you the way? Meet you at Malek's Mountain";
-                Objectives["tombstone_leading"] = true;
-
-            } else if (!Objectives["spoke_to_bartholomew"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && !Objectives["tombstone_leading"])
+                Objectives["tombstone_ready"] = true;
+            }
+            else if (!Objectives["spoke_to_bartholomew"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && !Objectives["tombstone_ready"])
             {
                 NPCs["Tombstone"].Dialog = "Hey there again, back for more?\nHa, I'll let you go again this time";
 
-            } else if (Objectives["spoke_to_bartholomew"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && !Objectives["cave_unlocked"] && !Objectives["tombstone_leading"])
+            } else if (Game.CurrentArea.AreaName == "Malek's Mountain" && Objectives["cave_unlocked"])
             {
-                NPCs["Tombstone"].Dialog = "Hey, I know where that Dragon is ... why don't I show you the way? Meet you at Malek's Mountain";
-                Objectives["tombstone_leading"] = true;
 
-            } else if (Objectives["tombstone_leading"])
-            {
-                Console.WriteLine("here");
-                Game.Areas[0].npcs.Add(NPCs["Tombstone"]);
                 Game.Areas[1].npcs.Remove(NPCs["Tombstone"]);
 
-                Objectives["tombstone_leading"] = false;
-                Objectives["cave_unlocked"] = true;
-
-            } else if (Objectives["cave_unlocked"])
-            {
                 Game.Areas[0].TravelSigns[Direction.Left].Pic.Image = Resources.cave_entrance_open;
                 Game.Areas[0].TravelSigns[Direction.Left].Collider.Enable();
                 NPCs["Tombstone"].Dialog = "Hey, I moved that big stone in front of the cave for you, it's right over there";
 
-            } else if (Objectives["killed_dragon"] && Game.CurrentArea.AreaName == "Malek's Lair" && !Objectives["tombstone_revived"]) 
+            } else if (Objectives["spoke_to_bartholomew"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && Game.CurrentArea.AreaName != "Malek's Lair")
             {
-                NPCs["Tombstone"].Dialog = "Hey, I'm very sorry about that. How am I alive? I was cursed to never die as long as that Dragon was alive. Thank you for freeing me...\nCan we agree not to mention all the adventurers I've brought here before you? Thanks";
-                Objectives["tombstone_revived"] = true;
-            } else  if (Objectives["killed_dragon"] && Objectives["tombstone_revived"])
+                NPCs["Tombstone"].Dialog = "Hey, I know where that Dragon is ... why don't I show you the way? Meet you at Malek's Mountain";
+                Objectives["tombstone_ready"] = true;
+
+            } else if (!Objectives["killed_dragon"] && Game.CurrentArea.AreaName == "Malek's Lair" && !Objectives["tombstone_killed"]) 
+            {
+                NPCs["Tombstone"].Dialog = "I'm sorry I have to do this to you pal, but a lizard's gotta pay the bills.";
+            } else if (Objectives["killed_dragon"] && Objectives["tombstone_revived"] && Objectives["visited_leader_tombstone"])
             {
                 NPCs["Tombstone"].Dialog = "I am tombstone, newly declared owner of this cave and its gold... don't worry friend. I won't forget you.";
             } else

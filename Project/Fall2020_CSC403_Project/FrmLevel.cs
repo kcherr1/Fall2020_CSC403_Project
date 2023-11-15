@@ -9,6 +9,8 @@ using System.Media;
 using System.Text.Json;
 using System.IO;
 using System.Drawing.Drawing2D;
+using System.Threading;
+using System.Timers;
 
 namespace Fall2020_CSC403_Project
 {
@@ -53,6 +55,7 @@ namespace Fall2020_CSC403_Project
         public Label converseText;
         public Label converseNPCName;
         public Button JoinParty;
+
 
 
         public FrmLevel(Form MainMenu)
@@ -518,16 +521,34 @@ namespace Fall2020_CSC403_Project
                 if (this.NPC_Conversing.Name == "Tombstone")
                 {
                     Game.Objectives["spoke_to_tombstone"] = true;
+                    if (Game.Objectives["spoke_to_bartholomew"])
+                    {
+                        Game.Objectives["spoke_to_tm_after_bart"] = true;
+                    }
                 }
+
                 if (this.NPC_Conversing.Name == "Bartholomew")
                 {
                     Game.Objectives["spoke_to_bartholomew"] = true;
                 }
+ 
 
-            } else
+
+            }
+            else
             {
-                this.conversePanel.Hide();
                 Game.CheckObjectives();
+                this.conversePanel.Hide();
+
+                if (!Game.Objectives["killed_dragon"] && !Game.Objectives["tombstone_killed"] && Game.CurrentArea.AreaName == "Malek's Lair")
+                {
+
+                    Enemy Tombstone = new Enemy(Name = "Tombstone", MakePictureBox(Resources.tombstone, Game.NPCs["Tombstone"].Pic.Location, Game.NPCs["Tombstone"].Pic.Size), new Tombstone());
+                    Fight(Tombstone);
+                                        
+                }
+
+
             }
 
 
@@ -686,6 +707,13 @@ namespace Fall2020_CSC403_Project
 
         public void RemoveEnemy(Enemy enemy)
         {
+            if (enemy.Name == "Tombstone")
+            {
+                Game.Objectives["tombstone_killed"] = true;
+                Game.CheckObjectives();
+
+            }
+
             Controls.Remove(enemy.Pic);
             Game.CurrentArea.Enemies.Remove(enemy);
             score += 100;
@@ -1029,8 +1057,20 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.TravelSigns[Direction.Right].Collider.Disable();
 
 
+            if (!Game.Objectives["tombstone_killed"])
+            {
+
+                Game.Areas[0].npcs.Remove(Game.NPCs["Tombstone"]);
+                Game.NPCs["Tombstone"].Dialog = "I'm sorry I have to do this to you pal, but a lizard's gotta pay the bills.";
+
+
+                Game.CurrentArea.AddNPC(Game.NPCs["Tombstone"]);
+                Game.NPCs["Tombstone"].SetEntityPosition(Game.player.Position);
+
+            }
 
         }
+
 
         private void Area8()
         {

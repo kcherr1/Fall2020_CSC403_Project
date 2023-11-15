@@ -163,9 +163,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\tombstone.png" />
+    <None Include="Resources\Transparency.png" />
     <None Include="data\travel_sign.png" />
     <None Include="data\house_L.png" />
     <None Include="data\house_long.png" />

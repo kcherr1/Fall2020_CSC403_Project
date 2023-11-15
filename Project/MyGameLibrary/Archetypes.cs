@@ -160,6 +160,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 3;
             baseSpeed = 3;
             hitMod = 3;
+            opener = "I have to do this";
         }
 
         public void specialMove(Character target) { }

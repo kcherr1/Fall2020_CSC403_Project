@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project.code
     {
 
         public string Dialog;
+        public string InviteRejection;
 
         public bool CanJoinParty;
 
@@ -19,6 +20,7 @@ namespace Fall2020_CSC403_Project.code
         {
             this.CanJoinParty = true;
             this.Dialog = "";
+            this.InviteRejection = "";
         }
 
 
