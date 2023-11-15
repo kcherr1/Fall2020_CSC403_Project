@@ -82,6 +82,12 @@
     <Compile Include="FrmMainMenu.Designer.cs">
       <DependentUpon>FrmMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPause.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPause.Designer.cs">
+      <DependentUpon>FrmPause.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmWinScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     <EmbeddedResource Include="FrmMainMenu.resx">
       <DependentUpon>FrmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPause.resx">
+      <DependentUpon>FrmPause.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmWinScreen.resx">
       <DependentUpon>FrmWinScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +120,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="data\pausepic" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -181,6 +191,7 @@
     <None Include="data\fire.png" />
     <None Include="data\battleback.jpg" />
     <None Include="data\gameEndScreen.jpg" />
+    <None Include="data\pausepic.jpg" />
     <Content Include="level_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
