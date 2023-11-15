@@ -628,7 +628,7 @@ namespace Fall2020_CSC403_Project {
 
     //private System.Windows.Forms.PictureBox picItem;
     private ItemFactory _factory;
-    private System.Windows.Forms.PictureBox picPlayer;
+    public System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;

@@ -10,7 +10,7 @@ using System.Media;
 namespace Fall2020_CSC403_Project {
 
     public partial class FrmLevel : Form {
-        private Player player;
+        public Player player;
         public bool playerHasKey = false;
         public bool playerHasHeal = false;
 
