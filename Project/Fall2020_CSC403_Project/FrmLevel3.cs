@@ -1,4 +1,5 @@
 ﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using MyGameLibrary;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using System.Windows.Forms.VisualStyles;
 using System.Diagnostics;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel3 : Level {
@@ -101,6 +103,12 @@ namespace Fall2020_CSC403_Project {
       {
         LoadData(GameState.saveToLoadFrom);
       }
+    }
+
+      SoundPlayer simpleSound = new SoundPlayer(Resources.among_us_start);
+      simpleSound.Play();
+
+      InitializeSounds();
     }
 
     private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
@@ -275,6 +283,12 @@ namespace Fall2020_CSC403_Project {
       }
 
       GameState.saveToLoadFrom = null;*/
+    }
+
+    private void InitializeSounds()
+    {
+      //walk_grass = new SoundPlayer(Resources.walk_grass);
+      //walk_grass.Load();
     }
   }
 }

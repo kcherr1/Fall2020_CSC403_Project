@@ -17,10 +17,11 @@ namespace Fall2020_CSC403_Project
     public partial class FrmWinLevelTwo : Form
     {
         public static FrmWinLevelTwo instance = null;
+        SoundPlayer boss_win;
         public FrmWinLevelTwo()
         {
             InitializeComponent();
-            SoundPlayer boss_win = new SoundPlayer(Resources.boss_win);
+            boss_win = new SoundPlayer(Resources.boss_win);
             boss_win.Play();
     }
 
@@ -41,6 +42,7 @@ namespace Fall2020_CSC403_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            boss_win.Stop();
             this.Close();
         }
 
