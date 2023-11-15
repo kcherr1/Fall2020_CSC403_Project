@@ -28,6 +28,7 @@ namespace Fall2020_CSC403_Project {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
+            this.developerNames = new System.Windows.Forms.Label();
             this.lblPlayerHealthMap = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
@@ -114,6 +115,18 @@ namespace Fall2020_CSC403_Project {
             this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
             this.lblInGameTime.TabIndex = 2;
             this.lblInGameTime.Text = "label1";
+            //
+            // developerNames
+            //
+            this.developerNames.AutoSize = true;
+            this.developerNames.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.developerNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.developerNames.ForeColor = System.Drawing.Color.White;
+            this.developerNames.Location = new System.Drawing.Point(1500, 1500); // 100, 200
+            this.developerNames.Name = "developerNames";
+            this.developerNames.Size = new System.Drawing.Size(50, 30);
+            this.developerNames.TabIndex = 2;
+            this.developerNames.Text = "Welcome to the Secret Room! The Developers: Garret Lee, Olga Bienzobas, Aidan Weinreber, David Olivier, Jack Schulzer";
             // 
             // lblPlayerHealthMap, Displays player health on the overworld
             // 
@@ -142,7 +155,7 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyCheeto.Location = new System.Drawing.Point(838, 540);
-            this.picEnemyCheeto.Name = "picEnemyCheeto";
+            this.picEnemyCheeto.Name = "Cheeto Mauler";
             this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
             this.picEnemyCheeto.TabIndex = 5;
             this.picEnemyCheeto.TabStop = false;
@@ -154,7 +167,7 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyGRIMACE.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.G_R_I_M_A_C_E_;
             this.picEnemyGRIMACE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyGRIMACE.Location = new System.Drawing.Point(0, 0);
-            this.picEnemyGRIMACE.Name = "picEnemyCheeto";
+            this.picEnemyGRIMACE.Name = "The Mighty Grimace";
             this.picEnemyGRIMACE.Size = new System.Drawing.Size(63, 96);
             this.picEnemyGRIMACE.TabIndex = 12;
             this.picEnemyGRIMACE.TabStop = false;
@@ -163,10 +176,10 @@ namespace Fall2020_CSC403_Project {
             // picEnemyRaisin
             // 
             this.picEnemyRaisin.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyRaisin.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut_end;
+            this.picEnemyRaisin.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.True_Raisin_Pain;
             this.picEnemyRaisin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyRaisin.Location = new System.Drawing.Point(0, 0);
-            this.picEnemyRaisin.Name = "picEnemyRaisin";
+            this.picEnemyRaisin.Name = "The Raisins of Pain";
             this.picEnemyRaisin.Size = new System.Drawing.Size(63, 96);
             this.picEnemyRaisin.TabIndex = 13;
             this.picEnemyRaisin.TabStop = false;
@@ -178,7 +191,7 @@ namespace Fall2020_CSC403_Project {
             this.picBossPrimordialKoolaid.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.The_Primoridal_Juice;
             this.picBossPrimordialKoolaid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossPrimordialKoolaid.Location = new System.Drawing.Point(0, 0);
-            this.picBossPrimordialKoolaid.Name = "picBossPrimorialKoolaid";
+            this.picBossPrimordialKoolaid.Name = "The Primordial Koolaid";
             this.picBossPrimordialKoolaid.Size = new System.Drawing.Size(193, 194);
             this.picBossPrimordialKoolaid.TabIndex = 14;
             this.picBossPrimordialKoolaid.TabStop = false;
@@ -191,7 +204,7 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
             this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyPoisonPacket.Location = new System.Drawing.Point(110, 98);
-            this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
+            this.picEnemyPoisonPacket.Name = "Koolaid Jones";
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
             this.picEnemyPoisonPacket.TabIndex = 4;
             this.picEnemyPoisonPacket.TabStop = false;
@@ -213,7 +226,7 @@ namespace Fall2020_CSC403_Project {
             this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossKoolAid.Location = new System.Drawing.Point(900, 74);
-            this.picBossKoolAid.Name = "picBossKoolAid";
+            this.picBossKoolAid.Name = "The One and Only Koolaid Man";
             this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
             this.picBossKoolAid.TabIndex = 1;
             this.picBossKoolAid.TabStop = false;
@@ -519,6 +532,7 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.picWall8);
             this.Controls.Add(this.picWall7);
             this.Controls.Add(this.lblInGameTime);
+            this.Controls.Add(this.developerNames);
             this.Controls.Add(this.lblPlayerHealthMap);
             this.Controls.Add(this.picWall1);
             this.Controls.Add(this.picWall0);
@@ -603,6 +617,7 @@ namespace Fall2020_CSC403_Project {
     public System.Windows.Forms.PictureBox picPlayer;
         public System.Windows.Forms.PictureBox picBossKoolAid;
         public System.Windows.Forms.Label lblInGameTime;
+        public System.Windows.Forms.Label developerNames;
         public System.Windows.Forms.Timer tmrUpdateInGameTime;
         public System.Windows.Forms.Timer tmrPlayerMove;
         public System.Windows.Forms.PictureBox picWall3;

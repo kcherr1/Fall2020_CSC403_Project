@@ -82,6 +82,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap battleback {
+            get {
+                object obj = ResourceManager.GetObject("battleback", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deadenemy_poisonpacket_fw {
             get {
                 object obj = ResourceManager.GetObject("deadenemy_poisonpacket_fw", resourceCulture);
@@ -147,6 +157,16 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fire {
+            get {
+                object obj = ResourceManager.GetObject("fire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream flee {
@@ -161,6 +181,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap G_R_I_M_A_C_E_ {
             get {
                 object obj = ResourceManager.GetObject("G_R_I_M_A_C_E_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gameEndScreen {
+            get {
+                object obj = ResourceManager.GetObject("gameEndScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,9 +216,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fire {
+        internal static System.Drawing.Bitmap pausepic {
             get {
-                object obj = ResourceManager.GetObject("fire", resourceCulture);
+                object obj = ResourceManager.GetObject("pausepic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +256,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap portal {
+            get {
+                object obj = ResourceManager.GetObject("portal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap The_Primoridal_Juice {
             get {
                 object obj = ResourceManager.GetObject("The_Primoridal_Juice", resourceCulture);
@@ -240,11 +280,15 @@ namespace Fall2020_CSC403_Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("True_Raisin_Pain", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-                }
             }
-        internal static System.Drawing.Bitmap portal {
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap versus {
             get {
-                object obj = ResourceManager.GetObject("portal", resourceCulture);
+                object obj = ResourceManager.GetObject("versus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
