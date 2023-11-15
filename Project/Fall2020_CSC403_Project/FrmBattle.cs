@@ -65,9 +65,9 @@ namespace Fall2020_CSC403_Project {
 
         public void SetupForBossBattle()
         {
-            picBossBattle.Location = Point.Empty;
-            picBossBattle.Size = ClientSize;
-            picBossBattle.Visible = true;
+            //picBossBattle.Location = Point.Empty;
+            //picBossBattle.Size = ClientSize;
+            //picBossBattle.Visible = true;
             //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
             //simpleSound.Play();
             battleTheme.PlayLooping();
