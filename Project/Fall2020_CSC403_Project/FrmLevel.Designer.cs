@@ -340,6 +340,8 @@ namespace Fall2020_CSC403_Project {
       this.Controls.Add(this.weapon1);
       this.DoubleBuffered = true;
       this.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+      this.MaximumSize = new System.Drawing.Size(1215, 765);
+      this.MinimumSize = new System.Drawing.Size(1215, 765);
       this.Name = "FrmLevel";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Explore";

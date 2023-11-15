@@ -24,6 +24,7 @@ namespace Fall2020_CSC403_Project {
     private Character[] walls;
     private Character[] hedges;
     private Character[] obstacles;
+    private Character portal;
     private FrmBattle frmBattle;
     private DateTime timeStart;
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
@@ -58,9 +59,9 @@ namespace Fall2020_CSC403_Project {
       this.player.MoveTo(119, 510);
       this.player.ResetMoveSpeed();
 
-      const int WALL_COUNT = 46;
-      const int HEDGE_COUNT = 23;
-      const int OBSTACLE_COUNT = 16;
+      const int WALL_COUNT = 4;
+      const int HEDGE_COUNT = 4;
+      const int OBSTACLE_COUNT = 19;
       const int PADDING = 0;
       goose = new Enemy(
       base.CreatePosition(picGoose),
@@ -113,6 +114,7 @@ namespace Fall2020_CSC403_Project {
         PictureBox pic = Controls.Find("hedge" + h.ToString(), true)[0] as PictureBox;
         hedges[h - 1] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
+      portal = new Character(CreatePosition(picPortal), CreateCollider(picPortal, PADDING));
       Game.player = GameState.player;
 
       SoundPlayer simpleSound = new SoundPlayer(Resources.nether_portal_exit);
@@ -168,8 +170,8 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, alligator)) {
         Fight(alligator);
       }
-
-      if (HitAChar(player, bossSquirrels) && bossIsDefeated.bossIsDefeated) {
+      if (HitAChar(player, portal) && bossIsDefeated.bossIsDefeated) {
+        GameState.isLevelTwoCompleted = true;
         // this closes the current form and returns to main
         GameState.isLevelTwoCompleted = true;
         GameState.levelToLoad = 3;
@@ -287,8 +289,6 @@ namespace Fall2020_CSC403_Project {
           break;
       }
     }
-
-
 
     private void RemoveEnemy(Enemy enemy, PictureBox picEnemy) {
       enemy.RemoveCollider();

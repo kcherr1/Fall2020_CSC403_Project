@@ -32,15 +32,17 @@
       this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
       this.Heal = new System.Windows.Forms.Button();
       this.HealthPackCountLabel = new System.Windows.Forms.Label();
+      this.picBossBattleImposter = new System.Windows.Forms.PictureBox();
       this.pictureBox2 = new System.Windows.Forms.PictureBox();
       this.gunfireBlast = new System.Windows.Forms.PictureBox();
       this.weapon = new System.Windows.Forms.PictureBox();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.picBossBattle = new System.Windows.Forms.PictureBox();
+      this.picBossBattleSquirrels = new System.Windows.Forms.PictureBox();
       this.picEnemy = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
+      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleImposter)).BeginInit();
       this.PlayerLevel = new System.Windows.Forms.Label();
-      this.picBossBattleSquirrels = new System.Windows.Forms.PictureBox();
       this.FleeButton = new System.Windows.Forms.Button();
       this.textBox1 = new System.Windows.Forms.TextBox();
       this.textBox2 = new System.Windows.Forms.TextBox();
@@ -49,9 +51,9 @@
       ((System.ComponentModel.ISupportInitialize)(this.weapon)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleSquirrels)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleSquirrels)).BeginInit();
       this.SuspendLayout();
       // 
       // btnAttack
@@ -138,6 +140,19 @@
       this.HealthPackCountLabel.TabIndex = 10;
       this.HealthPackCountLabel.Text = "3";
       // 
+      // picBossBattleImposter
+      // 
+      this.picBossBattleImposter.BackColor = System.Drawing.Color.Maroon;
+      this.picBossBattleImposter.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen_imposter;
+      this.picBossBattleImposter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picBossBattleImposter.Location = new System.Drawing.Point(1040, 694);
+      this.picBossBattleImposter.Margin = new System.Windows.Forms.Padding(4);
+      this.picBossBattleImposter.Name = "picBossBattleImposter";
+      this.picBossBattleImposter.Size = new System.Drawing.Size(40, 34);
+      this.picBossBattleImposter.TabIndex = 14;
+      this.picBossBattleImposter.TabStop = false;
+      this.picBossBattleImposter.Visible = false;
+      // 
       // pictureBox2
       // 
       this.pictureBox2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen_squirrels;
@@ -198,6 +213,18 @@
       this.picBossBattle.TabIndex = 7;
       this.picBossBattle.TabStop = false;
       this.picBossBattle.Visible = false;
+      // 
+      // picBossBattleSquirrels
+      // 
+      this.picBossBattleSquirrels.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen_squirrels;
+      this.picBossBattleSquirrels.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picBossBattleSquirrels.Location = new System.Drawing.Point(1170, 866);
+      this.picBossBattleSquirrels.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+      this.picBossBattleSquirrels.Name = "picBossBattleSquirrels";
+      this.picBossBattleSquirrels.Size = new System.Drawing.Size(45, 43);
+      this.picBossBattleSquirrels.TabIndex = 7;
+      this.picBossBattleSquirrels.TabStop = false;
+      this.picBossBattleSquirrels.Visible = false;
       // 
       // picEnemy
       // 
@@ -300,6 +327,8 @@
       this.Controls.Add(this.textBox1);
       this.Controls.Add(this.FleeButton);
       this.Controls.Add(this.PlayerLevel);
+      this.ClientSize = new System.Drawing.Size(1051, 724);
+      this.Controls.Add(this.picBossBattleImposter);
       this.Controls.Add(this.pictureBox2);
       this.Controls.Add(this.gunfireBlast);
       this.Controls.Add(this.weapon);
@@ -320,14 +349,15 @@
       this.Name = "FrmBattle";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Fight!";
+      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleImposter)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.gunfireBlast)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.weapon)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleSquirrels)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picBossBattleSquirrels)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -355,5 +385,6 @@
     private System.Windows.Forms.Button FleeButton;
     private System.Windows.Forms.TextBox textBox1;
     private System.Windows.Forms.TextBox textBox2;
+    private System.Windows.Forms.PictureBox picBossBattleImposter;
   }
 }

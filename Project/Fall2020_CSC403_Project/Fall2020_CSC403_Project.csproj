@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmWinLevelThree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWinLevelThree.Designer.cs">
+      <DependentUpon>FrmWinLevelThree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLevel3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevel3.Designer.cs">
+      <DependentUpon>FrmLevel3.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStartScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,8 +106,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmLevel3.resx">
+      <DependentUpon>FrmLevel3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPlayerDeath.resx">
       <DependentUpon>FrmPlayerDeath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWinLevelThree.resx">
+      <DependentUpon>FrmWinLevelThree.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStartScreen.resx">
       <DependentUpon>FrmStartScreen.cs</DependentUpon>
@@ -168,6 +186,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\ammo.png" />
+    <None Include="Resources\ejected.bmp" />
+    <None Include="data\white.png" />
     <None Include="Resources\boss_win.wav" />
     <None Include="Resources\player_death.wav" />
     <None Include="Resources\fail_sound.wav" />
@@ -181,6 +201,10 @@
     <None Include="Resources\among_us_start.wav" />
     <None Include="data\battle_screen_squirrels.png" />
     <None Include="data\angy_squirrels.png" />
+    <None Include="data\cafeteria_whole.png" />
+    <None Include="data\blue.png" />
+    <None Include="data\battle_screen_imposter.png" />
+    <None Include="data\ejected.gif" />
     <Content Include="data\final_battle.wav" />
     <Content Include="data\gunfireBlast.png" />
     <Content Include="data\health_pack.png" />
@@ -191,6 +215,14 @@
     <None Include="data\mr_peanut_without_rizz.jpg" />
     <Content Include="data\rpg.png" />
     <Content Include="data\tank.png" />
+    <None Include="data\player3.png" />
+    <None Include="data\red_boss.png" />
+    <None Include="data\transparent.png" />
+    <None Include="data\red_dead.png" />
+    <None Include="data\hedge2.jpeg" />
+    <None Include="data\hedge4.png" />
+    <None Include="data\hedge5.png" />
+    <None Include="data\spaceship.png" />
     <Content Include="data\weapon1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +294,25 @@
   <ItemGroup>
     <Content Include="data\alligator.png" />
     <Content Include="data\squirrel3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

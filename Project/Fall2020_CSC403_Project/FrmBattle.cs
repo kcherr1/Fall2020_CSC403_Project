@@ -47,6 +47,9 @@ namespace Fall2020_CSC403_Project {
           weapon.Image = Resources.rpg;
         }
       }
+      if(this.level == 3) {
+        picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player3;
+      }
 
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
@@ -77,6 +80,10 @@ namespace Fall2020_CSC403_Project {
         case 2:
           // rough rodents
           bossBattle = picBossBattleSquirrels;
+          break;
+        case 3:
+          // beeg amongus
+          bossBattle = picBossBattleImposter;
           break;
       }
 
@@ -162,6 +169,9 @@ namespace Fall2020_CSC403_Project {
               case 2:
                 win_instance = new FrmWinLevelTwo();
                 break;
+              case 3:
+                win_instance = new FrmWinLevelThree();
+                break;
               default:
                 win_instance = new FrmWinLevel();
                 break;
@@ -201,6 +211,7 @@ namespace Fall2020_CSC403_Project {
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       picBossBattleSquirrels.Visible = false;
+      picBossBattleImposter.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
 
