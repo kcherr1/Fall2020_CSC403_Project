@@ -63,6 +63,14 @@ namespace Fall2020_CSC403_Project {
       obstacle1.Img = picObstacle1.BackgroundImage;
       obstacle2.Img = picObstacle2.BackgroundImage;
 
+     enemyGRIMACE.Name = picEnemyGRIMACE.Name;
+     enemyRaisin.Name = picEnemyRaisin.Name;
+     bossPrimordialKoolaid.Name = picBossPrimordialKoolaid.Name;
+     enemyPoisonPacket.Name = picEnemyPoisonPacket.Name;
+     enemyCheeto.Name = picEnemyCheeto.Name;
+     bossKoolaid.Name = picBossKoolAid.Name;
+
+
      enemyGRIMACE.Color = Color.Purple;
      enemyRaisin.Color = Color.Blue;
      bossPrimordialKoolaid.Color = Color.Black;
@@ -478,6 +486,10 @@ namespace Fall2020_CSC403_Project {
 
                 case Keys.Down:
                     player.GoDown();
+                    break;
+
+                case Keys.Escape:
+                    new FrmPause().Show();
                     break;
 
                 default:
