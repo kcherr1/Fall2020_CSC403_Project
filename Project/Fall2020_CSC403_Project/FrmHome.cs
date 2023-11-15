@@ -35,7 +35,7 @@ namespace Fall2020_CSC403_Project
             images.Add(Properties.Resources.player); // Load images from resources
             images.Add(Properties.Resources.enemy_koolaid);
             images.Add(Properties.Resources.enemy_cheetos);
-            images.Add(Properties.Resources.enemy_poisonpacket);
+            images.Add(Properties.Resources.newpic);
 
             // Add more images as needed
 

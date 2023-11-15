@@ -29,10 +29,11 @@ namespace Fall2020_CSC403_Project
         private void LoadCharacterImages()
         {
             // Load your character images here
-            characterImages.Add(Properties.Resources.enemy_poisonpacket);
-            characterImages.Add(Properties.Resources.enemyFightBG);
-            characterImages.Add(Properties.Resources.enemy_koolaid2);
-            characterImages.Add(Properties.Resources.enemy_koolaid);
+            characterImages.Add(Properties.Resources.player);
+            characterImages.Add(Properties.Resources.img2);
+            characterImages.Add(Properties.Resources.img1);
+            characterImages.Add(Properties.Resources.img31);
+            characterImages.Add(Properties.Resources.img41);
             // Add more images as needed
             ChangeImage(currentImageIndex);
         }
@@ -90,19 +91,27 @@ namespace Fall2020_CSC403_Project
             SelectedCharacter = GetCharacterFromIndex(currentImageIndex);
             FrmHome.gameplayForm = new FrmLevel(); // Pass the selected character
 
+            FrmBattle.currentImageIndex = currentImageIndex;
             if (currentImageIndex == 0)
             {
-                FrmHome.gameplayForm.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.ramboPeanut;
+                FrmHome.gameplayForm.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             }
             else if (currentImageIndex == 1)
             {
-                FrmHome.gameplayForm.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.iamchatgpt;
+                FrmHome.gameplayForm.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.img2;
             }
             else if (currentImageIndex == 2) 
             {
-                FrmHome.gameplayForm.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.iamchatgpt2;
+                FrmHome.gameplayForm.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.img1;
             }
-            
+            else if (currentImageIndex == 3)
+            {
+                FrmHome.gameplayForm.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.img31;
+            }
+            else if (currentImageIndex == 4)
+            {
+                FrmHome.gameplayForm.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.img41;
+            }
             FrmHome.gameplayForm.Show();
             this.Close();
         }

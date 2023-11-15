@@ -229,6 +229,7 @@
     <None Include="data\enemyFightBG.png" />
     <None Include="data\healing_potion.png" />
     <None Include="data\health_box.png" />
+    <None Include="data\EKA.png" />
     <Content Include="data\iamchatgpt.png" />
     <None Include="data\ramboPeanut.png" />
     <None Include="data\Psychedelic.png" />
@@ -240,6 +241,14 @@
     <Content Include="data\flee.wav" />
     <Content Include="data\home.jpeg" />
     <Content Include="data\iamchatgpt2.png" />
+    <None Include="data\img1.png" />
+    <None Include="data\img4.png" />
+    <None Include="data\img2.png" />
+    <None Include="data\img3.png" />
+    <None Include="data\img211.png" />
+    <None Include="data\imgN1.png" />
+    <None Include="data\img31.png" />
+    <None Include="data\newplayer.png" />
     <Content Include="data\peanut.png" />
     <Content Include="data\success.wav" />
     <Content Include="data\wall2.jpg" />
