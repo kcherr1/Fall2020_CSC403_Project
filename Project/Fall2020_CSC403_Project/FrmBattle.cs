@@ -36,31 +36,10 @@ namespace Fall2020_CSC403_Project {
 
 
     }
-    
-    public void Setup() {
-      // update for this enemy
-      battleTheme.PlayLooping();
-      picEnemy.BackgroundImage = enemy.Img;
-      picEnemy.Refresh();
-      foeName = enemy.Name;
-      BackColor = enemy.Color;
-      picBossBattle.Visible = false;
-      enemy.setEnemyClass();
-      enemy.setClassHealth();
-
-      // Observer pattern
-      enemy.AttackEvent += PlayerDamage;
-      enemy.HealEvent += EnemyHeal;
-      player.AttackEvent += EnemyDamage;
-      player.HealEvent += PlayerHeal;
-
-      // show health
-      UpdateHealthBars();
-    }
 
 
         public void Setup()
-        {
+        {   
             // update for this enemy
             battleTheme.PlayLooping();
             picEnemy.BackgroundImage = enemy.Img;
@@ -133,20 +112,19 @@ namespace Fall2020_CSC403_Project {
 
         private void btnAttack_Click(object sender, EventArgs e)
         {
-      int attack = rnd.Next(-6, -3);
-      string log = string.Format("You raise your ancestral staff of nut and thwap the foe dealing {0} damage", -(attack * 2));
-      battleLog.AppendText(log);
-      battleLog.AppendText(newLine);
-      player.OnAttack(attack);
-      battleTheme.Stop();
-      attackSound.PlaySync();
+            int attack = rnd.Next(-6, -3);
+            string log = string.Format("You raise your ancestral staff of nut and thwap the foe dealing {0} damage", -(attack * 2));
+            battleLog.AppendText(log);
+            battleLog.AppendText(newLine);
+            player.OnAttack(attack);
+            battleTheme.Stop();
+            attackSound.PlaySync();
             if (enemy.Health > 0)
             {
                 enemy.determineAttack(0);
-               log = (foeName + enemy.determineAttack(0));
-               battleLog.AppendText(log);
-               battleLog.AppendText(newLine);
-               enemy_attack.PlaySync();
+                log = (foeName + enemy.determineAttack(0));
+                battleLog.AppendText(log);
+                battleLog.AppendText(newLine);
                 PlayerXp(10);
             }
 
@@ -156,14 +134,16 @@ namespace Fall2020_CSC403_Project {
             {
                 instance = null;
                 Close();
-                {
-                    instance = null;
-                    PlayerXp(20);
-                    lblXpMessage.Text = "HE'S DEAD! +20 XP";
-                    lblXpMessage.Visible = true;
+                PlayerXp(20);
+                lblXpMessage.Text = "HE'S DEAD! +20 XP";
+                lblXpMessage.Visible = true;
+            }
+            battleTheme.PlayLooping();
+
+        }
 
 
-    private void btnHeal_Click(object sender, EventArgs e)
+        private void btnHeal_Click(object sender, EventArgs e)
     {
         int heal = 0;
         if (player.Health <= 0 || enemy.Health <= 0)
@@ -180,7 +160,7 @@ namespace Fall2020_CSC403_Project {
                         Close();
                     };
                     closeTimer.Start();
-                }
+                
             }
             else if (player.Health <= 0)
             {
@@ -188,29 +168,29 @@ namespace Fall2020_CSC403_Project {
                 Close();
             }
 
-        }
+        
 
 
-                if ((player.Health + 8) > 50)
-                {
-                    heal = (50 - player.Health);
-                    string log = string.Format("You betray your nut family, devouring them for {0} health", (heal));
-                    battleLog.AppendText(log);
-                    battleLog.AppendText(newLine);
-                    battleTheme.Stop();
-                    healSound.PlaySync();
-                    player.OnHeal(heal);
-                }
-                else
-                {
-                    heal = 8;
-                    string log = string.Format("You betray your nut family, devouring them for {0} health", (heal));
-                    battleLog.AppendText(log);
-                    battleLog.AppendText(newLine);
-                    battleTheme.Stop();
-                    healSound.PlaySync();
-                    player.OnHeal(heal);
-                }
+            if ((player.Health + 8) > 50)
+            {
+                heal = (50 - player.Health);
+                string log = string.Format("You betray your nut family, devouring them for {0} health", (heal));
+                battleLog.AppendText(log);
+                battleLog.AppendText(newLine);
+                battleTheme.Stop();
+                healSound.PlaySync();
+                player.OnHeal(heal);
+            }
+            else
+            {
+                heal = 8;
+                string log = string.Format("You betray your nut family, devouring them for {0} health", (heal));
+                battleLog.AppendText(log);
+                battleLog.AppendText(newLine);
+                battleTheme.Stop();
+                healSound.PlaySync();
+                player.OnHeal(heal);
+            }
 
 
 
@@ -219,7 +199,6 @@ namespace Fall2020_CSC403_Project {
                     string log = (foeName + enemy.determineAttack(0));
                     battleLog.AppendText(log);
                     battleLog.AppendText(newLine);
-                    enemy_attack.PlaySync();
                 }
                 battleTheme.PlayLooping();
                 UpdateHealthBars();
@@ -245,7 +224,6 @@ namespace Fall2020_CSC403_Project {
                 log = (foeName + enemy.determineAttack(1));
                 battleLog.AppendText(log);
                 battleLog.AppendText(newLine);
-                enemy_attack.PlaySync();
                 dodgeSound.PlaySync();
                 battleTheme.PlayLooping();
                 UpdateHealthBars();
@@ -281,6 +259,7 @@ namespace Fall2020_CSC403_Project {
         private void PlayerXp(int amount)
         {
             player.AlterXp(amount);
+            btnAttack.Hide();
             lblPlayerXp.Text = "XP: " + player.Xp.ToString() + "/100";
             if (amount > 0)
             {
@@ -312,6 +291,7 @@ namespace Fall2020_CSC403_Project {
                 tmrXpMessage.Start();
 
             }
+            btnAttack.Show();
 
         }
         private void PlayerHeal(int amount)

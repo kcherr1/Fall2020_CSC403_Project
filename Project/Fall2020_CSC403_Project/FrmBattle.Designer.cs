@@ -227,6 +227,7 @@ namespace Fall2020_CSC403_Project {
             this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battleback;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
+            this.Controls.Add(this.battleLog);
             this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
@@ -242,7 +243,6 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.btnFlee);
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
-            this.Controls.Add(this.battleLog);
             this.DoubleBuffered = true;
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
