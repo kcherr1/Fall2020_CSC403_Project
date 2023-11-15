@@ -962,7 +962,7 @@ namespace Fall2020_CSC403_Project
         {
             if (!this.NPC_Conversing.CanJoinParty)
             {
-                this.NPC_Conversing.Dialog = "Sorry pal, I've no reason to come along with you right now.";
+                this.NPC_Conversing.Dialog = this.NPC_Conversing.InviteRejection;
                 Game.FontSizing(this.converseText);
                 return;
             }

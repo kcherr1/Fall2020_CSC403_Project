@@ -188,6 +188,7 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.tombstone, new Point(150, 150), new Size(75, 100)),
                 new Tombstone());
             NPCs["Tombstone"].CanJoinParty = false;
+            NPCs["Tombstone"].InviteRejection = "Woah there, pal, I'm not sure we're that tight yet.";
 
             NPCs["Gerald"] = new NPC(
                 "Gerald",
@@ -202,8 +203,7 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.bartholomew, new Point(300, 300), new Size(75, 100)),
                 new Guy());
             NPCs["Bartholomew"].CanJoinParty = false;
-
-            NPCs["Tombstone"].CanJoinParty = false;
+            NPCs["Bartholomew"].InviteRejection = "I definitely can't fight anyone, but I did hear of some good loot washed up on the beach from a sunken pirate ship";
 
             // Create Structures
             Structures["wall_bricks"] = new Structure(
