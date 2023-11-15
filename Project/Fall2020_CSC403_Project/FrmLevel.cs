@@ -21,7 +21,6 @@ namespace Fall2020_CSC403_Project {
         public static SoundPlayer levelMusic; // background music for the level
 
         private DateTime timeBegin;
-        public FrmBattle frmBattle;
         private Random random; // Random number generator for item system
         public IItem rpot; //rpot is always the handle regardless of the item called because its a random item, thus rpot
         private int keyHitCount = 0;
@@ -44,7 +43,6 @@ namespace Fall2020_CSC403_Project {
 
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            //bossChatgpt = new Enemy(CreatePosition(picBossChatgpt), CreateCollider(picBossChatgpt, PADDING));
             bossChatgpt = new Enemy(CreatePosition(picBossChatgpt), CreateCollider(picBossChatgpt, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -434,23 +432,27 @@ namespace Fall2020_CSC403_Project {
             AllSideEnemyDied(other);
             return you.Collider.Intersects(other.Collider);
         }
-
+        //public static FrmBattle frmBattle;
         public void Fight(Enemy enemy) {
             player.ResetMoveSpeed();
             player.MoveBack();
-            //frmBattle = FrmBattle.GetInstance(enemy, this);
-            frmBattle = FrmBattle.GetInstance(enemy);
+            FrmBattle.instance = FrmBattle.GetInstance(enemy);
             if (enemy.Name == "BossChatgpt") {
-                frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Psychedelic;
+                FrmBattle.instance.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Psychedelic;
+                //frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Psychedelic;
             }
             else {
-                frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemyFightBG;
+                FrmBattle.instance.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemyFightBG;
+                //frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemyFightBG;
             }
-            frmBattle.Show();
-      
+            FrmBattle.instance.Show();
+            //frmBattle.Show();
+
             if (enemy == bossChatgpt) {
-                frmBattle.SetupForBossBattle();
+                FrmBattle.instance.SetupForBossBattle();
+                //frmBattle.SetupForBossBattle();
             }
+
         }
 
 

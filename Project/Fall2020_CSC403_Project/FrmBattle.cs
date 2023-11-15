@@ -14,10 +14,7 @@ namespace Fall2020_CSC403_Project {
 
         public Enemy enemy;
         private Player player;
-        //private FrmLevel frmLevel;
-
-
-        //public FrmBattle(FrmLevel frmLevelFromLvl) {
+        
         public FrmBattle()
         {
             InitializeComponent();
@@ -29,45 +26,59 @@ namespace Fall2020_CSC403_Project {
 
         }
 
-        public void FormBattle_FormClosed(object sender, FormClosedEventArgs e)
+        private void FormBattle_Disposed(object sender, EventArgs e) 
+        {
+            this.Close();
+        }
+        //public void FormBattle_FormClosed(object sender, FormClosedEventArgs e)
+        private void FormBattle_FormClosed(object sender, FormClosedEventArgs e)
         {
 
-            try
+            // If the player's health reached 0 and the form closed, the player died
+            //  so exit the game.
+            if (player.Health <= 0)
             {
-                // If the player's health reached 0 and the form closed, the player died
-                //  so exit the game.
-                if (player.Health <= 0)
+                System.Windows.Forms.MessageBox.Show("Game Over");
+
+                //Application.Exit();
+            }
+
+
+            // If player/enemy health>0 and form closes, the user closed the window
+            // You cannot run from battle by closing it!
+            if (player.Health > 0) 
+            {
+                if (enemy.Health > 0) 
                 {
-                    System.Windows.Forms.MessageBox.Show("Game Over");
 
-                    Application.Exit();
-                }
-
-
-                // If player/enemy health>0 and form closes, the user closed the window
-                // You cannot run from battle by closing it!
-                if (player.Health > 0 && enemy.Health > 0)
-                {
-                    Application.Exit();
-                }
-
-                // If the battle closes normally , release the instance for future fights
-                //  so it does not lead to disposed exception.
-                if (enemy.Health <= 0)
-                {
-                    instance = null;
-                    //frmLevel.picPoisonPacket
                 }
             }
-            catch
+
+            if (player.Health > 0 && enemy.Health > 0)
             {
-                // enemy or player was likely null-ed
+                // When this.Close() gets called elsewhere, then this FormBattle_FormClosed event fires, then it calls this.Close() then causes an infinite loop back and forth.
+                // Thus, cannot close instance here unless you handle all closing here
+                //FrmBattle.instance.Close();
+
+                //instance = null;
+                //System.Windows.Forms.MessageBox.Show("flee?");
+                //Application.Exit();
+            }
+
+            // If the battle closes normally , release the instance for future fights
+            //  so it does not lead to disposed exception.
+            if (enemy.Health <= 0)
+            {
+                //instance = null;
+                //frmLevel.picPoisonPacket
             }
 
         }
-        public void Setup()
+
+            public void Setup()
         {
-            // update for this enemy
+            // These should be called and setup with every instance of the enemy in case we switch between enemies
+            // Update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
             BackColor = enemy.Color;
@@ -75,9 +86,11 @@ namespace Fall2020_CSC403_Project {
             label3.Visible = false;
 
             // Observer pattern
-            enemy.AttackEvent += PlayerDamage;
+            // This is the issue with flee. It should be called once ever for that enemy. Instead each time you flee and return,
+            //  it stacks on extra += PlayerDamage, EnemyDamage for heal and attacks, etc.
+            /*enemy.AttackEvent += PlayerDamage;
             enemy.HealEvent += EnemyDamage;
-            player.AttackEvent += EnemyDamage;
+            player.AttackEvent += EnemyDamage;*/
 
             // show health
             UpdateHealthBars();
@@ -109,13 +122,11 @@ namespace Fall2020_CSC403_Project {
         // and everytime the instance is called, the frmbattle map is setup.
         
         public static FrmBattle GetInstance(Enemy enemy)
-        //public static FrmBattle GetInstance(Enemy enemy, FrmLevel frmLevel)
         {
 
             if (instance == null)
             {
                 instance = new FrmBattle();
-                //instance = new FrmBattle(frmLevel);
                 instance.enemy = enemy;
                 instance.Setup();
             }
@@ -136,7 +147,8 @@ namespace Fall2020_CSC403_Project {
 
         private async void btnAttack_Click(object sender, EventArgs e)
         {
-            player.OnAttack(-6);
+            //player.OnAttack(-6);
+            enemy.AlterHealth(-6);
 
             if (enemy.Health > 0)
             {
@@ -149,18 +161,21 @@ namespace Fall2020_CSC403_Project {
                     var result = await cgpt.GetBossDecision(player.Health, enemy.Health, -4, -2, 3);
                     if (result.ToString() == "attack")
                     {
-                        enemy.OnAttack(-2);
+                        //enemy.OnAttack(-2);
+                        player.AlterHealth(-2);
                         label3.Text = $"You do 3 damage, and CGPT Attacks for 2 damage";
                     }
                     if (result.ToString() == "heal")
                     {
-                        enemy.OnHeal(4);
+                        //enemy.OnHeal(4);
+                        enemy.AlterHealth(4);
                         label3.Text = $"You do 3 damage, but CGPT Heals 4 health back!";
                     }
                 }
                 else // other enemies
                 {
-                    enemy.OnAttack(-2);
+                    //enemy.OnAttack(-2);
+                    player.AlterHealth(-2);
                     simpleSFX.PlaySync();
                 }
             }
@@ -275,7 +290,10 @@ namespace Fall2020_CSC403_Project {
         {
             SoundPlayer simpleSound = new SoundPlayer(Resources.flee);
             simpleSound.Play();
-            this.Hide();
+            FrmBattle.instance.Close();
+            //instance = null;
+            FrmBattle.instance = null;
+            //this.Hide();
     
         }
 
