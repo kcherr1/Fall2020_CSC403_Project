@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Diagnostics;
+using System.Collections;
+using System.IO;
 
 namespace Fall2020_CSC403_Project.code {
   public class Character {

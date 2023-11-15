@@ -100,15 +100,19 @@ namespace Fall2020_CSC403_Project
 
       Game.player = player;
 
+      //this is the list of things to save to a file; has to be
+      //done manually
       objectsToSave.Add(player);
       objectsToSave.Add(bossKoolaid);
       objectsToSave.Add(enemyCheeto);
       objectsToSave.Add(enemyPoisonPacket);
       objectsToSave.Add(ak);
 
+      //checks if you need to then load data for all of the characters
       if (GameState.saveToLoadFrom != null)
       {
         LoadData(GameState.saveToLoadFrom);
+        GameState.saveToLoadFrom = null;
       }
 
 
@@ -181,6 +185,7 @@ namespace Fall2020_CSC403_Project
       if (HitAChar(player, healthPack))
       {
         player.HealthPackCount++;
+        this.healthPackCount--;
         healthPack.RemoveCollider();
         healthPackLvl1.Visible = false;
       }
@@ -316,16 +321,30 @@ namespace Fall2020_CSC403_Project
 
     public override void LoadData(string fileName)
     {
+
+      //saves each character to a .csv file;
+      //each character implements a .Load()
       foreach (Character character in objectsToSave)
       {
         character.Load(fileName);
       }
 
-      if (player.WeaponEquiped == 0)
+      //this just makes sure that the weapon is removed from the level and that the
+      //appropriate weapon is equipped to the player
+      if (player.WeaponEquiped == 1)
       {
         player.WeaponStrength = ak.getStrength();
         player.WeaponEquiped = 1;
         weapon1.Visible = false;
+      }
+
+      //this removes the health pack from the level
+      this.healthPackCount = GameState.healthPackCountFromSave;
+      GameState.healthPackCountFromSave = -1;
+      if (healthPackCount < 1)
+      {
+        healthPack.RemoveCollider();
+        healthPackLvl1.Visible = false;
       }
 
       GameState.saveToLoadFrom = null;

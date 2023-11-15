@@ -48,7 +48,7 @@ namespace Fall2020_CSC403_Project.code {
         { "experience", experience },
         { "HealthPackCount", HealthPackCount },
         { "WeaponStrength", WeaponStrength },
-        { "WeaponEquipped", WeaponEquiped },
+        { "WeaponEquiped", WeaponEquiped },
         {"X", Position.x },
         {"Y", Position.y },
       };

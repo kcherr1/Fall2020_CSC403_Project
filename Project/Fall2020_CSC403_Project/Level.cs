@@ -7,7 +7,11 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public class Level : Form {
 
+    //this is to keep track of which level is being saved to a .csv file
     public int levelID;
+
+    //helps keep track of the level's health packs
+    public int healthPackCount = 1;
 
     public List<Character> objectsToSave = new List<Character>();
 

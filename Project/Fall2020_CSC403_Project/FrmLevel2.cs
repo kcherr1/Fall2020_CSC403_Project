@@ -318,6 +318,24 @@ namespace Fall2020_CSC403_Project {
         character.Load(fileName);
       }
 
+      //this just makes sure that the weapon is removed from the level and that the
+      //appropriate weapon is equipped to the player
+      if (player.WeaponEquiped == 2)
+      {
+        player.WeaponStrength = rpg.getStrength();
+        player.WeaponEquiped = 2;
+        rpgPic.Visible = false;
+      }
+
+      //this removes the health pack from the level
+      this.healthPackCount = GameState.healthPackCountFromSave;
+      GameState.healthPackCountFromSave = -1;
+      if (healthPackCount < 1)
+      {
+        healthPack.RemoveCollider();
+        healthPackLvl2.Visible = false;
+      }
+
       GameState.saveToLoadFrom = null;
     }
   }

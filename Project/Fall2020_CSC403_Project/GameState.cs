@@ -20,6 +20,7 @@ namespace Fall2020_CSC403_Project.code {
     public static Level currentLevel;
     public static int levelToLoad = 1;
     public static string saveToLoadFrom;
+    public static int healthPackCountFromSave = -1;
 
     public static Form startScreenReference;
 
@@ -53,6 +54,9 @@ namespace Fall2020_CSC403_Project.code {
       using (var writer = new StreamWriter(savePath))
       {
         var line = string.Format("{0},{1}", "level", levelNum);
+        writer.WriteLine(line);
+
+        line = string.Format("{0},{1}", "healthPackCount", currentLevel.healthPackCount);
         writer.WriteLine(line);
 
         line = string.Format("{0},{1}", "time", timeStart);//+totalPausedTime);
@@ -92,11 +96,10 @@ namespace Fall2020_CSC403_Project.code {
           levelToLoad = Convert.ToInt32(split_line[1]);
 
           split_line = lines[1].Split(',');
-          timeStart = Convert.ToDateTime(split_line[1]);
+          healthPackCountFromSave = Convert.ToInt32(split_line[1]);
 
-          /*
           split_line = lines[2].Split(',');
-          saveTime= Convert.ToDateTime(split_line[1]);*/
+          timeStart = Convert.ToDateTime(split_line[1]);
 
         }
 
