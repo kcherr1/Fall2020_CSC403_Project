@@ -29,15 +29,32 @@ namespace Fall2020_CSC403_Project {
     private BossDefeatedWrapper bossIsDefeated = new BossDefeatedWrapper(false);
 
     public FrmLevel3() : base() {
-      this.player = GameState.player;
-      this.player.MoveTo(20, 357); //10, 257
-      this.player.ResetMoveSpeed();
+
       InitializeComponent();
     }
 
     private void LoadLevel(object send, EventArgs e) {
 
       levelID = 3;
+
+      if (GameState.player == null)
+      {
+        player = new Player(
+        base.CreatePosition(picPlayer),
+        base.CreateCollider(picPlayer, 0)
+        );
+
+        new GameState(player);
+        timeStart = GameState.timeStart;
+      }
+
+      else
+      {
+        player = GameState.player;
+      }
+
+      this.player.MoveTo(20, 357); //10, 257
+      this.player.ResetMoveSpeed();
 
       const int WALL_COUNT = 7;
       const int OBSTACLE_COUNT = 5;
@@ -103,7 +120,7 @@ namespace Fall2020_CSC403_Project {
       {
         LoadData(GameState.saveToLoadFrom);
       }
-    }
+    
 
       SoundPlayer simpleSound = new SoundPlayer(Resources.among_us_start);
       simpleSound.Play();
