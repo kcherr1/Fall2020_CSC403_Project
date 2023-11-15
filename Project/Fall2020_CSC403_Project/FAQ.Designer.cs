@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
-            // FAQ
+            // FrmFAQ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -40,12 +42,14 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
-            this.Name = "FAQ";
+            this.Name = "FrmFAQ";
             this.Text = "FAQ";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
