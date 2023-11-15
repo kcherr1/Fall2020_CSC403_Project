@@ -85,7 +85,7 @@ namespace Fall2020_CSC403_Project {
       this.player.ChangeCollider(base.CreateCollider(picPlayer, 0));
       Game.player = GameState.player;
 
-      SoundPlayer simpleSound = new SoundPlayer(Resources.nether_portal_exit);
+      SoundPlayer simpleSound = new SoundPlayer(Resources.among_us_start);
       simpleSound.Play();
 
       InitializeSounds();
