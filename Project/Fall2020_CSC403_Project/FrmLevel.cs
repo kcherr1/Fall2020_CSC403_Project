@@ -230,7 +230,7 @@ namespace Fall2020_CSC403_Project {
         
             if (HitAnItem(player)) {
                 player.MoveBack();
-                rpot.ExecuteEffect(this); //rpot is always the handle regardless of the item called because its a random item, thus rpot
+                rpot.ExecuteEffect(FrmHome.gameplayForm); //rpot is always the handle regardless of the item called because its a random item, thus rpot
             }
 
             // update player's picture box
@@ -594,20 +594,10 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(40, 40);
             this.picEnemyCheeto.Size = new System.Drawing.Size(40,40);
 
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, 7));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, 7));
-
-            enemyPoisonPacket.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
-            enemyCheeto.Img = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
-
-            bossChatgpt.Color = Color.Black;
-            enemyPoisonPacket.Color = Color.Black;
-            enemyCheeto.Color = Color.Black;
-
-            this.picEnemyPoisonPacket.Visible = false;
+            /*this.picEnemyPoisonPacket.Visible = false;
             this.picEnemyCheeto.Visible = false;
             this.picBossChatgpt.Visible = false;
-            this.picFence0.Visible = false;
+            this.picFence0.Visible = false;*/
 
             this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;
             this.picWall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall3;

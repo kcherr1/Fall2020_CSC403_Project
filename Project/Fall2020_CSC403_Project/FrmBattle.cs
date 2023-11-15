@@ -228,17 +228,20 @@ namespace Fall2020_CSC403_Project {
                         if (FrmHome.gameplayForm.enemyPoisonPacket.Name == enemy.Name)
                         {
                             Random random = new Random();
-                            int rpotRandomNum = random.Next(1, 3);
+
                             // If cheeto is dead, we cant generate the item that blows him up. In this case, get random numbers until you can generate any other item.
-                            if (FrmHome.gameplayForm.enemyCheeto != null) 
+                            int rpotRandomNum = random.Next(1, 3);
+                            if (FrmHome.gameplayForm.enemyCheeto == null)// if cheeto not dead
                             {
+                                
                                 while (rpotRandomNum == 2)
                                 {
                                     rpotRandomNum = random.Next(1, 3);
                                 }
                             }
                             
-                            FrmHome.gameplayForm.rpot = FrmHome.gameplayForm.InstantiateItem(random.Next(1, 3), FrmHome.gameplayForm, FrmHome.gameplayForm.enemyPoisonPacket.Position.x, FrmHome.gameplayForm.enemyPoisonPacket.Position.y);
+                            System.Windows.Forms.MessageBox.Show($"{rpotRandomNum}");
+                            FrmHome.gameplayForm.rpot = FrmHome.gameplayForm.InstantiateItem(rpotRandomNum, FrmHome.gameplayForm, FrmHome.gameplayForm.enemyPoisonPacket.Position.x, FrmHome.gameplayForm.enemyPoisonPacket.Position.y);
                             FrmHome.gameplayForm.picEnemyPoisonPacket.Visible = false;
                             FrmHome.gameplayForm.enemyPoisonPacket = null;
 
