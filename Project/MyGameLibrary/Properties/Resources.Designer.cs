@@ -93,6 +93,16 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap bobby {
+            get {
+                object obj = ResourceManager.GetObject("bobby", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap brute {
             get {
                 object obj = ResourceManager.GetObject("brute", resourceCulture);
@@ -203,6 +213,16 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap eugene {
+            get {
+                object obj = ResourceManager.GetObject("eugene", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap gerald {
             get {
                 object obj = ResourceManager.GetObject("gerald", resourceCulture);
@@ -256,6 +276,16 @@ namespace MyGameLibrary.Properties {
         public static System.Drawing.Bitmap greather_health_potion {
             get {
                 object obj = ResourceManager.GetObject("greather_health_potion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap hank {
+            get {
+                object obj = ResourceManager.GetObject("hank", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +396,16 @@ namespace MyGameLibrary.Properties {
         public static System.Drawing.Bitmap rare_sword {
             get {
                 object obj = ResourceManager.GetObject("rare_sword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap reginald {
+            get {
+                object obj = ResourceManager.GetObject("reginald", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

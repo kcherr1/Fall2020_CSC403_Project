@@ -1218,6 +1218,7 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.AddNPC(Game.NPCs["Tombstone"]);
             Game.CurrentArea.AddNPC(Game.NPCs["Bartholomew"]);
+            Game.CurrentArea.AddNPC(Game.NPCs["Hank"]);
         }
 
         private void Area0()
