@@ -44,12 +44,9 @@ namespace Fall2020_CSC403_Project {
             this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-
             this.lblPlayerXp = new System.Windows.Forms.Label();
             this.lblXpMessage = new System.Windows.Forms.Label();
-
             this.battleTheme = new System.Media.SoundPlayer();
-
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
             this.battleLog = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
@@ -139,29 +136,6 @@ namespace Fall2020_CSC403_Project {
             this.lblEnemyHealthFull.Size = new System.Drawing.Size(226, 20);
             this.lblEnemyHealthFull.TabIndex = 6;
             // 
-            // lblPlayerXp
-            // 
-            this.lblPlayerXp.BackColor = System.Drawing.Color.DarkRed;
-            this.lblPlayerXp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerXp.ForeColor = System.Drawing.Color.White;
-            this.lblPlayerXp.Location = new System.Drawing.Point(71, 397);
-            this.lblPlayerXp.Name = "lblPlayerXp";
-            this.lblPlayerXp.Size = new System.Drawing.Size(226, 20);
-            this.lblPlayerXp.TabIndex = 6;
-            // 
-            // lblXpMessage
-            // 
-            this.lblXpMessage.BackColor = System.Drawing.Color.Transparent; 
-            this.lblXpMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblXpMessage.ForeColor = System.Drawing.Color.Black; 
-            this.lblXpMessage.Location = new System.Drawing.Point(70, 365);
-            this.lblXpMessage.Name = "lblXpMessage";
-            this.lblXpMessage.Size = new System.Drawing.Size(500, 500); 
-            this.lblXpMessage.TabIndex = 6;
-            this.lblXpMessage.Text = "";
-            this.lblXpMessage.Visible = false;
-            //  
-
             // picBossBattle
             // 
             this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
@@ -197,27 +171,49 @@ namespace Fall2020_CSC403_Project {
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
+            // lblPlayerXp
+            // 
+            this.lblPlayerXp.BackColor = System.Drawing.Color.DarkRed;
+            this.lblPlayerXp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerXp.ForeColor = System.Drawing.Color.White;
+            this.lblPlayerXp.Location = new System.Drawing.Point(71, 397);
+            this.lblPlayerXp.Name = "lblPlayerXp";
+            this.lblPlayerXp.Size = new System.Drawing.Size(226, 20);
+            this.lblPlayerXp.TabIndex = 6;
+            // 
+            // lblXpMessage
+            // 
+            this.lblXpMessage.BackColor = System.Drawing.Color.Transparent;
+            this.lblXpMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblXpMessage.ForeColor = System.Drawing.Color.Black;
+            this.lblXpMessage.Location = new System.Drawing.Point(69, 368);
+            this.lblXpMessage.Name = "lblXpMessage";
+            this.lblXpMessage.Size = new System.Drawing.Size(675, 28);
+            this.lblXpMessage.TabIndex = 6;
+            this.lblXpMessage.Visible = false;
+            // 
             // battleTheme
             // 
             this.battleTheme.LoadTimeout = 10000;
             this.battleTheme.SoundLocation = "battle_theme.wav";
             this.battleTheme.Stream = null;
             this.battleTheme.Tag = null;
-            //
-            // battleLog
-            //
-            this.battleLog.AcceptsReturn = false;
-            this.battleLog.AcceptsTab = false;
-            this.battleLog.ReadOnly = true;
-            this.battleLog.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.battleLog.Multiline = true;
-            this.battleLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.battleLog.Size = new System.Drawing.Size(226, 80);
             // 
             // tmrFinalBattle
             // 
             this.tmrFinalBattle.Interval = 5600;
             this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
+            // 
+            // battleLog
+            // 
+            this.battleLog.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.battleLog.Location = new System.Drawing.Point(0, 523);
+            this.battleLog.Multiline = true;
+            this.battleLog.Name = "battleLog";
+            this.battleLog.ReadOnly = true;
+            this.battleLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.battleLog.Size = new System.Drawing.Size(822, 80);
+            this.battleLog.TabIndex = 0;
             // 
             // FrmBattle
             // 
@@ -236,8 +232,6 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.btnAttack);
             this.Controls.Add(this.lblPlayerXp);
             this.Controls.Add(this.lblXpMessage);
-            this.Controls.Add(this.picEnemy);
-            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.btnDodge);
             this.Controls.Add(this.btnHeal);
             this.Controls.Add(this.btnFlee);
@@ -251,6 +245,7 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 
