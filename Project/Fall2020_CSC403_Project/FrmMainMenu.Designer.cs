@@ -95,6 +95,7 @@ namespace Fall2020_CSC403_Project
       this.btnBack.Text = "Back";
       this.btnBack.UseVisualStyleBackColor = false;
       this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+      this.btnBack.Hide();
       // 
       // lblSettings
       // 
@@ -108,6 +109,7 @@ namespace Fall2020_CSC403_Project
       this.lblSettings.Text = "Settings";
       this.lblSettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       this.lblSettings.Click += new System.EventHandler(this.lblTitle_Click);
+      this.lblSettings.Hide();
       // 
       // lblVolume
       // 
@@ -120,6 +122,7 @@ namespace Fall2020_CSC403_Project
       this.lblVolume.TabIndex = 6;
       this.lblVolume.Text = "Volume";
       this.lblVolume.Click += new System.EventHandler(this.lblTitle_Click);
+      this.lblVolume.Hide();
       // 
       // menuImage
       // 
@@ -149,6 +152,7 @@ namespace Fall2020_CSC403_Project
       this.volumeBar.Value = 20;
       this.volumeBar.BackColor = System.Drawing.Color.Black;
       this.volumeBar.Scroll += new System.EventHandler(this.changeMusicVolume);
+      this.volumeBar.Hide();
       // 
       // FrmMainMenu
       // 
