@@ -165,6 +165,7 @@ namespace Fall2020_CSC403_Project {
       {
         bossPrimordialKoolaid.Displace();
         picBossPrimordialKoolaid.Location = new Point(1500, 1500);
+        win = true;
       }
       
       // move player

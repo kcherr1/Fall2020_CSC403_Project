@@ -174,6 +174,7 @@
     <Content Include="battle_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\versus.bmp" />
     <None Include="data\The Primoridal Juice.jpg" />
     <None Include="data\True Raisin Pain.jpg" />
     <None Include="data\G.R.I.M.A.C.E..png" />
@@ -191,6 +192,7 @@
     <None Include="data\fire.png" />
     <None Include="data\battleback.jpg" />
     <None Include="data\gameEndScreen.jpg" />
+    <None Include="data\versus.png" />
     <None Include="data\pausepic.jpg" />
     <Content Include="level_theme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

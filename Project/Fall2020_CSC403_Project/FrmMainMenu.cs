@@ -47,12 +47,9 @@ namespace Fall2020_CSC403_Project
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            lblTitle.Hide();
             btnStartGame.Hide();
             btnSettings.Hide();
             btnLeaveGame.Hide();
-            peanut.Hide();
-            koolaid.Hide();
             volumeBar.Show();
             lblSettings.Show();
             lblVolume.Show();
@@ -61,12 +58,9 @@ namespace Fall2020_CSC403_Project
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            lblTitle.Show();
             btnStartGame.Show();
             btnSettings.Show();
             btnLeaveGame.Show();
-            peanut.Show();
-            koolaid.Show();
             volumeBar.Hide();
             lblSettings.Hide();
             lblVolume.Hide();
