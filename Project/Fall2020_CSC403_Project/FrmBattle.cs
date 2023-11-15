@@ -136,7 +136,11 @@ namespace Fall2020_CSC403_Project {
                 lblXpMessage.Text = "HE'S DEAD! +20 XP";
                 lblXpMessage.Visible = true;
             }
-
+            if (player.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
         }
 
 
