@@ -68,9 +68,9 @@ namespace Fall2020_CSC403_Project
 
         public void SetupForBossBattle()
         {
-            picBossBattle.Location = Point.Empty;
-            picBossBattle.Size = ClientSize;
-            picBossBattle.Visible = true;
+            //picBossBattle.Location = Point.Empty;
+            //picBossBattle.Size = ClientSize;
+            //picBossBattle.Visible = true;
             //SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
             //simpleSound.Play();
             battleTheme.PlayLooping();
@@ -116,7 +116,7 @@ namespace Fall2020_CSC403_Project
 
         private void btnAttack_Click(object sender, EventArgs e)
         {
-            int attack = rnd.Next(-6, -3);
+            int attack = rnd.Next(-7, -4);
             string log = string.Format("You raise your ancestral staff of nut and thwap the foe dealing {0} damage", -(attack * 2));
             battleLog.AppendText(log);
             battleLog.AppendText(newLine);
@@ -176,7 +176,7 @@ namespace Fall2020_CSC403_Project
 
 
 
-            if ((player.Health + 8) > 50)
+            if ((player.Health + 10) > 50)
             {
                 heal = (50 - player.Health);
                 string log = string.Format("You betray your nut family, devouring them for {0} health", (heal));
@@ -186,7 +186,7 @@ namespace Fall2020_CSC403_Project
             }
             else
             {
-                heal = 8;
+                heal = 10;
                 string log = string.Format("You betray your nut family, devouring them for {0} health", (heal));
                 battleLog.AppendText(log);
                 battleLog.AppendText(newLine);
