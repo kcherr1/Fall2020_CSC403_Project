@@ -63,6 +63,14 @@ namespace Fall2020_CSC403_Project {
       obstacle1.Img = picObstacle1.BackgroundImage;
       obstacle2.Img = picObstacle2.BackgroundImage;
 
+     enemyGRIMACE.Name = picEnemyGRIMACE.Name;
+     enemyRaisin.Name = picEnemyRaisin.Name;
+     bossPrimordialKoolaid.Name = picBossPrimordialKoolaid.Name;
+     enemyPoisonPacket.Name = picEnemyPoisonPacket.Name;
+     enemyCheeto.Name = picEnemyCheeto.Name;
+     bossKoolaid.Name = picBossKoolAid.Name;
+
+
      enemyGRIMACE.Color = Color.Purple;
      enemyRaisin.Color = Color.Blue;
      bossPrimordialKoolaid.Color = Color.Black;
@@ -84,6 +92,13 @@ namespace Fall2020_CSC403_Project {
                 }
       }
 
+      // displace world 2 enemies
+      enemyGRIMACE.Displace();
+      picEnemyGRIMACE.Location = new Point(1500, 1500);
+      enemyRaisin.Displace();
+      picEnemyRaisin.Location = new Point(1500, 1500);
+      bossPrimordialKoolaid.Displace();
+      picBossPrimordialKoolaid.Location = new Point(1500, 1500);
 
       Game.player = player;
       timeBegin = DateTime.Now;
@@ -133,6 +148,24 @@ namespace Fall2020_CSC403_Project {
       {
         bossKoolaid.Displace();
         picBossKoolAid.Location = new Point(1500, 1500);
+      }
+      if (enemyGRIMACE.Health <= 0)
+      {
+          enemyGRIMACE.Displace();
+          picEnemyGRIMACE.Location = new Point(1500, 1500);
+      }
+
+      if (enemyRaisin.Health <= 0)
+      {
+        enemyRaisin.Displace();
+        picEnemyRaisin.Location = new Point(1500, 1500);
+      }
+   
+      if (bossPrimordialKoolaid.Health <= 0)
+      {
+        bossPrimordialKoolaid.Displace();
+        picBossPrimordialKoolaid.Location = new Point(1500, 1500);
+        win = true;
       }
       
       // move player
@@ -254,6 +287,14 @@ namespace Fall2020_CSC403_Project {
                         enemyCheeto.Displace();
                         picEnemyCheeto.Location = new Point(1500, 1500);
 
+                        // load the enemies of world two
+                        enemyGRIMACE.Collider.MovePosition(500, 150);
+                        picEnemyGRIMACE.Location = new Point(500, 150);
+                        enemyRaisin.Collider.MovePosition(400, 400);
+                        picEnemyRaisin.Location = new Point(400, 400);
+                        bossPrimordialKoolaid.Collider.MovePosition(100, 100);
+                        picBossPrimordialKoolaid.Location = new Point(100, 100);
+
                         // note the world for obstacles
                         secondWorld = true;
 
@@ -292,7 +333,26 @@ namespace Fall2020_CSC403_Project {
                         picAreaDoor.Location = new Point(200, 475);
                         nextAreaDoor.Collider.MovePosition(200, 475);
 
+                        // ensure undefeated enemies are removed from the screen
+                        if (enemyGRIMACE.Health > 0) {
+                            enemyGRIMACE.Collider.MovePosition(1500, 1500);
+                            picEnemyGRIMACE.Location = new Point(1500, 1500);
+                        }
+                        if (enemyRaisin.Health > 0)
+                        {
+                            enemyRaisin.Collider.MovePosition(1500, 1500);
+                            picEnemyRaisin.Location = new Point(1500, 1500);
+                        }
+                        if (bossPrimordialKoolaid.Health > 0)
+                        {
+                            bossPrimordialKoolaid.Collider.MovePosition(1500, 1500);
+                            picBossPrimordialKoolaid.Location = new Point(1500, 1500);
+                        }
+
                         worldSelect = true;
+
+                        // add developer message
+                        developerNames.Location = new Point(150, 200);
 
                         // note the world for obstacles
                         secondWorld = false;
@@ -315,6 +375,26 @@ namespace Fall2020_CSC403_Project {
 
                         picAreaDoor.Location = new Point(1000, 475);
                         nextAreaDoor.Collider.MovePosition(1000,475);
+
+                        // remove developer message
+                        developerNames.Location = new Point(1500, 1500);
+
+                        // return undefeated world 2 enemies
+                        if (enemyGRIMACE.Health > 0)
+                        {
+                            enemyGRIMACE.Collider.MovePosition(500, 150);
+                            picEnemyGRIMACE.Location = new Point(500, 150);
+                        }
+                        if (enemyRaisin.Health > 0)
+                        {
+                            enemyRaisin.Collider.MovePosition(400, 400);
+                            picEnemyRaisin.Location = new Point(400, 400);
+                        }
+                        if (bossPrimordialKoolaid.Health > 0)
+                        {
+                            bossPrimordialKoolaid.Collider.MovePosition(100, 100);
+                            picBossPrimordialKoolaid.Location = new Point(100, 100);
+                        }
 
                         worldSelect = false;
 
@@ -406,6 +486,10 @@ namespace Fall2020_CSC403_Project {
 
                 case Keys.Down:
                     player.GoDown();
+                    break;
+
+                case Keys.Escape:
+                    new FrmPause().Show();
                     break;
 
                 default:
