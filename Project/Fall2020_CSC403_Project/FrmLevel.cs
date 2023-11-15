@@ -487,6 +487,10 @@ namespace Fall2020_CSC403_Project {
                     player.GoDown();
                     break;
 
+                case Keys.Escape:
+                    new FrmPause().Show();
+                    break;
+
                 default:
                     player.ResetMoveSpeed();
                     break;
