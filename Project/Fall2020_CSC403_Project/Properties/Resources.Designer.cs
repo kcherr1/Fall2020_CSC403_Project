@@ -139,21 +139,21 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream boss_win {
-            get {
-                return ResourceManager.GetStream("boss_win", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap blue {
             get {
                 object obj = ResourceManager.GetObject("blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream boss_win {
+            get {
+                return ResourceManager.GetStream("boss_win", resourceCulture);
             }
         }
         
@@ -375,24 +375,6 @@ namespace Fall2020_CSC403_Project.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream nether_portal_enter {
-            get {
-                return ResourceManager.GetStream("nether_portal_enter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream nether_portal_exit {
-            get {
-                return ResourceManager.GetStream("nether_portal_exit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap hedge2 {
@@ -419,6 +401,34 @@ namespace Fall2020_CSC403_Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("hedge5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap money {
+            get {
+                object obj = ResourceManager.GetObject("money", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream nether_portal_enter {
+            get {
+                return ResourceManager.GetStream("nether_portal_enter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream nether_portal_exit {
+            get {
+                return ResourceManager.GetStream("nether_portal_exit", resourceCulture);
             }
         }
         
@@ -603,9 +613,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap transparent {
+        internal static System.Drawing.Bitmap tank {
             get {
-                object obj = ResourceManager.GetObject("transparent", resourceCulture);
+                object obj = ResourceManager.GetObject("tank", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -613,9 +623,9 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tank {
+        internal static System.Drawing.Bitmap transparent {
             get {
-                object obj = ResourceManager.GetObject("tank", resourceCulture);
+                object obj = ResourceManager.GetObject("transparent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

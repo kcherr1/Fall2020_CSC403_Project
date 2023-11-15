@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project.code {
 
     public static bool isLevelOneCompleted = false;
     public static bool isLevelTwoCompleted = false;
+    public static bool isLevelThreeCompleted = false;
 
     public static bool startGame = false;
 

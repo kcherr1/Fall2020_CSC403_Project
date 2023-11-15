@@ -186,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\ammo.png" />
+    <None Include="Resources\money.bmp" />
     <None Include="Resources\ejected.bmp" />
     <None Include="data\white.png" />
     <None Include="Resources\boss_win.wav" />
