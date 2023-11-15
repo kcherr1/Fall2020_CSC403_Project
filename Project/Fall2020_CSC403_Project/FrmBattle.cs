@@ -9,6 +9,7 @@ namespace Fall2020_CSC403_Project {
     public partial class FrmBattle : Form {
         // This is the variable that controls our instance of the class FrmBattle. The active/inactive elements are tied to it.
         public static FrmBattle instance = null;
+        public static int currentImageIndex = 0;
         public static SoundPlayer simpleSound;
         public static SoundPlayer simpleSFX;
 
@@ -23,6 +24,26 @@ namespace Fall2020_CSC403_Project {
             simpleSFX = new SoundPlayer(Resources.attack1SFX);
             FrmLevel.levelMusic.Stop();
 
+            if (currentImageIndex == 0)
+            {
+                // do nothing because its already set to default
+            }
+            else if (currentImageIndex == 1) 
+            {
+                this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.img2;
+            }
+            else if (currentImageIndex == 2)
+            {
+                this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.img1;
+            }
+            else if (currentImageIndex == 3)
+            {
+                this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.img31;
+            }
+            else if (currentImageIndex == 4)
+            {
+                this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.img41;
+            }
         }
 
         private void FormBattle_Disposed(object sender, EventArgs e) 

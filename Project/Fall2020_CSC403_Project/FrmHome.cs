@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fall2020_CSC403_Project.code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +35,7 @@ namespace Fall2020_CSC403_Project
             images.Add(Properties.Resources.player); // Load images from resources
             images.Add(Properties.Resources.enemy_koolaid);
             images.Add(Properties.Resources.enemy_cheetos);
-            images.Add(Properties.Resources.enemy_poisonpacket);
+            images.Add(Properties.Resources.newpic);
 
             // Add more images as needed
 
@@ -131,6 +132,21 @@ namespace Fall2020_CSC403_Project
         private void themeSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            // Open the character selection form
+            CharacterSelectionForm characterSelectionForm = new CharacterSelectionForm();
+            if (characterSelectionForm.ShowDialog() == DialogResult.OK)
+            {
+                Character selectedCharacter = characterSelectionForm.SelectedCharacter;
+
+                // Now, you can pass the selected character to FrmLevel or store it for later use
+                // Example: FrmLevel.PlayerCharacter = selectedCharacter;
+                this.Close();
+            }
         }
     }
 }

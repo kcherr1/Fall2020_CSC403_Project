@@ -210,7 +210,7 @@
 
         #endregion
 
-    private System.Windows.Forms.PictureBox picPlayer;
+    public System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Label lblPlayerHealthFull;
     private System.Windows.Forms.Label label1;
