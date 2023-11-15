@@ -57,5 +57,9 @@ namespace Fall2020_CSC403_Project.code {
     {
       Collider = new Collider(new Rectangle());
     }
+
+    public void ChangeCollider(Collider col) {
+      Collider = col;
+    }
   }
 }

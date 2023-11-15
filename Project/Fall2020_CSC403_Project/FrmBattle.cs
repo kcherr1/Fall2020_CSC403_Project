@@ -26,6 +26,8 @@ namespace Fall2020_CSC403_Project {
     public SoundPlayer goose_death;
     public SoundPlayer oh_yeah;
     public SoundPlayer fail_sound;
+    public SoundPlayer among_us_kill;
+    public SoundPlayer jeff;
 
     private FrmBattle() {
       InitializeComponent();
@@ -46,6 +48,9 @@ namespace Fall2020_CSC403_Project {
         if (player.WeaponEquiped == 2){
           weapon.Image = Resources.rpg;
         }
+      }
+      if(this.level == 3) {
+        picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player3;
       }
 
       // Observer pattern
@@ -77,6 +82,11 @@ namespace Fall2020_CSC403_Project {
         case 2:
           // rough rodents
           bossBattle = picBossBattleSquirrels;
+          break;
+        case 3:
+          // beeg amongus
+          bossBattle = picBossBattleImposter;
+          jeff.Play();
           break;
       }
 
@@ -162,6 +172,9 @@ namespace Fall2020_CSC403_Project {
               case 2:
                 win_instance = new FrmWinLevelTwo();
                 break;
+              case 3:
+                win_instance = new FrmWinLevelThree();
+                break;
               default:
                 win_instance = new FrmWinLevel();
                 break;
@@ -174,6 +187,10 @@ namespace Fall2020_CSC403_Project {
           if (BackColor == Color.LightGray)
           {
             goose_death.Play();
+          }
+          if (BackColor == Color.White || BackColor == Color.LightBlue)
+          {
+            among_us_kill.Play();
           }
           enemy.AlterIsAlive(false);
         }
@@ -201,6 +218,7 @@ namespace Fall2020_CSC403_Project {
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       picBossBattleSquirrels.Visible = false;
+      picBossBattleImposter.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
 
@@ -284,6 +302,10 @@ namespace Fall2020_CSC403_Project {
       oh_yeah.Load();
       fail_sound = new SoundPlayer(Resources.fail_sound);
       fail_sound.Load();
+      among_us_kill = new SoundPlayer(Resources.among_us_kill);
+      among_us_kill.Load();
+      jeff = new SoundPlayer(Resources.jeff);
+      jeff.Load();
     }
   }
 }

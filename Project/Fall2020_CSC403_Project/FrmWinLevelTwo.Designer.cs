@@ -98,7 +98,7 @@
       // 
       // FrmWinLevelTwo
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 29F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.CornflowerBlue;
       this.ClientSize = new System.Drawing.Size(1075, 525);
@@ -109,6 +109,8 @@
       this.Controls.Add(this.button1);
       this.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+      this.MaximumSize = new System.Drawing.Size(1091, 564);
+      this.MinimumSize = new System.Drawing.Size(1091, 564);
       this.Name = "FrmWinLevelTwo";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Victory!";
