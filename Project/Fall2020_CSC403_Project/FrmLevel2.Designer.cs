@@ -196,7 +196,7 @@
       this.obstacle6.BackColor = System.Drawing.Color.Transparent;
       this.obstacle6.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.tree3;
       this.obstacle6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.obstacle6.Location = new System.Drawing.Point(675, 140);
+      this.obstacle6.Location = new System.Drawing.Point(475, 103);
       this.obstacle6.Margin = new System.Windows.Forms.Padding(0);
       this.obstacle6.Name = "obstacle6";
       this.obstacle6.Size = new System.Drawing.Size(168, 125);
@@ -252,7 +252,7 @@
       this.picGoose.BackColor = System.Drawing.Color.Transparent;
       this.picGoose.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.goose;
       this.picGoose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picGoose.Location = new System.Drawing.Point(408, 317);
+      this.picGoose.Location = new System.Drawing.Point(338, 190);
       this.picGoose.Margin = new System.Windows.Forms.Padding(0);
       this.picGoose.Name = "picGoose";
       this.picGoose.Size = new System.Drawing.Size(84, 157);
@@ -348,7 +348,7 @@
       this.obstacle8.BackColor = System.Drawing.Color.Transparent;
       this.obstacle8.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.rock;
       this.obstacle8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.obstacle8.Location = new System.Drawing.Point(652, 454);
+      this.obstacle8.Location = new System.Drawing.Point(426, 278);
       this.obstacle8.Margin = new System.Windows.Forms.Padding(0);
       this.obstacle8.Name = "obstacle8";
       this.obstacle8.Size = new System.Drawing.Size(69, 63);
@@ -396,7 +396,7 @@
       this.obstacle12.BackColor = System.Drawing.Color.Transparent;
       this.obstacle12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.tree11;
       this.obstacle12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.obstacle12.Location = new System.Drawing.Point(850, 129);
+      this.obstacle12.Location = new System.Drawing.Point(592, 84);
       this.obstacle12.Margin = new System.Windows.Forms.Padding(0);
       this.obstacle12.Name = "obstacle12";
       this.obstacle12.Size = new System.Drawing.Size(111, 129);
@@ -420,7 +420,7 @@
       this.obstacle14.BackColor = System.Drawing.Color.Transparent;
       this.obstacle14.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bush;
       this.obstacle14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.obstacle14.Location = new System.Drawing.Point(960, 129);
+      this.obstacle14.Location = new System.Drawing.Point(667, 81);
       this.obstacle14.Margin = new System.Windows.Forms.Padding(0);
       this.obstacle14.Name = "obstacle14";
       this.obstacle14.Size = new System.Drawing.Size(84, 118);
@@ -482,7 +482,7 @@
       this.obstacle16.BackColor = System.Drawing.Color.Transparent;
       this.obstacle16.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.bush;
       this.obstacle16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.obstacle16.Location = new System.Drawing.Point(1080, 702);
+      this.obstacle16.Location = new System.Drawing.Point(681, 436);
       this.obstacle16.Margin = new System.Windows.Forms.Padding(0);
       this.obstacle16.Name = "obstacle16";
       this.obstacle16.Size = new System.Drawing.Size(112, 94);
@@ -493,10 +493,9 @@
       // 
       this.healthPackLvl2.BackColor = System.Drawing.Color.Transparent;
       this.healthPackLvl2.Image = global::Fall2020_CSC403_Project.Properties.Resources.health_pack;
-      this.healthPackLvl2.Location = new System.Drawing.Point(1966, 1302);
-      this.healthPackLvl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+      this.healthPackLvl2.Location = new System.Drawing.Point(861, 446);
       this.healthPackLvl2.Name = "healthPackLvl2";
-      this.healthPackLvl2.Size = new System.Drawing.Size(102, 95);
+      this.healthPackLvl2.Size = new System.Drawing.Size(57, 49);
       this.healthPackLvl2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
       this.healthPackLvl2.TabIndex = 92;
       this.healthPackLvl2.TabStop = false;
@@ -505,8 +504,7 @@
       // 
       this.rpgPic.BackColor = System.Drawing.Color.Transparent;
       this.rpgPic.Image = global::Fall2020_CSC403_Project.Properties.Resources.rpg;
-      this.rpgPic.Location = new System.Drawing.Point(741, 292);
-      this.rpgPic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+      this.rpgPic.Location = new System.Drawing.Point(323, 84);
       this.rpgPic.Name = "rpgPic";
       this.rpgPic.Size = new System.Drawing.Size(224, 115);
       this.rpgPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -528,7 +526,7 @@
       this.obstacle18.BackColor = System.Drawing.Color.Transparent;
       this.obstacle18.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.tree3;
       this.obstacle18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.obstacle18.Location = new System.Drawing.Point(1194, 674);
+      this.obstacle18.Location = new System.Drawing.Point(757, 438);
       this.obstacle18.Margin = new System.Windows.Forms.Padding(0);
       this.obstacle18.Name = "obstacle18";
       this.obstacle18.Size = new System.Drawing.Size(135, 140);
@@ -540,7 +538,7 @@
       this.obstacle19.BackColor = System.Drawing.Color.Transparent;
       this.obstacle19.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.flowers;
       this.obstacle19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.obstacle19.Location = new System.Drawing.Point(1326, 672);
+      this.obstacle19.Location = new System.Drawing.Point(1074, 587);
       this.obstacle19.Margin = new System.Windows.Forms.Padding(0);
       this.obstacle19.Name = "obstacle19";
       this.obstacle19.Size = new System.Drawing.Size(57, 63);
@@ -578,7 +576,6 @@
       this.Controls.Add(this.obstacle4);
       this.Controls.Add(this.obstacle1);
       this.Controls.Add(this.obstacle5);
-      this.Controls.Add(this.pond1);
       this.Controls.Add(this.picGoose);
       this.Controls.Add(this.hedge4);
       this.Controls.Add(this.hedge1);
@@ -591,6 +588,7 @@
       this.Controls.Add(this.rpgPic);
       this.Controls.Add(this.hedge2);
       this.Controls.Add(this.hedge3);
+      this.Controls.Add(this.pond1);
       this.DoubleBuffered = true;
       this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
       this.MaximumSize = new System.Drawing.Size(1812, 1147);
