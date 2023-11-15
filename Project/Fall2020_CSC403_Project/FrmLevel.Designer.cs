@@ -110,7 +110,7 @@ namespace Fall2020_CSC403_Project {
       this.picWall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.brick;
       this.picWall2.Location = new System.Drawing.Point(551, 1);
       this.picWall2.Name = "picWall2";
-      this.picWall2.Size = new System.Drawing.Size(469, 66);
+      this.picWall2.Size = new System.Drawing.Size(538, 66);
       this.picWall2.TabIndex = 16;
       this.picWall2.TabStop = false;
       // 
@@ -118,7 +118,7 @@ namespace Fall2020_CSC403_Project {
       // 
       this.picWall8.BackColor = System.Drawing.Color.Transparent;
       this.picWall8.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.brick;
-      this.picWall8.Location = new System.Drawing.Point(1093, 274);
+      this.picWall8.Location = new System.Drawing.Point(1120, 274);
       this.picWall8.Name = "picWall8";
       this.picWall8.Size = new System.Drawing.Size(82, 449);
       this.picWall8.TabIndex = 15;
@@ -130,7 +130,7 @@ namespace Fall2020_CSC403_Project {
       this.picWall7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picWall7.BackgroundImage")));
       this.picWall7.Location = new System.Drawing.Point(714, 656);
       this.picWall7.Name = "picWall7";
-      this.picWall7.Size = new System.Drawing.Size(380, 66);
+      this.picWall7.Size = new System.Drawing.Size(409, 66);
       this.picWall7.TabIndex = 14;
       this.picWall7.TabStop = false;
       // 
@@ -190,7 +190,7 @@ namespace Fall2020_CSC403_Project {
       this.picWall12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picWall12.BackgroundImage")));
       this.picWall12.Location = new System.Drawing.Point(890, 397);
       this.picWall12.Name = "picWall12";
-      this.picWall12.Size = new System.Drawing.Size(203, 113);
+      this.picWall12.Size = new System.Drawing.Size(233, 113);
       this.picWall12.TabIndex = 8;
       this.picWall12.TabStop = false;
       // 
@@ -219,7 +219,7 @@ namespace Fall2020_CSC403_Project {
       this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
       this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
       this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picEnemyCheeto.Location = new System.Drawing.Point(838, 540);
+      this.picEnemyCheeto.Location = new System.Drawing.Point(846, 535);
       this.picEnemyCheeto.Name = "picEnemyCheeto";
       this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
       this.picEnemyCheeto.TabIndex = 5;
@@ -230,8 +230,8 @@ namespace Fall2020_CSC403_Project {
       this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
       this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
       this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picEnemyPoisonPacket.Location = new System.Drawing.Point(110, 125);
-      this.picEnemyPoisonPacket.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.picEnemyPoisonPacket.Location = new System.Drawing.Point(134, 116);
+      this.picEnemyPoisonPacket.Margin = new System.Windows.Forms.Padding(2);
       this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
       this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
       this.picEnemyPoisonPacket.TabIndex = 4;
@@ -252,7 +252,7 @@ namespace Fall2020_CSC403_Project {
       this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
       this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
       this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picBossKoolAid.Location = new System.Drawing.Point(971, 74);
+      this.picBossKoolAid.Location = new System.Drawing.Point(985, 74);
       this.picBossKoolAid.Name = "picBossKoolAid";
       this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
       this.picBossKoolAid.TabIndex = 1;
@@ -285,10 +285,10 @@ namespace Fall2020_CSC403_Project {
       // 
       this.healthPackLvl1.BackColor = System.Drawing.Color.Transparent;
       this.healthPackLvl1.Image = global::Fall2020_CSC403_Project.Properties.Resources.health_pack;
-      this.healthPackLvl1.Location = new System.Drawing.Point(85, 76);
-      this.healthPackLvl1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+      this.healthPackLvl1.Location = new System.Drawing.Point(96, 75);
+      this.healthPackLvl1.Margin = new System.Windows.Forms.Padding(1);
       this.healthPackLvl1.Name = "healthPackLvl1";
-      this.healthPackLvl1.Size = new System.Drawing.Size(25, 28);
+      this.healthPackLvl1.Size = new System.Drawing.Size(44, 46);
       this.healthPackLvl1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
       this.healthPackLvl1.TabIndex = 19;
       this.healthPackLvl1.TabStop = false;
@@ -302,7 +302,6 @@ namespace Fall2020_CSC403_Project {
       this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gravel;
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1199, 721);
-      this.Controls.Add(this.healthPackLvl1);
       this.Controls.Add(this.picWall11);
       this.Controls.Add(this.picWall2);
       this.Controls.Add(this.picWall8);
@@ -322,6 +321,7 @@ namespace Fall2020_CSC403_Project {
       this.Controls.Add(this.picBossKoolAid);
       this.Controls.Add(this.picEnemyCheeto);
       this.Controls.Add(this.weapon1);
+      this.Controls.Add(this.healthPackLvl1);
       this.DoubleBuffered = true;
       this.MaximumSize = new System.Drawing.Size(1215, 760);
       this.MinimumSize = new System.Drawing.Size(1215, 760);
