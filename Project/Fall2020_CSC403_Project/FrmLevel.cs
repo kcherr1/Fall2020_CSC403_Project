@@ -438,7 +438,8 @@ namespace Fall2020_CSC403_Project {
         public void Fight(Enemy enemy) {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy, this);
+            //frmBattle = FrmBattle.GetInstance(enemy, this);
+            frmBattle = FrmBattle.GetInstance(enemy);
             if (enemy.Name == "BossChatgpt") {
                 frmBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Psychedelic;
             }
