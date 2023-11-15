@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter {
-    public new int Xp { get; private set; }
+    public new int Xp { get;  set; }
         public new int XpLevel { get;  set; }
         public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
         Xp = 0;

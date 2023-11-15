@@ -43,7 +43,7 @@ namespace Fall2020_CSC403_Project {
             this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-
+            this.lblXpLevel = new System.Windows.Forms.Label();
             this.lblPlayerXp = new System.Windows.Forms.Label();
             this.lblXpMessage = new System.Windows.Forms.Label();
 
@@ -150,16 +150,26 @@ namespace Fall2020_CSC403_Project {
             // lblXpMessage
             // 
             this.lblXpMessage.BackColor = System.Drawing.Color.Transparent; 
-            this.lblXpMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblXpMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblXpMessage.ForeColor = System.Drawing.Color.Black; 
-            this.lblXpMessage.Location = new System.Drawing.Point(70, 365);
+            this.lblXpMessage.Location = new System.Drawing.Point(370, 395);
             this.lblXpMessage.Name = "lblXpMessage";
-            this.lblXpMessage.Size = new System.Drawing.Size(500, 500); 
+            this.lblXpMessage.Size = new System.Drawing.Size(400, 60); 
             this.lblXpMessage.TabIndex = 6;
             this.lblXpMessage.Text = "";
             this.lblXpMessage.Visible = false;
+            // 
+            // lblXpLevel
+            // 
+            this.lblXpLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblXpLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblXpLevel.ForeColor = System.Drawing.Color.Black;
+            this.lblXpLevel.Location = new System.Drawing.Point(71, 370);
+            this.lblXpLevel.Name = "lblXpLevel";
+            this.lblXpLevel.Size = new System.Drawing.Size(100, 25);
+            this.lblXpLevel.TabIndex = 6;
+            this.lblXpLevel.Text = "";
             //  
-
             // picBossBattle
             // 
             this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
@@ -223,6 +233,7 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.btnAttack);
             this.Controls.Add(this.lblPlayerXp);
             this.Controls.Add(this.lblXpMessage);
+            this.Controls.Add(this.lblXpLevel);
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.btnDodge);
@@ -256,6 +267,7 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Label lblPlayerXp;
     private System.Windows.Forms.Label lblXpMessage;
+    private System.Windows.Forms.Label lblXpLevel;
     private System.Windows.Forms.Timer tmrFinalBattle;
     SoundPlayer battleTheme = new SoundPlayer("battle_theme.wav");
     SoundPlayer levelTheme = new SoundPlayer("level_theme.wav");

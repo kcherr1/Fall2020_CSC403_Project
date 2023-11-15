@@ -52,7 +52,8 @@ namespace Fall2020_CSC403_Project
             // show health
             UpdateHealthBars();
 
-            // show XP
+            // show Level and XP
+            lblXpLevel.Text = "Level " + player.XpLevel.ToString();
             lblPlayerXp.Text = "XP: " + player.Xp.ToString();
         }
 
@@ -232,7 +233,8 @@ namespace Fall2020_CSC403_Project
         private void PlayerXp(int amount)
         {
             player.AlterXp(amount);
-            lblPlayerXp.Text = "XP: " + player.Xp.ToString() + "/100";
+            lblXpLevel.Text = "Level " + player.XpLevel.ToString();
+            lblPlayerXp.Text = "XP: " + player.Xp.ToString() + "/50";
             if (amount > 0)
             {
                 lblXpMessage.Text = "Enemy Damaged! + " + amount + "XP!";
@@ -247,22 +249,14 @@ namespace Fall2020_CSC403_Project
                 };
                 tmrXpMessage.Start();
             }
-            else if (player.Xp == 100)
+            if (player.Xp >= 50)
             {
                 player.XpLevel += 1;
-                lblXpMessage.Text = "Level" + player.XpLevel.ToString();
-                lblXpMessage.Visible = true; // Show the message
-                Timer tmrXpMessage = new Timer();
-                tmrXpMessage.Interval = 3000;
-                tmrXpMessage.Tick += (s, args) =>
-                {
-                    lblXpMessage.Visible = false;
-                    tmrXpMessage.Stop();
-                    tmrXpMessage.Dispose();
-                };
-                tmrXpMessage.Start();
-
+                player.Xp = 0; // Reset XP to 0 after leveling up
+                lblXpLevel.Text = "Level " + player.XpLevel.ToString();
+                lblPlayerXp.Text = "XP: " + player.Xp.ToString() + "/20";
             }
+
 
         }
         private void PlayerHeal(int amount)
