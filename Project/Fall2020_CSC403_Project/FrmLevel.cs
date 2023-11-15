@@ -521,15 +521,10 @@ namespace Fall2020_CSC403_Project
                 if (this.NPC_Conversing.Name == "Tombstone")
                 {
                     Game.Objectives["spoke_to_tombstone"] = true;
-                    if (Game.Objectives["spoke_to_bartholomew"])
+                    if (Game.Objectives["learned_of_dragon1"] && Game.Objectives["learned_of_dragon2"])
                     {
-                        Game.Objectives["spoke_to_tm_after_bart"] = true;
+                        Game.Objectives["spoke_to_tm_after_learn_dragon"] = true;
                     }
-                }
-
-                if (this.NPC_Conversing.Name == "Bartholomew")
-                {
-                    Game.Objectives["spoke_to_bartholomew"] = true;
                 }
  
 

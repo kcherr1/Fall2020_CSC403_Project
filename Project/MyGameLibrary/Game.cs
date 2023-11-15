@@ -335,14 +335,15 @@ namespace Fall2020_CSC403_Project.code
 
 
             Objectives["spoke_to_tombstone"] = false;
-            Objectives["spoke_to_bartholomew"] = false;
+            Objectives["learned_of_dragon1"] = false;
+            Objectives["learned_of_dragon2"] = false;
 
             Objectives["tombstone_ready"] = false;
             Objectives["tombstone_leading"] = false;
             Objectives["cave_unlocked"] = false;
 
             Objectives["cleared_harmony_plains"] = false;
-            Objectives["cleared_mountain"] = false;
+            Objectives["cleared_windy"] = false;
             Objectives["cleared_ruined_village"] = false;
 
             Objectives["killed_dragon"] = false;
@@ -352,7 +353,7 @@ namespace Fall2020_CSC403_Project.code
 
             Objectives["visited_leader_tombstone"] = false;
 
-            Game.Objectives["spoke_to_tm_after_bart"] = false;
+            Game.Objectives["spoke_to_tm_after_learn_dragon"] = true;
 
 
         }
@@ -391,7 +392,22 @@ namespace Fall2020_CSC403_Project.code
         public static void CheckObjectives()
         {
 
-            if (Objectives["tombstone_ready"] && Game.Objectives["spoke_to_tm_after_bart"])
+            if (Game.Areas[7].Enemies.Count == 0)
+            {
+                Objectives["cleared_harmony_plains"] = true;
+            }
+            if (Game.Areas[6].Enemies.Count == 0)
+            {
+                Objectives["cleared_windy"] = true;
+
+            } 
+            if (Game.Areas[1].Enemies.Count == 0)
+            {
+                Objectives["cleared_ruined_village"] = false;
+            }
+
+
+            if (Objectives["tombstone_ready"] && Game.Objectives["spoke_to_tm_after_learn_dragon"])
             {
                 Game.Areas[0].npcs.Add(NPCs["Tombstone"]);
 
@@ -406,16 +422,16 @@ namespace Fall2020_CSC403_Project.code
             {
                 NPCs["Tombstone"].Dialog = "Why am I alive again? I was cursed to be resurrected as that dragon was alive.\nThanks for freeing me.\nHey, let's not mention all of the previous adventurer's I've brought here... thanks.";
                 NPCs["Tombstone"].Pic.Image = Resources.tombstone;
-            } else if (!Objectives["spoke_to_bartholomew"] && !Objectives["spoke_to_tombstone"])
+            } else if ((!Objectives["learned_of_dragon1"] || !Objectives["learned_of_dragon2"]) && !Objectives["spoke_to_tombstone"])
             {
                 NPCs["Tombstone"].Dialog = "Hey, name's Tombstone.\nWhy am I not attacking you? I don't like those other lizards...\nbut don't go tell them that.\nJust run away from me and pretend I attacked you";
             }
-            else if (Objectives["spoke_to_bartholomew"] && !Objectives["spoke_to_tombstone"])
+            else if (Objectives["learned_of_dragon1"] && Objectives["learned_of_dragon2"] && !Objectives["spoke_to_tombstone"])
             {
                 NPCs["Tombstone"].Dialog = "Hey, name's Tombstone.\nWhy am I not attacking you? I don't like those other lizards...\nbut don't go tell them that.\nHey! I know where that Dragon is... why don't I show you the way? Meet you at Malek's Mountain";
                 Objectives["tombstone_ready"] = true;
             }
-            else if (!Objectives["spoke_to_bartholomew"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && !Objectives["tombstone_ready"])
+            else if ((!Objectives["learned_of_dragon1"] || !Objectives["learned_of_dragon2"]) && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && !Objectives["tombstone_ready"])
             {
                 NPCs["Tombstone"].Dialog = "Hey there again, back for more?\nHa, I'll let you go again this time";
 
@@ -428,7 +444,7 @@ namespace Fall2020_CSC403_Project.code
                 Game.Areas[0].TravelSigns[Direction.Left].Collider.Enable();
                 NPCs["Tombstone"].Dialog = "Hey, I moved that big stone in front of the cave for you, it's right over there";
 
-            } else if (Objectives["spoke_to_bartholomew"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && Game.CurrentArea.AreaName != "Malek's Lair")
+            } else if (Objectives["learned_of_dragon1"] && Objectives["learned_of_dragon2"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && Game.CurrentArea.AreaName != "Malek's Lair")
             {
                 NPCs["Tombstone"].Dialog = "Hey, I know where that Dragon is ... why don't I show you the way? Meet you at Malek's Mountain";
                 Objectives["tombstone_ready"] = true;
@@ -445,28 +461,38 @@ namespace Fall2020_CSC403_Project.code
             }
 
 
-            if (!Objectives["cleared_harmony_plains"] && !Objectives["cleared_ruined_village"] && !Objectives["cleared_mountain"] && !Objectives["killed_dragon"])
+            if (!Objectives["cleared_harmony_plains"] && !Objectives["cleared_ruined_village"] && !Objectives["cleared_windy"])
             {
-                NPCs["Bartholomew"].Dialog = "Those darn pesky lizard people have taken over the harmony plains! Some adventurers are fighting them, but I'm not sure they have what it takes.";
+                NPCs["Bartholomew"].Dialog = "Those darn pesky lizard people have made it to harmony plains! Some adventurers are fighting them, but I'm not sure they have what it takes.";
             }
-            else if (Objectives["cleared_harmony_plains"] && !Objectives["cleared_ruined_village"] && !Objectives["cleared_mountain"] && !Objectives["killed_dragon"])
+            else if (Objectives["cleared_harmony_plains"] && !Objectives["cleared_windy"])
             {
-                NPCs["Bartholomew"].Dialog = "Great job clearing Harmony Plains.. now if only someone would get rid of the lizards in the old village... They moved in after the dragon destroyed it.";
+                NPCs["Bartholomew"].Dialog = "Great job clearing Harmony Plains.. \nNow we need to drive them further away and out of the Windy Plateau!";
             }
-            else if (!Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && !Objectives["cleared_mountain"] && !Objectives["killed_dragon"])
+            else if (!Objectives["cleared_harmony_plains"] && (Objectives["cleared_ruined_village"] || Objectives["cleared_windy"]))
             {
-                NPCs["Bartholomew"].Dialog = "Great work! I wish those lizars would leave Harmony Plains though";
+                NPCs["Bartholomew"].Dialog = "Great work! I wish those lizards would leave Harmony Plains though";
             }
-            else if (!Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_mountain"] && !Objectives["killed_dragon"])
+            else if (!Objectives["cleared_ruined_village"] && (Objectives["cleared_windy"] || Objectives["cleared_harmony_plains"]))
             {
-                NPCs["Bartholomew"].Dialog = "Wow! You cleared the reptiles from the Mountain, I wish someone could clear them from Harmony Plains";
+                NPCs["Bartholomew"].Dialog = "Wonderful work over there, now if only someone would get rid of the lizards in the old village... They moved in after the dragon destroyed it.";
+                Objectives["learned_of_dragon1"] = true;
             }
-            else if (!Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_mountain"] && Objectives["killed_dragon"])
+            else if (!Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_windy"] && Objectives["killed_dragon"])
             {
                 NPCs["Bartholomew"].Dialog = "Fantatic work getting rid of the Dragon! Without their leader, it should be easy to wipe out the rest of the reptiles from the surrounding land";
             }
-
-
+            else if (Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && !Objectives["cleared_windy"] && !Objectives["killed_dragon"])
+            {
+                NPCs["Bartholomew"].Dialog = "You're doing great. We should attack them at the source, the mountain.";
+            }
+            else if (Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_windy"] && Objectives["killed_dragon"])
+            {
+                NPCs["Bartholomew"].Dialog = "You've done great work for this land.\nWe thank you";
+            } else
+            {
+                NPCs["Bartholomew"].Dialog = "Hey there, nothing for me to complain about today yet.";
+            }
 
 
         }
