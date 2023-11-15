@@ -223,8 +223,8 @@ namespace Fall2020_CSC403_Project {
             this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battleback;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
-            this.Controls.Add(this.battleLog);
             this.Controls.Add(this.picBossBattle);
+            this.Controls.Add(this.battleLog);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPlayerHealthFull);

@@ -199,8 +199,12 @@ namespace Fall2020_CSC403_Project {
                 }
                 UpdateHealthBars();
 
-       
 
+			if (player.Health <= 0)
+			{
+                instance = null;
+                Close();
+			}
         }
 
 
@@ -223,6 +227,11 @@ namespace Fall2020_CSC403_Project {
                 UpdateHealthBars();
 
             }
+			if (player.Health <= 0)
+			{
+                instance = null;
+                Close();
+			}
         }
         private void btnFlee_Click(object sender, EventArgs e)
         {
@@ -234,6 +243,7 @@ namespace Fall2020_CSC403_Project {
             fleeSound.PlaySync();
             //observers have to be cleared, otherwise other instances will do n*damage
             enemy.AttackEvent -= PlayerDamage;
+            enemy.HealEvent -= EnemyHeal;
             player.AttackEvent -= EnemyDamage;
             player.HealEvent -= PlayerHeal;
             instance = null;
