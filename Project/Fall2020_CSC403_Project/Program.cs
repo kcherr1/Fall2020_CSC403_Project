@@ -21,27 +21,24 @@ namespace Fall2020_CSC403_Project {
       startScreen.ShowDialog();
 
       //prevents the player from closing the window and starting the game anyway
-      if (GameState.startGame)
-      {
-
+      if (GameState.startGame) {
         FrmLevel levelOne = new FrmLevel();
         levelOne.ShowDialog();
 
-      //levelOne = null;
-      //GC.Collect();
-      if (GameState.isLevelOneCompleted)
-      {
-        levelOne.Dispose();
-        FrmLevel2 levelTwo = new FrmLevel2();
-        levelTwo.ShowDialog();
+        //levelOne = null;
+        //GC.Collect();
+        if (GameState.isLevelOneCompleted) {
+          levelOne.Dispose();
+          FrmLevel2 levelTwo = new FrmLevel2();
+          levelTwo.ShowDialog();
 
-        if (GameState.isLevelTwoCompleted) {
-          levelTwo.Dispose();
-          FrmLevel3 levelThree = new FrmLevel3();
-          levelThree.ShowDialog();
+          if (GameState.isLevelTwoCompleted) {
+            levelTwo.Dispose();
+            FrmLevel3 levelThree = new FrmLevel3();
+            levelThree.ShowDialog();
+          }
         }
       }
-
       //GC.KeepAlive(gameState);
     }
   }
