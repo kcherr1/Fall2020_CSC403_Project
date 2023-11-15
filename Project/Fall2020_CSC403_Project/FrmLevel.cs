@@ -306,16 +306,17 @@ namespace Fall2020_CSC403_Project
 
             this.converseText = new Label();
             this.converseText.Parent = this.conversePanel;
-            this.converseText.Size = new Size(Screen.PrimaryScreen.Bounds.Width * 7/8, this.conversePanel.Size.Height - this.JoinParty.Height - this.converseNPCName.Height);
+            this.converseText.Size = new Size(Screen.PrimaryScreen.Bounds.Width * 9/10, this.conversePanel.Size.Height - this.JoinParty.Height - this.converseNPCName.Height);
             this.converseText.Text = "";
             Game.FontSizing(this.converseText);
-            this.converseText.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 8, this.converseNPCName.Bottom);
+            this.converseText.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 10, this.converseNPCName.Bottom);
             this.conversePanel.BringToFront();
 
             this.converseImg = new PictureBox();
             this.converseImg.Parent = this.conversePanel;
-            this.converseImg.Size = new Size(Screen.PrimaryScreen.Bounds.Width / 8, this.conversePanel.Size.Height - this.JoinParty.Height - this.converseNPCName.Height);
+            this.converseImg.Size = new Size(Screen.PrimaryScreen.Bounds.Width / 10, this.conversePanel.Size.Height - this.JoinParty.Height - this.converseNPCName.Height);
             this.converseImg.Location = new Point(0, this.converseNPCName.Bottom);
+            this.converseImg.SizeMode = PictureBoxSizeMode.StretchImage;
             this.converseImg.BringToFront();
         }
 
@@ -522,7 +523,7 @@ namespace Fall2020_CSC403_Project
                 this.converseNPCName.Text = this.NPC_Conversing.Name + ":";
                 Game.FontSizing(this.converseText);
                 this.conversePanel.Show();
-                this.converseImg.Image = this.NPC_Conversing.image;
+                this.converseImg.Image = this.NPC_Conversing.ConverseImage;
                 this.converseImg.Show();
 
                 if (this.NPC_Conversing.Name == "Tombstone")
