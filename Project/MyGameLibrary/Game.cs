@@ -115,37 +115,52 @@ namespace Fall2020_CSC403_Project.code
             // Create Enemies
             Enemies["Minion1"] = new Enemy(
                 "Lizard Minion",
-                MakePictureBox(Resources.minion, new Point(200, 500), new Size(100, 100)),
+                MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(100, 100)),
                 new Minion());
 
             Enemies["Minion2"] = new Enemy(
                 "Lizard Minion",
-                MakePictureBox(Resources.minion, new Point(500, 200), new Size(100, 100)),
+                MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 5, Screen.PrimaryScreen.Bounds.Height / 2), new Size(100, 100)),
                 new Minion());
 
             Enemies["Coward"] = new Enemy(
                 "Coward",
-                MakePictureBox(Resources.coward, new Point(600, 200), new Size(75, 125)),
+                MakePictureBox(Resources.coward, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 5, Screen.PrimaryScreen.Bounds.Height / 2), new Size(75, 125)),
                 new Coward());
 
             Enemies["Brute"] = new Enemy(
                 "Brute",
-                MakePictureBox(Resources.brute, new Point(1000, 100), new Size(150, 150)),
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width * 4 / 5, Screen.PrimaryScreen.Bounds.Height / 10), new Size(150, 150)),
                 new Brute());
 
             Enemies["Brute1"] = new Enemy(
                 "Brute",
-                MakePictureBox(Resources.brute, new Point(1000, 800), new Size(150, 150)),
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 5, Screen.PrimaryScreen.Bounds.Height * 3 / 5), new Size(150, 150)),
                 new Brute());
 
             Enemies["Brute2"] = new Enemy(
                 "Brute",
-                MakePictureBox(Resources.brute, new Point(500, 840), new Size(150, 150)),
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width * 4/5, Screen.PrimaryScreen.Bounds.Height / 10), new Size(150, 150)),
+                new Brute());
+
+            Enemies["Brute3"] = new Enemy(
+                "Brute",
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height / 2), new Size(150, 150)),
+                new Brute());
+
+            Enemies["Brute4"] = new Enemy(
+                "Brute",
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height * 3 / 5), new Size(150, 150)),
+                new Brute());
+
+            Enemies["Brute5"] = new Enemy(
+                "Brute",
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width * 9 / 10, Screen.PrimaryScreen.Bounds.Height * 2 / 3), new Size(150, 150)),
                 new Brute());
 
             Enemies["Zombie"] = new Enemy(
                 "Zombie",
-                MakePictureBox(Resources.zombie, new Point(1000, 100), new Size(400, 150)),
+                MakePictureBox(Resources.zombie, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(400, 150)),
                 new Zombie());
 
             //Enemies["Bees"] = new Enemy(
@@ -155,17 +170,42 @@ namespace Fall2020_CSC403_Project.code
 
             Enemies["Lizard Wizard"] = new Enemy(
                 "Lizard Wizard",
-                MakePictureBox(Resources.wizardlizard, new Point(677, 697), new Size(150, 150)),
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(150, 150)),
                 new Mage());
 
             Enemies["Lizard Wizard1"] = new Enemy(
                 "Lizard Wizard",
-                MakePictureBox(Resources.wizardlizard, new Point(845, 540), new Size(150, 150)),
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(150, 150)),
+                new Mage());
+            
+            Enemies["Lizard Wizard2"] = new Enemy(
+                "Lizard Wizard",
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width * 4 / 5, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(150, 150)),
+                new Mage());
+            
+            Enemies["Lizard Wizard3"] = new Enemy(
+                "Lizard Wizard",
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 5 + 20, Screen.PrimaryScreen.Bounds.Height / 2), new Size(150, 150)),
+                new Mage());
+            
+            Enemies["Lizard Wizard4"] = new Enemy(
+                "Lizard Wizard",
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height / 10), new Size(150, 150)),
                 new Mage());
 
-            Enemies["Whelp"] = new Enemy(
+            Enemies["Whelp1"] = new Enemy(
                 "Whelp",
-                MakePictureBox(Resources.whelp, new Point(473, 347), new Size(400, 150)),
+                MakePictureBox(Resources.whelp, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(100, 100)),
+                new Whelp());
+            
+            Enemies["Whelp2"] = new Enemy(
+                "Whelp",
+                MakePictureBox(Resources.whelp, new Point(Screen.PrimaryScreen.Bounds.Width / 8, Screen.PrimaryScreen.Bounds.Height * 2 / 5), new Size(100, 100)),
+                new Whelp());
+            
+            Enemies["Whelp3"] = new Enemy(
+                "Whelp",
+                MakePictureBox(Resources.whelp, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(100, 100)),
                 new Whelp());
 
             Size dragonSize = new Size(Screen.PrimaryScreen.Bounds.Width * 1 / 4, Screen.PrimaryScreen.Bounds.Height * 1 / 4);
@@ -177,7 +217,7 @@ namespace Fall2020_CSC403_Project.code
             // Create NPCs
             NPCs["Harold"] = new NPC(
                 "Harold",
-                MakePictureBox(Resources.harold, new Point(150, 150), new Size(75, 100)),
+                MakePictureBox(Resources.harold, new Point(Screen.PrimaryScreen.Bounds.Width * 9 /10, Screen.PrimaryScreen.Bounds.Height / 10), new Size(75, 100)),
                 new Healer()
             );
             NPCs["Harold"].Dialog = "How's it going? Name's Harold. If you go kill some lizards, let me know. I want in.";

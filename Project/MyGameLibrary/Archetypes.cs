@@ -378,7 +378,7 @@ namespace Fall2020_CSC403_Project.code
         {
             name = "Whelp";
             baseMaxHealth = 50;
-            baseDefense = 7;
+            baseDefense = 8;
             baseDamage = 3;
             baseSpeed = 3;
             hitMod = 3;

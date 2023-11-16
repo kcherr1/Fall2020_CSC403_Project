@@ -1185,7 +1185,6 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddEnemy(Game.Enemies["Minion2"]);
             Game.CurrentArea.AddEnemy(Game.Enemies["Brute"]);
 
-            Game.CurrentArea.AddNPC(Game.NPCs["Harold"]);
             Game.CurrentArea.AddNPC(Game.NPCs["Gerald"]);
         }
 
@@ -1197,6 +1196,12 @@ namespace Fall2020_CSC403_Project
                 return;
             }
             Game.CurrentArea.Visited = true;
+
+            Game.CurrentArea.AddNPC(Game.NPCs["Harold"]);
+
+            Game.CurrentArea.AddEnemy(Game.Enemies["Brute3"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Brute4"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Brute5"]);
 
         }
 
@@ -1244,8 +1249,13 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.Visited = true;
 
+            Game.CurrentArea.AddEnemy(Game.Enemies["Whelp1"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Whelp2"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Whelp3"]);
 
-
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard2"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard3"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard4"]);
 
         }
 
