@@ -805,15 +805,16 @@ namespace Fall2020_CSC403_Project
         private void RecordLeaderboardData()
         {
 
-
             string filepath = "../../data/LeaderboardData.json";
+
+            string[] text;
             if (!File.Exists(filepath))
             {
                 FileStream fs = File.Create(filepath);
-                string[] text = ["", "", "", "", "", ""];
+                text = ["", "", "", "", "", ""];
             } else
             {
-                string[] text = File.ReadAllLines(filepath);
+                text = File.ReadAllLines(filepath);
             }
 
             string playerText = text[0];
