@@ -884,6 +884,8 @@ namespace Fall2020_CSC403_Project
                 this.Controls.Remove(Game.CurrentArea.Structures[i].Pic);
             }
 
+
+
             GC.Collect();
 
         }
@@ -903,8 +905,6 @@ namespace Fall2020_CSC403_Project
             Game.Areas = new Area[10];
 
             GC.Collect();
-
-
 
         }
 
