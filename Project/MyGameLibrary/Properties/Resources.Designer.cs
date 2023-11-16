@@ -83,6 +83,16 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap bartholomew {
+            get {
+                object obj = ResourceManager.GetObject("bartholomew", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap brute {
             get {
                 object obj = ResourceManager.GetObject("brute", resourceCulture);
@@ -206,6 +216,16 @@ namespace MyGameLibrary.Properties {
         public static System.Drawing.Bitmap gold_pile4 {
             get {
                 object obj = ResourceManager.GetObject("gold_pile4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap gerald {
+            get {
+                object obj = ResourceManager.GetObject("gerald", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
