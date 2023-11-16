@@ -811,7 +811,7 @@ namespace Fall2020_CSC403_Project
             if (!File.Exists(filepath))
             {
                 FileStream fs = File.Create(filepath);
-                text = ["", "", "", "", "", ""];
+                text = new string[]{ "", "", "", "", "", ""};
             } else
             {
                 text = File.ReadAllLines(filepath);
