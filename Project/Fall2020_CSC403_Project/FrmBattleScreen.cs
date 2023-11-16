@@ -854,8 +854,8 @@ namespace Fall2020_CSC403_Project
 
                     Button ExitButton = new Button();
                     ExitButton.Parent = this;
-                    ExitButton.Size = new Size(2*width / 3, height / 4);
-                    ExitButton.Location = new Point(width/6, 3*height/8);
+                    ExitButton.Location = new Point(width/6, this.AttackButton.Top);
+                    ExitButton.Size = new Size(2 * width / 3, height - this.AttackButton.Top - 10);
                     ExitButton.Text = "You Won! Click to Exit";
                     ExitButton.Font = new Font("NSimSun", ExitButton.Size.Height / 2);
                     Game.FontSizing(ExitButton);

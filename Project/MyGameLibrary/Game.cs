@@ -59,11 +59,11 @@ namespace Fall2020_CSC403_Project.code
                 5,
                 Item.ItemType.Utility,
                 Item.EffectType.Healing,
-                "This small bottle holds a liquid that swirls with crimson liquid. A brand on the cork bears the logo of Marissa's Cauldron®");
+                "This small bottle holds a liquid that swirls with crimson liquid. A brand on the cork bears the logo of Marissa's Cauldron");
 
             Items["Strength Potion"] = new Item(
                 "Potion of Strength",
-                MakePictureBox(Resources.strength_potion, new Point(400, 400), itemSize),
+                MakePictureBox(Resources.strength_potion, new Point(Screen.PrimaryScreen.Bounds.Width - Terrain.TileSize.Width * 6, Terrain.TileSize.Width * 5), itemSize),
                 5,
                 Item.ItemType.Utility,
                 Item.EffectType.Strength,
@@ -112,6 +112,13 @@ namespace Fall2020_CSC403_Project.code
                 Item.EffectType.Accuracy,
                 "This liquid seems rigid in this bottle. The cork on top indicates to you that the Allegiance uses this potion as standard issue.");
 
+            Items["Greater Health Potion"] = new Item(
+                "Greather Health Potion",
+                MakePictureBox(Resources.greather_health_potion, new Point(Terrain.TileSize.Width * 10, Terrain.TileSize.Width * 15), itemSize),
+                15,
+                Item.ItemType.Utility,
+                Item.EffectType.Healing,
+                "This large bottle holds a liquid that swirls with crimson liquid. The handiwork of its contents are the expertise of Cassandra.");
 
 
             // Create Enemies
@@ -133,6 +140,11 @@ namespace Fall2020_CSC403_Project.code
             Enemies["Minion4"] = new Enemy(
                 "Lizard Minion",
                 MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 5, Screen.PrimaryScreen.Bounds.Height / 2), new Size(100, 100)),
+                new Minion());
+
+            Enemies["Minion5"] = new Enemy(
+                "Lizard Minion",
+                MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width * 2 / 5, Screen.PrimaryScreen.Bounds.Height * 1 / 3), new Size(100, 100)),
                 new Minion());
 
             Enemies["Coward"] = new Enemy(
@@ -175,10 +187,6 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.zombie, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(400, 150)),
                 new Zombie());
 
-            //Enemies["Bees"] = new Enemy(
-            //    "Bees",
-            //    MakePictureBox(Resources.bees, new Point(1000, 100), new Size(400, 150)),
-            //    new Bees());
 
             Enemies["Lizard Wizard"] = new Enemy(
                 "Lizard Wizard",

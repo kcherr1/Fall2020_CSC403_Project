@@ -744,6 +744,7 @@ namespace Fall2020_CSC403_Project
         public void GameOver()
         {
             this.gameOver = true;
+            this.fighting = false;
 
             foreach (Item item in Game.player.Inventory.Backpack)
             {
@@ -1071,7 +1072,6 @@ namespace Fall2020_CSC403_Project
             }
             Game.CurrentArea.Visited = true;
 
-
             Game.Areas[0].npcs.Remove(Game.NPCs["Tombstone"]);
 
 
@@ -1106,6 +1106,10 @@ namespace Fall2020_CSC403_Project
                 Game.NPCs["Tombstone"].SetEntityPosition(Game.player.Position);
 
             }
+
+
+            Game.CurrentArea.AddItem(Game.Items["Thalian Sword"]);
+            
 
         }
 
@@ -1151,6 +1155,8 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddNPC(Game.NPCs["Bobby"]);
             Game.CurrentArea.AddNPC(Game.NPCs["Eugene"]);
 
+            Game.CurrentArea.AddItem(Game.Items["Strength Potion"]);
+            Game.CurrentArea.AddItem(Game.Items["Greater Health Potion"]);
 
         }
 
@@ -1282,6 +1288,7 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard1"]);
             Game.CurrentArea.AddEnemy(Game.Enemies["Brute1"]);
             Game.CurrentArea.AddEnemy(Game.Enemies["Brute2"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Minion5"]);
 
             Game.CurrentArea.AddItem(Game.Items["Accuracy Potion"]);
             Game.CurrentArea.AddItem(Game.Items["Rusty Sword"]);
@@ -1306,6 +1313,8 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard2"]);
             Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard3"]);
             Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard4"]);
+
+            Game.CurrentArea.AddItem(Game.Items["Speed Potion"]);
 
         }
 

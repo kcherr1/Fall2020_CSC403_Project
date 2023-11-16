@@ -383,7 +383,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 3;
             baseSpeed = 3;
             hitMod = 3;
-            opener = "My own life is worthless compared to the majestic glory of the mother dragon.";
+            opener = "For our Dragon King!";
         }
 
         public void specialMove(Character target) { }
