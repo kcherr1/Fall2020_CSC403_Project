@@ -56,7 +56,6 @@ namespace Fall2020_CSC403_Project.code
             int hit = this.dice.Next(1, 21);
 			string log;
 			int damage;
-			log = this.Name + " hit : " + hit;
             if (hit == 20)
 			{
 				damage = this.damage * 2 + this.dice.Next(1, this.archetype.baseDamage + 1);

@@ -184,7 +184,7 @@ namespace Fall2020_CSC403_Project.code
             baseDefense = 0;
             baseDamage = 20;
             baseSpeed = 0;
-            hitMod = 3;
+            hitMod = -1;
         }
 
         public void specialMove(Character target) { }
@@ -279,7 +279,7 @@ namespace Fall2020_CSC403_Project.code
         public Brute()
         {
             name = "Brute";
-            baseMaxHealth = 30;
+            baseMaxHealth = 45;
             baseDefense = 12;
             baseDamage = 3;
             baseSpeed = 1;

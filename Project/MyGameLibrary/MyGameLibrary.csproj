@@ -158,6 +158,12 @@
     <None Include="Resources\tile_rock.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\gerald.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bartholomew.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\tile_cave.png" />
   </ItemGroup>
   <ItemGroup>

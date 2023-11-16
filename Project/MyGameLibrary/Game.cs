@@ -628,5 +628,24 @@ namespace Fall2020_CSC403_Project.code
 
 
         }
+
+        public static void FontSizing(Button but)
+        {
+            using (Graphics g = but.CreateGraphics())
+            {
+                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                for (int fontSize = 100; fontSize >= 8; fontSize--)
+                {
+                    Font testFont = new Font("NSimSun", fontSize);
+                    Size textSize = TextRenderer.MeasureText(g, but.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
+
+                    if (textSize.Width <= but.Width && textSize.Height <= but.Height)
+                    {
+                        but.Font = testFont; // Set the font size that fits
+                        break;
+                    }
+                }
+            }
+        }
     }
 }

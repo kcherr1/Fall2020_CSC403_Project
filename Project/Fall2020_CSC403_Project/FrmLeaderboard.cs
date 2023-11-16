@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.Json;
 using System.Xml.Schema;
-using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 
 namespace Fall2020_CSC403_Project
