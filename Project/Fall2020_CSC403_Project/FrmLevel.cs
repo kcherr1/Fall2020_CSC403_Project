@@ -516,7 +516,6 @@ namespace Fall2020_CSC403_Project
 
             // check collision with enemies
             int x = hitEnemy(Game.player);
-            Console.WriteLine(x);
             if (x >= 0)
             {
                 Fight(Game.CurrentArea.Enemies[x]);
@@ -571,7 +570,6 @@ namespace Fall2020_CSC403_Project
                     Game.player.Inventory.AddToBackpack(item);
                     item.HideEntity();
                 }
-
             }
 
             x = InATile(Game.player);
@@ -1289,8 +1287,6 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddItem(Game.Items["Rusty Sword"]);
             Game.CurrentArea.AddItem(Game.Items["Lumberjack Axe"]);
 
-            Game.CurrentArea.AddNPC(Game.NPCs["Bartholomew"]);
-            Game.CurrentArea.AddNPC(Game.NPCs["Hank"]);
         }
 
         private void Area0()

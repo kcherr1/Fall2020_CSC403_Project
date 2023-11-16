@@ -845,7 +845,7 @@ namespace Fall2020_CSC403_Project
                 }
                 else if (enemy.Health <= 0)
                 {
-                    AddToLog(this.attackOrder[0].Name + " deafeated " + enemy.Name + "!");
+                    AddToLog(this.attackOrder[this.attackOrder.Count - 1].Name + " deafeated " + enemy.Name + "!");
                     instance = null;
                     form.RemoveEnemy(enemy);
                     player.RemoveEffect();

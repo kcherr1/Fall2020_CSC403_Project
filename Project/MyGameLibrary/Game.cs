@@ -248,7 +248,7 @@ namespace Fall2020_CSC403_Project.code
 
             NPCs["Tombstone"] = new NPC(
                 "Tombstone",
-                MakePictureBox(Resources.tombstone, new Point(Screen.PrimaryScreen.Bounds.Width * 5 / 7, Screen.PrimaryScreen.Bounds.Height *5 / 7), new Size(75, 100)),
+                MakePictureBox(Resources.tombstone, new Point(Screen.PrimaryScreen.Bounds.Width * 5 / 7, Screen.PrimaryScreen.Bounds.Height -  Terrain.TileSize.Width * 8), new Size(75, 100)),
                 new Tombstone());
             NPCs["Tombstone"].CanJoinParty = false;
             NPCs["Tombstone"].InviteRejection = "Woah there, pal, I'm not sure we're that tight yet.";
@@ -503,18 +503,21 @@ namespace Fall2020_CSC403_Project.code
         public static void CheckObjectives()
         {
 
-            if (Game.Areas[7].Enemies.Count == 0)
+            if (Objectives["cleared_harmony_plains"] == false && Game.Areas[7].Enemies.Count == 0 && Game.Areas[7].Visited)
             {
                 Objectives["cleared_harmony_plains"] = true;
+                Console.WriteLine("a");
             }
-            if (Game.Areas[6].Enemies.Count == 0)
+            if (Objectives["cleared_windy"] == false && Game.Areas[6].Enemies.Count == 0 && Game.Areas[6].Visited)
             {
                 Objectives["cleared_windy"] = true;
+                Console.WriteLine("b");
 
-            } 
-            if (Game.Areas[1].Enemies.Count == 0)
+            }
+            if (Objectives["cleared_ruined_village"] == false && Game.Areas[1].Enemies.Count == 0 && Game.Areas[1].Visited)
             {
-                Objectives["cleared_ruined_village"] = false;
+                Objectives["cleared_ruined_village"] = true;
+                Console.WriteLine("c");
             }
 
 
@@ -563,7 +566,7 @@ namespace Fall2020_CSC403_Project.code
             else if (Game.CurrentArea.AreaName == "Malek's Mountain" && Objectives["cave_unlocked"])
             {
 
-                Game.Areas[1].npcs.Remove(NPCs["Tombstone"]);
+                Game.Areas[2].npcs.Remove(NPCs["Tombstone"]);
 
                 Game.Areas[0].TravelSigns[Direction.Left].Pic.Image = Resources.cave_entrance_open;
                 Game.Areas[0].TravelSigns[Direction.Left].Collider.Enable();
