@@ -10,47 +10,33 @@ Hrushikesh Reddy Madugula
 Vamsi Krishna Alla
 Radha Krishna Nimmala
 
-Sprint Planning (Google Sheet):  https://docs.google.com/spreadsheets/d/1bGAUT7hW5qLWWIr-rsyuhKZuAEFbsOuR0vUkyvzdtO4/edit?exids=71471475,71471470#gid=0
+Sprint Planning (Google Sheet): https://docs.google.com/spreadsheets/d/1bGAUT7hW5qLWWIr-rsyuhKZuAEFbsOuR0vUkyvzdtO4/edit#gid=2102808758
 
-Features:
-As a user, if the hero has died during this game, there should be an option to restart the game
-As a user, I should have the ability to collect health potions on the screen. Upon consumption, these potions should boost my health.
-As a user, when a character dies or health becomes 0, the character should disappear
-As a user, there should be an option to select the difficulty level while playing the game
+SPRINT 2 
 
+This is the second and final sprint we are working on for this project, previously we worked on a basic version of this game in the second sprint we added many more enhanced features and created the final version of the game. When compared to the
 
-Additional Features: 
+INTRODUCTION SCREEN
 
-As a user, I want to clean up dead bodies after the enemy lost.
+We have added a game introduction screen where we can see the display with the game name and menu options with buttons to access settings, start the game and end the game.
 
-Mode Selection:
+SETTINGS MENU
 
-While starting the game, the player is asked to select the game mode (Classic, Ghost). The classic mode is the regular game. Ghost mode is where the enemies are invisible and the player attacks the enemy as they pass.
+We have created a settings menu where we can select different options like, playing the game in full screen or minimising it and turning the sound effects on and off.
 
+MULTIPLE CHARACTERS
 
+We have given multiple different characters to select from once the game starts on the top left players have different characters to choose from.
 
+GAME SHORTCUTS
 
+M - We can press the letter ‘M’ to decrease the size of the hero. N-  We can press the letter ‘N’ to increase the size of the hero. ESC - we can press the escape menu to get a pop-up menu with options to QUIT or RESUME.
 
+DIFFICULTY LEVEL
 
-Health Potions:
+We have the option to choose the difficulty level of the game between EASY, MEDIUM and HARD.
 
-The player collects the health potions while playing the game. The player collects them as they pass through. This will increase the overall health of the player. The collected health potions are displayed in the boxes above the exit button.
+LAYOUT and GAME SCREEN CHANGES
 
-
-                     
-
-Character Disappearance:
-
-The character is disappeared after the player loses the battle. This happens when the health reaches to 0.
-
-
-
-
-Restart Option:
-
-Post the attack with the enemy, if the hero loses the battle, a LoseScreen is displayed where you have the options to exit the game or to go back to the main menu.
-If the hero wins all the battles, then a WinScreen is displayed with the options to exit the game or to go back to the main menu.
-
-
-
+We have changed the layout of the game and the attack screen colour.
 
