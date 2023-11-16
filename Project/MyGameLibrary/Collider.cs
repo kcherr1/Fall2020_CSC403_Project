@@ -20,6 +20,11 @@ namespace Fall2020_CSC403_Project.code
             this.Enabled = true;
         }
 
+        public Point getPos()
+        {
+            return new Point(rect.X, rect.Y);
+        }
+
 
         public Collider(PictureBox pic, int padding = 7)
         {

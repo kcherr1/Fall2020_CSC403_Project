@@ -13,6 +13,7 @@ using System.Threading;
 using System.Timers;
 using System.Collections;
 using System.Linq;
+using System.Diagnostics;
 
 namespace Fall2020_CSC403_Project
 {
@@ -552,6 +553,7 @@ namespace Fall2020_CSC403_Project
             x = HitAnItem(Game.player);
             if (x >= 0)
             {
+                Console.WriteLine(x);
                 if (!Game.player.Inventory.BackpackIsFull())
                 {
                     Item item = Game.CurrentArea.Items[x];
@@ -735,9 +737,20 @@ namespace Fall2020_CSC403_Project
             this.gameOver = true;
             this.fighting = false;
 
+
+
+            Console.WriteLine("here");
+            Debug.WriteLine("here");
+
             foreach (Item item in Game.player.Inventory.Backpack)
             {
                 item?.ShowEntity();
+
+                Console.WriteLine(item?.Name);
+                if (item != null)
+                {
+                    this.Controls.Remove(item.Pic);
+                }
             }
             Game.player.Inventory.Weapon?.ShowEntity();
             Game.player.Inventory.Armor?.ShowEntity();
@@ -884,6 +897,8 @@ namespace Fall2020_CSC403_Project
                 this.Controls.Remove(Game.CurrentArea.Structures[i].Pic);
             }
 
+
+
             GC.Collect();
 
         }
@@ -903,8 +918,6 @@ namespace Fall2020_CSC403_Project
             Game.Areas = new Area[10];
 
             GC.Collect();
-
-
 
         }
 
