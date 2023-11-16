@@ -958,6 +958,7 @@ namespace Fall2020_CSC403_Project
 
         private void MainMenuButton_Click(object sender, EventArgs e)
         {
+
             Game.player = null;
             Game.player = null;
             MainMenu.Show();

@@ -43,7 +43,7 @@ namespace Fall2020_CSC403_Project.code
 
             Items["Dagger of Mischief"] = new Item(
                "Dagger of Mischief",
-               MakePictureBox(Resources.rare_dagger, new Point(800, 100), itemSize),
+               MakePictureBox(Resources.rare_dagger, new Point(Terrain.TileSize.Width * 6, Terrain.TileSize.Width * 5), itemSize),
                10,
                Item.ItemType.Weapon,
                Item.WeaponType.Dagger,
@@ -82,7 +82,7 @@ namespace Fall2020_CSC403_Project.code
 
             Items["Carpenter Hammer"] = new Item(
                 "Carptener's Hammer",
-                MakePictureBox(Resources.common_hammer, new Point(500, 650), itemSize),
+                MakePictureBox(Resources.common_hammer, new Point(700, 600), itemSize),
                 5,
                 Item.ItemType.Weapon,
                 Item.WeaponType.War,
@@ -90,7 +90,7 @@ namespace Fall2020_CSC403_Project.code
 
             Items["Lumberjack Axe"] = new Item(
                 "Lumberjack's Axe",
-                MakePictureBox(Resources.common_axe, new Point(880, 880), itemSize),
+                MakePictureBox(Resources.common_axe, new Point(Screen.PrimaryScreen.Bounds.Width / 2 + 30, Screen.PrimaryScreen.Bounds.Height / 2 + 10), itemSize),
                 10,
                 Item.ItemType.Weapon,
                 Item.WeaponType.War,
@@ -115,7 +115,7 @@ namespace Fall2020_CSC403_Project.code
            
             Items["Accuracy Potion"] = new Item(
                 "Potion of Accuracy",
-                MakePictureBox(Resources.accuracy_potion, new Point(Terrain.TileSize.Width * 5, Terrain.TileSize.Width * 10), itemSize),
+                MakePictureBox(Resources.accuracy_potion, new Point(Terrain.TileSize.Width * 5, Terrain.TileSize.Width * 8), itemSize),
                 3,
                 Item.ItemType.Utility,
                 Item.EffectType.Accuracy,

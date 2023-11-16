@@ -26,7 +26,9 @@ namespace Fall2020_CSC403_Project.code
 		
 		public int defense;
 
+
 		public int damage;
+		public int dam_mod = 0;
 
 		public int speed;
 
@@ -101,14 +103,14 @@ namespace Fall2020_CSC403_Project.code
 			{
 				if (this.Inventory.Weapon.Weapon_Type == this.archetype.Weapon_Type || this.archetype.Weapon_Type == WeaponType.Any)
 				{
-                    this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat;
+                    this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat + dam_mod;
                 } else
 				{
-                    this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat / 2;
+                    this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat / 2 + dam_mod;
                 }
             } else
 			{
-				this.damage = this.archetype.baseDamage;
+				this.damage = this.archetype.baseDamage + dam_mod;
 			}
         }
 
@@ -124,7 +126,7 @@ namespace Fall2020_CSC403_Project.code
 					}
 					break;
 				case EffectType.Strength:
-					this.damage += stat;
+					this.dam_mod += stat;
 					break;
 				case EffectType.Speed:
 					this.speed += stat;
@@ -135,13 +137,16 @@ namespace Fall2020_CSC403_Project.code
 				default:
 					break;
 			}
+			UpdateStats();
 		}
 
 		public void RemoveEffect()
 		{
-			this.damage = this.archetype.baseDamage;
+			this.dam_mod = 0;
 			this.speed = this.archetype.baseSpeed;
 			this.hit_mod = this.archetype.hitMod;
+			UpdateStats();
+
 		}
         
     }
