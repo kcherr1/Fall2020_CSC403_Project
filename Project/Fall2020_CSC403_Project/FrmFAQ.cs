@@ -63,10 +63,57 @@ namespace Fall2020_CSC403_Project
             headingLabel.AutoSize = true;
             //(this.ClientSize.Width - headingLabel.Width)
 
-            // Adding the buttons to the form's Controls collection
+            //Label for Answer1
+            Label answer1Label = new Label();
+            answer1Label.Text = "Playable characters are Tank, Rouge, and Swordsmen";
+            answer1Label.Font = new Font("Arial", 12, FontStyle.Regular);
+            answer1Label.BackColor = Color.Transparent;
+            answer1Label.Location = new Point(250, 232);
+            answer1Label.AutoSize = true;
+
+            //Label for Answer2
+            Label answer2Label = new Label();
+            answer2Label.Text = "Yes, you can interact and play with NPC's";
+            answer2Label.Font = new Font("Arial", 12, FontStyle.Regular);
+            answer2Label.BackColor = Color.Transparent;
+            answer2Label.Location = new Point(250, 295); // You may adjust the location as needed
+            answer2Label.AutoSize = true;
+
+            // Label for Answer3
+            Label answer3Label = new Label();
+            answer3Label.Text = "You are in for a fantastic ride. Explore and find the surprises yourself.";
+            answer3Label.Font = new Font("Arial", 12, FontStyle.Regular);
+            answer3Label.BackColor = Color.Transparent;
+            answer3Label.Location = new Point(250, 360); // Adjust the location as needed
+            answer3Label.AutoSize = true;
+
+            // Label for Answer4
+            Label answer4Label = new Label();
+            answer4Label.Text = "Currently, there are 10 levels for you to explore in the game.";
+            answer4Label.Font = new Font("Arial", 12, FontStyle.Regular);
+            answer4Label.BackColor = Color.Transparent;
+            answer4Label.Location = new Point(250, 425); // Adjust the location as needed
+            answer4Label.AutoSize = true;
+
+            // Label for Answer5
+            Label answer5Label = new Label();
+            answer5Label.Text = "Yes. You can move between different levels and interact with enemies and NPCs as you like.";
+            answer5Label.Font = new Font("Arial", 12, FontStyle.Regular);
+            answer5Label.BackColor = Color.Transparent;
+            answer5Label.Location = new Point(250, 490); // Adjust the location as needed
+            answer5Label.AutoSize = true;
+
+
+
+            // Adding the buttons and labels to the form's Controls collection
             this.Controls.Add(homeButton);
             this.Controls.Add(backButton);
             this.Controls.Add(headingLabel);
+            this.Controls.Add(answer1Label);
+            this.Controls.Add(answer2Label);
+            this.Controls.Add(answer3Label);    
+            this.Controls.Add(answer4Label);
+            this.Controls.Add(answer5Label);
 
             /*Adding buttons for the questions
             Button question1 = new Button();
@@ -89,13 +136,13 @@ namespace Fall2020_CSC403_Project
             "What are the characters that I can choose?",
             "Can I interact with the NPC's?",
             "Are there any hidden secrets in the game?",
-            "Can I customize my exploration experience?",
             "How many levels are there in the game?",
+            "Can I customize my exploration experience?",
             };
 
             for (int i = 0; i < buttonTexts.Length; i++)
             {
-                CreateButton(buttonTexts[i], Width / 3, (3 + i) * Height / 7);
+                CreateButton(buttonTexts[i], Width / 3, (3 + i) * Height / 5);
             }
         }
         //Setting up the apperance for buttons
@@ -115,29 +162,6 @@ namespace Fall2020_CSC403_Project
 
             this.Controls.Add(dynamicButton);
         }
-        /*private void DisplayTextBox(string textToShow)
-        {
-            // Create and configure a TextBox dynamically
-            TextBox dynamicTextBox = new TextBox();
-            dynamicTextBox.Multiline = true;
-            dynamicTextBox.ScrollBars = ScrollBars.Vertical;
-            dynamicTextBox.Text = textToShow;
-            dynamicTextBox.Font = new Font("Arial", 12);
-            dynamicTextBox.Size = new Size(300, 150);
-            dynamicTextBox.Location = new Point((this.ClientSize.Width - dynamicTextBox.Width) / 2, 4 * Height / 10);
-
-            // Add the TextBox to the form
-            this.Controls.Add(dynamicTextBox);
-
-            // Attach an event handler for TextBox to handle its disposal
-            dynamicTextBox.TextChanged += (s, e) => DynamicTextBox_TextChanged(dynamicTextBox);
-        }
-
-        private void DynamicTextBox_TextChanged(TextBox textBox)
-        {
-            // Remove the TextBox when its text is changed
-            textBox.Dispose();
-        }*/
 
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -154,7 +178,6 @@ namespace Fall2020_CSC403_Project
         private void QuestionButton_Click(object sender, EventArgs e)
         { 
             Button clickedButton = (Button)sender;
-            //DisplayTextBox(clickedButton.Text);
         }
     }
 }
