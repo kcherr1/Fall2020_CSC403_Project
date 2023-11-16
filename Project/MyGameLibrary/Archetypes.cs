@@ -425,12 +425,19 @@ namespace Fall2020_CSC403_Project.code
 
         public Dragon()
         {
+            /* name = "Dragon";
+             baseMaxHealth = 200;
+             baseDefense = 20;
+             baseDamage = 20;
+             baseSpeed = 2;
+             hitMod = 10;
+             opener = "*Unintelligible dragon noises*";*/
             name = "Dragon";
-            baseMaxHealth = 200;
-            baseDefense = 20;
-            baseDamage = 20;
+            baseMaxHealth = 2;
+            baseDefense = 0;
+            baseDamage = 0;
             baseSpeed = 2;
-            hitMod = 10;
+            hitMod = 1;
             opener = "*Unintelligible dragon noises*";
         }
 

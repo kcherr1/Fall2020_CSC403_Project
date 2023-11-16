@@ -365,6 +365,7 @@ namespace Fall2020_CSC403_Project.code
 
 
             Objectives["spoke_to_tombstone"] = false;
+
             Objectives["learned_of_dragon1"] = false;
             Objectives["learned_of_dragon2"] = false;
 
@@ -444,15 +445,20 @@ namespace Fall2020_CSC403_Project.code
                 Objectives["cave_unlocked"] = true;
                 Objectives["tombstone_ready"] = false;
 
-            } else if (Objectives["tombstone_killed"] && !Objectives["tombstone_revived"])
+            }
+            else if (Objectives["tombstone_killed"] && !Objectives["tombstone_revived"])
             {
                 NPCs["Tombstone"].Dialog = "Here lies, Tombstone";
                 NPCs["Tombstone"].Pic.Image = Resources.tombstone_tombstone;
-            } else if (Objectives["killed_dragon"] && !Objectives["tombstone_revived"] && !Objectives["visited_leader_tombstone"])
+            }
+            else if (Objectives["killed_dragon"] && Objectives["tombstone_revived"] && !Objectives["visited_leader_tombstone"])
             {
-                NPCs["Tombstone"].Dialog = "Why am I alive again? I was cursed to be resurrected as that dragon was alive.\nThanks for freeing me.\nHey, let's not mention all of the previous adventurer's I've brought here... thanks.";
+                Game.CurrentArea.TravelSigns[Direction.Right].Collider.Enable();
+                NPCs["Tombstone"].Dialog = "Why am I alive again? I was cursed to be resurrected as long as dragon was alive.\nI guess I came to life just in time! Thanks for freeing me.\nHey, let's not mention all of the previous adventurer's I've brought here... thanks.";
                 NPCs["Tombstone"].Pic.Image = Resources.tombstone;
-            } else if ((!Objectives["learned_of_dragon1"] || !Objectives["learned_of_dragon2"]) && !Objectives["spoke_to_tombstone"])
+
+            }
+            else if ((!Objectives["learned_of_dragon1"] || !Objectives["learned_of_dragon2"]) && !Objectives["spoke_to_tombstone"])
             {
                 NPCs["Tombstone"].Dialog = "Hey, name's Tombstone.\nWhy am I not attacking you? I don't like those other lizards...\nbut don't go tell them that.\nJust run away from me and pretend I attacked you";
             }
@@ -465,7 +471,8 @@ namespace Fall2020_CSC403_Project.code
             {
                 NPCs["Tombstone"].Dialog = "Hey there again, back for more?\nHa, I'll let you go again this time";
 
-            } else if (Game.CurrentArea.AreaName == "Malek's Mountain" && Objectives["cave_unlocked"])
+            }
+            else if (Game.CurrentArea.AreaName == "Malek's Mountain" && Objectives["cave_unlocked"])
             {
 
                 Game.Areas[1].npcs.Remove(NPCs["Tombstone"]);
@@ -474,18 +481,22 @@ namespace Fall2020_CSC403_Project.code
                 Game.Areas[0].TravelSigns[Direction.Left].Collider.Enable();
                 NPCs["Tombstone"].Dialog = "Hey, I moved that big stone in front of the cave for you, it's right over there";
 
-            } else if (Objectives["learned_of_dragon1"] && Objectives["learned_of_dragon2"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && Game.CurrentArea.AreaName != "Malek's Lair")
+            }
+            else if (Objectives["learned_of_dragon1"] && Objectives["learned_of_dragon2"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && Game.CurrentArea.AreaName != "Malek's Lair")
             {
                 NPCs["Tombstone"].Dialog = "Hey, I know where that Dragon is ... why don't I show you the way? Meet you at Malek's Mountain";
                 Objectives["tombstone_ready"] = true;
 
-            } else if (!Objectives["killed_dragon"] && Game.CurrentArea.AreaName == "Malek's Lair" && !Objectives["tombstone_killed"]) 
+            }
+            else if (!Objectives["killed_dragon"] && Game.CurrentArea.AreaName == "Malek's Lair" && !Objectives["tombstone_killed"])
             {
                 NPCs["Tombstone"].Dialog = "I'm sorry I have to do this to you pal, but a lizard's gotta pay the bills.";
-            } else if (Objectives["killed_dragon"] && Objectives["tombstone_revived"] && Objectives["visited_leader_tombstone"])
+            }
+            else if (Objectives["killed_dragon"] && Objectives["tombstone_revived"] && Objectives["visited_leader_tombstone"])
             {
                 NPCs["Tombstone"].Dialog = "I am tombstone, newly declared owner of this cave and its gold... don't worry friend. I won't forget you.";
-            } else
+            }
+            else
             {
                 NPCs["Tombstone"].Dialog = "Hey there!";
             }
@@ -512,9 +523,11 @@ namespace Fall2020_CSC403_Project.code
             {
                 NPCs["Bartholomew"].Dialog = "Fantatic work getting rid of the Dragon! Without their leader, it should be easy to wipe out the rest of the reptiles from the surrounding land";
             }
-            else if (Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && !Objectives["cleared_windy"] && !Objectives["killed_dragon"])
+            else if (Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_windy"] && !Objectives["killed_dragon"])
             {
-                NPCs["Bartholomew"].Dialog = "You're doing great. We should attack them at the source, the mountain.";
+                NPCs["Bartholomew"].Dialog = "You're doing great. We should attack them at the source, the dragon.";
+                Objectives["learned_of_dragon1"] = true;
+
             }
             else if (Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_windy"] && Objectives["killed_dragon"])
             {

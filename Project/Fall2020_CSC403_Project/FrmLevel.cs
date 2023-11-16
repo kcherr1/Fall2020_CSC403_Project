@@ -702,12 +702,20 @@ namespace Fall2020_CSC403_Project
 
         public void RemoveEnemy(Enemy enemy)
         {
+            if (enemy.Name == "Malek")
+            {
+                Game.Objectives["tombstone_revived"] = true;
+                Game.Objectives["killed_dragon"] = true;
+
+            }
             if (enemy.Name == "Tombstone")
             {
                 Game.Objectives["tombstone_killed"] = true;
-                Game.CheckObjectives();
 
             }
+
+            Game.CheckObjectives();
+
 
             Controls.Remove(enemy.Pic);
             Game.CurrentArea.Enemies.Remove(enemy);
@@ -962,7 +970,7 @@ namespace Fall2020_CSC403_Project
 
             if (!this.NPC_Conversing.CanJoinParty)
             {
-                this.NPC_Conversing.Dialog = this.NPC_Conversing.InviteRejection;
+                this.converseText.Text = this.NPC_Conversing.InviteRejection;
                 Game.FontSizing(this.converseText);
                 return;
             }
@@ -1291,6 +1299,12 @@ namespace Fall2020_CSC403_Project
 
         private void TravelButton_Click(object sender, EventArgs e)
         {
+            if (Game.CurrentArea.AreaName == "Malek's Lair" && Game.Objectives["tombstone_revived"])
+            {
+                Game.NPCs["Tombstone"].SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.NPCs["Tombstone"].Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height * 1 / 12 + 30));
+                Game.Objectives["visited_leader_tombstone"] = true;
+            }
+
             DisposeArea();
             this.AreaNum = Game.CurrentArea.AdjacentAreas[this.TravelDirection];
 
