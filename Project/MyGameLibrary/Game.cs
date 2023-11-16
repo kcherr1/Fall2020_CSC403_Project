@@ -47,10 +47,10 @@ namespace Fall2020_CSC403_Project.code
 
             Items["Speed Potion"] = new Item(
                 "Potion of Speed",
-                MakePictureBox(Resources.speed_potion, new Point(69, 420), itemSize),
+                MakePictureBox(Resources.speed_potion, new Point(Screen.PrimaryScreen.Bounds.Width * 5 / 8, Terrain.TileSize.Width * 3), itemSize),
                 10,
                 Item.ItemType.Utility,
-                Item.PotionTypes.Speed,
+                Item.EffectType.Speed,
                 "This bottle acts unnatural as a simple tremor will cause the liquid inside to splash about the bottle. What was Marissa thinking when she made this one?");
 
             Items["Lesser Health Potion"] = new Item(
@@ -58,7 +58,7 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.lesser_health_potion, new Point(20, 400), itemSize),
                 5,
                 Item.ItemType.Utility,
-                Item.PotionTypes.Healing,
+                Item.EffectType.Healing,
                 "This small bottle holds a liquid that swirls with crimson liquid. A brand on the cork bears the logo of Marissa's Cauldron®");
 
             Items["Strength Potion"] = new Item(
@@ -66,7 +66,7 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.strength_potion, new Point(400, 400), itemSize),
                 5,
                 Item.ItemType.Utility,
-                Item.PotionTypes.Strength,
+                Item.EffectType.Strength,
                 "The orange liquid inside has a consistency thicker than honey. It looks safe, but you don't trust drinking anything made by Marissa's Rival.");
 
             Items["Carpenter Hammer"] = new Item(
@@ -106,11 +106,13 @@ namespace Fall2020_CSC403_Project.code
 
             Items["Accuracy Potion"] = new Item(
                 "Potion of Accuracy",
-                MakePictureBox(Resources.accuracy_potion, new Point(800, 100), itemSize),
+                MakePictureBox(Resources.accuracy_potion, new Point(Terrain.TileSize.Width * 5, Terrain.TileSize.Width * 10), itemSize),
                 3,
                 Item.ItemType.Utility,
-                Item.PotionTypes.Accuracy,
+                Item.EffectType.Accuracy,
                 "This liquid seems rigid in this bottle. The cork on top indicates to you that the Allegiance uses this potion as standard issue.");
+
+
 
             // Create Enemies
             Enemies["Minion1"] = new Enemy(
@@ -241,7 +243,7 @@ namespace Fall2020_CSC403_Project.code
 
             NPCs["Reginald"] = new NPC(
                 "Reginald",
-                MakePictureBox(Resources.reginald, new Point(300, 300), new Size(75, 100)),
+                MakePictureBox(Resources.reginald, new Point(Screen.PrimaryScreen.Bounds.Width - Terrain.TileSize.Width * 4, Terrain.TileSize.Width * 7 ), new Size(75, 100)),
                 new Guy());
             NPCs["Reginald"].CanJoinParty = false;
             NPCs["Reginald"].Dialog = "It's a me, Reginald. I make-a the best food in the village.\nIf you want-a a taste its gonna cost you though. People like me don't-a work for free!";
@@ -250,7 +252,7 @@ namespace Fall2020_CSC403_Project.code
 
             NPCs["Bobby"] = new NPC(
                 "Bobby",
-                MakePictureBox(Resources.bobby, new Point(200, 500), new Size(75, 100)),
+                MakePictureBox(Resources.bobby, new Point(Terrain.TileSize.Width * 16, Terrain.TileSize.Width * 4), new Size(75, 100)),
                 new Guy());
             NPCs["Bobby"].CanJoinParty = false;
             NPCs["Bobby"].Dialog = "Eugene is so cool! I like talking with him! In fact, when I grow up I wanna be just like him! He's just so cool, I wanna go talk with him again!";
@@ -259,7 +261,7 @@ namespace Fall2020_CSC403_Project.code
 
             NPCs["Eugene"] = new NPC(
                 "Eugene",
-                MakePictureBox(Resources.eugene, new Point(200, 700), new Size(75, 100)),
+                MakePictureBox(Resources.eugene, new Point(Terrain.TileSize.Width * 23, Terrain.TileSize.Width * 7), new Size(75, 100)),
                 new Guy());
             NPCs["Eugene"].CanJoinParty = false;
             NPCs["Eugene"].Dialog = "I hate Bobby.";
@@ -268,7 +270,7 @@ namespace Fall2020_CSC403_Project.code
 
             NPCs["Hank"] = new NPC(
                 "Hank",
-                MakePictureBox(Resources.hank, new Point(500, 500), new Size(75, 100)),
+                MakePictureBox(Resources.hank, new Point(Screen.PrimaryScreen.Bounds.Width - Terrain.TileSize.Width * 8, Terrain.TileSize.Width * 4), new Size(75, 100)),
                 new Guy());
             NPCs["Hank"].CanJoinParty = false;
             NPCs["Hank"].Dialog = "I'll tell ya what, dang it, these dadgum lizards just won't quit lurkin' 'round my dang ol' village.\nI mean, I work hard, sell propane and propane accessories, and I come home to find these dang lizards causin' a ruckus.\r\n\r\nBobby, I swear, it's like they got no respect for personal space. I've tried talkin' to 'em, but they just stare at me with those beady eyes.\nI don't know what they want, but they need to git gone and let me enjoy my propane-filled peace.\nIt's downright frustratin', I'll tell you what.";
@@ -310,13 +312,20 @@ namespace Fall2020_CSC403_Project.code
                     new Size(longSize.Height, longSize.Width)));
 
             Structures["house_long_1"] = new Structure(
-                MakePictureBox(house_long, new Point(Screen.PrimaryScreen.Bounds.Width / 2, 400), longSize));
+                MakePictureBox(house_long, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Terrain.TileSize.Width * 10), longSize));
 
             Structures["house_L_1"] = new Structure(
-                MakePictureBox(house_L, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4, 300), L_Size));
+                MakePictureBox(house_L, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4, Terrain.TileSize.Width * 7), L_Size));
 
             Structures["house_L_rot180_1"] = new Structure(
-                MakePictureBox(house_L_rot180, new Point(Screen.PrimaryScreen.Bounds.Width * 1 / 4, 80), L_Size));
+                MakePictureBox(house_L_rot180, new Point(Screen.PrimaryScreen.Bounds.Width * 1 / 4, Terrain.TileSize.Width * 2), L_Size));
+
+
+            Structures["house_L_rot_90_1"] = new Structure(
+                MakePictureBox(house_L_rot90, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4, Screen.PrimaryScreen.Bounds.Height * 1/6), L_Size_rot90));
+
+
+
 
 
             Structures["VillageWall1"] = new Structure(
@@ -410,6 +419,9 @@ namespace Fall2020_CSC403_Project.code
             y_4 = Screen.PrimaryScreen.Bounds.Height * 5 / 8;
             Structures["Gold4"] = new Structure(
                 MakePictureBox(Resources.gold_pile4, new Point(x_4, y_4), new Size(Terrain.TileSize.Width * 7, Terrain.TileSize.Width * 4)));
+
+
+
 
 
             Objectives["spoke_to_tombstone"] = false;

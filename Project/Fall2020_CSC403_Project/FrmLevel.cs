@@ -60,6 +60,7 @@ namespace Fall2020_CSC403_Project
         public Button JoinParty;
 
         public bool npcRejecting;
+        public bool fighting;
 
 
 
@@ -706,6 +707,11 @@ namespace Fall2020_CSC403_Project
 
         private void Fight(Enemy enemy)
         {
+            if (this.fighting)
+            {
+                return;
+            }
+            this.fighting = true;
             Game.player.ResetMoveSpeed();
             Game.player.MoveBack();
             frmBattleScreen = FrmBattleScreen.GetInstance(this, enemy);
@@ -715,6 +721,7 @@ namespace Fall2020_CSC403_Project
 
         public void RemoveEnemy(Enemy enemy)
         {
+            this.fighting = false;
             if (enemy.Name == "Malek")
             {
                 Game.Objectives["tombstone_revived"] = true;
@@ -751,6 +758,8 @@ namespace Fall2020_CSC403_Project
 
             DisposeArea();
             DisposeGame();
+
+
 
 
 
@@ -877,6 +886,7 @@ namespace Fall2020_CSC403_Project
                 this.Controls.Remove(Game.CurrentArea.Enemies[i].Pic);
             }
 
+
             for (int i = 0; i < Game.CurrentArea.npcs.Count; i++)
             {
                 this.Controls.Remove(Game.CurrentArea.npcs[i].Pic);
@@ -900,7 +910,7 @@ namespace Fall2020_CSC403_Project
         {
             for (int i = 0; i < Game.Areas.Length; i++)
             {
-                Game.Areas[i].Enemies = new List<Enemy> { };
+                Game.Areas[i].Enemies.Clear();
                 Game.Areas[i].TravelSigns.Clear();
                 Game.Areas[i].AdjacentAreas.Clear();
                 Game.Areas[i].Terrain.Tiles.Clear();
@@ -909,7 +919,10 @@ namespace Fall2020_CSC403_Project
                 Game.Areas[i].npcs.Clear();
             }
             Game.Areas = new Area[10];
+
             GC.Collect();
+
+
 
         }
 
@@ -923,6 +936,9 @@ namespace Fall2020_CSC403_Project
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
+
+            Game.PopulateWorld();
+
             this.score = 0;
             gameAudio.PlayLooping();
 
@@ -1135,6 +1151,11 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddStructure(Game.Structures["VillageWall1"]);
             Game.CurrentArea.AddStructure(Game.Structures["VillageWall2"]);
 
+            Game.CurrentArea.AddNPC(Game.NPCs["Bartholomew"]);
+            Game.CurrentArea.AddNPC(Game.NPCs["Hank"]);
+            Game.CurrentArea.AddNPC(Game.NPCs["Bobby"]);
+            Game.CurrentArea.AddNPC(Game.NPCs["Eugene"]);
+
 
         }
 
@@ -1146,6 +1167,7 @@ namespace Fall2020_CSC403_Project
                 return;
             }
             Game.CurrentArea.Visited = true;
+
 
         }
 
@@ -1173,6 +1195,10 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddStructure(Game.Structures["LowerVillageWall2"]);
             Game.CurrentArea.AddStructure(Game.Structures["LowerVillageWall3"]);
             Game.CurrentArea.AddStructure(Game.Structures["LowerVillageWall4"]);
+
+            Game.CurrentArea.AddStructure(Game.Structures["house_L_rot_90_1"]);
+
+            Game.CurrentArea.AddNPC(Game.NPCs["Reginald"]);
 
         }
 
@@ -1235,6 +1261,7 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.AddItem(Game.Items["Shabby Armor"]);
             Game.CurrentArea.AddItem(Game.Items["Speed Potion"]);
+            Game.CurrentArea.AddItem(Game.Items["Carpenter Hammer"]);
 
         }
 
@@ -1343,7 +1370,7 @@ namespace Fall2020_CSC403_Project
             switch (this.TravelDirection)
             {
                 case Direction.Up:
-                    Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - signSize.Height - Game.player.Pic.Height - 100));
+                    Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - signSize.Height - Game.player.Pic.Height - 20));
                     break;
                 case Direction.Down:
                     Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, height / 12 + signSize.Height + 20));

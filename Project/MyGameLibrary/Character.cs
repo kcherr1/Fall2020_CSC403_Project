@@ -111,24 +111,24 @@ namespace Fall2020_CSC403_Project.code
 			}
         }
 
-		public void ApplyEffect(PotionTypes Potion, int stat)
+		public void ApplyEffect(EffectType Potion, int stat)
 		{
 			switch (Potion)
 			{
-				case PotionTypes.Healing:
+				case EffectType.Healing:
 					this.Health += stat;
 					if (this.Health > this.MaxHealth)
 					{
 						this.Health = this.MaxHealth;
 					}
 					break;
-				case PotionTypes.Strength:
+				case EffectType.Strength:
 					this.damage += stat;
 					break;
-				case PotionTypes.Speed:
+				case EffectType.Speed:
 					this.speed += stat;
 					break;
-				case PotionTypes.Accuracy:
+				case EffectType.Accuracy:
 					this.hit_mod += stat;
 					break;
 				default:

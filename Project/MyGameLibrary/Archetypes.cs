@@ -22,6 +22,7 @@ namespace Fall2020_CSC403_Project.code
         int hitMod { get; set; }
         string opener { get; }
 
+        
         void specialMove(Character target);
 
 

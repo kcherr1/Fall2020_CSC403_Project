@@ -16,7 +16,7 @@ namespace MyGameLibrary
         public string Desc { get; private set; }
         public ItemType Type { get; private set; }
 
-        public PotionTypes Potion { get; private set; }
+        public EffectType Potion { get; private set; }
 
 
         public Item(string Name, PictureBox Pic, int Stat, ItemType Type, string desc) : base(Name, Pic)
@@ -27,7 +27,7 @@ namespace MyGameLibrary
             Pic.Size = new Size(50, 50);
         }
 
-        public Item(string Name, PictureBox Pic, int Stat, ItemType Type, PotionTypes Potion, string desc) : base(Name, Pic)
+        public Item(string Name, PictureBox Pic, int Stat, ItemType Type, EffectType Potion, string desc) : base(Name, Pic)
         {
             this.Stat = Stat;
             this.Type = Type;
@@ -44,7 +44,7 @@ namespace MyGameLibrary
             Utility
         }
 
-        public enum PotionTypes
+        public enum EffectType
         {
             Healing,
             Speed,
