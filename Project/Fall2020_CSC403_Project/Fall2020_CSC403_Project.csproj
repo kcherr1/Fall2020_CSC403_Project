@@ -31,6 +31,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,6 +48,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmPause.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPause.Designer.cs">
+      <DependentUpon>FrmPause.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemeSelection.Designer.cs">
+      <DependentUpon>ThemeSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartMenu.Designer.cs">
+      <DependentUpon>StartMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,12 +96,6 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoseScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoseScreen.Designer.cs">
-      <DependentUpon>LoseScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinScreen.cs">
@@ -72,51 +104,34 @@
     <Compile Include="WinScreen.Designer.cs">
       <DependentUpon>WinScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="modeSelection.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="modeSelection.Designer.cs">
-      <DependentUpon>modeSelection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Options.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Options.Designer.cs">
-      <DependentUpon>Options.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="startMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="startMenu.Designer.cs">
-      <DependentUpon>startMenu.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoseScreen.resx">
-      <DependentUpon>LoseScreen.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPause.resx">
+      <DependentUpon>FrmPause.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modeSelection.resx">
-      <DependentUpon>modeSelection.cs</DependentUpon>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Options.resx">
-      <DependentUpon>Options.cs</DependentUpon>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemeSelection.resx">
+      <DependentUpon>ThemeSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="StartMenu.resx">
+      <DependentUpon>StartMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinScreen.resx">
       <DependentUpon>WinScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="startMenu.resx">
-      <DependentUpon>startMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
@@ -144,16 +159,16 @@
     <None Include="data\player.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\battle_screen.fw.png" />
+    <None Include="data\battle_screen.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\wall.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\enemy_cheetos.fw.png" />
+    <None Include="data\enemy_cheetos.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\enemy_poisonpacket.fw.png" />
+    <None Include="data\enemy_poisonpacket.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\enemy_koolaid.png" />
@@ -168,45 +183,181 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GameOverPicture.png" />
+    <None Include="data\health_consume.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\WinScreenPicture.png" />
-    <None Include="data\raw images\dorito_man.png" />
+    <None Include="data\back_btn.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Image1.bmp" />
+    <None Include="data\Border.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\knife.png" />
+    <None Include="data\cheetos.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\grape_packet.jpeg" />
+    <None Include="data\cherry_koolaid_packet.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\heart.png" />
+    <None Include="data\dorito_man.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\inventory.png" />
-    <None Include="data\raw images\start_button.png" />
+    <None Include="data\flamin hot.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\img_487255.png" />
+    <None Include="data\grape_packet.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\options_button.png" />
+    <None Include="data\green packet.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\Border.png" />
+    <None Include="data\heart.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\volume.png" />
+    <None Include="data\img_487255.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\Muted.png" />
+    <None Include="data\knife.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\raw images\back_btn.png" />
+    <None Include="data\Muted.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\options_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\peanuts.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\start_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\volume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\GameOverPicture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\off_screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\WinScreenPicture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\brick-wall-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\brick-Wall-2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\easy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\hard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\newchar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\newchar2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\ak47.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\armor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\battle_screen.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_cheetos.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_poisonpacket.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Game Title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\player_ak47.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\player_rpg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\player_sniper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\prisoner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\rpg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\skull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\sniper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\Stone_wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\survivor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\villager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\winBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\yellowBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\deathTheme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\FinalBattleTheme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\mainMenuMusic.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\NonBossTheme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\walkSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\winTheme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hero1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hero3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hero2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hero1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

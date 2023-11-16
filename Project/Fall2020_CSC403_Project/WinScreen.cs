@@ -12,7 +12,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class WinScreen : Form
     {
-        public modeSelection modes;
+        public ThemeSelection modes;
         public FrmLevel frmLevel;
         public WinScreen()
         {
@@ -32,5 +32,12 @@ namespace Fall2020_CSC403_Project
         {
             Application.Restart();
         }
-    }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+
+        }
+}
 }
