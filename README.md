@@ -5,12 +5,18 @@ Documentation Link : https://docs.google.com/document/d/1dIdAtnIAi_pw1_qBioChjuD
 Team Name: Null Ninjas
 
 Team Members:
+
 Prathyusha Valasa
+
 Hrushikesh Reddy Madugula
+
 Vamsi Krishna Alla
+
 Radha Krishna Nimmala
 
+
 Sprint Planning (Google Sheet): https://docs.google.com/spreadsheets/d/1bGAUT7hW5qLWWIr-rsyuhKZuAEFbsOuR0vUkyvzdtO4/edit#gid=2102808758
+
 
 SPRINT 2 
 
