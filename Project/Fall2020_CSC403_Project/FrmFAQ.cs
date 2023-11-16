@@ -72,7 +72,7 @@ namespace Fall2020_CSC403_Project
             answer1Label.Text = "Playable characters are Tank, Rouge, and Swordsmen";
             answer1Label.Font = new Font("Arial", 12, FontStyle.Regular);
             answer1Label.BackColor = Color.Transparent;
-            answer1Label.Location = new Point(250, 232);
+            answer1Label.Location = new Point(250, this.Controls[0].Bottom + 10);
             answer1Label.AutoSize = true;
 
             //Label for Answer2
@@ -80,7 +80,7 @@ namespace Fall2020_CSC403_Project
             answer2Label.Text = "Yes, you can interact and play with NPC's";
             answer2Label.Font = new Font("Arial", 12, FontStyle.Regular);
             answer2Label.BackColor = Color.Transparent;
-            answer2Label.Location = new Point(250, 295); // You may adjust the location as needed
+            answer2Label.Location = new Point(250, this.Controls[1].Bottom + 10); // You may adjust the location as needed
             answer2Label.AutoSize = true;
 
             // Label for Answer3
@@ -88,7 +88,7 @@ namespace Fall2020_CSC403_Project
             answer3Label.Text = "You are in for a fantastic ride. Explore and find the surprises yourself.";
             answer3Label.Font = new Font("Arial", 12, FontStyle.Regular);
             answer3Label.BackColor = Color.Transparent;
-            answer3Label.Location = new Point(250, 360); // Adjust the location as needed
+            answer3Label.Location = new Point(250, this.Controls[2].Bottom + 10); // Adjust the location as needed
             answer3Label.AutoSize = true;
 
             // Label for Answer4
@@ -96,7 +96,7 @@ namespace Fall2020_CSC403_Project
             answer4Label.Text = "Currently, there are 10 levels for you to explore in the game.";
             answer4Label.Font = new Font("Arial", 12, FontStyle.Regular);
             answer4Label.BackColor = Color.Transparent;
-            answer4Label.Location = new Point(250, 425); // Adjust the location as needed
+            answer4Label.Location = new Point(250, this.Controls[3].Bottom + 10); // Adjust the location as needed
             answer4Label.AutoSize = true;
 
             // Label for Answer5
@@ -104,7 +104,7 @@ namespace Fall2020_CSC403_Project
             answer5Label.Text = "Yes. You can move between different levels and interact with enemies and NPCs as you like.";
             answer5Label.Font = new Font("Arial", 12, FontStyle.Regular);
             answer5Label.BackColor = Color.Transparent;
-            answer5Label.Location = new Point(250, 490); // Adjust the location as needed
+            answer5Label.Location = new Point(250, this.Controls[4].Bottom + 10); // Adjust the location as needed
             answer5Label.AutoSize = true;
 
 
@@ -146,7 +146,7 @@ namespace Fall2020_CSC403_Project
 
             for (int i = 0; i < buttonTexts.Length; i++)
             {
-                CreateButton(buttonTexts[i], Width / 3, (3 + i) * Height / 5);
+                CreateButton(buttonTexts[i], Width / 3, (3 + i) * Height / 4);
             }
         }
         //Setting up the apperance for buttons
