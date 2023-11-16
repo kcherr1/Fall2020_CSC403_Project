@@ -1,6 +1,6 @@
 # Fall2020_CSC403_Project
 
-Documentation Link : https://docs.google.com/document/d/168AByPug7SHCo47bungkyI_wyicKut3g2WnMNUoNTeA/edit
+Documentation Link : https://docs.google.com/document/d/1dIdAtnIAi_pw1_qBioChjuDw5k7sf4wwNYXSEImKCkc/edit
 
 Team Name: Null Ninjas
 
