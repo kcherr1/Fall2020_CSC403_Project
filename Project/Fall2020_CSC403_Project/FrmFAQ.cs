@@ -13,8 +13,6 @@ namespace Fall2020_CSC403_Project
     public partial class FrmFAQ : Form
     {
         private Form previousForm;
-        Label headingLabel;
-        int height;
         public FrmFAQ(Form previous)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -56,13 +54,14 @@ namespace Fall2020_CSC403_Project
             // Adding a click event handler for the home button
             homeButton.Click += homeButton_Click;
 
-            // Heading Label for FAQ's
+            //Heading Label for FAQ's
             Label headingLabel = new Label();
             headingLabel.Text = "Frequently Asked Questions";
-            headingLabel.Font = new Font("Century Gothic", 24, FontStyle.Bold);
+            headingLabel.Font = new Font("Century Gothic", 32, FontStyle.Bold);
             headingLabel.BackColor = Color.Transparent;
-            headingLabel.Location = new Point((this.ClientSize.Width - headingLabel.Width) / 2, height / 10);
+            headingLabel.Location = new Point(Width / 3, height / 10);
             headingLabel.AutoSize = true;
+            //(this.ClientSize.Width - headingLabel.Width)
 
             // Adding the buttons to the form's Controls collection
             this.Controls.Add(homeButton);
@@ -84,22 +83,22 @@ namespace Fall2020_CSC403_Project
         }
         private void InitializeButtons()
         {
-            headingLabel = new Label(); 
-            height = this.ClientSize.Height;
+
             // Create multiple buttons with associated text
             string[] buttonTexts = {
             "What are the characters that I can choose?",
-            "How do I save my progress?",
-            "What is the goal of the game?",
-            "How can I customize my character?",
-            "Are there in-app purchases?"
-        };
+            "Can I interact with the NPC's?",
+            "Are there any hidden secrets in the game?",
+            "Can I customize my exploration experience?",
+            "How many levels are there in the game?",
+            };
 
             for (int i = 0; i < buttonTexts.Length; i++)
             {
-                CreateButton(buttonTexts[i], (this.ClientSize.Width - headingLabel.Width) / 2, (2 + i) * height / 10);
+                CreateButton(buttonTexts[i], Width / 3, (3 + i) * Height / 7);
             }
         }
+        //Setting up the apperance for buttons
         private void CreateButton(string buttonText, int locationX, int locationY)
         {
             Button dynamicButton = new Button();
@@ -110,13 +109,13 @@ namespace Fall2020_CSC403_Project
             dynamicButton.FlatAppearance.BorderSize = 0;
             dynamicButton.Parent = this;
             dynamicButton.Text = buttonText;
-            dynamicButton.Font = new Font("Arial", 13, FontStyle.Bold);
+            dynamicButton.Font = new Font("Arial", 13, FontStyle.Regular);
 
             dynamicButton.Click += QuestionButton_Click;
 
             this.Controls.Add(dynamicButton);
         }
-        private void DisplayTextBox(string textToShow)
+        /*private void DisplayTextBox(string textToShow)
         {
             // Create and configure a TextBox dynamically
             TextBox dynamicTextBox = new TextBox();
@@ -125,7 +124,7 @@ namespace Fall2020_CSC403_Project
             dynamicTextBox.Text = textToShow;
             dynamicTextBox.Font = new Font("Arial", 12);
             dynamicTextBox.Size = new Size(300, 150);
-            dynamicTextBox.Location = new Point((this.ClientSize.Width - dynamicTextBox.Width) / 2, 4 * height / 10);
+            dynamicTextBox.Location = new Point((this.ClientSize.Width - dynamicTextBox.Width) / 2, 4 * Height / 10);
 
             // Add the TextBox to the form
             this.Controls.Add(dynamicTextBox);
@@ -138,7 +137,7 @@ namespace Fall2020_CSC403_Project
         {
             // Remove the TextBox when its text is changed
             textBox.Dispose();
-        }
+        }*/
 
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -153,12 +152,9 @@ namespace Fall2020_CSC403_Project
 
         }
         private void QuestionButton_Click(object sender, EventArgs e)
-        {
-            // Handle the button click event
+        { 
             Button clickedButton = (Button)sender;
-
-            // Display a TextBox on the form for the clicked button
-            DisplayTextBox(clickedButton.Text);
+            //DisplayTextBox(clickedButton.Text);
         }
     }
 }
