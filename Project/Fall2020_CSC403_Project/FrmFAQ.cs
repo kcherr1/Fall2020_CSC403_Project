@@ -15,7 +15,11 @@ namespace Fall2020_CSC403_Project
         private Form previousForm;
         public FrmFAQ(Form previous)
         {
+
+            this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
             InitializeComponent();
             InitializeButtons();
             this.setup();
