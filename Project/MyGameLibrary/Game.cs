@@ -180,7 +180,17 @@ namespace Fall2020_CSC403_Project.code
             NPCs["Tombstone"] = new NPC(
                 "Tombstone",
                 MakePictureBox(Resources.tombstone, new Point(150, 150), new Size(75, 100)),
-                new Healer());
+                new Tombstone());
+
+            NPCs["Gerald"] = new NPC(
+                "Gerald",
+                MakePictureBox(Resources.gerald, new Point(300, 300), new Size(100, 100)),
+                new Gerald());
+
+            NPCs["Bartholomew"] = new NPC(
+                "Bartholomew",
+                MakePictureBox(Resources.bartholomew, new Point(300, 300), new Size(75, 100)),
+                new Guy());
 
             // Create Structures
             Structures["wall_bricks"] = new Structure(
@@ -337,6 +347,25 @@ namespace Fall2020_CSC403_Project.code
                     if (textSize.Width <= lbl.Width && textSize.Height <= lbl.Height)
                     {
                         lbl.Font = testFont; // Set the font size that fits
+                        break;
+                    }
+                }
+            }
+        }
+
+        public static void FontSizing(Button but)
+        {
+            using (Graphics g = but.CreateGraphics())
+            {
+                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                for (int fontSize = 100; fontSize >= 8; fontSize--)
+                {
+                    Font testFont = new Font("NSimSun", fontSize);
+                    Size textSize = TextRenderer.MeasureText(g, but.Text, testFont, proposedSize, TextFormatFlags.WordBreak);
+
+                    if (textSize.Width <= but.Width && textSize.Height <= but.Height)
+                    {
+                        but.Font = testFont; // Set the font size that fits
                         break;
                     }
                 }
