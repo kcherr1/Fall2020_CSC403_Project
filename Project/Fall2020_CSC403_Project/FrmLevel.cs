@@ -31,13 +31,13 @@ namespace Fall2020_CSC403_Project
         private FrmBattleScreen frmBattleScreen;
         private FrmInventory frminventory;
 
-        private Size itemSize = new Size(50, 50);
-        private Size signSize = new Size(75, 50);
-
         public SoundPlayer gameAudio;
 
 
         private Direction TravelDirection = Direction.None;
+
+        private Size signSize = new Size(75, 50);
+
 
         public Label ScoreLabel;
 
@@ -233,7 +233,7 @@ namespace Fall2020_CSC403_Project
             ScoreLabel.BackColor = Color.Black;
             ScoreLabel.ForeColor = Color.White;
             ScoreLabel.Text = "Score: " + score.ToString();
-            ScoreLabel.Location = new Point(Screen.PrimaryScreen.Bounds.Width - ScoreLabel.Width - 20, lblInGameTime.Location.Y);
+            ScoreLabel.Location = new Point(this.width - ScoreLabel.Width - 20, lblInGameTime.Location.Y);
             ScoreLabel.Font = new Font("Microsoft Sans Serif", 11);
             ScoreLabel.Visible = true;
             ScoreLabel.BringToFront();
@@ -275,23 +275,23 @@ namespace Fall2020_CSC403_Project
             //Adding gameAudio here
             this.gameAudio.PlayLooping();
 
-            SignPanel.Size = new Size(Screen.PrimaryScreen.Bounds.Width * 7 / 8, Screen.PrimaryScreen.Bounds.Height * 7 / 8);
-            SignPanel.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - SignPanel.Width / 2, Screen.PrimaryScreen.Bounds.Height * 1 / 14);
+            SignPanel.Size = new Size(this.width * 7 / 8, this.height * 7 / 8);
+            SignPanel.Location = new Point(this.width / 2 - SignPanel.Width / 2, this.height * 1 / 14);
 
             TravelLabel.Size = new Size(SignPanel.Size.Width, SignPanel.Size.Height / 2);
             TravelLabel.Font = new Font("NSimSun", TravelLabel.Size.Height / 4);
-            TravelLabel.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - TravelLabel.Width / 2, 0);
+            TravelLabel.Location = new Point(this.width / 2 - TravelLabel.Width / 2, 0);
 
             TravelButton.Size = new Size(SignPanel.Size.Width - 200, SignPanel.Size.Height / 4);
-            TravelButton.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - SignPanel.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2);
+            TravelButton.Location = new Point(this.width / 2 - SignPanel.Width / 2, this.height / 2);
 
 
             this.conversePanel = new Panel();
             this.conversePanel.Hide();
-            this.conversePanel.Location = new Point(0, Screen.PrimaryScreen.Bounds.Height * 3 / 4);
+            this.conversePanel.Location = new Point(0, this.height * 3 / 4);
             this.conversePanel.Parent = this;
-            this.conversePanel.Width = Screen.PrimaryScreen.Bounds.Width;
-            this.conversePanel.Height = Screen.PrimaryScreen.Bounds.Height - this.conversePanel.Top;
+            this.conversePanel.Width = this.width;
+            this.conversePanel.Height = this.height - this.conversePanel.Top;
             this.conversePanel.BackColor = Color.FromArgb(170, 123, 123, 123);
 
             this.JoinParty = new Button();
@@ -313,15 +313,15 @@ namespace Fall2020_CSC403_Project
 
             this.converseText = new Label();
             this.converseText.Parent = this.conversePanel;
-            this.converseText.Size = new Size(Screen.PrimaryScreen.Bounds.Width * 9 / 10, this.conversePanel.Size.Height - this.JoinParty.Height - this.converseNPCName.Height);
+            this.converseText.Size = new Size(this.width * 9 / 10, this.conversePanel.Size.Height - this.JoinParty.Height - this.converseNPCName.Height);
             this.converseText.Text = "";
             Game.FontSizing(this.converseText);
-            this.converseText.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 10, this.converseNPCName.Bottom);
+            this.converseText.Location = new Point(this.width / 10, this.converseNPCName.Bottom);
             this.conversePanel.BringToFront();
 
             this.converseImg = new PictureBox();
             this.converseImg.Parent = this.conversePanel;
-            this.converseImg.Size = new Size(Screen.PrimaryScreen.Bounds.Width / 10, this.conversePanel.Size.Height - this.JoinParty.Height - this.converseNPCName.Height);
+            this.converseImg.Size = new Size(this.width / 10, this.conversePanel.Size.Height - this.JoinParty.Height - this.converseNPCName.Height);
             this.converseImg.Location = new Point(0, this.converseNPCName.Bottom);
             this.converseImg.SizeMode = PictureBoxSizeMode.StretchImage;
             this.converseImg.BringToFront();
@@ -489,15 +489,15 @@ namespace Fall2020_CSC403_Project
             Game.player.Move();
 
             if (Game.player.Position.x < 0 ||
-                Game.player.Position.x > Screen.PrimaryScreen.Bounds.Width - Game.player.Pic.Size.Width ||
-                Game.player.Position.y < Screen.PrimaryScreen.Bounds.Height * 1 / 12 ||
-                Game.player.Position.y > Screen.PrimaryScreen.Bounds.Height - Game.player.Pic.Size.Height)
+                Game.player.Position.x > this.width - Game.player.Pic.Size.Width ||
+                Game.player.Position.y < this.height * 1 / 12 ||
+                Game.player.Position.y > this.height - Game.player.Pic.Size.Height)
             {
                 Game.player.MoveBack();
             }
 
             // check collision with walls
-            if (HitAWall(Game.player))
+            if (HitaStruct(Game.player))
             {
                 Game.player.MoveBack();
             }
@@ -596,18 +596,18 @@ namespace Fall2020_CSC403_Project
             return Direction.None;
         }
 
-        private bool HitAWall(Player c)
+        private bool HitaStruct(Player c)
         {
-            bool hitAWall = false;
+            bool hitaStruct = false;
             for (int w = 0; w < Game.CurrentArea.Structures.Count; w++)
             {
                 if (c.Collider.Intersects(Game.CurrentArea.Structures[w].Collider))
                 {
-                    hitAWall = true;
+                    hitaStruct = true;
                     break;
                 }
             }
-            return hitAWall;
+            return hitaStruct;
         }
 
         public void UpdateHealthBars(Label playerCurrentHealth)
@@ -745,9 +745,6 @@ namespace Fall2020_CSC403_Project
 
             DisposeArea();
             DisposeGame();
-
-
-
 
 
             // set the location and size of the square 
@@ -1052,7 +1049,7 @@ namespace Fall2020_CSC403_Project
         private void AreaBoss()
         {
             Size caveSize = new Size(Terrain.TileSize.Width * 3, Terrain.TileSize.Width * 4);
-            Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - Game.player.Pic.Height - caveSize.Height - 50));
+            Game.player.SetEntityPosition(new Position(this.width / 2 - Game.player.Pic.Width / 2, this.height - Game.player.Pic.Height - caveSize.Height - 50));
 
 
             if (Game.CurrentArea.Visited)
@@ -1079,9 +1076,9 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.SetAdjacentArea(Direction.Right, 0);
 
-            Game.CurrentArea.SetTravelSign(Direction.Right, new TravelSign(Game.Areas[0].AreaName, Game.MakePictureBox(Resources.cave_exit, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height), caveSize)));
-            Game.CurrentArea.TravelSigns[Direction.Right].Collider.MovePosition(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height);
-            Game.CurrentArea.TravelSigns[Direction.Right].Pic.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height);
+            Game.CurrentArea.SetTravelSign(Direction.Right, new TravelSign(Game.Areas[0].AreaName, Game.MakePictureBox(Resources.cave_exit, new Point(this.width / 2 - caveSize.Width / 2, this.height - caveSize.Height), caveSize)));
+            Game.CurrentArea.TravelSigns[Direction.Right].Collider.MovePosition(this.width / 2 - caveSize.Width / 2, this.height - caveSize.Height);
+            Game.CurrentArea.TravelSigns[Direction.Right].Pic.Location = new Point(this.width / 2 - caveSize.Width / 2, this.height - caveSize.Height);
             Game.CurrentArea.TravelSigns[Direction.Right].Collider.Disable();
 
 
@@ -1214,7 +1211,7 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.Visited = true;
 
 
-            Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height));
+            Game.player.SetEntityPosition(new Position(this.width / 2 - Game.player.Pic.Width / 2, this.height / 2 - Game.player.Pic.Height));
             Game.player.Pic.Visible = true;
 
 
@@ -1329,24 +1326,24 @@ namespace Fall2020_CSC403_Project
             if (up >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Up, up);
-                Game.Areas[area].SetTravelSign(Direction.Up, new TravelSign(Game.Areas[up].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, height / 12 + 10), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Up, new TravelSign(Game.Areas[up].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(this.width / 2 - this.signSize.Width / 2, height / 12 + 10), this.signSize)));
             }
             if (down >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Down, down);
-                Game.Areas[area].SetTravelSign(Direction.Down, new TravelSign(Game.Areas[down].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - 10 - this.signSize.Height), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Down, new TravelSign(Game.Areas[down].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(this.width / 2 - this.signSize.Width / 2, this.height - 10 - this.signSize.Height), this.signSize)));
 
             }
             if (left >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Left, left);
-                Game.Areas[area].SetTravelSign(Direction.Left, new TravelSign(Game.Areas[left].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(10, Screen.PrimaryScreen.Bounds.Height / 2 - this.signSize.Height / 2), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Left, new TravelSign(Game.Areas[left].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(10, this.height / 2 - this.signSize.Height / 2), this.signSize)));
 
             }
             if (right >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Right, right);
-                Game.Areas[area].SetTravelSign(Direction.Right, new TravelSign(Game.Areas[right].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width - 10 - this.signSize.Width, Screen.PrimaryScreen.Bounds.Height / 2 - this.signSize.Height / 2), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Right, new TravelSign(Game.Areas[right].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(this.width - 10 - this.signSize.Width, this.height / 2 - this.signSize.Height / 2), this.signSize)));
 
             }
 
@@ -1354,7 +1351,7 @@ namespace Fall2020_CSC403_Project
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Left, 9);
                 Size caveSize = new Size(Terrain.TileSize.Width * 4, Terrain.TileSize.Width * 3);
-                Game.Areas[area].SetTravelSign(Direction.Left, new TravelSign(Game.Areas[9].AreaName, Game.MakePictureBox(Resources.cave_entrance_close, new Point(-10, Screen.PrimaryScreen.Bounds.Height / 2 - caveSize.Height / 2), caveSize)));
+                Game.Areas[area].SetTravelSign(Direction.Left, new TravelSign(Game.Areas[9].AreaName, Game.MakePictureBox(Resources.cave_entrance_close, new Point(-10, this.height / 2 - caveSize.Height / 2), caveSize)));
                 Game.Areas[area].TravelSigns[Direction.Left].Collider.Disable();
             }
         }
@@ -1363,7 +1360,7 @@ namespace Fall2020_CSC403_Project
         {
             if (Game.CurrentArea.AreaName == "Malek's Lair" && Game.Objectives["tombstone_revived"])
             {
-                Game.NPCs["Tombstone"].SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.NPCs["Tombstone"].Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height * 1 / 12 + 30));
+                Game.NPCs["Tombstone"].SetEntityPosition(new Position(this.width / 2 - Game.NPCs["Tombstone"].Pic.Width / 2, this.height * 1 / 12 + 30));
                 Game.Objectives["visited_leader_tombstone"] = true;
             }
 
@@ -1373,27 +1370,27 @@ namespace Fall2020_CSC403_Project
             switch (this.TravelDirection)
             {
                 case Direction.Up:
-                    Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - signSize.Height - Game.player.Pic.Height - 20));
+                    Game.player.SetEntityPosition(new Position(this.width / 2 - Game.player.Pic.Width / 2, this.height - signSize.Height - Game.player.Pic.Height - 20));
                     break;
                 case Direction.Down:
-                    Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, height / 12 + signSize.Height + 20));
+                    Game.player.SetEntityPosition(new Position(this.width / 2 - Game.player.Pic.Width / 2, height / 12 + signSize.Height + 20));
                     break;
                 case Direction.Right:
                     if (Game.CurrentArea.AreaName == "Malek's Lair")
                     {
-                        Game.player.SetEntityPosition(new Position(Terrain.TileSize.Width * 4 + 10, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
+                        Game.player.SetEntityPosition(new Position(Terrain.TileSize.Width * 4 + 10, this.height / 2 - Game.player.Pic.Height / 2));
                     }
                     else
                     {
-                        Game.player.SetEntityPosition(new Position(signSize.Width + 10, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
+                        Game.player.SetEntityPosition(new Position(signSize.Width + 10, this.height / 2 - Game.player.Pic.Height / 2));
                     }
                     break;
                 case Direction.Left:
-                    Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width - signSize.Width - 20 - Game.player.Pic.Width, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
+                    Game.player.SetEntityPosition(new Position(this.width - signSize.Width - 20 - Game.player.Pic.Width, this.height / 2 - Game.player.Pic.Height / 2));
                     break;
 
                 default:
-                    Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width, Screen.PrimaryScreen.Bounds.Height - Game.player.Pic.Height));
+                    Game.player.SetEntityPosition(new Position(this.width / 2 - Game.player.Pic.Width, this.height - Game.player.Pic.Height));
                     break;
             }
 
