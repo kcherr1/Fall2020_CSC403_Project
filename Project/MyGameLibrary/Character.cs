@@ -85,10 +85,6 @@ namespace Fall2020_CSC403_Project.code
             Health += amount;
         }
 
-        public void RestoreHealth()
-        {
-            this.Health = this.MaxHealth;
-        }
 
 		public void UpdateStats()
 		{

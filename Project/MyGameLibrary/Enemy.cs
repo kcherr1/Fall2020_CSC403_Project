@@ -7,7 +7,6 @@ namespace Fall2020_CSC403_Project.code
 
 	public class Enemy : Character
 	{
-		public Color Color { get; set; }
 		public Enemy[] party { get; set; }
 
         public bool canFlee { get; set; }

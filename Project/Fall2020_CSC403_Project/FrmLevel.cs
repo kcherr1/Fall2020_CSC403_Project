@@ -426,18 +426,6 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.Items.Add(item);
         }
 
-        public PictureBox MakePictureBox(Bitmap pic, Point location, Size Size)
-        {
-            return new PictureBox
-            {
-                Size = Size,
-                Location = location,
-                Image = pic,
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                BackColor = Color.Transparent,
-            };
-        }
-
         private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
         {
             Game.player.ResetMoveSpeed();
@@ -552,7 +540,7 @@ namespace Fall2020_CSC403_Project
 
                 if (!Game.Objectives["killed_dragon"] && !Game.Objectives["tombstone_killed"] && Game.CurrentArea.AreaName == "Malek's Lair")
                 {
-                    Enemy Tombstone = new Enemy(Name = "Tombstone", MakePictureBox(Resources.tombstone, Game.NPCs["Tombstone"].Pic.Location, Game.NPCs["Tombstone"].Pic.Size), new Tombstone());
+                    Enemy Tombstone = new Enemy(Name = "Tombstone", Game.MakePictureBox(Resources.tombstone, Game.NPCs["Tombstone"].Pic.Location, Game.NPCs["Tombstone"].Pic.Size), new Tombstone());
                     Tombstone.canFlee = false;
                     Fight(Tombstone);
                 }
@@ -567,6 +555,7 @@ namespace Fall2020_CSC403_Project
                 if (!Game.player.Inventory.BackpackIsFull())
                 {
                     Item item = Game.CurrentArea.Items[x];
+                    Game.CurrentArea.Items.Remove(item);
                     Game.player.Inventory.AddToBackpack(item);
                     item.HideEntity();
                 }
@@ -1090,7 +1079,7 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.SetAdjacentArea(Direction.Right, 0);
 
-            Game.CurrentArea.SetTravelSign(Direction.Right, new TravelSign(Game.Areas[0].AreaName, MakePictureBox(Resources.cave_exit, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height), caveSize)));
+            Game.CurrentArea.SetTravelSign(Direction.Right, new TravelSign(Game.Areas[0].AreaName, Game.MakePictureBox(Resources.cave_exit, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height), caveSize)));
             Game.CurrentArea.TravelSigns[Direction.Right].Collider.MovePosition(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height);
             Game.CurrentArea.TravelSigns[Direction.Right].Pic.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height);
             Game.CurrentArea.TravelSigns[Direction.Right].Collider.Disable();
@@ -1340,24 +1329,24 @@ namespace Fall2020_CSC403_Project
             if (up >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Up, up);
-                Game.Areas[area].SetTravelSign(Direction.Up, new TravelSign(Game.Areas[up].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, height / 12 + 10), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Up, new TravelSign(Game.Areas[up].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, height / 12 + 10), this.signSize)));
             }
             if (down >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Down, down);
-                Game.Areas[area].SetTravelSign(Direction.Down, new TravelSign(Game.Areas[down].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - 10 - this.signSize.Height), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Down, new TravelSign(Game.Areas[down].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.signSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - 10 - this.signSize.Height), this.signSize)));
 
             }
             if (left >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Left, left);
-                Game.Areas[area].SetTravelSign(Direction.Left, new TravelSign(Game.Areas[left].AreaName, MakePictureBox(Resources.travel_sign, new Point(10, Screen.PrimaryScreen.Bounds.Height / 2 - this.signSize.Height / 2), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Left, new TravelSign(Game.Areas[left].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(10, Screen.PrimaryScreen.Bounds.Height / 2 - this.signSize.Height / 2), this.signSize)));
 
             }
             if (right >= 0)
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Right, right);
-                Game.Areas[area].SetTravelSign(Direction.Right, new TravelSign(Game.Areas[right].AreaName, MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width - 10 - this.signSize.Width, Screen.PrimaryScreen.Bounds.Height / 2 - this.signSize.Height / 2), this.signSize)));
+                Game.Areas[area].SetTravelSign(Direction.Right, new TravelSign(Game.Areas[right].AreaName, Game.MakePictureBox(Resources.travel_sign, new Point(Screen.PrimaryScreen.Bounds.Width - 10 - this.signSize.Width, Screen.PrimaryScreen.Bounds.Height / 2 - this.signSize.Height / 2), this.signSize)));
 
             }
 
@@ -1365,7 +1354,7 @@ namespace Fall2020_CSC403_Project
             {
                 Game.Areas[area].SetAdjacentArea(Direction.Left, 9);
                 Size caveSize = new Size(Terrain.TileSize.Width * 4, Terrain.TileSize.Width * 3);
-                Game.Areas[area].SetTravelSign(Direction.Left, new TravelSign(Game.Areas[9].AreaName, MakePictureBox(Resources.cave_entrance_close, new Point(-10, Screen.PrimaryScreen.Bounds.Height / 2 - caveSize.Height / 2), caveSize)));
+                Game.Areas[area].SetTravelSign(Direction.Left, new TravelSign(Game.Areas[9].AreaName, Game.MakePictureBox(Resources.cave_entrance_close, new Point(-10, Screen.PrimaryScreen.Bounds.Height / 2 - caveSize.Height / 2), caveSize)));
                 Game.Areas[area].TravelSigns[Direction.Left].Collider.Disable();
             }
         }
