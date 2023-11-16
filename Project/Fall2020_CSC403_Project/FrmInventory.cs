@@ -289,15 +289,16 @@ namespace Fall2020_CSC403_Project
 
 
 
-            UpdateStats();
+            UpdateStatLabels();
 
 
             RefreshInv();
 
         }
 
-        private void UpdateStats()
+        private void UpdateStatLabels()
         {
+            Game.player.UpdateStats();
             SpeedStat.Text = "Speed: "+Game.player.speed.ToString();
             DefStat.Text = "Defense: "+Game.player.defense.ToString();
             AttackStat.Text = "Attack: "+Game.player.damage.ToString();
@@ -351,17 +352,14 @@ namespace Fall2020_CSC403_Project
             if (selected == 10)
             {
                 Game.player.Inventory.UnEquipWeapon();
-                RefreshInv();
             }
             else if (selected == 11)
             {
                 Game.player.Inventory.UnEquipArmor();
-                RefreshInv();
             }
             else if (selected == 12)
             {
                 Game.player.Inventory.UnEquipUtility();
-                RefreshInv();
             }
             else { }
             if (selected > 0)
@@ -370,11 +368,13 @@ namespace Fall2020_CSC403_Project
             }
             selected = 0;
 
+            RefreshInv();
+            UpdateStatLabels();
         }
 
         private void UseButton_Click(object sender, EventArgs e)
         {
-            if (selected == 12)
+            if (selected == 12 && Game.player.Inventory.Utility != null)
             {
                 Game.player.ApplyEffect(Game.player.Inventory.Utility.Potion, Game.player.Inventory.Utility.Stat);
                 Game.player.Inventory.UseItem();
@@ -493,7 +493,7 @@ namespace Fall2020_CSC403_Project
 
             frmLevel.UpdateStatusBar(frmLevel.def_label, frmLevel.damage_label, frmLevel.speed_label);
             UpdateHealthBars();
-            UpdateStats();
+            UpdateStatLabels();
             this.Refresh();
 
         }
@@ -668,7 +668,7 @@ namespace Fall2020_CSC403_Project
 
             if (Game.player.Inventory.Backpack[selected - 1] != null)
             {
-                ItemDesc.Text = Game.player.Inventory.Backpack[selected].Desc;
+                ItemDesc.Text = Game.player.Inventory.Backpack[selected - 1].Desc;
 
                 ItemName.Text = Game.player.Inventory.Backpack[selected - 1].Name + ":";
             }

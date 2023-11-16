@@ -280,7 +280,8 @@ namespace Fall2020_CSC403_Project
             Game.Areas[6] = new Area("Windy Plateau", 456, Terrain.Biome.Grassland);
             Game.Areas[7] = new Area("Harmony Plains", 345, Terrain.Biome.Grassland, 0.13);
             Game.Areas[8] = new Area("Harmony Village", 623, Terrain.Biome.Village, 0.07);
-            Game.Areas[9] = new Area("Dragon's Lair", 123, Terrain.Biome.Mountain);
+            Game.Areas[9] = new Area("Malek's Lair");
+            Game.Areas[9].MakeBossRoom();
         }
 
         private void InitializeCurrentArea()
@@ -651,8 +652,14 @@ namespace Fall2020_CSC403_Project
         public void GameOver()
         {
             this.gameOver = true;
-            Game.player.SetEntityPosition(new Position(-100, -100));
 
+            foreach (Item item in Game.player.Inventory.Backpack)
+            {
+                item?.ShowEntity();
+            }
+            Game.player.Inventory.Weapon?.ShowEntity();
+            Game.player.Inventory.Armor?.ShowEntity();
+            Game.player.Inventory.Utility?.ShowEntity();
 
             DisposeArea();
             DisposeGame();
@@ -850,9 +857,15 @@ namespace Fall2020_CSC403_Project
                 setAdjacency(i);
             }
 
+            foreach (Area area in Game.Areas)
+            {
+                area.Visited = false;
+            }
+
             AreaSelect();
             InitializeCurrentArea();
             UpdateHealthBars(playerCurrentHealth);
+            UpdateStatusBar(def_label, damage_label, speed_label);
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)
@@ -917,12 +930,37 @@ namespace Fall2020_CSC403_Project
 
         private void AreaBoss()
         {
-            
+            Size caveSize = new Size(Terrain.TileSize.Width * 3, Terrain.TileSize.Width * 4);
+            Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, Screen.PrimaryScreen.Bounds.Height - Game.player.Pic.Height - caveSize.Height - 50));
+
             if (Game.CurrentArea.Visited)
             {
                 return;
             }
             Game.CurrentArea.Visited = true;
+
+            for (int i = 1; i < 7 ; i++)
+            {
+                Game.CurrentArea.AddStructure(Game.Structures["Pillar" + i.ToString()]);
+            }
+
+            for (int i = 1; i < 5; i++)
+            {
+                Game.CurrentArea.AddStructure(Game.Structures["Gold" + i.ToString()]);
+            }
+
+            Game.CurrentArea.AddEnemy(Game.Enemies["Dragon"]);
+
+
+            Game.CurrentArea.SetAdjacentArea(Direction.Right, 0);
+
+            Game.CurrentArea.SetTravelSign(Direction.Right, new TravelSign(Game.Areas[0].AreaName, MakePictureBox(Resources.cave_exit, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height - 40), caveSize)));
+            Game.CurrentArea.TravelSigns[Direction.Right].Collider.MovePosition(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height - 40);
+            Game.CurrentArea.TravelSigns[Direction.Right].Pic.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - caveSize.Width / 2, Screen.PrimaryScreen.Bounds.Height - caveSize.Height - 40);
+            //Game.CurrentArea.TravelSigns[Direction.Left].Collider.Disable();
+
+
+
         }
 
         private void Area8()
@@ -1088,6 +1126,12 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.Visited = true;
 
+            Game.CurrentArea.SetAdjacentArea(Direction.Left, 9);
+            Size caveSize = new Size(Terrain.TileSize.Width * 4, Terrain.TileSize.Width * 3);
+            Game.CurrentArea.SetTravelSign(Direction.Left, new TravelSign(Game.Areas[9].AreaName, MakePictureBox(Resources.cave_entrance_open, new Point(-10, Screen.PrimaryScreen.Bounds.Height / 2 - caveSize.Height / 2), caveSize)));
+            //Game.CurrentArea.TravelSigns[Direction.Left].Collider.Disable();
+
+
         }
 
         public void UpdateStatusBar(Label def, Label dmg, Label speed)
@@ -1144,7 +1188,13 @@ namespace Fall2020_CSC403_Project
                     Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width / 2 - Game.player.Pic.Width / 2, height/12 + signSize.Height + 20));
                     break;
                 case Direction.Right:
-                    Game.player.SetEntityPosition(new Position(signSize.Width + 10, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
+                    if (Game.CurrentArea.AreaName == "Malek's Lair")
+                    {
+                        Game.player.SetEntityPosition(new Position(Terrain.TileSize.Width * 4 + 10, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
+                    } else
+                    {
+                        Game.player.SetEntityPosition(new Position(signSize.Width + 10, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));
+                    }
                     break;
                 case Direction.Left:
                     Game.player.SetEntityPosition(new Position(Screen.PrimaryScreen.Bounds.Width - signSize.Width - 20 - Game.player.Pic.Width, Screen.PrimaryScreen.Bounds.Height / 2 - Game.player.Pic.Height / 2));

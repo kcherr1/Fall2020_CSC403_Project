@@ -783,12 +783,14 @@ namespace Fall2020_CSC403_Project
 
         private void UseButton_Click(object sender, EventArgs e)
         {
-            player.ApplyEffect(player.Inventory.Utility.Potion, player.Inventory.Utility.Stat);
-            player.Inventory.UseItem();
-            UtilityPicture.Hide();
-            UtilityLabel.Hide();
-            UpdateHealthBars();
-            
+            if (player.Inventory.Utility != null)
+            {
+                player.ApplyEffect(player.Inventory.Utility.Potion, player.Inventory.Utility.Stat);
+                player.Inventory.UseItem();
+                UtilityPicture.Hide();
+                UtilityLabel.Hide();
+                UpdateHealthBars();
+            }            
         }
 
         private void FleeButton_Click(object sender, EventArgs e)

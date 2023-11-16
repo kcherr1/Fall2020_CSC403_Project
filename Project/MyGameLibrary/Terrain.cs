@@ -33,7 +33,6 @@ namespace Fall2020_CSC403_Project.code
         }
 
 
-
         public void AddTile(Tile tile)
         {
             this.Tiles.Add(tile);

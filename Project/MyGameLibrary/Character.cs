@@ -93,12 +93,18 @@ namespace Fall2020_CSC403_Project.code
 			{
                 this.defense = this.archetype.baseDefense + this.Inventory.Armor.Stat;
 
-            }
+            } else
+			{
+				this.defense = this.archetype.baseDefense;
+			}
+
 			if (this.Inventory.Weapon != null)
 			{
                 this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat;
-
-            }
+            } else
+			{
+				this.damage = this.archetype.baseDamage;
+			}
         }
 
 		public void ApplyEffect(PotionTypes Potion, int stat)

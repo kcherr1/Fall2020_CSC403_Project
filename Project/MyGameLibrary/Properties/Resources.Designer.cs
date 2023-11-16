@@ -183,6 +183,46 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap gold_pile1 {
+            get {
+                object obj = ResourceManager.GetObject("gold_pile1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap gold_pile2 {
+            get {
+                object obj = ResourceManager.GetObject("gold_pile2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap gold_pile3 {
+            get {
+                object obj = ResourceManager.GetObject("gold_pile3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap gold_pile4 {
+            get {
+                object obj = ResourceManager.GetObject("gold_pile4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap gerald {
             get {
                 object obj = ResourceManager.GetObject("gerald", resourceCulture);
@@ -273,6 +313,16 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap pillar {
+            get {
+                object obj = ResourceManager.GetObject("pillar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap rare_armor {
             get {
                 object obj = ResourceManager.GetObject("rare_armor", resourceCulture);
@@ -356,6 +406,26 @@ namespace MyGameLibrary.Properties {
         public static System.Drawing.Bitmap Tank {
             get {
                 object obj = ResourceManager.GetObject("Tank", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tile_cave {
+            get {
+                object obj = ResourceManager.GetObject("tile_cave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tile_cave_path {
+            get {
+                object obj = ResourceManager.GetObject("tile_cave_path", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

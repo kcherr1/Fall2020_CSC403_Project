@@ -165,9 +165,10 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.whelp, new Point(473, 347), new Size(400, 150)),
                 new Whelp());
 
+            Size dragonSize = new Size(Screen.PrimaryScreen.Bounds.Width * 1 / 4, Screen.PrimaryScreen.Bounds.Height * 1 / 4);
             Enemies["Dragon"] = new Enemy(
-                "Dragon",
-                MakePictureBox(Resources.dragonboss, new Point(1000, 100), new Size(400, 150)),
+                "Malek",
+                MakePictureBox(Resources.dragonboss, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - dragonSize.Width / 2, Screen.PrimaryScreen.Bounds.Height * 1/12 + 30), dragonSize),
                 new Dragon());
 
             // Create NPCs
@@ -268,6 +269,57 @@ namespace Fall2020_CSC403_Project.code
             Structures["LowerVillageWall4"].Pic.BackgroundImageLayout = ImageLayout.Tile;
 
 
+            int x_3 = 10 * Terrain.TileSize.Width;
+            int y_3 = Screen.PrimaryScreen.Bounds.Height * 1 / 4 - 2 * Terrain.TileSize.Width - 40 + Screen.PrimaryScreen.Bounds.Height * 1 / 12;
+            Structures["Pillar1"] = new Structure(
+                MakePictureBox(Resources.pillar, new Point(x_3, y_3), new Size(Terrain.TileSize.Width * 2, Terrain.TileSize.Width * 2)));
+
+            x_3 = 10 * Terrain.TileSize.Width;
+            y_3 = Screen.PrimaryScreen.Bounds.Height * 1 / 2 - 2 * Terrain.TileSize.Width + Screen.PrimaryScreen.Bounds.Height * 1 / 12;
+            Structures["Pillar2"] = new Structure(
+                MakePictureBox(Resources.pillar, new Point(x_3, y_3), new Size(Terrain.TileSize.Width * 2, Terrain.TileSize.Width * 2)));
+
+            x_3 = 10 * Terrain.TileSize.Width;
+            y_3 = Screen.PrimaryScreen.Bounds.Height * 3 / 4 - 2 * Terrain.TileSize.Width + Screen.PrimaryScreen.Bounds.Height * 1 / 12;
+            Structures["Pillar3"] = new Structure(
+                MakePictureBox(Resources.pillar, new Point(x_3, y_3), new Size(Terrain.TileSize.Width * 2, Terrain.TileSize.Width * 2)));
+
+            x_3 = Terrain.TileSize.Width * 24;
+            y_3 = Screen.PrimaryScreen.Bounds.Height * 1 / 4 - 2 * Terrain.TileSize.Width - 40 + Screen.PrimaryScreen.Bounds.Height * 1 / 12;
+            Structures["Pillar4"] = new Structure(
+                MakePictureBox(Resources.pillar, new Point(x_3, y_3), new Size(Terrain.TileSize.Width * 2, Terrain.TileSize.Width * 2)));
+
+            x_3 = Terrain.TileSize.Width * 24;
+            y_3 = Screen.PrimaryScreen.Bounds.Height * 1 / 2 - 2 * Terrain.TileSize.Width + Screen.PrimaryScreen.Bounds.Height * 1 / 12;
+            Structures["Pillar5"] = new Structure(
+                MakePictureBox(Resources.pillar, new Point(x_3, y_3), new Size(Terrain.TileSize.Width * 2, Terrain.TileSize.Width * 2)));
+
+            x_3 = Terrain.TileSize.Width * 24;
+            y_3 = Screen.PrimaryScreen.Bounds.Height * 3 / 4 - 2 * Terrain.TileSize.Width + Screen.PrimaryScreen.Bounds.Height * 1 / 12;
+            Structures["Pillar6"] = new Structure(
+                MakePictureBox(Resources.pillar, new Point(x_3, y_3), new Size(Terrain.TileSize.Width * 2, Terrain.TileSize.Width * 2)));
+
+
+            int x_4 = Terrain.TileSize.Width;
+            int y_4 = Screen.PrimaryScreen.Bounds.Height * 1 / 6;
+            Structures["Gold1"] = new Structure(
+                MakePictureBox(Resources.gold_pile1, new Point(x_4, y_4), new Size(Terrain.TileSize.Width * 8, Terrain.TileSize.Width * 4)));
+
+            x_4 = Terrain.TileSize.Width * 2;
+            y_4 = Screen.PrimaryScreen.Bounds.Height * 1/2;
+            Structures["Gold3"] = new Structure(
+                MakePictureBox(Resources.gold_pile3, new Point(x_4, y_4), new Size(Terrain.TileSize.Width * 6, Terrain.TileSize.Width * 5)));
+
+            x_4 = Screen.PrimaryScreen.Bounds.Width - Terrain.TileSize.Width - Terrain.TileSize.Width * 8; ;
+            y_4 = Screen.PrimaryScreen.Bounds.Height * 1 / 6 + 100;
+            Structures["Gold2"] = new Structure(
+                MakePictureBox(Resources.gold_pile2, new Point(x_4, y_4), new Size(Terrain.TileSize.Width * 8, Terrain.TileSize.Width * 4)));
+
+            x_4 = Screen.PrimaryScreen.Bounds.Width - Terrain.TileSize.Width - Terrain.TileSize.Width * 7;
+            y_4 = Screen.PrimaryScreen.Bounds.Height * 5 / 8;
+            Structures["Gold4"] = new Structure(
+                MakePictureBox(Resources.gold_pile4, new Point(x_4, y_4), new Size(Terrain.TileSize.Width * 7, Terrain.TileSize.Width * 4)));
+
         }
 
         public static PictureBox MakePictureBox(Bitmap pic, Point location, Size Size)
@@ -278,7 +330,7 @@ namespace Fall2020_CSC403_Project.code
                 Location = location,
                 Image = pic,
                 SizeMode = PictureBoxSizeMode.StretchImage,
-                BackColor = Color.Transparent,
+                BackColor = Color.Transparent,  
             };
         }
 
