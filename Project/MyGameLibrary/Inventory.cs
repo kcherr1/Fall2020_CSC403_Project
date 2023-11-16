@@ -192,11 +192,12 @@ namespace MyGameLibrary
             {
                 return;
             }
+            Game.CurrentArea.Items.Add(item);
 
             Position new_position = new Position(Game.player.Position.x, Game.player.Position.y);
             new_position.x = Game.player.facing == Facing.Left ? new_position.x - item.Pic.Size.Width - 10 : new_position.x + item.Pic.Size.Width + 10;
+
             item.SetEntityPosition(new_position);
-            Game.CurrentArea.Items.Add(item);
         }
 
         public void DropAll(Position position)
