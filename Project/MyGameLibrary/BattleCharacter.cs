@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,16 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class BattleCharacter : Character {
-    public int Health { get; private set; }
-    public int MaxHealth { get; private set; }
-    private float strength;
+
+        public Image Img { get; set; }
+
+        /// <summary>
+        /// this is the background color for the fight form for this enemy
+        /// </summary>
+        public Color Color { get; set; }
+        public int Health { get; set; }
+    public int MaxHealth { get; set; }
+    public float strength;
 
     public event Action<int> AttackEvent;
 
@@ -25,7 +33,14 @@ namespace Fall2020_CSC403_Project.code {
     }
 
     public void AlterHealth(int amount) {
-      Health += amount;
-    }
+      int TempHealth = Health + amount;
+            if (TempHealth > MaxHealth)
+            {
+                Health = MaxHealth;
+            }
+            else {
+                Health = TempHealth;
+            }
+     }
   }
 }
