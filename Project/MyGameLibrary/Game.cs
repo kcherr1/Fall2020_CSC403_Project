@@ -181,7 +181,7 @@ namespace Fall2020_CSC403_Project.code
                 new Healer()
             );
             NPCs["Harold"].Dialog = "How's it going? Name's Harold. If you go kill some lizards, let me know. I want in.";
-
+            NPCs["Harold"].ConverseImage = Resources.harold_converse;
 
             NPCs["Tombstone"] = new NPC(
                 "Tombstone",
@@ -189,12 +189,14 @@ namespace Fall2020_CSC403_Project.code
                 new Tombstone());
             NPCs["Tombstone"].CanJoinParty = false;
             NPCs["Tombstone"].InviteRejection = "Woah there, pal, I'm not sure we're that tight yet.";
+            NPCs["Tombstone"].ConverseImage = Resources.tombstone_converse;
 
             NPCs["Gerald"] = new NPC(
                 "Gerald",
                 MakePictureBox(Resources.gerald, new Point(300, 300), new Size(150, 100)),
                 new Gerald());
             NPCs["Gerald"].Dialog = "Greetings, I am Gerald. \nI wish to vanquish the lizards and dragon that plague our land. We cannot endure this much longer. \nI wish to aid in the vanquish of our foes.";
+            NPCs["Gerald"].ConverseImage = Resources.gerald_converse;
 
             NPCs["Reginald"] = new NPC(
                 "Reginald",
@@ -203,6 +205,7 @@ namespace Fall2020_CSC403_Project.code
             NPCs["Reginald"].CanJoinParty = false;
             NPCs["Reginald"].Dialog = "It's a me, Reginald. I make-a the best food in the village.\nIf you want-a a taste its gonna cost you though. People like me don't-a work for free!";
             NPCs["Reginald"].InviteRejection = "What? Fight? I can't-a do that! Who's gonna cook all the food around-a here?";
+            NPCs["Reginald"].ConverseImage = Resources.reginald_converse;
 
             NPCs["Bobby"] = new NPC(
                 "Bobby",
@@ -211,6 +214,7 @@ namespace Fall2020_CSC403_Project.code
             NPCs["Bobby"].CanJoinParty = false;
             NPCs["Bobby"].Dialog = "Eugene is so cool! I like talking with him! In fact, when I grow up I wanna be just like him! He's just so cool, I wanna go talk with him again!";
             NPCs["Bobby"].InviteRejection = "Sorry, I would but I'd rather go talk to Eugene...";
+            NPCs["Bobby"].ConverseImage = Resources.bobby_converse;
 
             NPCs["Eugene"] = new NPC(
                 "Eugene",
@@ -219,6 +223,7 @@ namespace Fall2020_CSC403_Project.code
             NPCs["Eugene"].CanJoinParty = false;
             NPCs["Eugene"].Dialog = "I hate Bobby.";
             NPCs["Eugene"].InviteRejection = "Eh, seems like a lot of work. Plus, I don't wanna risk that Bobby kid seeing me.";
+            NPCs["Eugene"].ConverseImage = Resources.eugene_converse;
 
             NPCs["Hank"] = new NPC(
                 "Hank",
@@ -227,6 +232,7 @@ namespace Fall2020_CSC403_Project.code
             NPCs["Hank"].CanJoinParty = false;
             NPCs["Hank"].Dialog = "I'll tell ya what, dang it, these dadgum lizards just won't quit lurkin' 'round my dang ol' village.\nI mean, I work hard, sell propane and propane accessories, and I come home to find these dang lizards causin' a ruckus.\r\n\r\nBobby, I swear, it's like they got no respect for personal space. I've tried talkin' to 'em, but they just stare at me with those beady eyes.\nI don't know what they want, but they need to git gone and let me enjoy my propane-filled peace.\nIt's downright frustratin', I'll tell you what.";
             NPCs["Hank"].InviteRejection = "Now hold on there, I appreciate the enthusiasm for takin' care of them lizards,\nbut I just heard there might be a dragon lurkin' 'round these parts.\nNow, I ain't one to back down from a challenge,\nbut dragons are a whole different kettle of fish, I'll tell you what.";
+            NPCs["Hank"].ConverseImage = Resources.hank_converse;
 
             NPCs["Bartholomew"] = new NPC(
                 "Bartholomew",
@@ -234,6 +240,7 @@ namespace Fall2020_CSC403_Project.code
                 new Guy());
             NPCs["Bartholomew"].CanJoinParty = false;
             NPCs["Bartholomew"].InviteRejection = "I definitely can't fight anyone, but I did hear of some good loot washed up on the beach from a sunken pirate ship";
+            NPCs["Bartholomew"].ConverseImage = Resources.bartholomew_converse;
 
             // Create Structures
             Structures["wall_bricks"] = new Structure(
