@@ -57,10 +57,14 @@ namespace Fall2020_CSC403_Project
         public PictureBox converseImg;
         public Button JoinParty;
 
+        public bool npcRejecting;
+
 
 
         public FrmLevel(Form MainMenu)
         {
+            this.npcRejecting = false;
+
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -519,9 +523,12 @@ namespace Fall2020_CSC403_Project
             this.NPC_Conversing = hitNPC(Game.player);
             if (NPC_Conversing != null)
             {
-                this.converseText.Text = this.NPC_Conversing.Dialog;
-                this.converseNPCName.Text = this.NPC_Conversing.Name + ":";
-                Game.FontSizing(this.converseText);
+                if (!this.npcRejecting)
+                {
+                    this.converseText.Text = this.NPC_Conversing.Dialog;
+                    this.converseNPCName.Text = this.NPC_Conversing.Name + ":";
+                    Game.FontSizing(this.converseText);
+                }
                 this.conversePanel.Show();
                 this.converseImg.Image = this.NPC_Conversing.ConverseImage;
                 this.converseImg.Show();
@@ -534,13 +541,10 @@ namespace Fall2020_CSC403_Project
                         Game.Objectives["spoke_to_tm_after_learn_dragon"] = true;
                     }
                 }
- 
-
-
             }
             else
             {
-                Game.CheckObjectives();
+                this.npcRejecting = false;
                 this.conversePanel.Hide();
 
                 if (!Game.Objectives["killed_dragon"] && !Game.Objectives["tombstone_killed"] && Game.CurrentArea.AreaName == "Malek's Lair")
@@ -550,7 +554,7 @@ namespace Fall2020_CSC403_Project
                     Fight(Tombstone);
                                         
                 }
-
+                Game.CheckObjectives();
 
             }
 
@@ -978,6 +982,7 @@ namespace Fall2020_CSC403_Project
 
             if (!this.NPC_Conversing.CanJoinParty)
             {
+                this.npcRejecting = true;
                 this.converseText.Text = this.NPC_Conversing.InviteRejection;
                 Game.FontSizing(this.converseText);
                 return;
