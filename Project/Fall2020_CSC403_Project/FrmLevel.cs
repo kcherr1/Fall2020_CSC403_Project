@@ -807,15 +807,7 @@ namespace Fall2020_CSC403_Project
 
             string filepath = "../../data/LeaderboardData.json";
 
-            string[] text;
-            if (!File.Exists(filepath))
-            {
-                FileStream fs = File.Create(filepath);
-                text = new string[]{ "", "", "", "", "", ""};
-            } else
-            {
-                text = File.ReadAllLines(filepath);
-            }
+            string[] text = File.ReadAllLines(filepath);
 
             string playerText = text[0];
             string classText = text[1];
@@ -1205,8 +1197,7 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.AddItem(Game.Items["Sting"]);
             Game.CurrentArea.AddItem(Game.Items["Lesser Health Potion"]);
-            Game.CurrentArea.AddItem(Game.Items["Shabby Armor"]);
-            Game.CurrentArea.AddItem(Game.Items["Speed Potion"]);
+
 
             Game.CurrentArea.AddEnemy(Game.Enemies["Minion1"]);
             Game.CurrentArea.AddEnemy(Game.Enemies["Minion2"]);
@@ -1240,6 +1231,10 @@ namespace Fall2020_CSC403_Project
                 return;
             }
             Game.CurrentArea.Visited = true;
+
+
+            Game.CurrentArea.AddItem(Game.Items["Shabby Armor"]);
+            Game.CurrentArea.AddItem(Game.Items["Speed Potion"]);
 
         }
 
