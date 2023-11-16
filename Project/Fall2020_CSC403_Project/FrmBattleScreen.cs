@@ -74,6 +74,16 @@ namespace Fall2020_CSC403_Project
             player = Game.player;
         }
 
+        public static FrmBattleScreen GetInstance(FrmLevel level, Enemy enemy)
+        {
+            frmLevel = level;
+            instance = new FrmBattleScreen(level);
+            instance.enemy = enemy;
+            instance.Setup();
+            return instance;
+
+        }
+
         public void Setup()
         {
 
@@ -193,6 +203,15 @@ namespace Fall2020_CSC403_Project
                 picPlayer.Hide(); playerCurrentHealth.Hide(); playerHealthMax.Hide(); PlayerName.Hide(); 
             }
 
+            partyZeroMax = new Label();
+            partyZeroCurrent = new Label();
+            partyOneMax = new Label();
+            partyOneCurrent = new Label();
+            partyTwoMax = new Label();
+            partyTwoCurrent = new Label();
+            partyThreeMax = new Label();
+            partyThreeCurrent = new Label();
+
             Console.WriteLine(player.PartyCount());
             if (player.PartyCount() == 1)
             {
@@ -203,7 +222,7 @@ namespace Fall2020_CSC403_Project
                 GetPartyForm2();
             }
             else if (player.PartyCount() == 3)
-            {
+            { 
                 GetPartyForm3();
             }
 
@@ -344,11 +363,10 @@ namespace Fall2020_CSC403_Project
             partyOne.Location = new Point(partyZero.Left + partyZero.Width / 2 - partyOne.Width/2, partyZero.Bottom + height / 64);
             partyOne.BackColor = this.BackColor;
             partyOne.Image = player.Party[0].Pic.Image;
+            
 
 
             // Add health bars
-            partyZeroMax = new Label();
-            partyZeroCurrent = new Label();
 
             partyZeroCurrent.Size = new Size(partyZero.Width, height / 32);
             partyZeroCurrent.Parent = this;
@@ -365,8 +383,6 @@ namespace Fall2020_CSC403_Project
             partyZeroMax.BackColor = Color.Red;
             partyZeroMax.AutoSize = false;
 
-            partyOneMax = new Label();
-            partyOneCurrent = new Label();
 
             partyOneCurrent.Size = new Size(partyOne.Width, height / 32);
             partyOneCurrent.Parent = this;
@@ -439,8 +455,6 @@ namespace Fall2020_CSC403_Project
 
 
             // Add health bars
-            partyZeroMax = new Label();
-            partyZeroCurrent = new Label();
 
             partyZeroCurrent.Size = new Size(partyZero.Width, height / 32);
             partyZeroCurrent.Parent = this;
@@ -457,8 +471,6 @@ namespace Fall2020_CSC403_Project
             partyZeroMax.BackColor = Color.Red;
             partyZeroMax.AutoSize = false;
 
-            partyOneMax = new Label();
-            partyOneCurrent = new Label();
 
             partyOneCurrent.Size = new Size(partyOne.Width, height / 32);
             partyOneCurrent.Parent = this;
@@ -474,9 +486,6 @@ namespace Fall2020_CSC403_Project
             partyOneMax.Font = new Font("NSimSun", 7 * partyOneCurrent.Size.Height / 8);
             partyOneMax.BackColor = Color.Red;
             partyOneMax.AutoSize = false;
-
-            partyTwoMax = new Label();
-            partyTwoCurrent = new Label();
 
             partyTwoCurrent.Size = new Size(partyTwo.Width, height / 32);
             partyTwoCurrent.Parent = this;
@@ -566,8 +575,7 @@ namespace Fall2020_CSC403_Project
 
 
             // Add health bars
-            partyZeroMax = new Label();
-            partyZeroCurrent = new Label();
+
 
             partyZeroCurrent.Size = new Size(partyZero.Width, height / 32);
             partyZeroCurrent.Parent = this;
@@ -585,10 +593,7 @@ namespace Fall2020_CSC403_Project
             partyZeroMax.Location = new Point(partyZero.Location.X, partyZero.Location.Y - 3 * height / 64);
             partyZeroMax.Font = new Font("NSimSun", 7 * partyZeroCurrent.Size.Height / 8);
             partyZeroMax.BackColor = Color.Red;
-            partyZeroMax.AutoSize = false;
-
-            partyOneMax = new Label();
-            partyOneCurrent = new Label();
+            partyZeroMax.AutoSize = false;          
 
             partyOneCurrent.Size = new Size(partyOne.Width, height / 32);
             partyOneCurrent.Parent = this;
@@ -605,9 +610,6 @@ namespace Fall2020_CSC403_Project
             partyOneMax.BackColor = Color.Red;
             partyOneMax.AutoSize = false;
 
-            partyTwoMax = new Label();
-            partyTwoCurrent = new Label();
-
             partyTwoCurrent.Size = new Size(partyTwo.Width, height / 32);
             partyTwoCurrent.Parent = this;
             partyTwoCurrent.Location = new Point(partyTwo.Location.X, partyTwo.Bottom);
@@ -622,9 +624,6 @@ namespace Fall2020_CSC403_Project
             partyTwoMax.Font = new Font("NSimSun", 7 * partyTwoCurrent.Size.Height / 8);
             partyTwoMax.BackColor = Color.Red;
             partyTwoMax.AutoSize = false;
-
-            partyThreeMax = new Label();
-            partyThreeCurrent = new Label();
 
             partyThreeCurrent.Size = new Size(partyThree.Width, height / 32);
             partyThreeCurrent.Parent = this;
@@ -860,15 +859,6 @@ namespace Fall2020_CSC403_Project
             while (this.attackOrder[attackOrder.Count - 1] != player);
         }
 
-        public static FrmBattleScreen GetInstance(FrmLevel level, Enemy enemy)
-        {
-            frmLevel = level;
-            instance = new FrmBattleScreen(level);
-            instance.enemy = enemy;
-            instance.Setup();
-            return instance;
-           
-        }
 
         private void CharacterDamage(Character target, int amount)
         {
