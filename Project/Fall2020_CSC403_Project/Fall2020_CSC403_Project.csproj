@@ -188,6 +188,7 @@
     <Content Include="data\pillar.png" />
     <Content Include="data\tile_cave.png" />
     <Content Include="data\tile_cave_path.png" />
+    <Content Include="data\tombstone_tombstone_converse.png" />
     <Content Include="gfgLogoIco.ico" />
     <None Include="data\wall_cobblestone.png" />
     <None Include="data\wall_bricks.png" />
