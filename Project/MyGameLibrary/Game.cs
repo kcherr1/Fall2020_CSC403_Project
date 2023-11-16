@@ -445,9 +445,12 @@ namespace Fall2020_CSC403_Project.code
             }
 
 
-            if (Objectives["tombstone_ready"] && Game.Objectives["spoke_to_tm_after_learn_dragon"])
+            if (Objectives["tombstone_ready"] && Game.Objectives["spoke_to_tm_after_learn_dragon"] && !Game.Objectives["killed_dragon"])
             {
-                Game.Areas[0].npcs.Add(NPCs["Tombstone"]);
+                if (!Game.Areas[0].npcs.Any(guy => guy.Name == "Tombstone"))
+                {
+                    Game.Areas[0].npcs.Add(NPCs["Tombstone"]);
+                }
 
                 Objectives["cave_unlocked"] = true;
                 Objectives["tombstone_ready"] = false;
