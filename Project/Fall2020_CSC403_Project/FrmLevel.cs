@@ -552,6 +552,7 @@ namespace Fall2020_CSC403_Project
                 if (!Game.Objectives["killed_dragon"] && !Game.Objectives["tombstone_killed"] && Game.CurrentArea.AreaName == "Malek's Lair")
                 {
                     Enemy Tombstone = new Enemy(Name = "Tombstone", MakePictureBox(Resources.tombstone, Game.NPCs["Tombstone"].Pic.Location, Game.NPCs["Tombstone"].Pic.Size), new Tombstone());
+                    Tombstone.canFlee = false;
                     Fight(Tombstone);
                 }
                 Game.CheckObjectives();

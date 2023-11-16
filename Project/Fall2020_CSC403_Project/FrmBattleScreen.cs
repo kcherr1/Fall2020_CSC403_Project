@@ -108,6 +108,11 @@ namespace Fall2020_CSC403_Project
             FleeButton.FlatAppearance.BorderSize = 1;
             FleeButton.Click += FleeButton_Click;
 
+            if (!enemy.canFlee)
+            {
+                FleeButton.Hide();
+            }
+
             // Set up UseUtility button
             Button UseButton = new Button();
             UseButton.Parent = this;

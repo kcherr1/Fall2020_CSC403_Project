@@ -173,6 +173,7 @@ namespace Fall2020_CSC403_Project.code
                 "Malek",
                 MakePictureBox(Resources.dragonboss, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - dragonSize.Width / 2, Screen.PrimaryScreen.Bounds.Height * 1/12 + 30), dragonSize),
                 new Dragon());
+            Enemies["Dragon"].canFlee = false;
 
             // Create NPCs
             NPCs["Harold"] = new NPC(
