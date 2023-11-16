@@ -9,6 +9,7 @@ using System.Security.Policy;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project;
 using MyGameLibrary.Properties;
+using static MyGameLibrary.Item;
 
 namespace Fall2020_CSC403_Project.code
 {
@@ -19,8 +20,10 @@ namespace Fall2020_CSC403_Project.code
         int baseDefense { get; }
         int baseDamage { get; }
         int baseSpeed { get; }
-        int hitMod { get; set; }
+        int hitMod { get; }
         string opener { get; }
+
+        WeaponType Weapon_Type { get; }
 
         
         void specialMove(Character target);
@@ -47,8 +50,9 @@ namespace Fall2020_CSC403_Project.code
         public int baseDefense { get; }
         public int baseDamage { get; }
         public int baseSpeed { get; }
-        public int hitMod { get; set; }
+        public int hitMod { get; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get; }
 
         public Tank()
         {
@@ -58,6 +62,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 2;
             baseSpeed = 0;
             hitMod = 2;
+            Weapon_Type = WeaponType.War;
         }
 
         public void specialMove(Character target) { }
@@ -73,6 +78,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; set; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get;  }
 
         public Rogue()
         {
@@ -82,6 +88,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 10;
             baseSpeed = 5;
             hitMod = 5;
+            Weapon_Type = WeaponType.Dagger;
         }
 
         public void specialMove(Character target)
@@ -99,6 +106,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; set; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get; }
 
         public Swordsman()
         {
@@ -108,6 +116,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 8;
             baseSpeed = 2;
             hitMod = 3;
+            Weapon_Type = WeaponType.Sword;
         }
 
         public void specialMove(Character target) { }
@@ -126,6 +135,8 @@ namespace Fall2020_CSC403_Project.code
         public int hitMod { get; set; }
         public string opener { get; }
 
+        public WeaponType Weapon_Type { get; }
+
         public Healer()
         {
             name = "Healer";
@@ -134,6 +145,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 3;
             baseSpeed = 2;
             hitMod = 3;
+            Weapon_Type = WeaponType.None;
         }
 
         public void specialMove(Character target)
@@ -152,6 +164,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; set; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get; }
 
         public Tombstone()
         {
@@ -162,6 +175,7 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 3;
             hitMod = 3;
             opener = "I have to do this";
+            Weapon_Type = WeaponType.Spear;
         }
 
         public void specialMove(Character target) { }
@@ -177,6 +191,8 @@ namespace Fall2020_CSC403_Project.code
         public int hitMod { get; set; }
         public string opener { get; }
 
+        public WeaponType Weapon_Type { get; }
+
         public Gerald()
         {
             name = "Gerald";
@@ -185,8 +201,8 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 20;
             baseSpeed = 0;
             hitMod = -1;
+            Weapon_Type = WeaponType.Fist;
         }
-
         public void specialMove(Character target) { }
     }
 
@@ -199,6 +215,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; set; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get; }
 
         public Guy()
         {
@@ -208,6 +225,7 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 1;
             baseSpeed = 1;
             hitMod = 0;
+            Weapon_Type = WeaponType.None;
         }
 
         public void specialMove(Character target) { }
@@ -223,6 +241,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; set; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get; }
 
         public Minion()
         {
@@ -233,6 +252,7 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 1;
             hitMod = 0;
             opener = "*Unintelligible hissing*";
+            Weapon_Type = WeaponType.Fist;
         }
 
         public void specialMove(Character target) { }
@@ -249,6 +269,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; set; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get; }
 
         public Coward()
         {
@@ -259,6 +280,7 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 5;
             hitMod = 0;
             opener = "You'll regret this... No you won't I'm running away!";
+            Weapon_Type = WeaponType.None;
         }
 
         public void specialMove(Character target) { }
@@ -275,6 +297,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; set; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get; }
 
         public Brute()
         {
@@ -285,6 +308,7 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 1;
             hitMod = 1;
             opener = "*Unintelligible Lizard Noises*";
+            Weapon_Type = WeaponType.Fist;
         }
 
         public void specialMove(Character target) { }
@@ -301,6 +325,7 @@ namespace Fall2020_CSC403_Project.code
         public int hitMod { get; set; }
         public string opener { get; }
 
+        public WeaponType Weapon_Type { get; }
         public Zombie()
         {
             name = "Zombie";
@@ -310,6 +335,7 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 2;
             hitMod = 1;
             opener = "*Growling noises* (Hey, how is your day?)";
+            Weapon_Type = WeaponType.Fist;
         }
 
         public void specialMove(Character target) { }
@@ -325,6 +351,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; set; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get; }
 
         public Bees()
         {
@@ -334,6 +361,8 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 1;
             baseSpeed = 5;
             hitMod = 5;
+            opener = "BZZZZZZZZZZZZ";
+            Weapon_Type = WeaponType.None;
         }
 
         public void specialMove(Character target) { }
@@ -349,6 +378,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; set; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get; }
 
         public Mage()
         {
@@ -359,6 +389,7 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 3;
             hitMod = 3;
             opener = "The Lizard Wizards shall reign supreme!";
+            Weapon_Type = WeaponType.None;
         }
 
         public void specialMove(Character target) { }
@@ -374,6 +405,7 @@ namespace Fall2020_CSC403_Project.code
         public int baseSpeed { get; }
         public int hitMod { get; set; }
         public string opener { get; }
+        public WeaponType Weapon_Type { get; }
 
         public Whelp()
         {
@@ -384,6 +416,7 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 3;
             hitMod = 3;
             opener = "For our Dragon King!";
+            Weapon_Type = WeaponType.None;
         }
 
         public void specialMove(Character target) { }
@@ -400,6 +433,8 @@ namespace Fall2020_CSC403_Project.code
         public int hitMod { get; set; }
         public string opener { get; }
 
+        public WeaponType Weapon_Type { get; }
+
         public Boss()
         {
             name = "Boss";
@@ -408,6 +443,8 @@ namespace Fall2020_CSC403_Project.code
             baseDamage = 10;
             baseSpeed = 5;
             hitMod = 6;
+            opener = "I am boss";
+            Weapon_Type = WeaponType.Any;
         }
 
         public void specialMove(Character target) { }
@@ -424,6 +461,8 @@ namespace Fall2020_CSC403_Project.code
         public int hitMod { get; set; }
         public string opener { get; }
 
+        public WeaponType Weapon_Type { get; }
+
         public Dragon()
         {
             name = "Dragon";
@@ -433,6 +472,7 @@ namespace Fall2020_CSC403_Project.code
             baseSpeed = 2;
             hitMod = 10;
             opener = "*Unintelligible dragon noises*";
+            Weapon_Type = WeaponType.None;
         }
 
         public void specialMove(Character target) { }

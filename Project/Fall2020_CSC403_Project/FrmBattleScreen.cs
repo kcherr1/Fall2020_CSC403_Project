@@ -215,7 +215,6 @@ namespace Fall2020_CSC403_Project
             partyThreeMax = new Label();
             partyThreeCurrent = new Label();
 
-            Console.WriteLine(player.PartyCount());
             if (player.PartyCount() == 1)
             {
                 GetPartyForm1();

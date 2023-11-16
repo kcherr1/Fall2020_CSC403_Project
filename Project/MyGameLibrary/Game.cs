@@ -37,7 +37,18 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.common_dagger, new Point(500, 300), itemSize),
                 5,
                 Item.ItemType.Weapon,
+                Item.WeaponType.Dagger,
                 "This small dagger feels sturdy in your hands. As you look at the hilt, you see a name etched into the handle by a previous owner: \"Garn Thalia\"");
+
+
+            Items["Dagger of Mischief"] = new Item(
+               "Dagger of Mischief",
+               MakePictureBox(Resources.rare_dagger, new Point(800, 100), itemSize),
+               10,
+               Item.ItemType.Weapon,
+               Item.WeaponType.Dagger,
+               "This dagger has been involved in many misdeeds. You grow slightly weary of what the previous owner used this for. The dagger has no name engraved on it... Odd.");
+
 
             Items["Shabby Armor"] = new Item(
                 "Shabby Armor",
@@ -74,13 +85,15 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.common_hammer, new Point(500, 650), itemSize),
                 5,
                 Item.ItemType.Weapon,
+                Item.WeaponType.War,
                 "This hammer has a sturdy handle and a large head. Must have been used to build houses in a nearby village.");
 
             Items["Lumberjack Axe"] = new Item(
                 "Lumberjack's Axe",
                 MakePictureBox(Resources.common_axe, new Point(880, 880), itemSize),
-                5,
+                10,
                 Item.ItemType.Weapon,
+                Item.WeaponType.War,
                 "This axe has seen better days. There's a few chips in the edge, but it will get the job done.");
 
             Items["Rusty Sword"] = new Item(
@@ -88,6 +101,7 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.common_sword, new Point(300, 500), itemSize),
                 5,
                 Item.ItemType.Weapon,
+                Item.WeaponType.Sword,
                 "As you hold the half rusted blade in your hand, there is no doubt about it. This sword was made by Jorubus, the best blacksmith in the land.");
 
             Items["Thalian Sword"] = new Item(
@@ -95,15 +109,10 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.rare_sword, new Point(550, 850), itemSize),
                 10,
                 Item.ItemType.Weapon,
+                Item.WeaponType.Sword,
                 "The blade seems to hum in your hand as you feel the strength of the sword. On the pommel is the Thalia Family seal.");
 
-            Items["Dagger of Mischief"] = new Item(
-                "Dagger of Mischief",
-                MakePictureBox(Resources.rare_dagger, new Point(800, 100), itemSize),
-                10,
-                Item.ItemType.Weapon,
-                "This dagger has been involved in many misdeeds. You grow slightly weary of what the previous owner used this for. The dagger has no name engraved on it... Odd.");
-
+           
             Items["Accuracy Potion"] = new Item(
                 "Potion of Accuracy",
                 MakePictureBox(Resources.accuracy_potion, new Point(Terrain.TileSize.Width * 5, Terrain.TileSize.Width * 10), itemSize),
@@ -514,18 +523,15 @@ namespace Fall2020_CSC403_Project.code
             if (Objectives["cleared_harmony_plains"] == false && Game.Areas[7].Enemies.Count == 0 && Game.Areas[7].Visited)
             {
                 Objectives["cleared_harmony_plains"] = true;
-                Console.WriteLine("a");
             }
             if (Objectives["cleared_windy"] == false && Game.Areas[6].Enemies.Count == 0 && Game.Areas[6].Visited)
             {
                 Objectives["cleared_windy"] = true;
-                Console.WriteLine("b");
 
             }
             if (Objectives["cleared_ruined_village"] == false && Game.Areas[1].Enemies.Count == 0 && Game.Areas[1].Visited)
             {
                 Objectives["cleared_ruined_village"] = true;
-                Console.WriteLine("c");
             }
 
 

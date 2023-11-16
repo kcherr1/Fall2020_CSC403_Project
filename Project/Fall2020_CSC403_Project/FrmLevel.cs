@@ -1108,7 +1108,6 @@ namespace Fall2020_CSC403_Project
             }
 
 
-            Game.CurrentArea.AddItem(Game.Items["Thalian Sword"]);
             
 
         }
@@ -1269,7 +1268,12 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.AddItem(Game.Items["Shabby Armor"]);
             Game.CurrentArea.AddItem(Game.Items["Speed Potion"]);
-            Game.CurrentArea.AddItem(Game.Items["Carpenter Hammer"]);
+            
+            Game.CurrentArea.AddItem(Game.Items["Lumberjack Axe"]);
+            Game.CurrentArea.AddItem(Game.Items["Thalian Sword"]);
+            Game.CurrentArea.AddItem(Game.Items["Dagger of Mischief"]);
+
+
 
             Game.CurrentArea.AddNPC(Game.NPCs["Tombstone"]);
 
@@ -1292,7 +1296,7 @@ namespace Fall2020_CSC403_Project
 
             Game.CurrentArea.AddItem(Game.Items["Accuracy Potion"]);
             Game.CurrentArea.AddItem(Game.Items["Rusty Sword"]);
-            Game.CurrentArea.AddItem(Game.Items["Lumberjack Axe"]);
+            Game.CurrentArea.AddItem(Game.Items["Carpenter Hammer"]);
 
         }
 

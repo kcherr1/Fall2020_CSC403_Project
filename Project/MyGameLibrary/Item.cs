@@ -18,6 +18,8 @@ namespace MyGameLibrary
 
         public EffectType Potion { get; private set; }
 
+        public WeaponType Weapon_Type { get; private set; }
+
 
         public Item(string Name, PictureBox Pic, int Stat, ItemType Type, string desc) : base(Name, Pic)
         {
@@ -36,12 +38,31 @@ namespace MyGameLibrary
             Pic.Size = new Size(50, 50);
         }
 
+        public Item(string Name, PictureBox Pic, int Stat, ItemType Type, WeaponType Weapon_Type, string desc) : base(Name, Pic)
+        {
+            this.Stat = Stat;
+            this.Type = Type;
+            this.Weapon_Type = Weapon_Type;
+            this.Desc = desc;
+            Pic.Size = new Size(50, 50);
+        }
 
         public enum ItemType
         {
             Weapon,
             Armor,
             Utility
+        }
+
+        public enum WeaponType
+        {
+            Sword,
+            Dagger,
+            War,
+            Fist,
+            Spear,
+            Any,
+            None
         }
 
         public enum EffectType
@@ -51,6 +72,7 @@ namespace MyGameLibrary
             Strength,
             Accuracy
         }
+
 
     }
 

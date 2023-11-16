@@ -103,7 +103,13 @@ namespace Fall2020_CSC403_Project.code
 
 			if (this.Inventory.Weapon != null)
 			{
-                this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat;
+				if (this.Inventory.Weapon.Weapon_Type == this.archetype.Weapon_Type || this.archetype.Weapon_Type == WeaponType.Any)
+				{
+                    this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat;
+                } else
+				{
+                    this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat / 2;
+                }
             } else
 			{
 				this.damage = this.archetype.baseDamage;
