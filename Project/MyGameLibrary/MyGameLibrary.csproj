@@ -179,6 +179,7 @@
     <None Include="Resources\gold_pile4.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\tombstone_tombstone_converse.png" />
     <None Include="Resources\reginald_converse.png" />
     <None Include="Resources\tombstone_converse.png" />
     <None Include="Resources\harold_converse.png" />

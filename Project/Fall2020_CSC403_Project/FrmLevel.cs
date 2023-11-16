@@ -549,10 +549,8 @@ namespace Fall2020_CSC403_Project
 
                 if (!Game.Objectives["killed_dragon"] && !Game.Objectives["tombstone_killed"] && Game.CurrentArea.AreaName == "Malek's Lair")
                 {
-
                     Enemy Tombstone = new Enemy(Name = "Tombstone", MakePictureBox(Resources.tombstone, Game.NPCs["Tombstone"].Pic.Location, Game.NPCs["Tombstone"].Pic.Size), new Tombstone());
-                    Fight(Tombstone);
-                                        
+                    Fight(Tombstone);                       
                 }
                 Game.CheckObjectives();
 
@@ -1057,6 +1055,15 @@ namespace Fall2020_CSC403_Project
             }
             Game.CurrentArea.Visited = true;
 
+            foreach (NPC guy in Game.Areas[0].npcs)
+            {
+                if (guy.Name == "Tombstone")
+                {
+                    Game.Areas[0].npcs.Remove(guy);
+                    break;
+                }
+            }
+
             for (int i = 1; i < 7 ; i++)
             {
                 Game.CurrentArea.AddStructure(Game.Structures["Pillar" + i.ToString()]);
@@ -1081,11 +1088,10 @@ namespace Fall2020_CSC403_Project
             if (!Game.Objectives["tombstone_killed"])
             {
 
-                Game.Areas[0].npcs.Remove(Game.NPCs["Tombstone"]);
                 Game.NPCs["Tombstone"].Dialog = "I'm sorry I have to do this to you pal, but a lizard's gotta pay the bills.";
 
-
                 Game.CurrentArea.AddNPC(Game.NPCs["Tombstone"]);
+
                 Game.NPCs["Tombstone"].SetEntityPosition(Game.player.Position);
 
             }

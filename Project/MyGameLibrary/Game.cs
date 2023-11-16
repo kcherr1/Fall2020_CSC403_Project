@@ -457,12 +457,17 @@ namespace Fall2020_CSC403_Project.code
             {
                 NPCs["Tombstone"].Dialog = "Here lies, Tombstone";
                 NPCs["Tombstone"].Pic.Image = Resources.tombstone_tombstone;
+                NPCs["Tombstone"].ConverseImage = Resources.tombstone_tombstone_converse;
+                NPCs["Tombstone"].InviteRejection = "RIP I'm literally a tombstone";
+
             }
             else if (Objectives["killed_dragon"] && Objectives["tombstone_revived"] && !Objectives["visited_leader_tombstone"])
             {
                 Game.CurrentArea.TravelSigns[Direction.Right].Collider.Enable();
                 NPCs["Tombstone"].Dialog = "Why am I alive again? I was cursed to be resurrected as long as dragon was alive.\nI guess I came to life just in time! Thanks for freeing me.\nHey, let's not mention all of the previous adventurer's I've brought here... thanks.";
                 NPCs["Tombstone"].Pic.Image = Resources.tombstone;
+                NPCs["Tombstone"].ConverseImage = Resources.tombstone_converse;
+                NPCs["Tombstone"].InviteRejection = "Hey, I'll think about it now! Come back later!";
 
             }
             else if ((!Objectives["learned_of_dragon1"] || !Objectives["learned_of_dragon2"]) && !Objectives["spoke_to_tombstone"])
@@ -502,6 +507,7 @@ namespace Fall2020_CSC403_Project.code
             else if (Objectives["killed_dragon"] && Objectives["tombstone_revived"] && Objectives["visited_leader_tombstone"])
             {
                 NPCs["Tombstone"].Dialog = "I am tombstone, newly declared owner of this cave and its gold... don't worry friend. I won't forget you.";
+                NPCs["Tombstone"].CanJoinParty = true;
             }
             else
             {
