@@ -41,7 +41,7 @@ namespace Fall2020_CSC403_Project
             backButton.Click += backButton_Click;
 
             // Adding the home button here
-            Button homeButton = new Button();
+/*            Button homeButton = new Button();
             homeButton.Location = new Point(16 * width / 18, height / 12);
             homeButton.Size = new Size(70, 50);
             homeButton.BackgroundImage = Properties.Resources.Home_button;
@@ -49,10 +49,10 @@ namespace Fall2020_CSC403_Project
             homeButton.BackColor = Color.Transparent;
             homeButton.FlatStyle = FlatStyle.Flat;
             homeButton.FlatAppearance.BorderSize = 0;
-            homeButton.Parent = this;
+            homeButton.Parent = this;*/
 
             // Adding a click event handler for the home button
-            homeButton.Click += homeButton_Click;
+            //homeButton.Click += homeButton_Click;
 
             //Heading Label for FAQ's
             Label headingLabel = new Label();
@@ -106,7 +106,7 @@ namespace Fall2020_CSC403_Project
 
 
             // Adding the buttons and labels to the form's Controls collection
-            this.Controls.Add(homeButton);
+            //this.Controls.Add(homeButton);
             this.Controls.Add(backButton);
             this.Controls.Add(headingLabel);
             this.Controls.Add(answer1Label);
