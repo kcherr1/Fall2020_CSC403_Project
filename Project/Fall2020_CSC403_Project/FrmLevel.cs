@@ -516,6 +516,7 @@ namespace Fall2020_CSC403_Project
 
             // check collision with enemies
             int x = hitEnemy(Game.player);
+            Console.WriteLine(x);
             if (x >= 0)
             {
                 Fight(Game.CurrentArea.Enemies[x]);
@@ -567,7 +568,6 @@ namespace Fall2020_CSC403_Project
                 if (!Game.player.Inventory.BackpackIsFull())
                 {
                     Item item = Game.CurrentArea.Items[x];
-                    Game.CurrentArea.Items.Remove(item);
                     Game.player.Inventory.AddToBackpack(item);
                     item.HideEntity();
                 }
@@ -721,7 +721,6 @@ namespace Fall2020_CSC403_Project
 
         public void RemoveEnemy(Enemy enemy)
         {
-            this.fighting = false;
             if (enemy.Name == "Malek")
             {
                 Game.Objectives["tombstone_revived"] = true;
@@ -886,12 +885,10 @@ namespace Fall2020_CSC403_Project
                 this.Controls.Remove(Game.CurrentArea.Enemies[i].Pic);
             }
 
-
             for (int i = 0; i < Game.CurrentArea.npcs.Count; i++)
             {
                 this.Controls.Remove(Game.CurrentArea.npcs[i].Pic);
             }
-
 
             for (int i = 0; i < Game.CurrentArea.Items.Count; i++)
             {

@@ -799,12 +799,24 @@ namespace Fall2020_CSC403_Project
         private void FleeButton_Click(object sender, EventArgs e)
         {
             frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
+            frmLevel.fighting = false;
             AddToLog(enemy.OnAttack(player));
-            this.Close();
+            if (player.Health <= 0)
+            {
+                AddToLog(enemy.Name + " defeated " + player.Name + "!");
+                instance = null;
+                this.Close();
+                form.GameOver();
+                return;
+            } else
+            {
+                this.Close();
+            }
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            frmLevel.fighting = false;
             Close();
         }
 
