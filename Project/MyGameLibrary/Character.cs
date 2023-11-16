@@ -26,9 +26,13 @@ namespace Fall2020_CSC403_Project.code
 		
 		public int defense;
 
+
 		public int damage;
+		public int dam_mod = 0;
 
 		public int speed;
+
+		public int hit_mod;
 
 		public Random dice;
 
@@ -46,6 +50,7 @@ namespace Fall2020_CSC403_Project.code
             this.Health = MaxHealth;
 			this.Inventory = new Inventory();
 			this.dice = new Random();
+			this.hit_mod = archetype.hitMod;
 		}
 		
 		public string OnAttack(Character target)
@@ -59,7 +64,7 @@ namespace Fall2020_CSC403_Project.code
                 AttackEvent(target, damage);
 				log = this.Name + " criticaly hit " + target.Name + " for " + damage + "!";
 			}
-            else if (hit + this.archetype.hitMod >= target.defense)
+            else if (hit + this.hit_mod >= target.defense)
 			{
 				damage = this.damage + this.dice.Next(1, this.archetype.baseDamage + 1);
                 AttackEvent(target, damage);
@@ -82,10 +87,6 @@ namespace Fall2020_CSC403_Project.code
             Health += amount;
         }
 
-        public void RestoreHealth()
-        {
-            this.Health = this.MaxHealth;
-        }
 
 		public void UpdateStats()
 		{
@@ -100,42 +101,52 @@ namespace Fall2020_CSC403_Project.code
 
 			if (this.Inventory.Weapon != null)
 			{
-                this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat;
+				if (this.Inventory.Weapon.Weapon_Type == this.archetype.Weapon_Type || this.archetype.Weapon_Type == WeaponType.Any)
+				{
+                    this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat + dam_mod;
+                } else
+				{
+                    this.damage = this.archetype.baseDamage + this.Inventory.Weapon.Stat / 2 + dam_mod;
+                }
             } else
 			{
-				this.damage = this.archetype.baseDamage;
+				this.damage = this.archetype.baseDamage + dam_mod;
 			}
         }
 
-		public void ApplyEffect(PotionTypes Potion, int stat)
+		public void ApplyEffect(EffectType Potion, int stat)
 		{
 			switch (Potion)
 			{
-				case PotionTypes.Healing:
+				case EffectType.Healing:
 					this.Health += stat;
 					if (this.Health > this.MaxHealth)
 					{
 						this.Health = this.MaxHealth;
 					}
 					break;
-				case PotionTypes.Strength:
-					this.damage += stat;
+				case EffectType.Strength:
+					this.dam_mod += stat;
 					break;
-				case PotionTypes.Speed:
+				case EffectType.Speed:
 					this.speed += stat;
 					break;
-				case PotionTypes.Accuracy:
-					this.archetype.hitMod += stat;
+				case EffectType.Accuracy:
+					this.hit_mod += stat;
 					break;
 				default:
 					break;
 			}
+			UpdateStats();
 		}
 
 		public void RemoveEffect()
 		{
-			this.damage = this.archetype.baseDamage;
+			this.dam_mod = 0;
 			this.speed = this.archetype.baseSpeed;
+			this.hit_mod = this.archetype.hitMod;
+			UpdateStats();
+
 		}
         
     }

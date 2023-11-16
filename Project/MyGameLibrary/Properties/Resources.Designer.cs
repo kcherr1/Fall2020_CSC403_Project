@@ -93,9 +93,59 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap bartholomew_converse {
+            get {
+                object obj = ResourceManager.GetObject("bartholomew_converse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap bobby {
+            get {
+                object obj = ResourceManager.GetObject("bobby", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap bobby_converse {
+            get {
+                object obj = ResourceManager.GetObject("bobby_converse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap brute {
             get {
                 object obj = ResourceManager.GetObject("brute", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap cave_entrance_close {
+            get {
+                object obj = ResourceManager.GetObject("cave_entrance_close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap cave_entrance_open {
+            get {
+                object obj = ResourceManager.GetObject("cave_entrance_open", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +233,46 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap eugene {
+            get {
+                object obj = ResourceManager.GetObject("eugene", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap eugene_converse {
+            get {
+                object obj = ResourceManager.GetObject("eugene_converse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap gerald {
+            get {
+                object obj = ResourceManager.GetObject("gerald", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap gerald_converse {
+            get {
+                object obj = ResourceManager.GetObject("gerald_converse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap gold_pile1 {
             get {
                 object obj = ResourceManager.GetObject("gold_pile1", resourceCulture);
@@ -219,17 +309,7 @@ namespace MyGameLibrary.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap gerald {
-            get {
-                object obj = ResourceManager.GetObject("gerald", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -243,9 +323,39 @@ namespace MyGameLibrary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap hank {
+            get {
+                object obj = ResourceManager.GetObject("hank", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap hank_converse {
+            get {
+                object obj = ResourceManager.GetObject("hank_converse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap harold {
             get {
                 object obj = ResourceManager.GetObject("harold", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap harold_converse {
+            get {
+                object obj = ResourceManager.GetObject("harold_converse", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -346,6 +456,26 @@ namespace MyGameLibrary.Properties {
         public static System.Drawing.Bitmap rare_sword {
             get {
                 object obj = ResourceManager.GetObject("rare_sword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap reginald {
+            get {
+                object obj = ResourceManager.GetObject("reginald", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap reginald_converse {
+            get {
+                object obj = ResourceManager.GetObject("reginald_converse", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -566,6 +696,36 @@ namespace MyGameLibrary.Properties {
         public static System.Drawing.Bitmap tombstone {
             get {
                 object obj = ResourceManager.GetObject("tombstone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tombstone_converse {
+            get {
+                object obj = ResourceManager.GetObject("tombstone_converse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tombstone_tombstone {
+            get {
+                object obj = ResourceManager.GetObject("tombstone_tombstone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tombstone_tombstone_converse {
+            get {
+                object obj = ResourceManager.GetObject("tombstone_tombstone_converse", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

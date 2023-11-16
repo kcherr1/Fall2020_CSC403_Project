@@ -7,12 +7,14 @@ namespace Fall2020_CSC403_Project.code
 
 	public class Enemy : Character
 	{
-		public Color Color { get; set; }
 		public Enemy[] party { get; set; }
+
+        public bool canFlee { get; set; }
 
         public Enemy(string Name, PictureBox Pic, Archetype archetype) : base(Name, Pic, archetype)
 		{
 			party = new Enemy[3];
+            canFlee = true;
 		}
 
         public void addToParty(Enemy newMember)

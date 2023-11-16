@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,8 @@ namespace Fall2020_CSC403_Project.code
         public static Dictionary<string, NPC> NPCs = new Dictionary<string, NPC>();
         public static Dictionary<string, Structure> Structures = new Dictionary<string, Structure>();
 
+        public static Dictionary<string, bool> Objectives = new Dictionary<string, bool>();
+
         public static void PopulateWorld()
         {
             // Create Items
@@ -34,7 +37,18 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.common_dagger, new Point(500, 300), itemSize),
                 5,
                 Item.ItemType.Weapon,
+                Item.WeaponType.Dagger,
                 "This small dagger feels sturdy in your hands. As you look at the hilt, you see a name etched into the handle by a previous owner: \"Garn Thalia\"");
+
+
+            Items["Dagger of Mischief"] = new Item(
+               "Dagger of Mischief",
+               MakePictureBox(Resources.rare_dagger, new Point(Terrain.TileSize.Width * 6, Terrain.TileSize.Width * 5), itemSize),
+               10,
+               Item.ItemType.Weapon,
+               Item.WeaponType.Dagger,
+               "This dagger has been involved in many misdeeds. You grow slightly weary of what the previous owner used this for. The dagger has no name engraved on it... Odd.");
+
 
             Items["Shabby Armor"] = new Item(
                 "Shabby Armor",
@@ -44,10 +58,10 @@ namespace Fall2020_CSC403_Project.code
 
             Items["Speed Potion"] = new Item(
                 "Potion of Speed",
-                MakePictureBox(Resources.speed_potion, new Point(69, 420), itemSize),
+                MakePictureBox(Resources.speed_potion, new Point(Screen.PrimaryScreen.Bounds.Width * 5 / 8, Terrain.TileSize.Width * 3), itemSize),
                 10,
                 Item.ItemType.Utility,
-                Item.PotionTypes.Speed,
+                Item.EffectType.Speed,
                 "This bottle acts unnatural as a simple tremor will cause the liquid inside to splash about the bottle. What was Marissa thinking when she made this one?");
 
             Items["Lesser Health Potion"] = new Item(
@@ -55,29 +69,31 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.lesser_health_potion, new Point(20, 400), itemSize),
                 5,
                 Item.ItemType.Utility,
-                Item.PotionTypes.Healing,
-                "This small bottle holds a liquid that swirls with crimson liquid. A brand on the cork bears the logo of Marissa's Cauldron®");
+                Item.EffectType.Healing,
+                "This small bottle holds a liquid that swirls with crimson liquid. A brand on the cork bears the logo of Marissa's Cauldron");
 
             Items["Strength Potion"] = new Item(
                 "Potion of Strength",
-                MakePictureBox(Resources.strength_potion, new Point(400, 400), itemSize),
+                MakePictureBox(Resources.strength_potion, new Point(Screen.PrimaryScreen.Bounds.Width - Terrain.TileSize.Width * 6, Terrain.TileSize.Width * 5), itemSize),
                 5,
                 Item.ItemType.Utility,
-                Item.PotionTypes.Strength,
+                Item.EffectType.Strength,
                 "The orange liquid inside has a consistency thicker than honey. It looks safe, but you don't trust drinking anything made by Marissa's Rival.");
 
             Items["Carpenter Hammer"] = new Item(
                 "Carptener's Hammer",
-                MakePictureBox(Resources.common_hammer, new Point(500, 650), itemSize),
+                MakePictureBox(Resources.common_hammer, new Point(700, 600), itemSize),
                 5,
                 Item.ItemType.Weapon,
+                Item.WeaponType.War,
                 "This hammer has a sturdy handle and a large head. Must have been used to build houses in a nearby village.");
 
             Items["Lumberjack Axe"] = new Item(
                 "Lumberjack's Axe",
-                MakePictureBox(Resources.common_axe, new Point(880, 880), itemSize),
-                5,
+                MakePictureBox(Resources.common_axe, new Point(Screen.PrimaryScreen.Bounds.Width / 2 + 30, Screen.PrimaryScreen.Bounds.Height / 2 + 10), itemSize),
+                10,
                 Item.ItemType.Weapon,
+                Item.WeaponType.War,
                 "This axe has seen better days. There's a few chips in the edge, but it will get the job done.");
 
             Items["Rusty Sword"] = new Item(
@@ -85,6 +101,7 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.common_sword, new Point(300, 500), itemSize),
                 5,
                 Item.ItemType.Weapon,
+                Item.WeaponType.Sword,
                 "As you hold the half rusted blade in your hand, there is no doubt about it. This sword was made by Jorubus, the best blacksmith in the land.");
 
             Items["Thalian Sword"] = new Item(
@@ -92,77 +109,142 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.rare_sword, new Point(550, 850), itemSize),
                 10,
                 Item.ItemType.Weapon,
+                Item.WeaponType.Sword,
                 "The blade seems to hum in your hand as you feel the strength of the sword. On the pommel is the Thalia Family seal.");
 
-            Items["Dagger of Mischief"] = new Item(
-                "Dagger of Mischief",
-                MakePictureBox(Resources.rare_dagger, new Point(800, 100), itemSize),
-                10,
-                Item.ItemType.Weapon,
-                "This dagger has been involved in many misdeeds. You grow slightly weary of what the previous owner used this for. The dagger has no name engraved on it... Odd.");
-
+           
             Items["Accuracy Potion"] = new Item(
                 "Potion of Accuracy",
-                MakePictureBox(Resources.accuracy_potion, new Point(800, 100), itemSize),
+                MakePictureBox(Resources.accuracy_potion, new Point(Terrain.TileSize.Width * 5, Terrain.TileSize.Width * 8), itemSize),
                 3,
                 Item.ItemType.Utility,
-                Item.PotionTypes.Accuracy,
+                Item.EffectType.Accuracy,
                 "This liquid seems rigid in this bottle. The cork on top indicates to you that the Allegiance uses this potion as standard issue.");
+
+            Items["Greater Health Potion"] = new Item(
+                "Greather Health Potion",
+                MakePictureBox(Resources.greather_health_potion, new Point(Terrain.TileSize.Width * 10, Terrain.TileSize.Width * 15), itemSize),
+                15,
+                Item.ItemType.Utility,
+                Item.EffectType.Healing,
+                "This large bottle holds a liquid that swirls with crimson liquid. The handiwork of its contents are the expertise of Cassandra.");
+
 
             // Create Enemies
             Enemies["Minion1"] = new Enemy(
                 "Lizard Minion",
-                MakePictureBox(Resources.minion, new Point(200, 500), new Size(100, 100)),
+                MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(100, 100)),
                 new Minion());
 
             Enemies["Minion2"] = new Enemy(
                 "Lizard Minion",
-                MakePictureBox(Resources.minion, new Point(500, 200), new Size(100, 100)),
+                MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 5, Screen.PrimaryScreen.Bounds.Height / 2), new Size(100, 100)),
+                new Minion());
+
+            Enemies["Minion3"] = new Enemy(
+                "Lizard Minion",
+                MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(100, 100)),
+                new Minion());
+
+            Enemies["Minion4"] = new Enemy(
+                "Lizard Minion",
+                MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 5, Screen.PrimaryScreen.Bounds.Height / 2), new Size(100, 100)),
+                new Minion());
+
+            Enemies["Minion5"] = new Enemy(
+                "Lizard Minion",
+                MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width * 2 / 5, Screen.PrimaryScreen.Bounds.Height * 1 / 3), new Size(100, 100)),
                 new Minion());
 
             Enemies["Coward"] = new Enemy(
                 "Coward",
-                MakePictureBox(Resources.coward, new Point(600, 200), new Size(75, 125)),
+                MakePictureBox(Resources.coward, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height * 3 /5), new Size(75, 125)),
                 new Coward());
 
             Enemies["Brute"] = new Enemy(
                 "Brute",
-                MakePictureBox(Resources.brute, new Point(1000, 100), new Size(150, 150)),
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width * 4 / 5, Screen.PrimaryScreen.Bounds.Height / 10), new Size(150, 150)),
                 new Brute());
 
             Enemies["Brute1"] = new Enemy(
                 "Brute",
-                MakePictureBox(Resources.brute, new Point(1000, 800), new Size(150, 150)),
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 5, Screen.PrimaryScreen.Bounds.Height * 3 / 5), new Size(150, 150)),
                 new Brute());
 
             Enemies["Brute2"] = new Enemy(
                 "Brute",
-                MakePictureBox(Resources.brute, new Point(500, 840), new Size(150, 150)),
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width * 4/5, Screen.PrimaryScreen.Bounds.Height / 10), new Size(150, 150)),
+                new Brute());
+
+            Enemies["Brute3"] = new Enemy(
+                "Brute",
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height / 2), new Size(150, 150)),
+                new Brute());
+
+            Enemies["Brute4"] = new Enemy(
+                "Brute",
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height * 3 / 5), new Size(150, 150)),
+                new Brute());
+
+            Enemies["Brute5"] = new Enemy(
+                "Brute",
+                MakePictureBox(Resources.brute, new Point(Screen.PrimaryScreen.Bounds.Width * 9 / 10, Screen.PrimaryScreen.Bounds.Height * 2 / 3), new Size(150, 150)),
                 new Brute());
 
             Enemies["Zombie"] = new Enemy(
                 "Zombie",
-                MakePictureBox(Resources.zombie, new Point(1000, 100), new Size(400, 150)),
+                MakePictureBox(Resources.zombie, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(400, 150)),
                 new Zombie());
 
-            //Enemies["Bees"] = new Enemy(
-            //    "Bees",
-            //    MakePictureBox(Resources.bees, new Point(1000, 100), new Size(400, 150)),
-            //    new Bees());
 
             Enemies["Lizard Wizard"] = new Enemy(
                 "Lizard Wizard",
-                MakePictureBox(Resources.wizardlizard, new Point(677, 697), new Size(150, 150)),
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(150, 150)),
                 new Mage());
 
             Enemies["Lizard Wizard1"] = new Enemy(
                 "Lizard Wizard",
-                MakePictureBox(Resources.wizardlizard, new Point(845, 540), new Size(150, 150)),
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(150, 150)),
+                new Mage());
+            
+            Enemies["Lizard Wizard2"] = new Enemy(
+                "Lizard Wizard",
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width * 4 / 5, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(150, 150)),
+                new Mage());
+            
+            Enemies["Lizard Wizard3"] = new Enemy(
+                "Lizard Wizard",
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 5 + 20, Screen.PrimaryScreen.Bounds.Height / 2), new Size(150, 150)),
+                new Mage());
+            
+            Enemies["Lizard Wizard4"] = new Enemy(
+                "Lizard Wizard",
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height / 10), new Size(150, 150)),
                 new Mage());
 
-            Enemies["Whelp"] = new Enemy(
+            Enemies["Lizard Wizard5"] = new Enemy(
+                "Lizard Wizard",
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(150, 150)),
+                new Mage());
+
+            Enemies["Lizard Wizard6"] = new Enemy(
+                "Lizard Wizard",
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(150, 150)),
+                new Mage());
+
+            Enemies["Whelp1"] = new Enemy(
                 "Whelp",
-                MakePictureBox(Resources.whelp, new Point(473, 347), new Size(400, 150)),
+                MakePictureBox(Resources.whelp, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(100, 100)),
+                new Whelp());
+            
+            Enemies["Whelp2"] = new Enemy(
+                "Whelp",
+                MakePictureBox(Resources.whelp, new Point(Screen.PrimaryScreen.Bounds.Width / 8, Screen.PrimaryScreen.Bounds.Height * 2 / 5), new Size(100, 100)),
+                new Whelp());
+            
+            Enemies["Whelp3"] = new Enemy(
+                "Whelp",
+                MakePictureBox(Resources.whelp, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(100, 100)),
                 new Whelp());
 
             Size dragonSize = new Size(Screen.PrimaryScreen.Bounds.Width * 1 / 4, Screen.PrimaryScreen.Bounds.Height * 1 / 4);
@@ -170,27 +252,75 @@ namespace Fall2020_CSC403_Project.code
                 "Malek",
                 MakePictureBox(Resources.dragonboss, new Point(Screen.PrimaryScreen.Bounds.Width / 2 - dragonSize.Width / 2, Screen.PrimaryScreen.Bounds.Height * 1/12 + 30), dragonSize),
                 new Dragon());
+            Enemies["Dragon"].canFlee = false;
 
             // Create NPCs
             NPCs["Harold"] = new NPC(
                 "Harold",
-                MakePictureBox(Resources.harold, new Point(150, 150), new Size(75, 100)),
-                new Healer());
+                MakePictureBox(Resources.harold, new Point(Screen.PrimaryScreen.Bounds.Width * 9 /10, Screen.PrimaryScreen.Bounds.Height / 10), new Size(75, 100)),
+                new Healer()
+            );
+            NPCs["Harold"].Dialog = "How's it going? Name's Harold. If you go kill some lizards, let me know. I want in.";
+            NPCs["Harold"].ConverseImage = Resources.harold_converse;
 
             NPCs["Tombstone"] = new NPC(
                 "Tombstone",
-                MakePictureBox(Resources.tombstone, new Point(150, 150), new Size(75, 100)),
+                MakePictureBox(Resources.tombstone, new Point(Screen.PrimaryScreen.Bounds.Width * 5 / 7, Screen.PrimaryScreen.Bounds.Height -  Terrain.TileSize.Width * 8), new Size(75, 100)),
                 new Tombstone());
+            NPCs["Tombstone"].CanJoinParty = false;
+            NPCs["Tombstone"].InviteRejection = "Woah there, pal, I'm not sure we're that tight yet.";
+            NPCs["Tombstone"].ConverseImage = Resources.tombstone_converse;
 
             NPCs["Gerald"] = new NPC(
                 "Gerald",
-                MakePictureBox(Resources.gerald, new Point(300, 300), new Size(100, 100)),
+                MakePictureBox(Resources.gerald, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(150, 100)),
                 new Gerald());
+            NPCs["Gerald"].Dialog = "Greetings, I am Gerald. \nI wish to vanquish the lizards and dragon that plague our land. We cannot endure this much longer. \nI wish to aid in the vanquish of our foes.";
+            NPCs["Gerald"].ConverseImage = Resources.gerald_converse;
+
+            NPCs["Reginald"] = new NPC(
+                "Reginald",
+                MakePictureBox(Resources.reginald, new Point(Screen.PrimaryScreen.Bounds.Width - Terrain.TileSize.Width * 4, Terrain.TileSize.Width * 7 ), new Size(75, 100)),
+                new Guy());
+            NPCs["Reginald"].CanJoinParty = false;
+            NPCs["Reginald"].Dialog = "It's a me, Reginald. I make-a the best food in the village.\nIf you want-a a taste its gonna cost you though. People like me don't-a work for free!";
+            NPCs["Reginald"].InviteRejection = "What? Fight? I can't-a do that! Who's gonna cook all the food around-a here?";
+            NPCs["Reginald"].ConverseImage = Resources.reginald_converse;
+
+            NPCs["Bobby"] = new NPC(
+                "Bobby",
+                MakePictureBox(Resources.bobby, new Point(Terrain.TileSize.Width * 16, Terrain.TileSize.Width * 4), new Size(75, 100)),
+                new Guy());
+            NPCs["Bobby"].CanJoinParty = false;
+            NPCs["Bobby"].Dialog = "Eugene is so cool! I like talking with him! In fact, when I grow up I wanna be just like him! He's just so cool, I wanna go talk with him again!";
+            NPCs["Bobby"].InviteRejection = "Sorry, I would but I'd rather go talk to Eugene...";
+            NPCs["Bobby"].ConverseImage = Resources.bobby_converse;
+
+            NPCs["Eugene"] = new NPC(
+                "Eugene",
+                MakePictureBox(Resources.eugene, new Point(Terrain.TileSize.Width * 23, Terrain.TileSize.Width * 7), new Size(75, 100)),
+                new Guy());
+            NPCs["Eugene"].CanJoinParty = false;
+            NPCs["Eugene"].Dialog = "I hate Bobby.";
+            NPCs["Eugene"].InviteRejection = "Eh, seems like a lot of work. Plus, I don't wanna risk that Bobby kid seeing me.";
+            NPCs["Eugene"].ConverseImage = Resources.eugene_converse;
+
+            NPCs["Hank"] = new NPC(
+                "Hank",
+                MakePictureBox(Resources.hank, new Point(Screen.PrimaryScreen.Bounds.Width - Terrain.TileSize.Width * 8, Terrain.TileSize.Width * 4), new Size(75, 100)),
+                new Guy());
+            NPCs["Hank"].CanJoinParty = false;
+            NPCs["Hank"].Dialog = "I'll tell ya what, dang it, these dadgum lizards just won't quit lurkin' 'round my dang ol' village.\nI mean, I work hard, sell propane and propane accessories, and I come home to find these dang lizards causin' a ruckus.\r\n\r\nBobby, I swear, it's like they got no respect for personal space. I've tried talkin' to 'em, but they just stare at me with those beady eyes.\nI don't know what they want, but they need to git gone and let me enjoy my propane-filled peace.\nIt's downright frustratin', I'll tell you what.";
+            NPCs["Hank"].InviteRejection = "Now hold on there, I appreciate the enthusiasm for takin' care of them lizards,\nbut I just heard there might be a dragon lurkin' 'round these parts.\nNow, I ain't one to back down from a challenge,\nbut dragons are a whole different kettle of fish, I'll tell you what.";
+            NPCs["Hank"].ConverseImage = Resources.hank_converse;
 
             NPCs["Bartholomew"] = new NPC(
                 "Bartholomew",
                 MakePictureBox(Resources.bartholomew, new Point(300, 300), new Size(75, 100)),
                 new Guy());
+            NPCs["Bartholomew"].CanJoinParty = false;
+            NPCs["Bartholomew"].InviteRejection = "I definitely can't fight anyone, but I did hear of some good loot washed up on the beach from a sunken pirate ship";
+            NPCs["Bartholomew"].ConverseImage = Resources.bartholomew_converse;
 
             // Create Structures
             Structures["wall_bricks"] = new Structure(
@@ -219,13 +349,20 @@ namespace Fall2020_CSC403_Project.code
                     new Size(longSize.Height, longSize.Width)));
 
             Structures["house_long_1"] = new Structure(
-                MakePictureBox(house_long, new Point(Screen.PrimaryScreen.Bounds.Width / 2, 400), longSize));
+                MakePictureBox(house_long, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Terrain.TileSize.Width * 10), longSize));
 
             Structures["house_L_1"] = new Structure(
-                MakePictureBox(house_L, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4, 300), L_Size));
+                MakePictureBox(house_L, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4, Terrain.TileSize.Width * 7), L_Size));
 
             Structures["house_L_rot180_1"] = new Structure(
-                MakePictureBox(house_L_rot180, new Point(Screen.PrimaryScreen.Bounds.Width * 1 / 4, 80), L_Size));
+                MakePictureBox(house_L_rot180, new Point(Screen.PrimaryScreen.Bounds.Width * 1 / 4, Terrain.TileSize.Width * 2), L_Size));
+
+
+            Structures["house_L_rot_90_1"] = new Structure(
+                MakePictureBox(house_L_rot90, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 4, Screen.PrimaryScreen.Bounds.Height * 1/6), L_Size_rot90));
+
+
+
 
 
             Structures["VillageWall1"] = new Structure(
@@ -320,6 +457,33 @@ namespace Fall2020_CSC403_Project.code
             Structures["Gold4"] = new Structure(
                 MakePictureBox(Resources.gold_pile4, new Point(x_4, y_4), new Size(Terrain.TileSize.Width * 7, Terrain.TileSize.Width * 4)));
 
+
+
+
+
+            Objectives["spoke_to_tombstone"] = false;
+
+            Objectives["learned_of_dragon1"] = false;
+            Objectives["learned_of_dragon2"] = false;
+
+            Objectives["tombstone_ready"] = false;
+            Objectives["tombstone_leading"] = false;
+            Objectives["cave_unlocked"] = false;
+
+            Objectives["cleared_harmony_plains"] = false;
+            Objectives["cleared_windy"] = false;
+            Objectives["cleared_ruined_village"] = false;
+
+            Objectives["killed_dragon"] = false;
+
+            Objectives["tombstone_killed"] = false;
+            Objectives["tombstone_revived"] = false;
+
+            Objectives["visited_leader_tombstone"] = false;
+
+            Game.Objectives["spoke_to_tm_after_learn_dragon"] = false;
+
+
         }
 
         public static PictureBox MakePictureBox(Bitmap pic, Point location, Size Size)
@@ -351,6 +515,135 @@ namespace Fall2020_CSC403_Project.code
                     }
                 }
             }
+        }
+
+        public static void CheckObjectives()
+        {
+
+            if (Objectives["cleared_harmony_plains"] == false && Game.Areas[7].Enemies.Count == 0 && Game.Areas[7].Visited)
+            {
+                Objectives["cleared_harmony_plains"] = true;
+            }
+            if (Objectives["cleared_windy"] == false && Game.Areas[6].Enemies.Count == 0 && Game.Areas[6].Visited)
+            {
+                Objectives["cleared_windy"] = true;
+
+            }
+            if (Objectives["cleared_ruined_village"] == false && Game.Areas[1].Enemies.Count == 0 && Game.Areas[1].Visited)
+            {
+                Objectives["cleared_ruined_village"] = true;
+            }
+
+
+            if (Objectives["tombstone_ready"] && Game.Objectives["spoke_to_tm_after_learn_dragon"] && !Game.Objectives["killed_dragon"])
+            {
+                if (!Game.Areas[0].npcs.Any(guy => guy.Name == "Tombstone"))
+                {
+                    Game.Areas[0].npcs.Add(NPCs["Tombstone"]);
+                }
+
+                Objectives["cave_unlocked"] = true;
+                Objectives["tombstone_ready"] = false;
+
+            }
+            else if (Objectives["tombstone_killed"] && !Objectives["tombstone_revived"])
+            {
+                NPCs["Tombstone"].Dialog = "Here lies, Tombstone";
+                NPCs["Tombstone"].Pic.Image = Resources.tombstone_tombstone;
+                NPCs["Tombstone"].ConverseImage = Resources.tombstone_tombstone_converse;
+                NPCs["Tombstone"].InviteRejection = "RIP I'm literally a tombstone";
+
+            }
+            else if (Objectives["killed_dragon"] && Objectives["tombstone_revived"] && !Objectives["visited_leader_tombstone"])
+            {
+                Game.CurrentArea.TravelSigns[Direction.Right].Collider.Enable();
+                NPCs["Tombstone"].Dialog = "Why am I alive again? I was cursed to be resurrected as long as dragon was alive.\nI guess I came to life just in time! Thanks for freeing me.\nHey, let's not mention all of the previous adventurer's I've brought here... thanks.";
+                NPCs["Tombstone"].Pic.Image = Resources.tombstone;
+                NPCs["Tombstone"].ConverseImage = Resources.tombstone_converse;
+                NPCs["Tombstone"].InviteRejection = "Hey, I'll think about it now! Come back later!";
+
+            }
+            else if ((!Objectives["learned_of_dragon1"] || !Objectives["learned_of_dragon2"]) && !Objectives["spoke_to_tombstone"])
+            {
+                NPCs["Tombstone"].Dialog = "Hey, name's Tombstone.\nWhy am I not attacking you? I don't like those other lizards...\nbut don't go tell them that.\nJust run away from me and pretend I attacked you";
+            }
+            else if (Objectives["learned_of_dragon1"] && Objectives["learned_of_dragon2"] && !Objectives["spoke_to_tombstone"])
+            {
+                NPCs["Tombstone"].Dialog = "Hey, name's Tombstone.\nWhy am I not attacking you? I don't like those other lizards...\nbut don't go tell them that.\nHey! I know where that Dragon is... why don't I show you the way? Meet you at Malek's Mountain";
+                Objectives["tombstone_ready"] = true;
+            }
+            else if ((!Objectives["learned_of_dragon1"] || !Objectives["learned_of_dragon2"]) && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && !Objectives["tombstone_ready"])
+            {
+                NPCs["Tombstone"].Dialog = "Hey there again, back for more?\nHa, I'll let you go again this time";
+
+            }
+            else if (Game.CurrentArea.AreaName == "Malek's Mountain" && Objectives["cave_unlocked"])
+            {
+
+                Game.Areas[2].npcs.Remove(NPCs["Tombstone"]);
+
+                Game.Areas[0].TravelSigns[Direction.Left].Pic.Image = Resources.cave_entrance_open;
+                Game.Areas[0].TravelSigns[Direction.Left].Collider.Enable();
+                NPCs["Tombstone"].Dialog = "Hey, I moved that big stone in front of the cave for you, it's right over there";
+
+            }
+            else if (Objectives["learned_of_dragon1"] && Objectives["learned_of_dragon2"] && Objectives["spoke_to_tombstone"] && !Objectives["killed_dragon"] && Game.CurrentArea.AreaName != "Malek's Lair")
+            {
+                NPCs["Tombstone"].Dialog = "Hey, I know where that Dragon is ... why don't I show you the way? Meet you at Malek's Mountain";
+                Objectives["tombstone_ready"] = true;
+
+            }
+            else if (!Objectives["killed_dragon"] && Game.CurrentArea.AreaName == "Malek's Lair" && !Objectives["tombstone_killed"])
+            {
+                NPCs["Tombstone"].Dialog = "I'm sorry I have to do this to you pal, but a lizard's gotta pay the bills.";
+            }
+            else if (Objectives["killed_dragon"] && Objectives["tombstone_revived"] && Objectives["visited_leader_tombstone"])
+            {
+                NPCs["Tombstone"].Dialog = "I am tombstone, newly declared owner of this cave and its gold... don't worry friend. I won't forget you.";
+                NPCs["Tombstone"].CanJoinParty = true;
+            }
+            else
+            {
+                NPCs["Tombstone"].Dialog = "Hey there!";
+            }
+
+
+            if (!Objectives["cleared_harmony_plains"] && !Objectives["cleared_ruined_village"] && !Objectives["cleared_windy"])
+            {
+                NPCs["Bartholomew"].Dialog = "Those darn pesky lizard people have made it to harmony plains! Some adventurers are fighting them, but I'm not sure they have what it takes.";
+            }
+            else if (Objectives["cleared_harmony_plains"] && !Objectives["cleared_windy"])
+            {
+                NPCs["Bartholomew"].Dialog = "Great job clearing Harmony Plains.. \nNow we need to drive them further away and out of the Windy Plateau!";
+            }
+            else if (!Objectives["cleared_harmony_plains"] && (Objectives["cleared_ruined_village"] || Objectives["cleared_windy"]))
+            {
+                NPCs["Bartholomew"].Dialog = "Great work! I wish those lizards would leave Harmony Plains though";
+            }
+            else if (!Objectives["cleared_ruined_village"] && (Objectives["cleared_windy"] || Objectives["cleared_harmony_plains"]))
+            {
+                NPCs["Bartholomew"].Dialog = "Wonderful work over there, now if only someone would get rid of the lizards in the old village... They moved in after the dragon destroyed it.";
+                Objectives["learned_of_dragon1"] = true;
+            }
+            else if (!Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_windy"] && Objectives["killed_dragon"])
+            {
+                NPCs["Bartholomew"].Dialog = "Fantatic work getting rid of the Dragon! Without their leader, it should be easy to wipe out the rest of the reptiles from the surrounding land";
+            }
+            else if (Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_windy"] && !Objectives["killed_dragon"])
+            {
+                NPCs["Bartholomew"].Dialog = "You're doing great. We should attack them at the source, the dragon.";
+                Objectives["learned_of_dragon1"] = true;
+
+            }
+            else if (Objectives["cleared_harmony_plains"] && Objectives["cleared_ruined_village"] && Objectives["cleared_windy"] && Objectives["killed_dragon"])
+            {
+                NPCs["Bartholomew"].Dialog = "You've done great work for this land.\nWe thank you";
+            } else
+            {
+                NPCs["Bartholomew"].Dialog = "Hey there, nothing for me to complain about today yet.";
+            }
+
+
         }
 
         public static void FontSizing(Button but)

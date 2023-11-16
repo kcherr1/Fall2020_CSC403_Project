@@ -28,7 +28,11 @@ namespace Fall2020_CSC403_Project
         public FrmPlayerSelect(Form MainMenu)
         {
             this.MainMenu = MainMenu;
+
+            this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
             InitializeComponent();
             this.setup();
         }
@@ -139,7 +143,7 @@ namespace Fall2020_CSC403_Project
             InstructionLabel.Text = "Choose a class by clicking the image, and enter a name";
             InstructionLabel.Size = new Size(width, height / 32);
             InstructionLabel.Font = new Font("NSimSun", InstructionLabel.Height / 2);
-            InstructionLabel.Location = new Point(0,115*height/128);
+            InstructionLabel.Location = new Point(0, height - InstructionLabel.Height);
 
 
         }

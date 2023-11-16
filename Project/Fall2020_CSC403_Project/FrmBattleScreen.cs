@@ -68,7 +68,10 @@ namespace Fall2020_CSC403_Project
 
         public FrmBattleScreen(FrmLevel level)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
             InitializeComponent();
             form = level;
             player = Game.player;
@@ -212,7 +215,6 @@ namespace Fall2020_CSC403_Project
             partyThreeMax = new Label();
             partyThreeCurrent = new Label();
 
-            Console.WriteLine(player.PartyCount());
             if (player.PartyCount() == 1)
             {
                 GetPartyForm1();
@@ -796,12 +798,25 @@ namespace Fall2020_CSC403_Project
         private void FleeButton_Click(object sender, EventArgs e)
         {
             frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
+            frmLevel.fighting = false;
             AddToLog(enemy.OnAttack(player));
-            this.Close();
+            if (player.Health <= 0)
+            {
+                AddToLog(enemy.Name + " defeated " + player.Name + "!");
+                instance = null;
+                this.Close();
+                form.GameOver();
+                return;
+            } else
+            {
+                this.Close();
+            }
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            frmLevel.UpdateHealthBars(frmLevel.playerCurrentHealth);
+            frmLevel.fighting = false;
             Close();
         }
 
@@ -830,7 +845,7 @@ namespace Fall2020_CSC403_Project
                 }
                 else if (enemy.Health <= 0)
                 {
-                    AddToLog(this.attackOrder[0].Name + " deafeated " + enemy.Name + "!");
+                    AddToLog(this.attackOrder[this.attackOrder.Count - 1].Name + " deafeated " + enemy.Name + "!");
                     instance = null;
                     form.RemoveEnemy(enemy);
                     player.RemoveEffect();
@@ -839,8 +854,8 @@ namespace Fall2020_CSC403_Project
 
                     Button ExitButton = new Button();
                     ExitButton.Parent = this;
-                    ExitButton.Size = new Size(2*width / 3, height / 4);
-                    ExitButton.Location = new Point(width/6, 3*height/8);
+                    ExitButton.Location = new Point(width/6, this.AttackButton.Top);
+                    ExitButton.Size = new Size(2 * width / 3, height - this.AttackButton.Top - 10);
                     ExitButton.Text = "You Won! Click to Exit";
                     ExitButton.Font = new Font("NSimSun", ExitButton.Size.Height / 2);
                     Game.FontSizing(ExitButton);
