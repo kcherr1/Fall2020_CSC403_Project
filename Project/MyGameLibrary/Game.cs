@@ -123,9 +123,19 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 5, Screen.PrimaryScreen.Bounds.Height / 2), new Size(100, 100)),
                 new Minion());
 
+            Enemies["Minion3"] = new Enemy(
+                "Lizard Minion",
+                MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(100, 100)),
+                new Minion());
+
+            Enemies["Minion4"] = new Enemy(
+                "Lizard Minion",
+                MakePictureBox(Resources.minion, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 5, Screen.PrimaryScreen.Bounds.Height / 2), new Size(100, 100)),
+                new Minion());
+
             Enemies["Coward"] = new Enemy(
                 "Coward",
-                MakePictureBox(Resources.coward, new Point(Screen.PrimaryScreen.Bounds.Width * 3 / 5, Screen.PrimaryScreen.Bounds.Height / 2), new Size(75, 125)),
+                MakePictureBox(Resources.coward, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height * 3 /5), new Size(75, 125)),
                 new Coward());
 
             Enemies["Brute"] = new Enemy(
@@ -193,6 +203,16 @@ namespace Fall2020_CSC403_Project.code
                 MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height / 10), new Size(150, 150)),
                 new Mage());
 
+            Enemies["Lizard Wizard5"] = new Enemy(
+                "Lizard Wizard",
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(150, 150)),
+                new Mage());
+
+            Enemies["Lizard Wizard6"] = new Enemy(
+                "Lizard Wizard",
+                MakePictureBox(Resources.wizardlizard, new Point(Screen.PrimaryScreen.Bounds.Width / 10, Screen.PrimaryScreen.Bounds.Height * 4 / 5), new Size(150, 150)),
+                new Mage());
+
             Enemies["Whelp1"] = new Enemy(
                 "Whelp",
                 MakePictureBox(Resources.whelp, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(100, 100)),
@@ -226,7 +246,7 @@ namespace Fall2020_CSC403_Project.code
 
             NPCs["Tombstone"] = new NPC(
                 "Tombstone",
-                MakePictureBox(Resources.tombstone, new Point(150, 150), new Size(75, 100)),
+                MakePictureBox(Resources.tombstone, new Point(Screen.PrimaryScreen.Bounds.Width * 5 / 7, Screen.PrimaryScreen.Bounds.Height *5 / 7), new Size(75, 100)),
                 new Tombstone());
             NPCs["Tombstone"].CanJoinParty = false;
             NPCs["Tombstone"].InviteRejection = "Woah there, pal, I'm not sure we're that tight yet.";
@@ -234,7 +254,7 @@ namespace Fall2020_CSC403_Project.code
 
             NPCs["Gerald"] = new NPC(
                 "Gerald",
-                MakePictureBox(Resources.gerald, new Point(300, 300), new Size(150, 100)),
+                MakePictureBox(Resources.gerald, new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2), new Size(150, 100)),
                 new Gerald());
             NPCs["Gerald"].Dialog = "Greetings, I am Gerald. \nI wish to vanquish the lizards and dragon that plague our land. We cannot endure this much longer. \nI wish to aid in the vanquish of our foes.";
             NPCs["Gerald"].ConverseImage = Resources.gerald_converse;

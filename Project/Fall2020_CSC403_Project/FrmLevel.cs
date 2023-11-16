@@ -1155,6 +1155,11 @@ namespace Fall2020_CSC403_Project
             }
             Game.CurrentArea.Visited = true;
 
+            Game.CurrentArea.AddNPC(Game.NPCs["Gerald"]);
+
+            Game.CurrentArea.AddEnemy(Game.Enemies["Minion3"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Minion4"]);
+
         }
 
         private void Area6()
@@ -1165,6 +1170,10 @@ namespace Fall2020_CSC403_Project
                 return;
             }
             Game.CurrentArea.Visited = true;
+
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard5"]);
+            Game.CurrentArea.AddEnemy(Game.Enemies["Lizard Wizard6"]);
+
 
         }
 
@@ -1212,7 +1221,6 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddEnemy(Game.Enemies["Minion2"]);
             Game.CurrentArea.AddEnemy(Game.Enemies["Brute"]);
 
-            Game.CurrentArea.AddNPC(Game.NPCs["Gerald"]);
         }
 
         private void Area3()
@@ -1241,6 +1249,8 @@ namespace Fall2020_CSC403_Project
             }
             Game.CurrentArea.Visited = true;
 
+            Game.CurrentArea.AddNPC(Game.NPCs["Tombstone"]);
+
         }
 
         private void Area1()
@@ -1261,7 +1271,6 @@ namespace Fall2020_CSC403_Project
             Game.CurrentArea.AddItem(Game.Items["Rusty Sword"]);
             Game.CurrentArea.AddItem(Game.Items["Lumberjack Axe"]);
 
-            Game.CurrentArea.AddNPC(Game.NPCs["Tombstone"]);
             Game.CurrentArea.AddNPC(Game.NPCs["Bartholomew"]);
             Game.CurrentArea.AddNPC(Game.NPCs["Hank"]);
         }
