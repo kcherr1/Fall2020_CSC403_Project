@@ -35,7 +35,10 @@ namespace Fall2020_CSC403_Project
         private List<String> topUtilities;
         public FrmLeaderboard()
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
             this.MainMenu = Application.OpenForms["FrmMain"];
             InitializeComponent();
             this.Setup();
