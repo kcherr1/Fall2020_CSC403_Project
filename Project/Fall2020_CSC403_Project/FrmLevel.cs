@@ -1,444 +1,567 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
-namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
-    public static FrmLevel instance = null;
-    private Player player;
-
-    private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
-    private Enemy enemyCheeto;
-    private Enemy Doritto; //new enemy called doritto
-    private Enemy Knife; // new enemy called knife
-    private Enemy GrapeKoolAid; // new enemy called GrapeKoolAid
-    private Item health0;
-    private Item health1;
-    private Item offScreenItem;
-    private Character[] walls;  
-
-    private Enemy offScreenEnemy; // whenever an enemy dies, set that enemy to this instance (a hidden pictureBox)
-    private Player offScreenPlayer;
-    
-    private DateTime timeBegin;
-    private FrmBattle frmBattle;
-
-    public Boolean invisibleEnemies = true; // This is what is used to turn on the ghost game mode
-
-    System.Random random = new System.Random(); // calls the random class
-    
-
-    public FrmLevel() {
-        InitializeComponent();
-        this.ControlBox = false;
-    }
-
-    public void Dispose()
+namespace Fall2020_CSC403_Project
+{
+    public partial class FrmLevel : Form
     {
-        GC.SuppressFinalize(this);
-    }
-    private void setup() {
-      const int PADDING = 7;
-      const int NUM_WALLS = 13;
+        public static FrmLevel instance = null;
+        private Player player;
 
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+        private Enemy enemyPoisonPacket;
+        private Enemy bossKoolaid;
+        private Enemy enemyCheeto;
+        private Character[] walls;
+        private Character boostChar;
+        private Character boostChar2;
+        private ContextMenuStrip context;
+        public bool isKoolAidMan = false;
 
-      // Leave the enemies invisible if they select ghost game mode
-      if (invisibleEnemies == false) {
-        RandomEnemies();
-      }
-      else {
-        picEnemyPoisonPacket.Visible = false;
-        picEnemyCheeto.Visible = false;
-        picEnemyDorittoMan.Visible = false;
-        picEnemyKnife.Visible = false;
-        picEnemyGrapeKoolAid.Visible = false;
-      }
+        private DateTime timeBegin;
+        private FrmBattle frmBattle;
+        Panel panelBox;
+        Label labelBox;
+        PictureBox boostBox;
+        PictureBox boostBox2;
+        String defText = "Recent Updates are : \n";
+        private int dresscode = 1;
+        public MainMenu getMainMenu;
 
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-      
-      offScreenEnemy = new Enemy(CreatePosition(picOffScreen), CreateCollider(picOffScreen, 0));
-      offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
-      Doritto = new Enemy(CreatePosition(picEnemyDorittoMan), CreateCollider(picEnemyDorittoMan, PADDING));
-      Knife = new Enemy(CreatePosition(picEnemyKnife), CreateCollider(picEnemyKnife, PADDING));
-      GrapeKoolAid = new Enemy(CreatePosition(picEnemyGrapeKoolAid), CreateCollider(picEnemyGrapeKoolAid, PADDING));
-      health0 = new Item("Health", CreatePosition(picHeartContainer0), CreateCollider(picHeartContainer0, PADDING));
-      health1 = new Item("Health", CreatePosition(picHeartContainer1), CreateCollider(picHeartContainer1, PADDING));
-      offScreenItem = new Item("off_screen", CreatePosition(picOffScreen), CreateCollider(picOffScreen, 1));
+        SoundPlayer walkSFX = new SoundPlayer(Resources.walkSound);
+        public bool lvlMusicOn;
 
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-      Doritto.Img = picEnemyDorittoMan.BackgroundImage;
-      Knife.Img = picEnemyKnife.BackgroundImage;
-      GrapeKoolAid.Img = picEnemyGrapeKoolAid.BackgroundImage;
-                
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
-      Doritto.Color = Color.AliceBlue;
-      Knife.Color = Color.Brown;
-      GrapeKoolAid.Color = Color.Purple;
-
-      walls = new Character[NUM_WALLS];
-      for (int w = 0; w < NUM_WALLS; w++) {
-        PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
-      }
-
-      Game.player = player;
-      timeBegin = DateTime.Now;
-
-      // Show health
-      PlayerHealthBar();
-    }
-
-    // cheeky fix because FrmLevelDesigner else needs a version of this function that takes arguments
-    private void FrmLevel_Load(object sender, EventArgs e) {
-      const int PADDING = 7;
-      const int NUM_WALLS = 13;
-
-      player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-
-      if (invisibleEnemies == false)
-      {
-        RandomEnemies();
-      }
-      else
-      {
-        picEnemyPoisonPacket.Visible = false;
-        picEnemyCheeto.Visible = false;
-        picEnemyDorittoMan.Visible = false;
-        picEnemyKnife.Visible = false;
-        picEnemyGrapeKoolAid.Visible = false;
-      }
-
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-      
-      offScreenEnemy = new Enemy(CreatePosition(picOffScreen), CreateCollider(picOffScreen, 0));
-      offScreenPlayer = new Player(CreatePosition(picOffScreenPlayer), CreateCollider(picOffScreenPlayer, 0));
-      Doritto = new Enemy(CreatePosition(picEnemyDorittoMan), CreateCollider(picEnemyDorittoMan, PADDING));
-      Knife = new Enemy(CreatePosition(picEnemyKnife), CreateCollider(picEnemyKnife, PADDING));
-      GrapeKoolAid = new Enemy(CreatePosition(picEnemyGrapeKoolAid), CreateCollider(picEnemyGrapeKoolAid, PADDING));
-      health0 = new Item("Health", CreatePosition(picHeartContainer0), CreateCollider(picHeartContainer0, PADDING));
-      health1 = new Item("Health", CreatePosition(picHeartContainer1), CreateCollider(picHeartContainer1, PADDING));
-      offScreenItem = new Item("off_screen", CreatePosition(picOffScreen), CreateCollider(picOffScreen, 1));
-
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-      Doritto.Img = picEnemyDorittoMan.BackgroundImage;
-      Knife.Img = picEnemyKnife.BackgroundImage;
-      GrapeKoolAid.Img = picEnemyGrapeKoolAid.BackgroundImage;
-                
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
-      Doritto.Color = Color.AliceBlue;
-      Knife.Color = Color.Brown;
-      GrapeKoolAid.Color = Color.Purple;
-
-      walls = new Character[NUM_WALLS];
-      for (int w = 0; w < NUM_WALLS; w++) {
-        PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
-      }
-
-      Game.player = player;
-      timeBegin = DateTime.Now;
-
-      // Show health
-      PlayerHealthBar();
-    }
-    
-    private Vector2 CreatePosition(PictureBox pic) {
-      return new Vector2(pic.Location.X, pic.Location.Y);
-    }
-
-    public static FrmLevel GetInstance() {
-      if (instance == null) {
-        instance = new FrmLevel();
-        instance.setup();
-      }
-      return instance;
-    }
-
-    private Collider CreateCollider(PictureBox pic, int padding) {
-    Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-    return new Collider(rect);
-    }
-
-    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
-      player.ResetMoveSpeed();
-    }
-
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
-    }
-
-    private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      // move player
-      player.Move();
-
-      // check collision with walls
-      if (HitAWall(player)) {
-        player.MoveBack();
-      }
-
-      if (HitAnItem(player, health0)) {
-        player.InventoryAdd(health0);
-
-        // removes the image
-        picHeartContainer0.Hide();
-
-        // sets the item to an already made iteam
-        health0 = offScreenItem;
-
-        picHeartIndex0.Show(); // the inventory image starts off hidden
-
-        // stackoverflow.com/a/20060498/16369768
-        picInventory0.Controls.Add(picHeartIndex0); // adds picture to picturebox
-        picHeartIndex0.Location = new Point(15, 15); // places the new picture in the frame
-      }
-
-      if (HitAnItem(player, health1)) {
-        player.InventoryAdd(health1);
-
-        // removes the image
-        picHeartContainer1.Hide();
-
-        // sets the item to an already made iteam
-        health1 = offScreenItem;
-
-        // show the item in inventory
-        picHeartIndex1.Show();
-        picInventory1.Controls.Add(picHeartIndex1);
-        picHeartIndex1.Location = new Point(15, 15);
-      }
-
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-
-      else if (HitAChar(player, Doritto)) {
-        Fight(Doritto);
-      }
-
-      else if (HitAChar(player, Knife)) {
-        Fight(Knife);
-      }
-
-      else if (HitAChar(player, GrapeKoolAid)) {
-        Fight(GrapeKoolAid);
-      }
-      
-      else if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
-      }
-
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-
-      // Remove dead player's image
-      if (IsDead(player)) {
-         picPlayer.Hide();
-         player = offScreenPlayer;
-         player.Die();
-      }
-
-      // Remove the dead enemies' images
-      if (IsDead(enemyPoisonPacket)) {
-        picEnemyPoisonPacket.Hide();
-        enemyPoisonPacket = offScreenEnemy;
-      }
-      else if (IsDead(enemyCheeto)) {
-        picEnemyCheeto.Hide();
-        enemyCheeto = offScreenEnemy;
-      }
-      else if (IsDead(bossKoolaid)) {
-        picBossKoolAid.Hide();
-        bossKoolaid = offScreenEnemy;
-      }
-      else if (IsDead(Doritto)) {
-        picEnemyDorittoMan.Hide();
-        Doritto = offScreenEnemy;
-      }
-      else if (IsDead(GrapeKoolAid)) {
-        picEnemyGrapeKoolAid.Hide();
-        GrapeKoolAid = offScreenEnemy;
-      }
-      else if (IsDead(Knife)) {
-        picEnemyKnife.Hide();
-        Knife = offScreenEnemy; 
-      }
-
-     // Update health
-     PlayerHealthBar();
-    }
-
-    private bool HitAWall(Character c) {
-      bool hitAWall = false;
-      for (int w = 0; w < walls.Length; w++) {
-        if (c.Collider.Intersects(walls[w].Collider)) {
-          hitAWall = true;
-          break;
+        bool displayMenuDifficult = false;
+        public String theme;
+        public FrmLevel()
+        {
+            InitializeComponent();
         }
-      }
-      return hitAWall;
+
+        private void FrmLevel_Load(object sender, EventArgs e)
+        {
+            const int PADDING = 7;
+            const int NUM_WALLS = 13;
+
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+            enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+            enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+
+            bossKoolaid.Color = Color.Red;
+            enemyPoisonPacket.Color = Color.Green;
+            enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+
+            walls = new Character[NUM_WALLS];
+            for (int w = 0; w < NUM_WALLS; w++)
+            {
+                PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+                if (theme == "theme1")
+                {
+                    pic.BackgroundImage = Resources.brick_Wall_2;
+                }
+                else if (theme == "theme2")
+                {
+                    pic.BackgroundImage = Resources.brick_wall_1;
+                }
+                else
+                {
+                    pic.BackgroundImage = Resources.brick_Wall_2;
+                }
+                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+            }
+
+            if (theme == "theme1")
+            {
+                boost.Location = new Point(797, 190);
+                picWall2.Size = new Size(555, 67);
+                picWall8.Location = new Point(1099, 1);
+                picWall10.Location = new Point(599, 138);
+                picWall10.Size = new Size(133, 86);
+                picWall9.Location = new Point(188, 89);
+                picWall9.Size = new Size(237, 162);
+                picWall12.Location = new Point(823, 318);
+                picEnemyCheeto.Location = new Point(1002, 89);
+                picEnemyPoisonPacket.Location = new Point(145, 499);
+                picBossKoolAid.Location = new Point(973, 454);
+                pictureBox4.Location = new Point(664, 479);
+                SoundPlayer simpleSound = new SoundPlayer(Resources.health_consume);
+                simpleSound.Play();
+            }
+            else if (theme == "theme2")
+            {
+                boost.Location = new Point(90, 470);
+                picWall2.Size = new Size(469, 87);
+                picWall8.Location = new Point(1093, 274);
+                picWall10.Location = new Point(653, 89);
+                picWall10.Size = new Size(228, 162);
+                picWall9.Location = new Point(216, 184);
+                picWall9.Size = new Size(197, 118);
+                picWall12.Location = new Point(890, 397);
+                picEnemyCheeto.Location = new Point(1014, 533);
+                picEnemyPoisonPacket.Location = new Point(509, 100);
+                picBossKoolAid.Location = new Point(913, 74);
+                pictureBox4.Location = new Point(739, 552);
+            }
+            else
+            {
+                boost.Location = new Point(797, 190);
+                picWall2.Size = new Size(555, 67);
+                picWall8.Location = new Point(1099, 1);
+                picWall10.Location = new Point(599, 138);
+                picWall10.Size = new Size(133, 86);
+                picWall9.Location = new Point(188, 89);
+                picWall9.Size = new Size(237, 162);
+                picWall12.Location = new Point(823, 318);
+                picEnemyCheeto.Location = new Point(1002, 89);
+                picEnemyPoisonPacket.Location = new Point(145, 499);
+                picBossKoolAid.Location = new Point(973, 454);
+                pictureBox4.Location = new Point(664, 479);
+            }
+
+
+            boostBox = Controls.Find("boost", true)[0] as PictureBox;
+            boostBox2 = Controls.Find("pictureBox4", true)[0] as PictureBox;
+            boostChar = new Character(CreatePosition(boostBox), CreateCollider(boostBox, 7));
+            boostChar2 = new Character(CreatePosition(boostBox2), CreateCollider(boostBox2, 7));
+            panelBox = Controls.Find("panel1", true)[0] as Panel;
+            labelBox = Controls.Find("label1", true)[0] as Label;
+            Game.player = player;
+            timeBegin = DateTime.Now;
+        }
+
+        private void FrmLevel_Load()
+        {
+            const int PADDING = 7;
+            const int NUM_WALLS = 13;
+
+            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+            enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+            enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+
+            bossKoolaid.Color = Color.Red;
+            enemyPoisonPacket.Color = Color.Green;
+            enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+
+            walls = new Character[NUM_WALLS];
+            for (int w = 0; w < NUM_WALLS; w++)
+            {
+                PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+                if (theme == "theme1")
+                {
+                    pic.BackgroundImage = Resources.brick_Wall_2;
+                }
+                else if (theme == "theme2")
+                {
+                    pic.BackgroundImage = Resources.brick_wall_1;
+                }
+                else
+                {
+                    pic.BackgroundImage = Resources.brick_Wall_2;
+                }
+                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+            }
+
+            if (theme == "theme1")
+            {
+                boost.Location = new Point(797, 190);
+                picWall2.Size = new Size(555, 67);
+                picWall8.Location = new Point(1099, 1);
+                picWall10.Location = new Point(599, 138);
+                picWall10.Size = new Size(133, 86);
+                picWall9.Location = new Point(188, 89);
+                picWall9.Size = new Size(237, 162);
+                picWall12.Location = new Point(823, 318);
+                picEnemyCheeto.Location = new Point(1002, 89);
+                picEnemyPoisonPacket.Location = new Point(145, 499);
+                picBossKoolAid.Location = new Point(973, 454);
+                pictureBox4.Location = new Point(664, 479);
+                SoundPlayer simpleSound = new SoundPlayer(Resources.health_consume);
+                simpleSound.Play();
+
+            }
+            else if (theme == "theme2")
+            {
+                boost.Location = new Point(90, 470);
+                picWall2.Size = new Size(469, 87);
+                picWall8.Location = new Point(1093, 274);
+                picWall10.Location = new Point(653, 89);
+                picWall10.Size = new Size(228, 162);
+                picWall9.Location = new Point(216, 184);
+                picWall9.Size = new Size(197, 118);
+                picWall12.Location = new Point(890, 397);
+                picEnemyCheeto.Location = new Point(1014, 533);
+                picEnemyPoisonPacket.Location = new Point(509, 100);
+                picBossKoolAid.Location = new Point(913, 74);
+                pictureBox4.Location = new Point(739, 552);
+            }
+            else
+            {
+                boost.Location = new Point(797, 190);
+                picWall2.Size = new Size(555, 67);
+                picWall8.Location = new Point(1099, 1);
+                picWall10.Location = new Point(599, 138);
+                picWall10.Size = new Size(133, 86);
+                picWall9.Location = new Point(188, 89);
+                picWall9.Size = new Size(237, 162);
+                picWall12.Location = new Point(823, 318);
+                picEnemyCheeto.Location = new Point(1002, 89);
+                picEnemyPoisonPacket.Location = new Point(145, 499);
+                picBossKoolAid.Location = new Point(973, 454);
+                pictureBox4.Location = new Point(664, 479);
+            }
+
+
+            boostBox = Controls.Find("boost", true)[0] as PictureBox;
+            boostBox2 = Controls.Find("pictureBox4", true)[0] as PictureBox;
+            boostChar = new Character(CreatePosition(boostBox), CreateCollider(boostBox, 7));
+            boostChar2 = new Character(CreatePosition(boostBox2), CreateCollider(boostBox2, 7));
+            panelBox = Controls.Find("panel1", true)[0] as Panel;
+            labelBox = Controls.Find("label1", true)[0] as Label;
+            Game.player = player;
+            timeBegin = DateTime.Now;
+        }
+
+        public static FrmLevel GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new FrmLevel();
+                instance.FrmLevel_Load();
+            }
+            return instance;
+        }
+
+        private Vector2 CreatePosition(PictureBox pic)
+        {
+            return new Vector2(pic.Location.X, pic.Location.Y);
+        }
+
+        private Collider CreateCollider(PictureBox pic, int padding)
+        {
+            Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+            return new Collider(rect);
+        }
+
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        {
+            player.ResetMoveSpeed();
+        }
+
+        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
+        {
+            TimeSpan span = DateTime.Now - timeBegin;
+            string time = span.ToString(@"hh\:mm\:ss");
+            lblInGameTime.Text = "Time: " + time.ToString();
+        }
+
+        private void tmrPlayerMove_Tick(object sender, EventArgs e)
+        {
+            if (displayMenuDifficult)
+            {
+                // move player
+                player.Move();
+
+                // check collision with walls
+                if (HitAWall(player))
+                {
+                    labelBox.Text = defText + "Wall Collision";
+                    player.MoveBack();
+                }
+
+
+
+                // check collision with enemies
+                if (HitAChar(player, enemyPoisonPacket) && !picEnemyPoisonPacket.IsDisposed)
+                {
+                    labelBox.Text = defText + "Fight Against Poison";
+                    Fight(enemyPoisonPacket);
+                }
+                if (HitAChar(player, enemyCheeto) && !picEnemyCheeto.IsDisposed)
+                {
+                    labelBox.Text = defText + "Fight Against Cheeto";
+                    Fight(enemyCheeto);
+                }
+                if (HitAChar(player, bossKoolaid) && !picBossKoolAid.IsDisposed)
+                {
+                    labelBox.Text = defText + "Fight Against Boss";
+                    Fight(bossKoolaid);
+                }
+                if (!boost.IsDisposed && picEnemyPoisonPacket.IsDisposed)
+                {
+                    boostBox.Visible = true;
+                    boostBox.Enabled = true;
+                }
+                if (HitBoost(player) && !boost.IsDisposed && picEnemyPoisonPacket.IsDisposed)
+                {
+                    labelBox.Text = defText + "Health increased by 6";
+                    UpdatePlayerHealth(player);
+                    boost.Dispose();
+                }
+                if (!pictureBox4.IsDisposed && picEnemyCheeto.IsDisposed)
+                {
+                    boostBox2.Visible = true;
+                    boostBox2.Enabled = true;
+                }
+                if (HitBoost2(player) && !pictureBox4.IsDisposed && picEnemyCheeto.IsDisposed)
+                {
+                    labelBox.Text = defText + "Health increased by 6";
+                    UpdatePlayerHealth(player);
+                    pictureBox4.Dispose();
+                }
+                if (player.Health <= 0 && !picPlayer.IsDisposed)
+                {
+                    picPlayer.Visible = false;
+                    picPlayer.Enabled = false;
+                    picPlayer.Dispose();
+                }
+                else
+                {
+                    picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+                }
+                if (enemyPoisonPacket.Health <= 0 && !picEnemyPoisonPacket.IsDisposed)
+                {
+                    picEnemyPoisonPacket.Visible = false;
+                    picEnemyPoisonPacket.Enabled = false;
+                    picEnemyPoisonPacket.Dispose();
+                }
+                if (enemyCheeto.Health <= 0 && !picEnemyCheeto.IsDisposed)
+                {
+                    picEnemyCheeto.Visible = false;
+                    picEnemyCheeto.Enabled = false;
+                    picEnemyCheeto.Dispose();
+                }
+                if (bossKoolaid.Health <= 0 && !picBossKoolAid.IsDisposed)
+                {
+                    picBossKoolAid.Visible = false;
+                    picBossKoolAid.Enabled = false;
+                    picBossKoolAid.Dispose();
+                }
+
+
+            }
+        }
+        private void UpdatePlayerHealth(Player player)
+        {
+            player.AlterHealth(12);
+        }
+
+        private bool HitBoost(Player player)
+        {
+            return player.Collider.Intersects(boostChar.Collider);
+        }
+
+        private bool HitBoost2(Player player)
+        {
+            return player.Collider.Intersects(boostChar2.Collider);
+        }
+
+
+        private bool HitAWall(Character c)
+        {
+            bool hitAWall = false;
+            for (int w = 0; w < walls.Length; w++)
+            {
+                if (c.Collider.Intersects(walls[w].Collider))
+                {
+                    hitAWall = true;
+                    break;
+                }
+            }
+            return hitAWall;
+        }
+
+        private bool HitAChar(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
+        private void Fight(Enemy enemy)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmBattle = FrmBattle.GetInstance(enemy, dresscode);
+            frmBattle.UpdateSettings(lvlMusicOn, isKoolAidMan);
+            frmBattle.Show();
+
+            if (enemy == bossKoolaid)
+            {
+                isKoolAidMan = true;
+                frmBattle.SetupForBossBattle();
+                frmBattle.UpdateSettings(lvlMusicOn, isKoolAidMan);
+            }
+
+
+        }
+
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            int PADDING = 7;
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    player.GoLeft();
+                    break;
+
+                case Keys.Right:
+                    player.GoRight();
+                    break;
+
+                case Keys.Up:
+                    player.GoUp();
+                    break;
+
+                case Keys.Down:
+                    player.GoDown();
+                    break;
+
+                case Keys.J:
+                    player.Move();
+                    player.Move();
+                    player.Move();
+                    player.Move();
+                    player.Move();
+                    player.Move();
+                    player.Move();
+                    player.Move();
+                    player.Move();
+                    player.Move();
+                    break;
+                case Keys.M:
+                    picPlayer.Size = new System.Drawing.Size(36, 65);
+                    player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+                    break;
+                case Keys.N:
+                    picPlayer.Size = new System.Drawing.Size(72, 130);
+                    player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+                    break;
+                case Keys.Escape:
+                    FrmPause pauseMenu = new FrmPause();
+                    pauseMenu.Show();
+                    pauseMenu.getGameLevel = this;
+                    break;
+                default:
+                    player.ResetMoveSpeed();
+                    break;
+            }
+        }
+
+        private void lblInGameTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            label1.Text = defText + " Restarting the Game";
+            MouseEventArgs me = (MouseEventArgs)e;
+            Point coordinates = me.Location;
+            Console.WriteLine(coordinates.X + "   " + coordinates.Y);
+            if (coordinates.X > 45 && coordinates.X < 90 && coordinates.Y > 50 && coordinates.Y <= 90)
+            {
+                Application.Restart();
+            }
+
+        }
+
+
+        private void increaseDifficultyHard(int health)
+        {
+            bossKoolaid.strength = 3;
+            player.GO_INC = 2;
+
+        }
+
+        private void increaseDifficultyMedium(int health)
+        {
+            bossKoolaid.strength = 2.5f;
+            player.GO_INC = 3;
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            label1.Text = defText + " Closing the Game";
+            Close();
+
+
+        }
+
+        private void char1_Click(object sender, EventArgs e)
+        {
+            picPlayer.BackgroundImage = Resources.hero1;
+            dresscode = 1;
+        }
+
+        private void char2_Click(object sender, EventArgs e)
+        {
+            picPlayer.BackgroundImage = Resources.hero2;
+            dresscode = 2;
+        }
+
+        private void char3_Click(object sender, EventArgs e)
+        {
+            picPlayer.BackgroundImage = Resources.hero3;
+            dresscode = 3;
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            disableLevels();
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            increaseDifficultyMedium(10);
+            disableLevels();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            increaseDifficultyHard(15);
+            disableLevels();
+        }
+
+        private void disableLevels()
+        {
+            pictureBox6.Enabled = false;
+            pictureBox6.Visible = false;
+            pictureBox6.Dispose();
+            pictureBox8.Enabled = false;
+            pictureBox8.Visible = false;
+            pictureBox8.Dispose();
+            pictureBox7.Enabled = false;
+            pictureBox7.Visible = false;
+            pictureBox7.Dispose();
+            displayMenuDifficult = true;
+        }
+
+        public void UpdateSettings(Settings s)
+
+        {
+            if (s.maxWindow)
+            {
+                s.maximizeWindow(this);
+            }
+
+            lvlMusicOn = s.musicOn;
+        }
     }
 
-    private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
-    }
+   
 
-    private bool HitAnItem(Character you, Item other) { 
-      return you.Collider.Intersects(other.Collider);
-    }
-
-    private void Fight(Enemy enemy) {
-      player.ResetMoveSpeed();
-      player.MoveBack();
-      frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
-
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
-
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
-
-        case Keys.Right:
-          player.GoRight();
-          break;
-
-        case Keys.Up:
-          player.GoUp();
-          break;
-
-        case Keys.Down:
-          player.GoDown();
-          break;
-        case Keys.D1:
-          if (picHeartIndex0.Visible == true) 
-          { 
-            player.AlterHealth(10);
-            PlayerHealthBar();
-            player.Inventory.Remove(health0);
-            picHeartIndex0.Hide();
-          }
-          break;
-        case Keys.D2:
-          if (picHeartIndex1.Visible == true)
-          {
-            player.AlterHealth(10);
-            PlayerHealthBar();
-            player.Inventory.Remove(health1);
-            picHeartIndex1.Hide();
-          }
-          break;
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
-    }
-
-    private void lblInGameTime_Click(object sender, EventArgs e) {
-    }
-    
-    // Function for update the player's health bar on the main map
-    public void PlayerHealthBar() {
-      float playerHealthPer = player.Health / (float)player.MaxHealth;
-      
-      const int MAX_HEALTHBAR_WIDTH = 226;
-      lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
-
-      lblPlayerHealthFull.Text = player.Health.ToString();
-    }
-
-    // check if enemy is dead
-    public bool IsDead(BattleCharacter character) {
-      bool isDead = false;
-      if (character.Health <= 0) {
-          isDead = true;
-      }
-      return isDead;
-    }
-        
-    private int [] Generate_RandomNumbers() {
-      int max = 5;
-      int number1 = random.Next(max);
-      int number2 = random.Next(max);
-      int number3 = random.Next(max);
-      int number4 = random.Next(max);
-
-      while((number1 == number2) || (number1 == number3) || (number1 == number4)) {
-          number1 = random.Next(max);
-      }
-      while((number2 == number3) || (number2 == number4)) {
-          number2 = random.Next(max);
-      }
-      while(number3 == number4) {
-          number3 = random.Next(max);
-      }
-      int[] RandomNumbers = { number1, number2, number3, number4 };
-      return RandomNumbers;
-    }
-        
-    private void RandomEnemies() {
-      int[] RandomPosition = Generate_RandomNumbers();
-      picEnemyPoisonPacket.Visible = false;
-      picEnemyCheeto.Visible = false;
-      picEnemyDorittoMan.Visible = false;
-      picEnemyKnife.Visible = false;
-      picEnemyGrapeKoolAid.Visible = false;
-
-      foreach (int i in RandomPosition) {
-          if (i == 0)
-              picEnemyPoisonPacket.Visible = true;
-          else if (i == 1)
-              picEnemyCheeto.Visible = true;
-          else if (i == 2)
-              picEnemyDorittoMan.Visible = true;
-          else if (i == 3)
-              picEnemyKnife.Visible = true;
-          else if (i == 4)
-              picEnemyGrapeKoolAid.Visible = true;
-      }
-    }
-
-    private void pictureBox2_Click(object sender, EventArgs e) {
-    }
-
-    private void pictureBox1_Click(object sender, EventArgs e) {
-    }
-
-    private void picEnemyCheeto_Click(object sender, EventArgs e) {
-
-    }
-
-    private void Exit_MouseClick(object sender, MouseEventArgs e) {
-       System.Windows.Forms.Application.Exit();
-    }
-
-    private void panel1_Paint(object sender, PaintEventArgs e) {
-
-    }
-  }
 }
+
+
+    
+
