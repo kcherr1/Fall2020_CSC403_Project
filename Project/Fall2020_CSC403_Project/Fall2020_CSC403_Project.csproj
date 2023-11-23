@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmFAQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFAQ.Designer.cs">
+      <DependentUpon>FrmFAQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattleScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmFAQ.resx">
+      <DependentUpon>FrmFAQ.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattleScreen.resx">
       <DependentUpon>FrmBattleScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +187,7 @@
     <None Include="data\icon_speed.png" />
     <None Include="data\tile_stony.png" />
     <None Include="data\tile_stony2.png" />
+    <Content Include="data\Back_button.png" />
     <Content Include="data\cave_entrance_close.png" />
     <Content Include="data\cave_entrance_open.png" />
     <Content Include="data\cave_exit.png" />
@@ -185,6 +195,7 @@
     <Content Include="data\gold_pile2.png" />
     <Content Include="data\gold_pile3.png" />
     <Content Include="data\gold_pile4.png" />
+    <Content Include="data\Home_button.png" />
     <Content Include="data\pillar.png" />
     <Content Include="data\tile_cave.png" />
     <Content Include="data\tile_cave_path.png" />
